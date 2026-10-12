@@ -58,6 +58,15 @@ linear-gradient(#1D1D1F 0 0) 3em 10em/2em 1em no-repeat,linear-gradient(#1D1D1F 
 @keyframes spin{0%{transform:scaleX(1)}25%{transform:scaleX(.3)}50%{transform:scaleX(-1)}75%{transform:scaleX(.3)}}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+
+@media (max-width:720px){
+header{position:relative;padding:8px 16px 0!important;gap:6px 0!important}
+header>div{min-height:44px}
+header nav{flex:0 0 calc(100% + 32px);margin:0 -16px;padding:0 16px;box-sizing:border-box;flex-wrap:nowrap!important;overflow-x:auto;gap:0 22px!important;border-top:1px solid #D8D3C6;scrollbar-width:none}
+header nav::-webkit-scrollbar{display:none}
+header nav a{flex:none;font-size:13px;padding:12px 0!important}
+header nav a[href="#contact"]{position:absolute;top:8px;right:16px;padding:11px 18px!important;border-radius:8px;line-height:1.7}
+}
 </style>
 </head>
 <body>
@@ -463,14 +472,14 @@ linear-gradient(#1D1D1F 0 0) 3em 10em/2em 1em no-repeat,linear-gradient(#1D1D1F 
 <p style="margin: 0">ご相談ありがとうございます。内容を確認して、メールでご連絡します。</p>
 </div>
 <div id="form-out" hidden style="border-top: 2px solid #1D1D1F; background: #F3EFE4; padding: clamp(24px, 4vw, 40px); display: flex; flex-direction: column; gap: 14px">
-<p style="margin: 0; font-weight: 700">送信できませんでした。お手数ですが、下の文面をコピーして、<span style="user-select: all; word-break: break-all">shidakeisuke1109@gmail.com</span> へメールでお送りください。</p>
+<p style="margin: 0; font-weight: 700">送信できませんでした。お手数ですが、下の文面をコピーして、<span style="user-select: all; word-break: break-all">info@aimania.tech</span> へメールでお送りください。</p>
 <label for="form-text" style="font-size: 13px; font-weight: 700">メールの文面</label>
 <textarea id="form-text" class="fld" rows="10" readonly style="margin-top: -10px"></textarea>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px"><button type="button" id="form-copy" class="btn pri" style="font: inherit; font-weight: 700">文面をコピーする</button><a id="form-mail" class="btn" href="mailto:shidakeisuke1109@gmail.com">メールアプリで開く</a></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px"><button type="button" id="form-copy" class="btn pri" style="font: inherit; font-weight: 700">文面をコピーする</button><a id="form-mail" class="btn" href="mailto:info@aimania.tech">メールアプリで開く</a></div>
 <p style="margin: 0; font-size: 13px; color: #5A5A5A">メールアプリが開かない場合は、コピーした文面をお使いください。</p>
 </div>
 </div>
-<div style="font-size: 14px; color: #5A5A5A; text-align: center">メールでのご相談: <span style="user-select: all">shidakeisuke1109@gmail.com</span></div>
+<div style="font-size: 14px; color: #5A5A5A; text-align: center">メールでのご相談: <span style="user-select: all">info@aimania.tech</span></div>
 </section>
 
 <footer style="background: #1D1D1F; color: #fff; padding: 40px 24px">
@@ -505,12 +514,12 @@ form.addEventListener('submit',function(e){e.preventDefault();
  if(sending)return;
  var body='【AI mania inc. へのご相談】\nお名前: '+fv('r-name')+'\n会社・店舗名: '+(fv('r-org')||'（未記入）')+'\nメール: '+fv('r-mail')+'\n希望サービス: '+fv('r-kind')+'\n用途: '+fv('r-use')+'\n希望時期: '+fv('r-when')+'\n\nご相談内容:\n'+(fv('r-msg')||'（未記入）');
  function fallback(){txt.value=body;done.hidden=true;out.hidden=false;$('form-copy').textContent='文面をコピーする';
-  $('form-mail').href='mailto:shidakeisuke1109@gmail.com?subject='+encodeURIComponent('AI mania inc. へのご相談')+'&body='+encodeURIComponent(body);
+  $('form-mail').href='mailto:info@aimania.tech?subject='+encodeURIComponent('AI mania inc. へのご相談')+'&body='+encodeURIComponent(body);
   out.scrollIntoView({block:'nearest'});}
  function finish(){sending=false;sbtn.disabled=false;sbtn.textContent='送信する';}
  if($('r-hp').value){return;}
  sending=true;sbtn.disabled=true;sbtn.textContent='送信中…';out.hidden=true;done.hidden=true;
- fetch('https://formsubmit.co/ajax/shidakeisuke1109@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+ fetch('https://formsubmit.co/ajax/info@aimania.tech',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
   body:JSON.stringify({_subject:'【AI mania inc.】ご相談（'+fv('r-kind')+'）',_template:'table',_captcha:'false',
    'お名前':fv('r-name'),'会社・店舗名':fv('r-org')||'（未記入）',email:fv('r-mail'),'希望サービス':fv('r-kind'),'用途':fv('r-use'),'希望時期':fv('r-when'),'ご相談内容':fv('r-msg')||'（未記入）'})})
  .then(function(r){return r.json();})
