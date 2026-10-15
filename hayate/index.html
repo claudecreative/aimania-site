@@ -1123,7 +1123,7 @@ const fsEl=()=>document.fullscreenElement||document.webkitFullscreenElement;
 function goFull(){const el=document.documentElement,rq=el.requestFullscreen||el.webkitRequestFullscreen;if(!rq||fsEl())return;
   try{const p=rq.call(el,{navigationUI:'hide'});const lock=()=>{try{screen.orientation&&screen.orientation.lock&&screen.orientation.lock('landscape').catch(()=>{});}catch(_){}};if(p&&p.then)p.then(lock,()=>{});else lock();}catch(_){}}
 function toggleFull(){if(fsEl()){const ex=document.exitFullscreen||document.webkitExitFullscreen;if(ex)ex.call(document);}else goFull();}
-if(isTouch){let tried=false;addEventListener('pointerdown',()=>{if(!tried){tried=true;goFull();}},{capture:true});
+if(isTouch){let tried=false;addEventListener('pointerdown',()=>{if(!tried&&(G.state==='title'||G.state==='story')){tried=true;goFull();}},{capture:true});
   const fb=document.getElementById('fullBtn');const canFs=!!(document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen)&&(document.fullscreenEnabled!==false||document.webkitFullscreenEnabled);
   if(!canFs)fb.style.display='none';
   const sync=()=>{fb.textContent=fsEl()?'戻す':'全画面';setTimeout(resize,100);};document.addEventListener('fullscreenchange',sync);document.addEventListener('webkitfullscreenchange',sync);}
@@ -1140,6 +1140,14 @@ const dEnd=e=>{if(e.pointerId!==stickId)return;stickId=null;stickSet(0,0);dpad.s
 ['pointerup','pointercancel','lostpointercapture'].forEach(t=>padL.addEventListener(t,dEnd));
 padL.addEventListener('contextmenu',e=>e.preventDefault());
 ['touchend','pointerup','click','keydown'].forEach(t=>addEventListener(t,()=>initAudio(),{capture:true,passive:true}));
+if(isTouch){
+  let vm=document.querySelector('meta[name=viewport]');if(!vm){vm=document.createElement('meta');vm.name='viewport';document.head.appendChild(vm);}
+  vm.content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover';
+  const stop=e=>{if(e.touches&&e.touches.length>1||e.type!=='touchstart')e.preventDefault();};
+  ['touchmove','touchend'].forEach(t=>document.addEventListener(t,stop,{passive:false}));
+  document.addEventListener('touchstart',e=>{if(e.touches.length>1)e.preventDefault();},{passive:false});
+  ['gesturestart','gesturechange','dblclick','contextmenu','selectstart'].forEach(t=>document.addEventListener(t,e=>e.preventDefault(),{passive:false}));
+}
 let canvasTap=0;
 cv.addEventListener('pointerdown',e=>{cv.focus();initAudio();if(G.state==='title'||G.state==='gameover'||G.state==='ending'||dlg){canvasTap=1;}});
 
@@ -1231,7 +1239,7 @@ const STAGES=[buildStage1,buildStage2,buildBoss];
 
 // ================= entities =================
 // a room narrower than the screen is centered
-function camClamp(x){const lw=level.w*TS,vw=VW();return lw<=vw?(lw-vw)/2:clamp(x,0,lw-vw);}
+function camClamp(x){const lw=level.w*TS,vw=VW();if(lw<=vw)return (lw-vw)/2;const lm=isTouch?64:0,rm=isTouch?96:0;return clamp(x,-lm,lw-vw+rm);}
 function camYTarget(){return Z===1?0:level.boss?(PH-VH)/2:clamp(P.y+P.h/2-VH*0.58,0,PH-VH);}
 function newPlayer(x,y){return {x,y,w:10,h:20,vx:0,vy:0,face:1,onGround:false,anim:0,throwT:0,slashT:0,hurtT:0,invT:0,alive:true,warp:true,slashHit:null,ctrl:false};}
 function tileAt(tx,ty){if(tx<0||tx>=level.w)return 'X';if(ty<0||ty>=ROWS)return '.';return level.map[ty][tx];}
@@ -1320,7 +1328,10 @@ function updatePlayer(ctrl){
   const L=ctrl&&keys.left,Rt=ctrl&&keys.right;
   if(p.hurtT>0){p.hurtT--;p.vx=-p.face*0.9;}
   else{const mx=(Rt?1:0)-(L?1:0);p.vx=mx*1.5;if(mx)p.face=mx;}
-  if(ctrl&&pressed('jump')&&p.onGround&&p.hurtT===0){p.vy=-5.3;sfx('jump');}
+  // forgiving jump: a press counts for a few frames before landing, and just after walking off a ledge
+  if(p.onGround)p.coyote=7;else if(p.coyote>0)p.coyote--;
+  if(ctrl&&pressed('jump'))p.jbuf=8;else if(p.jbuf>0)p.jbuf--;
+  if(ctrl&&p.jbuf>0&&p.coyote>0&&p.hurtT===0){p.vy=-5.3;p.jbuf=0;p.coyote=0;p.onGround=false;sfx('jump');}
   if(!(ctrl&&keys.jump)&&p.vy<-1.8&&p.hurtT===0)p.vy=-1.8;
   p.vy=Math.min(p.vy+0.26,6);
   const wasG=p.onGround;
@@ -1565,7 +1576,7 @@ function updateWorld(ctrl){
   for(const f of fx){f.t++;f.x+=f.vx;f.y+=f.vy;if(f.type==='smoke'){f.vx*=0.94;f.vy*=0.94;}}
   fx=fx.filter(f=>f.t<f.life);
   // camera
-  if(P.alive){camX=camClamp(Math.round((P.x+P.w/2-VW()/2)*2)/2);const ty=camYTarget();camY+=Math.abs(ty-camY)<0.5?ty-camY:(ty-camY)*0.12;}
+  if(P.alive){camX=camClamp(Math.round((P.x+P.w/2-VW()*(isTouch?0.45:0.5))*2)/2);const ty=camYTarget();camY+=Math.abs(ty-camY)<0.5?ty-camY:(ty-camY)*0.12;}
   // checkpoints / goal
   for(const c of level.cps)if(P.x>c*TS&&(G.cp==null||G.cp<c))G.cp=c;
   if(level.goal&&G.state==='play'&&P.x+P.w/2>level.goal&&P.onGround){G.state='clear';G.clearT=0;stopSong();sfx('start');}
@@ -1906,7 +1917,7 @@ function render(){
 const app=document.getElementById('app');
 // re-fit the logical width when the viewport's shape changes (rotation, fullscreen, app panel)
 let wTimer=0;
-function refitW(){const nw=pickW();if(nw===W||G.state==='loading')return;
+function refitW(){const nw=pickW();if(Math.abs(nw-W)<32||G.state==='loading')return;
   W=nw;OX=(W-320)/2;CX=W/2;buf.width=W*2;buf.height=H*2;b.imageSmoothingEnabled=false;
   genTown();genHouse();genBossRoom();if(level&&P&&level.map.length)camX=camClamp(P.x+P.w/2-VW()/2);resize();}
 function resize(){
