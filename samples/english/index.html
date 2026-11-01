@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Hello! English Online｜オンライン講座LP（制作サンプル）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Klee+One:wght@600&family=Poppins:wght@700;800&display=swap">
+<style>
+:root{--blue:#1E4FD8;--blue2:#5B8CF0;--sky:#EEF4FF;--yel:#FFE03A;--ink:#17213A;--sub:#5A6480}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.8}
+img{max-width:100%;display:block}a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+header{background:var(--blue);color:#fff;position:sticky;top:0;z-index:10}
+.hd{display:flex;align-items:center;gap:32px;height:68px}
+.logo{font-family:'Poppins',sans-serif;font-weight:800;font-size:22px;text-decoration:none;white-space:nowrap}.logo span{font-weight:700}
+nav{margin-left:auto}nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:13px;font-weight:700}nav a{text-decoration:none}
+.login{background:#fff;color:var(--blue);border-radius:999px;padding:6px 22px;font-weight:700;font-size:14px;text-decoration:none}
+.hero{background:linear-gradient(100deg,#F4F8FF 55%,#E6EFFF);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;align-items:end;gap:24px;padding-top:56px}
+.eye{font-weight:900;color:var(--blue);font-size:16px;margin:0 0 6px}
+.hero h1{margin:0 0 20px;font-size:clamp(40px,6.4vw,78px);line-height:1.2;font-weight:900;letter-spacing:.02em}
+.hero h1 .n{color:var(--blue);font-family:'Poppins',sans-serif;font-size:1.12em;background:linear-gradient(transparent 72%,var(--yel) 72%)}
+.hero p{margin:0 0 30px;color:var(--sub);font-size:15px}
+.btns{display:flex;gap:16px;flex-wrap:wrap;padding-bottom:56px}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:16px;min-width:220px;padding:16px 28px;font-weight:900;text-decoration:none;border-radius:6px;transition:transform .15s}
+.b:hover{transform:translateY(-2px)}
+.b-o{border:2px solid var(--blue);color:var(--blue);background:#fff}.b-y{background:var(--yel);box-shadow:0 6px 0 #E3C21C}
+.hero-img{position:relative;align-self:stretch;display:flex;align-items:flex-end}
+.hero-img img{width:100%;max-width:420px;margin-left:auto;mask-image:linear-gradient(90deg,transparent,#000 14%)}
+.hand{position:absolute;right:0;top:0;font-family:'Klee One',cursive;color:var(--blue);transform:rotate(-12deg);font-size:18px;line-height:1.4}
+.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center;padding:48px 0}
+.feat div{font-weight:900;font-size:15px;line-height:1.5}
+.fi{width:86px;height:86px;border-radius:50%;background:var(--sky);display:grid;place-items:center;margin:0 auto 12px;color:var(--blue)}
+section{padding:88px 0}
+.slash{font-weight:900;color:var(--blue);margin:0 0 6px}
+.h2{margin:0 0 20px;font-size:clamp(28px,4vw,44px);font-weight:900;line-height:1.35}
+.h2 .n{color:var(--blue);font-family:'Poppins',sans-serif}
+.growth{background:var(--sky);border-radius:28px;padding:clamp(28px,5vw,56px);position:relative}
+.bubble{position:absolute;right:clamp(16px,4vw,48px);top:-28px;background:var(--blue);color:#fff;border-radius:50%;padding:22px 30px;text-align:center;font-weight:900;font-size:14px;transform:rotate(-6deg);line-height:1.4}.bubble b{color:var(--yel);font-size:20px}
+.chart{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:end;margin-top:36px;min-height:300px}
+.bar{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.bar .tip{background:#fff;border:1px solid #CBD9F7;border-radius:10px;padding:6px 10px;font-size:12px;font-weight:700;color:var(--blue)}
+.bar i{display:block;width:100%;border-radius:6px 6px 0 0}
+.bar b{font-size:15px}.bar small{font-size:12px;color:var(--sub);margin-top:-8px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.plan{border:2px solid #DDE6F8;border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;gap:10px;position:relative}
+.plan.pop{border-color:var(--blue);box-shadow:0 14px 30px rgba(30,79,216,.15)}
+.plan .rib{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--yel);font-weight:900;font-size:13px;padding:2px 16px;border-radius:999px;white-space:nowrap}
+.plan h3{margin:0;font-size:20px}.plan .pr{font-family:'Poppins',sans-serif;font-size:36px;font-weight:800;color:var(--blue)}.plan .pr small{font-size:14px;color:var(--sub);font-family:'Zen Kaku Gothic New'}
+.plan ul{margin:0;padding-left:1.2em;font-size:14px;color:var(--sub)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{background:var(--sky);border-radius:18px;padding:28px 24px;font-size:14px;color:var(--sub)}
+.steps li::before{counter-increment:s;content:"STEP " counter(s);display:block;font-family:'Poppins',sans-serif;font-weight:800;color:var(--blue)}
+.steps b{display:block;color:var(--ink);font-size:18px;margin:4px 0}
+details{border-bottom:1px solid #DDE6F8;padding:18px 4px}
+summary{font-weight:900;cursor:pointer;list-style:none;display:flex;gap:12px}summary::before{content:"Q";color:var(--blue);font-family:'Poppins',sans-serif}
+details p{margin:10px 0 0;padding-left:26px;color:var(--sub);font-size:14px}
+.cta{background:var(--blue);color:#fff;text-align:center;border-radius:28px;padding:clamp(40px,6vw,72px) 24px}
+.cta h2{margin:0 0 8px;font-size:clamp(24px,3.4vw,38px);font-weight:900}
+footer{padding:36px 0 56px;text-align:center;font-size:12px;color:var(--sub)}
+.sample{display:inline-block;margin-top:12px;background:var(--sky);border-radius:8px;padding:8px 14px}
+.burger{display:none;background:none;border:0;color:#fff;font-size:24px;cursor:pointer}
+nav.open{display:block!important}
+@media (max-width:900px){
+ nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--blue);padding:16px 24px}nav ul{flex-direction:column;gap:12px}
+ .burger{display:block;margin-left:auto}.login{display:none}
+ .hero .wrap{grid-template-columns:1fr;padding-top:32px}.hero-img{order:-1}.hero-img img{max-width:260px;margin:0 auto}.btns{padding-bottom:40px}.b{flex:1;min-width:0}
+ .feat{grid-template-columns:repeat(2,1fr);gap:28px 12px}.plans,.steps{grid-template-columns:1fr}
+ .chart{gap:8px;min-height:240px}.bar .tip{font-size:10px;padding:4px 6px}.bubble{position:static;display:inline-block;margin-bottom:16px;border-radius:999px;padding:10px 20px}
+ section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+<a class="logo" href="#">Hello! <span>English Online</span></a>
+<nav id="nav"><ul><li><a href="#course">コース紹介</a></li><li><a href="#course">講師</a></li><li><a href="#flow">受講の流れ</a></li><li><a href="#price">料金</a></li><li><a href="#faq">よくある質問</a></li></ul></nav>
+<a class="login" href="#">ログイン</a>
+<button class="burger" aria-label="メニュー" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+</div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+<div>
+<p class="eye">＼ 英語が、わたしの新しい武器になる ／</p>
+<h1><span class="n">1</span>日<span class="n">15</span>分で、<br>話せる英語。</h1>
+<p>忙しくても、続けられる。<br>スマホやPCで、プロの講師とのマンツーマンレッスン。<br>あなたのペースで、実践的な英語力が身につきます。</p>
+<div class="btns"><a class="b b-o" href="#price">体験レッスンを受ける ›</a><a class="b b-y" href="#price">無料で始める ›</a></div>
+</div>
+<div class="hero-img"><span class="hand">話せるって、<br>&nbsp;こんなに楽しい！</span><img src="hero.jpg" alt="ヘッドセットをつけて笑顔でレッスンを受ける女性"></div>
+</div></div>
+
+<div class="wrap feat" id="course">
+<div><span class="fi"><svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7z"/></svg></span>プロの講師と<br>マンツーマン</div>
+<div><span class="fi"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>1回15分<br>スキマ時間でOK</div>
+<div><span class="fi"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span>スマホ・PCで<br>どこでも受講</div>
+<div><span class="fi"><svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="13" width="4" height="8" rx="1"/><rect x="10" y="9" width="4" height="12" rx="1"/><rect x="16" y="4" width="4" height="17" rx="1"/></svg></span>初心者から<br>上級者まで対応</div>
+</div>
+
+<section style="padding-top:24px"><div class="wrap">
+<div class="growth">
+<div class="bubble">3ヶ月で<br><b>会話に自信！</b><br><small style="font-size:11px;font-weight:500">を目指すカリキュラム</small></div>
+<p class="slash">＼ 続けるほど、話せるようになる ／</p>
+<h2 class="h2"><span class="n">3</span>ヶ月で、こんなに変わる！</h2>
+<p style="margin:0;font-weight:700">継続的なレッスンで、「聞ける・話せる・伝えられる」<br>実践的な英語力が身につきます。</p>
+<div class="chart">
+<div class="bar"><span class="tip">あいさつが<br>できる</span><i style="height:44px;background:#9DBDF7"></i><b>1ヶ月目</b><small>基本フレーズの習得</small></div>
+<div class="bar"><span class="tip">簡単な会話が<br>できる</span><i style="height:88px;background:#6E9BF2"></i><b>2ヶ月目</b><small>日常会話に慣れる</small></div>
+<div class="bar"><span class="tip">自分の意見を<br>伝えられる</span><i style="height:132px;background:#3F73E6"></i><b>3ヶ月目</b><small>会話の幅が広がる</small></div>
+<div class="bar"><span class="tip">自然に会話が<br>続けられる！</span><i style="height:180px;background:var(--blue)"></i><b>その先へ</b><small>海外でも自信を持って</small></div>
+</div>
+</div>
+</div></section>
+
+<section id="price" style="padding-top:0"><div class="wrap">
+<p class="slash">＼ 目的に合わせて選べる ／</p>
+<h2 class="h2">料金プラン</h2>
+<div class="plans">
+<div class="plan"><h3>ライト</h3><div class="pr">¥4,980<small>／月（税込）</small></div><ul><li>月8回（1回15分）</li><li>日常英会話コース</li><li>レッスン録画の見返し</li></ul></div>
+<div class="plan pop"><span class="rib">いちばん人気</span><h3>スタンダード</h3><div class="pr">¥7,980<small>／月（税込）</small></div><ul><li>毎日1回（1回15分）</li><li>全コース受け放題</li><li>月1回の学習カウンセリング</li></ul></div>
+<div class="plan"><h3>ビジネス</h3><div class="pr">¥12,800<small>／月（税込）</small></div><ul><li>毎日2回（1回15分）</li><li>ビジネス英語・面接対策</li><li>専属コーチのサポート</li></ul></div>
+</div>
+<p style="font-size:12px;color:var(--sub);margin:16px 0 0">※ 価格・内容は制作サンプル用の架空のものです。</p>
+</div></section>
+
+<section id="flow" style="padding-top:0"><div class="wrap">
+<h2 class="h2">受講の流れ</h2>
+<ol class="steps">
+<li><b>無料登録</b>メールアドレスだけで、1分で登録できます。</li>
+<li><b>体験レッスン</b>レベルチェックをしながら、講師と15分話してみましょう。</li>
+<li><b>レッスンスタート</b>好きな時間に予約して、毎日少しずつ。</li>
+</ol>
+</div></section>
+
+<section id="faq" style="padding-top:0"><div class="wrap" style="max-width:860px">
+<h2 class="h2">よくある質問</h2>
+<details open><summary>まったく話せなくても大丈夫ですか？</summary><p>はい。初心者向けのカリキュラムから始め、講師がゆっくりサポートします。</p></details>
+<details><summary>予約は何分前までできますか？</summary><p>レッスン開始の15分前まで予約できます。</p></details>
+<details><summary>途中でプランを変更できますか？</summary><p>マイページからいつでも変更できます。翌月から新しいプランが適用されます。</p></details>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<div class="cta"><h2>まずは無料で、話してみよう。</h2><p style="margin:0">1日15分から、英語が話せる毎日へ。</p>
+<div class="btns" style="justify-content:center;padding:28px 0 0"><a class="b b-y" href="#">無料で始める ›</a></div></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<p style="margin:0;font-family:'Poppins',sans-serif;font-weight:800;font-size:18px;color:var(--ink)">Hello! English Online</p>
+<p class="sample">このサイトは <a href="../../">AI mania</a> の制作サンプルです。実在のサービスとは関係ありません。</p>
+</div></footer>
+</body>
+</html>
