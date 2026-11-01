@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>麺屋いろは｜飲食店向けLP（制作サンプル）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+<style>
+:root{--gold:#F6A623;--red:#C8321E;--bk:#0E0C0B;--bk2:#1B1714;--paper:#F3EDE2;--sub:#B7ADA2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bk);color:#F5EFE6;font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.9;letter-spacing:.06em}
+img{max-width:100%;display:block}a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.brush{font-family:'Yuji Syuku',serif}.min{font-family:'Shippori Mincho',serif}
+header{position:absolute;top:0;left:0;right:0;z-index:5}
+.hd{display:flex;align-items:center;gap:56px;height:84px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:26px}.logo small{font-size:15px}
+.hanko{display:inline-grid;place-items:center;width:24px;height:30px;border:2px solid var(--red);color:var(--red);font-size:13px;border-radius:3px;line-height:1}
+nav ul{display:flex;gap:44px;list-style:none;margin:0;padding:0;font-family:'Shippori Mincho',serif;font-size:15px}nav a{text-decoration:none}
+.burger{margin-left:auto;background:none;border:0;color:#fff;cursor:pointer;padding:8px}
+.burger span{display:block;width:30px;height:2px;background:#fff;margin:7px 0}
+.hero{position:relative;text-align:center;padding:132px 0 0;background:radial-gradient(ellipse at 50% 70%,#2B1D14 0%,var(--bk) 60%);overflow:hidden}
+.hero h1{margin:0;color:var(--gold);font-size:clamp(64px,13vw,168px);line-height:1.12;font-weight:400;letter-spacing:.02em;text-shadow:0 6px 30px rgba(246,166,35,.18)}
+.hero h1 span{display:block}
+.hero p{margin:28px 0 0;font-family:'Shippori Mincho',serif;font-size:clamp(17px,2.2vw,24px);letter-spacing:.35em;line-height:1.7}
+.hero img{width:min(100%,1000px);margin:24px auto 0;mask-image:linear-gradient(transparent,#000 12%,#000 85%,transparent)}
+.open{background:var(--red);display:flex;justify-content:center;align-items:center;gap:32px;padding:20px 24px;font-family:'Shippori Mincho',serif;font-size:clamp(17px,2.4vw,24px);font-weight:700;flex-wrap:wrap}
+.open i{width:1px;height:28px;background:rgba(255,255,255,.6)}
+.open a{text-decoration:none;display:flex;align-items:center;gap:10px}
+section{padding:110px 0}
+.st{display:flex;align-items:center;gap:18px;margin:0 0 56px}
+.st h2{margin:0;font-size:clamp(30px,4vw,44px);font-weight:400;color:var(--gold)}
+.st span{font-family:'Shippori Mincho',serif;font-size:13px;color:var(--sub);letter-spacing:.3em}
+.st::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#5A4636,transparent)}
+.kodawari{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.k{background:var(--bk2);border:1px solid #2D251F;padding:36px 30px;position:relative}
+.k b{position:absolute;right:20px;top:8px;font-family:'Yuji Syuku',serif;font-size:72px;color:rgba(246,166,35,.12);line-height:1}
+.k h3{margin:0 0 12px;font-family:'Shippori Mincho',serif;font-size:22px;color:var(--gold)}
+.k p{margin:0;font-size:14px;color:#D9D0C5}
+.menu{background:var(--paper);color:#22180F}
+.menu .st h2{color:#22180F}.menu .st span{color:#7A6A5A}.menu .st::after{background:linear-gradient(90deg,#B9A58C,transparent)}
+.mgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.mgrid img{border-radius:50%;aspect-ratio:1;object-fit:cover;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.mlist{list-style:none;margin:0;padding:0}
+.mlist li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:20px 0;border-bottom:1px solid #D2C3AE}
+.mlist h3{margin:0;font-family:'Shippori Mincho',serif;font-size:21px}
+.mlist .p{font-family:'Shippori Mincho',serif;font-size:20px;font-weight:800;color:var(--red)}
+.mlist p{grid-column:1/-1;margin:0;font-size:13px;color:#6A5A4A}
+.tag{display:inline-block;background:var(--red);color:#fff;font-size:11px;padding:0 8px;margin-left:8px;vertical-align:middle;letter-spacing:.1em}
+.topping{margin-top:28px;font-size:13px;color:#6A5A4A}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:16px 8px;border-bottom:1px solid #2D251F;vertical-align:top}
+th{width:7em;color:var(--gold);font-family:'Shippori Mincho',serif;font-weight:700}
+.map{aspect-ratio:4/3;background:repeating-linear-gradient(0deg,#1B1714 0 22px,#201B17 22px 44px);border:1px solid #2D251F;display:grid;place-items:center;color:var(--sub);font-size:13px}
+.big{text-align:center;padding:96px 24px;background:linear-gradient(rgba(14,12,11,.7),rgba(14,12,11,.85)),url(bowl.jpg) center/cover}
+.big p{margin:0;font-size:clamp(30px,5vw,56px);color:var(--gold);line-height:1.4}
+footer{padding:40px 0 56px;text-align:center;font-size:12px;color:var(--sub)}
+.sample{display:inline-block;margin-top:14px;border:1px solid #3A3029;padding:8px 14px}
+nav.open{display:block!important}
+@media (max-width:820px){
+ nav{display:none;position:absolute;top:84px;left:0;right:0;background:var(--bk);padding:20px 24px}nav ul{flex-direction:column;gap:14px}
+ .hero{padding-top:110px}.hero p{letter-spacing:.2em}
+ .kodawari,.mgrid,.info{grid-template-columns:1fr}.mgrid img{width:70%;margin:0 auto}
+ section{padding:72px 0}.open{gap:16px}.open i{display:none}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+<a class="logo min" href="#">麺屋<b class="brush" style="font-weight:400;font-size:32px">いろは</b><span class="hanko">彩</span></a>
+<nav id="nav"><ul><li><a href="#menu">メニュー</a></li><li><a href="#kodawari">こだわり</a></li><li><a href="#info">店舗情報</a></li></ul></nav>
+<button class="burger" aria-label="メニュー" onclick="document.getElementById('nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+</div></header>
+
+<main>
+<div class="hero">
+<h1 class="brush"><span>濃厚。</span><span>一杯入魂。</span></h1>
+<p>こだわりの一杯で、<br>今日も、うまいをつくる。</p>
+<img src="bowl.jpg" alt="チャーシュー、味玉、ねぎ、のりがのった濃厚豚骨醤油ラーメン">
+</div>
+<div class="open"><span>本日 11:00 OPEN</span><i></i><a href="#info"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>地図を見る ›</a></div>
+
+<section id="kodawari"><div class="wrap">
+<div class="st"><h2 class="brush">こだわり</h2><span>KODAWARI</span></div>
+<div class="kodawari">
+<div class="k"><b>壱</b><h3>12時間炊いたスープ</h3><p>豚骨と鶏ガラを強火でじっくり炊き出し、とろりと濃厚な口あたりに。最後のひと口まで飽きのこない、深いコクが自慢です。</p></div>
+<div class="k"><b>弐</b><h3>自家製の太麺</h3><p>スープに負けないよう、毎朝店内で打つ自家製麺。もっちりとした歯ごたえで、スープをしっかり持ち上げます。</p></div>
+<div class="k"><b>参</b><h3>炙りチャーシュー</h3><p>甘辛いタレでじっくり煮込み、提供直前に炙って香ばしく。とろける脂と香りが、一杯をさらに引き立てます。</p></div>
+</div>
+</div></section>
+
+<section id="menu" class="menu"><div class="wrap">
+<div class="st"><h2 class="brush">お品書き</h2><span>MENU</span></div>
+<div class="mgrid">
+<ul class="mlist">
+<li><h3>濃厚醤油らーめん<span class="tag">一番人気</span></h3><span class="p">¥1,000</span><p>濃厚スープに、自家製太麺と炙りチャーシュー。</p></li>
+<li><h3>特製らーめん</h3><span class="p">¥1,350</span><p>チャーシュー増し・味玉・のりをのせた全部のせ。</p></li>
+<li><h3>濃厚つけ麺</h3><span class="p">¥1,100</span><p>魚介を合わせた濃いめのつけ汁で。</p></li>
+<li><h3>まかない丼</h3><span class="p">¥400</span><p>刻みチャーシューとねぎを、ごはんの上に。</p></li>
+</ul>
+<img src="bowl.jpg" alt="濃厚醤油らーめん">
+</div>
+<p class="topping">トッピング：味玉 ¥150／チャーシュー ¥300／ねぎ増し ¥100／のり ¥100　※ 価格は税込です。</p>
+</div></section>
+
+<div class="big"><p class="brush">一杯に、<br>まっすぐ。</p></div>
+
+<section id="info"><div class="wrap">
+<div class="st"><h2 class="brush">店舗情報</h2><span>SHOP INFO</span></div>
+<div class="info">
+<table>
+<tr><th>店名</th><td>麺屋いろは</td></tr>
+<tr><th>住所</th><td>〒000-0000 ○○市△△町4-5-6</td></tr>
+<tr><th>営業時間</th><td>11:00〜15:00／17:30〜22:00<br>（スープがなくなり次第終了）</td></tr>
+<tr><th>定休日</th><td>月曜日</td></tr>
+<tr><th>席数</th><td>カウンター10席・テーブル2卓</td></tr>
+<tr><th>お支払い</th><td>現金・交通系IC・QRコード決済</td></tr>
+</table>
+<div class="map">MAP</div>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<p style="margin:0;font-family:'Shippori Mincho',serif;font-size:20px;color:#F5EFE6">麺屋いろは</p>
+<p style="margin:4px 0 0">© MENYA IROHA</p>
+<p class="sample">このサイトは <a href="../../">AI mania</a> の制作サンプルです。実在の店舗とは関係ありません。</p>
+</div></footer>
+</body>
+</html>
