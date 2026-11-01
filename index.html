@@ -57,6 +57,19 @@ linear-gradient(#1D1D1F 0 0) 3em 10em/2em 1em no-repeat,linear-gradient(#1D1D1F 
 @keyframes wig{0%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
 @keyframes spin{0%{transform:scaleX(1)}25%{transform:scaleX(.3)}50%{transform:scaleX(-1)}75%{transform:scaleX(.3)}}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* モットー：タブで切り替える特別表示 */
+#motto [role=tab]{display:flex;align-items:center;gap:16px;background:none;border:0;padding:0;margin:0;color:rgba(255,255,255,.3);font-family:var(--display);font-weight:500;font-size:clamp(36px,6vw,72px);line-height:1.3;cursor:pointer;text-align:left;transition:color .2s}
+#motto [role=tab]:hover{color:rgba(255,255,255,.65)}
+#motto [role=tab][aria-selected=true]{color:#fff}
+#motto [role=tab] .mk{visibility:hidden;filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)}
+#motto [role=tab][aria-selected=true] .mk{visibility:visible}
+#mt-bar{transform-origin:left;animation:fill 7s linear both}
+#motto .win:hover #mt-bar,#motto .win:focus-within #mt-bar{animation-play-state:paused}
+.pop{animation:pop .45s steps(3) both}
+.grow{transform-origin:bottom;animation:grow .6s steps(4) both}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 
 @media (max-width:720px){
@@ -186,57 +199,67 @@ header nav a[href="#contact"]{position:absolute;top:8px;right:16px;padding:11px 
 </div>
 </section>
 
-<section id="motto" style="background: #1D1D1F; color: #fff; padding: 80px 0; scroll-margin-top: 16px">
-<div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; gap: 48px">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px 56px; align-items: end">
+<section id="motto" style="background: #1D1D1F; color: #fff; padding: 64px 0; scroll-margin-top: 16px">
+<div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px 56px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px; color: #FFD21F">Our motto</div>
-<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(36px, 5.4vw, 68px); line-height: 1.3"><span class="nb">隠さない。</span><br><span class="nb">共有する。</span><br><span class="nb">伸ばす。</span></h2>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 24px; color: #FFD21F">Our motto</h2>
+<div role="tablist" aria-label="AI mania のモットー" style="display: flex; flex-direction: column; align-items: flex-start">
+<button type="button" role="tab" id="mt-t0" aria-controls="mt-p0" aria-selected="true"><span>隠さない。</span><span class="mk chr horn hop" aria-hidden="true" style="font-size: 3px; --c: #19C25F"></span></button>
+<button type="button" role="tab" id="mt-t1" aria-controls="mt-p1" aria-selected="false" tabindex="-1"><span>共有する。</span><span class="mk chr cat hop" aria-hidden="true" style="font-size: 3px; --c: #FFD21F"></span></button>
+<button type="button" role="tab" id="mt-t2" aria-controls="mt-p2" aria-selected="false" tabindex="-1"><span>伸ばす。</span><span class="mk chr hop" aria-hidden="true" style="font-size: 3px; --c: #FF8DEA; --a: #FFD21F"></span></button>
 </div>
-<div style="display: flex; flex-direction: column; gap: 16px">
-<p style="margin: 0; font-size: 17px; color: #E8E8E8"><span class="nb">AIでのクリエイティブは、</span><span class="nb">まだ始まったばかりです。</span><span class="nb">だから私たちは、</span><span class="nb">つくり方を隠しません。</span></p>
-<p style="margin: 0; font-size: 17px; color: #E8E8E8"><span class="nb">どのAIを、どの工程で、どう使ったか。</span><span class="nb">そのプロセスをお客さまと共有し、</span><span class="nb">一緒に伸ばしていくことで、</span><span class="nb">AIクリエイティブそのものを</span><span class="nb">もっと前に進めたいと考えています。</span></p>
-<div aria-hidden="true" style="align-self: flex-start; display: flex; align-items: flex-end; gap: 12px; margin-top: 4px; padding: 14px 18px 0; background: #E4EDF2; border: 2px solid #fff; border-radius: 8px; border-bottom: 10px solid #fff"><span class="chr rb hop" style="font-size: 4px"></span><span class="chr cat hop" style="font-size: 4px; --c: #FFD21F; animation-delay: -.25s"></span><span class="chr horn hop" style="font-size: 4px; --c: #19C25F; animation-delay: -.5s"></span><span class="chr spin" style="font-size: 4px; --c: #7CCBEE; --a: #FF8DEA"></span></div>
-</div>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 28px">
-<div class="win lift" style="color: #1D1D1F">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>01</span><span class="tl"></span></div>
-<div style="height: 10px; background: #19C25F; border-bottom: 2px solid #1D1D1F"></div>
-<div style="padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 30px; line-height: 1.3">隠さない</h3><span class="chr horn wig" aria-hidden="true" style="font-size: 3px; --c: #19C25F; flex: none"></span></div>
-<p style="margin: 0">どのAIを、どの工程で、どう使ったかをオープンにします。ブラックボックスにしないから、権利や品質の面でも安心して任せられます。</p>
-</div>
-</div>
-<div class="win lift" style="color: #1D1D1F">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>02</span><span class="tl"></span></div>
-<div style="height: 10px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div>
-<div style="padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 30px; line-height: 1.3">共有する</h3><span class="chr cat wig" aria-hidden="true" style="font-size: 3px; --c: #FFD21F; flex: none"></span></div>
-<p style="margin: 0">納品時には、使ったAIと工程、プロンプトの要点をまとめた<b>「制作プロセスシート」</b>をお渡しします。社内での再利用や、次の企画に活かせます。</p>
-</div>
-</div>
-<div class="win lift" style="color: #1D1D1F">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>03</span><span class="tl"></span></div>
-<div style="height: 10px; background: #FF8DEA; border-bottom: 2px solid #1D1D1F"></div>
-<div style="padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 30px; line-height: 1.3">伸ばす</h3><span class="chr rb hop" aria-hidden="true" style="font-size: 3px; flex: none"></span></div>
-<p style="margin: 0">うまくいったこと、いかなかったことを一緒に振り返り、次の制作に活かします。AIの使い方そのものを、お客さまと一緒に伸ばしていきます。</p>
-</div>
-</div>
+<p style="margin: 0; font-size: 16px; color: #CFCFCF"><span class="nb">AIでのクリエイティブは、</span><span class="nb">まだ始まったばかり。</span><span class="nb">だから、つくり方を隠さず共有し、</span><span class="nb">お客さまと一緒に伸ばしていきます。</span></p>
 </div>
 <div class="win" style="color: #1D1D1F">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>制作プロセスシート（イメージ）</span><span class="tl"></span></div>
-<div style="padding: clamp(18px, 3vw, 28px); overflow-x: auto">
-<table style="width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14px; line-height: 1.6">
-<thead><tr style="text-align: left; border-bottom: 2px solid #1D1D1F"><th style="padding: 8px 12px 8px 0">工程</th><th style="padding: 8px 12px">使ったAI</th><th style="padding: 8px 12px">やったこと</th><th style="padding: 8px 0 8px 12px">人の手で整えたところ</th></tr></thead>
-<tbody>
-<tr style="border-bottom: 1px solid #D8D3C6"><td style="padding: 10px 12px 10px 0; white-space: nowrap"><span style="background: #19C25F; border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; font-weight: 700">企画</span></td><td style="padding: 10px 12px">文章生成AI</td><td style="padding: 10px 12px">ターゲット像と訴求軸の案出し</td><td style="padding: 10px 0 10px 12px">ブランドの言葉づかいに合わせて選定</td></tr>
-<tr style="border-bottom: 1px solid #D8D3C6"><td style="padding: 10px 12px 10px 0; white-space: nowrap"><span style="background: #FFD21F; border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; font-weight: 700">ビジュアル</span></td><td style="padding: 10px 12px">画像生成AI</td><td style="padding: 10px 12px">キービジュアルの候補を生成</td><td style="padding: 10px 0 10px 12px">構図・色・文字の配置を調整</td></tr>
-<tr><td style="padding: 10px 12px 10px 0; white-space: nowrap"><span style="background: #FF8DEA; border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; font-weight: 700">実装</span></td><td style="padding: 10px 12px">コード生成AI</td><td style="padding: 10px 12px">LP・ミニゲームの下地をつくる</td><td style="padding: 10px 0 10px 12px">表示確認と細部の仕上げ</td></tr>
-</tbody>
-</table>
-<p style="margin: 12px 0 0; font-size: 13px; color: #5A5A5A">実際のシートには、案件ごとの工程とプロンプトの要点を記載します。</p>
+<div class="tb"><span class="cb"></span><span class="tl"></span><span>motto.exe</span><span class="tl"></span></div>
+<div style="height: 4px; background: #3A3A3C"><div id="mt-bar" style="height: 4px; background: #FFD21F"></div></div>
+
+<div role="tabpanel" id="mt-p0" aria-labelledby="mt-t0" style="min-height: 330px; display: flex; flex-direction: column">
+<div style="height: 10px; background: #19C25F; border-bottom: 2px solid #1D1D1F"></div>
+<div style="padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="font-size: 13px; font-weight: 700; color: #5A5A5A">01　隠さない</div>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.4">使ったAIは、ぜんぶ見せます。</h3>
+<p style="margin: 0; font-size: 15px">どのAIを、どの工程で、どう使ったかをオープンに。ブラックボックスにしないから、権利や品質の面でも安心して任せられます。</p>
+<div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; font-weight: 700">
+<span class="pop" style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 10px; background: #E4EDF2">文章生成AI</span>
+<span class="pop" style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 10px; background: #E4EDF2; animation-delay: .3s">画像生成AI</span>
+<span class="pop" style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 10px; background: #E4EDF2; animation-delay: .6s">動画生成AI</span>
+<span class="pop" style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 10px; background: #E4EDF2; animation-delay: .9s">音声生成AI</span>
+<span class="pop" style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 10px; background: #E4EDF2; animation-delay: 1.2s">コード生成AI</span>
+<span class="pop" style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 10px; background: #19C25F; animation-delay: 1.5s">→ 全部オープン</span>
+</div>
+</div>
+</div>
+
+<div role="tabpanel" id="mt-p1" aria-labelledby="mt-t1" hidden style="min-height: 330px; display: flex; flex-direction: column">
+<div style="height: 10px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div>
+<div style="padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="font-size: 13px; font-weight: 700; color: #5A5A5A">02　共有する</div>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.4">制作プロセスシートを、お渡しします。</h3>
+<p style="margin: 0; font-size: 15px">使ったAIと工程、プロンプトの要点を1枚に。社内での再利用や、次の企画に活かせます。</p>
+<div style="margin-top: auto; border: 2px solid #1D1D1F; border-radius: 6px; overflow: hidden; font-size: 13px">
+<div class="pop" style="display: grid; grid-template-columns: 6.5em 1fr 1.3fr; background: #F3EFE4; font-weight: 700; border-bottom: 2px solid #1D1D1F"><span style="padding: 4px 10px">工程</span><span style="padding: 4px 10px">使ったAI</span><span style="padding: 4px 10px">人の手で整えたところ</span></div>
+<div class="pop" style="display: grid; grid-template-columns: 6.5em 1fr 1.3fr; border-bottom: 1px solid #D8D3C6; animation-delay: .3s"><span style="padding: 4px 10px; font-weight: 700">企画</span><span style="padding: 4px 10px">文章生成AI</span><span style="padding: 4px 10px">言葉づかいを調整</span></div>
+<div class="pop" style="display: grid; grid-template-columns: 6.5em 1fr 1.3fr; border-bottom: 1px solid #D8D3C6; animation-delay: .6s"><span style="padding: 4px 10px; font-weight: 700">ビジュアル</span><span style="padding: 4px 10px">画像生成AI</span><span style="padding: 4px 10px">構図・色・文字</span></div>
+<div class="pop" style="display: grid; grid-template-columns: 6.5em 1fr 1.3fr; animation-delay: .9s"><span style="padding: 4px 10px; font-weight: 700">実装</span><span style="padding: 4px 10px">コード生成AI</span><span style="padding: 4px 10px">表示確認・仕上げ</span></div>
+</div>
+</div>
+</div>
+
+<div role="tabpanel" id="mt-p2" aria-labelledby="mt-t2" hidden style="min-height: 330px; display: flex; flex-direction: column">
+<div style="height: 10px; background: #FF8DEA; border-bottom: 2px solid #1D1D1F"></div>
+<div style="padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="font-size: 13px; font-weight: 700; color: #5A5A5A">03　伸ばす</div>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.4">AIの使い方を、一緒に伸ばす。</h3>
+<p style="margin: 0; font-size: 15px">うまくいったこと、いかなかったことを一緒に振り返り、次の制作に活かします。</p>
+<div aria-hidden="true" style="margin-top: auto; display: flex; align-items: flex-end; gap: 14px; height: 96px; border-bottom: 4px solid #1D1D1F; padding: 0 6px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1"><div class="grow" style="width: 100%; height: 26px; background: #E4EDF2; border: 2px solid #1D1D1F; border-bottom: 0"></div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1"><div class="grow" style="width: 100%; height: 46px; background: #FFD21F; border: 2px solid #1D1D1F; border-bottom: 0; animation-delay: .3s"></div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1"><div class="grow" style="width: 100%; height: 66px; background: #FF8DEA; border: 2px solid #1D1D1F; border-bottom: 0; animation-delay: .6s"></div></div>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 2px; flex: 1"><span class="chr rb hop pop" style="font-size: 2px; animation-delay: 1.2s"></span><div class="grow" style="width: 100%; height: 70px; background: #19C25F; border: 2px solid #1D1D1F; border-bottom: 0; animation-delay: .9s"></div></div>
+</div>
+<div style="display: flex; gap: 14px; padding: 0 6px; font-size: 11px; font-weight: 700; color: #5A5A5A; text-align: center"><span style="flex: 1">1回目</span><span style="flex: 1">2回目</span><span style="flex: 1">3回目</span><span style="flex: 1">次へ！</span></div>
+</div>
 </div>
 </div>
 </div>
@@ -693,6 +716,20 @@ if(!reduce&&typed){setInterval(function(){
  else{if(t.n<words[t.w].length)t.n++;else{t.del=true;t.hold=14;}}
  typed.textContent=words[t.w].slice(0,t.n);
 },140);}
+/* モットーのタブ（7秒ごとに自動で切り替え、操作したら止める） */
+(function(){
+var tabs=[].slice.call(document.querySelectorAll('#motto [role=tab]'));
+if(!tabs.length)return;
+var bar=$('mt-bar'),cur=0,manual=false;
+function show(i,focus){cur=i;tabs.forEach(function(t,j){var on=j===i;t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;$('mt-p'+j).hidden=!on;});
+ if(focus)tabs[i].focus();
+ if(bar&&!manual){bar.style.animation='none';void bar.offsetWidth;bar.style.animation='';}}
+tabs.forEach(function(t,i){
+ t.addEventListener('click',function(){manual=true;if(bar)bar.style.visibility='hidden';show(i);});
+ t.addEventListener('keydown',function(e){var n=e.key==='ArrowDown'||e.key==='ArrowRight'?1:e.key==='ArrowUp'||e.key==='ArrowLeft'?-1:0;
+  if(n){e.preventDefault();manual=true;if(bar)bar.style.visibility='hidden';show((cur+n+tabs.length)%tabs.length,true);}});});
+if(bar)bar.addEventListener('animationend',function(){if(!manual)show((cur+1)%tabs.length);});
+})();
 /* フォーム */
 var form=$('contact-form'),out=$('form-out'),txt=$('form-text');
 function fv(id){return $(id).value.trim();}
