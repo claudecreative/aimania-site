@@ -4,169 +4,308 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>SALON LUMIE｜美容サロン向けLP（制作サンプル）</title>
+<title>SALON LUMIE｜わたしらしい髪、はじめよう。（制作サンプル）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&display=swap">
+<link rel="stylesheet" href="../_kit/motion.css">
 <style>
-:root{--rose:#C2566E;--rose-d:#8E2F45;--pink:#FBEDEE;--pink2:#F6DADF;--ink:#4A3A3E;--sub:#7A6A6E}
+:root{--bg:#FDEBEB;--bg2:#FFF4F5;--plum:#773244;--rose:#C86577;--rose2:#B4566A;--pk:#F9D0D4;--ink:#3A2A2E;--sub:#7B686C;--line:#EBCFD3}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--pink);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.9;letter-spacing:.04em}
-img{max-width:100%;display:block}a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-.min{font-family:'Shippori Mincho',serif}
-header{position:sticky;top:0;z-index:10;background:rgba(251,237,238,.92);backdrop-filter:blur(8px)}
-.hd{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
-.logo{text-decoration:none;line-height:1.2}.logo b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;letter-spacing:.08em}.logo small{font-size:10px;color:var(--sub)}
-nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:13px}nav a{text-decoration:none}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--rose);color:#fff;text-decoration:none;border-radius:999px;padding:10px 26px;font-weight:700;box-shadow:0 6px 16px rgba(194,86,110,.25);transition:transform .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-lg{flex-direction:column;gap:0;padding:14px 44px;font-size:clamp(16px,2vw,20px)}.btn-lg small{font-size:12px;font-weight:500;opacity:.9}
-.hero{position:relative;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:24px;min-height:620px}
-.hero h1{font-size:clamp(34px,4.8vw,58px);line-height:1.45;color:var(--rose-d);margin:0 0 24px;font-weight:700;letter-spacing:.06em}
-.hero p{margin:0 0 36px;font-size:15px}
-.hero-img{position:relative;justify-self:end;width:min(100%,500px)}
-.hero-img::before{content:"";position:absolute;inset:6% -12% 18% 22%;background:var(--pink2);border-radius:50%;z-index:-1}
-.hero-img img{border-radius:0 0 240px 240px;aspect-ratio:460/422;object-fit:cover;width:100%;mask-image:linear-gradient(#000 80%,transparent)}
-.script{position:absolute;right:-6px;bottom:24px;font-family:'Cormorant Garamond',serif;font-style:italic;color:#B48A92;font-size:26px;transform:rotate(-14deg);line-height:1.1}
-section{padding:96px 0}
-.ttl{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #D9B9BF;padding-bottom:12px;margin:0 0 48px;font-size:clamp(20px,2.4vw,26px);font-weight:500;letter-spacing:.12em}
-.ttl em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--rose);font-size:1.5em}
-.worry{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
-.worries{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
-.worries div{font-size:14px;font-weight:500}
-.ico{width:96px;height:96px;margin:0 auto 14px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--rose);box-shadow:0 6px 18px rgba(142,47,69,.08)}
-.worries div::after{content:"";display:block;width:28px;height:1px;background:var(--rose);margin:12px auto 0}
-.room{border-radius:50% 50% 50% 50%/60% 60% 40% 40%;aspect-ratio:370/280;object-fit:cover}
-.answer{margin-top:48px;text-align:center;font-size:clamp(18px,2.2vw,22px);color:var(--rose-d)}
-.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
-.reason h3{display:flex;align-items:center;gap:14px;margin:0 0 6px;font-size:18px}
-.reason h3 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--rose);font-size:44px;font-weight:500;line-height:1}
-.reason p{margin:0 0 20px;font-size:14px;color:var(--sub);padding-left:62px}
-.reason img{width:78%;margin:0 auto;aspect-ratio:1;object-fit:cover;border-radius:50%}
-.menu{background:#fff;border-radius:24px;padding:clamp(28px,5vw,56px)}
-.menu table{width:100%;border-collapse:collapse;font-size:15px}
-.menu th,.menu td{padding:18px 8px;border-bottom:1px dotted #D9B9BF;text-align:left;vertical-align:top}
-.menu td:last-child{text-align:right;white-space:nowrap;font-family:'Shippori Mincho',serif;font-size:18px}
-.menu small{display:block;color:var(--sub);font-size:12px}
-.menu .note{margin:20px 0 0;font-size:12px;color:var(--sub)}
-.voice{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.flow{counter-reset:f;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;list-style:none;padding:0;margin:0}
-.flow li{background:#fff;border-radius:16px;padding:24px 20px;font-size:14px;position:relative}
-.flow li::before{counter-increment:f;content:"STEP 0" counter(f);display:block;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--rose);font-size:20px}
-.flow b{display:block;font-size:16px;margin-bottom:4px}
-.access{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.access dl{margin:0;display:grid;grid-template-columns:7em 1fr;gap:10px 16px;font-size:14px}.access dt{color:var(--rose);font-weight:700}.access dd{margin:0}
-.map{aspect-ratio:4/3;border-radius:20px;background:repeating-linear-gradient(45deg,#F3E2E5 0 12px,#F8ECEE 12px 24px);display:grid;place-items:center;color:var(--sub);font-size:13px}
-.cta{background:linear-gradient(135deg,#E8A5B2,#C2566E);color:#fff;text-align:center;border-radius:32px;padding:clamp(40px,6vw,72px) 24px}
-.cta h2{margin:0 0 10px;font-size:clamp(24px,3.2vw,36px);font-weight:700}
-.cta .btn{background:#fff;color:var(--rose-d);margin-top:24px}
-footer{padding:40px 0 56px;text-align:center;font-size:12px;color:var(--sub)}
-.sample{display:inline-block;margin-top:14px;background:#fff;border:1px solid #D9B9BF;border-radius:8px;padding:8px 14px}
-.menu-btn{display:none;background:none;border:0;font:inherit;color:var(--ink);font-size:24px;cursor:pointer}
-@media (max-width:860px){
- nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--pink);padding:16px 24px}nav.open{display:block}nav ul{flex-direction:column;gap:12px}
- .menu-btn{display:block}.hd .btn{display:none}
- .hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:24px;padding-bottom:40px}.hero-img{justify-self:center;order:-1;width:min(86%,420px)}
- .worry,.access{grid-template-columns:1fr}.reasons,.voice{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}
- .reason img{width:60%}
- section{padding:64px 0}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.95;letter-spacing:.06em;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.min{font-family:'Shippori Mincho',serif}.it{font-family:'Cormorant Garamond',serif;font-style:italic}
+.progress{background:var(--rose);height:2px}
+
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .4s,box-shadow .4s}
+.scrolled header{background:rgba(253,235,235,.88);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.hd{display:flex;align-items:center;height:96px;transition:height .4s}.scrolled .hd{height:70px}
+.logo{display:block;color:#2E2A2B}.logo svg{height:22px;width:auto;display:block}
+.logo small{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;margin-top:4px}.logo small em{font-style:normal;color:var(--rose)}
+nav{margin-left:auto}nav ul{display:flex;gap:40px;list-style:none;margin:0;padding:0;font-size:13.5px;font-weight:500;letter-spacing:.12em}
+nav a{background:linear-gradient(var(--rose),var(--rose)) 0 100%/0 1px no-repeat;transition:background-size .4s;padding-bottom:4px}nav a:hover{background-size:100% 1px}
+.rsv{margin-left:46px;display:inline-flex;align-items:center;gap:14px;background:var(--rose);color:#fff;border-radius:999px;padding:13px 34px;font-size:15px;font-weight:500;letter-spacing:.1em;transition:background .3s,box-shadow .3s,transform .3s}
+.rsv:hover{background:var(--rose2);box-shadow:0 10px 24px rgba(200,101,119,.35);transform:translateY(-2px)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding-top:96px;background:radial-gradient(80% 60% at 20% 30%,#FFF6F6,transparent 70%),var(--bg)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;min-height:calc(100svh - 160px);gap:10px}
+.title{width:min(100%,500px);height:auto;color:var(--plum);overflow:visible;display:block;margin:0 0 28px}
+.title .w1,.title .w2{transform-box:fill-box}
+.js .title .w1,.js .title .w2{opacity:0;filter:blur(12px);transform:translateY(16px)}
+.ready .title .w1{animation:soft 1.6s cubic-bezier(.2,.7,.2,1) .3s forwards}.ready .title .w2{animation:soft 1.6s cubic-bezier(.2,.7,.2,1) .7s forwards}
+@keyframes soft{to{opacity:1;filter:none;transform:none}}
+.lead{margin:0 0 40px;font-size:clamp(15px,1.5vw,18px);font-weight:500;line-height:2.1}
+.cta{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:min(100%,390px);height:92px;border-radius:999px;background:linear-gradient(180deg,#D06F82,var(--rose2));color:#fff;box-shadow:0 14px 30px rgba(180,86,106,.35);transition:transform .3s,box-shadow .3s}
+.cta:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(180,86,106,.45)}
+.cta small{font-size:13px;letter-spacing:.14em;opacity:.95}.cta span{font-family:'Shippori Mincho';font-size:clamp(19px,2vw,24px);font-weight:600;letter-spacing:.06em}
+.cta svg{display:inline;vertical-align:-1px;margin-left:10px;transition:transform .3s}.cta:hover svg{transform:translateX(5px)}
+.visual{position:relative;align-self:end;height:min(86svh,740px)}
+.blob{position:absolute;right:-14%;top:4%;width:74%;aspect-ratio:1;border-radius:50%;background:var(--pk);animation:morph 14s ease-in-out infinite}
+@keyframes morph{0%,100%{border-radius:50%}33%{border-radius:58% 42% 50% 50%/46% 56% 44% 54%}66%{border-radius:44% 56% 58% 42%/56% 44% 56% 44%}}
+.ring{position:absolute;left:-4%;top:56%;width:34%;aspect-ratio:1;border-radius:50%;border:1.5px solid rgba(255,255,255,.9)}
+.portrait{position:absolute;inset:0 -6% 0 0;-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent),linear-gradient(90deg,transparent,#000 14%,#000 88%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#000 82%,transparent),linear-gradient(90deg,transparent,#000 14%,#000 88%,transparent);mask-composite:intersect}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:30% 0}
+.ready .portrait{animation:fadeup 1.8s cubic-bezier(.2,.7,.2,1) both .2s}
+@keyframes fadeup{from{opacity:0;transform:translateY(30px) scale(1.03)}}
+.petals span{position:absolute;top:-10%;width:12px;height:12px;border-radius:12px 0;background:#F5B9C2;opacity:.7;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(-120px,110svh) rotate(540deg)}}
+.wave{display:block;width:100%;height:auto;margin-top:-1px}
+
+/* worries */
+.worry{background:var(--bg2);padding:20px 0 120px}
+.worry .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+.wh{margin:0 0 42px;font-family:'Shippori Mincho';font-weight:600;font-size:clamp(20px,2.2vw,26px);color:var(--plum);letter-spacing:.2em;padding-bottom:14px;border-bottom:1px solid var(--rose)}
+.wl{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
+.wl .c{width:clamp(110px,11vw,140px);aspect-ratio:1;border-radius:50%;background:#fff;margin:0 auto 18px;display:grid;place-items:center;box-shadow:0 8px 24px rgba(200,101,119,.12);transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.wl div:hover .c{transform:translateY(-8px) rotate(-6deg)}
+.wl svg{width:56%;fill:none;stroke:var(--rose);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.wl p{margin:0;font-weight:700;font-size:15px;line-height:1.7}
+.wl p::after{content:"";display:block;width:32px;height:2px;background:var(--rose);margin:12px auto 0}
+.answer{margin:40px 0 0;font-family:'Shippori Mincho';font-weight:600;color:var(--rose);font-size:18px;letter-spacing:.14em}
+.room{border-radius:58% 42% 46% 54%/50% 44% 56% 50%;overflow:hidden;aspect-ratio:1.15;animation:morph2 16s ease-in-out infinite}
+@keyframes morph2{50%{border-radius:44% 56% 58% 42%/42% 56% 44% 58%}}
+.room img{width:100%;height:100%;object-fit:cover;transform:scale(1.14)}
+
+section{padding:clamp(96px,11vw,140px) 0;position:relative}
+.sh{display:flex;align-items:baseline;gap:16px;margin:0 0 50px}
+.sh h2{margin:0;font-family:'Shippori Mincho';font-weight:600;font-size:clamp(20px,2.4vw,27px);letter-spacing:.16em;color:var(--plum)}
+.sh h2 em{font-family:'Cormorant Garamond';font-style:italic;font-size:1.6em;color:var(--rose);margin:0 4px}
+.sh::after{content:"";flex:1;height:1px;background:var(--rose);opacity:.6;transform-origin:left}
+.js .sh::after{transform:scaleX(0);transition:transform 1.3s cubic-bezier(.7,0,.2,1) .2s}.js .sh.in::after{transform:none}
+.sh small{font-family:'Cormorant Garamond';font-style:italic;font-size:20px;color:var(--rose)}
+
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.rs .head{display:flex;gap:18px;align-items:flex-start}
+.rs .no{font-family:'Cormorant Garamond';font-style:italic;font-size:64px;line-height:.9;color:var(--rose)}
+.rs h3{margin:0 0 6px;font-family:'Shippori Mincho';font-weight:600;font-size:21px;letter-spacing:.12em}
+.rs p{margin:0;font-size:14px;color:var(--sub)}
+.rs figure{margin:26px auto 0;width:86%;aspect-ratio:1.1;overflow:hidden;border-radius:50% 50% 46% 54%/56% 52% 48% 44%}
+.rs figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.rs:hover figure img{transform:scale(1.08)}
+
+.concept{background:#fff}
+.concept .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.concept .big{font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(54px,7vw,96px);line-height:1;color:var(--pk);margin:0 0 10px}
+.concept h2{margin:0 0 20px;font-family:'Shippori Mincho';font-weight:600;font-size:clamp(24px,2.8vw,34px);line-height:1.7;color:var(--plum)}
+.concept p{color:var(--sub);margin:0 0 1em}
+.cimg{position:relative}.cimg img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:220px 220px 16px 16px}
+.cimg::before{content:"";position:absolute;inset:24px -24px -24px 24px;border:1px solid var(--rose);border-radius:220px 220px 16px 16px;z-index:-1}
+
+.menu-box{background:#fff;border-radius:28px;padding:clamp(28px,4vw,56px);box-shadow:0 20px 50px rgba(200,101,119,.08)}
+.mtabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.mtabs button{border:1px solid var(--line);background:none;border-radius:999px;padding:8px 22px;cursor:pointer;font-weight:500;transition:.3s}
+.mtabs button[aria-selected=true]{background:var(--rose);border-color:var(--rose);color:#fff}
+.mp{display:none}.mp.on{display:block;animation:mp .6s both}@keyframes mp{from{opacity:0;transform:translateY(10px)}}
+.mi{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:20px 6px;border-bottom:1px solid var(--line);transition:background .3s,padding .3s}
+.mi:hover{background:var(--bg2);padding-left:16px}
+.mi h3{margin:0;font-size:16px;font-weight:700}.mi p{margin:0;font-size:13px;color:var(--sub)}
+.mi h3,.mi p{grid-column:1}.mi b{grid-column:2;grid-row:1/3;align-self:center;font-family:'Cormorant Garamond';font-weight:500;font-size:24px;color:var(--plum)}
+.note{font-size:12px;color:var(--sub);margin:18px 0 0}
+
+.coupon{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center;background:linear-gradient(120deg,#fff,#FFF0F2);border:2px dashed var(--rose);border-radius:24px;padding:36px 44px;overflow:hidden}
+.coupon .pct{font-family:'Cormorant Garamond';font-weight:600;font-size:clamp(72px,9vw,120px);line-height:.9;color:var(--rose)}.coupon .pct small{font-size:.4em}
+.coupon h3{margin:0 0 6px;font-family:'Shippori Mincho';font-size:22px;color:var(--plum)}.coupon p{margin:0;font-size:14px;color:var(--sub)}
+.coupon .rsv{margin:0}
+.coupon::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.8) 50%,transparent 60%);transform:translateX(-100%);animation:sheen 4s ease-in-out infinite}
+@keyframes sheen{60%,100%{transform:translateX(100%)}}
+
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.flow li{list-style:none;background:#fff;border-radius:20px;padding:28px 24px;position:relative}
+.flow li::before{counter-increment:s;content:"STEP " counter(s,decimal-leading-zero);display:block;font-family:'Cormorant Garamond';font-style:italic;font-size:18px;color:var(--rose)}
+.flow h3{margin:2px 0 8px;font-family:'Shippori Mincho';font-size:19px}.flow p{margin:0;font-size:13.5px;color:var(--sub)}
+.flow ol{padding:0;margin:0}
+
+.voice{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.voice blockquote{margin:0;background:#fff;border-radius:24px 24px 24px 4px;padding:30px 28px;position:relative;box-shadow:0 10px 30px rgba(200,101,119,.07)}
+.voice p{margin:0 0 14px;font-size:14.5px}.voice cite{font-style:normal;font-size:12px;color:var(--sub)}
+.voice .st{color:var(--rose);letter-spacing:.2em;font-size:13px}
+
+.faq details{background:#fff;border-radius:16px;margin-bottom:12px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 56px 20px 26px;font-weight:700;position:relative}
+.faq summary::before{content:"Q.";font-family:'Cormorant Garamond';font-style:italic;color:var(--rose);font-size:22px;margin-right:10px}
+.faq summary::after{content:"";position:absolute;right:26px;top:50%;width:10px;height:10px;border-right:1.5px solid var(--rose);border-bottom:1.5px solid var(--rose);transform:translateY(-70%) rotate(45deg);transition:transform .3s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq p{margin:0;padding:0 26px 22px 60px;color:var(--sub);font-size:14px}
+
+.access dl{margin:0;display:grid;grid-template-columns:8em 1fr;max-width:780px}
+.access dt,.access dd{margin:0;padding:18px 0;border-bottom:1px solid var(--line)}
+.access dt{color:var(--rose);font-weight:700;font-size:14px}
+
+.final{background:linear-gradient(135deg,#E79AA8,var(--rose2));color:#fff;border-radius:36px;text-align:center;padding:clamp(60px,8vw,100px) 24px;position:relative;overflow:hidden}
+.final .it{font-size:22px}
+.final h2{margin:6px 0 10px;font-family:'Shippori Mincho';font-weight:600;font-size:clamp(24px,3.4vw,38px);letter-spacing:.08em}
+.final p{margin:0 0 30px}
+.final .rsv{margin:0;background:#fff;color:var(--rose2);padding:18px 46px;font-weight:700}
+.final .bub{position:absolute;border-radius:50%;background:rgba(255,255,255,.14);animation:float 7s ease-in-out infinite}
+
+footer{text-align:center;padding:60px 20px 50px}
+footer .logo{display:inline-block}
+.sample{display:inline-block;margin-top:18px;font-size:12px;color:var(--sub);background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:8px}.sample a{text-decoration:underline}
+
+@media (max-width:960px){
+ nav,.hd .rsv{display:none}
+ .hero .wrap{grid-template-columns:1fr;min-height:0}.visual{order:-1;height:min(108vw,520px);margin:0 -32px}
+ .worry .wrap,.concept .wrap{grid-template-columns:1fr}.room{max-width:420px;margin:0 auto}
+ .reasons,.voice{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}
+ .coupon{grid-template-columns:1fr;text-align:center;justify-items:center;padding:30px 24px}
+ .wl{gap:10px}.wl p{font-size:13px}
 }
-@media (max-width:480px){.worries{gap:8px}.ico{width:76px;height:76px}.worries div{font-size:12px}.flow{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+<div class="progress"></div>
 <header><div class="wrap hd">
-<a class="logo" href="#"><b>SALON LUMIE</b><small>わたしらしさが、もっと好きになる</small></a>
-<nav id="nav"><ul><li><a href="#menu">メニュー</a></li><li><a href="#reason">スタッフ</a></li><li><a href="#reason">サロンについて</a></li><li><a href="#access">アクセス</a></li></ul></nav>
-<a class="btn" href="#reserve">ご予約はこちら ›</a>
-<button class="menu-btn" aria-label="メニュー" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+<a class="logo" href="#" aria-label="SALON LUMIE"><svg class="" viewBox="0 0 160 28" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M101.0 5.2 L100.7 5.8 L100.7 8.0 L100.8 8.2 L100.7 13.3 L100.8 13.5 L100.8 16.3 L101.7 18.3 L103.0 19.7 L105.2 20.8 L108.5 20.8 L109.3 20.5 L111.7 18.7 L112.5 17.5 L112.8 16.3 L113.0 14.8 L112.8 5.5 L112.5 5.2 L112.0 5.2 L111.7 5.7 L111.7 15.5 L111.2 17.2 L109.7 18.8 L107.2 19.7 L105.5 19.5 L104.0 18.8 L102.7 17.5 L102.0 16.3 L101.8 5.5 L101.5 5.2Z M33.3 5.2 L33.0 5.7 L33.0 15.7 L33.2 15.8 L33.0 19.3 L33.3 20.2 L34.2 20.7 L42.2 20.7 L42.5 20.3 L42.5 19.8 L41.8 19.3 L35.5 19.5 L34.3 18.7 L34.2 18.3 L34.3 17.5 L34.3 6.0 L33.8 5.2Z M137.3 5.0 L136.8 5.2 L136.5 5.8 L136.7 7.0 L136.5 8.3 L136.7 18.5 L136.5 19.7 L136.8 20.3 L137.2 20.5 L137.8 20.0 L137.8 17.2 L138.0 17.0 L137.8 16.2 L138.0 5.8 L137.7 5.2Z M88.3 5.0 L88.0 5.5 L88.0 19.7 L88.3 20.3 L89.0 20.7 L97.0 20.7 L97.5 20.0 L97.3 19.7 L96.7 19.3 L90.3 19.3 L89.3 18.7 L89.2 18.3 L89.3 17.5 L89.3 5.5 L89.2 5.2Z M64.5 5.0 L64.0 5.7 L64.2 7.3 L63.8 8.8 L64.0 10.0 L63.8 16.2 L64.0 16.3 L64.0 19.8 L64.2 20.2 L64.8 20.3 L65.3 19.5 L65.2 18.7 L65.3 10.0 L65.0 8.8 L65.5 8.2 L66.0 8.2 L66.8 8.8 L67.2 9.7 L68.2 11.0 L68.8 11.5 L69.0 12.0 L71.7 15.3 L72.0 16.2 L73.0 17.2 L75.0 20.2 L75.5 20.5 L76.3 20.3 L76.7 17.2 L76.5 16.2 L76.7 14.7 L76.5 13.8 L76.5 5.7 L76.3 5.3 L75.5 5.2 L75.2 5.7 L75.2 16.2 L74.7 16.8 L74.2 16.8 L65.5 5.2Z M117.5 5.0 L117.2 5.7 L117.2 8.7 L117.0 8.8 L117.2 10.5 L117.0 19.7 L117.3 20.3 L118.0 20.3 L118.5 19.5 L118.5 10.0 L118.3 9.3 L119.0 8.7 L119.8 9.2 L120.3 10.3 L122.2 13.2 L124.3 15.8 L124.8 15.8 L125.5 15.3 L125.7 14.8 L126.8 13.7 L128.0 11.5 L128.7 10.8 L129.0 9.8 L130.0 8.8 L130.5 8.8 L130.8 9.2 L130.8 11.2 L130.7 11.3 L130.8 18.7 L130.7 19.5 L131.2 20.3 L131.7 20.3 L132.2 19.5 L132.0 18.7 L132.0 12.3 L132.2 12.2 L132.0 5.8 L132.2 5.7 L131.7 5.0 L131.0 5.0 L130.5 5.3 L129.0 8.2 L128.3 8.8 L126.2 12.3 L125.7 13.5 L125.0 14.0 L124.3 14.0 L123.8 13.5 L122.8 11.5 L121.2 9.2 L119.0 5.3 L118.3 4.8Z M22.7 4.8 L22.0 5.3 L20.0 9.7 L19.8 10.7 L19.0 12.2 L18.0 15.0 L15.8 19.3 L15.8 20.0 L16.2 20.3 L16.7 20.3 L17.2 20.0 L18.2 17.5 L18.7 16.7 L19.5 16.0 L26.2 16.0 L26.8 16.5 L27.5 17.7 L28.3 20.0 L28.7 20.3 L29.3 20.3 L29.7 20.0 L29.5 19.0 L28.0 16.2 L27.3 14.2 L26.2 11.8 L25.8 10.5 L25.0 9.0 L24.7 7.7 L23.8 6.3 L23.5 5.2Z M22.3 7.7 L23.0 7.7 L23.7 8.3 L24.2 10.3 L25.7 13.2 L25.8 14.2 L25.2 14.8 L21.8 14.8 L21.7 14.7 L20.5 14.8 L19.8 14.2 L20.0 13.0 L20.7 12.0 L20.7 11.5 L21.5 9.8 L21.8 8.3Z M143.0 4.8 L142.5 5.7 L142.5 11.2 L142.7 11.3 L142.5 12.0 L142.5 19.7 L142.8 20.3 L143.5 20.7 L152.2 20.7 L152.5 20.0 L151.8 19.5 L151.0 19.3 L144.8 19.5 L144.0 18.8 L143.8 18.5 L143.8 14.0 L144.3 13.2 L144.7 13.0 L150.7 13.0 L151.2 12.7 L151.2 12.2 L150.7 11.8 L147.2 11.8 L147.0 11.7 L145.0 11.8 L144.2 11.3 L143.8 10.7 L143.8 9.8 L144.0 9.7 L144.0 6.7 L144.5 6.0 L144.8 5.8 L151.8 5.8 L152.2 5.7 L152.3 5.2 L151.7 4.7 L143.5 4.7Z M51.5 4.5 L49.0 5.3 L46.8 7.0 L46.2 7.8 L44.8 10.8 L44.8 14.3 L46.0 17.3 L47.7 19.2 L51.2 20.8 L53.5 20.8 L55.0 20.5 L56.7 19.7 L58.7 17.8 L59.8 15.8 L60.3 13.8 L60.2 11.2 L59.8 9.7 L58.7 7.5 L57.0 5.8 L55.0 4.8 L53.3 4.5Z M51.0 5.8 L54.3 5.8 L55.3 6.2 L56.0 6.8 L56.5 7.0 L57.7 8.3 L58.8 11.0 L58.8 14.0 L57.8 16.7 L56.2 18.5 L54.8 19.2 L53.0 19.7 L51.5 19.7 L49.0 18.7 L47.3 17.0 L46.2 14.2 L46.3 12.7 L46.2 11.3 L47.0 9.0 L48.7 7.0Z M6.8 4.5 L5.0 5.2 L3.3 6.7 L2.8 7.8 L3.0 10.0 L5.0 12.0 L7.5 13.0 L9.5 13.3 L10.8 14.0 L12.2 15.8 L12.2 16.8 L11.7 18.0 L11.0 18.7 L8.7 19.7 L6.7 19.7 L4.7 18.8 L3.5 17.8 L2.8 18.2 L2.8 18.8 L3.8 19.7 L5.7 20.7 L9.2 20.8 L11.7 19.8 L12.8 18.5 L13.5 17.0 L13.5 16.0 L13.0 14.7 L11.5 13.0 L9.8 12.2 L7.8 11.8 L5.5 10.8 L4.2 9.3 L4.0 8.2 L4.8 6.8 L5.5 6.2 L6.3 5.8 L7.5 5.7 L9.7 5.8 L10.5 6.2 L11.5 7.0 L12.2 7.0 L12.5 6.3 L11.5 5.3 L9.3 4.5Z"/></svg><small>わたしらしさが、<em>もっと好き</em>になる</small></a>
+<nav><ul><li><a href="#menu">メニュー</a></li><li><a href="#reason">スタッフ</a></li><li><a href="#concept">サロンについて</a></li><li><a href="#access">アクセス</a></li></ul></nav>
+<a class="rsv" href="#reserve">ご予約はこちら <svg width="8" height="12" viewBox="0 0 8 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 1l5 5-5 5"/></svg></a>
 </div></header>
 
 <main>
-<div class="hero"><div class="wrap">
+<div class="hero">
+<div class="petals" aria-hidden="true"><span style="left:30%;animation-duration:14s"></span><span style="left:55%;animation-duration:18s;animation-delay:-6s"></span><span style="left:78%;animation-duration:16s;animation-delay:-3s;width:9px;height:9px"></span><span style="left:92%;animation-duration:20s;animation-delay:-11s"></span><span style="left:12%;animation-duration:17s;animation-delay:-8s;width:8px;height:8px"></span></div>
+<div class="wrap">
 <div>
-<h1 class="min">わたしらしい髪、<br>はじめよう。</h1>
-<p>髪が変わると、毎日がちょっと好きになる。<br>あなたらしいキレイを、私たちが見つけます。</p>
-<a class="btn btn-lg" href="#reserve"><small>＼ はじめての方限定 ／</small>初回20%OFFで予約する ›</a>
+<h1 style="margin:0"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">わたしらしい髪、はじめよう。</span><svg class="title" viewBox="0 0 465 162" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="w1"><path fill="currentColor" fill-rule="evenodd" d="M436.5 54.0 L436.0 54.5 L436.2 55.7 L437.8 56.7 L441.5 60.3 L444.0 64.2 L445.7 67.8 L446.3 68.7 L447.3 69.5 L448.2 69.8 L449.0 69.8 L450.5 69.2 L451.3 68.3 L451.8 67.3 L452.2 65.5 L451.3 63.0 L449.7 60.8 L447.0 58.5 L442.7 55.8 L437.7 54.0Z M97.2 52.8 L96.8 54.7 L96.8 56.5 L97.3 58.7 L98.2 60.3 L100.5 62.8 L103.2 64.3 L109.5 65.8 L118.3 66.0 L118.5 65.8 L121.0 65.8 L123.3 65.0 L124.2 64.0 L124.3 63.0 L123.7 61.2 L122.5 60.2 L121.0 59.5 L118.7 59.5 L117.2 60.0 L112.8 60.5 L109.7 60.5 L105.0 59.7 L102.2 58.3 L101.2 57.7 L100.3 56.7 L99.7 55.2 L99.7 53.2 L100.0 52.5 L100.0 51.7 L99.5 51.2 L98.3 51.3Z M366.2 44.5 L366.2 45.3 L366.5 46.2 L367.7 47.3 L368.3 47.3 L369.8 46.5 L371.5 46.3 L383.7 46.5 L384.5 47.2 L384.5 48.2 L382.0 52.8 L379.7 56.3 L373.3 63.2 L370.2 65.8 L366.8 68.0 L366.7 69.0 L367.0 69.3 L367.5 69.5 L368.2 69.3 L371.7 67.5 L372.5 66.8 L374.2 66.2 L376.8 64.5 L382.2 60.0 L385.5 56.5 L386.0 55.7 L387.0 54.8 L387.7 54.8 L388.2 55.3 L388.7 56.5 L390.3 58.5 L394.0 61.7 L394.2 62.0 L394.0 62.8 L391.0 64.5 L388.5 65.3 L387.0 66.2 L385.8 66.3 L381.2 68.0 L377.7 68.7 L377.0 69.2 L377.0 70.0 L377.5 70.5 L379.2 70.5 L381.5 69.8 L384.3 69.5 L386.7 68.8 L389.8 68.3 L395.3 66.5 L398.3 64.8 L399.5 64.8 L401.8 66.2 L408.7 68.5 L410.5 68.7 L412.3 69.3 L416.2 69.8 L417.7 70.3 L420.8 70.3 L421.3 70.2 L422.0 69.5 L422.8 67.8 L425.3 65.3 L425.0 64.7 L416.0 64.5 L411.5 64.0 L410.3 63.7 L408.7 63.7 L407.2 63.2 L404.8 62.8 L404.2 62.2 L404.2 61.7 L405.0 60.8 L406.2 60.2 L407.7 58.7 L409.3 57.5 L411.2 55.5 L414.2 53.3 L414.3 52.8 L413.8 51.7 L411.8 49.8 L410.0 48.7 L408.8 48.8 L406.8 50.7 L405.5 51.2 L405.0 51.0 L393.2 51.2 L393.0 51.0 L390.7 51.0 L389.8 50.3 L389.8 49.5 L390.8 47.7 L391.7 46.8 L392.8 46.5 L401.7 46.5 L401.8 46.7 L414.8 46.5 L416.0 46.7 L416.2 46.5 L424.5 46.5 L424.8 46.3 L425.3 45.7 L425.3 44.7 L422.3 41.8 L420.7 41.0 L419.3 41.2 L418.3 42.0 L417.0 43.8 L416.2 44.3 L411.8 44.2 L411.7 44.3 L393.7 44.5 L393.0 44.0 L393.0 43.3 L394.7 41.8 L394.8 41.5 L394.7 41.0 L393.2 40.0 L391.8 39.8 L390.3 39.2 L388.7 39.0 L388.2 39.2 L387.5 39.8 L386.8 43.0 L386.3 43.8 L385.7 44.3 L371.3 44.5 L366.8 44.0Z M389.8 53.5 L390.7 52.8 L391.7 53.0 L404.3 52.8 L405.0 53.3 L405.0 54.3 L399.0 60.0 L398.0 60.3 L397.3 60.2 L395.3 58.8 L394.2 57.7 L391.8 56.0 L390.5 54.8Z M123.0 35.5 L122.5 34.0 L120.7 32.3 L117.8 31.5 L113.0 31.2 L112.8 31.3 L109.8 31.3 L104.7 32.8 L100.7 35.0 L100.2 35.5 L99.8 36.3 L100.3 37.0 L100.8 37.2 L103.0 36.2 L105.0 36.0 L105.8 35.7 L107.5 35.7 L107.7 35.5 L110.8 35.5 L111.2 35.7 L111.5 36.2 L111.5 36.7 L111.2 37.2 L109.0 38.5 L107.5 40.2 L107.2 40.8 L107.2 41.7 L107.8 41.8 L109.2 40.8 L110.8 40.0 L115.8 38.0 L116.7 37.8 L118.8 37.8 L119.7 38.2 L121.3 38.0 L122.7 37.0Z M425.2 30.0 L421.8 27.2 L420.5 26.3 L419.7 26.3 L415.5 30.3 L411.0 33.5 L409.2 34.5 L407.3 35.2 L406.3 36.0 L403.8 37.3 L403.0 37.5 L401.8 38.2 L400.3 38.5 L399.2 39.2 L397.5 39.5 L397.5 40.3 L398.0 40.8 L399.0 40.8 L400.0 40.3 L403.2 39.7 L408.3 38.0 L410.7 37.5 L411.5 37.0 L415.3 35.7 L421.8 32.3 L424.8 31.5 L425.2 31.0Z M337.3 26.0 L337.0 26.3 L337.0 27.3 L339.8 29.2 L342.2 31.5 L345.3 36.0 L346.3 38.0 L346.5 39.3 L347.8 43.5 L347.7 46.8 L348.2 48.7 L349.5 50.2 L350.2 50.5 L351.7 50.7 L352.7 50.3 L354.3 48.7 L354.8 47.0 L354.8 44.8 L354.7 44.7 L354.7 43.0 L353.3 38.8 L351.7 35.8 L348.7 32.2 L346.2 29.7 L344.5 28.7 L343.8 28.0 L340.7 26.3 L338.3 25.8Z M302.8 20.0 L302.5 20.3 L302.5 21.3 L303.7 22.8 L304.3 24.2 L305.0 26.7 L305.2 40.5 L305.5 43.2 L306.0 44.7 L306.2 47.0 L307.2 50.0 L307.3 51.2 L310.0 56.3 L312.8 59.7 L316.2 62.0 L318.0 62.5 L320.0 62.3 L320.7 62.0 L321.7 61.0 L322.0 60.2 L322.0 58.7 L320.8 56.2 L320.8 55.0 L323.5 47.3 L325.7 42.7 L325.5 41.8 L325.0 41.5 L324.2 41.5 L322.8 43.0 L322.2 44.7 L320.5 47.0 L317.7 52.0 L316.2 53.3 L315.0 53.0 L313.5 51.5 L311.8 48.5 L310.5 43.5 L310.3 40.2 L310.2 40.0 L310.3 34.5 L310.7 31.3 L311.5 28.2 L311.5 26.5 L311.0 24.7 L310.0 23.0 L307.8 21.2 L306.3 20.3 L304.3 19.7Z M141.8 12.8 L141.2 13.5 L141.2 14.3 L141.5 14.8 L142.7 15.7 L143.8 18.0 L143.8 26.2 L143.7 26.3 L143.7 30.5 L143.5 30.7 L143.5 33.7 L143.2 36.5 L143.2 40.8 L143.0 41.0 L143.0 45.2 L142.8 45.3 L142.8 54.2 L143.3 57.2 L144.8 61.3 L146.8 63.7 L148.5 64.8 L151.3 66.0 L154.7 66.7 L160.2 66.7 L161.7 66.2 L163.2 66.0 L165.3 65.3 L170.2 63.0 L174.2 60.0 L178.5 55.5 L181.3 51.2 L181.5 49.8 L180.8 49.2 L179.8 49.3 L175.5 53.8 L173.0 55.8 L169.0 58.2 L165.0 59.8 L162.0 60.8 L159.0 61.3 L155.3 61.3 L153.0 60.8 L151.5 60.0 L149.8 58.3 L148.8 56.5 L148.2 54.0 L148.7 34.8 L149.2 32.2 L149.5 26.3 L149.8 25.2 L150.0 22.3 L151.0 19.0 L151.0 17.8 L150.7 16.7 L150.0 15.7 L148.2 14.2 L144.0 12.5 L142.7 12.5Z M253.7 12.3 L252.3 13.2 L252.2 14.2 L254.0 15.8 L255.0 17.8 L255.0 28.0 L254.8 28.2 L254.5 37.5 L254.3 37.7 L254.3 42.0 L254.2 42.2 L254.2 54.0 L254.5 56.7 L255.5 59.7 L257.2 62.5 L259.0 64.3 L261.7 65.8 L263.7 66.5 L265.0 66.5 L266.3 66.8 L270.2 66.8 L273.8 66.0 L274.7 66.0 L278.2 64.7 L280.8 63.3 L285.0 60.3 L287.8 57.5 L290.5 54.3 L292.3 51.7 L292.8 50.7 L292.8 49.7 L292.0 49.0 L291.2 49.2 L287.0 53.5 L283.7 56.2 L281.2 57.7 L278.0 59.2 L273.0 61.0 L271.7 61.3 L267.5 61.3 L266.3 61.0 L265.3 61.0 L263.7 60.3 L261.5 58.7 L260.5 57.3 L259.7 55.5 L259.3 52.0 L259.5 51.8 L259.8 36.5 L260.2 35.5 L260.3 30.8 L261.2 24.5 L261.2 22.5 L261.8 20.0 L262.3 19.2 L262.3 17.7 L261.5 15.8 L259.7 14.2 L255.7 12.5Z M91.2 11.2 L88.8 10.8 L87.0 11.7 L86.5 12.2 L86.7 12.8 L88.7 14.5 L89.3 16.2 L89.3 17.0 L88.7 19.3 L87.8 24.3 L87.5 25.2 L87.0 25.7 L85.2 26.2 L77.3 26.2 L75.3 25.5 L74.0 24.7 L73.2 24.7 L72.5 25.7 L72.5 26.8 L73.2 28.2 L74.5 29.5 L76.8 30.7 L81.0 30.8 L85.2 30.3 L85.8 30.8 L86.0 31.3 L85.2 33.2 L85.0 34.5 L83.3 39.3 L83.0 41.0 L82.3 42.2 L81.2 45.7 L80.2 47.5 L78.2 53.0 L75.5 57.8 L73.3 62.7 L73.3 64.2 L74.0 65.2 L75.2 66.2 L76.3 66.7 L77.5 66.5 L78.7 65.5 L80.5 62.0 L81.0 60.2 L83.5 54.5 L83.8 53.0 L84.7 51.2 L84.8 50.0 L85.3 49.2 L85.8 47.2 L86.5 45.8 L87.8 40.5 L90.7 32.7 L91.3 29.8 L91.8 29.2 L92.8 28.7 L95.0 28.5 L96.8 27.8 L98.0 27.7 L99.7 26.8 L101.5 26.5 L103.0 25.7 L103.7 25.0 L104.0 24.2 L104.0 23.5 L103.5 22.5 L102.7 21.8 L101.0 21.2 L99.7 21.2 L98.7 21.7 L97.5 22.7 L94.2 24.3 L93.7 24.3 L92.8 23.7 L92.8 22.7 L93.5 21.7 L94.5 18.7 L95.8 16.3 L96.0 15.2 L95.3 13.8 L93.8 12.5Z M17.7 11.3 L17.2 11.8 L17.2 12.7 L19.3 14.5 L20.0 16.0 L20.0 19.2 L19.8 19.3 L20.0 21.5 L19.7 22.8 L19.8 23.7 L19.7 25.7 L18.2 26.8 L12.0 29.3 L9.0 29.3 L7.7 28.3 L6.8 28.3 L6.2 29.5 L6.2 30.5 L7.3 32.8 L8.7 34.2 L10.0 34.8 L11.0 34.8 L12.0 34.3 L14.2 32.8 L16.3 31.8 L18.2 30.5 L19.0 30.5 L19.7 31.2 L19.8 32.7 L19.0 35.3 L16.0 40.3 L12.7 44.7 L9.8 49.0 L5.5 54.3 L5.0 55.7 L5.0 57.0 L5.7 58.5 L6.3 59.2 L7.3 59.7 L8.7 59.3 L10.5 57.5 L12.5 54.2 L13.2 53.5 L13.8 53.5 L14.7 54.2 L16.3 57.7 L17.0 58.5 L18.3 62.5 L18.5 65.7 L19.7 67.0 L20.5 67.3 L21.3 67.3 L22.5 66.7 L23.3 65.7 L24.0 63.8 L24.0 59.5 L23.7 58.3 L23.7 50.8 L23.5 50.7 L23.5 41.5 L23.7 41.2 L27.8 37.2 L30.5 35.3 L35.8 32.5 L38.7 31.5 L39.3 31.5 L41.5 30.8 L44.2 31.0 L47.8 32.5 L49.0 33.3 L51.3 36.0 L52.2 37.8 L52.8 40.5 L52.8 44.3 L52.3 47.2 L50.7 51.2 L48.5 54.0 L47.0 55.5 L43.3 58.3 L37.8 61.2 L35.2 62.0 L34.7 62.5 L34.7 63.3 L35.3 63.8 L36.3 63.8 L37.2 63.5 L41.3 62.8 L43.5 62.0 L44.8 61.8 L48.5 60.2 L52.5 57.7 L55.2 55.2 L56.5 53.5 L58.3 49.8 L59.5 46.2 L59.7 42.8 L59.2 38.8 L57.7 35.2 L55.8 32.5 L53.7 30.3 L49.8 28.3 L46.3 27.3 L43.3 27.2 L41.2 27.5 L38.7 28.3 L37.8 28.3 L33.0 30.2 L27.5 33.7 L25.0 36.2 L24.0 36.3 L23.5 35.8 L23.7 34.3 L24.7 33.2 L25.7 31.2 L27.0 29.8 L27.8 28.2 L27.7 26.8 L26.7 25.5 L25.2 24.8 L24.3 23.8 L24.8 19.7 L26.2 16.2 L26.2 14.8 L25.7 13.8 L24.8 13.0 L21.7 11.3 L20.0 10.8 L19.0 10.8Z M18.5 46.0 L19.2 46.2 L19.7 47.0 L19.3 48.7 L19.5 50.2 L19.3 50.7 L19.3 55.8 L18.8 56.7 L18.0 56.7 L16.5 54.7 L14.3 52.5 L14.2 51.8 L14.5 51.0 L16.2 49.2 L17.7 46.7Z M203.5 10.5 L202.7 11.2 L202.5 11.7 L202.7 12.7 L203.7 13.8 L206.7 16.3 L208.5 17.3 L209.0 18.0 L209.0 18.8 L208.2 19.5 L206.0 20.2 L201.0 22.5 L199.2 24.0 L197.8 25.8 L197.3 28.2 L197.2 31.8 L196.5 34.3 L196.2 37.8 L195.2 42.5 L195.0 45.8 L194.3 48.2 L194.5 51.7 L195.0 52.5 L196.8 54.0 L198.0 54.5 L199.3 54.5 L200.5 53.8 L203.2 49.8 L207.0 45.8 L211.0 43.0 L213.8 41.7 L215.0 41.5 L216.8 40.8 L221.8 40.7 L223.8 41.3 L225.5 42.3 L227.2 44.0 L228.2 45.8 L229.0 48.3 L228.8 51.5 L228.2 53.3 L226.7 56.0 L225.2 57.7 L221.3 60.5 L218.3 62.0 L214.8 63.3 L212.5 63.8 L211.3 64.3 L205.5 65.5 L204.8 66.0 L204.7 66.5 L205.0 67.2 L205.7 67.5 L207.3 67.5 L208.7 67.2 L210.5 67.2 L216.0 66.5 L222.8 64.7 L227.3 62.7 L230.7 60.3 L232.3 58.5 L233.8 56.3 L235.5 51.5 L235.5 48.5 L234.5 44.8 L233.7 43.2 L232.5 41.8 L231.3 40.8 L228.2 38.8 L224.2 37.5 L220.3 37.3 L215.2 38.3 L209.2 40.5 L203.7 43.7 L201.3 45.7 L200.7 45.7 L200.0 45.0 L200.0 43.8 L200.3 43.0 L200.3 42.0 L201.0 38.7 L201.0 37.3 L202.3 31.7 L202.3 30.2 L202.0 28.7 L201.2 26.5 L201.2 25.8 L201.5 25.2 L203.0 23.7 L205.0 22.7 L208.5 21.7 L213.2 21.7 L216.0 22.8 L217.3 22.8 L218.3 22.3 L219.2 21.5 L219.7 20.0 L219.3 18.2 L218.7 17.2 L217.3 16.0 L214.3 14.7 L210.3 13.3 L208.7 13.0 L204.7 10.7Z M422.7 20.8 L421.3 19.3 L419.5 18.0 L417.5 17.3 L416.8 17.5 L414.5 20.0 L411.3 22.3 L405.2 26.2 L401.5 27.8 L400.7 28.5 L399.2 28.3 L397.5 26.2 L395.8 25.3 L395.0 25.3 L393.7 26.2 L392.8 27.0 L391.2 27.5 L389.8 27.3 L380.2 27.3 L379.3 27.5 L378.5 27.2 L377.8 26.3 L378.2 24.5 L379.2 23.8 L384.7 23.8 L384.8 23.7 L388.2 23.8 L388.3 24.0 L393.2 23.8 L393.3 23.7 L395.0 23.7 L395.7 23.0 L395.3 22.3 L394.3 21.5 L391.7 20.3 L390.5 20.5 L389.3 21.7 L388.5 22.0 L383.7 22.0 L383.5 22.2 L378.7 22.0 L378.0 21.3 L377.8 20.0 L378.0 19.5 L378.7 18.8 L379.2 18.7 L388.5 18.7 L388.7 18.5 L393.7 18.5 L394.2 18.7 L394.7 18.5 L395.2 18.0 L395.2 17.7 L393.3 15.7 L392.2 15.0 L391.0 15.0 L389.5 16.5 L387.8 17.0 L379.0 16.8 L378.5 16.7 L377.8 16.0 L377.7 15.5 L377.8 14.3 L378.3 13.7 L379.0 13.3 L385.7 13.5 L385.8 13.3 L389.3 13.3 L389.5 13.2 L391.8 13.2 L392.8 13.5 L397.3 13.5 L398.0 12.8 L398.0 12.3 L397.7 11.7 L396.2 10.3 L394.2 9.2 L392.8 9.3 L390.8 11.3 L390.0 11.7 L378.7 11.7 L376.3 10.5 L373.7 9.7 L373.2 9.8 L372.7 10.5 L372.7 16.2 L372.8 16.3 L372.7 18.0 L372.8 26.2 L372.7 26.7 L372.0 27.3 L371.5 27.5 L370.8 27.3 L367.8 27.5 L366.3 27.2 L366.0 27.5 L366.0 28.3 L366.5 29.2 L367.2 29.7 L368.2 29.7 L369.0 29.3 L374.0 29.5 L375.0 30.3 L375.2 31.3 L374.3 33.0 L374.2 34.0 L373.2 35.3 L372.5 35.7 L368.0 36.0 L367.5 36.5 L367.7 38.2 L368.8 41.0 L369.7 41.8 L370.5 41.8 L371.8 40.7 L373.7 40.0 L375.7 39.8 L377.2 39.3 L381.5 38.7 L387.5 36.8 L389.8 36.7 L390.7 36.3 L392.2 36.5 L394.2 38.7 L396.7 39.2 L397.2 38.8 L397.7 37.3 L397.7 36.3 L397.2 35.2 L395.7 33.5 L393.3 32.0 L390.7 30.8 L390.0 30.0 L390.0 29.5 L390.7 29.0 L392.0 29.3 L398.8 29.2 L399.3 29.7 L399.7 30.5 L400.7 30.5 L405.0 28.8 L406.3 28.7 L408.5 27.8 L409.7 27.7 L410.8 27.0 L414.2 25.8 L419.2 22.8 L422.0 22.2 L422.7 21.5Z M377.8 34.8 L378.0 33.8 L379.0 32.8 L380.2 32.2 L380.7 31.2 L380.8 30.0 L381.8 29.3 L387.2 29.3 L387.7 29.8 L387.5 31.8 L389.0 33.5 L388.8 34.0 L388.2 34.7 L387.7 34.8 L380.3 35.2 L379.5 35.5 L378.5 35.5Z M420.5 12.2 L420.0 11.5 L417.7 9.7 L415.7 8.8 L415.0 9.0 L410.3 13.0 L409.3 13.5 L407.7 14.8 L404.3 16.5 L401.7 18.2 L399.0 19.0 L398.7 19.7 L399.2 20.3 L400.2 20.5 L402.3 19.7 L404.7 19.5 L412.0 16.8 L417.8 13.7 L419.8 13.3 L420.5 12.8Z"/></g><g transform="translate(0 82)"><g class="w2"><path fill="currentColor" fill-rule="evenodd" d="M319.7 51.2 L316.0 52.7 L315.2 53.3 L313.2 55.8 L312.2 57.8 L312.0 63.2 L313.3 66.0 L314.7 67.5 L315.8 68.3 L319.3 69.7 L322.3 69.7 L325.7 68.3 L328.5 65.5 L329.5 63.7 L330.0 61.2 L329.8 58.5 L329.0 56.2 L327.8 54.5 L326.2 52.8 L323.0 51.3Z M319.3 53.8 L322.0 53.8 L324.7 55.0 L326.2 56.5 L326.8 57.5 L327.5 59.3 L327.5 61.5 L327.2 62.7 L326.3 64.2 L324.5 65.8 L322.5 67.0 L319.7 67.0 L317.3 65.8 L315.5 64.2 L314.3 61.8 L314.2 59.8 L315.3 56.8 L317.2 55.0Z M286.7 27.5 L282.3 26.3 L278.7 26.5 L275.0 27.2 L269.0 29.2 L263.3 31.7 L261.7 31.5 L259.8 30.3 L259.2 30.5 L258.7 31.0 L258.5 33.3 L260.3 36.3 L261.5 37.3 L263.2 38.0 L264.3 38.0 L266.0 37.3 L269.3 34.7 L273.8 31.7 L276.3 30.5 L278.8 29.7 L282.0 29.5 L283.7 30.2 L285.0 31.3 L286.7 34.0 L287.5 37.7 L287.5 43.0 L286.5 49.2 L285.3 52.2 L282.8 56.3 L279.7 60.2 L277.7 62.0 L276.5 62.7 L273.7 65.0 L271.2 66.3 L270.5 67.2 L270.5 67.5 L271.0 68.0 L271.5 68.2 L272.3 68.0 L278.2 65.7 L280.3 64.5 L284.2 61.8 L288.2 57.8 L290.5 54.5 L292.2 50.8 L293.5 46.3 L294.0 41.5 L293.7 37.3 L292.5 33.7 L290.7 30.5 L288.8 28.7Z M98.7 20.3 L98.3 21.0 L98.7 21.7 L99.5 22.2 L101.8 24.8 L103.0 27.2 L104.3 29.2 L105.2 29.7 L106.0 29.7 L106.8 29.2 L107.5 28.2 L107.7 26.7 L107.3 25.5 L106.2 23.7 L104.8 22.3 L101.7 20.7 L99.7 20.2Z M104.7 15.7 L104.5 16.0 L104.7 16.8 L107.8 19.3 L109.2 20.8 L111.0 23.8 L112.2 25.0 L113.0 25.0 L114.2 24.0 L114.8 22.5 L114.8 21.8 L114.2 20.0 L112.8 18.7 L110.2 17.0 L106.3 15.5 L105.3 15.3Z M11.0 13.0 L10.2 13.5 L10.0 14.5 L11.3 16.3 L11.7 17.5 L11.7 19.0 L11.0 24.3 L10.2 27.7 L10.2 29.3 L9.2 33.8 L9.0 37.0 L8.3 39.7 L8.3 42.5 L8.0 45.7 L8.2 52.5 L8.8 56.0 L9.0 58.2 L10.0 61.0 L10.3 62.7 L11.2 64.0 L12.2 65.0 L13.2 65.5 L14.0 65.5 L15.7 64.7 L16.7 63.2 L16.7 61.2 L16.0 58.7 L17.2 52.7 L18.3 49.2 L18.8 46.5 L19.8 43.8 L19.8 42.7 L19.5 42.3 L18.8 42.3 L18.5 42.7 L16.8 46.3 L15.3 48.8 L14.5 51.0 L13.5 51.8 L13.2 51.7 L12.5 50.5 L12.5 47.3 L12.3 47.2 L12.5 41.5 L13.0 39.0 L13.2 36.3 L13.5 35.5 L13.5 34.5 L14.0 32.3 L15.7 26.8 L15.8 25.5 L17.7 21.5 L18.2 19.8 L18.2 18.7 L17.2 16.7 L15.5 14.8 L13.0 13.3Z M167.0 14.2 L165.7 13.3 L162.7 12.2 L161.5 12.2 L160.3 12.7 L160.0 13.0 L160.0 13.8 L161.3 15.0 L162.0 16.7 L161.3 20.7 L160.5 23.5 L159.5 24.5 L155.8 25.2 L153.7 26.0 L151.7 26.3 L148.2 27.8 L146.5 28.8 L145.5 28.7 L145.0 28.0 L144.0 23.5 L144.0 21.8 L143.2 20.5 L142.0 19.3 L139.8 18.0 L138.7 17.8 L137.8 18.2 L137.3 18.7 L137.3 19.3 L139.0 22.0 L139.5 25.2 L140.2 27.5 L140.3 29.5 L141.0 31.0 L141.0 32.2 L138.7 34.5 L135.5 38.5 L133.7 42.2 L132.5 46.0 L132.2 48.2 L132.2 51.3 L133.0 53.7 L133.3 55.5 L134.2 57.2 L135.3 58.3 L137.5 59.3 L139.3 59.3 L141.8 58.5 L146.8 55.3 L150.0 52.2 L151.2 52.3 L152.5 54.0 L154.0 54.8 L155.3 54.8 L156.5 54.0 L156.8 53.0 L156.8 51.8 L156.2 50.5 L154.3 48.2 L154.2 47.7 L154.3 46.7 L156.7 43.3 L158.8 39.7 L163.2 31.0 L164.0 28.5 L165.0 27.7 L167.2 28.0 L170.7 29.5 L173.2 31.3 L174.7 32.8 L175.8 34.5 L177.3 38.5 L177.8 40.7 L177.7 44.8 L177.3 46.7 L176.3 49.7 L175.0 52.0 L173.7 53.8 L171.7 55.7 L167.7 58.5 L164.8 60.0 L163.7 60.3 L162.5 61.0 L160.8 61.3 L158.5 62.3 L157.3 62.5 L156.8 63.0 L156.7 63.5 L156.8 64.0 L157.5 64.5 L158.2 64.5 L161.5 63.7 L164.5 63.5 L167.3 62.7 L168.0 62.7 L170.8 61.7 L175.3 59.3 L180.3 54.7 L181.5 53.0 L182.5 51.0 L182.7 50.2 L183.3 49.0 L183.7 47.0 L183.8 40.0 L183.2 37.0 L182.5 35.8 L182.2 34.3 L181.2 32.7 L179.8 31.0 L177.0 28.3 L175.8 27.5 L173.3 26.3 L169.3 25.0 L167.0 24.8 L166.2 24.2 L166.0 23.0 L166.7 21.7 L167.2 19.7 L168.3 17.5 L168.2 15.8Z M142.5 36.3 L143.5 37.3 L144.3 40.2 L146.0 43.7 L146.2 44.5 L147.8 47.3 L147.8 48.5 L145.2 51.3 L143.0 52.8 L140.7 54.0 L139.3 54.0 L138.5 53.7 L137.0 51.7 L136.5 49.5 L136.5 47.7 L138.0 42.3 L140.7 38.0 L142.0 36.5Z M158.0 27.7 L158.8 28.3 L158.8 29.2 L157.8 31.8 L152.3 42.3 L151.5 43.2 L151.2 43.2 L150.2 42.2 L146.7 33.8 L146.8 32.8 L147.3 32.2 L151.8 29.7 L154.7 28.5 L156.2 28.3Z M76.3 12.7 L76.0 13.2 L76.0 13.8 L77.3 14.8 L78.3 16.0 L79.0 17.7 L77.8 50.3 L78.0 50.5 L78.0 53.5 L78.3 55.2 L78.7 55.8 L79.2 58.5 L80.2 60.5 L81.8 62.5 L83.2 63.5 L85.2 64.5 L87.7 65.3 L91.3 65.8 L93.5 65.8 L94.7 65.5 L98.0 65.2 L100.2 64.5 L105.3 62.2 L109.3 59.3 L114.0 54.7 L115.7 52.3 L117.3 49.3 L117.2 48.0 L116.3 47.5 L115.8 47.7 L111.5 52.2 L108.2 55.0 L105.2 56.8 L104.0 57.2 L100.5 59.0 L97.7 59.5 L96.0 60.2 L94.8 60.3 L90.8 60.3 L88.7 60.0 L86.5 58.8 L85.0 57.3 L84.0 55.7 L83.3 52.0 L83.3 47.5 L83.7 44.3 L83.7 38.0 L84.0 36.0 L84.2 31.7 L84.7 28.7 L84.7 24.2 L85.7 20.0 L86.2 18.8 L86.2 17.3 L85.3 15.5 L84.2 14.3 L81.7 12.8 L78.5 12.0 L77.3 12.2Z M42.2 12.0 L40.2 12.3 L39.0 13.2 L39.2 14.0 L41.7 16.0 L42.2 17.3 L42.0 18.5 L42.2 25.8 L41.5 26.8 L40.5 27.2 L39.0 27.2 L36.3 27.7 L32.3 27.7 L29.2 27.2 L26.7 26.0 L25.7 26.5 L25.7 27.3 L26.8 29.5 L27.7 30.3 L29.8 31.5 L31.0 31.8 L38.0 31.8 L39.7 31.5 L41.5 31.5 L42.2 32.2 L42.3 32.7 L42.5 46.0 L42.8 47.2 L42.5 48.2 L41.7 48.8 L40.0 48.5 L36.3 48.3 L31.2 49.3 L29.2 50.2 L27.8 51.2 L27.0 52.2 L26.0 54.2 L26.0 55.5 L25.7 56.5 L26.2 58.8 L27.3 60.8 L29.0 62.2 L31.0 63.2 L34.7 64.2 L38.5 64.3 L40.0 63.8 L42.5 63.5 L44.8 62.3 L46.0 61.3 L46.8 60.2 L47.7 58.2 L47.7 56.5 L48.3 55.5 L49.3 55.5 L50.0 55.8 L52.7 57.8 L55.8 60.8 L57.3 61.7 L58.0 61.7 L58.7 61.3 L59.7 60.2 L60.2 59.0 L60.2 57.8 L59.8 56.8 L57.8 54.7 L55.3 53.2 L51.3 51.3 L48.8 50.5 L47.8 49.8 L47.5 44.3 L47.3 44.2 L47.3 31.5 L47.5 31.2 L48.5 30.5 L50.3 30.3 L57.2 28.3 L58.5 26.8 L58.7 26.2 L58.5 25.3 L57.3 24.0 L56.3 23.5 L54.3 23.0 L53.2 23.5 L51.0 25.0 L49.7 25.3 L48.8 25.8 L48.0 25.8 L47.2 24.8 L47.2 22.7 L47.3 22.5 L47.3 19.5 L48.3 17.0 L48.2 15.5 L47.0 14.0 L45.7 13.2 L44.2 12.5Z M28.8 55.3 L29.3 54.3 L31.3 52.7 L33.0 51.8 L34.7 51.5 L38.3 51.5 L41.2 52.2 L42.3 53.0 L42.8 54.3 L42.3 57.0 L41.2 58.3 L39.2 59.3 L37.0 59.8 L32.7 59.7 L30.7 58.8 L29.3 57.5 L28.8 56.5Z M215.8 11.3 L215.0 12.0 L214.8 13.0 L217.5 15.5 L218.0 17.0 L217.8 18.0 L218.0 35.0 L218.5 37.7 L218.5 41.5 L218.8 42.5 L219.0 47.7 L218.0 48.5 L214.8 48.5 L214.7 48.3 L209.7 48.5 L205.8 49.5 L202.7 51.2 L200.7 53.0 L199.3 55.7 L199.2 58.2 L199.8 60.3 L200.8 61.8 L202.7 63.5 L204.3 64.5 L206.7 65.3 L210.0 65.8 L215.8 65.5 L218.3 64.8 L219.7 64.2 L222.3 62.0 L223.8 59.5 L224.7 55.7 L225.2 55.2 L226.0 55.2 L231.0 57.8 L235.3 60.8 L238.0 63.2 L239.0 63.7 L240.5 63.5 L241.8 62.2 L242.3 61.0 L242.3 59.8 L241.3 57.8 L240.0 56.5 L234.0 53.2 L230.3 52.0 L229.2 51.3 L225.7 50.3 L224.7 49.7 L224.2 47.2 L224.2 45.7 L223.8 44.7 L223.5 37.8 L223.3 37.7 L223.5 36.7 L223.3 31.8 L223.8 31.0 L224.2 30.8 L225.5 31.0 L232.3 30.8 L233.2 30.5 L234.3 30.5 L238.5 29.3 L240.2 28.3 L240.7 27.3 L240.5 25.7 L239.5 24.5 L238.2 23.8 L236.7 23.5 L235.7 23.8 L233.5 25.2 L227.8 27.2 L224.2 27.2 L223.8 27.0 L223.2 26.2 L223.2 24.5 L223.3 24.3 L223.5 19.3 L224.5 16.7 L224.5 14.8 L224.2 14.2 L222.7 12.7 L220.0 11.5 L217.5 11.0Z M219.2 53.8 L219.0 55.8 L217.8 58.3 L217.0 59.2 L215.0 60.5 L213.2 61.2 L209.7 61.3 L208.0 61.0 L206.3 60.3 L205.0 59.5 L203.8 58.3 L203.3 57.2 L203.3 56.0 L203.7 55.2 L205.3 53.5 L207.5 52.5 L211.5 52.0 L213.3 52.0 L215.3 52.5 L217.8 52.7 L218.3 52.8Z M268.5 10.5 L268.5 11.2 L268.8 11.8 L270.7 13.7 L272.7 15.2 L273.7 15.7 L275.0 15.8 L275.8 16.7 L275.8 17.3 L275.2 18.0 L273.5 18.5 L271.5 19.7 L271.0 20.2 L271.0 20.8 L271.3 21.2 L272.7 21.0 L275.0 19.8 L278.8 19.2 L283.2 19.2 L284.7 19.7 L286.8 19.7 L287.5 19.3 L288.5 18.2 L288.7 16.8 L288.0 15.2 L286.8 14.0 L285.5 13.3 L284.2 13.0 L279.3 13.2 L276.2 12.5 L273.2 11.5 L270.3 9.7 L269.2 9.7Z"/></g></g></svg></h1>
+<p class="lead" data-rv="blur" style="--d:1.2s">髪が変わると、毎日がちょっと好きになる。<br>あなたらしいキレイを、私たちが見つけます。</p>
+<a class="cta shine" href="#reserve" data-rv style="--d:1.4s" data-magnet><small>＼ はじめての方限定 ／</small><span>初回20%OFFで予約する<svg width="9" height="14" viewBox="0 0 8 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 1l5 5-5 5"/></svg></span></a>
 </div>
-<div class="hero-img"><img src="hero.jpg" alt="肩につく長さのやわらかなボブスタイルの女性"><span class="script">Your<br>&nbsp;Beauty<br>&nbsp;&nbsp;Story</span></div>
+<div class="visual">
+
+<div class="portrait" data-parallax=".05"><img src="hero.jpg" alt="ミディアムヘアの女性のポートレート"></div>
+<div class="ring" aria-hidden="true"></div>
+</div>
+</div>
+<svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C240 90 480 0 760 30 S1240 80 1440 20 V90 H0Z" fill="#FFF4F5"/></svg>
+</div>
+
+<div class="worry"><div class="wrap">
+<div>
+<h2 class="wh" data-rv>こんなお悩みありませんか？</h2>
+<div class="wl" data-stagger=".14" data-kind="pop">
+<div><div class="c"><svg viewBox="0 0 64 64"><path d="M32 10c-12 0-18 9-18 20 0 6-3 12-6 16 6 2 10-1 12-4M32 10c12 0 18 9 18 20 0 6 3 12 6 16-6 2-10-1-12-4M22 28c2 8 6 12 10 12s8-4 10-12M24 50c3 2 5 3 8 3s5-1 8-3"/></svg></div><p>髪がまとまらない</p></div>
+<div><div class="c"><svg viewBox="0 0 64 64"><path d="M14 50L44 12l8 6-30 38zM44 12l3 2M41 16l3 2M38 20l3 2M35 24l3 2M32 28l3 2M29 32l3 2"/></svg></div><p>似合うスタイルが<br>わからない</p></div>
+<div><div class="c"><svg viewBox="0 0 64 64"><path d="M30 12l3 10 10 3-10 3-3 10-3-10-10-3 10-3zM46 32l2 6 6 2-6 2-2 6-2-6-6-2 6-2zM18 40l1.5 4.5L24 46l-4.5 1.5L18 52l-1.5-4.5L12 46l4.5-1.5z"/></svg></div><p>もっとキレイに<br>なりたい</p></div>
+</div>
+<p class="answer" data-rv style="--d:.5s">そのお悩み、LUMIEにおまかせください。</p>
+</div>
+<div class="room" data-rv="zoom"><img src="room.jpg" alt="明るい光が入るサロンの店内"></div>
 </div></div>
 
-<section><div class="wrap worry">
-<div>
-<h2 class="ttl">こんなお悩みありませんか？</h2>
-<div class="worries">
-<div><span class="ico"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3c-4 0-6 3-6 7v7c0 1 1 2 2 2M12 3c4 0 6 3 6 7v7c0 1-1 2-2 2M9 9c0 3 1.5 5 3 5s3-2 3-5"/></svg></span>髪がまとまらない</div>
-<div><span class="ico"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 19 17 7M14 4l6 6M8 13l3 3M10 11l3 3M12 9l3 3"/></svg></span>似合うスタイルが<br>わからない</div>
-<div><span class="ico"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6zM18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8z"/></svg></span>もっとキレイに<br>なりたい</div>
-</div>
-<p class="answer min">そのお悩み、LUMIEにおまかせください。</p>
-</div>
-<img class="room" src="room.jpg" alt="自然光が入る明るいサロンの店内">
-</div></section>
-
-<section id="reason" style="padding-top:0"><div class="wrap">
-<h2 class="ttl min">LUMIEが選ばれる <em>3</em>つの理由</h2>
-<div class="reasons">
-<div class="reason"><h3><em>01</em>似合わせ提案</h3><p>一人ひとりの魅力を引き出すスタイルをご提案します。</p><img src="r1.jpg" alt="毛先に動きのあるボブヘア"></div>
-<div class="reason"><h3><em>02</em>ダメージレス施術</h3><p>髪と頭皮にやさしい、こだわりの薬剤を使用。</p><img src="r2.jpg" alt="サロンで使うヘアケア製品のボトル"></div>
-<div class="reason"><h3><em>03</em>くつろぎの空間</h3><p>ゆったりとした空間で、特別なひとときを。</p><img src="r3.jpg" alt="観葉植物と窓辺の席"></div>
+<section id="reason"><div class="wrap">
+<div class="sh" data-rv><h2>LUMIEが選ばれる<em>3</em>つの理由</h2></div>
+<div class="reasons" data-stagger=".18">
+<div class="rs"><div class="head"><span class="no">01</span><div><h3>似合わせ提案</h3><p>一人ひとりの魅力を引き出すスタイルをご提案します。</p></div></div><figure><img src="r1.jpg" alt="ゆるく巻いたミディアムヘア"></figure></div>
+<div class="rs"><div class="head"><span class="no">02</span><div><h3>ダメージレス施術</h3><p>髪と頭皮にやさしい、こだわりの薬剤を使用。</p></div></div><figure><img src="r2.jpg" alt="ヘアケア製品のボトル"></figure></div>
+<div class="rs"><div class="head"><span class="no">03</span><div><h3>くつろぎの空間</h3><p>ゆったりとした空間で、特別なひとときを。</p></div></div><figure><img src="r3.jpg" alt="観葉植物のある明るい店内"></figure></div>
 </div>
 </div></section>
 
-<section id="menu" style="padding-top:0"><div class="wrap">
-<h2 class="ttl min">Menu <span style="font-size:.6em;color:var(--sub)">メニュー・料金</span></h2>
-<div class="menu">
-<table>
-<tr><th>カット<small>シャンプー・ブロー込み</small></th><td>¥6,600</td></tr>
-<tr><th>カット＋カラー<small>ダメージを抑えるオーガニックカラー</small></th><td>¥13,200〜</td></tr>
-<tr><th>カット＋パーマ<small>やわらかな質感のデジタルパーマ</small></th><td>¥15,400〜</td></tr>
-<tr><th>髪質改善トリートメント<small>うるおいとツヤを内側から</small></th><td>¥8,800</td></tr>
-<tr><th>ヘッドスパ（30分）<small>頭皮をほぐしてリフレッシュ</small></th><td>¥5,500</td></tr>
-</table>
-<p class="note">※ 表示価格は税込です。髪の長さ・状態により料金が変わる場合があります。<br>※ はじめての方は、すべてのメニューが20%OFFになります。</p>
+<section id="concept" class="concept"><div class="wrap">
+<div class="cimg" data-rv="clipup"><img src="room.jpg" alt="サロンのセット面" data-parallax=".05"></div>
+<div data-rv="right">
+<p class="big">Concept</p>
+<h2>髪を変えることは、<br>毎日を少し変えること。</h2>
+<p>LUMIEは「光」を意味する言葉から名づけました。カウンセリングにしっかり時間をかけ、なりたい自分と、毎朝のお手入れのしやすさの両方を叶えるスタイルをつくります。</p>
+<p>完全予約制、セット面は4席だけ。まわりを気にせず、ゆっくり過ごしていただけます。</p>
+</div>
+</div></section>
+
+<section id="menu"><div class="wrap">
+<div class="sh" data-rv><h2>Menu</h2><small>メニュー・料金</small></div>
+<div class="menu-box" data-rv>
+<div class="mtabs" role="tablist"><button role="tab" aria-selected="true" data-p="a">カット</button><button role="tab" aria-selected="false" data-p="b">カラー</button><button role="tab" aria-selected="false" data-p="c">パーマ</button><button role="tab" aria-selected="false" data-p="d">ケア</button></div>
+<div class="mp on" id="a">
+<div class="mi"><h3>カット</h3><p>シャンプー・ブロー込み</p><b>¥6,600</b></div>
+<div class="mi"><h3>前髪カット</h3><p>10分ほどで仕上げます</p><b>¥1,650</b></div>
+<div class="mi"><h3>カット＋ヘッドスパ</h3><p>頭皮をほぐす20分スパつき</p><b>¥9,900</b></div>
+</div>
+<div class="mp" id="b">
+<div class="mi"><h3>カット＋カラー</h3><p>ダメージを抑えるオーガニックカラー</p><b>¥13,200〜</b></div>
+<div class="mi"><h3>ハイライト</h3><p>立体感と透明感をプラス</p><b>¥8,800〜</b></div>
+<div class="mi"><h3>リタッチカラー</h3><p>根元2cmまで</p><b>¥6,600</b></div>
+</div>
+<div class="mp" id="c">
+<div class="mi"><h3>カット＋パーマ</h3><p>やわらかなウェーブ</p><b>¥15,400〜</b></div>
+<div class="mi"><h3>縮毛矯正</h3><p>自然なストレートに</p><b>¥19,800〜</b></div>
+</div>
+<div class="mp" id="d">
+<div class="mi"><h3>髪質改善トリートメント</h3><p>うるおいとツヤを内側から</p><b>¥8,800</b></div>
+<div class="mi"><h3>ヘッドスパ（30分）</h3><p>頭皮をすっきりリフレッシュ</p><b>¥5,500</b></div>
+</div>
+<p class="note">※ 表示価格はすべて税込です。※ 価格・内容は制作サンプル用の架空のものです。</p>
 </div>
 </div></section>
 
 <section style="padding-top:0"><div class="wrap">
-<h2 class="ttl min">Flow <span style="font-size:.6em;color:var(--sub)">ご来店の流れ</span></h2>
-<ol class="flow">
-<li><b>ご予約</b>WEBからいつでも。ご希望のメニューと日時をお選びください。</li>
-<li><b>カウンセリング</b>お悩みや理想のイメージを、ゆっくりお聞きします。</li>
-<li><b>施術</b>髪と頭皮にやさしい薬剤で、ていねいに仕上げます。</li>
-<li><b>ホームケアのご提案</b>おうちでもキレイが続くコツをお伝えします。</li>
+<div class="coupon" data-rv="zoom">
+<div class="pct">20<small>%OFF</small></div>
+<div><h3>はじめての方限定クーポン</h3><p>全メニューが初回20%OFF。ご予約時に「WEBを見た」とお伝えください。</p></div>
+<a class="rsv" href="#reserve">予約する <svg width="8" height="12" viewBox="0 0 8 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 1l5 5-5 5"/></svg></a>
+</div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<div class="sh" data-rv><h2>Flow</h2><small>ご来店の流れ</small></div>
+<ol class="flow" data-stagger=".12">
+<li><h3>ご予約</h3><p>WEBから24時間受付。ご希望のメニューをお選びください。</p></li>
+<li><h3>カウンセリング</h3><p>お悩みや、なりたいイメージをじっくり伺います。</p></li>
+<li><h3>施術</h3><p>髪と頭皮にやさしい薬剤で、丁寧に仕上げます。</p></li>
+<li><h3>ホームケアのご提案</h3><p>おうちでもキレイが続くコツをお伝えします。</p></li>
 </ol>
 </div></section>
 
-<section id="access" style="padding-top:0"><div class="wrap access">
-<div>
-<h2 class="ttl min">Access <span style="font-size:.6em;color:var(--sub)">アクセス</span></h2>
-<dl>
+<section style="padding-top:0"><div class="wrap">
+<div class="sh" data-rv><h2>Voice</h2><small>お客様の声</small></div>
+<div class="voice" data-stagger=".14">
+<blockquote><span class="st">★★★★★</span><p>朝のスタイリングが本当にラクになりました。乾かすだけでまとまります。</p><cite>30代・会社員の方</cite></blockquote>
+<blockquote><span class="st">★★★★★</span><p>似合う色を一緒に考えてくれて、はじめてのハイライトに挑戦できました。</p><cite>20代・学生の方</cite></blockquote>
+<blockquote><span class="st">★★★★★</span><p>個室のような落ち着いた空間で、毎回ほっとできる時間です。</p><cite>40代・主婦の方</cite></blockquote>
+</div>
+<p class="note">※ 掲載の声は制作サンプル用の架空のものです。</p>
+</div></section>
+
+<section class="faq" style="padding-top:0"><div class="wrap" style="max-width:860px">
+<div class="sh" data-rv><h2>Q&amp;A</h2><small>よくあるご質問</small></div>
+<div data-stagger=".08">
+<details><summary>当日の予約はできますか？</summary><p>空きがあれば可能です。WEB予約の空き状況をご確認ください。</p></details>
+<details><summary>子ども連れでも大丈夫ですか？</summary><p>平日の午前中は、お子さま連れのお客様も歓迎しています。事前にお知らせください。</p></details>
+<details><summary>駐車場はありますか？</summary><p>専用駐車場はありません。近くのコインパーキングをご利用ください。</p></details>
+</div>
+</div></section>
+
+<section id="access" class="access" style="padding-top:0"><div class="wrap">
+<div class="sh" data-rv><h2>Access</h2><small>アクセス</small></div>
+<dl data-rv>
 <dt>住所</dt><dd>〒000-0000 ○○市△△町1-2-3 LUMIEビル2F</dd>
 <dt>アクセス</dt><dd>○○駅 東口から徒歩3分</dd>
 <dt>営業時間</dt><dd>10:00〜20:00（土日祝 9:00〜19:00）</dd>
 <dt>定休日</dt><dd>毎週火曜日</dd>
 <dt>席数</dt><dd>セット面4席・シャンプー台2台</dd>
 </dl>
-</div>
-<div class="map">MAP</div>
 </div></section>
 
 <section id="reserve" style="padding-top:0"><div class="wrap">
-<div class="cta">
-<p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px">Reservation</p>
-<h2 class="min">はじめての方は、初回20%OFF。</h2>
-<p style="margin:0">あなたらしいキレイを、いっしょに見つけましょう。</p>
-<a class="btn btn-lg" href="#reserve" onclick="alert('制作サンプルのため、予約はできません。');return false;">WEBで予約する ›</a>
+<div class="final" data-rv="zoom">
+<span class="bub" style="width:180px;height:180px;left:-40px;top:-50px"></span><span class="bub" style="width:120px;height:120px;right:6%;bottom:-40px;animation-delay:-3s"></span>
+<p class="it" style="margin:0">Reservation</p>
+<h2>はじめての方は、初回20%OFF。</h2>
+<p>あなたらしいキレイを、一緒に見つけましょう。</p>
+<a class="rsv" href="#" data-magnet>WEBで予約する <svg width="8" height="12" viewBox="0 0 8 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 1l5 5-5 5"/></svg></a>
 </div>
 </div></section>
 </main>
 
-<footer><div class="wrap">
-<p style="margin:0;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink)">SALON LUMIE</p>
-<p style="margin:4px 0 0">© SALON LUMIE</p>
-<p class="sample">このサイトは <a href="../../">AI mania</a> の制作サンプルです。実在の店舗・サービスとは関係ありません。</p>
-</div></footer>
+<footer>
+<a class="logo" href="#"><svg class="" viewBox="0 0 160 28" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M101.0 5.2 L100.7 5.8 L100.7 8.0 L100.8 8.2 L100.7 13.3 L100.8 13.5 L100.8 16.3 L101.7 18.3 L103.0 19.7 L105.2 20.8 L108.5 20.8 L109.3 20.5 L111.7 18.7 L112.5 17.5 L112.8 16.3 L113.0 14.8 L112.8 5.5 L112.5 5.2 L112.0 5.2 L111.7 5.7 L111.7 15.5 L111.2 17.2 L109.7 18.8 L107.2 19.7 L105.5 19.5 L104.0 18.8 L102.7 17.5 L102.0 16.3 L101.8 5.5 L101.5 5.2Z M33.3 5.2 L33.0 5.7 L33.0 15.7 L33.2 15.8 L33.0 19.3 L33.3 20.2 L34.2 20.7 L42.2 20.7 L42.5 20.3 L42.5 19.8 L41.8 19.3 L35.5 19.5 L34.3 18.7 L34.2 18.3 L34.3 17.5 L34.3 6.0 L33.8 5.2Z M137.3 5.0 L136.8 5.2 L136.5 5.8 L136.7 7.0 L136.5 8.3 L136.7 18.5 L136.5 19.7 L136.8 20.3 L137.2 20.5 L137.8 20.0 L137.8 17.2 L138.0 17.0 L137.8 16.2 L138.0 5.8 L137.7 5.2Z M88.3 5.0 L88.0 5.5 L88.0 19.7 L88.3 20.3 L89.0 20.7 L97.0 20.7 L97.5 20.0 L97.3 19.7 L96.7 19.3 L90.3 19.3 L89.3 18.7 L89.2 18.3 L89.3 17.5 L89.3 5.5 L89.2 5.2Z M64.5 5.0 L64.0 5.7 L64.2 7.3 L63.8 8.8 L64.0 10.0 L63.8 16.2 L64.0 16.3 L64.0 19.8 L64.2 20.2 L64.8 20.3 L65.3 19.5 L65.2 18.7 L65.3 10.0 L65.0 8.8 L65.5 8.2 L66.0 8.2 L66.8 8.8 L67.2 9.7 L68.2 11.0 L68.8 11.5 L69.0 12.0 L71.7 15.3 L72.0 16.2 L73.0 17.2 L75.0 20.2 L75.5 20.5 L76.3 20.3 L76.7 17.2 L76.5 16.2 L76.7 14.7 L76.5 13.8 L76.5 5.7 L76.3 5.3 L75.5 5.2 L75.2 5.7 L75.2 16.2 L74.7 16.8 L74.2 16.8 L65.5 5.2Z M117.5 5.0 L117.2 5.7 L117.2 8.7 L117.0 8.8 L117.2 10.5 L117.0 19.7 L117.3 20.3 L118.0 20.3 L118.5 19.5 L118.5 10.0 L118.3 9.3 L119.0 8.7 L119.8 9.2 L120.3 10.3 L122.2 13.2 L124.3 15.8 L124.8 15.8 L125.5 15.3 L125.7 14.8 L126.8 13.7 L128.0 11.5 L128.7 10.8 L129.0 9.8 L130.0 8.8 L130.5 8.8 L130.8 9.2 L130.8 11.2 L130.7 11.3 L130.8 18.7 L130.7 19.5 L131.2 20.3 L131.7 20.3 L132.2 19.5 L132.0 18.7 L132.0 12.3 L132.2 12.2 L132.0 5.8 L132.2 5.7 L131.7 5.0 L131.0 5.0 L130.5 5.3 L129.0 8.2 L128.3 8.8 L126.2 12.3 L125.7 13.5 L125.0 14.0 L124.3 14.0 L123.8 13.5 L122.8 11.5 L121.2 9.2 L119.0 5.3 L118.3 4.8Z M22.7 4.8 L22.0 5.3 L20.0 9.7 L19.8 10.7 L19.0 12.2 L18.0 15.0 L15.8 19.3 L15.8 20.0 L16.2 20.3 L16.7 20.3 L17.2 20.0 L18.2 17.5 L18.7 16.7 L19.5 16.0 L26.2 16.0 L26.8 16.5 L27.5 17.7 L28.3 20.0 L28.7 20.3 L29.3 20.3 L29.7 20.0 L29.5 19.0 L28.0 16.2 L27.3 14.2 L26.2 11.8 L25.8 10.5 L25.0 9.0 L24.7 7.7 L23.8 6.3 L23.5 5.2Z M22.3 7.7 L23.0 7.7 L23.7 8.3 L24.2 10.3 L25.7 13.2 L25.8 14.2 L25.2 14.8 L21.8 14.8 L21.7 14.7 L20.5 14.8 L19.8 14.2 L20.0 13.0 L20.7 12.0 L20.7 11.5 L21.5 9.8 L21.8 8.3Z M143.0 4.8 L142.5 5.7 L142.5 11.2 L142.7 11.3 L142.5 12.0 L142.5 19.7 L142.8 20.3 L143.5 20.7 L152.2 20.7 L152.5 20.0 L151.8 19.5 L151.0 19.3 L144.8 19.5 L144.0 18.8 L143.8 18.5 L143.8 14.0 L144.3 13.2 L144.7 13.0 L150.7 13.0 L151.2 12.7 L151.2 12.2 L150.7 11.8 L147.2 11.8 L147.0 11.7 L145.0 11.8 L144.2 11.3 L143.8 10.7 L143.8 9.8 L144.0 9.7 L144.0 6.7 L144.5 6.0 L144.8 5.8 L151.8 5.8 L152.2 5.7 L152.3 5.2 L151.7 4.7 L143.5 4.7Z M51.5 4.5 L49.0 5.3 L46.8 7.0 L46.2 7.8 L44.8 10.8 L44.8 14.3 L46.0 17.3 L47.7 19.2 L51.2 20.8 L53.5 20.8 L55.0 20.5 L56.7 19.7 L58.7 17.8 L59.8 15.8 L60.3 13.8 L60.2 11.2 L59.8 9.7 L58.7 7.5 L57.0 5.8 L55.0 4.8 L53.3 4.5Z M51.0 5.8 L54.3 5.8 L55.3 6.2 L56.0 6.8 L56.5 7.0 L57.7 8.3 L58.8 11.0 L58.8 14.0 L57.8 16.7 L56.2 18.5 L54.8 19.2 L53.0 19.7 L51.5 19.7 L49.0 18.7 L47.3 17.0 L46.2 14.2 L46.3 12.7 L46.2 11.3 L47.0 9.0 L48.7 7.0Z M6.8 4.5 L5.0 5.2 L3.3 6.7 L2.8 7.8 L3.0 10.0 L5.0 12.0 L7.5 13.0 L9.5 13.3 L10.8 14.0 L12.2 15.8 L12.2 16.8 L11.7 18.0 L11.0 18.7 L8.7 19.7 L6.7 19.7 L4.7 18.8 L3.5 17.8 L2.8 18.2 L2.8 18.8 L3.8 19.7 L5.7 20.7 L9.2 20.8 L11.7 19.8 L12.8 18.5 L13.5 17.0 L13.5 16.0 L13.0 14.7 L11.5 13.0 L9.8 12.2 L7.8 11.8 L5.5 10.8 L4.2 9.3 L4.0 8.2 L4.8 6.8 L5.5 6.2 L6.3 5.8 L7.5 5.7 L9.7 5.8 L10.5 6.2 L11.5 7.0 L12.2 7.0 L12.5 6.3 L11.5 5.3 L9.3 4.5Z"/></svg></a><br>
+<p class="sample">このサイトは <a href="../../">AI mania</a> の制作サンプルです。実在のサロンとは関係ありません。</p>
+</footer>
+<script src="../_kit/motion.js"></script>
+<script>
+document.querySelectorAll('.mtabs button').forEach(function(b){b.addEventListener('click',function(){
+ document.querySelectorAll('.mtabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
+ document.querySelectorAll('.mp').forEach(function(p){p.classList.toggle('on',p.id===b.dataset.p)});
+})});
+</script>
 </body>
 </html>
