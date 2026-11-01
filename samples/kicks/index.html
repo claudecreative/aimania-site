@@ -4,152 +4,349 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>KICKS AIR WALKER｜EC商品LP（制作サンプル）</title>
+<title>AIR WALKER｜毎日を、軽やかに。KICKS（制作サンプル）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Inter:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@500;600;800;900&display=swap">
+<link rel="stylesheet" href="../_kit/motion.css">
 <style>
-:root{--bg:#F4F1EC;--ink:#1C1C1C;--sub:#6B6762;--line:#DCD6CD}
+:root{--bg:#F3F0EA;--bg2:#EAE5DC;--ink:#141414;--sub:#5E5A54;--line:#DAD4C9;--wh:#FBFAF7}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.9;letter-spacing:.06em}
-img{max-width:100%;display:block}a{color:inherit}button{font:inherit}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-.en{font-family:'Inter',sans-serif}
-header{position:sticky;top:0;z-index:10;background:rgba(244,241,236,.94);backdrop-filter:blur(8px)}
-.hd{display:flex;align-items:center;gap:40px;height:72px}
-.logo{font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.3em;font-size:18px;text-decoration:none}
-nav{margin:0 auto}nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;font-size:13px;font-weight:500}nav a{text-decoration:none}
-.icons{display:flex;gap:20px;align-items:center}.icons button{background:none;border:0;cursor:pointer;padding:4px;position:relative;color:var(--ink)}
-.badge{position:absolute;top:-4px;right:-6px;background:var(--ink);color:#fff;font-size:10px;border-radius:50%;width:16px;height:16px;display:grid;place-items:center;font-family:'Inter'}
-.hero .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:center;padding-top:40px;padding-bottom:56px}
-.hero .lead{margin:0;font-size:20px}
-.hero h1{margin:4px 0 20px;font-family:'Archivo Black',sans-serif;font-weight:400;font-size:clamp(56px,8vw,104px);line-height:.95;letter-spacing:-.01em}
-.hero p{margin:0 0 20px;font-size:14px;color:var(--sub)}
-.price{font-family:'Inter',sans-serif;font-weight:700;font-size:28px;margin:0 0 18px}.price small{font-family:'Zen Kaku Gothic New';font-size:12px;font-weight:500}
-.sw{display:flex;gap:14px;margin-bottom:24px}
-.sw button{width:34px;height:34px;border-radius:50%;border:2px solid transparent;cursor:pointer;box-shadow:inset 0 0 0 3px var(--bg)}
-.sw button[aria-pressed="true"]{border-color:var(--ink)}
-.cart{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border:0;padding:16px 56px;cursor:pointer;font-weight:700;letter-spacing:.1em}
-.shoe{position:relative}.shoe img{width:100%;mix-blend-mode:multiply;transition:filter .3s}
-.cname{position:absolute;right:8px;bottom:8px;font-size:12px;color:var(--sub)}
-.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;padding:24px 0 72px}
-.feat .ic{width:80px;height:80px;border-radius:50%;background:#fff;display:grid;place-items:center;margin:0 auto 12px}
-.feat b{display:block;font-size:15px}.feat small{font-size:12px;color:var(--sub)}
-.band{position:relative;color:#fff;min-height:440px;display:flex;align-items:center;background:#555 url(walk.jpg) right center/auto 100% no-repeat}
-.band::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#3C3C3C 38%,rgba(60,60,60,.2) 70%,transparent)}
-.band .wrap{position:relative;width:100%}
-.band h2{margin:0 0 16px;font-size:clamp(26px,3.4vw,38px);font-weight:500;line-height:1.6}
-.band p{margin:0;font-size:14px;opacity:.9}
-section{padding:88px 0}
-.sh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px}.sh h2{margin:0;font-family:'Inter';font-size:13px;letter-spacing:.2em}
-.colors{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.colors button{background:#fff;border:2px solid transparent;cursor:pointer;padding:16px 12px 12px;text-align:center;font-size:13px}
-.colors button[aria-pressed="true"]{border-color:var(--ink)}
-.colors img{mix-blend-mode:multiply;margin-bottom:6px}
-.spec{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.spec h2{margin:0 0 12px;font-size:clamp(24px,3vw,32px);font-weight:700}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:14px 4px;border-bottom:1px solid var(--line)}th{width:8em;color:var(--sub);font-weight:500}
-.sizes{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-.sizes button{min-width:56px;padding:8px 0;border:1px solid var(--line);background:#fff;cursor:pointer;font-family:'Inter'}
-.sizes button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
-.note{font-size:12px;color:var(--sub)}
-.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);opacity:0;background:var(--ink);color:#fff;padding:12px 22px;font-size:13px;transition:.25s;pointer-events:none;z-index:20}
-.toast.on{opacity:1;transform:translate(-50%,0)}
-footer{padding:40px 0 56px;text-align:center;font-size:12px;color:var(--sub);border-top:1px solid var(--line)}
-.sample{display:inline-block;margin-top:12px;background:#fff;padding:8px 14px}
-@media (max-width:860px){
- nav{display:none}.hero .wrap{grid-template-columns:1fr;padding-top:16px}.shoe{order:-1}
- .feat{grid-template-columns:1fr 1fr;gap:28px 12px}.colors{grid-template-columns:1fr 1fr}.spec{grid-template-columns:1fr}
- .band{background-size:cover;background-position:70% center;min-height:380px}.band::before{background:rgba(40,40,40,.55)}
- section{padding:64px 0}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',sans-serif;line-height:1.85;letter-spacing:.06em;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.en{font-family:'Inter',sans-serif;letter-spacing:.02em}
+.progress{background:var(--ink);height:2px}
+
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+.scrolled header{background:rgba(243,240,234,.9);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.hd{display:flex;align-items:center;height:80px;transition:height .3s}.scrolled .hd{height:64px}
+.logo svg{height:20px;width:auto;display:block;color:var(--ink)}
+nav{margin:0 auto}nav ul{display:flex;gap:46px;list-style:none;margin:0;padding:0;font-size:14px;font-weight:500}
+nav a{position:relative}nav a::after{content:"";position:absolute;left:50%;right:50%;bottom:-6px;height:1.5px;background:var(--ink);transition:.3s}nav a:hover::after{left:0;right:0}
+.icons{display:flex;gap:22px;align-items:center}
+.icons button{background:none;border:0;padding:4px;cursor:pointer;position:relative;display:grid}
+.cart b{position:absolute;right:-8px;top:-6px;min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:#fff;font-family:'Inter';font-size:11px;display:grid;place-items:center}
+.cart b.bump{animation:bump .5s cubic-bezier(.3,1.8,.5,1)}
+@keyframes bump{40%{transform:scale(1.7)}}
+.burger{display:grid;gap:6px;width:30px}.burger i{display:block;height:2px;background:var(--ink);transition:.35s}
+.menu-open .burger i:nth-child(1){transform:translateY(8px) rotate(45deg)}.menu-open .burger i:nth-child(2){opacity:0}.menu-open .burger i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.nav-overlay{position:fixed;inset:0;z-index:40;background:var(--ink);color:var(--bg);display:grid;place-items:center;clip-path:inset(0 0 100% 0);transition:clip-path .7s cubic-bezier(.7,0,.2,1)}
+.nav-overlay.open{clip-path:inset(0 0 0 0)}
+.nav-overlay ul{list-style:none;margin:0;padding:0;font-family:'Inter';font-weight:900;font-size:clamp(44px,8vw,96px);line-height:1.1;text-transform:uppercase}
+.nav-overlay a{display:inline-block;transition:transform .3s}.nav-overlay a:hover{transform:translateX(20px)}
+
+/* hero */
+.hero{padding:120px 0 40px;min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.18fr;gap:24px;align-items:center;width:100%}
+.catch{margin:0 0 14px;font-size:clamp(20px,2.4vw,28px);font-weight:500;letter-spacing:.14em}
+.title{width:min(100%,430px);height:auto;display:block;overflow:visible;color:var(--ink);margin:0 0 26px}
+.title .w1,.title .w2{transform-box:fill-box}
+.js .title .w1,.js .title .w2{clip-path:inset(0 0 100% 0);transform:translateY(40%)}
+.ready .title .w1{animation:rise .9s cubic-bezier(.2,.8,.2,1) .25s forwards}.ready .title .w2{animation:rise .9s cubic-bezier(.2,.8,.2,1) .42s forwards}
+@keyframes rise{to{clip-path:inset(0 0 0 0);transform:none}}
+.copy{margin:0 0 26px;font-size:15.5px;line-height:2;letter-spacing:.12em}
+.price{font-family:'Inter';font-weight:800;font-size:26px;margin:0 0 16px}.price small{font-family:'Noto Sans JP';font-weight:500;font-size:13px;margin-left:6px}
+.swatches{display:flex;gap:18px;margin:0 0 28px}
+.sw{width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;position:relative;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);transition:transform .25s}
+.sw:hover{transform:scale(1.12)}
+.sw[aria-pressed=true]::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--ink);animation:ringin .35s cubic-bezier(.3,1.6,.5,1)}
+@keyframes ringin{from{transform:scale(.6);opacity:0}}
+.cname{font-size:12px;color:var(--sub);margin:-18px 0 22px;height:18px}
+.add{display:inline-flex;align-items:center;justify-content:center;gap:12px;width:min(100%,306px);height:60px;background:var(--ink);color:#fff;border:0;cursor:pointer;font-weight:500;letter-spacing:.14em;transition:background .3s,transform .2s}
+.add:hover{background:#333}.add:active{transform:scale(.97)}
+.add.done{background:#2F6B3A}
+.shoe-box{position:relative;aspect-ratio:1}
+.shoe{position:absolute;inset:0;animation:hover 4.5s ease-in-out infinite}
+.shoe img{width:100%;height:100%;object-fit:contain;-webkit-mask-image:radial-gradient(closest-side,#000 72%,transparent);mask-image:radial-gradient(closest-side,#000 72%,transparent);transition:filter .7s ease;filter:var(--f,none)}
+@keyframes hover{50%{transform:translateY(-18px) rotate(-1.5deg)}}
+.shadow{position:absolute;left:18%;right:12%;bottom:6%;height:7%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.22),transparent);animation:shad 4.5s ease-in-out infinite}
+@keyframes shad{50%{transform:scaleX(.82);opacity:.6}}
+.shoe-box .ring{position:absolute;inset:8%;border-radius:50%;border:1px solid var(--line)}
+.shoe-box .ring:nth-child(2){inset:18%;border-style:dashed;animation:spin 60s linear infinite}
+.tagline{position:absolute;right:2%;bottom:16%;font-family:'Inter';font-size:10px;letter-spacing:.3em;color:#A79F92;writing-mode:vertical-rl}
+.ready .shoe-box{animation:shoein 1.4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes shoein{from{opacity:0;transform:translateX(18%) rotate(8deg)}}
+
+/* features */
+.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;padding:40px 0 100px}
+.feat .ic{width:94px;height:94px;margin:0 auto 18px;border-radius:50%;background:var(--bg2);display:grid;place-items:center;transition:transform .4s,background .4s}
+.feat>div:hover .ic{transform:translateY(-6px);background:#fff}
+.feat svg{width:46px;height:46px;fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.feat svg *{stroke-dasharray:200;stroke-dashoffset:200;transition:stroke-dashoffset 1.6s ease .2s}
+.feat .in svg *{stroke-dashoffset:0}
+.feat h3{margin:0;font-size:17px;font-weight:700;letter-spacing:.1em}.feat p{margin:2px 0 0;font-size:13px;color:var(--sub)}
+
+/* walk banner */
+.walk{position:relative;height:clamp(380px,46vw,560px);overflow:hidden;color:#fff;display:flex;align-items:center}
+.walk img{position:absolute;left:0;top:-15%;width:100%;height:130%;object-fit:cover;object-position:70% 50%}
+.walk::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(20,20,20,.62),rgba(20,20,20,.15) 55%,transparent)}
+.walk .wrap{position:relative;z-index:2;width:100%}
+.walk h2{margin:0 0 18px;font-size:clamp(26px,3.4vw,40px);font-weight:500;line-height:1.6;letter-spacing:.14em}
+.walk p{margin:0;font-size:15px;letter-spacing:.14em;line-height:2}
+
+section{padding:clamp(90px,11vw,140px) 0}
+.lbl{display:flex;justify-content:space-between;align-items:end;margin:0 0 34px}
+.lbl h2{margin:0;font-family:'Inter';font-weight:800;font-size:16px;letter-spacing:.18em}
+.lbl h2 span{display:block;font-family:'Noto Sans JP';font-weight:700;font-size:clamp(26px,3.2vw,38px);letter-spacing:.08em;margin-top:6px}
+.lbl a{font-size:13px}
+.lbl a:hover{text-decoration:underline}
+
+/* tech */
+.tech{background:var(--wh)}
+.tech-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.hot{position:relative}
+.hot img{width:100%;-webkit-mask-image:radial-gradient(closest-side,#000 70%,transparent);mask-image:radial-gradient(closest-side,#000 70%,transparent)}
+.pin{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:var(--ink);border:0;cursor:pointer;color:#fff;font-family:'Inter';font-weight:800;font-size:13px}
+.pin::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:1.5px solid var(--ink);animation:ping 2s infinite}
+@keyframes ping{from{transform:scale(.6);opacity:1}to{transform:scale(1.5);opacity:0}}
+.pin[aria-pressed=true]{background:#C2552E}.pin[aria-pressed=true]::before{border-color:#C2552E}
+.tlist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.tlist li{padding:22px 4px;border-bottom:1px solid var(--line);cursor:pointer;transition:padding .3s,opacity .3s;opacity:.45}
+.tlist li.on{opacity:1;padding-left:16px}
+.tlist b{font-family:'Inter';font-weight:800;margin-right:14px}
+.tlist h3{display:inline;margin:0;font-size:18px}
+.tlist p{margin:8px 0 0;font-size:14px;color:var(--sub);max-height:0;overflow:hidden;transition:max-height .5s}
+.tlist li.on p{max-height:120px}
+
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line)}
+.nums div{padding:44px 20px;text-align:center;border-right:1px solid var(--line)}.nums div:last-child{border:0}
+.nums b{font-family:'Inter';font-weight:900;font-size:clamp(48px,6vw,80px);line-height:1;letter-spacing:-.03em}
+.nums small{font-family:'Inter';font-weight:800;font-size:20px;margin-left:4px}
+.nums p{margin:10px 0 0;font-size:13px;color:var(--sub)}
+
+/* colors */
+.colors{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cc{background:var(--bg2);border:0;cursor:pointer;padding:0 0 18px;text-align:center;transition:transform .4s,box-shadow .4s}
+.cc:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+.cc .im{aspect-ratio:2/1;overflow:hidden;display:grid;place-items:center;margin-bottom:14px}
+.cc img{width:100%;mix-blend-mode:multiply;transition:transform .6s}.cc:hover img{transform:scale(1.08) rotate(-3deg)}
+.cc span{display:inline-flex;align-items:center;gap:12px;font-size:14px}
+.cc i{width:16px;height:16px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+
+/* style */
+.styles{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px}
+.st{position:relative;height:clamp(380px,40vw,520px);overflow:hidden;color:#fff;background:var(--sbg,#ccc)}
+.st.prod img{inset:auto 6% 30% 6%;width:88%;height:auto;object-fit:contain;mix-blend-mode:multiply}.st.prod:hover img{transform:translateY(-10px) rotate(-5deg)}
+.st img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.st:hover img{transform:scale(1.08)}
+.st::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.6))}
+.st div{position:absolute;left:24px;bottom:22px;right:24px;z-index:1}
+.st b{font-family:'Inter';font-weight:800;font-size:12px;letter-spacing:.24em}
+.st h3{margin:4px 0 0;font-size:20px;font-weight:700}
+
+/* spec */
+.spec{display:grid;grid-template-columns:1.1fr 1fr;gap:64px}
+.spec dl{margin:0;display:grid;grid-template-columns:7em 1fr;font-size:14px}
+.spec dt,.spec dd{margin:0;padding:16px 0;border-bottom:1px solid var(--line)}
+.spec dt{color:var(--sub)}
+.sizes{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:16px}
+.sizes button{height:48px;border:1px solid var(--line);background:var(--wh);cursor:pointer;font-family:'Inter';font-weight:600;transition:.2s}
+.sizes button:hover{border-color:var(--ink)}
+.sizes button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sizes button:disabled{color:#bbb;background:repeating-linear-gradient(-45deg,transparent 0 6px,#eee 6px 7px);cursor:not-allowed}
+.note{font-size:12px;color:var(--sub);margin:0 0 22px}
+
+/* reviews */
+.rv-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:start}
+.score b{font-family:'Inter';font-weight:900;font-size:84px;line-height:1}
+.stars{color:var(--ink);letter-spacing:.14em}
+.bars{margin-top:20px;display:grid;gap:8px;font-family:'Inter';font-size:12px}
+.bars div{display:grid;grid-template-columns:20px 1fr 36px;gap:10px;align-items:center}
+.bars i{display:block;height:6px;background:var(--line);position:relative;overflow:hidden}
+.bars i::after{content:"";position:absolute;inset:0;background:var(--ink);transform-origin:left;transform:scaleX(0);transition:transform 1.4s cubic-bezier(.2,.7,.2,1);width:var(--w)}
+.bars.in i::after{transform:scaleX(1)}
+.reviews{display:grid;gap:16px}
+.reviews article{background:var(--wh);padding:26px 28px;border:1px solid var(--line)}
+.reviews h3{margin:6px 0 6px;font-size:16px}.reviews p{margin:0;font-size:14px;color:var(--sub)}
+.reviews footer{margin-top:12px;font-size:12px;color:#8a8478;padding:0;border:0;background:none;text-align:left}
+
+.mq-band{padding:30px 0;border-block:1px solid var(--line)}
+.mq-band .mq>div{gap:60px;padding-right:60px;font-family:'Inter';font-weight:900;font-size:clamp(56px,9vw,120px);line-height:1;letter-spacing:-.02em;text-transform:uppercase}
+.mq-band .o{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font-weight:700;position:relative}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border-right:1.5px solid;border-bottom:1.5px solid;transform:translateY(-70%) rotate(45deg);transition:transform .3s}
+.faq details[open] summary::after{transform:translateY(-20%) rotate(-135deg)}
+.faq p{margin:0 0 22px;color:var(--sub);font-size:14px}
+
+.buybar{position:fixed;left:50%;bottom:20px;z-index:45;transform:translate(-50%,140%);display:flex;align-items:center;gap:24px;background:var(--ink);color:#fff;padding:10px 10px 10px 28px;border-radius:999px;box-shadow:0 20px 40px rgba(0,0,0,.25);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.show-bar .buybar{transform:translate(-50%,0)}
+.buybar b{font-family:'Inter';font-weight:800}
+.buybar button{background:#fff;color:var(--ink);border:0;border-radius:999px;padding:12px 24px;cursor:pointer;font-weight:700;letter-spacing:.08em}
+
+footer.ft{padding:70px 0 120px;text-align:center;border-top:1px solid var(--line)}
+footer.ft .logo{display:inline-block}
+.sample{display:inline-block;margin-top:18px;font-size:12px;color:var(--sub);background:var(--wh);border:1px solid var(--line);padding:8px 14px}.sample a{text-decoration:underline}
+
+@media (max-width:900px){
+ nav{display:none}.icons{margin-left:auto}
+ .hero{padding-top:96px}.hero .wrap{grid-template-columns:1fr}.shoe-box{order:-1;max-width:420px;margin:0 auto;width:100%}
+ .feat{grid-template-columns:repeat(2,1fr);row-gap:40px}
+ .tech-grid,.spec,.rv-grid{grid-template-columns:1fr}
+ .colors{grid-template-columns:repeat(2,1fr)}
+ .styles{grid-template-columns:1fr 1fr}.styles .st:first-child{grid-column:1/-1}.st{height:300px}
+ .nums{grid-template-columns:1fr}.nums div{border-right:0;border-bottom:1px solid var(--line);padding:30px}
+ .buybar{gap:14px;padding-left:20px;font-size:13px}
 }
 </style>
 </head>
 <body>
+<div class="progress"></div>
 <header><div class="wrap hd">
-<a class="logo" href="#">KICKS</a>
-<nav><ul><li><a href="#spec">商品</a></li><li><a href="#feat">特長</a></li><li><a href="#style">スタイル</a></li><li><a href="#color">カラー</a></li></ul></nav>
-<div class="icons" style="margin-left:auto">
-<button aria-label="検索"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
-<button aria-label="カート"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2l2.4 11h11l2-8H6.5"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg><span class="badge" id="badge">0</span></button>
+<a class="logo" href="#" aria-label="KICKS"><svg class="" viewBox="0 0 90 26" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M24.3 5.0 L23.7 5.7 L23.8 6.8 L23.7 19.3 L23.8 19.7 L24.5 20.0 L25.3 20.0 L26.2 19.2 L26.0 18.7 L26.2 17.7 L26.0 6.2 L26.2 5.7 L25.5 5.0Z M64.2 4.8 L62.2 5.2 L56.7 11.3 L56.0 11.3 L55.5 10.7 L55.5 5.7 L55.3 5.3 L54.8 5.0 L53.3 5.2 L53.2 5.5 L53.2 9.7 L53.3 9.8 L53.2 19.3 L53.5 19.8 L54.8 20.0 L55.3 19.7 L55.5 19.3 L55.5 15.7 L55.8 14.8 L57.3 13.5 L58.3 14.0 L59.3 15.7 L62.5 19.8 L64.2 20.0 L65.2 19.7 L65.0 19.0 L62.7 16.3 L59.7 11.8 L59.8 11.0 L61.3 9.7 L63.5 6.8 L64.5 6.0 L64.7 5.3Z M38.0 5.0 L36.3 5.7 L34.7 6.8 L33.3 8.8 L32.5 12.0 L32.5 13.2 L33.0 15.5 L34.0 17.3 L35.8 19.0 L37.3 19.8 L38.5 20.2 L42.3 20.0 L44.3 19.0 L46.2 17.2 L46.2 16.5 L45.5 16.0 L44.5 15.8 L44.0 16.0 L42.5 17.5 L40.3 18.2 L38.7 18.0 L37.5 17.5 L35.8 15.7 L35.2 13.7 L35.3 10.5 L36.3 8.7 L37.7 7.3 L38.7 6.8 L41.3 6.8 L42.7 7.5 L44.3 9.0 L45.5 9.0 L46.0 8.5 L46.0 8.0 L44.3 6.0 L43.0 5.3 L41.2 4.8Z M5.3 5.0 L4.8 5.7 L4.8 8.8 L5.0 9.0 L4.8 9.7 L4.8 11.3 L5.0 11.5 L4.8 11.7 L4.8 17.7 L5.0 17.8 L4.8 19.5 L5.2 19.8 L6.2 20.0 L7.2 19.3 L7.2 17.3 L7.0 17.2 L7.2 15.8 L7.8 14.7 L8.8 13.7 L9.3 13.5 L10.2 14.2 L12.3 17.3 L14.3 19.7 L16.3 20.0 L16.7 19.7 L16.7 19.2 L15.7 18.2 L15.5 17.7 L14.2 16.2 L11.3 12.2 L11.5 11.0 L13.8 8.5 L15.0 6.8 L16.2 5.8 L16.3 5.5 L16.2 5.0 L15.5 4.8 L13.7 5.3 L9.5 9.8 L9.3 10.3 L8.5 11.2 L8.0 11.3 L7.2 11.2 L6.8 10.7 L7.2 9.7 L7.2 5.7 L6.7 5.0 L6.2 4.8Z M74.5 5.0 L72.7 6.2 L71.7 7.5 L71.3 8.3 L71.3 9.7 L72.2 11.3 L73.5 12.5 L75.5 12.8 L77.0 13.5 L77.8 13.5 L79.2 14.2 L80.2 15.2 L80.3 16.5 L79.7 17.5 L78.3 18.3 L75.5 18.2 L74.3 17.5 L73.2 16.2 L71.7 16.5 L71.2 17.3 L71.3 17.8 L72.5 19.0 L73.7 19.7 L76.2 20.2 L79.2 20.0 L81.0 19.2 L82.3 17.5 L82.7 16.5 L82.7 14.8 L82.3 14.0 L81.0 12.5 L80.2 12.0 L79.7 12.0 L78.3 11.3 L77.0 11.3 L75.7 10.8 L74.0 9.3 L73.8 8.3 L75.0 7.0 L76.8 6.3 L78.0 6.5 L79.0 7.0 L80.5 8.3 L81.3 8.3 L81.8 7.3 L81.7 6.8 L80.5 5.7 L78.5 4.8 L76.2 4.7 L75.3 5.0Z"/></svg></a>
+<nav><ul><li><a href="#color">商品</a></li><li><a href="#tech">特長</a></li><li><a href="#style">スタイル</a></li><li><a href="#review">レビュー</a></li></ul></nav>
+<div class="icons">
+<button aria-label="検索"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5 5"/></svg></button>
+<button class="cart" aria-label="カート"><svg width="28" height="26" viewBox="0 0 28 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M1 2h4l3 14h15l3-10H7"/><circle cx="10" cy="22" r="2"/><circle cx="21" cy="22" r="2"/></svg><b id="cnt">0</b></button>
+<button class="burger" data-menu="ov" aria-label="メニューを開く" aria-expanded="false"><i></i><i></i><i></i></button>
 </div>
 </div></header>
+<div class="nav-overlay" id="ov"><ul><li><a href="#color">Product</a></li><li><a href="#tech">Technology</a></li><li><a href="#style">Style</a></li><li><a href="#review">Review</a></li></ul></div>
 
 <main>
 <div class="hero"><div class="wrap">
 <div>
-<p class="lead">毎日を、軽やかに。</p>
-<h1>AIR<br>WALKER</h1>
-<p>歩くたび、気持ちが前を向く。<br>軽さとクッション性を追求した、<br>新しいスタンダードスニーカー。</p>
-<p class="price">¥12,800 <small>（税込）</small></p>
-<div class="sw" id="sw">
-<button aria-label="ホワイト" aria-pressed="true" data-i="0" style="background:#F2F0EC"></button>
-<button aria-label="ブラック" aria-pressed="false" data-i="1" style="background:#2A2A2A"></button>
-<button aria-label="オリーブ" aria-pressed="false" data-i="2" style="background:#77704F"></button>
-<button aria-label="グレー" aria-pressed="false" data-i="3" style="background:#B5B5B5"></button>
+<p class="catch" data-rv="blur">毎日を、軽やかに。</p>
+<h1 style="margin:0"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">AIR WALKER</span><svg class="title" viewBox="0 0 384 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="w1"><path fill="currentColor" fill-rule="evenodd" d="M98.8 3.8 L98.3 4.7 L98.3 64.3 L98.5 64.8 L99.2 65.5 L99.7 65.7 L111.7 65.5 L112.2 65.3 L112.7 64.8 L113.0 63.7 L113.0 46.2 L113.2 45.5 L114.3 44.5 L120.7 44.5 L121.7 44.8 L122.8 46.2 L126.7 53.3 L129.7 58.3 L132.5 63.8 L133.5 65.2 L134.7 65.7 L142.5 65.7 L142.7 65.5 L148.2 65.5 L148.7 65.3 L149.0 65.0 L148.8 63.7 L140.2 48.3 L138.8 46.3 L137.3 43.2 L137.5 42.5 L138.3 41.7 L141.8 39.3 L144.5 36.5 L146.7 32.8 L147.3 31.2 L148.0 28.3 L148.5 23.3 L147.7 18.0 L146.2 14.2 L143.5 10.3 L140.8 7.8 L136.5 5.5 L133.0 4.3 L131.0 4.2 L127.8 3.5 L99.7 3.5Z M113.2 16.7 L114.0 15.8 L114.5 15.7 L125.7 15.7 L127.3 16.2 L129.0 17.0 L131.3 19.2 L132.8 22.3 L133.0 25.2 L132.5 27.0 L131.7 28.7 L129.3 31.0 L126.5 32.3 L125.5 32.5 L114.5 32.5 L114.0 32.3 L113.2 31.5 L113.0 31.0 L113.0 17.3Z M74.3 3.5 L73.8 3.7 L73.2 4.3 L73.0 5.0 L73.0 12.2 L72.8 12.3 L73.0 64.5 L73.5 65.3 L74.3 65.7 L86.3 65.5 L86.8 65.3 L87.5 64.7 L87.7 64.0 L87.7 45.2 L87.5 45.0 L87.7 44.5 L87.7 27.5 L87.5 27.3 L87.7 7.3 L87.5 7.2 L87.5 4.3 L86.7 3.5Z M24.8 4.5 L24.2 6.0 L22.7 10.8 L20.5 16.5 L19.8 19.0 L17.3 25.5 L14.8 33.3 L14.2 34.7 L11.5 42.7 L10.7 44.5 L6.8 56.3 L4.3 63.2 L4.2 64.8 L5.2 65.5 L18.5 65.5 L18.8 65.3 L19.7 64.3 L22.8 54.7 L23.3 53.7 L24.5 52.7 L25.2 52.5 L26.5 52.7 L27.0 52.5 L33.3 52.5 L33.5 52.7 L44.7 52.5 L45.2 52.7 L46.3 54.0 L49.3 64.0 L50.3 65.3 L51.5 65.7 L64.3 65.5 L64.8 65.0 L65.0 64.2 L63.7 59.7 L58.3 43.8 L58.0 43.3 L56.3 37.8 L53.7 30.7 L49.2 16.5 L44.8 4.3 L44.2 3.7 L43.7 3.5 L26.0 3.5Z M34.5 20.0 L35.2 20.2 L35.8 21.0 L36.3 23.2 L38.0 27.7 L41.3 38.2 L41.7 40.5 L41.0 41.3 L39.5 41.7 L39.0 41.5 L30.0 41.7 L28.7 41.5 L28.0 41.2 L27.5 40.2 L28.8 35.2 L30.3 31.2 L30.5 30.0 L31.3 28.0 L33.5 21.0Z"/></g><g transform="translate(0 72)"><g class="w2"><path fill="currentColor" fill-rule="evenodd" d="M114.0 6.7 L113.3 7.3 L112.3 9.7 L103.5 35.5 L99.3 46.5 L98.2 50.5 L96.3 55.3 L96.3 55.8 L92.2 67.5 L92.3 68.3 L93.0 68.7 L106.8 68.7 L107.2 68.5 L108.0 67.3 L109.7 62.3 L111.0 57.3 L111.5 56.5 L112.3 55.8 L113.0 55.7 L133.2 55.7 L134.0 56.0 L135.0 57.3 L137.8 67.2 L138.8 68.5 L140.7 68.8 L146.7 68.8 L146.8 68.7 L152.5 68.7 L152.8 68.5 L153.3 67.8 L153.3 67.3 L151.5 61.3 L151.2 60.8 L146.2 45.5 L143.5 38.5 L138.3 22.7 L133.0 7.5 L132.3 6.8 L131.5 6.5 L114.5 6.5Z M122.8 22.5 L123.3 22.7 L124.0 23.3 L125.3 28.0 L126.8 31.8 L129.2 39.7 L130.2 42.2 L130.3 43.7 L129.7 44.5 L128.8 44.8 L117.3 44.8 L116.3 44.5 L115.7 43.8 L115.7 42.3 L120.5 27.8 L120.5 27.3 L121.3 25.3 L121.7 23.7Z M327.7 6.7 L327.0 8.0 L327.0 10.0 L327.2 10.2 L327.0 41.5 L327.2 41.7 L327.2 67.7 L327.3 68.2 L328.5 68.8 L340.5 68.8 L341.3 68.5 L341.8 67.5 L341.8 60.3 L342.0 60.2 L341.8 49.2 L342.0 48.7 L342.7 47.8 L343.5 47.5 L349.7 47.5 L350.5 47.8 L351.5 48.8 L355.8 56.8 L357.3 59.2 L361.7 67.3 L362.5 68.3 L363.7 68.8 L377.2 68.8 L377.7 68.7 L378.0 68.3 L378.0 67.5 L370.2 54.0 L366.2 46.7 L366.3 45.3 L371.0 42.2 L373.8 39.0 L375.5 35.8 L376.7 32.3 L377.2 28.8 L377.2 24.8 L376.7 21.7 L375.0 17.2 L372.7 13.7 L370.5 11.5 L367.3 9.3 L365.3 8.3 L362.8 7.5 L359.2 6.7 L355.5 6.5 L355.3 6.3 L328.5 6.3Z M342.2 19.5 L342.8 18.8 L343.8 18.5 L353.5 18.5 L355.3 18.8 L358.0 19.8 L360.2 21.8 L361.0 23.2 L361.7 25.2 L361.8 28.0 L361.5 29.8 L360.8 31.5 L358.7 34.0 L357.2 34.8 L353.2 35.8 L344.2 35.8 L342.8 35.5 L342.0 34.3 L341.8 20.3Z M273.7 6.8 L273.3 7.5 L273.3 15.7 L273.2 15.8 L273.2 19.3 L273.3 19.5 L273.3 67.8 L273.5 68.2 L274.7 68.8 L314.0 68.8 L316.8 68.5 L317.3 67.7 L317.3 58.0 L316.7 57.2 L316.2 57.0 L293.2 57.0 L292.7 57.2 L292.5 57.0 L289.3 57.0 L288.2 56.2 L287.8 55.3 L287.8 45.3 L288.2 44.5 L288.7 44.0 L289.7 43.7 L301.8 43.7 L302.0 43.5 L311.2 43.7 L314.2 43.3 L314.8 42.2 L314.8 33.0 L314.7 32.5 L314.0 31.8 L313.5 31.7 L289.5 31.7 L288.8 31.5 L288.0 30.7 L287.8 30.2 L287.8 20.0 L288.5 18.8 L289.8 18.3 L291.3 18.5 L316.2 18.5 L317.2 18.0 L317.5 17.0 L317.2 7.2 L316.5 6.5 L316.0 6.3 L275.8 6.3 L274.3 6.5Z M212.3 6.7 L211.7 7.5 L211.7 67.5 L211.8 68.0 L212.7 68.7 L215.8 68.7 L216.0 68.8 L225.2 68.7 L225.8 68.3 L226.2 67.7 L226.2 65.0 L226.3 64.8 L226.3 62.2 L226.2 62.0 L226.3 52.0 L227.3 50.2 L232.2 45.0 L233.3 44.8 L235.0 46.8 L241.5 57.5 L244.5 61.8 L248.0 67.5 L249.0 68.5 L250.0 68.8 L257.7 68.8 L257.8 68.7 L264.5 68.7 L264.8 68.5 L265.0 67.5 L264.7 66.8 L263.8 65.8 L260.0 59.2 L253.8 50.2 L247.8 40.7 L244.0 35.2 L243.7 34.3 L243.7 33.5 L244.5 32.2 L250.7 25.0 L255.3 18.8 L262.0 11.0 L264.3 8.0 L264.5 6.8 L263.8 6.5 L262.3 6.3 L253.2 6.3 L253.0 6.5 L249.3 6.3 L248.3 6.7 L247.0 8.0 L238.0 19.5 L233.5 24.8 L228.8 31.0 L227.7 32.2 L227.0 32.3 L226.5 32.0 L226.2 31.2 L226.3 30.2 L226.3 11.5 L226.2 11.3 L226.3 9.3 L226.0 7.2 L225.5 6.7 L224.3 6.3 L213.5 6.3Z M162.2 6.7 L161.5 7.5 L161.5 14.0 L161.3 14.2 L161.5 67.5 L161.7 68.0 L162.5 68.7 L173.8 68.7 L174.0 68.8 L194.7 68.8 L194.8 68.7 L201.0 68.7 L201.2 68.8 L202.3 68.5 L203.0 67.5 L203.0 58.3 L202.8 57.8 L202.2 57.2 L201.5 57.0 L177.8 57.0 L177.0 56.7 L176.5 56.2 L176.2 55.3 L176.2 7.8 L175.7 6.8 L174.0 6.3 L164.2 6.3Z M4.5 7.0 L4.3 7.7 L6.8 15.8 L9.8 27.2 L12.2 34.7 L13.3 39.3 L14.2 41.5 L16.5 50.3 L18.0 54.7 L21.5 67.7 L22.2 68.5 L23.2 68.8 L24.2 68.7 L26.7 68.7 L26.8 68.8 L36.0 68.7 L36.5 68.5 L37.2 67.8 L40.0 57.8 L41.3 54.0 L42.5 49.3 L43.3 47.2 L44.8 41.7 L45.3 40.7 L45.8 38.3 L47.0 35.2 L47.5 32.8 L47.8 32.0 L48.3 31.5 L49.2 31.5 L49.8 32.3 L50.5 35.2 L53.0 42.5 L55.5 51.7 L56.2 53.2 L56.3 54.3 L59.0 62.7 L59.3 64.7 L60.5 68.0 L61.5 68.7 L75.0 68.7 L75.8 68.0 L77.3 63.5 L79.5 55.0 L80.7 51.7 L82.5 44.5 L84.3 38.8 L84.8 36.3 L88.3 25.2 L90.7 15.8 L92.8 8.7 L93.0 7.3 L92.5 6.7 L92.0 6.5 L79.7 6.5 L79.2 6.3 L78.3 6.5 L77.5 7.2 L76.2 11.8 L76.0 13.3 L75.3 15.3 L73.8 22.3 L72.5 26.8 L71.8 30.2 L71.3 31.3 L70.0 37.8 L68.2 45.2 L67.8 46.0 L67.3 46.5 L66.5 46.5 L66.0 46.0 L65.7 45.0 L65.7 44.0 L62.8 33.8 L61.3 27.3 L60.8 26.2 L60.3 23.7 L58.8 18.8 L56.5 9.5 L55.8 7.5 L55.0 6.7 L45.3 6.3 L45.2 6.5 L43.2 6.5 L42.2 7.0 L41.8 7.5 L39.7 14.8 L37.8 22.7 L34.0 35.5 L32.7 41.0 L31.3 45.3 L30.7 46.3 L30.0 46.3 L29.2 45.2 L26.5 33.0 L25.8 31.0 L25.5 28.8 L20.2 7.2 L19.3 6.5 L18.7 6.3 L5.2 6.5Z"/></g></g></svg></h1>
+<p class="copy" data-rv style="--d:.6s">歩くたび、気持ちが前を向く。<br>軽さとクッション性を追求した、<br>新しいスタンダードスニーカー。</p>
+<p class="price" data-rv style="--d:.75s">¥12,800<small>（税込）</small></p>
+<div class="swatches" data-stagger=".08" data-kind="pop" style="--d:.8s" role="group" aria-label="カラーを選ぶ">
+<button class="sw" style="--c:#EDE9E1" aria-pressed="true" data-f="none" data-n="ホワイト" aria-label="ホワイト"></button>
+<button class="sw" style="--c:#2B2B2B" aria-pressed="false" data-f="grayscale(1) brightness(.32) contrast(1.4)" data-n="ブラック" aria-label="ブラック"></button>
+<button class="sw" style="--c:#7E8E63" aria-pressed="false" data-f="sepia(1) hue-rotate(35deg) saturate(1.3) brightness(.68)" data-n="オリーブ" aria-label="オリーブ"></button>
+<button class="sw" style="--c:#B4BAC0" aria-pressed="false" data-f="grayscale(1) brightness(.86) contrast(1.05)" data-n="グレー" aria-label="グレー"></button>
 </div>
-<button class="cart" id="cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M3 4h2l2.4 11h11l2-8H6.5z"/><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/></svg>カートに入れる</button>
+<p class="cname" id="cname" aria-live="polite">ホワイト</p>
+<button class="add" id="add" data-rv style="--d:.95s"><svg width="20" height="18" viewBox="0 0 28 26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M1 2h4l3 14h15l3-10H7"/><circle cx="10" cy="22" r="2"/><circle cx="21" cy="22" r="2"/></svg><span>カートに入れる</span></button>
 </div>
-<div class="shoe"><img id="shoe" src="hero.jpg" alt="軽量ニット素材の白いスニーカー"><span class="cname" id="cname">COLOR：ホワイト</span></div>
+<div class="shoe-box" aria-hidden="false">
+<span class="ring"></span><span class="ring"></span>
+<div class="shoe" id="shoe"><img src="hero.jpg" alt="AIR WALKER ホワイト"></div>
+<span class="shadow"></span>
+<span class="tagline">COLOR・WHITE</span>
+</div>
 </div></div>
 
-<div class="wrap feat" id="feat">
-<div><span class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 4C10 4 5 9 4 20M20 4c0 8-5 13-12 13M9 12l4-1"/></svg></span><b>驚くほど軽い</b><small>片足 約220g</small></div>
-<div><span class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8c3-2 6 2 9 0s6 2 9 0M3 13c3-2 6 2 9 0s6 2 9 0M3 18c3-2 6 2 9 0s6 2 9 0"/></svg></span><b>やさしいクッション</b><small>長時間でも快適</small></div>
-<div><span class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 4c-1 2 1 3 0 5M12 4c-1 2 1 3 0 5M17 4c-1 2 1 3 0 5M4 14h16M6 18h2M11 18h2M16 18h2"/></svg></span><b>通気性の高いメッシュ</b><small>ムレにくく快適</small></div>
-<div><span class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 16c0-5 6-10 12-10 3 0 4 2 4 4 0 5-6 9-12 9-2 0-4-1-4-3zM8 13l1 1M11 11l1 1M14 9l1 1"/></svg></span><b>滑りにくいソール</b><small>雨の日も安心</small></div>
+<div class="wrap feat" data-stagger=".12">
+<div><div class="ic"><svg viewBox="0 0 48 48"><path d="M38 6C22 8 12 20 10 38M38 6c-2 12-10 22-24 26M18 26l8 1M22 20l8 1M27 14l7 1"/></svg></div><h3>驚くほど軽い</h3><p>片足 約220g</p></div>
+<div><div class="ic"><svg viewBox="0 0 48 48"><path d="M6 16c6-5 12 5 18 0s12 5 18 0M6 25c6-5 12 5 18 0s12 5 18 0M6 34c6-5 12 5 18 0s12 5 18 0"/></svg></div><h3>やさしいクッション</h3><p>長時間でも快適</p></div>
+<div><div class="ic"><svg viewBox="0 0 48 48"><path d="M16 6c-3 3 3 6 0 9M24 6c-3 3 3 6 0 9M32 6c-3 3 3 6 0 9M6 26c8-4 28-4 36 0M14 34h.1M24 34h.1M34 34h.1M19 40h.1M29 40h.1"/></svg></div><h3>通気性の高いメッシュ</h3><p>ムレにくく快適</p></div>
+<div><div class="ic"><svg viewBox="0 0 48 48"><path d="M8 30c0-8 8-18 24-18 6 0 10 4 10 8s-4 8-12 10-22 8-22 0zM16 28l4-4M22 26l4-4M28 24l4-4M34 21l3-3"/></svg></div><h3>滑りにくいソール</h3><p>雨の日も安心</p></div>
 </div>
 
-<div class="band" id="style"><div class="wrap">
-<h2>どこまでも、<br>歩いていきたくなる。</h2>
-<p>街も、自然も、仕事も、遊びも。<br>すべてのシーンに寄り添う、<br>あなたの定番スニーカー。</p>
+<div class="walk"><img src="walk.jpg" alt="AIR WALKERを履いて街を歩く足元" data-parallax=".12"><div class="wrap">
+<h2 data-rv="left">どこまでも、<br>歩いていきたくなる。</h2>
+<p data-rv="left" style="--d:.2s">街も、自然も、仕事も、遊びも。<br>すべてのシーンに寄り添う、<br>あなたの定番スニーカー。</p>
 </div></div>
 
-<section id="color"><div class="wrap">
-<div class="sh"><h2>COLOR</h2><span class="note">4色展開</span></div>
-<div class="colors" id="colors">
-<button aria-pressed="true" data-i="0"><img src="c1.jpg" alt="ホワイト">ホワイト</button>
-<button aria-pressed="false" data-i="1"><img src="c2.jpg" alt="ブラック">ブラック</button>
-<button aria-pressed="false" data-i="2"><img src="c3.jpg" alt="オリーブ">オリーブ</button>
-<button aria-pressed="false" data-i="3"><img src="c4.jpg" alt="グレー">グレー</button>
+<section id="tech" class="tech"><div class="wrap">
+<div class="lbl" data-rv><h2>TECHNOLOGY<span>軽さの理由</span></h2></div>
+<div class="tech-grid">
+<div class="hot" data-rv="zoom">
+<img src="hero.jpg" alt="">
+<button class="pin" style="left:62%;top:30%" aria-pressed="true" data-t="0">1</button>
+<button class="pin" style="left:44%;top:66%" aria-pressed="false" data-t="1">2</button>
+<button class="pin" style="left:24%;top:82%" aria-pressed="false" data-t="2">3</button>
+</div>
+<ul class="tlist" data-rv="right">
+<li class="on"><b class="en">01</b><h3>ニットアッパー</h3><p>一本の糸で編み上げたアッパーは、縫い目が少なく足あたりがやわらか。通気孔をメッシュで配置し、ムレを逃がします。</p></li>
+<li><b class="en">02</b><h3>エアフォーム ミッドソール</h3><p>独自の発泡素材で、着地の衝撃を吸収し、蹴り出しを軽やかに。従来モデル比で約18%軽くなりました。</p></li>
+<li><b class="en">03</b><h3>グリップ アウトソール</h3><p>濡れた路面でも滑りにくい溝パターン。すり減りやすいかかとは、厚みを持たせて長持ちさせています。</p></li>
+</ul>
 </div>
 </div></section>
 
-<section id="spec" style="padding-top:0"><div class="wrap spec">
-<div>
-<h2>SPEC</h2>
-<table>
-<tr><th>素材</th><td>アッパー：ニットメッシュ／ソール：EVA・ラバー</td></tr>
-<tr><th>重さ</th><td>片足 約220g（26.5cm）</td></tr>
-<tr><th>ヒール高</th><td>約3.5cm</td></tr>
-<tr><th>カラー</th><td>ホワイト／ブラック／オリーブ／グレー</td></tr>
-<tr><th>お手入れ</th><td>中性洗剤で手洗い可</td></tr>
-</table>
+<div class="wrap"><div class="nums" data-stagger=".12">
+<div><b class="en" data-count="220">0</b><small>g</small><p>片足の重さ（26.5cm）</p></div>
+<div><b class="en" data-count="18">0</b><small>%</small><p>従来モデルより軽量化</p></div>
+<div><b class="en" data-count="4.8">0</b><small>/5</small><p>購入者の平均評価</p></div>
+</div></div>
+
+<section id="color"><div class="wrap">
+<div class="lbl" data-rv><h2>COLOR<span>4つのカラー</span></h2><a href="#">すべて見る ›</a></div>
+<div class="colors" data-stagger=".1">
+<button class="cc" data-i="0"><div class="im"><img src="c1.jpg" alt="ホワイト"></div><span>ホワイト<i style="--c:#EDE9E1"></i></span></button>
+<button class="cc" data-i="1"><div class="im"><img src="c2.jpg" alt="ブラック"></div><span>ブラック<i style="--c:#2B2B2B"></i></span></button>
+<button class="cc" data-i="2"><div class="im"><img src="c3.jpg" alt="オリーブ"></div><span>オリーブ<i style="--c:#7E8E63"></i></span></button>
+<button class="cc" data-i="3"><div class="im"><img src="c4.jpg" alt="グレー"></div><span>グレー<i style="--c:#B4BAC0"></i></span></button>
 </div>
-<div>
-<h2>SIZE</h2>
-<div class="sizes" id="sizes"></div>
-<p class="note">※ ふだんのスニーカーと同じサイズがおすすめです。<br>※ 送料無料・30日以内なら交換OK（サンプル表記）。</p>
-<button class="cart" id="cart2" style="margin-top:12px">カートに入れる</button>
+</div></section>
+
+<div class="mq-band" aria-hidden="true"><div class="mq" style="--mqs:30s"><div><span>Everyday,</span><span class="o">Lighter.</span><span>Air Walker</span><span class="o">Kicks</span></div></div></div>
+
+<section id="style"><div class="wrap">
+<div class="lbl" data-rv><h2>STYLE<span>どんな日にも</span></h2></div>
+<div class="styles" data-stagger=".14" data-kind="clipup">
+<div class="st"><img src="walk.jpg" alt="" style="object-position:72% 60%"><div><b>CITY</b><h3>街を、軽快に。</h3></div></div>
+<div class="st prod" style="--sbg:#C9CDB4"><img src="c3.jpg" alt="オリーブ"><div><b>WEEKEND</b><h3>週末は、遠くまで。</h3></div></div>
+<div class="st prod" style="--sbg:#BFC3C7"><img src="c2.jpg" alt="ブラック"><div><b>WORK</b><h3>仕事の日も、足元から。</h3></div></div>
+</div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap spec">
+<div data-rv="left">
+<div class="lbl"><h2>SPEC<span>仕様</span></h2></div>
+<dl><dt>素材</dt><dd>アッパー：ニットメッシュ／ソール：EVA・ラバー</dd><dt>重さ</dt><dd>片足 約220g（26.5cm）</dd><dt>ヒール高</dt><dd>約3.5cm</dd><dt>カラー</dt><dd>ホワイト／ブラック／オリーブ／グレー</dd><dt>お手入れ</dt><dd>中性洗剤で手洗い可</dd></dl>
+</div>
+<div data-rv="right">
+<div class="lbl"><h2>SIZE<span>サイズを選ぶ</span></h2></div>
+<div class="sizes" id="sizes"><button>23</button><button>23.5</button><button>24</button><button>24.5</button><button>25</button><button>25.5</button><button disabled>26</button><button aria-pressed="true">26.5</button><button>27</button><button>27.5</button><button>28</button><button disabled>29</button></div>
+<p class="note">普段のスニーカーと同じサイズがおすすめです。斜線のサイズは在庫切れです。<br>※ 価格・在庫・仕様は制作サンプル用の架空のものです。</p>
+<button class="add shine" id="add2"><span>26.5cm をカートに入れる</span></button>
+</div>
+</div></section>
+
+<section id="review" class="tech"><div class="wrap">
+<div class="lbl" data-rv><h2>REVIEW<span>はいた人の声</span></h2></div>
+<div class="rv-grid">
+<div data-rv="left"><div class="score"><b class="en">4.8</b><div class="stars">★★★★★</div><small style="color:var(--sub)">128件のレビュー</small></div>
+<div class="bars" data-in><div><span>5</span><i style="--w:84%"></i><span>84%</span></div><div><span>4</span><i style="--w:12%"></i><span>12%</span></div><div><span>3</span><i style="--w:3%"></i><span>3%</span></div><div><span>2</span><i style="--w:1%"></i><span>1%</span></div><div><span>1</span><i style="--w:0%"></i><span>0%</span></div></div></div>
+<div class="reviews" data-stagger=".12" data-kind="right">
+<article><span class="stars">★★★★★</span><h3>一日中歩いても疲れない</h3><p>旅行で2万歩歩きましたが、足裏が痛くなりませんでした。軽いのに安定感があります。</p><footer>30代・女性／26.0cm・ホワイト</footer></article>
+<article><span class="stars">★★★★★</span><h3>通勤用に2足目を購入</h3><p>オリーブがきれいめな服にも合わせやすく、スーツの日以外はほぼこれです。</p><footer>40代・男性／27.0cm・オリーブ</footer></article>
+<article><span class="stars">★★★★☆</span><h3>サイズ感は普段通りでOK</h3><p>幅はややタイトめ。甲高の人はハーフサイズ上がよさそうです。</p><footer>20代・男性／26.5cm・ブラック</footer></article>
+</div>
+</div>
+<p class="note" style="margin-top:24px">※ レビューは制作サンプル用の架空のものです。</p>
+</div></section>
+
+<section class="faq"><div class="wrap" style="max-width:860px">
+<div class="lbl" data-rv><h2>FAQ<span>よくある質問</span></h2></div>
+<div data-stagger=".08">
+<details><summary>サイズ交換はできますか？</summary><p>未使用の場合、到着から30日以内なら送料無料で交換できます。</p></details>
+<details><summary>洗濯機で洗えますか？</summary><p>型くずれを防ぐため、中性洗剤での手洗いをおすすめしています。</p></details>
+<details><summary>雨の日でもはけますか？</summary><p>アウトソールは滑りにくい設計です。アッパーはメッシュのため、強い雨の日は撥水スプレーの併用がおすすめです。</p></details>
 </div>
 </div></section>
 </main>
 
-<footer><div class="wrap">
-<p class="en" style="margin:0;font-weight:700;letter-spacing:.3em;color:var(--ink)">KICKS</p>
-<p class="sample">このサイトは <a href="../../">AI mania</a> の制作サンプルです。実在の商品・ブランドとは関係ありません。</p>
-</div></footer>
-<div class="toast" id="toast">制作サンプルのため、購入はできません</div>
+<div class="buybar"><span>AIR WALKER <b>¥12,800</b></span><button id="add3">カートに入れる</button></div>
+
+<footer class="ft">
+<a class="logo" href="#"><svg class="" viewBox="0 0 90 26" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M24.3 5.0 L23.7 5.7 L23.8 6.8 L23.7 19.3 L23.8 19.7 L24.5 20.0 L25.3 20.0 L26.2 19.2 L26.0 18.7 L26.2 17.7 L26.0 6.2 L26.2 5.7 L25.5 5.0Z M64.2 4.8 L62.2 5.2 L56.7 11.3 L56.0 11.3 L55.5 10.7 L55.5 5.7 L55.3 5.3 L54.8 5.0 L53.3 5.2 L53.2 5.5 L53.2 9.7 L53.3 9.8 L53.2 19.3 L53.5 19.8 L54.8 20.0 L55.3 19.7 L55.5 19.3 L55.5 15.7 L55.8 14.8 L57.3 13.5 L58.3 14.0 L59.3 15.7 L62.5 19.8 L64.2 20.0 L65.2 19.7 L65.0 19.0 L62.7 16.3 L59.7 11.8 L59.8 11.0 L61.3 9.7 L63.5 6.8 L64.5 6.0 L64.7 5.3Z M38.0 5.0 L36.3 5.7 L34.7 6.8 L33.3 8.8 L32.5 12.0 L32.5 13.2 L33.0 15.5 L34.0 17.3 L35.8 19.0 L37.3 19.8 L38.5 20.2 L42.3 20.0 L44.3 19.0 L46.2 17.2 L46.2 16.5 L45.5 16.0 L44.5 15.8 L44.0 16.0 L42.5 17.5 L40.3 18.2 L38.7 18.0 L37.5 17.5 L35.8 15.7 L35.2 13.7 L35.3 10.5 L36.3 8.7 L37.7 7.3 L38.7 6.8 L41.3 6.8 L42.7 7.5 L44.3 9.0 L45.5 9.0 L46.0 8.5 L46.0 8.0 L44.3 6.0 L43.0 5.3 L41.2 4.8Z M5.3 5.0 L4.8 5.7 L4.8 8.8 L5.0 9.0 L4.8 9.7 L4.8 11.3 L5.0 11.5 L4.8 11.7 L4.8 17.7 L5.0 17.8 L4.8 19.5 L5.2 19.8 L6.2 20.0 L7.2 19.3 L7.2 17.3 L7.0 17.2 L7.2 15.8 L7.8 14.7 L8.8 13.7 L9.3 13.5 L10.2 14.2 L12.3 17.3 L14.3 19.7 L16.3 20.0 L16.7 19.7 L16.7 19.2 L15.7 18.2 L15.5 17.7 L14.2 16.2 L11.3 12.2 L11.5 11.0 L13.8 8.5 L15.0 6.8 L16.2 5.8 L16.3 5.5 L16.2 5.0 L15.5 4.8 L13.7 5.3 L9.5 9.8 L9.3 10.3 L8.5 11.2 L8.0 11.3 L7.2 11.2 L6.8 10.7 L7.2 9.7 L7.2 5.7 L6.7 5.0 L6.2 4.8Z M74.5 5.0 L72.7 6.2 L71.7 7.5 L71.3 8.3 L71.3 9.7 L72.2 11.3 L73.5 12.5 L75.5 12.8 L77.0 13.5 L77.8 13.5 L79.2 14.2 L80.2 15.2 L80.3 16.5 L79.7 17.5 L78.3 18.3 L75.5 18.2 L74.3 17.5 L73.2 16.2 L71.7 16.5 L71.2 17.3 L71.3 17.8 L72.5 19.0 L73.7 19.7 L76.2 20.2 L79.2 20.0 L81.0 19.2 L82.3 17.5 L82.7 16.5 L82.7 14.8 L82.3 14.0 L81.0 12.5 L80.2 12.0 L79.7 12.0 L78.3 11.3 L77.0 11.3 L75.7 10.8 L74.0 9.3 L73.8 8.3 L75.0 7.0 L76.8 6.3 L78.0 6.5 L79.0 7.0 L80.5 8.3 L81.3 8.3 L81.8 7.3 L81.7 6.8 L80.5 5.7 L78.5 4.8 L76.2 4.7 L75.3 5.0Z"/></svg></a><br>
+<p class="sample">このサイトは <a href="../../">AI mania</a> の制作サンプルです。実在のブランドとは関係ありません。</p>
+</footer>
+<script src="../_kit/motion.js"></script>
 <script>
 (function(){
-var names=['ホワイト','ブラック','オリーブ','グレー'],filters=['none','brightness(.28) contrast(1.3)','sepia(.9) hue-rotate(35deg) saturate(1.6) brightness(.62)','grayscale(1) brightness(.86)'];
-function pick(i){
- document.querySelectorAll('#sw button,#colors button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.i==i?'true':'false')});
- document.getElementById('shoe').style.filter=filters[i];document.getElementById('cname').textContent='COLOR：'+names[i];}
-document.querySelectorAll('#sw button,#colors button').forEach(function(b){b.addEventListener('click',function(){pick(+b.dataset.i)})});
-var s=document.getElementById('sizes');[23,23.5,24,24.5,25,25.5,26,26.5,27,27.5,28].forEach(function(v,k){var b=document.createElement('button');b.textContent=v;b.setAttribute('aria-pressed',v===26?'true':'false');b.onclick=function(){s.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true')};s.appendChild(b)});
-var t=document.getElementById('toast'),n=0,tm;
-function cart(){document.getElementById('badge').textContent=++n;t.classList.add('on');clearTimeout(tm);tm=setTimeout(function(){t.classList.remove('on')},2200)}
-document.getElementById('cart').onclick=cart;document.getElementById('cart2').onclick=cart;
+ var sws=[].slice.call(document.querySelectorAll('.sw')), shoe=document.querySelector('#shoe img'), cname=document.getElementById('cname'), tag=document.querySelector('.tagline');
+ var en=['WHITE','BLACK','OLIVE','GRAY'];
+ function pick(i){ sws.forEach(function(s,j){s.setAttribute('aria-pressed',i===j)}); shoe.style.setProperty('--f',sws[i].dataset.f); shoe.alt='AIR WALKER '+sws[i].dataset.n; cname.textContent=sws[i].dataset.n; tag.textContent='COLOR・'+en[i];
+  shoe.parentNode.animate([{transform:'rotate(-8deg) scale(.92)'},{transform:'none'}],{duration:600,easing:'cubic-bezier(.3,1.6,.5,1)'}); }
+ sws.forEach(function(s,i){s.addEventListener('click',function(){pick(i)})});
+ document.querySelectorAll('.cc').forEach(function(c){c.addEventListener('click',function(){pick(+c.dataset.i);scrollTo({top:0,behavior:'smooth'})})});
+ var n=0, cnt=document.getElementById('cnt');
+ function add(btn){ n++; cnt.textContent=n; cnt.classList.remove('bump'); void cnt.offsetWidth; cnt.classList.add('bump');
+  if(btn.id==='add'){var s=btn.querySelector('span'); btn.classList.add('done'); s.textContent='カートに入りました'; setTimeout(function(){btn.classList.remove('done'); s.textContent='カートに入れる'},1600);} }
+ ['add','add2','add3'].forEach(function(id){document.getElementById(id).addEventListener('click',function(){add(this)})});
+ var sizes=document.querySelectorAll('#sizes button'), a2=document.querySelector('#add2 span');
+ sizes.forEach(function(b){b.addEventListener('click',function(){ sizes.forEach(function(x){x.setAttribute('aria-pressed',x===b)}); a2.textContent=b.textContent+'cm をカートに入れる'; })});
+ var pins=document.querySelectorAll('.pin'), li=document.querySelectorAll('.tlist li');
+ function tech(i){ pins.forEach(function(p,j){p.setAttribute('aria-pressed',i===j)}); li.forEach(function(l,j){l.classList.toggle('on',i===j)}); }
+ pins.forEach(function(p,i){p.addEventListener('click',function(){tech(i)})}); li.forEach(function(l,i){l.addEventListener('click',function(){tech(i)})});
+ addEventListener('scroll',function(){ document.documentElement.classList.toggle('show-bar', scrollY>innerHeight*.9 && scrollY<document.body.scrollHeight-innerHeight*1.4); },{passive:true});
 })();
 </script>
 </body>
