@@ -996,5 +996,61 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 ps.forEach(function(p){io.observe(p)});
 })();
 </script>
+
+<style>
+#napper{position:absolute;left:clamp(24px,4vw,40px);bottom:20px;width:56px;height:52px;z-index:4;opacity:0;transform:translateY(16px);transition:opacity .3s,transform .4s cubic-bezier(.3,1.6,.5,1);cursor:pointer}
+#napper.show{opacity:1;transform:none}
+#napper .chr{position:absolute;left:4px;bottom:0;font-size:4px;transform-origin:50% 100%;transition:transform .7s cubic-bezier(.5,0,.3,1.3)}
+#napper.stretch .chr{animation:nstretch 1s ease-in-out}
+@keyframes nstretch{30%{transform:scale(1.15,.8)}60%{transform:scale(.9,1.2) rotate(4deg)}}
+#napper .chr{transform-origin:50% 50%}
+#napper.sleep .chr{transform:translate(6px,9px) rotate(-90deg);animation:nbreath 2.6s ease-in-out .7s infinite}
+@keyframes nbreath{50%{transform:translate(6px,9px) rotate(-90deg) scale(1.06,1.04)}}
+#napper.sleep .chr:after{content:"";position:absolute;inset:0;background:linear-gradient(#FFD21F 0 0) 4em 5em/1em 1em no-repeat,linear-gradient(#FFD21F 0 0) 7em 5em/1em 1em no-repeat}
+#napper .bub{position:absolute;left:46px;bottom:40px;white-space:nowrap;background:#fff;border:2px solid #1D1D1F;border-radius:10px;padding:6px 12px;font:700 14px/1.3 'Zen Kaku Gothic New',sans-serif;box-shadow:3px 3px 0 #1D1D1F;opacity:0;transform:scale(.6);transform-origin:0 100%;transition:opacity .2s,transform .3s cubic-bezier(.3,1.6,.5,1)}
+#napper .bub:after{content:"";position:absolute;left:-2px;bottom:-10px;width:12px;height:10px;background:#fff;border-left:2px solid #1D1D1F;border-bottom:2px solid #1D1D1F;transform:skewY(-35deg)}
+#napper .bub.on{opacity:1;transform:none}
+#napper .zz{position:absolute;left:44px;bottom:26px;pointer-events:none}
+#napper .zz i{position:absolute;font:700 14px/1 'Cormorant Garamond',serif;font-style:italic;color:#2F5BEA;opacity:0}
+#napper.sleep .zz i{animation:nzz 2.4s ease-out infinite}
+#napper.sleep .zz i:nth-child(2){animation-delay:.8s;font-size:18px}
+#napper.sleep .zz i:nth-child(3){animation-delay:1.6s;font-size:22px}
+@keyframes nzz{0%{opacity:0;transform:translate(0,0)}20%{opacity:1}100%{opacity:0;transform:translate(22px,-34px)}}
+@media (max-width:600px){#napper{position:fixed;left:24px;bottom:14px;z-index:50}}
+#napper.away{opacity:0!important;pointer-events:none}
+@media (prefers-reduced-motion: reduce){#napper{display:none}}
+</style>
+<script>
+(function(){
+var form=document.getElementById('contact-form');if(!form||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var win=form.closest('.win')||form;if(getComputedStyle(win).position==='static')win.style.position='relative';
+var n=document.createElement('div');n.id='napper';n.setAttribute('aria-hidden','true');
+n.innerHTML='<span class="chr rb"></span><span class="bub"></span><span class="zz"><i>z</i><i>z</i><i>Z</i></span>';
+win.appendChild(n);
+var bub=n.querySelector('.bub'),vis=false,timer=null,state='idle',ts=[];
+function say(t,ms){bub.textContent=t;bub.classList.add('on');if(ms)ts.push(setTimeout(function(){bub.classList.remove('on')},ms))}
+function clear(){ts.forEach(clearTimeout);ts=[]}
+function run(){
+  if(state!=='idle')return;state='nap';
+  n.classList.add('show');
+  ts.push(setTimeout(function(){say('あれ、迷ってます？')},350));
+  ts.push(setTimeout(function(){bub.classList.remove('on')},1900));
+  ts.push(setTimeout(function(){say('お気軽にどうぞ〜')},2100));
+  ts.push(setTimeout(function(){n.classList.add('stretch')},3200));
+  ts.push(setTimeout(function(){bub.classList.remove('on');n.classList.remove('stretch');n.classList.add('sleep')},4300));
+}
+function wake(){
+  if(state!=='nap')return;state='done';clear();
+  n.classList.remove('sleep','stretch');
+  ts.push(setTimeout(function(){say('はっ！ごゆっくりどうぞ',1500)},250));
+  ts.push(setTimeout(function(){n.classList.remove('show')},2000));
+}
+function arm(){clearTimeout(timer);if(vis&&state==='idle')timer=setTimeout(run,3000)}
+['scroll','mousemove','keydown','touchstart','wheel'].forEach(function(e){addEventListener(e,arm,{passive:true})});
+form.addEventListener('focusin',function(){clearTimeout(timer);wake()});
+n.addEventListener('click',wake);
+new IntersectionObserver(function(es){vis=es[0].intersectionRatio>=.35;n.classList.toggle('away',es[0].intersectionRatio<.1);arm()},{threshold:[0,.1,.35,.6,1]}).observe(form);
+})();
+</script>
 </body>
 </html>
