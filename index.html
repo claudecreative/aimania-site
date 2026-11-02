@@ -83,6 +83,71 @@ header nav a[href="#contact"]{position:absolute;top:8px;right:16px;padding:11px 
 </style>
 </head>
 <body>
+<div id="crt" aria-hidden="true">
+<style>
+#crt{position:fixed;inset:0;z-index:9999;background:#141416;display:grid;place-items:center;overflow:hidden;cursor:pointer;transition:opacity .5s ease .1s}
+#crt.out{opacity:0;pointer-events:none}
+#crt .rig{position:relative;width:min(78vw,520px);transform-origin:50% 42%;transition:transform 1s cubic-bezier(.7,0,.3,1)}
+#crt.zoom .rig{transform:scale(var(--z,6))}
+#crt .case{background:#E8DFC8;border:3px solid #1D1D1F;border-radius:26px 26px 18px 18px;padding:7% 7% 4%;box-shadow:inset -10px -12px 0 rgba(0,0,0,.08),0 30px 60px rgba(0,0,0,.5)}
+#crt .bezel{background:#2a2a2c;border:3px solid #1D1D1F;border-radius:22px;padding:5%}
+#crt .scr{position:relative;aspect-ratio:4/3;border-radius:18px/22px;background:#0b0f0c;overflow:hidden;box-shadow:inset 0 0 40px rgba(0,0,0,.9)}
+#crt .ray{position:absolute;inset:0;background:#F3EFE4;transform:scale(0,0);opacity:0}
+#crt.on .ray{animation:crt-on .75s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes crt-on{0%{transform:scale(0,0);opacity:1;filter:brightness(4)}25%{transform:scale(.9,.006);opacity:1;filter:brightness(4)}55%{transform:scale(1,.006);filter:brightness(3)}100%{transform:scale(1,1);opacity:1;filter:brightness(1)}}
+#crt .boot{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4%;color:#1D1D1F;opacity:0}
+#crt.on .boot{animation:crt-flick .5s steps(2) .7s forwards}
+@keyframes crt-flick{0%{opacity:0}30%{opacity:.6}50%{opacity:.2}100%{opacity:1}}
+#crt .boot .chr{font-size:clamp(3px,.9vw,6px)}
+#crt .logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(22px,5vw,44px);letter-spacing:-.02em;line-height:1}
+#crt .ready{font:700 clamp(9px,1.6vw,13px)/1 ui-monospace,Menlo,monospace;letter-spacing:.12em}
+#crt .ready i{display:inline-block;width:.6em;height:1em;background:#1D1D1F;vertical-align:-.15em;animation:crt-cur .5s steps(1) infinite}
+@keyframes crt-cur{50%{opacity:0}}
+#crt .lines{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
+#crt .glare{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 30% 20%,rgba(255,255,255,.18),transparent 45%),radial-gradient(140% 120% at 50% 50%,transparent 60%,rgba(0,0,0,.55))}
+#crt.on .scr{animation:crt-hum 2.4s linear .8s infinite}
+@keyframes crt-hum{0%,100%{filter:none}48%{filter:none}50%{filter:brightness(1.08) contrast(1.05)}52%{filter:none}}
+#crt .foot{display:flex;align-items:center;justify-content:space-between;padding:4% 2% 0}
+#crt .brand{font:700 clamp(9px,1.5vw,12px)/1 ui-monospace,Menlo,monospace;letter-spacing:.2em;color:#6b6352}
+#crt .ctrl{display:flex;align-items:center;gap:12px}
+#crt .knob{width:18px;height:18px;border-radius:50%;background:#cfc5ac;border:2px solid #1D1D1F}
+#crt .led{width:10px;height:10px;border-radius:50%;background:#4a1c18;border:2px solid #1D1D1F;transition:background .1s,box-shadow .1s}
+#crt.pw .led{background:#19C25F;box-shadow:0 0 10px #19C25F}
+#crt .sw{width:30px;height:18px;border-radius:4px;background:#cfc5ac;border:2px solid #1D1D1F;box-shadow:0 3px 0 #1D1D1F;transition:transform .08s,box-shadow .08s}
+#crt.pw .sw{transform:translateY(3px);box-shadow:0 0 0 #1D1D1F}
+#crt .stand{width:34%;height:22px;margin:0 auto;background:#d9cfb6;border:3px solid #1D1D1F;border-top:0;border-radius:0 0 10px 10px}
+#crt .skip{position:absolute;right:16px;bottom:16px;font:700 12px/1 'Zen Kaku Gothic New',sans-serif;color:#9a9486;letter-spacing:.1em}
+</style>
+<div class="rig">
+<div class="case">
+<div class="bezel"><div class="scr">
+<div class="ray"></div>
+<div class="boot"><span class="chr rb"></span><span class="logo">AI mania inc.</span><span class="ready">SYSTEM READY <i></i></span></div>
+<div class="lines"></div><div class="glare"></div>
+</div></div>
+<div class="foot"><span class="brand">AI-MANIA 1987</span><span class="ctrl"><span class="knob"></span><span class="knob"></span><span class="led"></span><span class="sw"></span></span></div>
+</div>
+<div class="stand"></div>
+</div>
+<span class="skip">クリックでスキップ</span>
+</div>
+<script>
+(function(){
+var el=document.getElementById('crt');if(!el)return;
+var seen=false;try{seen=sessionStorage.getItem('crt')==='1'}catch(e){}
+if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){el.remove();return}
+var html=document.documentElement;html.style.overflow='hidden';
+var t=[],done=false;
+function end(){if(done)return;done=true;t.forEach(clearTimeout);el.classList.add('out');html.style.overflow='';try{sessionStorage.setItem('crt','1')}catch(e){}setTimeout(function(){el.remove()},700)}
+function zoom(){var s=el.querySelector('.scr').getBoundingClientRect();var z=Math.max(innerWidth/s.width,innerHeight/s.height)*1.15;el.style.setProperty('--z',z.toFixed(2));el.classList.add('zoom')}
+t.push(setTimeout(function(){el.classList.add('pw')},350));
+t.push(setTimeout(function(){el.classList.add('on')},550));
+t.push(setTimeout(zoom,2300));
+t.push(setTimeout(end,3100));
+el.addEventListener('click',end);
+addEventListener('keydown',function k(){end();removeEventListener('keydown',k)});
+})();
+</script>
 <div style="font-family: 'Zen Kaku Gothic New', sans-serif; color: #1D1D1F; background: #F3EFE4; line-height: 1.85; overflow-x: hidden; font-size: 16px">
 
 <header style="background: #fff; border-bottom: 2px solid #1D1D1F; padding: 6px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px">
