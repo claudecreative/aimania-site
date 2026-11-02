@@ -1,9 +1,0 @@
-<!doctype html><meta charset="utf-8"><title>xfer</title><body>sending…<script>
-(async function(){
-  if(!window.opener){document.body.textContent='no opener';return}
-  var out={};
-  for (const n of ['x-icon.png','x-header.png']){const b=await (await fetch(n,{cache:'no-store'})).arrayBuffer();out[n]=b}
-  window.opener.postMessage({aimaniaXfer:out},'https://x.com');
-  document.body.textContent='sent';setTimeout(function(){window.close()},500);
-})();
-</script>
