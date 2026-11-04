@@ -175,7 +175,7 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 
 <section style="max-width: 1100px; margin: 0 auto; padding: 88px 24px 72px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
 <div role="img" aria-label="AI mania inc." style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 24px">
-<span class="chr rb hop" style="font-size: 9px"></span>
+<span id="mog3d" title="クリックでジャンプ" style="position: relative; display: inline-block; width: 108px; height: 108px"><span class="chr rb hop" style="font-size: 9px"></span></span>
 <span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(52px, 9vw, 120px); letter-spacing: -.03em; line-height: 1">AI mania inc.</span>
 </div>
 <h1 style="margin: 16px 0 28px; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(28px, 5.4vw, 72px); line-height: 1.3; letter-spacing: .01em">クライアントワークで、<br><span style="position: relative; display: inline-block; outline: 2px solid #2F5BEA; outline-offset: 4px; margin-right: 8px; min-height: 1.3em; text-align: left"><span id="typed">通用する</span><span class="caret" aria-hidden="true"></span><span aria-hidden="true" style="position: absolute; left: -9px; top: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span aria-hidden="true" style="position: absolute; right: -9px; top: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span aria-hidden="true" style="position: absolute; left: -9px; bottom: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span aria-hidden="true" style="position: absolute; right: -9px; bottom: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span class="nudge" aria-hidden="true" style="position: absolute; right: -44px; bottom: -40px; display: flex; align-items: flex-start"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px" fill="#1D1D1F" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"><path d="M4 2l15 8-7 2-2 7z"></path></svg><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 12px; font-weight: 700; line-height: 1.6; background: #FF4B3A; color: #fff; padding: 0 8px; border-radius: 4px; margin-top: 16px; letter-spacing: 0">mania</span></span></span>AIを。</h1>
@@ -852,16 +852,21 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 (function(){
 var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var $=function(id){return document.getElementById(id)};
-/* タイプライター */
-var words=['通用する'];
-var t={w:0,n:words[0].length,del:true,hold:14};
+/* タイプライター：3語を見せてから「通用する」で止まる */
+var words=['速く作れる','おもしろい','かっこいい','通用する'];
 var typed=$('typed');
-if(false&&typed){setInterval(function(){
- if(t.hold>0){t.hold--;return;}
- if(t.del){if(t.n>0)t.n--;else{t.del=false;t.w=(t.w+1)%words.length;t.hold=2;}}
- else{if(t.n<words[t.w].length)t.n++;else{t.del=true;t.hold=14;}}
- typed.textContent=words[t.w].slice(0,t.n);
-},140);}
+if(!reduce&&typed){(function(){
+ var w=0,n=0,del=false,hold=0,iv;
+ function tick(){
+  if(hold>0){hold--;return;}
+  var cur=words[w];
+  if(!del){n++;typed.textContent=cur.slice(0,n);
+   if(n>=cur.length){if(w===words.length-1){clearInterval(iv);return;}del=true;hold=9;}}
+  else{n--;typed.textContent=cur.slice(0,n);if(n<=0){del=false;w++;hold=2;}}
+ }
+ function go(){if($('crt')){setTimeout(go,200);return;}setTimeout(function(){typed.textContent='';iv=setInterval(tick,130);},500);}
+ go();
+})();}
 /* モットーのタブ（7秒ごとに自動で切り替え、操作したら止める） */
 (function(){
 var tabs=[].slice.call(document.querySelectorAll('#motto [role=tab]'));
@@ -1060,6 +1065,48 @@ function arm(){clearTimeout(timer);if(vis&&state==='idle')timer=setTimeout(run,3
 form.addEventListener('focusin',function(){clearTimeout(timer);wake()});
 n.addEventListener('click',wake);
 new IntersectionObserver(function(es){vis=es[0].intersectionRatio>=.35;n.classList.toggle('away',es[0].intersectionRatio<.1);arm()},{threshold:[0,.1,.35,.6,1]}).observe(form);
+})();
+</script>
+<script>
+/* モグボ 3D（Three.js のボクセル版。使えない環境ではドット絵のまま） */
+(function(){
+var box=document.getElementById('mog3d');if(!box)return;
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+try{var t=document.createElement('canvas');if(!(t.getContext('webgl')||t.getContext('experimental-webgl')))return;}catch(e){return}
+var sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';sc.async=true;sc.onload=init;document.head.appendChild(sc);
+function init(){
+ var T=window.THREE;if(!T)return;
+ var K='#1D1D1F',Y='#FFD21F',R='#FF4B3A';
+ /* 12x12 のドット（x,y,w,h,色,奥行き） */
+ var rects=[[3,2,6,1,K,6,1],[2,3,1,1,K,6,1],[9,3,1,1,K,6,1],[1,4,1,5,K,6,1],[10,4,1,5,K,6,1],[2,9,8,1,K,6,1],
+  [3,3,6,1,Y,6],[2,4,8,5,Y,6],[5,0,2,1,R,2],[5,1,2,1,K,2],[3,10,2,1,K,3],[7,10,2,1,K,3],[2,11,3,1,K,4],[7,11,3,1,K,4]];
+ var face=[[4,5,1,2],[7,5,1,2],[5,7,2,1]];
+ var cells={};
+ rects.forEach(function(r){for(var x=r[0];x<r[0]+r[2];x++)for(var y=r[1];y<r[1]+r[3];y++){
+  var d=r[5],z0=(6-d)/2;for(var z=z0;z<z0+d;z++){var c=r[4];if(r[6]&&z>0&&z<5)c=Y;cells[x+','+y+','+z]=c;}}});
+ face.forEach(function(f){for(var x=f[0];x<f[0]+f[2];x++)for(var y=f[1];y<f[1]+f[3];y++){cells[x+','+y+',5']=K;cells[x+','+y+',6']=K;}});
+ var scene=new T.Scene(),cam=new T.PerspectiveCamera(30,1,.1,100);cam.position.set(0,0,30);
+ var ren=new T.WebGLRenderer({alpha:true,antialias:true});ren.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
+ ren.outputEncoding=T.sRGBEncoding;var S=170;ren.setSize(S,S);var cv=ren.domElement;
+ cv.style.cssText='position:absolute;left:50%;top:50%;width:'+S+'px;height:'+S+'px;margin:-'+S/2+'px 0 0 -'+S/2+'px;cursor:pointer';
+ cv.setAttribute('aria-hidden','true');
+ scene.add(new T.AmbientLight(0xffffff,.7));var dl=new T.DirectionalLight(0xffffff,.75);dl.position.set(4,6,10);scene.add(dl);
+ var g=new T.Group(),geo=new T.BoxGeometry(1,1,1),mats={};
+ Object.keys(cells).forEach(function(k){var c=cells[k],a=k.split(',').map(Number);
+  var m=mats[c]||(mats[c]=new T.MeshLambertMaterial({color:new T.Color(c).convertSRGBToLinear()}));var b=new T.Mesh(geo,m);b.position.set(a[0]-5.5,5.5-a[1],a[2]-3);g.add(b);});
+ g.scale.setScalar(.82);scene.add(g);
+ box.appendChild(cv);var flat=box.querySelector('.chr');if(flat)flat.style.visibility='hidden';
+ var mx=0,my=0,jump=0,t0=performance.now();
+ window.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mx=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/400));my=Math.max(-1,Math.min(1,(e.clientY-(r.top+r.height/2))/400));},{passive:true});
+ cv.addEventListener('click',function(){if(!jump)jump=performance.now();});
+ var vis=true;if('IntersectionObserver'in window)new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(box);
+ function frame(now){requestAnimationFrame(frame);if(!vis)return;
+  var t=(now-t0)/1000,ry=mx*.7+Math.sin(t*.8)*.35,rx=my*.35,y=Math.abs(Math.sin(t*3.2))*.45,spin=0;
+  if(jump){var p=(now-jump)/700;if(p>=1)jump=0;else{y+=Math.sin(p*Math.PI)*3;spin=p*Math.PI*2;}}
+  g.rotation.y+=((ry+spin)-g.rotation.y)*(spin?1:.08);g.rotation.x+=(rx-g.rotation.x)*.08;g.position.y=y-.2;
+  ren.render(scene,cam);}
+ if(reduce){g.rotation.y=-.35;ren.render(scene,cam);}else requestAnimationFrame(frame);
+}
 })();
 </script>
 </body>
