@@ -107,6 +107,13 @@ br.sp{display:none}@media (max-width:600px){br.sp{display:inline}.hero-h{font-si
 #xpost:hover .xp-x svg,#xpost:focus-visible .xp-x svg{transform:rotate(-8deg) scale(1.08)}
 @keyframes blink{50%{opacity:0}}
 @media (max-width:420px){#xpost{gap:10px}#xpost .xp-chr{width:42px;height:42px}#xpost .xp-chr .chr{font-size:3.5px!important}#xpost .xp-bub{max-width:calc(100vw - 150px)}#xpost .xp-t{font-size:13px}}
+.booth-frame{height:min(600px,72vh)}
+.booth-pts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
+.booth-pts .bp{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px}
+.booth-pts b{font-size:17px}
+.booth-pts p{margin:0;font-size:14px;line-height:1.8}
+.booth-pts a{color:#2F5BEA}
+@media (max-width:600px){.booth-frame{height:440px}}
 </style>
 </head>
 <body>
@@ -181,6 +188,7 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="display: flex; align-items: center; gap: 10px"><span class="chr rb" aria-hidden="true" style="font-size: 2px"></span><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; letter-spacing: -.01em">AI mania inc.</span></div>
 <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 22px; font-weight: 700; font-size: 14px">
 <a href="#motto" style="text-decoration: none; padding: 12px 0">モットー</a>
+<a href="#booth" style="text-decoration: none; padding: 12px 0">展示会</a>
 <a href="#service" style="text-decoration: none; padding: 12px 0">サービス</a>
 <a href="#works" style="text-decoration: none; padding: 12px 0">事例</a>
 <a href="#flow" style="text-decoration: none; padding: 12px 0">制作の流れ</a>
@@ -355,6 +363,32 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </div>
 </div>
 </div>
+</div>
+</section>
+
+<section id="booth" style="max-width: 1100px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 32px">
+<div style="text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center">
+<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">Exhibition booth</div>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4.2vw, 52px); line-height: 1.4"><span class="nb">展示会ブースを、</span><span class="nb">まるごと。</span></h2>
+<p style="margin: 0; font-size: 17px; max-width: 40em; line-height: 1.9"><span class="nb">ブースのデザインを3Dで先に見せて、</span><span class="nb">そのブースで流す映像、</span><span class="nb">来場者が遊ぶミニゲーム、</span><span class="nb">出展LPまで。</span><span class="nb">展示会の「見せる」を、</span><span class="nb">ひとつの窓口でつくります。</span></p>
+</div>
+<div class="win">
+<div class="tb"><span class="cb"></span><span class="tl"></span><span>3D BOOTH ／ ドラッグで回せます</span><span class="tl"></span></div>
+<iframe class="booth-frame" src="/booth/?embed=1" title="展示会ブースの3Dデザイン見本（ドラッグで回転）" loading="lazy" style="display: block; width: 100%; border: 0; background: #EEF1F5"></iframe>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: #5A5A5A; margin-top: -16px">
+<span>島小間・角小間・並列小間の3案を切り替えられます。グラフィックと造作は架空の見本です。</span>
+<a href="/booth/" style="color: #2F5BEA; font-weight: 700">全画面で、色・インテリア・寸法も変えてみる →</a>
+</div>
+<div class="booth-pts">
+<div class="win"><div style="height: 8px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>3Dで、先に見せる</b><p>島小間・角小間・並列小間を、寸法入りの3Dで比べられます。色や雰囲気もその場で変えて、社内の合意を早めます。</p></div></div>
+<div class="win"><div style="height: 8px; background: #FF4B3A; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>ブースで流す映像</b><p>製品紹介のループ映像やサイネージ用の短尺を、AIで短納期に。会期直前の差し替えや、小さな追加にも対応します。</p></div></div>
+<div class="win"><div style="height: 8px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>来場者が遊べるミニゲーム</b><p>モニターやタブレットで、その場で遊べるブラウザゲーム。足を止めてもらい、名刺交換やアンケートにつなげます。</p></div></div>
+<div class="win"><div style="height: 8px; background: #1FB35E; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>出展LP・来場予約</b><p>会期前の告知、来場予約、会期後のお礼まで。実績：<a href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener">オムロン フィールドエンジニアリング株式会社様 産業DX総合展2026 出展LP</a></p></div></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 20px">
+<a href="#contact" class="btn pri" data-kind="展示会ブース一式">展示会の相談をする</a>
+<a href="/booth/" class="btn">3Dを全画面で見る</a>
 </div>
 </section>
 
@@ -832,7 +866,7 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="display: flex; flex-direction: column; gap: 4px"><label for="r-mail" style="font-weight: 700">メールアドレス</label><input id="r-mail" class="fld" type="email" autocomplete="email" required></div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 18px">
 <div style="display: flex; flex-direction: column; gap: 4px"><label for="r-kind" style="font-weight: 700">希望サービス</label>
-<select id="r-kind" class="fld"><option>キャンペーン一式</option><option>制作パートナー（代理店・制作会社さま）</option><option>LPデザイン</option><option>動画作成</option><option>ミニゲーム開発</option><option>アプリ開発</option><option>診断サイト</option><option>イベント演出・企画</option><option>まだ決めていない</option></select></div>
+<select id="r-kind" class="fld"><option>キャンペーン一式</option><option>制作パートナー（代理店・制作会社さま）</option><option>LPデザイン</option><option>動画作成</option><option>ミニゲーム開発</option><option>アプリ開発</option><option>診断サイト</option><option>展示会ブース一式</option><option>イベント演出・企画</option><option>まだ決めていない</option></select></div>
 <div style="display: flex; flex-direction: column; gap: 4px"><label for="r-use" style="font-weight: 700">用途</label>
 <select id="r-use" class="fld"><option>商品・サービス紹介</option><option>キャンペーン</option><option>採用</option><option>イベント</option><option>その他</option></select></div>
 <div style="display: flex; flex-direction: column; gap: 4px"><label for="r-when" style="font-weight: 700">希望時期</label>
@@ -1150,6 +1184,10 @@ function type(m,n){if(n===0){a.classList.add('typing');ok.classList.remove('on')
 var io=new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis&&!run){run=true;setTimeout(function(){type(msgs[i],0)},600);}});
 io.observe(a);
 })();
+</script>
+<script>
+/* 「展示会の相談をする」で相談フォームの種類を選んでおく */
+document.querySelectorAll('a[data-kind]').forEach(function(a){a.addEventListener('click',function(){var sel=document.getElementById('r-kind');if(!sel)return;for(var i=0;i<sel.options.length;i++){if(sel.options[i].text===a.dataset.kind){sel.selectedIndex=i;sel.dispatchEvent(new Event('change',{bubbles:true}));break;}}});});
 </script>
 </body>
 </html>

@@ -15,6 +15,7 @@
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
 <body>
+<script>window.EMBED=/[?&]embed=1/.test(location.search);if(EMBED)document.documentElement.classList.add("embed");</script>
 <title>展示会ブース3D｜AI mania inc.</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Cormorant+Garamond:wght@600&family=Shippori+Mincho:wght@700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
@@ -82,6 +83,20 @@ dl.spec dd{margin:0;font-weight:700;text-align:right;font-variant-numeric:tabula
 @media (max-width:1100px){.stage{grid-template-columns:minmax(0,1fr)}.view{height:68vh;min-height:380px}.panel{border-left:0;border-top:1px solid var(--line);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
 @media (max-width:560px){.hint{display:none}.tab{padding:8px 11px;font-size:13px}.vbtn{padding:7px 10px;font-size:12px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* サイト埋め込み用（?embed=1）：パネルを隠してビューアだけにする */
+.embed body{background:var(--soft)}
+.embed .top{position:absolute;z-index:3;top:0;right:0;left:0;background:none;border:0;padding:12px;pointer-events:none}
+.embed .top .in{justify-content:flex-end}
+.embed .brand{display:none}
+.embed .tabs{pointer-events:auto}
+.embed .tab{padding:8px 12px;font-size:13px;box-shadow:0 1px 2px rgba(22,32,46,.12)}
+.embed .stage{display:block}
+.embed .panel,.embed .hint,.embed .unit{display:none}
+.embed .views{top:auto;bottom:12px;left:12px;right:12px}
+.embed .views .vbtn[data-view="back"],.embed .views .vbtn[data-view="sign"]{display:none}
+.embed .view{height:100vh;min-height:0}
+@media (max-width:560px){.embed .views .vbtn[data-view="top"]{display:none}.embed .tab{padding:7px 9px;font-size:12px}}
+
 </style>
 
 <header class="top"><div class="in">
@@ -217,6 +232,9 @@ scene.background=new T.Color('#E7EAEE');scene.fog=new T.Fog('#E7EAEE',26,70);
 const camera=new T.PerspectiveCamera(36,1,.05,200);
 const controls=new T.OrbitControls(camera,renderer.domElement);window._ctl=controls;
 controls.enableDamping=true;controls.dampingFactor=.08;controls.maxPolarAngle=Math.PI*.497;controls.minDistance=1.2;controls.maxDistance=40;controls.autoRotateSpeed=.6;controls.screenSpacePanning=true;
+if(window.EMBED){controls.enableZoom=false;var _rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(!_rm){controls.autoRotate=true;state.spin=true;var _sb=document.getElementById('spinBtn');if(_sb)_sb.setAttribute('aria-pressed','true');}
+ var _idle;controls.addEventListener('start',function(){clearTimeout(_idle);controls.autoRotate=false;});
+ controls.addEventListener('end',function(){clearTimeout(_idle);if(state.spin)_idle=setTimeout(function(){controls.autoRotate=true;},4000);});}
 let userMoved=false,camTween=null;controls.addEventListener('start',()=>{camTween=null;userMoved=true;});
 
 const hemi=new T.HemisphereLight(0xffffff,0xb9b5ac,.18);scene.add(hemi);
