@@ -366,32 +366,6 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </div>
 </section>
 
-<section id="booth" style="max-width: 1100px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 32px">
-<div style="text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">Exhibition booth</div>
-<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4.2vw, 52px); line-height: 1.4"><span class="nb">展示会ブースを、</span><span class="nb">まるごと。</span></h2>
-<p style="margin: 0; font-size: 17px; max-width: 40em; line-height: 1.9"><span class="nb">ブースのデザインを3Dで先に見せて、</span><span class="nb">そのブースで流す映像、</span><span class="nb">来場者が遊ぶミニゲーム、</span><span class="nb">出展LPまで。</span><span class="nb">展示会の「見せる」を、</span><span class="nb">ひとつの窓口でつくります。</span></p>
-</div>
-<div class="win">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>3D BOOTH ／ ドラッグで回せます</span><span class="tl"></span></div>
-<iframe class="booth-frame" src="/booth/?embed=1" title="展示会ブースの3Dデザイン見本（ドラッグで回転）" loading="lazy" style="display: block; width: 100%; border: 0; background: #EEF1F5"></iframe>
-</div>
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: #5A5A5A; margin-top: -16px">
-<span>島小間・角小間・並列小間の3案を切り替えられます。グラフィックと造作は架空の見本です。</span>
-<a href="/booth/" style="color: #2F5BEA; font-weight: 700">全画面で、色・インテリア・寸法も変えてみる →</a>
-</div>
-<div class="booth-pts">
-<div class="win"><div style="height: 8px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>3Dで、先に見せる</b><p>島小間・角小間・並列小間を、寸法入りの3Dで比べられます。色や雰囲気もその場で変えて、社内の合意を早めます。</p></div></div>
-<div class="win"><div style="height: 8px; background: #FF4B3A; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>ブースで流す映像</b><p>製品紹介のループ映像やサイネージ用の短尺を、AIで短納期に。会期直前の差し替えや、小さな追加にも対応します。</p></div></div>
-<div class="win"><div style="height: 8px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>来場者が遊べるミニゲーム</b><p>モニターやタブレットで、その場で遊べるブラウザゲーム。足を止めてもらい、名刺交換やアンケートにつなげます。</p></div></div>
-<div class="win"><div style="height: 8px; background: #1FB35E; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>出展LP・来場予約</b><p>会期前の告知、来場予約、会期後のお礼まで。実績：<a href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener">オムロン フィールドエンジニアリング株式会社様 産業DX総合展2026 出展LP</a></p></div></div>
-</div>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 20px">
-<a href="#contact" class="btn pri" data-kind="展示会ブース一式">展示会の相談をする</a>
-<a href="/booth/" class="btn">3Dを全画面で見る</a>
-</div>
-</section>
-
 <section id="service" style="background: #fff; border-top: 2px solid #1D1D1F; border-bottom: 2px solid #1D1D1F; padding: 72px 0">
 <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="text-align: center">
@@ -693,6 +667,31 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="font-weight: 700; font-size: 17px; padding-top: 6px">予約管理Webアプリ</div>
 <div style="font-size: 13px; color: #5A5A5A">アプリ開発 / サンプル</div>
 <a href="#contact" data-service="アプリ開発" data-sample="予約管理Webアプリ" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
+</div>
+</div>
+<div id="booth" style="display: flex; flex-direction: column; gap: 28px; scroll-margin-top: 80px">
+<h3 style="margin: 24px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">展示会ブース</h3>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.4"><span class="nb">展示会ブースを、</span><span class="nb">まるごと。</span></div>
+<p style="margin: 0; font-size: 16px; line-height: 1.9"><span class="nb">ブースのデザインを3Dで先に見せて、</span><span class="nb">そのブースで流す映像、</span><span class="nb">来場者が遊ぶミニゲーム、</span><span class="nb">出展LPまで。</span><span class="nb">展示会の「見せる」を、</span><span class="nb">ひとつの窓口でつくります。</span></p>
+</div>
+<div class="win">
+<div class="tb"><span class="cb"></span><span class="tl"></span><span>3D BOOTH ／ ドラッグで回せます</span><span class="tl"></span></div>
+<iframe class="booth-frame" src="/booth/?embed=1" title="展示会ブースの3Dデザイン見本（ドラッグで回転）" loading="lazy" style="display: block; width: 100%; border: 0; background: #EEF1F5"></iframe>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: #5A5A5A; margin-top: -16px">
+<span>島小間・角小間・並列小間の3案を切り替えられます。グラフィックと造作は架空の見本です。</span>
+<a href="/booth/" style="color: #2F5BEA; font-weight: 700">全画面で、色・インテリア・寸法も変えてみる →</a>
+</div>
+<div class="booth-pts">
+<div class="win"><div style="height: 8px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>3Dで、先に見せる</b><p>島小間・角小間・並列小間を、寸法入りの3Dで比べられます。色や雰囲気もその場で変えて、社内の合意を早めます。</p></div></div>
+<div class="win"><div style="height: 8px; background: #FF4B3A; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>ブースで流す映像</b><p>製品紹介のループ映像やサイネージ用の短尺を、AIで短納期に。会期直前の差し替えや、小さな追加にも対応します。</p></div></div>
+<div class="win"><div style="height: 8px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>来場者が遊べるミニゲーム</b><p>モニターやタブレットで、その場で遊べるブラウザゲーム。足を止めてもらい、名刺交換やアンケートにつなげます。</p></div></div>
+<div class="win"><div style="height: 8px; background: #1FB35E; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>出展LP・来場予約</b><p>会期前の告知、来場予約、会期後のお礼まで。実績：<a href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener">オムロン フィールドエンジニアリング株式会社様 産業DX総合展2026 出展LP</a></p></div></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 20px">
+<a href="#contact" class="btn pri" data-kind="展示会ブース一式">展示会の相談をする</a>
+<a href="/booth/" class="btn">3Dを全画面で見る</a>
 </div>
 </div>
 </section>
