@@ -114,15 +114,26 @@ br.sp{display:none}@media (max-width:600px){br.sp{display:inline}.hero-h{font-si
 .booth-pts p{margin:0;font-size:14px;line-height:1.8}
 .booth-pts a{color:#2F5BEA}
 @media (max-width:600px){.booth-frame{height:440px}}
-.wk-tabs{display:none}
-.tabbed .wk-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:4px 0}
-.wk-tabs button{font:inherit;font-weight:700;font-size:15px;border:2px solid #1D1D1F;border-radius:999px;background:#fff;color:#1D1D1F;padding:9px 18px;cursor:pointer;box-shadow:3px 3px 0 #1D1D1F;transition:transform .1s}
-.wk-tabs button:hover{transform:translateY(-2px)}
-.wk-tabs button[aria-selected="true"]{background:#1D1D1F;color:#fff}
+.wk-pick{display:none}
+.tabbed .wk-pick{display:flex;flex-direction:column;gap:10px;align-items:center}
+.wk-ask{font-weight:700;font-size:14px;color:#5A5A5A;animation:wkbob 1.6s ease-in-out infinite}
+@keyframes wkbob{50%{transform:translateY(3px)}}
+.wk-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:100%}
+.wk-tabs button{position:relative;font:inherit;text-align:left;display:flex;flex-direction:column;gap:4px;border:2px solid #1D1D1F;border-radius:10px;background:#fff;color:#1D1D1F;padding:14px 16px 13px;cursor:pointer;box-shadow:4px 4px 0 #1D1D1F;transition:transform .1s,box-shadow .1s}
+.wk-tabs button:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #1D1D1F}
+.wk-tabs b{font-size:17px;line-height:1.35}
+.wk-tabs small{font-size:12.5px;color:#5A5A5A;font-weight:700}
+.wk-tabs i{position:absolute;top:-11px;right:10px;font-style:normal;font-size:11px;font-weight:700;background:#FF4B3A;color:#fff;border:2px solid #1D1D1F;border-radius:999px;padding:1px 8px}
+.wk-tabs button[aria-selected="true"]{background:#1D1D1F;color:#fff;transform:translate(2px,2px);box-shadow:2px 2px 0 #1D1D1F}
+.wk-tabs button[aria-selected="true"] small{color:#FFD21F}
+.wk-tabs button[aria-selected="true"]:after{content:"";position:absolute;left:50%;bottom:-11px;margin-left:-9px;border:9px solid transparent;border-bottom:0;border-top-color:#1D1D1F}
+.wk-next{display:none}
+.tabbed .wk-next{display:flex;justify-content:center}
+.wk-next button{font:inherit;font-weight:700;font-size:15px;border:2px solid #1D1D1F;border-radius:12px;background:#FFD21F;color:#1D1D1F;padding:12px 26px;cursor:pointer;box-shadow:4px 4px 0 #1D1D1F}
+@media (max-width:760px){.wk-tabs{grid-template-columns:1fr 1fr}.wk-tabs b{font-size:15px}}
 .wk-panel{display:flex;flex-direction:column;gap:40px}
 .tabbed .wk-panel[hidden]{display:none}
 .tabbed .wk-panel>h3:first-child,.tabbed #booth>h3:first-child{display:none}
-@media (max-width:600px){.tabbed .wk-tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;margin:0 -24px;padding:8px 24px 10px;scrollbar-width:none}.wk-tabs button{flex:none;font-size:14px;padding:8px 14px}}
 </style>
 </head>
 <body>
@@ -197,9 +208,9 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="display: flex; align-items: center; gap: 10px"><span class="chr rb" aria-hidden="true" style="font-size: 2px"></span><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; letter-spacing: -.01em">AI mania inc.</span></div>
 <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 22px; font-weight: 700; font-size: 14px">
 <a href="#motto" style="text-decoration: none; padding: 12px 0">モットー</a>
+<a href="#works" style="text-decoration: none; padding: 12px 0">事例</a>
 <a href="#booth" style="text-decoration: none; padding: 12px 0">展示会</a>
 <a href="#service" style="text-decoration: none; padding: 12px 0">サービス</a>
-<a href="#works" style="text-decoration: none; padding: 12px 0">事例</a>
 <a href="#flow" style="text-decoration: none; padding: 12px 0">制作の流れ</a>
 <a href="#partner" style="text-decoration: none; padding: 12px 0">代理店の方へ</a>
 <a href="#faq" style="text-decoration: none; padding: 12px 0">よくある質問</a>
@@ -375,6 +386,220 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </div>
 </section>
 
+<section id="works" style="max-width: 1100px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="text-align: center">
+<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">Works</div>
+<h2 style="margin: 4px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4.2vw, 52px)">実績・制作事例</h2>
+</div>
+<div class="wk-pick">
+<div class="wk-ask">▼ 見たい事例をえらんでください</div>
+<div class="wk-tabs" role="tablist" aria-label="制作事例の種類">
+<button role="tab" id="wkt-case" aria-controls="wk-case" aria-selected="true"><b>実績</b><small>公開中の案件</small></button>
+<button role="tab" id="wkt-lp" aria-controls="wk-lp" aria-selected="false"><b>LPデザイン</b><small>サンプル集</small></button>
+<button role="tab" id="wkt-game" aria-controls="wk-game" aria-selected="false"><b>動画・ゲーム・アプリ</b><small>実際に遊べる</small></button>
+<button role="tab" id="wkt-booth" aria-controls="wk-booth" aria-selected="false"><i>NEW</i><b>展示会ブース</b><small>3Dで回せる</small></button>
+</div>
+</div>
+<div class="wk-panel" id="wk-case" role="tabpanel" aria-labelledby="wkt-case">
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">実績</h3>
+<div class="win lift">
+<div class="tb"><span class="cb"></span><span class="tl"></span><span>Case study</span><span class="tl"></span></div>
+<div style="height: 10px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div>
+<div style="padding: clamp(20px, 3.4vw, 32px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 40px; align-items: center">
+<a href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener" style="display: block"><img src="img/omron-dx2026.jpg" alt="オムロン フィールドエンジニアリング 産業DX総合展2026 出展LPのトップ画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A">展示会出展LP／2026</span></div>
+<div style="font-size: 14px; font-weight: 700">オムロン フィールドエンジニアリング株式会社 様</div>
+<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.4"><span class="nb">産業DX総合展 2026 夏 東京</span><span class="nb">出展LP</span></h4>
+<p data-munch="3テーマ＋課題診断で、ブースの相談につなげるLP。" style="margin: 0">展示する3つのテーマ（稼ぐ工場・止めない工場・未来につなぐ工場）から、来場者が自分の課題に合う展示を見つけられる構成に。ブースでの相談につなげる課題診断（3問・各6択）も組み込みました。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; font-weight: 700"><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">展示会LP</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">課題診断</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">BtoB・製造業</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-top: 6px">
+<a class="btn pri" href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener" style="margin: 5px">サイトを見る（別タブで開きます）</a>
+<a href="#contact" data-service="LPデザイン" data-sample="展示会出展LP" data-line="展示会の出展LPのような案件を相談したいです。" style="font-size: 14px; font-weight: 700; padding: 10px 0">このような案件を相談する →</a>
+</div>
+</div>
+</div>
+</div>
+<div class="win lift">
+<div class="tb"><span class="cb"></span><span class="tl"></span><span>Case study</span><span class="tl"></span></div>
+<div style="height: 10px; background: #7CCBEE; border-bottom: 2px solid #1D1D1F"></div>
+<div style="padding: clamp(20px, 3.4vw, 32px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 40px; align-items: center">
+<div role="img" aria-label="オヂヤセイキ 新製品プロモーションムービーの冒頭映像" style="display: block; position: relative; aspect-ratio: 16 / 9; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; overflow: hidden; background: #1D1D1F; box-sizing: border-box">
+<iframe src="https://www.youtube-nocookie.com/embed/guB39evxSbs?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=guB39evxSbs&amp;start=0&amp;end=8&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;disablekb=1" title="オヂヤセイキ 新製品プロモーションムービー（冒頭）" loading="lazy" tabindex="-1" allow="autoplay; encrypted-media; picture-in-picture" style="position: absolute; top: 50%; left: 50%; width: 118%; height: 118%; transform: translate(-50%, -50%); border: 0; pointer-events: none"></iframe>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A">映像制作／2026</span></div>
+<div style="font-size: 14px; font-weight: 700">オヂヤセイキ株式会社 様</div>
+<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.4"><span class="nb">新製品</span><span class="nb">プロモーションムービー</span></h4>
+<p style="margin: 0">新製品の特長が短い尺でひと目で伝わるよう、AIで生成した映像素材と編集技術を組み合わせて一本のプロモーションムービーに仕上げました。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; font-weight: 700"><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">プロモーション映像</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">AI映像生成</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">BtoB・製造業</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-top: 6px">
+<a href="#contact" data-service="動画作成" data-sample="新製品プロモーションムービー" data-line="新製品のプロモーションムービーのような案件を相談したいです。" style="font-size: 14px; font-weight: 700; padding: 10px 0">このような案件を相談する →</a>
+</div>
+</div>
+</div>
+</div>
+<div class="win">
+<div class="tb"><span class="cb"></span><span class="tl"></span><span>Confidential works</span><span class="tl"></span></div>
+<div style="height: 10px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div>
+<div style="padding: clamp(20px, 3.4vw, 32px); display: flex; flex-direction: column; gap: 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr)); gap: 12px">
+<figure style="margin: 0; position: relative"><img src="img/confidential-web.jpg" alt="守秘義務のためモザイクをかけたWEBサイトの制作事例" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-sizing: border-box"><figcaption style="position: absolute; left: 10px; top: 10px; font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">WEBサイト</figcaption></figure>
+<figure style="margin: 0; position: relative"><img src="img/confidential-game.jpg" alt="守秘義務のためモザイクをかけたゲームの制作事例" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-sizing: border-box"><figcaption style="position: absolute; left: 10px; top: 10px; font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">ゲーム</figcaption></figure>
+<figure style="margin: 0; position: relative"><img src="img/confidential-event.jpg" alt="守秘義務のためモザイクをかけた展示会・イベント向けコンテンツの制作事例" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-sizing: border-box"><figcaption style="position: absolute; left: 10px; top: 10px; font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">展示会・イベント</figcaption></figure>
+<figure style="margin: 0; position: relative"><img src="img/confidential-video.jpg" alt="守秘義務のためモザイクをかけた動画の制作事例" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-sizing: border-box"><figcaption style="position: absolute; left: 10px; top: 10px; font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">動画</figcaption></figure>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 12px"><span class="chr cat wig" aria-hidden="true" style="font-size: 3px; --c: #FFD21F; flex: none"></span><span style="font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">実績（非公開）</span></div>
+<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.4"><span class="nb">大手企業のご依頼も、</span><span class="nb">多数お受けしています。</span></h4>
+<p style="margin: 0"><span class="nb">WEBサイト、ゲーム、展示会やイベントのコンテンツ、動画まで。</span><span class="nb">多くは守秘義務があるため、</span><span class="nb">ここでは画面にモザイクをかけています。</span></p>
+<p style="margin: 0"><b><span class="nb">AI導入の伴走パートナーとしても、</span><span class="nb">企業のみなさまをご支援しています。</span></b></p>
+<p style="margin: 0"><span class="nb">ご連絡いただければ、ご相談の内容に合わせて</span><span class="nb">直接サンプルをお見せします。</span></p>
+<div style="padding-top: 4px"><a href="#contact" data-service="まだ決めていない" data-sample="非公開の制作事例" data-line="非公開の制作事例（WEB・ゲーム・展示会・イベント・動画）を見せてほしいです。" class="btn pri" style="display: inline-block; margin: 5px">非公開の事例を見せてもらう</a></div>
+</div>
+</div>
+</div>
+<p style="margin: 8px 0 0; font-size: 14px; color: #5A5A5A">以下は、制作の幅をお伝えするための自主制作サンプルです。</p>
+<div class="wk-next"><button type="button" data-go="wk-lp">次は「LPデザイン」を見る →</button></div>
+</div>
+<div class="wk-panel" id="wk-lp" role="tabpanel" aria-labelledby="wkt-lp">
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">LPデザイン</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px">
+
+<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
+<a href="samples/salon/" target="_blank" rel="noopener" aria-label="美容サロン向けLPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-salon.jpg" alt="美容サロン向けLPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px">美容サロン向けLP</div>
+<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/salon/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="美容サロン向けLP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+</div>
+
+<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
+<a href="samples/ramen/" target="_blank" rel="noopener" aria-label="飲食店向けLPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-ramen.jpg" alt="飲食店向けLPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px">飲食店向けLP</div>
+<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/ramen/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="飲食店向けLP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+</div>
+
+<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
+<a href="samples/english/" target="_blank" rel="noopener" aria-label="オンライン講座LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-english.jpg" alt="オンライン講座LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px">オンライン講座LP</div>
+<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/english/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="オンライン講座LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+</div>
+
+<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
+<a href="samples/recruit/" target="_blank" rel="noopener" aria-label="採用LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-recruit.jpg" alt="採用LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px">採用LP</div>
+<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/recruit/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="採用LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+</div>
+
+<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
+<a href="samples/kicks/" target="_blank" rel="noopener" aria-label="EC商品LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-kicks.jpg" alt="EC商品LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px">EC商品LP</div>
+<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/kicks/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="EC商品LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+</div>
+
+<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
+<a href="samples/fes/" target="_blank" rel="noopener" aria-label="イベント告知LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-fes.jpg" alt="イベント告知LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px">イベント告知LP</div>
+<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/fes/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="イベント告知LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+</div>
+</div>
+
+<div class="wk-next"><button type="button" data-go="wk-game">次は「動画・ゲーム・アプリ」を見る →</button></div>
+</div>
+<div class="wk-panel" id="wk-game" role="tabpanel" aria-labelledby="wkt-game">
+<h3 style="margin: 24px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">動画・ミニゲーム・アプリ</h3>
+<div class="win">
+<div class="tb"><span class="cb"></span><span class="tl"></span><span>遊べるサンプル</span><span class="tl"></span></div>
+<div style="padding: 28px 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px">
+<img src="img/sanpai.jpg" alt="参拝クエストのゲーム画面。竹林の参道を主人公とひつじが進んでいる" style="display: block; width: 170px; max-width: 100%; height: auto; flex: none; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
+<div style="flex: 1 1 320px; min-width: 0">
+<div style="font-size: 13px; color: #5A5A5A; font-weight: 700">ミニゲーム開発 / 実際に遊べます</div>
+<h4 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 30px; line-height: 1.3">参拝クエスト</h4>
+<p style="margin: 0"><span class="nb">竹林の参道を進んで</span><span class="nb">神社をめざすブラウザゲームです。</span><span class="nb">ドラッグで移動、「払」でお札、</span><span class="nb">「跳」でジャンプ。</span><span class="nb">神社に着いたら、鈴を鳴らして</span><span class="nb">二礼二拍手一礼でお参りします。</span></p>
+</div>
+<a class="btn pri" href="https://claudecreative.github.io/sanpai-quest/" target="_blank" rel="noopener" style="box-shadow: 0 0 0 3px #fff, 0 0 0 5px #1D1D1F; margin: 5px">遊んでみる（別タブで開きます）</a>
+<a href="#contact" data-service="ミニゲーム開発" data-sample="参拝クエスト" style="font-size: 14px; font-weight: 700; padding: 10px 0; flex-basis: 100%; white-space: normal">このサンプルに近いものを相談する →</a>
+</div>
+<div style="padding: 28px 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; border-top: 2px dashed #1D1D1F">
+<a href="hayate/" target="_blank" rel="noopener" aria-label="疾風忍伝を遊ぶ（別タブ）" style="display: block; flex: none; width: 300px; max-width: 100%"><img src="img/game3.jpg" alt="疾風忍伝のゲーム画面。月夜の江戸の屋根の上で、忍者が手裏剣を投げている" style="display: block; width: 100%; height: auto; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
+<div style="flex: 1 1 320px; min-width: 0">
+<div style="font-size: 13px; color: #5A5A5A; font-weight: 700">ミニゲーム開発 / 実際に遊べます</div>
+<h4 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 30px; line-height: 1.3">疾風忍伝</h4>
+<p style="margin: 0"><span class="nb">月夜の江戸を駆けぬける、</span><span class="nb">横スクロールの忍者アクションです。</span><span class="nb">手裏剣・刀・焙烙玉を使い分けて、</span><span class="nb">悪代官にさらわれた姫を救い出します。</span><span class="nb">PCはキーボード、スマホは横画面で遊べます。</span></p>
+</div>
+<a class="btn pri" href="hayate/" target="_blank" rel="noopener" style="box-shadow: 0 0 0 3px #fff, 0 0 0 5px #1D1D1F; margin: 5px">遊んでみる（別タブで開きます）</a>
+<a href="#contact" data-service="ミニゲーム開発" data-sample="疾風忍伝" style="font-size: 14px; font-weight: 700; padding: 10px 0; flex-basis: 100%; white-space: normal">このサンプルに近いものを相談する →</a>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px">
+<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
+<img src="img/video.jpg" alt="サービス紹介動画のサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px">サービス紹介動画</div>
+<div style="font-size: 13px; color: #5A5A5A">動画作成 / サンプル</div>
+<a href="#contact" data-service="動画作成" data-sample="サービス紹介動画" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
+</div>
+<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
+<img src="img/game4.jpg" alt="ジャンプアクションゲームのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px">ジャンプアクション</div>
+<div style="font-size: 13px; color: #5A5A5A">ミニゲーム開発 / サンプル</div>
+<a href="#contact" data-service="ミニゲーム開発" data-sample="ジャンプアクション" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
+</div>
+<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
+<img src="img/game1.jpg" alt="パズルアクションゲームのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px">パズルアクション</div>
+<div style="font-size: 13px; color: #5A5A5A">ミニゲーム開発 / サンプル</div>
+<a href="#contact" data-service="ミニゲーム開発" data-sample="パズルアクション" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
+</div>
+<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
+<img src="img/game2.jpg" alt="レースゲームのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px">レースゲーム</div>
+<div style="font-size: 13px; color: #5A5A5A">ミニゲーム開発 / サンプル</div>
+<a href="#contact" data-service="ミニゲーム開発" data-sample="レースゲーム" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
+</div>
+<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
+<img src="img/app.jpg" alt="予約管理Webアプリのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px">予約管理Webアプリ</div>
+<div style="font-size: 13px; color: #5A5A5A">アプリ開発 / サンプル</div>
+<a href="#contact" data-service="アプリ開発" data-sample="予約管理Webアプリ" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
+</div>
+</div>
+<div class="wk-next"><button type="button" data-go="wk-booth">次は「展示会ブース」を見る →</button></div>
+</div>
+<div class="wk-panel" id="wk-booth" role="tabpanel" aria-labelledby="wkt-booth">
+<div id="booth" style="display: flex; flex-direction: column; gap: 28px; scroll-margin-top: 80px">
+<h3 style="margin: 24px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">展示会ブース</h3>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.4"><span class="nb">展示会ブースを、</span><span class="nb">まるごと。</span></div>
+<p style="margin: 0; font-size: 16px; line-height: 1.9"><span class="nb">ブースのデザインを3Dで先に見せて、</span><span class="nb">そのブースで流す映像、</span><span class="nb">来場者が遊ぶミニゲーム、</span><span class="nb">出展LPまで。</span><span class="nb">展示会の「見せる」を、</span><span class="nb">ひとつの窓口でつくります。</span></p>
+</div>
+<div class="win">
+<div class="tb"><span class="cb"></span><span class="tl"></span><span>3D BOOTH ／ ドラッグで回せます</span><span class="tl"></span></div>
+<iframe class="booth-frame" src="/booth/?embed=1" title="展示会ブースの3Dデザイン見本（ドラッグで回転）" loading="lazy" style="display: block; width: 100%; border: 0; background: #EEF1F5"></iframe>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: #5A5A5A; margin-top: -16px">
+<span>島小間・角小間・並列小間の3案を切り替えられます。グラフィックと造作は架空の見本です。</span>
+<a href="/booth/" style="color: #2F5BEA; font-weight: 700">全画面で、色・インテリア・寸法も変えてみる →</a>
+</div>
+<div class="booth-pts">
+<div class="win"><div style="height: 8px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>3Dで、先に見せる</b><p>島小間・角小間・並列小間を、寸法入りの3Dで比べられます。色や雰囲気もその場で変えて、社内の合意を早めます。</p></div></div>
+<div class="win"><div style="height: 8px; background: #FF4B3A; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>ブースで流す映像</b><p>製品紹介のループ映像やサイネージ用の短尺を、AIで短納期に。会期直前の差し替えや、小さな追加にも対応します。</p></div></div>
+<div class="win"><div style="height: 8px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>来場者が遊べるミニゲーム</b><p>モニターやタブレットで、その場で遊べるブラウザゲーム。足を止めてもらい、名刺交換やアンケートにつなげます。</p></div></div>
+<div class="win"><div style="height: 8px; background: #1FB35E; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>出展LP・来場予約</b><p>会期前の告知、来場予約、会期後のお礼まで。実績：<a href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener">オムロン フィールドエンジニアリング株式会社様 産業DX総合展2026 出展LP</a></p></div></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 20px">
+<a href="#contact" class="btn pri" data-kind="展示会ブース一式">展示会の相談をする</a>
+<a href="/booth/" class="btn">3Dを全画面で見る</a>
+</div>
+</div>
+<div class="wk-next"><button type="button" data-go="wk-case">次は「実績」を見る →</button></div>
+</div>
+</section>
+
 <section id="service" style="background: #fff; border-top: 2px solid #1D1D1F; border-bottom: 2px solid #1D1D1F; padding: 72px 0">
 <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; gap: 48px">
 <div style="text-align: center">
@@ -508,213 +733,6 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <span class="walker" style="bottom: 12px; font-size: 4px; animation-duration: 11s; animation-delay: -1.2s"><span class="chr cat hop" style="--c: #FFD21F"></span></span>
 <span class="walker" style="bottom: 12px; font-size: 5px; animation-duration: 14s; animation-delay: -7s; animation-direction: reverse"><span class="chr horn hop" style="--c: #FF8DEA; --a: #FFD21F"></span></span>
 <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 12px; background: #1D1D1F"></div>
-</div>
-</div>
-</section>
-
-<section id="works" style="max-width: 1100px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 40px">
-<div style="text-align: center">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">Works</div>
-<h2 style="margin: 4px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4.2vw, 52px)">実績・制作事例</h2>
-</div>
-<div class="wk-tabs" role="tablist" aria-label="制作事例の種類">
-<button role="tab" id="wkt-case" aria-controls="wk-case" aria-selected="true">実績</button>
-<button role="tab" id="wkt-lp" aria-controls="wk-lp" aria-selected="false">LPデザイン</button>
-<button role="tab" id="wkt-game" aria-controls="wk-game" aria-selected="false">動画・ゲーム・アプリ</button>
-<button role="tab" id="wkt-booth" aria-controls="wk-booth" aria-selected="false">展示会ブース</button>
-</div>
-<div class="wk-panel" id="wk-case" role="tabpanel" aria-labelledby="wkt-case">
-<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">実績</h3>
-<div class="win lift">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>Case study</span><span class="tl"></span></div>
-<div style="height: 10px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div>
-<div style="padding: clamp(20px, 3.4vw, 32px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 40px; align-items: center">
-<a href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener" style="display: block"><img src="img/omron-dx2026.jpg" alt="オムロン フィールドエンジニアリング 産業DX総合展2026 出展LPのトップ画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
-<div style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A">展示会出展LP／2026</span></div>
-<div style="font-size: 14px; font-weight: 700">オムロン フィールドエンジニアリング株式会社 様</div>
-<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.4"><span class="nb">産業DX総合展 2026 夏 東京</span><span class="nb">出展LP</span></h4>
-<p data-munch="3テーマ＋課題診断で、ブースの相談につなげるLP。" style="margin: 0">展示する3つのテーマ（稼ぐ工場・止めない工場・未来につなぐ工場）から、来場者が自分の課題に合う展示を見つけられる構成に。ブースでの相談につなげる課題診断（3問・各6択）も組み込みました。</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; font-weight: 700"><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">展示会LP</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">課題診断</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">BtoB・製造業</span></div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-top: 6px">
-<a class="btn pri" href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener" style="margin: 5px">サイトを見る（別タブで開きます）</a>
-<a href="#contact" data-service="LPデザイン" data-sample="展示会出展LP" data-line="展示会の出展LPのような案件を相談したいです。" style="font-size: 14px; font-weight: 700; padding: 10px 0">このような案件を相談する →</a>
-</div>
-</div>
-</div>
-</div>
-<div class="win lift">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>Case study</span><span class="tl"></span></div>
-<div style="height: 10px; background: #7CCBEE; border-bottom: 2px solid #1D1D1F"></div>
-<div style="padding: clamp(20px, 3.4vw, 32px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 40px; align-items: center">
-<div role="img" aria-label="オヂヤセイキ 新製品プロモーションムービーの冒頭映像" style="display: block; position: relative; aspect-ratio: 16 / 9; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; overflow: hidden; background: #1D1D1F; box-sizing: border-box">
-<iframe src="https://www.youtube-nocookie.com/embed/guB39evxSbs?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=guB39evxSbs&amp;start=0&amp;end=8&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;disablekb=1" title="オヂヤセイキ 新製品プロモーションムービー（冒頭）" loading="lazy" tabindex="-1" allow="autoplay; encrypted-media; picture-in-picture" style="position: absolute; top: 50%; left: 50%; width: 118%; height: 118%; transform: translate(-50%, -50%); border: 0; pointer-events: none"></iframe>
-</div>
-<div style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A">映像制作／2026</span></div>
-<div style="font-size: 14px; font-weight: 700">オヂヤセイキ株式会社 様</div>
-<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.4"><span class="nb">新製品</span><span class="nb">プロモーションムービー</span></h4>
-<p style="margin: 0">新製品の特長が短い尺でひと目で伝わるよう、AIで生成した映像素材と編集技術を組み合わせて一本のプロモーションムービーに仕上げました。</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; font-weight: 700"><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">プロモーション映像</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">AI映像生成</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">BtoB・製造業</span></div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-top: 6px">
-<a href="#contact" data-service="動画作成" data-sample="新製品プロモーションムービー" data-line="新製品のプロモーションムービーのような案件を相談したいです。" style="font-size: 14px; font-weight: 700; padding: 10px 0">このような案件を相談する →</a>
-</div>
-</div>
-</div>
-</div>
-<div class="win">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>Confidential works</span><span class="tl"></span></div>
-<div style="height: 10px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div>
-<div style="padding: clamp(20px, 3.4vw, 32px); display: flex; flex-direction: column; gap: 24px">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr)); gap: 12px">
-<figure style="margin: 0; position: relative"><img src="img/confidential-web.jpg" alt="守秘義務のためモザイクをかけたWEBサイトの制作事例" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-sizing: border-box"><figcaption style="position: absolute; left: 10px; top: 10px; font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">WEBサイト</figcaption></figure>
-<figure style="margin: 0; position: relative"><img src="img/confidential-game.jpg" alt="守秘義務のためモザイクをかけたゲームの制作事例" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-sizing: border-box"><figcaption style="position: absolute; left: 10px; top: 10px; font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">ゲーム</figcaption></figure>
-<figure style="margin: 0; position: relative"><img src="img/confidential-event.jpg" alt="守秘義務のためモザイクをかけた展示会・イベント向けコンテンツの制作事例" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-sizing: border-box"><figcaption style="position: absolute; left: 10px; top: 10px; font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">展示会・イベント</figcaption></figure>
-<figure style="margin: 0; position: relative"><img src="img/confidential-video.jpg" alt="守秘義務のためモザイクをかけた動画の制作事例" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-sizing: border-box"><figcaption style="position: absolute; left: 10px; top: 10px; font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">動画</figcaption></figure>
-</div>
-<div style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; align-items: center; gap: 12px"><span class="chr cat wig" aria-hidden="true" style="font-size: 3px; --c: #FFD21F; flex: none"></span><span style="font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">実績（非公開）</span></div>
-<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.4"><span class="nb">大手企業のご依頼も、</span><span class="nb">多数お受けしています。</span></h4>
-<p style="margin: 0"><span class="nb">WEBサイト、ゲーム、展示会やイベントのコンテンツ、動画まで。</span><span class="nb">多くは守秘義務があるため、</span><span class="nb">ここでは画面にモザイクをかけています。</span></p>
-<p style="margin: 0"><b><span class="nb">AI導入の伴走パートナーとしても、</span><span class="nb">企業のみなさまをご支援しています。</span></b></p>
-<p style="margin: 0"><span class="nb">ご連絡いただければ、ご相談の内容に合わせて</span><span class="nb">直接サンプルをお見せします。</span></p>
-<div style="padding-top: 4px"><a href="#contact" data-service="まだ決めていない" data-sample="非公開の制作事例" data-line="非公開の制作事例（WEB・ゲーム・展示会・イベント・動画）を見せてほしいです。" class="btn pri" style="display: inline-block; margin: 5px">非公開の事例を見せてもらう</a></div>
-</div>
-</div>
-</div>
-<p style="margin: 8px 0 0; font-size: 14px; color: #5A5A5A">以下は、制作の幅をお伝えするための自主制作サンプルです。</p>
-</div>
-<div class="wk-panel" id="wk-lp" role="tabpanel" aria-labelledby="wkt-lp">
-<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">LPデザイン</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px">
-
-<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
-<a href="samples/salon/" target="_blank" rel="noopener" aria-label="美容サロン向けLPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-salon.jpg" alt="美容サロン向けLPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">美容サロン向けLP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/salon/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="美容サロン向けLP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
-</div>
-
-<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
-<a href="samples/ramen/" target="_blank" rel="noopener" aria-label="飲食店向けLPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-ramen.jpg" alt="飲食店向けLPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">飲食店向けLP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/ramen/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="飲食店向けLP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
-</div>
-
-<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
-<a href="samples/english/" target="_blank" rel="noopener" aria-label="オンライン講座LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-english.jpg" alt="オンライン講座LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">オンライン講座LP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/english/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="オンライン講座LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
-</div>
-
-<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
-<a href="samples/recruit/" target="_blank" rel="noopener" aria-label="採用LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-recruit.jpg" alt="採用LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">採用LP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/recruit/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="採用LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
-</div>
-
-<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
-<a href="samples/kicks/" target="_blank" rel="noopener" aria-label="EC商品LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-kicks.jpg" alt="EC商品LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">EC商品LP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/kicks/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="EC商品LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
-</div>
-
-<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
-<a href="samples/fes/" target="_blank" rel="noopener" aria-label="イベント告知LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-fes.jpg" alt="イベント告知LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">イベント告知LP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/fes/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="イベント告知LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
-</div>
-</div>
-
-</div>
-<div class="wk-panel" id="wk-game" role="tabpanel" aria-labelledby="wkt-game">
-<h3 style="margin: 24px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">動画・ミニゲーム・アプリ</h3>
-<div class="win">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>遊べるサンプル</span><span class="tl"></span></div>
-<div style="padding: 28px 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px">
-<img src="img/sanpai.jpg" alt="参拝クエストのゲーム画面。竹林の参道を主人公とひつじが進んでいる" style="display: block; width: 170px; max-width: 100%; height: auto; flex: none; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
-<div style="flex: 1 1 320px; min-width: 0">
-<div style="font-size: 13px; color: #5A5A5A; font-weight: 700">ミニゲーム開発 / 実際に遊べます</div>
-<h4 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 30px; line-height: 1.3">参拝クエスト</h4>
-<p style="margin: 0"><span class="nb">竹林の参道を進んで</span><span class="nb">神社をめざすブラウザゲームです。</span><span class="nb">ドラッグで移動、「払」でお札、</span><span class="nb">「跳」でジャンプ。</span><span class="nb">神社に着いたら、鈴を鳴らして</span><span class="nb">二礼二拍手一礼でお参りします。</span></p>
-</div>
-<a class="btn pri" href="https://claudecreative.github.io/sanpai-quest/" target="_blank" rel="noopener" style="box-shadow: 0 0 0 3px #fff, 0 0 0 5px #1D1D1F; margin: 5px">遊んでみる（別タブで開きます）</a>
-<a href="#contact" data-service="ミニゲーム開発" data-sample="参拝クエスト" style="font-size: 14px; font-weight: 700; padding: 10px 0; flex-basis: 100%; white-space: normal">このサンプルに近いものを相談する →</a>
-</div>
-<div style="padding: 28px 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; border-top: 2px dashed #1D1D1F">
-<a href="hayate/" target="_blank" rel="noopener" aria-label="疾風忍伝を遊ぶ（別タブ）" style="display: block; flex: none; width: 300px; max-width: 100%"><img src="img/game3.jpg" alt="疾風忍伝のゲーム画面。月夜の江戸の屋根の上で、忍者が手裏剣を投げている" style="display: block; width: 100%; height: auto; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
-<div style="flex: 1 1 320px; min-width: 0">
-<div style="font-size: 13px; color: #5A5A5A; font-weight: 700">ミニゲーム開発 / 実際に遊べます</div>
-<h4 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 30px; line-height: 1.3">疾風忍伝</h4>
-<p style="margin: 0"><span class="nb">月夜の江戸を駆けぬける、</span><span class="nb">横スクロールの忍者アクションです。</span><span class="nb">手裏剣・刀・焙烙玉を使い分けて、</span><span class="nb">悪代官にさらわれた姫を救い出します。</span><span class="nb">PCはキーボード、スマホは横画面で遊べます。</span></p>
-</div>
-<a class="btn pri" href="hayate/" target="_blank" rel="noopener" style="box-shadow: 0 0 0 3px #fff, 0 0 0 5px #1D1D1F; margin: 5px">遊んでみる（別タブで開きます）</a>
-<a href="#contact" data-service="ミニゲーム開発" data-sample="疾風忍伝" style="font-size: 14px; font-weight: 700; padding: 10px 0; flex-basis: 100%; white-space: normal">このサンプルに近いものを相談する →</a>
-</div>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px">
-<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
-<img src="img/video.jpg" alt="サービス紹介動画のサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">サービス紹介動画</div>
-<div style="font-size: 13px; color: #5A5A5A">動画作成 / サンプル</div>
-<a href="#contact" data-service="動画作成" data-sample="サービス紹介動画" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
-</div>
-<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
-<img src="img/game4.jpg" alt="ジャンプアクションゲームのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">ジャンプアクション</div>
-<div style="font-size: 13px; color: #5A5A5A">ミニゲーム開発 / サンプル</div>
-<a href="#contact" data-service="ミニゲーム開発" data-sample="ジャンプアクション" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
-</div>
-<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
-<img src="img/game1.jpg" alt="パズルアクションゲームのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">パズルアクション</div>
-<div style="font-size: 13px; color: #5A5A5A">ミニゲーム開発 / サンプル</div>
-<a href="#contact" data-service="ミニゲーム開発" data-sample="パズルアクション" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
-</div>
-<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
-<img src="img/game2.jpg" alt="レースゲームのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">レースゲーム</div>
-<div style="font-size: 13px; color: #5A5A5A">ミニゲーム開発 / サンプル</div>
-<a href="#contact" data-service="ミニゲーム開発" data-sample="レースゲーム" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
-</div>
-<div class="lift" style="display: flex; flex-direction: column; gap: 8px">
-<img src="img/app.jpg" alt="予約管理Webアプリのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">予約管理Webアプリ</div>
-<div style="font-size: 13px; color: #5A5A5A">アプリ開発 / サンプル</div>
-<a href="#contact" data-service="アプリ開発" data-sample="予約管理Webアプリ" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
-</div>
-</div>
-</div>
-<div class="wk-panel" id="wk-booth" role="tabpanel" aria-labelledby="wkt-booth">
-<div id="booth" style="display: flex; flex-direction: column; gap: 28px; scroll-margin-top: 80px">
-<h3 style="margin: 24px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">展示会ブース</h3>
-<div style="display: flex; flex-direction: column; gap: 10px">
-<div style="font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.4"><span class="nb">展示会ブースを、</span><span class="nb">まるごと。</span></div>
-<p style="margin: 0; font-size: 16px; line-height: 1.9"><span class="nb">ブースのデザインを3Dで先に見せて、</span><span class="nb">そのブースで流す映像、</span><span class="nb">来場者が遊ぶミニゲーム、</span><span class="nb">出展LPまで。</span><span class="nb">展示会の「見せる」を、</span><span class="nb">ひとつの窓口でつくります。</span></p>
-</div>
-<div class="win">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>3D BOOTH ／ ドラッグで回せます</span><span class="tl"></span></div>
-<iframe class="booth-frame" src="/booth/?embed=1" title="展示会ブースの3Dデザイン見本（ドラッグで回転）" loading="lazy" style="display: block; width: 100%; border: 0; background: #EEF1F5"></iframe>
-</div>
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: #5A5A5A; margin-top: -16px">
-<span>島小間・角小間・並列小間の3案を切り替えられます。グラフィックと造作は架空の見本です。</span>
-<a href="/booth/" style="color: #2F5BEA; font-weight: 700">全画面で、色・インテリア・寸法も変えてみる →</a>
-</div>
-<div class="booth-pts">
-<div class="win"><div style="height: 8px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>3Dで、先に見せる</b><p>島小間・角小間・並列小間を、寸法入りの3Dで比べられます。色や雰囲気もその場で変えて、社内の合意を早めます。</p></div></div>
-<div class="win"><div style="height: 8px; background: #FF4B3A; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>ブースで流す映像</b><p>製品紹介のループ映像やサイネージ用の短尺を、AIで短納期に。会期直前の差し替えや、小さな追加にも対応します。</p></div></div>
-<div class="win"><div style="height: 8px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>来場者が遊べるミニゲーム</b><p>モニターやタブレットで、その場で遊べるブラウザゲーム。足を止めてもらい、名刺交換やアンケートにつなげます。</p></div></div>
-<div class="win"><div style="height: 8px; background: #1FB35E; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>出展LP・来場予約</b><p>会期前の告知、来場予約、会期後のお礼まで。実績：<a href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener">オムロン フィールドエンジニアリング株式会社様 産業DX総合展2026 出展LP</a></p></div></div>
-</div>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 20px">
-<a href="#contact" class="btn pri" data-kind="展示会ブース一式">展示会の相談をする</a>
-<a href="/booth/" class="btn">3Dを全画面で見る</a>
-</div>
 </div>
 </div>
 </section>
@@ -1220,6 +1238,7 @@ function show(id,focus){tabs.forEach(function(t){var on=t.getAttribute('aria-con
 tabs.forEach(function(t,i){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'));});
  t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();var n=tabs[(i+d+tabs.length)%tabs.length];show(n.getAttribute('aria-controls'),true);}});});
 show('wk-case');
+sec.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.go);sec.querySelector('.wk-pick').scrollIntoView({behavior:'smooth',block:'start'});});});
 function openFor(hash){if(!hash)return;var el;try{el=document.querySelector(hash)}catch(e){return}if(!el)return;var p=el.closest&&el.closest('.wk-panel');if(p){show(p.id);setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},30);}}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(a&&a.getAttribute('href')!=='#'){var el=document.querySelector(a.getAttribute('href'));if(el&&el.closest('.wk-panel')){e.preventDefault();openFor(a.getAttribute('href'));history.replaceState(null,'',a.getAttribute('href'));}}});
 openFor(location.hash);
