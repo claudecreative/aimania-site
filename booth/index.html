@@ -15,7 +15,6 @@
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
 <body>
-<script>window.EMBED=/[?&]embed=1/.test(location.search);if(EMBED)document.documentElement.classList.add("embed");</script>
 <title>展示会ブース3D｜AI mania inc.</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Cormorant+Garamond:wght@600&family=Shippori+Mincho:wght@700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
@@ -83,20 +82,6 @@ dl.spec dd{margin:0;font-weight:700;text-align:right;font-variant-numeric:tabula
 @media (max-width:1100px){.stage{grid-template-columns:minmax(0,1fr)}.view{height:68vh;min-height:380px}.panel{border-left:0;border-top:1px solid var(--line);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
 @media (max-width:560px){.hint{display:none}.tab{padding:8px 11px;font-size:13px}.vbtn{padding:7px 10px;font-size:12px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-/* サイト埋め込み用（?embed=1）：パネルを隠してビューアだけにする */
-.embed body{background:var(--soft)}
-.embed .top{position:absolute;z-index:3;top:0;right:0;left:0;background:none;border:0;padding:12px;pointer-events:none}
-.embed .top .in{justify-content:flex-end}
-.embed .brand{display:none}
-.embed .tabs{pointer-events:auto}
-.embed .tab{padding:8px 12px;font-size:13px;box-shadow:0 1px 2px rgba(22,32,46,.12)}
-.embed .stage{display:block}
-.embed .panel,.embed .hint,.embed .unit{display:none}
-.embed .views{top:auto;bottom:12px;left:12px;right:12px}
-.embed .views .vbtn[data-view="back"],.embed .views .vbtn[data-view="sign"]{display:none}
-.embed .view{height:100vh;min-height:0}
-@media (max-width:560px){.embed .views .vbtn[data-view="top"]{display:none}.embed .tab{padding:7px 9px;font-size:12px}}
-
 </style>
 
 <header class="top"><div class="in">
@@ -158,7 +143,7 @@ dl.spec dd{margin:0;font-weight:700;text-align:right;font-variant-numeric:tabula
       <p class="sub" id="modeSub"></p>
       <div class="checks">
         <label><input type="checkbox" id="chkGlow" checked>照明の発光表現</label>
-        <label><input type="checkbox" id="chkSign" checked>吊り看板</label>
+        <label><input type="checkbox" id="chkSign" checked>リング看板と支柱</label>
         <label><input type="checkbox" id="chkDims" checked>主要寸法</label>
         <label><input type="checkbox" id="chkPeople" checked>人物目安（約1,700 mm）</label>
         <label><input type="checkbox" id="chkNeighbors" checked>周辺のブース・通路</label>
@@ -180,11 +165,11 @@ const KOMA=2.97, CP=0.012;
 const TAU=Math.PI*2;
 const LAYOUTS={
   island:{key:'A',name:'A案：島小間',koma:4,W:KOMA*2,D:KOMA*2,open:'4面',
-    lead:'四方が通路に面する4小間。高さ2,400の曲面壁を3枚に分けて回遊できる動線をつくり、直径5,200の吊り看板で遠くからも見つけてもらいます。'},
+    lead:'四方が通路に面する4小間。高さ2,400の曲面壁を3枚に分けて回遊できる動線をつくり、直径4,580のリング看板を、曲面壁の上から立ち上がる6本の支柱で支えます（天井から吊らない仕様）。'},
   corner:{key:'B',name:'B案：角小間',koma:2,W:KOMA*2,D:KOMA,open:'2面（正面・右側）',
-    lead:'通路の角に立つ2小間。奥と左を半径1,200の曲面でつなぎ、壁の内側を包むグラフィックとLEDで見せます。'},
+    lead:'通路の角に立つ2小間。奥と左を半径1,200の曲面でつなぎ、その曲面壁から立ち上がる支柱でリング看板を載せます。'},
   line:{key:'C',name:'C案：並列小間',koma:3,W:KOMA*3,D:KOMA,open:'1面（正面）',
-    lead:'3小間を横に並べた構成。奥壁を半径8,600のゆるい曲面にして幅3,800の湾曲LEDを埋め込み、裏側をストックヤードにします。'}
+    lead:'3小間を横に並べた構成。奥壁を半径8,600のゆるい曲面にして幅3,800の湾曲LEDを埋め込み、裏側をストックヤードにします。看板は奥壁と床からの支柱で支えます。'}
 };
 const PALS={
   blue:{name:'ブルー',g1:'#0A2F7A',g2:'#1D7FD8',g3:'#58C7F3',ink:'#FFFFFF',carpet:'#1F59C9',band:'#0B2E6E',bandInk:'#FFFFFF',acc:['#8FE9FF','#FFFFFF',YEL],edge:'#8FE9FF',cap:'#0B2E6E',light:true},
@@ -232,9 +217,6 @@ scene.background=new T.Color('#E7EAEE');scene.fog=new T.Fog('#E7EAEE',26,70);
 const camera=new T.PerspectiveCamera(36,1,.05,200);
 const controls=new T.OrbitControls(camera,renderer.domElement);window._ctl=controls;
 controls.enableDamping=true;controls.dampingFactor=.08;controls.maxPolarAngle=Math.PI*.497;controls.minDistance=1.2;controls.maxDistance=40;controls.autoRotateSpeed=.6;controls.screenSpacePanning=true;
-if(window.EMBED){controls.enableZoom=false;var _rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(!_rm){controls.autoRotate=true;state.spin=true;var _sb=document.getElementById('spinBtn');if(_sb)_sb.setAttribute('aria-pressed','true');}
- var _idle;controls.addEventListener('start',function(){clearTimeout(_idle);controls.autoRotate=false;});
- controls.addEventListener('end',function(){clearTimeout(_idle);if(state.spin)_idle=setTimeout(function(){controls.autoRotate=true;},4000);});}
 let userMoved=false,camTween=null;controls.addEventListener('start',()=>{camTween=null;userMoved=true;});
 
 const hemi=new T.HemisphereLight(0xffffff,0xb9b5ac,.18);scene.add(hemi);
@@ -439,7 +421,7 @@ function neighbor(par,cx,cz,w,d,ws){const g=new T.Group();g.position.set(cx,0,cz
   if(ws.includes('right'))add(g,new T.BoxGeometry(.08,2.7,d),wl,w/2-.04,1.35,0);
   if(ws.includes('core'))rbox(g,1.6,2.4,1.2,.1,wl,0,0,0);
   g.traverse(o=>{if(o.isMesh)o.userData.keep=true;});}
-function ringSign(par,cx,cz,r,y0,h,P,shapes){const g=new T.Group();g.position.set(cx,0,cz);par.add(g);
+function ringSign(par,cx,cz,r,y0,h,P,shapes,supports){const g=new T.Group();g.position.set(cx,0,cz);par.add(g);
   const outer=bandGraphic(P,TAU*r,h);outer.wrapS=T.RepeatWrapping;
   const innerTex=canvasTex(2048,256,(c,w,hh)=>{const gr=c.createLinearGradient(0,0,0,hh);gr.addColorStop(0,P.g1);gr.addColorStop(1,P.g2);c.fillStyle=gr;c.fillRect(0,0,w,hh);
     for(let i=0;i<60;i++){c.fillStyle=(P.stripe?FIVE:P.acc)[i%3];c.globalAlpha=.5;shape(c,i%3,rnd(i)*w,rnd(i*3)*hh,6+rnd(i*5)*14);}c.globalAlpha=1;});
@@ -448,7 +430,10 @@ function ringSign(par,cx,cz,r,y0,h,P,shapes){const g=new T.Group();g.position.se
   add(g,new T.CylinderGeometry(r-.12,r-.12,h,128,1,true),new T.MeshStandardMaterial({map:innerTex,roughness:.55,side:T.BackSide}),0,y0+h/2,0,{wm:'sign'});
   [y0,y0+h].forEach((yy,i)=>{const rg=new T.RingGeometry(r-.12,r,128);rg.rotateX(i?-Math.PI/2:Math.PI/2);add(g,rg,std(P.band==='#FFFFFF'?'#F2F3F5':P.band,{roughness:.5,side:T.DoubleSide}),0,yy,0,{wm:'sign'});});
   [y0+.012,y0+h-.012].forEach(yy=>emissiveStrip(g,new T.TorusGeometry(r+.006,.008,6,160),P.edge,0,yy,0,{rx:Math.PI/2}));
-  for(let i=0;i<6;i++){const a=i/6*TAU;const p=[Math.sin(a)*(r-.06),Math.cos(a)*(r-.06)];g.add(new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(p[0],y0+h,p[1]),new T.Vector3(p[0],14,p[1])]),new T.LineBasicMaterial({color:col('#7D838C')})));}
+  // 支柱：看板の下から、真下の曲面壁の天端（または床）へ落とす
+  const poleM=std('#C9CED6',{roughness:.3,metalness:.9});
+  (supports||[]).forEach(sp=>{const a=sp[0],base=sp[1];const x=Math.sin(a)*(r-.06),z=Math.cos(a)*(r-.06);const len=y0-base;
+    cyl(g,.035,.035,len,poleM,x,base,z,20);cyl(g,.07,.07,.015,poleM,x,base,z,24);cyl(g,.06,.06,.02,poleM,x,y0-.02,z,24);});
   for(let i=0;i<8;i++){const a=i/8*TAU;const x=Math.sin(a)*(r-.25),z=Math.cos(a)*(r-.25);cyl(g,.05,.05,.07,std('#1E1F22',{metalness:.5,roughness:.4}),x,y0-.07,z,16,{wm:'dark'});
     emissiveStrip(g,new T.CircleGeometry(.038,16),'#FFF4E0',x,y0-.072,z,{rx:Math.PI/2});}
   const dl=new T.SpotLight(0xfff3e2,.8,7,.9,.7,1.5);dl.position.set(0,y0,0);dl.target.position.set(0,0,0);dl.userData.glow=true;g.add(dl);g.add(dl.target);
@@ -497,10 +482,10 @@ function build(){
     demoStand(B,-1.0,-1.25,.5,MT,1);demoStand(B,2.65,.6,-1.5,MT,2);spec.games=2;
     meeting(B,-2.45,.2,2,MT,Md,Math.PI/2);spec.seats=2;
     if(Md.plants){plant(B,-2.6,1.45,1,3);if(Md.plants>1)plant(B,2.6,-1.4,1.05,7);}
-    ringSign(groups.sign,0,0,2.6,3.3,.9,P,true);spec.signD=5.2;spec.maxH=4.2;spec.wallH=H;
+    ringSign(groups.sign,0,0,2.29,3.2,.9,P,true,[[2.7,CP+H],[3.6,CP+H],[4.9,CP+H],[5.45,CP+H],[.85,CP+H],[1.4,CP+H]]);spec.signD=4.58;spec.maxH=4.1;spec.wallH=H;
     if(state.neighbors){neighbor(groups.nb,-hx-3.6-KOMA,0,KOMA*2,KOMA*2,['core']);neighbor(groups.nb,hx+3.6+KOMA,0,KOMA*2,KOMA*2,['core']);neighbor(groups.nb,0,-hz-3.6-KOMA,KOMA*2,KOMA*2,['core']);}
     dim([-hx,CP,hz+.7],[hx,CP,hz+.7],mm(W));dim([hx+.7,CP,-hz],[hx+.7,CP,hz],mm(D));
-    const pw=arcPt(0,0,R+.25,4.05);dim([pw[0],CP,pw[1]],[pw[0],CP+H,pw[1]],mm(H));dim([-2.6-.3,CP,0],[-2.6-.3,4.2,0],mm(4.2));
+    const pw=arcPt(0,0,R+.25,4.05);dim([pw[0],CP,pw[1]],[pw[0],CP+H,pw[1]],mm(H));dim([-2.29-.3,CP,0],[-2.29-.3,4.1,0],mm(4.1));
     person(groups.people,2.4,3.75,Math.PI+.5,'#7C8696');person(groups.people,-.4,1.9,2.6,'#86909F',1);person(groups.people,3.5,1.2,-1.9,'#7F8A99');person(groups.people,-3.6,-1.4,1.3,'#8A93A1',1);
   }
   if(state.layout==='corner'){
@@ -522,10 +507,10 @@ function build(){
     demoStand(B,-1.45,-.15,.55,MT,1);spec.games=1;
     meeting(B,.9,-.55,3,MT,Md,.4);spec.seats=3;
     if(Md.plants)plant(B,2.6,-1.1,1.0,5);
-    ringSign(groups.sign,.35,.05,1.35,2.95,.7,P,false);spec.signD=2.7;spec.maxH=3.65;spec.wallH=H;
+    ringSign(groups.sign,cx,cz,1.2,2.95,.7,P,false,[[Math.PI*1.1,CP+H],[Math.PI*1.25,CP+H],[Math.PI*1.4,CP+H],[Math.PI*.35,CP]]);spec.signD=2.4;spec.maxH=3.65;spec.wallH=H;
     if(state.neighbors){neighbor(groups.nb,-hx-KOMA,0,KOMA*2,D,['back','left']);neighbor(groups.nb,0,-hz-KOMA/2-.05,W,KOMA,['back']);}
     dim([-hx,CP,hz+.7],[hx,CP,hz+.7],mm(W));dim([hx+.7,CP,-hz],[hx+.7,CP,hz],mm(D));
-    dim([hx-.15,CP,-hz+.3],[hx-.15,CP+H,-hz+.3],mm(H));dim([.35+1.35+.25,CP,.05],[.35+1.35+.25,3.65,.05],mm(3.65));
+    dim([hx-.15,CP,-hz+.3],[hx-.15,CP+H,-hz+.3],mm(H));dim([cx+1.2+.25,CP,cz],[cx+1.2+.25,3.65,cz],mm(3.65));
     person(groups.people,1.2,2.2,Math.PI+.4,'#8C97A6');person(groups.people,-.9,.2,2.4,'#86909F',1);person(groups.people,3.6,.2,-1.6,'#7F8A99');
   }
   if(state.layout==='line'){
@@ -542,10 +527,10 @@ function build(){
     demoStand(B,-3.2,-.35,.6,MT,1);demoStand(B,3.2,-.35,-.6,MT,2);spec.games=2;
     if(Md.base!=='white'){sofa(B,2.4,-.95,0,1.5,MT);spec.seats=3;}else{meeting(B,2.3,-.75,2,MT,Md,Math.PI/2);spec.seats=2;}
     if(Md.plants){plant(B,-2.35,-.95,1,3);if(Md.plants>1)plant(B,4.0,-.2,.9,9);}
-    ringSign(groups.sign,0,.1,1.5,2.95,.75,P,false);spec.signD=3.0;spec.maxH=3.7;spec.wallH=H;
+    ringSign(groups.sign,0,-hz+.13+1.44,1.5,2.95,.75,P,false,[[Math.PI,CP+H],[Math.PI-.38,CP+H],[Math.PI+.38,CP+H],[.75,CP],[-.75,CP]]);spec.signD=3.0;spec.maxH=3.7;spec.wallH=H;
     if(state.neighbors){neighbor(groups.nb,-hx-KOMA,0,KOMA*2,D,['back','left']);neighbor(groups.nb,hx+KOMA,0,KOMA*2,D,['back','right']);neighbor(groups.nb,0,-hz-KOMA/2-.05,W,KOMA,['back']);}
     dim([-hx,CP,hz+.7],[hx,CP,hz+.7],mm(W));dim([hx+.7,CP,-hz],[hx+.7,CP,hz],mm(D));
-    dim([-hx+.35,CP,zEnd+.25],[-hx+.35,CP+H,zEnd+.25],mm(H));dim([1.5+.3,CP,.1],[1.5+.3,3.7,.1],mm(3.7));
+    dim([-hx+.35,CP,zEnd+.25],[-hx+.35,CP+H,zEnd+.25],mm(H));dim([1.5+.3,CP,-hz+.13+1.44],[1.5+.3,3.7,-hz+.13+1.44],mm(3.7));
     person(groups.people,-.6,2.2,Math.PI-.2,'#8C97A6');person(groups.people,1.2,1.0,2.6,'#86909F',1);person(groups.people,-2.4,.6,-2.6,'#7F8A99');person(groups.people,3.4,2.4,-2.6,'#8A93A1',1);
   }
   const amb=new T.PointLight(Md.light,.6,10,2);amb.position.set(0,2.6,0);amb.userData.glow=true;B.add(amb);
@@ -569,7 +554,7 @@ function applyToggles(){if(!root)return;
   $('#unitBadge').textContent=LAYOUTS[state.layout].key+'案 ／ 単位 mm';}
 function updateSpec(){const L=LAYOUTS[state.layout],P=PALS[state.pal],Md=MOODS[state.mood],s=curSpec.W?curSpec:{W:L.W,D:L.D,maxH:0,wallH:0,screens:[],games:0,seats:0,cases:0,tables:0,signD:0};
   $('#planName').textContent=L.name;$('#planLead').textContent=L.lead;$('#planChip').textContent=P.name+' × '+Md.name;
-  const rows=[['小間数',L.koma+'小間'],['間口 × 奥行',mm(s.W)+' × '+mm(s.D)],['床面積',(s.W*s.D).toFixed(1)+' m²'],['開放面',L.open],['最高高さ（看板天端）',mm(s.maxH)],['曲面壁の高さ',mm(s.wallH)],['吊り看板の直径',mm(s.signD)],
+  const rows=[['小間数',L.koma+'小間'],['間口 × 奥行',mm(s.W)+' × '+mm(s.D)],['床面積',(s.W*s.D).toFixed(1)+' m²'],['開放面',L.open],['最高高さ（看板天端）',mm(s.maxH)],['曲面壁の高さ',mm(s.wallH)],['リング看板の直径',mm(s.signD)],
     ['映像',s.screens.join('、')],['ミニゲーム試遊台',s.games+'台'],['ショーケース（H2,300）',s.cases+'台'],['展示テーブル（φ840）',s.tables+'台'],['打合せ席',s.seats+'席']];
   $('#spec').innerHTML=rows.map(r=>'<dt>'+r[0]+'</dt><dd>'+r[1]+'</dd>').join('');
   $('#modeSub').textContent=state.white?'形と寸法だけを白い模型で表示しています。':(P.name+'の出力シート ／ '+P.name+'系パンチカーペット ／ 照明：'+Md.lightName);}
