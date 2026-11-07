@@ -165,7 +165,7 @@ const KOMA=2.97, CP=0.012;
 const TAU=Math.PI*2;
 const LAYOUTS={
   island:{key:'A',name:'A案：島小間',koma:4,W:KOMA*2,D:KOMA*2,open:'4面',
-    lead:'四方が通路に面する4小間。高さ2,400の曲面壁を3枚に分けて回遊できる動線をつくり、直径4,580のリング看板を、曲面壁の上から立ち上がる6本の支柱で支えます（天井から吊らない仕様）。'},
+    lead:'四方が通路に面する4小間。高さ2,400の曲面壁を3枚に分けて回遊できる動線をつくり、直径4,580のリング看板を、曲面壁の上から立ち上がる6本の支柱で支えます（会場の天井からは吊りません）。看板の内側に細い梁を渡し、○△□の吊り物とLEDスポットは梁から下げます。'},
   corner:{key:'B',name:'B案：角小間',koma:2,W:KOMA*2,D:KOMA,open:'2面（正面・右側）',
     lead:'通路の角に立つ2小間。奥と左を半径1,200の曲面でつなぎ、その曲面壁から立ち上がる支柱でリング看板を載せます。'},
   line:{key:'C',name:'C案：並列小間',koma:3,W:KOMA*3,D:KOMA,open:'1面（正面）',
@@ -329,6 +329,9 @@ function extrudePlan(par,pts,h,mat,y0,bevel,o){const s=new T.Shape(pts.map(p=>ne
   const geo=new T.ExtrudeGeometry(s,{depth:Math.max(.001,h-2*b),bevelEnabled:b>0,bevelSize:b,bevelThickness:b,bevelSegments:4,curveSegments:48});geo.rotateX(-Math.PI/2);return add(par,geo,mat,0,y0+b,0,o);}
 function roundRectPts(x0,z0,x1,z1,r){const p=[];const seg=12;[[x1-r,z1-r,0],[x0+r,z1-r,1],[x0+r,z0+r,2],[x1-r,z0+r,3]].forEach(c=>{for(let i=0;i<=seg;i++){const a=(c[2]*Math.PI/2)+i/seg*Math.PI/2;p.push([c[0]+Math.cos(a)*r,c[1]+Math.sin(a)*r]);}});return p;}
 function arcPt(cx,cz,r,t){return [cx+r*Math.sin(t),cz+r*Math.cos(t)];}
+function ledArc(par,cx,cz,r,t0,t1,y,color,rad){const pts=[];const n=Math.max(8,Math.round((t1-t0)*30));for(let i=0;i<=n;i++){const t=t0+(t1-t0)*i/n;pts.push(new T.Vector3(cx+r*Math.sin(t),y,cz+r*Math.cos(t)));}
+  return emissiveStrip(par,new T.TubeGeometry(new T.CatmullRomCurve3(pts),n*2,rad||.007,6,false),color,0,0,0);}
+function ledLine(par,a,b,color,rad){return emissiveStrip(par,new T.TubeGeometry(new T.LineCurve3(new T.Vector3(...a),new T.Vector3(...b)),4,rad||.007,6,false),color,0,0,0);}
 function arcWall(par,o){const {cx,cz,r,th,t0,t1,h,inner,outer,capMat,bodyMat}=o;const len=t1-t0;const g=new T.Group();par.add(g);
   const seg=Math.max(16,Math.round(len*40));
   const outerM=outer?new T.MeshStandardMaterial({map:outer,roughness:.55}):bodyMat;
@@ -336,7 +339,9 @@ function arcWall(par,o){const {cx,cz,r,th,t0,t1,h,inner,outer,capMat,bodyMat}=o;
   add(g,new T.CylinderGeometry(r,r,h,seg,1,true,t0,len),outerM,cx,CP+h/2,cz,{wm:'wall'});
   add(g,new T.CylinderGeometry(r-th,r-th,h,seg,1,true,t0,len),innerM,cx,CP+h/2,cz,{wm:'wall'});
   const capGeo=new T.RingGeometry(r-th,r,seg,1,t0-Math.PI/2,len);capGeo.rotateX(-Math.PI/2);add(g,capGeo,capMat,cx,CP+h,cz,{wm:'trim'});
-  [t0,t1].forEach(t=>{const p=arcPt(cx,cz,r-th/2,t);cyl(g,th/2,th/2,h,capMat,p[0],CP,p[1],24,{wm:'trim'});});return g;}
+  [t0,t1].forEach(t=>{const p=arcPt(cx,cz,r-th/2,t);cyl(g,th/2,th/2,h,capMat,p[0],CP,p[1],24,{wm:'trim'});});
+  if(o.led){ledArc(g,cx,cz,r+.006,t0,t1,CP+h-.012,o.led);ledArc(g,cx,cz,r-th-.006,t0,t1,CP+h-.012,o.led);ledArc(g,cx,cz,r+.012,t0,t1,CP+.03,o.led,.009);ledArc(g,cx,cz,r-th-.012,t0,t1,CP+.03,o.led,.009);}
+  return g;}
 function arcScreen(par,cx,cz,r,t0,t1,y0,h,seed,innerSide){const len=t1-t0;const L=ledTexture(seed);animTex.push(L);
   if(innerSide){L.tex.wrapS=T.RepeatWrapping;L.tex.repeat.x=-1;L.tex.offset.x=1;}
   const side=innerSide?T.BackSide:T.FrontSide,dr=innerSide?-1:1;const ext=.03/r;
@@ -437,14 +442,28 @@ function ringSign(par,cx,cz,r,y0,h,P,shapes,supports){const g=new T.Group();g.po
   for(let i=0;i<8;i++){const a=i/8*TAU;const x=Math.sin(a)*(r-.25),z=Math.cos(a)*(r-.25);cyl(g,.05,.05,.07,std('#1E1F22',{metalness:.5,roughness:.4}),x,y0-.07,z,16,{wm:'dark'});
     emissiveStrip(g,new T.CircleGeometry(.038,16),'#FFF4E0',x,y0-.072,z,{rx:Math.PI/2});}
   const dl=new T.SpotLight(0xfff3e2,.8,7,.9,.7,1.5);dl.position.set(0,y0,0);dl.target.position.set(0,0,0);dl.userData.glow=true;g.add(dl);g.add(dl.target);
-  if(shapes){for(let i=0;i<26;i++){const a=rnd(i*3.1)*TAU,rr2=.3+rnd(i*5.3)*(r-.8),yy=y0-.35-rnd(i*7.7)*.8;const s=.08+rnd(i*1.9)*.12;const type=i%3;
+  // 細い梁（リングの内側に渡す。吊り物とLEDスポットはここから）
+  const beamM=std('#2A2C30',{roughness:.4,metalness:.7});const ri=r-.12,by=y0+h-.03;const beams=[];
+  [-.55,.55].forEach(d=>{const L=2*Math.sqrt(ri*ri-d*d);add(g,new T.BoxGeometry(L,.04,.04),beamM,0,by,d,{wm:'dark'});beams.push({axis:'x',d,L});});
+  [-.55,.55].forEach(d=>{const L=2*Math.sqrt(ri*ri-d*d);add(g,new T.BoxGeometry(.04,.04,L),beamM,d,by,0,{wm:'dark'});beams.push({axis:'z',d,L});});
+  // 梁のLEDテープ（下面）とLEDスポット
+  beams.forEach(b=>{const hl=b.L/2-.05;if(b.axis==='x')ledLine(g,[-hl,by-.022,b.d],[hl,by-.022,b.d],P.edge,.005);else ledLine(g,[b.d,by-.022,-hl],[b.d,by-.022,hl],P.edge,.005);});
+  const spotPos=[];beams.forEach((b,bi)=>{[-.6,.6].forEach((f,fi)=>{const u=f*(b.L/2-.2);const x=b.axis==='x'?u:b.d,z=b.axis==='x'?b.d:u;spotPos.push([x,z,bi*2+fi]);});});
+  spotPos.forEach(([x,z,i])=>{const hd=new T.Group();hd.position.set(x,by-.02,z);g.add(hd);
+    const out=Math.atan2(x,z);hd.rotation.y=out;
+    add(hd,new T.BoxGeometry(.02,.06,.02),beamM,0,-.03,0,{wm:'dark'});
+    const body=add(hd,new T.CylinderGeometry(.03,.036,.11,16),std('#1E1F22',{roughness:.35,metalness:.6}),0,-.09,.02,{wm:'dark',noCast:true});body.rotation.x=.75;
+    const lens=emissiveStrip(hd,new T.CircleGeometry(.026,16),'#FFF6E8',0,-.125,.06);lens.rotation.x=Math.PI/2+.75;
+    if(i%2===0){const sl=new T.SpotLight(0xfff1de,.55,6,.42,.6,1.6);sl.position.set(x,by-.1,z);sl.target.position.set(x*2.2,1.2,z*2.2);sl.userData.glow=true;g.add(sl);g.add(sl.target);}});
+  if(shapes){for(let i=0;i<24;i++){const b=beams[i%beams.length];const u=(rnd(i*5.3)-.5)*(b.L-.5);const x=b.axis==='x'?u:b.d,z=b.axis==='x'?b.d:u;
+    const yy=y0-.3-rnd(i*7.7)*.8;const s=.08+rnd(i*1.9)*.11;const type=i%3;
     const sh=new T.Shape(),hole=new T.Path(),k=.62;
     if(type===0){sh.absarc(0,0,s,0,TAU,false);hole.absarc(0,0,s*k,0,TAU,true);}
     else if(type===1){sh.moveTo(0,s);sh.lineTo(-s*.92,-s*.62);sh.lineTo(s*.92,-s*.62);sh.closePath();hole.moveTo(0,s*k);hole.lineTo(s*.92*k,-s*.62*k);hole.lineTo(-s*.92*k,-s*.62*k);hole.closePath();}
     else{sh.moveTo(-s*.8,-s*.8);sh.lineTo(s*.8,-s*.8);sh.lineTo(s*.8,s*.8);sh.lineTo(-s*.8,s*.8);sh.closePath();hole.moveTo(-s*.8*k,-s*.8*k);hole.lineTo(-s*.8*k,s*.8*k);hole.lineTo(s*.8*k,s*.8*k);hole.lineTo(s*.8*k,-s*.8*k);hole.closePath();}
-    sh.holes.push(hole);const m=add(g,new T.ExtrudeGeometry(sh,{depth:.012,bevelEnabled:false,curveSegments:24}),std((P.stripe?FIVE:[P.acc[0],'#FFFFFF',P.acc[2]])[i%3],{roughness:.4,metalness:.1}),Math.sin(a)*rr2,yy,Math.cos(a)*rr2,{ry:rnd(i)*TAU,wm:'sign'});
+    sh.holes.push(hole);const m=add(g,new T.ExtrudeGeometry(sh,{depth:.012,bevelEnabled:false,curveSegments:24}),std((P.stripe?FIVE:[P.acc[0],'#FFFFFF',P.acc[2]])[i%3],{roughness:.4,metalness:.1}),x,yy,z,{ry:rnd(i)*TAU,wm:'sign'});
     m.userData.bob={y:yy,ph:rnd(i*11)*TAU,ry:m.rotation.y};
-    m.add(new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(0,s,0),new T.Vector3(0,y0+h-yy,0)]),new T.LineBasicMaterial({color:col('#9AA0A8'),transparent:true,opacity:.6})));}}
+    m.add(new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(0,s,0),new T.Vector3(0,by-.02-yy,0)]),new T.LineBasicMaterial({color:col('#9AA0A8'),transparent:true,opacity:.7})));}}
   return g;}
 function carpet(par,pts,P){const tex=carpetTex(P.carpet);tex.wrapS=tex.wrapT=T.RepeatWrapping;tex.repeat.set(.6,.6);
   const m=new T.MeshStandardMaterial({map:tex,bumpMap:cBump,bumpScale:.006,roughness:.97});const mesh=extrudePlan(par,pts,CP,m,0,0,{noCast:true,wm:'floor'});return mesh;}
@@ -469,9 +488,9 @@ function build(){
 
   if(state.layout==='island'){
     const R=2.3,H=2.4,th=.14;
-    arcWall(B,{cx:0,cz:0,r:R,th,t0:2.25,t1:4.05,h:H,outer:wrapGraphic(R*1.8,H,P,'head',3),inner:wrapGraphic((R-th)*1.8,H,P,'motto',5),capMat,bodyMat});
-    arcWall(B,{cx:0,cz:0,r:R,th,t0:4.6,t1:5.75,h:H,outer:wrapGraphic(R*1.15,H,P,'mog',9),inner:wrapGraphic((R-th)*1.15,H,P,'svc',11),capMat,bodyMat});
-    arcWall(B,{cx:0,cz:0,r:R,th,t0:.55,t1:1.7,h:H,outer:wrapGraphic(R*1.15,H,P,'svc',13),inner:wrapGraphic((R-th)*1.15,H,P,'mog',15),capMat,bodyMat});
+    arcWall(B,{cx:0,cz:0,r:R,th,t0:2.25,t1:4.05,h:H,outer:wrapGraphic(R*1.8,H,P,'head',3),inner:wrapGraphic((R-th)*1.8,H,P,'motto',5),capMat,bodyMat,led:P.edge});
+    arcWall(B,{cx:0,cz:0,r:R,th,t0:4.6,t1:5.75,h:H,outer:wrapGraphic(R*1.15,H,P,'mog',9),inner:wrapGraphic((R-th)*1.15,H,P,'svc',11),capMat,bodyMat,led:P.edge});
+    arcWall(B,{cx:0,cz:0,r:R,th,t0:.55,t1:1.7,h:H,outer:wrapGraphic(R*1.15,H,P,'svc',13),inner:wrapGraphic((R-th)*1.15,H,P,'mog',15),capMat,bodyMat,led:P.edge});
     arcScreen(B,0,0,R,3.3,3.95,.75,1.05,0,false);
     arcScreen(B,0,0,R-th,Math.PI-.42,Math.PI+.42,.72,1.1,2,true);
     spec.screens.push('湾曲LED ×2面');
@@ -493,14 +512,15 @@ function build(){
     const backLen=hx-cx;
     rbox(B,backLen,H,th,.005,bodyMat,cx+backLen/2,CP,-hz+th/2);
     add(B,new T.PlaneGeometry(backLen,H),new T.MeshStandardMaterial({map:wrapGraphic(backLen,H,P,'head',21),roughness:.55}),cx+backLen/2,CP+H/2,-hz+th+.001,{wm:'wall',noCast:true});
-    arcWall(B,{cx,cz,r:rc,th,t0:Math.PI,t1:Math.PI*1.5,h:H,inner:wrapGraphic(rc*1.57,H,P,'mog',23),outer:null,capMat,bodyMat});
+    arcWall(B,{cx,cz,r:rc,th,t0:Math.PI,t1:Math.PI*1.5,h:H,inner:wrapGraphic(rc*1.57,H,P,'mog',23),outer:null,capMat,bodyMat,led:P.edge});
     const lz0=cz,lz1=1.0;
     rbox(B,th,H,lz1-lz0,.005,bodyMat,-hx+th/2,CP,(lz0+lz1)/2);
     add(B,new T.PlaneGeometry(lz1-lz0,H),new T.MeshStandardMaterial({map:wrapGraphic(lz1-lz0,H,P,'svc',25),roughness:.55}),-hx+th+.001,CP+H/2,(lz0+lz1)/2,{ry:Math.PI/2,wm:'wall',noCast:true});
     cyl(B,th/2,th/2,H,capMat,-hx+th/2,CP,lz1,24,{wm:'trim'});
     add(B,new T.BoxGeometry(backLen,.03,th+.004),capMat,cx+backLen/2,CP+H+.015,-hz+th/2,{wm:'trim'});add(B,new T.BoxGeometry(th+.004,.03,lz1-lz0),capMat,-hx+th/2,CP+H+.015,(lz0+lz1)/2,{wm:'trim'});
     flatScreen(B,2.3,1.3,.85,.85,-hz+th+.01,0,1);spec.screens.push('LED 2,300×1,300');
-    emissiveStrip(B,new T.BoxGeometry(backLen,.012,.012),P.edge,cx+backLen/2,CP+.05,-hz+th+.01);
+    ledLine(B,[cx,CP+.03,-hz+th+.012],[hx,CP+.03,-hz+th+.012],P.edge,.009);ledLine(B,[cx,CP+H-.012,-hz+th+.006],[hx,CP+H-.012,-hz+th+.006],P.edge);
+    ledLine(B,[-hx+th+.012,CP+.03,lz0],[-hx+th+.012,CP+.03,lz1],P.edge,.009);ledLine(B,[-hx+th+.006,CP+H-.012,lz0],[-hx+th+.006,CP+H-.012,lz1],P.edge);
     counter(B,2.05,.55,-.35,1.4,MT,P);
     roundTable(B,-.35,.75,MT,1);spec.tables=1;
     showcase(B,2.6,1.15,-.5,MT,P,1);showcase(B,-2.3,1.15,.5,MT,P,2);spec.cases=2;
@@ -515,11 +535,11 @@ function build(){
   }
   if(state.layout==='line'){
     const H=2.7,th=.14,R=8.6;const cz=-hz+.06+R;const tEdge=Math.asin((hx-.06)/R);
-    arcWall(B,{cx:0,cz,r:R,th,t0:Math.PI-tEdge,t1:Math.PI+tEdge,h:H,inner:wrapGraphic(R*2*tEdge,H,P,'head',31),outer:null,capMat,bodyMat});
+    arcWall(B,{cx:0,cz,r:R,th,t0:Math.PI-tEdge,t1:Math.PI+tEdge,h:H,inner:wrapGraphic(R*2*tEdge,H,P,'head',31),outer:null,capMat,bodyMat,led:P.edge});
     const zEnd=cz-R*Math.cos(tEdge);
     [-1,1].forEach(s=>{const z0=zEnd-.05,z1=.75;rbox(B,th,H,z1-z0,.005,bodyMat,s*(hx-th/2),CP,(z0+z1)/2);
       add(B,new T.PlaneGeometry(z1-z0,H),new T.MeshStandardMaterial({map:wrapGraphic(z1-z0,H,P,s<0?'svc':'mog',33+s),roughness:.55}),s*(hx-th-.001),CP+H/2,(z0+z1)/2,{ry:-s*Math.PI/2,wm:'wall',noCast:true});
-      cyl(B,th/2,th/2,H,capMat,s*(hx-th/2),CP,z1,24,{wm:'trim'});});
+      cyl(B,th/2,th/2,H,capMat,s*(hx-th/2),CP,z1,24,{wm:'trim'});ledLine(B,[s*(hx-th-.012),CP+.03,z0],[s*(hx-th-.012),CP+.03,z1],P.edge,.009);ledLine(B,[s*(hx-th-.006),CP+H-.012,z0],[s*(hx-th-.006),CP+H-.012,z1],P.edge);});
     arcScreen(B,0,cz,R-th,Math.PI-.22,Math.PI+.22,.62,1.75,0,true);spec.screens.push('湾曲LED 3,800×1,750');
     counter(B,0,.95,0,1.8,MT,P);
     roundTable(B,-1.7,.35,MT,1);roundTable(B,1.7,.35,MT,3);spec.tables=2;
@@ -555,7 +575,7 @@ function applyToggles(){if(!root)return;
 function updateSpec(){const L=LAYOUTS[state.layout],P=PALS[state.pal],Md=MOODS[state.mood],s=curSpec.W?curSpec:{W:L.W,D:L.D,maxH:0,wallH:0,screens:[],games:0,seats:0,cases:0,tables:0,signD:0};
   $('#planName').textContent=L.name;$('#planLead').textContent=L.lead;$('#planChip').textContent=P.name+' × '+Md.name;
   const rows=[['小間数',L.koma+'小間'],['間口 × 奥行',mm(s.W)+' × '+mm(s.D)],['床面積',(s.W*s.D).toFixed(1)+' m²'],['開放面',L.open],['最高高さ（看板天端）',mm(s.maxH)],['曲面壁の高さ',mm(s.wallH)],['リング看板の直径',mm(s.signD)],
-    ['映像',s.screens.join('、')],['ミニゲーム試遊台',s.games+'台'],['ショーケース（H2,300）',s.cases+'台'],['展示テーブル（φ840）',s.tables+'台'],['打合せ席',s.seats+'席']];
+    ['映像',s.screens.join('、')],['ミニゲーム試遊台',s.games+'台'],['ショーケース（H2,300）',s.cases+'台'],['展示テーブル（φ840）',s.tables+'台'],['打合せ席',s.seats+'席'],['LEDスポット（梁）','8灯'],['LEDダウンライト','8灯'],['LEDテープ','壁・看板・梁']];
   $('#spec').innerHTML=rows.map(r=>'<dt>'+r[0]+'</dt><dd>'+r[1]+'</dd>').join('');
   $('#modeSub').textContent=state.white?'形と寸法だけを白い模型で表示しています。':(P.name+'の出力シート ／ '+P.name+'系パンチカーペット ／ 照明：'+Md.lightName);}
 
