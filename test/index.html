@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TEST ROOM｜AI mania</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#F3EFE4;--ink:#1D1D1F;--blue:#2F5BEA;--yellow:#FFD21F;--red:#FF4B3A;--green:#19C25F;--phos:#7CFFB0;--phos-dim:#2F8F5B;--screen:#07140D}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--ground);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:24px 16px 32px;gap:18px}
+a{color:inherit}
+.back{position:fixed;top:14px;left:16px;font-size:13px;font-weight:700;text-decoration:none;border:2px solid var(--ink);border-radius:999px;padding:6px 12px;background:#fff;box-shadow:3px 3px 0 var(--ink)}
+/* モニター本体 */
+.monitor{width:min(760px,100%);background:#E9E3D2;border:3px solid var(--ink);border-radius:26px;padding:22px 22px 16px;box-shadow:8px 8px 0 var(--ink);position:relative}
+.monitor:after{content:"";position:absolute;left:50%;bottom:-34px;width:34%;height:30px;transform:translateX(-50%);background:#DDD5BF;border:3px solid var(--ink);border-top:0;border-radius:0 0 14px 14px;z-index:-1}
+.bezel{background:#2A2A2C;border-radius:18px;padding:16px;border:3px solid var(--ink)}
+.screen{position:relative;overflow:hidden;background:radial-gradient(ellipse at center,#0d2a1a 0%,var(--screen) 70%);border-radius:14px/18px;padding:22px 18px 18px;color:var(--phos);font-family:'DotGothic16',monospace;text-shadow:0 0 6px rgba(124,255,176,.55);min-height:420px}
+.screen:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);pointer-events:none;z-index:3}
+.screen:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 60px rgba(0,0,0,.75);pointer-events:none;z-index:3;border-radius:inherit}
+.flick{animation:flick 6s infinite}
+@keyframes flick{0%,97%,100%{opacity:1}98%{opacity:.86}}
+.hd{display:flex;justify-content:space-between;font-size:13px;color:var(--phos-dim);letter-spacing:.08em}
+.title{margin:14px 0 4px;font-size:clamp(22px,4.6vw,32px);letter-spacing:.12em}
+.sub{margin:0 0 16px;font-size:14px;color:#A8F5C8}
+.pw{display:flex;align-items:center;gap:10px;border:2px solid var(--phos);border-radius:6px;padding:10px 14px;font-size:24px;letter-spacing:.35em;min-height:54px;background:rgba(124,255,176,.05)}
+.pw .lab{font-size:13px;letter-spacing:.1em;color:var(--phos-dim);margin-right:6px}
+.pw .cur{display:inline-block;width:12px;height:24px;background:var(--phos);animation:blink 1s steps(1) infinite;box-shadow:0 0 8px var(--phos)}
+@keyframes blink{50%{opacity:0}}
+.msg{height:22px;margin:10px 0 12px;font-size:15px}
+.msg.ng{color:#FF8A7A;text-shadow:0 0 6px rgba(255,90,70,.6)}
+.shake{animation:shake .35s}
+@keyframes shake{20%{transform:translateX(-8px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(3px)}}
+/* 画面の中のキーボード */
+.kb{display:flex;flex-direction:column;gap:6px;user-select:none}
+.row{display:flex;gap:6px;justify-content:center}
+.key{flex:1 1 0;min-width:0;max-width:52px;height:44px;border:2px solid var(--phos);border-radius:6px;background:transparent;color:var(--phos);font:inherit;font-size:17px;text-shadow:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .08s,color .08s,transform .08s;box-shadow:0 0 6px rgba(124,255,176,.25)}
+.key:hover{background:rgba(124,255,176,.12)}
+.key.on,.key:active{background:var(--phos);color:var(--screen);text-shadow:none;transform:translateY(2px)}
+.key.wide{max-width:96px;flex:1.8 1 0;font-size:13px;letter-spacing:.06em}
+.key.space{max-width:300px;flex:6 1 0}
+.key.enter{border-color:var(--yellow);color:var(--yellow);text-shadow:0 0 6px rgba(255,210,31,.6)}
+.key.enter.on,.key.enter:active{background:var(--yellow);color:var(--screen)}
+/* 解錠後 */
+.granted{display:none}
+.unlocked .lock{display:none}
+.unlocked .granted{display:block}
+.list{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.list a{display:flex;justify-content:space-between;gap:12px;text-decoration:none;border:2px solid var(--phos);border-radius:6px;padding:10px 14px;font-size:16px}
+.list a:hover{background:rgba(124,255,176,.12)}
+.list small{color:var(--phos-dim);font-size:12px}
+.empty{color:var(--phos-dim);font-size:14px;margin-top:14px;line-height:1.8}
+.logout{margin-top:16px;background:none;border:0;color:var(--phos-dim);font:inherit;font-size:13px;text-decoration:underline;cursor:pointer;padding:0}
+.knobs{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding:0 6px}
+.brand{font-weight:700;font-size:12px;letter-spacing:.2em}
+.led{width:10px;height:10px;border-radius:50%;background:var(--red);border:2px solid var(--ink)}
+.unlocked .led{background:var(--green);box-shadow:0 0 8px var(--green)}
+.note{font-size:12px;color:#77746d;text-align:center;max-width:560px;line-height:1.7;margin-top:22px}
+@media (max-width:560px){.monitor{padding:14px 12px 12px;border-radius:20px}.bezel{padding:10px}.screen{padding:16px 10px 14px;min-height:0}.key{height:40px;font-size:15px;border-radius:5px}.row{gap:4px}.kb{gap:4px}.pw{font-size:20px}.key.wide{font-size:11px;letter-spacing:0;flex:1.5 1 0}}
+@media (prefers-reduced-motion:reduce){.flick,.pw .cur{animation:none}}
+</style>
+</head>
+<body>
+<a class="back" href="/">← aimania.tech</a>
+<div class="monitor" id="mon">
+<div class="bezel">
+<div class="screen flick" id="scr">
+<div class="hd"><span>AI MANIA TERMINAL v1.0</span><span id="clock">--:--</span></div>
+<div class="lock">
+<h1 class="title">TEST ROOM</h1>
+<p class="sub">パスワードを入力してください（画面のキーを押すか、キーボードで）</p>
+<div class="pw" id="pw" aria-live="polite"><span class="lab">PASS&gt;</span><span id="dots"></span><span class="cur"></span></div>
+<div class="msg" id="msg" role="status"></div>
+<div class="kb" id="kb" aria-label="画面キーボード"></div>
+</div>
+<div class="granted" id="granted">
+<h1 class="title">ACCESS GRANTED</h1>
+<p class="sub">▶ モグボは とびらを あけた！ テストページの いちらん：</p>
+<ul class="list" id="list"></ul>
+<button class="logout" id="logout" type="button">ログアウトして閉じる</button>
+</div>
+</div>
+</div>
+<div class="knobs"><span class="brand">AI MANIA</span><span class="led" aria-hidden="true"></span></div>
+</div>
+<p class="note">このページは検索エンジンに載せない設定のテスト用スペースです。</p>
+<script>
+(function(){
+// パスワード「test」のSHA-256（平文は置かない）
+var HASH='9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08';
+var KEY='aim_test_ok';
+var MAX=24;
+var rows=[['1','2','3','4','5','6','7','8','9','0'],['q','w','e','r','t','y','u','i','o','p'],['a','s','d','f','g','h','j','k','l'],['z','x','c','v','b','n','m']];
+var kb=document.getElementById('kb'),dots=document.getElementById('dots'),msg=document.getElementById('msg'),mon=document.getElementById('mon'),pwEl=document.getElementById('pw');
+var buf='',busy=false;
+function store(get,val){try{if(get)return sessionStorage.getItem(KEY);sessionStorage.setItem(KEY,val)}catch(e){return null}}
+function mk(label,val,cls){var b=document.createElement('button');b.type='button';b.className='key'+(cls?' '+cls:'');b.textContent=label;b.dataset.v=val;b.addEventListener('click',function(){press(val)});return b}
+rows.forEach(function(r,i){var row=document.createElement('div');row.className='row';if(i===3)row.appendChild(mk('DEL','Backspace','wide'));r.forEach(function(c){row.appendChild(mk(c.toUpperCase(),c))});if(i===3)row.appendChild(mk(innerWidth<560?'OK':'ENTER','Enter','wide enter'));kb.appendChild(row)});
+var sp=document.createElement('div');sp.className='row';sp.appendChild(mk('CLEAR','Clear','wide'));sp.appendChild(mk('SPACE',' ','space'));kb.appendChild(sp);
+function render(){dots.textContent='●'.repeat(buf.length)}
+function flash(v){var k=kb.querySelector('[data-v="'+(v===' '?' ':v)+'"]');if(!k)return;k.classList.add('on');setTimeout(function(){k.classList.remove('on')},120)}
+function hex(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')}
+function check(){
+ if(busy)return;busy=true;msg.className='msg';msg.textContent='CHECKING...';
+ var p=(window.crypto&&crypto.subtle)?crypto.subtle.digest('SHA-256',new TextEncoder().encode(buf)).then(hex):Promise.resolve(buf==='test'?HASH:'');
+ p.then(function(h){setTimeout(function(){busy=false;
+  if(h===HASH){store(false,'1');unlock()}
+  else{msg.className='msg ng';msg.textContent='ACCESS DENIED ― もういちど';pwEl.classList.remove('shake');void pwEl.offsetWidth;pwEl.classList.add('shake');buf='';render()}
+ },380)});
+}
+function press(v){
+ if(document.body.classList.contains('unlocked'))return;
+ flash(v);
+ if(v==='Enter'){check();return}
+ if(v==='Backspace'){buf=buf.slice(0,-1)}else if(v==='Clear'){buf=''}else if(buf.length<MAX){buf+=v}
+ msg.className='msg';msg.textContent='';render();
+}
+document.addEventListener('keydown',function(e){
+ if(e.metaKey||e.ctrlKey||e.altKey)return;
+ if(e.key==='Enter'||e.key==='Backspace'){e.preventDefault();press(e.key);return}
+ if(e.key==='Escape'){press('Clear');return}
+ if(e.key.length===1){e.preventDefault();press(e.key.toLowerCase())}
+});
+function unlock(){
+ document.body.classList.add('unlocked');
+ var next=new URLSearchParams(location.search).get('next');
+ if(next&&/^\/test\/[\w\-\/]*$/.test(next)){location.replace(next);return}
+ fetch('pages.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():[]}).catch(function(){return []}).then(function(list){
+  var ul=document.getElementById('list');ul.innerHTML='';
+  if(!list.length){ul.outerHTML='<p class="empty">まだテストページはありません。<br>/test/ の下にフォルダを作り、pages.json に足すとここに並びます。</p>';return}
+  list.forEach(function(p){var li=document.createElement('li');var a=document.createElement('a');a.href=p.path;a.innerHTML='<span></span><small></small>';a.firstChild.textContent='▶ '+p.title;a.lastChild.textContent=p.date||'';li.appendChild(a);ul.appendChild(li)});
+ });
+}
+document.getElementById('logout').addEventListener('click',function(){try{sessionStorage.removeItem(KEY)}catch(e){}document.body.classList.remove('unlocked');buf='';render()});
+function tick(){var d=new Date();document.getElementById('clock').textContent=('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}tick();setInterval(tick,15000);
+if(store(true)==='1')unlock();
+})();
+</script>
+</body>
+</html>
