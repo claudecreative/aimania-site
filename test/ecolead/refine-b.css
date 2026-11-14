@@ -16,7 +16,7 @@
 #cases.cases-section{background:var(--ec-bg-warm)}
 
 #reasons .center-title,#services .center-title,#items .center-title,#cases .center-title{margin-bottom:56px}
-#reasons .center-title>span,#services .center-title>span,#items .center-title>span,#cases .center-title>span{font-weight:700;letter-spacing:.16em;color:var(--ec-green)}
+#reasons .center-title>span,#services .center-title>span,#items .center-title>span,#cases .center-title>span{font-weight:700;letter-spacing:.16em;color:var(--ec-green-deep)}
 #reasons .center-title h2,#services .center-title h2,#items .center-title h2,#cases .center-title h2{font-weight:700;letter-spacing:.04em;color:var(--ec-ink)}
 #reasons .center-title h2 span{color:var(--ec-coral)}
 #services .center-title>p,#items .center-title>p,#cases .center-title>p{color:var(--ec-muted)}
@@ -41,7 +41,7 @@
 /* 番号：大きく太い数字をやめ、小さな見出し＋細い線で上品に */
 #reasons .reason-index{
   display:flex;align-items:baseline;gap:8px;padding:0 24px;margin:0;
-  font-size:11px;font-weight:700;letter-spacing:.16em;line-height:1;color:var(--ec-green)}
+  font-size:11px;font-weight:700;letter-spacing:.16em;line-height:1;color:var(--ec-green-deep)}
 #reasons .reason-index b{display:inline;font-size:22px;font-weight:700;letter-spacing:.04em;line-height:1;margin:0;font-variant-numeric:tabular-nums}
 #reasons .reason-index:after{content:'';flex:1;height:1px;background:var(--ec-line);align-self:center;margin-left:8px}
 #reasons .reason-card h3{font-size:20px;font-weight:700;line-height:1.5;letter-spacing:.04em;color:var(--ec-ink);margin:16px 0 10px;padding:0 24px}
@@ -72,7 +72,7 @@
 /* 番号：黄色の丸 → 白い小札（色数を減らす） */
 #services .num{
   left:12px;top:12px;width:auto;height:28px;padding:0 10px;border-radius:var(--ec-radius-sm);
-  display:grid;place-items:center;background:rgba(255,255,255,.94);color:var(--ec-green);
+  display:grid;place-items:center;background:rgba(255,255,255,.94);color:var(--ec-green-deep);
   font-size:13px;font-weight:700;letter-spacing:.06em;font-variant-numeric:tabular-nums}
 #services .card-content{background:none;border:0;border-radius:0;padding:22px 24px 28px;flex:1}
 #services .card-content h3{
@@ -81,7 +81,7 @@
 /* 矢印：オレンジの丸 → 淡いミントの丸（ホバーで緑に） */
 #services .card-content h3 span{
   display:grid;place-items:center;flex-shrink:0;width:32px;height:32px;min-width:0;border-radius:50%;
-  font-size:14px;line-height:1;background:var(--ec-bg-mint);color:var(--ec-green);
+  font-size:14px;line-height:1;background:var(--ec-bg-mint);color:var(--ec-green-deep);
   transition:background-color .3s var(--ec-ease),color .3s var(--ec-ease)}
 #services .card-content p{font-size:15px;line-height:1.9;color:var(--ec-muted);margin:0}
 #services .service-card:hover{box-shadow:var(--ec-shadow-hover)}
@@ -108,7 +108,7 @@
   transition:transform .45s var(--ec-ease)}
 #items .catalog-plus{
   top:12px;right:12px;width:28px;height:28px;font-size:16px;line-height:1;
-  background:rgba(255,255,255,.92);color:var(--ec-green);
+  background:rgba(255,255,255,.92);color:var(--ec-green-deep);
   transition:transform .45s var(--ec-ease),background-color .3s var(--ec-ease),color .3s var(--ec-ease)}
 #items .catalog-detail{
   left:16px;right:16px;bottom:14px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.06em;
@@ -135,11 +135,11 @@
 #cases .case-controls{gap:8px;margin:-24px 0 16px}
 #cases .case-controls button{
   width:44px;height:44px;border-radius:var(--ec-radius-sm);border:1px solid var(--ec-line);
-  background:var(--ec-bg);color:var(--ec-green);font-size:17px;
+  background:var(--ec-bg);color:var(--ec-green-deep);font-size:17px;
   transition:background-color .25s var(--ec-ease),border-color .25s var(--ec-ease)}
 #cases .case-controls #case-play{width:auto;padding:0 16px;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--ec-ink)}
-#cases .case-controls button:hover{background:var(--ec-bg-mint);border-color:var(--ec-green)}
-#cases .case-track{gap:24px;padding:8px 4px 28px;scrollbar-color:var(--ec-green) var(--ec-line)}
+#cases .case-controls button:hover{background:var(--ec-bg-mint);border-color:var(--ec-green-deep)}
+#cases .case-track{gap:24px;padding:8px 4px 28px;scrollbar-color:var(--ec-green-deep) var(--ec-line)}
 #cases .case-card{
   flex-basis:calc((100% - 96px)/5);display:flex;flex-direction:column;
   background:var(--ec-bg);border:1px solid var(--ec-line);border-radius:var(--ec-radius);
@@ -158,7 +158,7 @@
   font-size:12px;font-weight:700;letter-spacing:.08em;line-height:1}
 #cases .case-price>span br{display:none}
 #cases .case-price strong{
-  font-size:28px;font-weight:800;letter-spacing:.01em;line-height:1.2;color:var(--ec-green);
+  font-size:28px;font-weight:800;letter-spacing:.01em;line-height:1.2;color:var(--ec-green-deep);
   font-variant-numeric:tabular-nums}
 #cases .case-price strong small{font-size:14px;font-weight:700;margin-left:2px;color:var(--ec-ink)}
 #cases .case-card:hover{box-shadow:var(--ec-shadow-hover)}

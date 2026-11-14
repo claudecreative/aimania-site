@@ -1,9 +1,10 @@
 /* ===== 仕上げ用の共通トークン（3人のデザイナー共通。各自の refine-*.css はこの変数だけを使う） ===== */
 :root{
   /* 色：役割ごとに1色ずつ。これ以外の新しい色は足さない */
-  --ec-green:#1C7A55;        /* ブランドの緑（見出しの強調・アイコン・CTA） */
-  --ec-green-deep:#155E43;   /* 緑のホバー・濃い面 */
-  --ec-ink:#22362D;          /* 本文・見出しの文字 */
+  --ec-green:#46A12C;        /* ブランドの緑＝ロゴの色（面・アイコン・CTA） */
+  --ec-green-deep:#2F7F1F;   /* 文字に使う緑・ホバー（白地で読める濃さ） */
+  --ec-green-btn:#3A9524;    /* 白文字を載せるボタンの緑（ロゴ色を少しだけ濃く） */
+  --ec-ink:#263A2C;          /* 本文・見出しの文字 */
   --ec-muted:#5E6E65;        /* 補足文字 */
   --ec-coral:#E07450;        /* 強調（「無料」「買取」など要所だけ。面には使わない） */
   --ec-yellow:#F4D35E;       /* マーカー・小さなバッジだけ */
@@ -11,7 +12,7 @@
   /* 背景：白＋2種類の淡色だけで交互に */
   --ec-bg:#FFFFFF;
   --ec-bg-warm:#FBF7EE;      /* 温かみの面（悩み・実績・お問い合わせ） */
-  --ec-bg-mint:#F2F7F3;      /* 落ち着いた面（サービス・流れ・FAQ） */
+  --ec-bg-mint:#F1F8EE;      /* 落ち着いた面（サービス・流れ・FAQ） */
   /* 形 */
   --ec-radius:16px;          /* カード・写真 */
   --ec-radius-sm:10px;       /* ボタン・入力欄・小さな面 */
@@ -29,7 +30,7 @@
 /* 共通：ボタンの形と動きをそろえる（色は各ボタンのまま） */
 .btn{border-radius:var(--ec-radius-sm);box-shadow:none;transition:transform .25s var(--ec-ease),box-shadow .25s var(--ec-ease),background-color .25s var(--ec-ease)}
 .btn:hover{transform:translateY(-2px);box-shadow:var(--ec-shadow-hover)}
-.btn.green{background:var(--ec-green)}
+.btn.green{background:var(--ec-green-btn)}
 .btn.green:hover{background:var(--ec-green-deep)}
 /* メールボタンは青をやめ、白地＋緑の線に（色数を減らす） */
 .btn.mail-btn{background:#fff;color:var(--ec-green);border:1.5px solid var(--ec-green)}
@@ -43,3 +44,6 @@
 
 /* 見出しの最後に1〜2文字だけ残る改行を防ぐ */
 h1,h2,h3,h4{text-wrap:pretty;word-break:auto-phrase}
+
+/* 元の style.css の緑もロゴの色系に寄せる */
+:root{--green:#2F7F1F}

@@ -30,7 +30,7 @@ header#header .header-phone b{font-size:24px;font-weight:700;letter-spacing:.03e
 header#header .header-contact{
   display:flex;flex-wrap:wrap;align-content:center;align-items:baseline;min-width:0;min-height:52px;
   padding:6px 22px;border-radius:var(--ec-radius-sm);
-  background:var(--ec-green);color:#fff;box-shadow:none;
+  background:var(--ec-green-btn);color:#fff;box-shadow:none;
   font-size:15px;font-weight:700;line-height:1.35;letter-spacing:.04em;
   transition:background-color .25s var(--ec-ease),transform .25s var(--ec-ease),box-shadow .25s var(--ec-ease);
 }
@@ -45,7 +45,7 @@ header#header .header-mail{
   font-size:14px;font-weight:600;letter-spacing:.04em;
   transition:border-color .25s var(--ec-ease),color .25s var(--ec-ease);
 }
-header#header .header-mail:hover{border-color:var(--ec-green);color:var(--ec-green)}
+header#header .header-mail:hover{border-color:var(--ec-green-deep);color:var(--ec-green-deep)}
 
 /* メニューボタン：タップ領域44px */
 header#header .menu{width:44px;height:44px;padding:0;align-items:center;justify-content:center}
@@ -55,7 +55,7 @@ header#header .menu span{background:var(--ec-ink)}
 @media (min-width:1001px){
   header#header nav#nav{height:46px;gap:36px;border-top:1px solid var(--ec-line);font-size:14px;font-weight:500;letter-spacing:.06em}
   header#header nav#nav a{color:var(--ec-ink);transition:color .25s var(--ec-ease)}
-  header#header nav#nav a:hover{color:var(--ec-green)}
+  header#header nav#nav a:hover{color:var(--ec-green-deep)}
   header#header nav#nav a:after{bottom:-6px;height:1.5px;background:var(--ec-green)}
 }
 @media (max-width:1000px){
@@ -70,7 +70,7 @@ header#header .menu span{background:var(--ec-ink)}
 /* 3-1 見出し（h1）：極太・広い字間をやめ、上品な強弱に */
 .hero .hero-title{margin:0 auto 24px}
 .hero .hero-title>span{display:block;font-size:13px;font-weight:500;letter-spacing:.12em;color:var(--ec-muted)}
-.hero .hero-title h1{font-size:clamp(28px,2.4vw,34px);font-weight:700;letter-spacing:.06em;line-height:1.5;margin-top:6px;color:var(--ec-green)}
+.hero .hero-title h1{font-size:clamp(28px,2.4vw,34px);font-weight:700;letter-spacing:.06em;line-height:1.5;margin-top:6px;color:var(--ec-green-deep)}
 .hero .hero-title em{color:var(--ec-coral);font-weight:800}
 
 /* 3-2 ステージ（緑の面＋写真） */
@@ -143,7 +143,7 @@ header#header .menu span{background:var(--ec-ink)}
   background:#fff;border:0;box-shadow:var(--ec-shadow);
   font-size:10px;line-height:1.5;color:var(--ec-muted);letter-spacing:.04em;
 }
-.hero .area-badge strong{font-size:18px;font-weight:700;color:var(--ec-green);letter-spacing:.04em;line-height:1.4}
+.hero .area-badge strong{font-size:18px;font-weight:700;color:var(--ec-green-deep);letter-spacing:.04em;line-height:1.4}
 .hero .area-badge strong span{font-size:12px}
 .hero .area-badge small{font-size:8.5px;color:var(--ec-muted)}
 .hero .photo-copy{
@@ -194,9 +194,9 @@ header#header .menu span{background:var(--ec-ink)}
 /* ---------- 5. ABOUT ---------- */
 #about{padding-top:var(--ec-sec-y);padding-bottom:var(--ec-sec-y)}
 #about .center-title{margin-bottom:56px}
-#about .center-title>span{font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--ec-green);margin-bottom:14px}
+#about .center-title>span{font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--ec-green-deep);margin-bottom:14px}
 #about .center-title h2{font-size:30px;font-weight:700;line-height:1.6;letter-spacing:.06em;color:var(--ec-ink)}
-#about .center-title h2 strong{display:inline-block;margin-top:8px;font-size:44px;font-weight:800;letter-spacing:.08em;color:var(--ec-green)}
+#about .center-title h2 strong{display:inline-block;margin-top:8px;font-size:44px;font-weight:800;letter-spacing:.08em;color:var(--ec-green-deep)}
 #about .about-layout{max-width:1120px;margin:0 auto;grid-template-columns:1fr 1fr;gap:72px}
 #about .about-layout p{font-size:16px;line-height:2.1;letter-spacing:.04em;color:var(--ec-ink);margin:0 0 1.5em}
 #about .about-layout p:last-child{margin-bottom:0}
@@ -206,7 +206,7 @@ header#header .menu span{background:var(--ec-ink)}
 /* ---------- 6. お悩み ---------- */
 #worry{background:var(--ec-bg-warm);padding-top:var(--ec-sec-y);padding-bottom:var(--ec-sec-y)}
 #worry .center-title{margin-bottom:56px}
-#worry .center-title>span{font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--ec-green);margin-bottom:14px}
+#worry .center-title>span{font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--ec-green-deep);margin-bottom:14px}
 #worry .center-title h2{font-size:30px;font-weight:700;line-height:1.6;letter-spacing:.06em;color:var(--ec-ink)}
 #worry .center-title h2 span{color:var(--ec-coral)}
 #worry .worry-scene{max-width:1120px;margin:0 auto;grid-template-columns:.9fr 1.1fr;gap:64px}
@@ -219,12 +219,12 @@ header#header .menu span{background:var(--ec-ink)}
 #worry .worry-list li:last-child{margin-bottom:0}
 #worry .check-icon{
   display:grid;place-items:center;flex:none;width:24px;height:24px;margin-top:3px;border-radius:50%;
-  background:var(--ec-green);color:#fff;font-size:13px;font-weight:700;line-height:1;
+  background:var(--ec-green-btn);color:#fff;font-size:13px;font-weight:700;line-height:1;
 }
 #worry .marker{background-image:linear-gradient(transparent 72%,color-mix(in srgb,var(--ec-yellow) 70%,transparent) 72%,color-mix(in srgb,var(--ec-yellow) 70%,transparent) 94%,transparent 94%)}
 #worry .solution{margin-top:56px;max-width:880px}
 #worry .solution-arrow{font-size:28px;line-height:1;margin-bottom:20px;color:var(--ec-coral)}
-#worry .solution h3{font-size:34px;font-weight:700;line-height:1.6;letter-spacing:.06em;color:var(--ec-green);-webkit-text-stroke:0;margin:0 0 24px}
+#worry .solution h3{font-size:34px;font-weight:700;line-height:1.6;letter-spacing:.06em;color:var(--ec-green-deep);-webkit-text-stroke:0;margin:0 0 24px}
 #worry .solution h3 em{color:var(--ec-coral);font-weight:800}
 #worry .solution p{font-size:16px;line-height:2.1;letter-spacing:.04em;color:var(--ec-ink)}
 /* 出てくる動き：拡大バウンドをやめ、静かに浮かぶだけに */
@@ -243,10 +243,10 @@ header#header .menu span{background:var(--ec-ink)}
 }
 .floating-line>b{
   gap:8px;padding:14px 12px 4px;border:0;border-radius:12px 12px 0 0;
-  background:var(--ec-green);font-size:16px;font-weight:700;letter-spacing:.04em;
+  background:var(--ec-green-btn);font-size:16px;font-weight:700;letter-spacing:.04em;
 }
-.floating-line>small{padding:0 12px 12px;border:0;border-radius:0 0 12px 12px;background:var(--ec-green);font-size:10.5px;letter-spacing:.04em;opacity:1}
-.floating-line .line-symbol{width:26px;height:26px;color:var(--ec-green);background:#fff}
+.floating-line>small{padding:0 12px 12px;border:0;border-radius:0 0 12px 12px;background:var(--ec-green-btn);font-size:10.5px;letter-spacing:.04em;opacity:1}
+.floating-line .line-symbol{width:26px;height:26px;color:var(--ec-green-deep);background:#fff}
 
 /* ---------- 8. 動き：数px・ゆっくり。motion-off / reduced-motion では止める ---------- */
 @keyframes ec-a-float{0%,100%{translate:0 0}50%{translate:0 -4px}}
@@ -395,7 +395,7 @@ header#header .menu span{background:var(--ec-ink)}
   }
   .mobile-contact>a{border-radius:var(--ec-radius-sm);min-height:52px;font-size:14px;font-weight:700;letter-spacing:.04em}
   .mobile-contact>a:first-child{background:var(--ec-bg);color:var(--ec-green-deep);border:1px solid var(--ec-green)}
-  .mobile-contact .mobile-line{background:var(--ec-green);color:#fff;padding-left:60px;min-height:52px}
+  .mobile-contact .mobile-line{background:var(--ec-green-btn);color:#fff;padding-left:60px;min-height:52px}
   .mobile-contact .mobile-line>img{width:58px;height:66px;left:4px}
   .mobile-contact .mobile-line>span{font-size:15px;font-weight:700;line-height:1.4}
   .mobile-contact .mobile-line small{font-size:9.5px;font-weight:500;opacity:.9}
