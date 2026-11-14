@@ -444,12 +444,14 @@ header#header .menu span{background:var(--ec-ink)}
   body:not(.motion-off) .hero .hero-art .bubble-three{animation-name:ec-a-pop3,ec-a-bob}
 }
 
-/* ===== ヒーロー左の背景に、家財道具の線画をうっすら（11/14 追加） ===== */
+/* ===== ヒーロー左の背景に、家財道具のイラスト（ChatGPTで作成）を緑の濃淡でうっすら（11/14 差し替え） ===== */
 .hero .hero-left{position:relative;isolation:isolate}
 .hero .hero-left::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:url(assets/hero-items-line.svg) center/100% 100% no-repeat;opacity:.13}
+  background:#0F5C3E;   /* 線の色：背景より少し濃い緑（トーン・オン・トーン） */
+  -webkit-mask:url(assets/hero-items-mask.png) center/cover no-repeat;mask:url(assets/hero-items-mask.png) center/cover no-repeat;
+  opacity:.6}
 @keyframes ec-a-drift{0%,100%{transform:translate(0,0)}50%{transform:translate(0,-6px)}}
 @media (prefers-reduced-motion:no-preference){
   body:not(.motion-off) .hero .hero-left::before{animation:ec-a-drift 10s ease-in-out infinite}
 }
-@media (max-width:760px){.hero .hero-left::before{opacity:.12}}
+@media (max-width:760px){.hero .hero-left::before{-webkit-mask-size:auto 100%;mask-size:auto 100%}}
