@@ -391,15 +391,6 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">Works</div>
 <h2 style="margin: 4px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4.2vw, 52px)">実績・制作事例</h2>
 </div>
-<div class="wk-pick">
-<div class="wk-ask">▼ 見たい事例をえらんでください</div>
-<div class="wk-tabs" role="tablist" aria-label="制作事例の種類">
-<button role="tab" id="wkt-case" aria-controls="wk-case" aria-selected="true"><b>実績</b><small>公開中の案件</small></button>
-<button role="tab" id="wkt-lp" aria-controls="wk-lp" aria-selected="false"><b>LPデザイン</b><small>サンプル集</small></button>
-<button role="tab" id="wkt-game" aria-controls="wk-game" aria-selected="false"><b>動画・ゲーム・アプリ</b><small>実際に遊べる</small></button>
-<button role="tab" id="wkt-booth" aria-controls="wk-booth" aria-selected="false"><i>NEW</i><b>展示会ブース</b><small>3Dで回せる</small></button>
-</div>
-</div>
 <div class="wk-panel" id="wk-case" role="tabpanel" aria-labelledby="wkt-case">
 <h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">実績</h3>
 <div class="win lift">
@@ -460,7 +451,6 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </div>
 </div>
 <p style="margin: 8px 0 0; font-size: 14px; color: #5A5A5A">以下は、制作の幅をお伝えするための自主制作サンプルです。</p>
-<div class="wk-next"><button type="button" data-go="wk-lp">次は「LPデザイン」を見る →</button></div>
 </div>
 <div class="wk-panel" id="wk-lp" role="tabpanel" aria-labelledby="wkt-lp">
 <h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">LPデザイン</h3>
@@ -509,7 +499,6 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </div>
 </div>
 
-<div class="wk-next"><button type="button" data-go="wk-game">次は「動画・ゲーム・アプリ」を見る →</button></div>
 </div>
 <div class="wk-panel" id="wk-game" role="tabpanel" aria-labelledby="wkt-game">
 <h3 style="margin: 24px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">動画・ミニゲーム・アプリ</h3>
@@ -568,7 +557,6 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <a href="#contact" data-service="アプリ開発" data-sample="予約管理Webアプリ" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
 </div>
 </div>
-<div class="wk-next"><button type="button" data-go="wk-booth">次は「展示会ブース」を見る →</button></div>
 </div>
 <div class="wk-panel" id="wk-booth" role="tabpanel" aria-labelledby="wkt-booth">
 <div id="booth" style="display: flex; flex-direction: column; gap: 28px; scroll-margin-top: 80px">
@@ -596,7 +584,6 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <a href="/booth/" class="btn">3Dを全画面で見る</a>
 </div>
 </div>
-<div class="wk-next"><button type="button" data-go="wk-case">次は「実績」を見る →</button></div>
 </div>
 </section>
 
@@ -1228,21 +1215,6 @@ io.observe(a);
 <script>
 /* 「展示会の相談をする」で相談フォームの種類を選んでおく */
 document.querySelectorAll('a[data-kind]').forEach(function(a){a.addEventListener('click',function(){var sel=document.getElementById('r-kind');if(!sel)return;for(var i=0;i<sel.options.length;i++){if(sel.options[i].text===a.dataset.kind){sel.selectedIndex=i;sel.dispatchEvent(new Event('change',{bubbles:true}));break;}}});});
-</script>
-<script>
-/* 制作事例のタブ切り替え */
-(function(){
-var sec=document.getElementById('works');if(!sec)return;sec.classList.add('tabbed');
-var tabs=[].slice.call(sec.querySelectorAll('.wk-tabs [role=tab]'));
-function show(id,focus){tabs.forEach(function(t){var on=t.getAttribute('aria-controls')===id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;if(on&&focus)t.focus();});}
-tabs.forEach(function(t,i){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'));});
- t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();var n=tabs[(i+d+tabs.length)%tabs.length];show(n.getAttribute('aria-controls'),true);}});});
-show('wk-case');
-sec.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.go);sec.querySelector('.wk-pick').scrollIntoView({behavior:'smooth',block:'start'});});});
-function openFor(hash){if(!hash)return;var el;try{el=document.querySelector(hash)}catch(e){return}if(!el)return;var p=el.closest&&el.closest('.wk-panel');if(p){show(p.id);setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},30);}}
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(a&&a.getAttribute('href')!=='#'){var el=document.querySelector(a.getAttribute('href'));if(el&&el.closest('.wk-panel')){e.preventDefault();openFor(a.getAttribute('href'));history.replaceState(null,'',a.getAttribute('href'));}}});
-openFor(location.hash);
-})();
 </script>
 </body>
 </html>
