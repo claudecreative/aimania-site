@@ -2,179 +2,164 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#050607">
-<title>CLASSIFIED｜AI mania TEST ROOM</title>
+<title>TEST ROOM｜AI mania</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Zen+Kaku+Gothic+New:wght@500;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#050607;--panel:#0b0e10;--line:#1f272b;--txt:#d9e2e6;--dim:#6d7a80;--red:#ff2a2a;--red-d:#7a0d0d;--amber:#ffb020;--ok:#3cff8f}
+:root{--ground:#F3EFE4;--ink:#1D1D1F;--yellow:#FFD21F;--red:#FF4B3A;--green:#19C25F;--phos:#7CFFB0;--phos-dim:#2F8F5B;--phos-glow:rgba(124,255,176,.55);--screen:#07140D;--screen2:#0d2a1a;--amber:#FFC24A}
+/* 警報中は画面の色を赤に */
+.alert{--phos:#FF7A6B;--phos-dim:#9A3A30;--phos-glow:rgba(255,90,70,.6);--screen:#160606;--screen2:#3a0c0c}
 *{box-sizing:border-box}
-html,body{margin:0;height:100%;background:var(--bg);color:var(--txt);font-family:'Share Tech Mono','Zen Kaku Gothic New',monospace;overflow:hidden}
-body{display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top)) 14px max(16px,env(safe-area-inset-bottom))}
+html,body{margin:0;min-height:100%;background:var(--ground);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:24px 16px 32px;gap:18px}
 a{color:inherit}
-/* ---------- 背景：グリッド・レーダー・走査線 ---------- */
-.bgfx{position:fixed;inset:0;pointer-events:none;z-index:0}
-.grid{position:absolute;inset:-2px;background:
-  linear-gradient(rgba(255,42,42,.06) 1px,transparent 1px) 0 0/48px 48px,
-  linear-gradient(90deg,rgba(255,42,42,.06) 1px,transparent 1px) 0 0/48px 48px;
-  mask-image:radial-gradient(ellipse at center,#000 30%,transparent 78%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 78%)}
-.radar{position:absolute;left:50%;top:50%;width:150vmax;height:150vmax;transform:translate(-50%,-50%);border-radius:50%;
-  background:conic-gradient(from 0deg,rgba(255,42,42,.16),rgba(255,42,42,0) 16%,transparent 100%);animation:spin 7s linear infinite;opacity:.55}
-.rings{position:absolute;left:50%;top:50%;width:120vmin;height:120vmin;transform:translate(-50%,-50%);border-radius:50%;
-  background:repeating-radial-gradient(circle,transparent 0 59px,rgba(255,42,42,.09) 60px 61px)}
-.scan{position:absolute;left:0;right:0;height:120px;top:-120px;background:linear-gradient(transparent,rgba(255,42,42,.07),transparent);animation:scan 5.5s linear infinite}
-.noise{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.35) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
-.vig{position:absolute;inset:0;box-shadow:inset 0 0 220px rgba(0,0,0,.95)}
-@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
-@keyframes scan{to{top:110%}}
-/* 四隅の情報 */
-.hud{position:fixed;z-index:2;font-size:11px;letter-spacing:.14em;color:var(--dim);line-height:1.7;pointer-events:none}
-.hud b{color:var(--red);font-weight:400}
-.tl{top:14px;left:16px}.tr{top:14px;right:16px;text-align:right}.bl{bottom:14px;left:16px}.br{bottom:14px;right:16px;text-align:right}
-.back{pointer-events:auto;text-decoration:none;border:1px solid var(--line);padding:3px 8px;display:inline-block;margin-top:4px;color:var(--dim)}
-.back:hover{color:var(--txt);border-color:var(--dim)}
-.rec{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:6px;animation:blink 1.1s steps(1) infinite;vertical-align:1px}
-@keyframes blink{50%{opacity:0}}
-/* ---------- ファイル本体 ---------- */
-.file{position:relative;z-index:3;width:min(620px,100%);background:linear-gradient(180deg,rgba(14,18,20,.94),rgba(8,10,12,.96));border:1px solid var(--line);
-  box-shadow:0 0 0 1px rgba(255,42,42,.08),0 30px 80px rgba(0,0,0,.8);padding:26px 26px 22px;opacity:0;transform:translateY(10px) scale(.985);transition:opacity .5s,transform .5s}
-.ready .file{opacity:1;transform:none}
-.file:before,.file:after{content:"";position:absolute;width:18px;height:18px;border:2px solid var(--red)}
-.file:before{top:-2px;left:-2px;border-right:0;border-bottom:0}
-.file:after{bottom:-2px;right:-2px;border-left:0;border-top:0}
-/* 導火線 */
-.fuse{position:absolute;left:0;right:0;top:0;height:2px;background:rgba(255,176,32,.12);overflow:visible}
-.fuse i{position:absolute;left:0;top:0;height:2px;width:100%;background:linear-gradient(90deg,var(--amber),#ff6a00);transform-origin:right;animation:burn 60s linear forwards}
-.fuse em{position:absolute;top:-5px;left:0;width:12px;height:12px;border-radius:50%;background:radial-gradient(#fff,#ffd36b 35%,#ff6a00 60%,transparent 70%);
-  box-shadow:0 0 14px 4px rgba(255,140,0,.7);animation:spark 60s linear forwards,flick .12s infinite alternate}
-@keyframes burn{from{transform:scaleX(1)}to{transform:scaleX(0)}}
-@keyframes spark{from{left:0}to{left:calc(100% - 12px)}}
-@keyframes flick{from{opacity:.75;transform:scale(.85)}to{opacity:1;transform:scale(1.15)}}
-.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;font-size:11px;letter-spacing:.18em;color:var(--dim)}
-.cls{color:var(--red);border:1px solid var(--red);padding:3px 8px;letter-spacing:.24em}
-.timer{font-size:12px;color:var(--amber);text-align:right}
-.timer span{display:block;font-size:22px;letter-spacing:.08em;color:var(--txt)}
-.title{margin:18px 0 0;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:clamp(28px,6.4vw,46px);letter-spacing:.06em;line-height:1.1}
-.title small{display:block;font-family:'Share Tech Mono',monospace;font-weight:400;font-size:12px;letter-spacing:.3em;color:var(--red);margin-bottom:8px}
-.stamp{position:absolute;right:26px;top:118px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:26px;color:var(--red);border:3px solid var(--red);padding:2px 12px;
-  transform:rotate(-12deg) scale(2.2);opacity:0;letter-spacing:.2em;mix-blend-mode:screen}
-.ready .stamp{animation:stamp .35s .9s cubic-bezier(.2,1.6,.4,1) forwards}
-@keyframes stamp{to{transform:rotate(-12deg) scale(1);opacity:.85}}
-/* タイプされる行 */
-.log{margin:16px 0 18px;min-height:76px;font-size:13px;line-height:1.9;color:#9fb0b6}
+.back{position:fixed;top:14px;left:16px;font-size:13px;font-weight:700;text-decoration:none;border:2px solid var(--ink);border-radius:999px;padding:6px 12px;background:#fff;box-shadow:3px 3px 0 var(--ink);z-index:5}
+/* モニター本体 */
+.monitor{width:min(760px,100%);background:#E9E3D2;border:3px solid var(--ink);border-radius:26px;padding:22px 22px 16px;box-shadow:8px 8px 0 var(--ink);position:relative}
+.monitor:after{content:"";position:absolute;left:50%;bottom:-34px;width:34%;height:30px;transform:translateX(-50%);background:#DDD5BF;border:3px solid var(--ink);border-top:0;border-radius:0 0 14px 14px;z-index:-1}
+.bezel{background:#2A2A2C;border-radius:18px;padding:16px;border:3px solid var(--ink)}
+.screen{position:relative;overflow:hidden;background:radial-gradient(ellipse at center,var(--screen2) 0%,var(--screen) 70%);border-radius:14px/18px;padding:22px 18px 18px;color:var(--phos);font-family:'DotGothic16',monospace;text-shadow:0 0 6px var(--phos-glow);min-height:440px;transition:background .2s}
+.screen:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);pointer-events:none;z-index:6}
+.screen:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 60px rgba(0,0,0,.75);pointer-events:none;z-index:6;border-radius:inherit}
+.flick{animation:flick 6s infinite}
+@keyframes flick{0%,97%,100%{opacity:1}98%{opacity:.86}}
+/* 電源ON（ブラウン管がつく） */
+.boot .screen>*{opacity:0}
+.screen .pon{position:absolute;inset:0;z-index:7;pointer-events:none;background:#000;display:none}
+.boot .screen>.pon{display:block;opacity:1;animation:pon .55s steps(6) forwards}
+@keyframes pon{0%{clip-path:inset(49.5% 0 49.5% 0);background:#dfffee}40%{clip-path:inset(49.5% 0 49.5% 0);background:#dfffee}70%{clip-path:inset(20% 0 20% 0);background:#9fffcc;opacity:.6}100%{clip-path:inset(0 0 0 0);opacity:0}}
+/* 上段 */
+.hd{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--phos-dim);letter-spacing:.08em;gap:10px}
+.rec{color:var(--red);text-shadow:0 0 6px rgba(255,75,58,.7);animation:blink 1s steps(1) infinite;margin-right:6px}
+.time{color:var(--amber);text-shadow:0 0 6px rgba(255,194,74,.6);white-space:nowrap}
+.time b{font-weight:400;display:inline-block;min-width:2ch;text-align:right}
+.alert .time{color:var(--phos)}
+/* ドットの導火線 */
+.fuse{position:relative;height:10px;margin:10px 0 2px;background:repeating-linear-gradient(90deg,var(--phos-dim) 0 6px,transparent 6px 10px);opacity:.9}
+.fuse .burnt{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--screen);transition:width 1s steps(4)}
+.fuse .spark{position:absolute;top:-5px;left:0;width:20px;height:20px;transform:translateX(-10px);transition:left 1s steps(4)}
+.fuse .spark i{position:absolute;width:4px;height:4px;background:var(--amber);box-shadow:0 0 6px var(--amber)}
+.fuse .spark i:nth-child(1){left:8px;top:8px;background:#fff}
+.fuse .spark i:nth-child(2){left:4px;top:4px;animation:sp .3s steps(1) infinite}
+.fuse .spark i:nth-child(3){left:12px;top:2px;animation:sp .3s .1s steps(1) infinite}
+.fuse .spark i:nth-child(4){left:14px;top:12px;animation:sp .3s .2s steps(1) infinite}
+.fuse .spark i:nth-child(5){left:2px;top:13px;animation:sp .3s .15s steps(1) infinite}
+@keyframes sp{50%{opacity:0}}
+/* 赤いレーザー */
+.laser{position:absolute;left:-10%;right:-10%;height:2px;top:30%;background:#ff3b3b;box-shadow:0 0 8px 2px rgba(255,60,60,.7);opacity:.5;z-index:5;pointer-events:none;animation:laser 7s steps(70) infinite;transform:rotate(-4deg)}
+@keyframes laser{0%{top:12%}50%{top:88%}100%{top:12%}}
+.title{margin:12px 0 2px;font-size:clamp(22px,4.6vw,32px);letter-spacing:.12em;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-right:72px}
+.title small{font-size:13px;letter-spacing:.14em;color:var(--phos-dim)}
+.log{min-height:100px;margin:8px 0 12px;font-size:14px;line-height:1.75;color:#A8F5C8;padding-right:60px}
+.alert .log{color:var(--phos)}
 .log div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.log .ok{color:var(--ok)}.log .warn{color:var(--amber)}.log .ng{color:var(--red)}
-.log .brief{white-space:normal;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;color:var(--txt);font-size:14px;letter-spacing:.04em}
-/* パスコード */
-.pass{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0}
-.pass label{font-size:11px;letter-spacing:.24em;color:var(--dim);white-space:nowrap}
-.slots{display:flex;gap:8px;flex:1}
-.slot{flex:1;max-width:58px;height:50px;border:1px solid #2a3439;background:rgba(255,255,255,.02);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--txt);position:relative;transition:border-color .15s,box-shadow .15s}
-.slot.f{border-color:var(--red);box-shadow:0 0 12px rgba(255,42,42,.35) inset}
-.slot.cur:after{content:"";position:absolute;bottom:8px;width:16px;height:2px;background:var(--red);animation:blink 1s steps(1) infinite}
-.more{font-size:12px;color:var(--dim);min-width:26px}
-.msg{height:20px;margin:10px 0 12px;font-size:12px;letter-spacing:.18em;color:var(--dim)}
-.msg.ng{color:var(--red)}.msg.ok{color:var(--ok)}
-/* キーパッド */
+.log .say{white-space:normal;color:var(--phos)}
+.log .ok{color:var(--phos)}
+.log .wn{color:var(--amber);text-shadow:0 0 6px rgba(255,194,74,.6)}
+.pw{display:flex;align-items:center;gap:10px;border:2px solid var(--phos);border-radius:6px;padding:10px 14px;font-size:24px;letter-spacing:.35em;min-height:54px;background:rgba(124,255,176,.05)}
+.pw .lab{font-size:13px;letter-spacing:.1em;color:var(--phos-dim);margin-right:6px}
+.pw .cur{display:inline-block;width:12px;height:24px;background:var(--phos);animation:blink 1s steps(1) infinite;box-shadow:0 0 8px var(--phos)}
+@keyframes blink{50%{opacity:0}}
+.msg{height:22px;margin:10px 0 12px;font-size:15px}
+.msg.ng{animation:blink .5s steps(1) 4}
+.shake{animation:shake .35s}
+@keyframes shake{20%{transform:translateX(-8px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(3px)}}
+/* 画面の中のキーボード */
 .kb{display:flex;flex-direction:column;gap:6px;user-select:none;-webkit-user-select:none}
 .row{display:flex;gap:6px;justify-content:center}
-.key{flex:1 1 0;min-width:0;max-width:50px;height:42px;border:1px solid #263035;background:linear-gradient(#11171a,#0b0f11);color:#b9c6cb;font:inherit;font-size:15px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;transition:background .08s,color .08s,border-color .08s;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
-.key:hover{border-color:#5b2020;color:#fff}
-.key.on,.key:active{background:var(--red);color:#000;border-color:var(--red)}
-.key.wide{max-width:92px;flex:1.8 1 0;font-size:11px;letter-spacing:.12em}
-.key.go{border-color:var(--red-d);color:var(--red)}
-.key.go.on,.key.go:active{background:var(--red);color:#000}
-.foot{margin-top:16px;display:flex;justify-content:space-between;gap:10px;font-size:10px;letter-spacing:.16em;color:#4b575c}
-/* ---------- 失敗：警報 ---------- */
-.alarm{position:fixed;inset:0;z-index:5;pointer-events:none;box-shadow:inset 0 0 0 0 rgba(255,0,0,0);opacity:0}
-.denied .alarm{animation:alarm .9s ease-out}
-@keyframes alarm{0%{opacity:1;box-shadow:inset 0 0 160px 40px rgba(255,0,0,.55);background:rgba(255,0,0,.12)}100%{opacity:0}}
-.denied .file{animation:shake .4s}
-@keyframes shake{20%{transform:translateX(-10px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(3px)}}
-/* ---------- 成功：照合→受諾→突入 ---------- */
-.granted{position:fixed;inset:0;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(3,4,5,.0);pointer-events:none;opacity:0}
-.unlocked .granted{opacity:1;pointer-events:auto;background:rgba(3,4,5,.88);transition:background .3s}
-.reticle{width:150px;height:150px;border-radius:50%;border:1px solid rgba(60,255,143,.5);position:relative;transform:scale(.4);opacity:0}
-.reticle:before,.reticle:after{content:"";position:absolute;background:rgba(60,255,143,.8)}
-.reticle:before{left:50%;top:-14px;bottom:-14px;width:1px}
-.reticle:after{top:50%;left:-14px;right:-14px;height:1px}
-.reticle i{position:absolute;inset:18px;border-radius:50%;border:2px dashed rgba(60,255,143,.7);animation:spin2 2s linear infinite}
-@keyframes spin2{to{transform:rotate(360deg)}}
-.unlocked .reticle{animation:lock .5s cubic-bezier(.2,1.4,.4,1) forwards}
-@keyframes lock{to{transform:scale(1);opacity:1}}
-.g1{font-size:13px;letter-spacing:.34em;color:var(--ok);opacity:0}
-.g2{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:clamp(34px,8vw,64px);letter-spacing:.08em;color:#fff;opacity:0;text-shadow:0 0 30px rgba(255,42,42,.6)}
-.g3{font-size:12px;letter-spacing:.3em;color:var(--dim);opacity:0}
-.unlocked .g1{animation:fade .3s .45s forwards}
-.unlocked .g2{animation:slam .45s .85s cubic-bezier(.2,1.5,.4,1) forwards}
-.unlocked .g3{animation:fade .3s 1.3s forwards}
-@keyframes fade{to{opacity:1}}
-@keyframes slam{from{opacity:0;transform:scale(1.6);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
-.wipe{position:fixed;inset:0;z-index:7;background:#000;transform:scaleY(0);pointer-events:none}
-.leaving .wipe{animation:wipe .35s ease-in forwards}
-@keyframes wipe{to{transform:scaleY(1)}}
-.leaving .wipe:after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:var(--red);box-shadow:0 0 20px var(--red)}
-@media (max-width:560px){
- .file{padding:20px 14px 16px}
- .stamp{font-size:17px;right:12px;top:96px}
- .key{height:40px;font-size:14px}.row,.kb{gap:4px}.key.wide{font-size:10px;letter-spacing:.04em;flex:1.5 1 0}
- .slot{height:44px;font-size:20px}.slots{gap:5px}
- .hud.bl,.hud.br{display:none}
- .log{min-height:64px;font-size:12px}
-}
-@media (max-height:700px){.log{margin:10px 0 12px}.title{margin-top:12px}}
-@media (prefers-reduced-motion:reduce){.radar,.scan,.fuse i,.fuse em,.reticle i{animation:none}}
+.key{flex:1 1 0;min-width:0;max-width:52px;height:44px;border:2px solid var(--phos);border-radius:6px;background:transparent;color:var(--phos);font:inherit;font-size:17px;text-shadow:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .08s,color .08s,transform .08s;box-shadow:0 0 6px rgba(124,255,176,.25)}
+.key:hover{background:rgba(124,255,176,.12)}
+.key.on,.key:active{background:var(--phos);color:var(--screen);text-shadow:none;transform:translateY(2px)}
+.key.wide{max-width:96px;flex:1.8 1 0;font-size:13px;letter-spacing:.06em}
+.key.space{max-width:300px;flex:6 1 0}
+.key.enter{border-color:var(--yellow);color:var(--yellow);text-shadow:0 0 6px rgba(255,210,31,.6)}
+.key.enter.on,.key.enter:active{background:var(--yellow);color:var(--screen)}
+/* ドットのスパイ（サングラスのモグボ） */
+.agent{position:absolute;right:18px;top:62px;width:64px;height:64px;z-index:4;color:var(--phos);filter:drop-shadow(0 0 4px var(--phos-glow));animation:bob 2.4s steps(2) infinite}
+@keyframes bob{50%{transform:translateY(-3px)}}
+.agent .glint{animation:glint 3.2s steps(1) infinite}
+@keyframes glint{0%,86%{opacity:0}88%,94%{opacity:1}96%,100%{opacity:0}}
+/* 警報 */
+.siren{position:absolute;left:0;right:0;top:40%;z-index:5;text-align:center;font-size:clamp(26px,6vw,44px);letter-spacing:.14em;display:none;pointer-events:none}
+.siren span{display:inline-block;background:var(--screen);padding:4px 16px;border:2px solid var(--phos);animation:blink .3s steps(1) infinite}
+.alert .siren{display:block}
+/* 解錠 */
+.win{position:absolute;inset:0;z-index:5;display:none;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:radial-gradient(ellipse at center,var(--screen2) 0%,var(--screen) 70%);text-align:center;padding:20px}
+.unlocked .win{display:flex}
+.win .w1{font-size:16px;color:#A8F5C8}
+.win .w2{font-size:clamp(34px,8vw,58px);letter-spacing:.1em;color:var(--yellow);text-shadow:0 0 10px rgba(255,210,31,.7),4px 4px 0 #5a4a00;animation:blink .4s steps(1) 3 .5s}
+.win .w3{font-size:14px;color:var(--phos-dim);letter-spacing:.2em}
+.win .bar{width:min(320px,70%);height:16px;border:2px solid var(--phos);padding:2px}
+.win .bar i{display:block;height:100%;width:0;background:var(--phos);box-shadow:0 0 8px var(--phos);animation:load 1.3s steps(10) .3s forwards}
+@keyframes load{to{width:100%}}
+/* 退出のブロックワイプ */
+.wipe{position:absolute;inset:0;z-index:8;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(4,1fr);pointer-events:none}
+.wipe i{background:var(--phos);opacity:0}
+.leaving .wipe i{animation:blk .05s steps(1) forwards}
+@keyframes blk{to{opacity:1}}
+.knobs{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding:0 6px}
+.brand{font-weight:700;font-size:12px;letter-spacing:.2em}
+.led{width:10px;height:10px;border-radius:50%;background:var(--red);border:2px solid var(--ink)}
+.alert-led .led{animation:blink .25s steps(1) infinite}
+.unlocked .led{background:var(--green);box-shadow:0 0 8px var(--green);animation:none}
+.note{font-size:12px;color:#77746d;text-align:center;max-width:560px;line-height:1.7;margin-top:22px}
+@media (max-width:560px){body{padding-top:66px;justify-content:flex-start}.monitor{padding:14px 12px 12px;border-radius:20px}.bezel{padding:10px}.screen{padding:16px 10px 14px;min-height:0}.key{height:40px;font-size:15px;border-radius:5px}.row{gap:4px}.kb{gap:4px}.pw{font-size:20px}.key.wide{font-size:11px;letter-spacing:0;flex:1.5 1 0}.agent{width:44px;height:44px;top:52px;right:10px}.title{padding-right:50px}.log{font-size:12.5px;min-height:92px;padding-right:0}.title small{display:none}}
+@media (prefers-reduced-motion:reduce){.flick,.pw .cur,.laser,.agent,.agent .glint,.fuse .spark i{animation:none}.boot .screen>.pon{display:none}.boot .screen>*{opacity:1}}
 </style>
 </head>
-<body>
-<div class="bgfx" aria-hidden="true"><div class="grid"></div><div class="rings"></div><div class="radar"></div><div class="scan"></div><div class="noise"></div><div class="vig"></div></div>
-
-<div class="hud tl"><span class="rec"></span>SECURE LINK<br><b id="coord">35.6895N 139.6917E</b><br><a class="back" href="/">← aimania.tech</a></div>
-<div class="hud tr">AI MANIA / OPS<br>NODE <b>TR-07</b><br><span id="clock">--:--:--</span></div>
-<div class="hud bl">ENCRYPTION AES-256<br>CHANNEL <span id="ch">0x9F86</span></div>
-<div class="hud br">THIS PAGE IS NOT INDEXED<br>UNAUTHORIZED ACCESS IS LOGGED</div>
-
-<main class="file" id="file">
- <div class="fuse" aria-hidden="true"><i></i><em></em></div>
- <div class="top">
-  <span class="cls">CLASSIFIED</span>
-  <div class="timer">ACCESS WINDOW<span id="win">01:00</span></div>
+<body class="boot">
+<a class="back" href="/">← aimania.tech</a>
+<div class="monitor" id="mon">
+<div class="bezel">
+<div class="screen flick" id="scr">
+ <div class="pon" aria-hidden="true"></div>
+ <div class="laser" aria-hidden="true"></div>
+ <div class="hd"><span><span class="rec">●</span>AI MANIA SECRET TERMINAL</span><span class="time">TIME <b id="time">60</b></span></div>
+ <div class="fuse" aria-hidden="true"><div class="burnt" id="burnt"></div><div class="spark" id="spark"><i></i><i></i><i></i><i></i><i></i></div></div>
+ <svg class="agent" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges">
+  <g fill="currentColor">
+   <rect x="7" y="0" width="2" height="2"/><rect x="7.5" y="2" width="1" height="1"/>
+   <rect x="3" y="3" width="10" height="1"/><rect x="2" y="4" width="12" height="8"/><rect x="3" y="12" width="10" height="1"/>
+   <rect x="1" y="6" width="1" height="4"/><rect x="14" y="6" width="1" height="4"/>
+   <rect x="5" y="13" width="6" height="1"/><rect x="4" y="14" width="8" height="2"/>
+  </g>
+  <g fill="#000">
+   <rect x="3" y="6" width="4" height="3"/><rect x="9" y="6" width="4" height="3"/><rect x="7" y="6" width="2" height="1"/>
+   <rect x="6" y="10" width="4" height="1"/>
+  </g>
+  <g class="glint" fill="#fff"><rect x="4" y="6.5" width="1" height="1"/><rect x="10" y="6.5" width="1" height="1"/></g>
+ </svg>
+ <div class="lock">
+  <h1 class="title">TEST ROOM <small>MISSION FILE TR-<span id="fno">0000</span></small></h1>
+  <div class="log" id="log" aria-live="polite"></div>
+  <div class="pw" id="pw"><span class="lab">CODE&gt;</span><span id="dots"></span><span class="cur"></span></div>
+  <div class="msg" id="msg" role="status"></div>
+  <div class="kb" id="kb" aria-label="画面キーボード"></div>
  </div>
- <h1 class="title"><small>MISSION FILE № TR-<span id="fno">1114</span></small>TEST ROOM</h1>
- <div class="stamp" aria-hidden="true">極秘</div>
- <div class="log" id="log" aria-live="polite"></div>
- <div class="pass">
-  <label for="slots">PASSCODE</label>
-  <div class="slots" id="slots"></div>
-  <span class="more" id="more"></span>
+ <div class="siren" aria-hidden="true"><span>!! ALERT !!</span></div>
+ <div class="win" aria-live="assertive">
+  <div class="w1">▶ モグボは あんごうを といた！</div>
+  <div class="w2">MISSION START!</div>
+  <div class="bar"><i></i></div>
+  <div class="w3">LOADING MISSION ……</div>
  </div>
- <div class="msg" id="msg" role="status">AWAITING AGENT INPUT</div>
- <div class="kb" id="kb" aria-label="画面キーボード"></div>
- <div class="foot"><span>キーボードからも入力できます</span><span>AI MANIA — EYES ONLY</span></div>
-</main>
-
-<div class="alarm" aria-hidden="true"></div>
-<div class="granted" id="granted" aria-live="assertive">
- <div class="reticle"><i></i></div>
- <div class="g1">IDENTITY CONFIRMED</div>
- <div class="g2">MISSION ACCEPTED</div>
- <div class="g3" id="g3">OPENING FILE …</div>
+ <div class="wipe" id="wipe" aria-hidden="true"></div>
 </div>
-<div class="wipe" aria-hidden="true"></div>
-
+</div>
+<div class="knobs"><span class="brand">AI MANIA</span><span class="led" aria-hidden="true"></span></div>
+</div>
+<p class="note">このページは検索エンジンに載せない設定のテスト用スペースです。</p>
 <script>
 (function(){
 // パスワード「test」のSHA-256（平文は置かない）
 var HASH='9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08';
-var KEY='aim_test_ok',TOKEN='?k=9f86d081',MAX=24,SLOTS=4;
-var body=document.body,kb=document.getElementById('kb'),slots=document.getElementById('slots'),more=document.getElementById('more'),msg=document.getElementById('msg'),log=document.getElementById('log');
+var KEY='aim_test_ok',TOKEN='?k=9f86d081',MAX=24,LIMIT=60;
+var body=document.body,kb=document.getElementById('kb'),dots=document.getElementById('dots'),msg=document.getElementById('msg'),mon=document.getElementById('mon'),log=document.getElementById('log');
 var buf='',busy=false,done=false;
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-
 function store(get,val){var v=null;try{if(get){v=sessionStorage.getItem(KEY)}else{sessionStorage.setItem(KEY,val)}}catch(e){}try{if(get){if(!v&&/(?:^|; )aim_test_ok=1/.test(document.cookie))v='1';if(!v&&/[?&]k=9f86d081/.test(location.search))v='1';return v}document.cookie='aim_test_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure'}catch(e){}return v}
 var safe=function(p){return p&&/^\/test\/[\w\-\/]*$/.test(p)};
 function target(cb){
@@ -182,90 +167,94 @@ function target(cb){
  if(safe(next))return cb(next);
  fetch('pages.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():[]}).catch(function(){return []}).then(function(l){cb(l&&l[0]&&safe(l[0].path)?l[0].path:'/test/ecolead/')});
 }
-// すでに解錠済みなら演出なしで直行
+// すでに解錠済みなら、そのまま最新のテストページへ
 if(store(true)==='1'){target(function(p){location.replace(p+TOKEN)});return}
 
-/* ---- 画面 ---- */
-for(var i=0;i<SLOTS;i++){var s=document.createElement('div');s.className='slot';slots.appendChild(s)}
-function render(){
- var el=slots.children;for(var i=0;i<SLOTS;i++){el[i].textContent=i<buf.length?'✱':'';el[i].className='slot'+(i<buf.length?' f':'')+(i===Math.min(buf.length,SLOTS-1)&&buf.length<SLOTS+1&&!(buf.length>=SLOTS)?' cur':'')}
- more.textContent=buf.length>SLOTS?'+'+(buf.length-SLOTS):'';
-}
+var z=function(n){return ('0'+n).slice(-2)};
+var d0=new Date();document.getElementById('fno').textContent=z(d0.getMonth()+1)+z(d0.getDate());
+for(var i=0;i<48;i++)document.getElementById('wipe').appendChild(document.createElement('i'));
+
+/* 画面キーボード */
 var rows=[['1','2','3','4','5','6','7','8','9','0'],['q','w','e','r','t','y','u','i','o','p'],['a','s','d','f','g','h','j','k','l'],['z','x','c','v','b','n','m']];
 function mk(label,val,cls){var b=document.createElement('button');b.type='button';b.className='key'+(cls?' '+cls:'');b.textContent=label;b.dataset.v=val;b.addEventListener('click',function(){press(val)});return b}
-rows.forEach(function(r,i){var row=document.createElement('div');row.className='row';if(i===3)row.appendChild(mk('DEL','Backspace','wide'));r.forEach(function(c){row.appendChild(mk(c.toUpperCase(),c))});if(i===3)row.appendChild(mk('EXEC','Enter','wide go'));kb.appendChild(row)});
-function flash(v){var k=kb.querySelector('[data-v="'+v+'"]');if(!k)return;k.classList.add('on');setTimeout(function(){k.classList.remove('on')},110)}
-function setMsg(t,c){msg.className='msg'+(c?' '+c:'');msg.textContent=t}
+rows.forEach(function(r,i){var row=document.createElement('div');row.className='row';if(i===3)row.appendChild(mk('DEL','Backspace','wide'));r.forEach(function(c){row.appendChild(mk(c.toUpperCase(),c))});if(i===3)row.appendChild(mk(innerWidth<560?'OK':'ENTER','Enter','wide enter'));kb.appendChild(row)});
+var sp=document.createElement('div');sp.className='row';sp.appendChild(mk('CLEAR','Clear','wide'));sp.appendChild(mk('SPACE',' ','space'));kb.appendChild(sp);
+function render(){dots.textContent='●'.repeat(buf.length)}
+function flash(v){var k=kb.querySelector('[data-v="'+v+'"]');if(!k)return;k.classList.add('on');setTimeout(function(){k.classList.remove('on')},120)}
 
-/* ---- 起動時のタイプ演出 ---- */
+/* 起動：指令の打ち出し */
 var lines=[
- ['ESTABLISHING SECURE CONNECTION ……… ','OK','ok'],
- ['VERIFYING NODE TR-07 ……………………… ','OK','ok'],
- ['AGENT IDENTIFICATION ……………………… ','REQUIRED','warn'],
- ['__brief','この先は、関係者だけが見られる制作中のテストページです。パスコードを入力して、ミッションを開始してください。']
+ ['> CONNECTING TO HQ ………… ','OK','ok'],
+ ['> SCRAMBLER ……………………… ','ON','ok'],
+ ['> AGENT CHECK ………………… ','???','wn'],
+ ['say','▶ しれいしょが とどいた！ あんごうを にゅうりょくせよ。']
 ];
-function type(){
- if(reduce){lines.forEach(function(l){var d=document.createElement('div');if(l[0]==='__brief'){d.className='brief';d.textContent=l[1]}else{d.innerHTML=l[0]+'<span class="'+l[2]+'">'+l[1]+'</span>'}log.appendChild(d)});return}
+function addLine(html,cls){var d=document.createElement('div');if(cls)d.className=cls;d.innerHTML=html;log.appendChild(d);while(log.children.length>4)log.removeChild(log.firstChild);return d}
+function typeLines(list){
  var li=0;
- (function nextLine(){
-  if(li>=lines.length)return;var l=lines[li++],d=document.createElement('div');log.appendChild(d);
-  if(l[0]==='__brief'){d.className='brief';var t=l[1],n=0;(function tb(){d.textContent=t.slice(0,++n);if(n<t.length)setTimeout(tb,22)})();return}
-  var t=l[0],n=0;(function tc(){d.textContent=t.slice(0,++n);if(n<t.length){setTimeout(tc,9)}else{setTimeout(function(){d.innerHTML=t+'<span class="'+l[2]+'">'+l[1]+'</span>';setTimeout(nextLine,160)},180)}})();
+ (function next(){
+  if(li>=list.length)return;
+  var l=list[li++],isSay=l[0]==='say',d=addLine('',isSay?'say':''),t=isSay?l[1]:l[0],n=0;
+  if(reduce){d.innerHTML=isSay?t:t+'<span class="'+l[2]+'">'+l[1]+'</span>';next();return}
+  (function tc(){d.textContent=t.slice(0,++n);if(n<t.length){setTimeout(tc,isSay?45:14)}else{if(!isSay)d.innerHTML=t+'<span class="'+l[2]+'">'+l[1]+'</span>';setTimeout(next,200)}})();
  })();
 }
-requestAnimationFrame(function(){body.classList.add('ready');setTimeout(type,350)});
+setTimeout(function(){body.classList.remove('boot');typeLines(lines);startTimer()},reduce?0:560);
 
-/* ---- 判定 ---- */
+/* 制限時間と導火線（ゲームの残りタイム風。0になったら指令を出し直す） */
+var left=LIMIT,timer;
+function drawFuse(){var p=(LIMIT-left)/LIMIT*100;document.getElementById('burnt').style.width=p+'%';document.getElementById('spark').style.left=p+'%';document.getElementById('time').textContent=left}
+function startTimer(){clearInterval(timer);left=LIMIT;drawFuse();timer=setInterval(function(){
+ if(done){clearInterval(timer);return}
+ left--;drawFuse();
+ if(left===10)addLine('> <span class="wn">HURRY UP!</span>');
+ if(left<=0){clearInterval(timer);addLine('> TIME OVER … <span class="wn">CONTINUE?</span>');buf='';render();
+  setTimeout(function(){if(!done){addLine('▶ しれいしょを もういちど おくった。','say');startTimer()}},1400)}
+},1000)}
+
+/* 判定 */
 function hex(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')}
 function check(){
  if(busy||done)return;
- if(!buf.length){setMsg('ENTER PASSCODE','ng');return}
- busy=true;setMsg('DECRYPTING ……');
+ if(!buf.length){msg.className='msg';msg.textContent='▶ あんごうを いれてください';return}
+ busy=true;msg.className='msg';msg.textContent='DECODING …';
  var p=(window.crypto&&crypto.subtle)?crypto.subtle.digest('SHA-256',new TextEncoder().encode(buf)).then(hex):Promise.resolve(buf==='test'?HASH:'');
  p.then(function(h){setTimeout(function(){busy=false;
-  if(h===HASH){store(false,'1');success()}
-  else{
-   setMsg('ACCESS DENIED — RETRY','ng');
-   var d=document.createElement('div');d.innerHTML='PASSCODE REJECTED ……………………… <span class="ng">DENIED</span>';log.appendChild(d);while(log.children.length>5)log.removeChild(log.firstChild);
-   body.classList.remove('denied');void body.offsetWidth;body.classList.add('denied');
-   if(navigator.vibrate)try{navigator.vibrate([60,40,60])}catch(e){}
-   buf='';render();
-  }
- },reduce?120:520)});
+  if(h===HASH){store(false,'1');success()}else{fail()}
+ },reduce?100:420)});
+}
+function fail(){
+ msg.className='msg ng';msg.textContent='ACCESS DENIED ― しんにゅうしゃ はっけん！';
+ addLine('> CODE ………………………… <span class="wn">NG</span>');
+ body.classList.add('alert','alert-led');mon.classList.remove('shake');void mon.offsetWidth;mon.classList.add('shake');
+ if(navigator.vibrate)try{navigator.vibrate([80,50,80])}catch(e){}
+ buf='';render();
+ setTimeout(function(){body.classList.remove('alert','alert-led');msg.className='msg';msg.textContent='▶ もういちど ためしてみよう';},1300);
 }
 function success(){
- done=true;setMsg('ACCESS GRANTED','ok');
+ done=true;clearInterval(timer);
  target(function(p){
   body.classList.add('unlocked');
-  var wait=reduce?300:1900;
-  setTimeout(function(){body.classList.add('leaving');setTimeout(function(){location.replace(p+TOKEN)},reduce?0:330)},wait);
+  setTimeout(function(){
+   body.classList.add('leaving');
+   var cells=[].slice.call(document.querySelectorAll('#wipe i'));cells.sort(function(){return Math.random()-.5});
+   cells.forEach(function(c,i){c.style.animationDelay=(reduce?0:i*9)+'ms'});
+   setTimeout(function(){location.replace(p+TOKEN)},reduce?0:520);
+  },reduce?400:2000);
  });
 }
 function press(v){
  if(done)return;flash(v);
  if(v==='Enter'){check();return}
- if(v==='Backspace'){buf=buf.slice(0,-1)}else if(buf.length<MAX){buf+=v}
- if(!busy)setMsg(buf.length?'PASSCODE '+buf.length+' CHARS':'AWAITING AGENT INPUT');render();
+ if(v==='Backspace'){buf=buf.slice(0,-1)}else if(v==='Clear'){buf=''}else if(buf.length<MAX){buf+=v}
+ if(!busy){msg.className='msg';msg.textContent=''}render();
 }
 document.addEventListener('keydown',function(e){
  if(e.metaKey||e.ctrlKey||e.altKey)return;
  if(e.key==='Enter'||e.key==='Backspace'){e.preventDefault();press(e.key);return}
- if(e.key==='Escape'){buf='';render();return}
- if(e.key.length===1&&e.key!==' '){e.preventDefault();press(e.key.toLowerCase())}
+ if(e.key==='Escape'){press('Clear');return}
+ if(e.key.length===1){e.preventDefault();press(e.key.toLowerCase())}
 });
-render();
-
-/* ---- 時計・残り時間・座標のゆらぎ ---- */
-var t0=Date.now(),W=60;
-function z(n){return ('0'+n).slice(-2)}
-function tick(){
- var d=new Date();document.getElementById('clock').textContent=z(d.getHours())+':'+z(d.getMinutes())+':'+z(d.getSeconds());
- var left=Math.max(0,W-Math.floor((Date.now()-t0)/1000));document.getElementById('win').textContent=z(Math.floor(left/60))+':'+z(left%60);
- if(left===0&&!done){t0=Date.now();var f=document.querySelector('.fuse');f.innerHTML='<i></i><em></em>'}
- document.getElementById('ch').textContent='0x'+(Math.random()*0xffff|0).toString(16).toUpperCase().padStart(4,'0');
-}
-tick();setInterval(tick,1000);
-var dd=new Date();document.getElementById('fno').textContent=z(dd.getMonth()+1)+z(dd.getDate());
 })();
 </script>
 </body>
