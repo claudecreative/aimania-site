@@ -40,3 +40,6 @@
   body:not(.motion-off) .ec-reveal{opacity:0;transform:translateY(18px);transition:opacity var(--ec-dur) var(--ec-ease),transform var(--ec-dur) var(--ec-ease)}
   body:not(.motion-off) .ec-reveal.is-in{opacity:1;transform:none}
 }
+
+/* 見出しの最後に1〜2文字だけ残る改行を防ぐ */
+h1,h2,h3,h4{text-wrap:pretty;word-break:auto-phrase}
