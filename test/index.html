@@ -130,6 +130,7 @@ function unlock(){
  var next=new URLSearchParams(location.search).get('next');
  if(next&&/^\/test\/[\w\-\/]*$/.test(next)){location.replace(next+'?k=9f86d081');return}
  /* 一覧は出さず、最新のテストページへ直行 */
+ document.getElementById('granted').innerHTML='<p style="font-size:22px">OPENING…</p>';
  var go=function(p){location.replace((p&&/^\/test\/[\w\-\/]*$/.test(p)?p:'/test/ecolead/')+'?k=9f86d081')};
  fetch('pages.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():[]}).catch(function(){return []}).then(function(l){go(l&&l[0]&&l[0].path)});
  return;
