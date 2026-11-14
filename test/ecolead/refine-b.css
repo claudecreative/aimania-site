@@ -1,0 +1,257 @@
+/* =====================================================================
+   refine-b.css — 担当：ページ中盤「選ぶ理由とサービス」
+   #reasons / .campaign-strip / #services / #items / #cases
+   使う値は refine-base.css の --ec-* だけ。
+   カードの共通ルール（4セクション共通）
+     角丸 16px（--ec-radius）／線 1px --ec-line／影 --ec-shadow → ホバー --ec-shadow-hover
+     写真は 4:3 にそろえる／本文 15px（SP 14px）／カード見出し 20px（SP 19px）・700
+     内側の余白 24px（SP 20px）
+   ===================================================================== */
+
+/* ---------- セクション共通：余白・背景・見出しの太さ ---------- */
+#reasons.section,#services.section,#items.section,#cases.section{padding-top:var(--ec-sec-y);padding-bottom:var(--ec-sec-y)}
+#reasons{background:var(--ec-bg)}
+#services.services{background:var(--ec-bg-mint);border-top:0}
+#items{background:var(--ec-bg)}
+#cases.cases-section{background:var(--ec-bg-warm)}
+
+#reasons .center-title,#services .center-title,#items .center-title,#cases .center-title{margin-bottom:56px}
+#reasons .center-title>span,#services .center-title>span,#items .center-title>span,#cases .center-title>span{font-weight:700;letter-spacing:.16em;color:var(--ec-green-deep)}
+#reasons .center-title h2,#services .center-title h2,#items .center-title h2,#cases .center-title h2{font-weight:700;letter-spacing:.04em;color:var(--ec-ink)}
+#reasons .center-title h2 span{color:var(--ec-coral)}
+#services .center-title>p,#items .center-title>p,#cases .center-title>p{color:var(--ec-muted)}
+
+/* 「イメージ写真」の小さな札：写真の上で目立ちすぎない共通の形 */
+#reasons .reason-visual small,#services .photo-note{
+  position:absolute;right:10px;bottom:10px;left:auto;top:auto;z-index:2;
+  font-size:10px;line-height:1.6;letter-spacing:.04em;color:#fff;
+  background:rgba(34,54,45,.55);padding:2px 8px;border-radius:6px;text-shadow:none}
+
+/* =====================================================================
+   1) 選ばれる5つの理由（3つ＋2つ）
+   ===================================================================== */
+#reasons .reasons-grid{grid-template-columns:repeat(6,1fr);gap:40px var(--ec-gap)}
+#reasons .reason-card{
+  display:flex;flex-direction:column;text-align:left;
+  background:var(--ec-bg);border:1px solid var(--ec-line);border-radius:var(--ec-radius);
+  box-shadow:var(--ec-shadow);overflow:hidden;padding:0 0 28px}
+/* 写真を一番上へ（HTMLの順番は変えずに並べ替え） */
+#reasons .reason-visual{order:-1;height:auto;aspect-ratio:4/3;border-radius:0;margin:0 0 22px;background:var(--ec-bg-mint)}
+#reasons .reason-visual>img{width:100%;height:100%;object-fit:cover}
+/* 番号：大きく太い数字をやめ、小さな見出し＋細い線で上品に */
+#reasons .reason-index{
+  display:flex;align-items:baseline;gap:8px;padding:0 24px;margin:0;
+  font-size:11px;font-weight:700;letter-spacing:.16em;line-height:1;color:var(--ec-green-deep)}
+#reasons .reason-index b{display:inline;font-size:22px;font-weight:700;letter-spacing:.04em;line-height:1;margin:0;font-variant-numeric:tabular-nums}
+#reasons .reason-index:after{content:'';flex:1;height:1px;background:var(--ec-line);align-self:center;margin-left:8px}
+#reasons .reason-card h3{font-size:20px;font-weight:700;line-height:1.5;letter-spacing:.04em;color:var(--ec-ink);margin:16px 0 10px;padding:0 24px}
+#reasons .reason-card p{font-size:15px;line-height:1.9;color:var(--ec-muted);text-align:left;margin:0;padding:0 24px}
+
+/* =====================================================================
+   2) 「出張費・査定料0円」の帯
+   ===================================================================== */
+.campaign-strip{
+  margin-top:56px;margin-bottom:56px;padding:24px 40px;gap:32px;
+  background:var(--ec-bg-warm);border:1px solid var(--ec-line);border-radius:var(--ec-radius);box-shadow:none}
+.campaign-strip>span{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--ec-coral)}
+.campaign-strip>b{font-size:24px;font-weight:700;letter-spacing:.04em;color:var(--ec-ink);line-height:1.3}
+.campaign-strip em{font-size:40px;font-weight:800;color:var(--ec-coral);margin:0 2px;letter-spacing:0}
+.campaign-strip p{font-size:14px;color:var(--ec-ink);line-height:1.8;padding-left:32px;border-left:1px solid var(--ec-line)}
+.campaign-strip small{font-size:12px;color:var(--ec-muted)}
+
+/* =====================================================================
+   3) サービス紹介（6枚）
+   ===================================================================== */
+#services .service-grid{gap:40px var(--ec-gap)}
+#services .service-card{
+  display:flex;flex-direction:column;background:var(--ec-bg);
+  border:1px solid var(--ec-line);border-radius:var(--ec-radius);box-shadow:var(--ec-shadow);overflow:hidden;
+  transition:opacity .65s var(--ec-ease),transform .65s var(--ec-ease),box-shadow .35s var(--ec-ease)}
+#services .service-card .photo{height:auto;aspect-ratio:4/3;border-radius:0;background:var(--ec-bg-mint)}
+#services .service-card .photo img{transition:transform .6s var(--ec-ease)}
+/* 番号：黄色の丸 → 白い小札（色数を減らす） */
+#services .num{
+  left:12px;top:12px;width:auto;height:28px;padding:0 10px;border-radius:var(--ec-radius-sm);
+  display:grid;place-items:center;background:rgba(255,255,255,.94);color:var(--ec-green-deep);
+  font-size:13px;font-weight:700;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+#services .card-content{background:none;border:0;border-radius:0;padding:22px 24px 28px;flex:1}
+#services .card-content h3{
+  font-size:20px;font-weight:700;line-height:1.5;letter-spacing:.04em;color:var(--ec-ink);
+  margin:0 0 10px;align-items:center}
+/* 矢印：オレンジの丸 → 淡いミントの丸（ホバーで緑に） */
+#services .card-content h3 span{
+  display:grid;place-items:center;flex-shrink:0;width:32px;height:32px;min-width:0;border-radius:50%;
+  font-size:14px;line-height:1;background:var(--ec-bg-mint);color:var(--ec-green-deep);
+  transition:background-color .3s var(--ec-ease),color .3s var(--ec-ease)}
+#services .card-content p{font-size:15px;line-height:1.9;color:var(--ec-muted);margin:0}
+#services .service-card:hover{box-shadow:var(--ec-shadow-hover)}
+#services .service-card:hover .photo img{transform:scale(1.04)}
+#services .service-card:hover .card-content h3 span,#services .service-card:focus-visible .card-content h3 span{background:var(--ec-green);color:#fff}
+
+/* =====================================================================
+   4) 買取・回収品目（20枚の写真カード＋その他にも）
+   ===================================================================== */
+#items .catalog-grid{gap:24px}
+#items .catalog-card{
+  aspect-ratio:4/3;border-radius:var(--ec-radius);background:var(--ec-bg-mint);box-shadow:var(--ec-shadow);
+  transition:transform .45s var(--ec-ease),box-shadow .45s var(--ec-ease)}
+#items .catalog-card img{transition:transform .7s var(--ec-ease)}
+/* 暗いグラデーションを軽く：下の4割だけ、うすいインク色で */
+#items .catalog-card:after{
+  inset:45% 0 0;
+  background:linear-gradient(to top,rgba(34,54,45,.62) 0%,rgba(34,54,45,.30) 45%,rgba(34,54,45,0) 100%);
+  transition:opacity .45s var(--ec-ease)}
+#items .catalog-label{
+  left:16px;right:16px;bottom:16px;text-align:left;
+  font-size:18px;font-weight:700;letter-spacing:.04em;line-height:1.4;color:#fff;
+  text-shadow:0 1px 2px rgba(34,54,45,.35),0 2px 12px rgba(34,54,45,.35);
+  transition:transform .45s var(--ec-ease)}
+#items .catalog-plus{
+  top:12px;right:12px;width:28px;height:28px;font-size:16px;line-height:1;
+  background:rgba(255,255,255,.92);color:var(--ec-green-deep);
+  transition:transform .45s var(--ec-ease),background-color .3s var(--ec-ease),color .3s var(--ec-ease)}
+#items .catalog-detail{
+  left:16px;right:16px;bottom:14px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:#fff;text-shadow:0 1px 8px rgba(34,54,45,.45);
+  transform:translateY(6px);transition:opacity .4s var(--ec-ease),transform .45s var(--ec-ease)}
+/* ホバー：跳ねる拡大をやめ、少し浮いて写真がゆっくり寄る */
+#items .catalog-card:hover,#items .catalog-card:focus-visible{transform:translateY(-4px);box-shadow:var(--ec-shadow-hover);z-index:4}
+#items .catalog-card:hover img,#items .catalog-card:focus-visible img{transform:scale(1.06)}
+#items .catalog-card:hover .catalog-label,#items .catalog-card:focus-visible .catalog-label{transform:translateY(-20px)}
+#items .catalog-card:hover .catalog-detail,#items .catalog-card:focus-visible .catalog-detail{opacity:1;transform:none}
+#items .catalog-card:hover .catalog-plus,#items .catalog-card:focus-visible .catalog-plus{background:var(--ec-green);color:#fff;transform:rotate(90deg)}
+
+#items .other-items{
+  margin-top:56px;padding:48px 40px;background:var(--ec-bg-mint);
+  border:1px solid var(--ec-line);border-radius:var(--ec-radius)}
+#items .other-items h3{font-size:22px;font-weight:700;letter-spacing:.04em;line-height:1.5;color:var(--ec-ink);margin:0 0 14px}
+#items .other-items p{font-size:15px;line-height:1.9;color:var(--ec-ink);max-width:880px}
+#items .other-items .section-footnote{font-size:12px;color:var(--ec-muted);margin-top:4px}
+#items .other-items .btn{margin-top:20px;font-size:15px;font-weight:700;min-height:48px}
+
+/* =====================================================================
+   5) 出張買取実績（スライド）
+   ===================================================================== */
+#cases .case-controls{gap:8px;margin:-24px 0 16px}
+#cases .case-controls button{
+  width:44px;height:44px;border-radius:var(--ec-radius-sm);border:1px solid var(--ec-line);
+  background:var(--ec-bg);color:var(--ec-green-deep);font-size:17px;
+  transition:background-color .25s var(--ec-ease),border-color .25s var(--ec-ease)}
+#cases .case-controls #case-play{width:auto;padding:0 16px;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--ec-ink)}
+#cases .case-controls button:hover{background:var(--ec-bg-mint);border-color:var(--ec-green-deep)}
+#cases .case-track{gap:24px;padding:8px 4px 28px;scrollbar-color:var(--ec-green-deep) var(--ec-line)}
+#cases .case-card{
+  flex-basis:calc((100% - 96px)/5);display:flex;flex-direction:column;
+  background:var(--ec-bg);border:1px solid var(--ec-line);border-radius:var(--ec-radius);
+  box-shadow:var(--ec-shadow);overflow:hidden;transition:box-shadow .35s var(--ec-ease)}
+/* 緑の帯をやめ、写真 → 品名 → 金額 の順に */
+#cases .case-image{order:-1;height:auto;aspect-ratio:4/3;background:var(--ec-bg-mint)}
+#cases .case-image img{transition:transform .6s var(--ec-ease)}
+#cases .case-card h3{
+  background:none;color:var(--ec-ink);min-height:0;display:block;text-align:left;
+  font-size:16px;font-weight:700;letter-spacing:.04em;line-height:1.5;padding:16px 18px 0;margin:0 0 14px}
+#cases .case-price{
+  margin-top:auto;padding:12px 18px 16px;border-top:1px solid var(--ec-line);
+  display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+#cases .case-price>span{
+  background:none;color:var(--ec-muted);padding:0;border-radius:0;
+  font-size:12px;font-weight:700;letter-spacing:.08em;line-height:1}
+#cases .case-price>span br{display:none}
+#cases .case-price strong{
+  font-size:28px;font-weight:800;letter-spacing:.01em;line-height:1.2;color:var(--ec-green-deep);
+  font-variant-numeric:tabular-nums}
+#cases .case-price strong small{font-size:14px;font-weight:700;margin-left:2px;color:var(--ec-ink)}
+#cases .case-card:hover{box-shadow:var(--ec-shadow-hover)}
+#cases .case-card:hover img{transform:scale(1.05)}
+#cases .section-footnote{font-size:12px;color:var(--ec-muted);margin-top:16px}
+
+/* ---------- 画面幅ごとの調整 ---------- */
+@media (min-width:1650px){
+  #cases .case-card{flex-basis:calc((100% - 120px)/6)}
+  #cases .case-price strong{font-size:28px}
+}
+@media (max-width:1200px){
+  #cases .case-card{flex-basis:calc((100% - 72px)/4)}
+}
+@media (max-width:1000px){
+  #reasons .reason-visual{height:auto}
+  #reasons .reason-card h3{font-size:18px}
+  #reasons .reason-card p,#services .card-content p{font-size:14px}
+  #services .service-card .photo{height:auto}
+  #services .card-content h3{font-size:18px}
+  .campaign-strip{gap:20px;padding:22px 24px}
+  .campaign-strip p{padding-left:20px}
+  #items .catalog-grid{gap:16px}
+  #items .catalog-label{font-size:16px}
+  #cases .case-card{flex-basis:calc((100% - 48px)/3)}
+}
+@media (max-width:760px){
+  #reasons .center-title,#services .center-title,#items .center-title,#cases .center-title{margin-bottom:36px}
+}
+@media (max-width:700px){
+  /* 理由：1列。カードの形は同じ */
+  #reasons .reasons-grid{grid-template-columns:1fr;gap:20px}
+  #reasons .reason-card{padding-bottom:24px}
+  #reasons .reason-visual{margin-bottom:18px;aspect-ratio:4/3}
+  #reasons .reason-index{padding:0 20px;font-size:10px}
+  #reasons .reason-index b{font-size:20px;margin:0}
+  #reasons .reason-card h3{font-size:19px;margin:14px 0 8px;padding:0 20px}
+  #reasons .reason-card p{font-size:14px;line-height:1.9;padding:0 20px}
+
+  .campaign-strip{margin-top:32px;margin-bottom:32px;padding:20px}
+  .campaign-strip>span{font-size:12px}
+  .campaign-strip>b{font-size:21px;margin:2px 0 8px}
+  .campaign-strip em{font-size:36px}
+  .campaign-strip p{font-size:13px;padding:10px 0 0;border-left:0;border-top:1px solid var(--ec-line)}
+  .campaign-strip small{font-size:11px;margin-top:4px}
+
+  #services .service-grid{gap:20px}
+  #services .card-content{padding:18px 20px 24px}
+  #services .card-content h3{font-size:19px;margin-bottom:8px}
+  #services .card-content p{font-size:14px}
+
+  #items .catalog-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  #items .catalog-card{aspect-ratio:4/3;border-radius:12px}
+  #items .catalog-card:after{inset:35% 0 0}
+  #items .catalog-label{font-size:14px;left:12px;right:12px;bottom:10px;line-height:1.35}
+  #items .catalog-plus{width:24px;height:24px;top:8px;right:8px;font-size:14px}
+  #items .catalog-detail{display:none}
+  #items .catalog-card:hover .catalog-label,#items .catalog-card:focus-visible .catalog-label{transform:none}
+  #items .other-items{margin-top:32px;padding:28px 20px}
+  #items .other-items h3{font-size:19px}
+  #items .other-items p{font-size:14px}
+  #items .other-items .section-footnote{font-size:11px}
+  #items .other-items .btn{font-size:14px;padding:14px 18px}
+
+  #cases .case-controls{margin:0 0 12px}
+  #cases .case-controls button{width:44px;height:44px}
+  #cases .case-controls #case-play{font-size:11px;padding:0 14px}
+  #cases .case-track{gap:16px;padding:6px 2px 22px}
+  #cases .case-card{flex-basis:78%;max-width:280px}
+  #cases .case-image{height:auto}
+  #cases .case-card h3{font-size:16px;min-height:0;padding:14px 16px 0;margin-bottom:12px}
+  #cases .case-price{padding:12px 16px 16px}
+  #cases .case-price strong{font-size:28px}
+  #cases .case-price strong small{font-size:14px}
+  #cases .section-footnote{font-size:11px;line-height:1.9}
+}
+@media (max-width:365px){
+  #items .catalog-label{font-size:13px}
+}
+
+/* ---------- 動きを止める設定のとき ---------- */
+@media (prefers-reduced-motion:reduce){
+  #services .service-card,#services .service-card .photo img,#items .catalog-card,#items .catalog-card img,
+  #items .catalog-label,#items .catalog-plus,#items .catalog-detail,#cases .case-card,#cases .case-image img{transition:none}
+  #items .catalog-card:hover,#items .catalog-card:focus-visible,
+  #items .catalog-card:hover img,#items .catalog-card:focus-visible img,
+  #services .service-card:hover .photo img,#cases .case-card:hover img{transform:none}
+}
+body.motion-off #items .catalog-card:hover,body.motion-off #items .catalog-card:focus-visible,
+body.motion-off #items .catalog-card:hover img,body.motion-off #items .catalog-card:focus-visible img,
+body.motion-off #services .service-card:hover .photo img,body.motion-off #cases .case-card:hover img,
+body.motion-off #items .catalog-card:hover .catalog-plus{transform:none}
+
+/* 見出しの改行を文節で（対応ブラウザのみ。非対応でも崩れない） */
+#reasons .center-title h2,#services .center-title h2,#items .center-title h2,#cases .center-title h2,
+#items .other-items h3,#reasons .reason-card h3{word-break:auto-phrase;text-wrap:balance}

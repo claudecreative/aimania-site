@@ -1,0 +1,455 @@
+/* =====================================================================
+   refine-a.css  担当A（美咲）：ページ上部の第一印象
+   範囲：.topline / header#header / nav#nav / section.hero / .quick-contact
+         section#about / section#worry / .floating-line / .mobile-contact(.mobile-line)
+   使う値は refine-base.css の --ec-* のみ。
+   方針：要素は消さず「小さく・薄く・揃える」。視線は 見出し → 無料・相談OK → 相談ボタン。
+   ブレークポイントは既存 style.css に合わせて 1200 / 1000 / 700px。
+   ===================================================================== */
+
+/* ---------- 1. トップライン：緑の帯をやめ、淡いミントで静かに ---------- */
+.topline{
+  background:var(--ec-bg-mint);color:var(--ec-green-deep);
+  font-size:12px;font-weight:500;letter-spacing:.06em;line-height:1.6;padding:6px 16px;
+  border-bottom:1px solid var(--ec-line);
+}
+.topline span{margin-left:20px;padding-left:20px;border-left:1px solid var(--ec-line);color:var(--ec-muted)}
+
+/* ---------- 2. ヘッダー：LINE（主）＞ 電話・メール（従） ---------- */
+header#header{border-bottom:1px solid var(--ec-line);background:var(--ec-bg)}
+header#header.scrolled{box-shadow:var(--ec-shadow)}
+header#header .head-inner{height:80px;padding:0 32px;gap:24px}
+header#header .header-contact-group{gap:12px}
+
+/* 電話：文字だけの“従”。番号は落ち着いたインクで */
+header#header .header-phone{margin-right:12px;line-height:1.35;color:var(--ec-ink)}
+header#header .header-phone small{display:block;font-size:11px;font-weight:500;color:var(--ec-muted);letter-spacing:.04em}
+header#header .header-phone b{font-size:24px;font-weight:700;letter-spacing:.03em;color:var(--ec-ink)}
+
+/* LINE：唯一の塗りボタン */
+header#header .header-contact{
+  display:flex;flex-wrap:wrap;align-content:center;align-items:baseline;min-width:0;min-height:52px;
+  padding:6px 22px;border-radius:var(--ec-radius-sm);
+  background:var(--ec-green-btn);color:#fff;box-shadow:none;
+  font-size:15px;font-weight:700;line-height:1.35;letter-spacing:.04em;
+  transition:background-color .25s var(--ec-ease),transform .25s var(--ec-ease),box-shadow .25s var(--ec-ease);
+}
+header#header .header-contact small{flex-basis:100%;font-size:10.5px;font-weight:500;opacity:.85;letter-spacing:.04em}
+header#header .header-contact span{margin-left:10px;font-weight:400}
+header#header .header-contact:hover{background:var(--ec-green-deep);transform:translateY(-1px);box-shadow:var(--ec-shadow)}
+
+/* メール：線だけのゴーストボタン（青をやめる） */
+header#header .header-mail{
+  display:inline-flex;align-items:center;min-height:52px;padding:0 18px;
+  background:var(--ec-bg);color:var(--ec-ink);border:1px solid var(--ec-line);border-radius:var(--ec-radius-sm);
+  font-size:14px;font-weight:600;letter-spacing:.04em;
+  transition:border-color .25s var(--ec-ease),color .25s var(--ec-ease);
+}
+header#header .header-mail:hover{border-color:var(--ec-green-deep);color:var(--ec-green-deep)}
+
+/* メニューボタン：タップ領域44px */
+header#header .menu{width:44px;height:44px;padding:0;align-items:center;justify-content:center}
+header#header .menu span{background:var(--ec-ink)}
+
+/* ナビ：細めの文字・広めの間隔・1px線 */
+@media (min-width:1001px){
+  header#header nav#nav{height:46px;gap:36px;border-top:1px solid var(--ec-line);font-size:14px;font-weight:500;letter-spacing:.06em}
+  header#header nav#nav a{color:var(--ec-ink);transition:color .25s var(--ec-ease)}
+  header#header nav#nav a:hover{color:var(--ec-green-deep)}
+  header#header nav#nav a:after{bottom:-6px;height:1.5px;background:var(--ec-green)}
+}
+@media (max-width:1000px){
+  header#header nav#nav{border-top:1px solid var(--ec-line);box-shadow:var(--ec-shadow);gap:0;padding:12px 24px 20px}
+  header#header nav#nav a{display:flex;align-items:center;min-height:48px;border-bottom:1px solid var(--ec-line);font-weight:500;width:100%}
+  header#header nav#nav a:after{display:none}
+}
+
+/* ---------- 3. ヒーロー ---------- */
+.hero{padding-top:28px}
+
+/* 3-1 見出し（h1）：極太・広い字間をやめ、上品な強弱に */
+.hero .hero-title{margin:0 auto 24px}
+.hero .hero-title>span{display:block;font-size:13px;font-weight:500;letter-spacing:.12em;color:var(--ec-muted)}
+.hero .hero-title h1{font-size:clamp(28px,2.4vw,34px);font-weight:700;letter-spacing:.06em;line-height:1.5;margin-top:6px;color:var(--ec-green-deep)}
+.hero .hero-title em{color:var(--ec-coral);font-weight:800}
+
+/* 3-2 ステージ（緑の面＋写真） */
+.hero .hero-stage{min-height:0;grid-template-columns:56% 44%}
+.hero .hero-left{
+  display:flex;flex-direction:column;align-items:center;
+  background:var(--ec-green);border-radius:var(--ec-radius) 0 0 0;
+  padding:44px 32px 0;overflow:hidden;
+}
+/* 並び順を CSS で入れ替え：見出し → 補足 → 無料・相談OK → (相談ボタン) → イラスト */
+.hero .hero-big{order:1}
+.hero .hero-sub{order:2}
+.hero .hero-tags{order:3}
+.hero .hero-cta{order:4}
+.hero .hero-art{order:5}
+
+/* 中の大見出し：900 → 800、文字の縁取りをやめる */
+.hero .hero-big{font-size:22px;font-weight:700;letter-spacing:.08em;line-height:1.5;color:#fff}
+.hero .hero-big strong{font-size:clamp(46px,3.9vw,56px);font-weight:800;letter-spacing:.04em;line-height:1.35;margin-top:4px}
+.hero .hero-big strong>span{color:var(--ec-yellow);-webkit-text-stroke:0;text-shadow:none}
+.hero .hero-sub{font-size:15px;font-weight:500;letter-spacing:.06em;margin:12px 0 0;opacity:.92}
+
+/* 無料・相談OK：見出しの次に読ませる白いピル */
+.hero .hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 0 0}
+.hero .hero-tags span{
+  display:inline-flex;align-items:baseline;gap:4px;
+  background:#fff;color:var(--ec-ink);border-radius:999px;box-shadow:none;
+  padding:5px 16px;font-size:13px;font-weight:600;letter-spacing:.04em;line-height:1.6;
+}
+.hero .hero-tags b{font-size:17px;font-weight:800;color:var(--ec-coral);letter-spacing:.04em}
+
+/* （HTML 追加提案 .hero-cta 用。notes-a.md 参照。HTML が入るまでは何も起きない） */
+.hero .hero-cta{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 20px;margin-top:22px;position:relative;z-index:3}
+.hero .hero-cta .btn{min-height:56px;padding:0 28px;gap:16px;background:#fff;color:var(--ec-green-deep);font-size:16px;font-weight:700;letter-spacing:.04em}
+.hero .hero-cta .btn:hover{background:var(--ec-bg-mint)}
+.hero .hero-cta-tel{display:inline-flex;align-items:center;min-height:44px;color:#fff;font-size:15px;font-weight:600;letter-spacing:.04em;border-bottom:1px solid currentColor}
+.hero .hero-cta ~ .hero-art{margin-top:84px}
+
+/* 3-3 イラスト＋吹き出し：揃えて、小さく、静かに */
+.hero .hero-art{width:68%;max-width:540px;margin:104px auto 0;padding:0}
+.hero .hero-art img{transform-origin:center bottom;animation:none;rotate:0deg;translate:0 0}
+.hero .hero-art .bubble{
+  background:#fff;color:var(--ec-ink);border:0;border-radius:14px;
+  box-shadow:var(--ec-shadow);padding:9px 16px;
+  font-size:13px;font-weight:500;line-height:1.5;letter-spacing:.04em;white-space:nowrap;
+  transform:none;animation:none;
+}
+.hero .hero-art .bubble em{color:var(--ec-green-deep);font-weight:700;font-style:normal}
+.hero .hero-art .bubble:after{
+  width:10px;height:10px;bottom:-5px;left:calc(50% - 5px);
+  background:#fff;border:0;transform:rotate(45deg);
+}
+.hero .hero-art .bubble-one{left:-8%;right:auto;top:-54px;rotate:-2deg}
+.hero .hero-art .bubble-two{right:-8%;left:auto;top:-48px;rotate:2deg}
+.hero .hero-art .bubble-three{left:50%;right:auto;top:-76px;rotate:0deg;transform:translateX(-50%)}
+
+/* テレビ：傾き・黄色い影をやめ、面の左下に小さく収める */
+.hero .hero-object{
+  left:20px;bottom:20px;width:76px;padding:8px 8px 4px;rotate:0deg;
+  background:#fff;border:1px solid var(--ec-line);border-radius:var(--ec-radius-sm);box-shadow:var(--ec-shadow);
+  transition:transform .25s var(--ec-ease),box-shadow .25s var(--ec-ease);
+}
+.hero .hero-object>span{display:block;font-size:10px;font-weight:700;color:var(--ec-ink);letter-spacing:.02em;text-align:center}
+.hero .hero-object:hover,.hero .hero-object:focus-visible{transform:translateY(-2px);box-shadow:var(--ec-shadow-hover)}
+
+/* 3-4 写真側：バッジ・コピーを小さく、傾きと黄色い影をなくす */
+.hero .hero-right{border-radius:0 var(--ec-radius) 0 0}
+.hero .area-badge{
+  width:112px;height:112px;top:20px;right:20px;rotate:0deg;
+  background:#fff;border:0;box-shadow:var(--ec-shadow);
+  font-size:10px;line-height:1.5;color:var(--ec-muted);letter-spacing:.04em;
+}
+.hero .area-badge strong{font-size:18px;font-weight:700;color:var(--ec-green-deep);letter-spacing:.04em;line-height:1.4}
+.hero .area-badge strong span{font-size:12px}
+.hero .area-badge small{font-size:8.5px;color:var(--ec-muted)}
+.hero .photo-copy{
+  left:24px;bottom:76px;padding:16px 22px;border-radius:12px;
+  background:color-mix(in srgb,var(--ec-green-deep) 86%,transparent);
+  font-size:24px;font-weight:700;line-height:1.55;letter-spacing:.06em;text-shadow:none;
+}
+.hero .photo-copy strong{font-size:34px;font-weight:800;color:var(--ec-yellow)}
+.hero .hero-photo-label{padding:12px;font-size:14px;font-weight:600;letter-spacing:.08em;color:var(--ec-green-deep);background:color-mix(in srgb,var(--ec-bg) 94%,transparent)}
+.hero .hero-right .photo-note{font-size:10px;padding:2px 8px;border-radius:4px;background:color-mix(in srgb,var(--ec-ink) 70%,transparent);top:16px;left:16px;right:auto;bottom:auto}
+
+/* 3-5 オレンジの帯：面にコーラルを使わない。温かい淡色の“添え書き”に */
+.hero .hero-message{
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 24px;
+  background:var(--ec-bg-warm);color:var(--ec-ink);
+  border:1px solid var(--ec-line);border-top:0;border-radius:0 0 var(--ec-radius) var(--ec-radius);
+  padding:18px 24px;
+}
+.hero .hero-message>b{display:block;font-size:18px;font-weight:700;letter-spacing:.06em;line-height:1.6;color:var(--ec-green-deep)}
+.hero .hero-message>span{font-size:13px;font-weight:500;letter-spacing:.06em;color:var(--ec-muted)}
+
+/* ---------- 4. 相談の帯（.quick-contact：ページ内の同型の帯すべてに効く） ---------- */
+/* 毎回の“全幅ミント帯”をやめ、白いカード1枚に。繰り返しても主張しすぎない */
+.quick-contact{background:transparent;border:0;margin:0;padding:40px 0}
+.quick-contact .quick-inner{
+  width:calc(100% - 64px);max-width:1040px;margin:0 auto;
+  display:flex;align-items:center;justify-content:flex-start;gap:24px;
+  background:var(--ec-bg);border:1px solid var(--ec-line);border-radius:var(--ec-radius);
+  box-shadow:var(--ec-shadow);padding:20px 24px 20px 32px;
+}
+.quick-contact .quick-title{
+  width:auto;height:auto;rotate:0deg;border:0;border-radius:0;background:none;
+  display:flex;flex-direction:column;align-items:flex-start;text-align:left;
+  color:var(--ec-ink);line-height:1.4;padding-right:24px;border-right:1px solid var(--ec-line);
+}
+.quick-contact .quick-title>span{font-size:12px;font-weight:500;color:var(--ec-muted);letter-spacing:.04em}
+.quick-contact .quick-title>b{font-size:22px;font-weight:800;color:var(--ec-coral);letter-spacing:.08em}
+.quick-contact .quick-phone{line-height:1.35;color:var(--ec-ink)}
+.quick-contact .quick-phone small{font-size:12px;font-weight:500;color:var(--ec-muted);letter-spacing:.04em}
+.quick-contact .quick-phone b{font-size:28px;font-weight:700;letter-spacing:.03em}
+.quick-contact .quick-inner .btn{
+  min-height:56px;padding:0 24px;gap:20px;border-radius:var(--ec-radius-sm);box-shadow:none;
+  font-size:15px;font-weight:700;letter-spacing:.04em;line-height:1.4;
+}
+.quick-contact .quick-inner .btn.green{margin-left:auto}
+.quick-contact .quick-inner .btn span{font-weight:400}
+
+/* ---------- 5. ABOUT ---------- */
+#about{padding-top:var(--ec-sec-y);padding-bottom:var(--ec-sec-y)}
+#about .center-title{margin-bottom:56px}
+#about .center-title>span{font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--ec-green-deep);margin-bottom:14px}
+#about .center-title h2{font-size:30px;font-weight:700;line-height:1.6;letter-spacing:.06em;color:var(--ec-ink)}
+#about .center-title h2 strong{display:inline-block;margin-top:8px;font-size:44px;font-weight:800;letter-spacing:.08em;color:var(--ec-green-deep)}
+#about .about-layout{max-width:1120px;margin:0 auto;grid-template-columns:1fr 1fr;gap:72px}
+#about .about-layout p{font-size:16px;line-height:2.1;letter-spacing:.04em;color:var(--ec-ink);margin:0 0 1.5em}
+#about .about-layout p:last-child{margin-bottom:0}
+#about .about-layout img{height:380px;border-radius:var(--ec-radius);object-position:28% center}
+#about .about-layout figcaption{bottom:12px;right:12px;border-radius:4px;padding:2px 8px;font-size:10px;background:color-mix(in srgb,var(--ec-ink) 70%,transparent)}
+
+/* ---------- 6. お悩み ---------- */
+#worry{background:var(--ec-bg-warm);padding-top:var(--ec-sec-y);padding-bottom:var(--ec-sec-y)}
+#worry .center-title{margin-bottom:56px}
+#worry .center-title>span{font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--ec-green-deep);margin-bottom:14px}
+#worry .center-title h2{font-size:30px;font-weight:700;line-height:1.6;letter-spacing:.06em;color:var(--ec-ink)}
+#worry .center-title h2 span{color:var(--ec-coral)}
+#worry .worry-scene{max-width:1120px;margin:0 auto;grid-template-columns:.9fr 1.1fr;gap:64px}
+#worry .question{font-size:40px;font-weight:700;color:var(--ec-coral);opacity:.55;animation:none;transform:none}
+#worry .worry-list li{
+  margin:0 0 10px;padding:14px 20px;gap:14px;align-items:flex-start;
+  background:var(--ec-bg);border:1px solid var(--ec-line);border-radius:var(--ec-radius-sm);
+  font-size:17px;font-weight:600;line-height:1.7;letter-spacing:.04em;color:var(--ec-ink);
+}
+#worry .worry-list li:last-child{margin-bottom:0}
+#worry .check-icon{
+  display:grid;place-items:center;flex:none;width:24px;height:24px;margin-top:3px;border-radius:50%;
+  background:var(--ec-green-btn);color:#fff;font-size:13px;font-weight:700;line-height:1;
+}
+#worry .marker{background-image:linear-gradient(transparent 72%,color-mix(in srgb,var(--ec-yellow) 70%,transparent) 72%,color-mix(in srgb,var(--ec-yellow) 70%,transparent) 94%,transparent 94%)}
+#worry .solution{margin-top:56px;max-width:880px}
+#worry .solution-arrow{font-size:28px;line-height:1;margin-bottom:20px;color:var(--ec-coral)}
+#worry .solution h3{font-size:34px;font-weight:700;line-height:1.6;letter-spacing:.06em;color:var(--ec-green-deep);-webkit-text-stroke:0;margin:0 0 24px}
+#worry .solution h3 em{color:var(--ec-coral);font-weight:800}
+#worry .solution p{font-size:16px;line-height:2.1;letter-spacing:.04em;color:var(--ec-ink)}
+/* 出てくる動き：拡大バウンドをやめ、静かに浮かぶだけに */
+.motion-ready #worry .solution h3{transform:translateY(12px);transition:opacity var(--ec-dur) var(--ec-ease),transform var(--ec-dur) var(--ec-ease)}
+.motion-ready #worry .solution.in-view h3{transform:none}
+
+/* ---------- 7. 追従 LINE（PC）：小さく、線と影をそろえる ---------- */
+.floating-line{right:20px;bottom:20px;width:208px;filter:drop-shadow(0 8px 20px rgba(34,54,45,.14));transition:transform .25s var(--ec-ease)}
+.floating-line:hover{transform:translateY(-2px)}
+.floating-line .operator-portrait{height:92px;padding-right:6px}
+.floating-line .operator-portrait img{width:96px;height:96px;animation:none;rotate:0deg;translate:0 0}
+.floating-line .operator-portrait>span{
+  left:0;top:18px;rotate:0deg;padding:8px 12px;
+  background:#fff;border:1px solid var(--ec-line);border-radius:12px;box-shadow:none;
+  font-size:11px;font-weight:600;line-height:1.55;letter-spacing:.04em;color:var(--ec-ink);
+}
+.floating-line>b{
+  gap:8px;padding:14px 12px 4px;border:0;border-radius:12px 12px 0 0;
+  background:var(--ec-green-btn);font-size:16px;font-weight:700;letter-spacing:.04em;
+}
+.floating-line>small{padding:0 12px 12px;border:0;border-radius:0 0 12px 12px;background:var(--ec-green-btn);font-size:10.5px;letter-spacing:.04em;opacity:1}
+.floating-line .line-symbol{width:26px;height:26px;color:var(--ec-green-deep);background:#fff}
+
+/* ---------- 8. 動き：数px・ゆっくり。motion-off / reduced-motion では止める ---------- */
+@keyframes ec-a-float{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@keyframes ec-a-sway{0%,100%{rotate:-.5deg;translate:0 0}50%{rotate:.5deg;translate:0 -3px}}
+@media (prefers-reduced-motion:no-preference){
+  body:not(.motion-off) .hero .hero-art img{animation:ec-a-sway 9s ease-in-out infinite}
+  body:not(.motion-off) .hero .hero-art .bubble{animation:ec-a-float 6s ease-in-out infinite}
+  body:not(.motion-off) .hero .hero-art .bubble-two{animation-delay:-2s}
+  body:not(.motion-off) .hero .hero-art .bubble-three{animation-delay:-4s}
+  body:not(.motion-off) .floating-line .operator-portrait img{animation:ec-a-sway 8s ease-in-out infinite}
+  body:not(.motion-off) #worry .question{animation:ec-a-float 6s ease-in-out infinite}
+  body:not(.motion-off) #worry .q-two{animation-delay:-3s}
+}
+
+/* =========================== レスポンシブ =========================== */
+@media (max-width:1200px){
+  header#header .header-phone b{font-size:21px}
+  header#header .header-contact{padding:6px 18px}
+  .hero .hero-big strong{font-size:44px}
+  .hero .hero-art{width:76%}
+  .hero .hero-art .bubble{font-size:12px;padding:8px 13px}
+  .hero .photo-copy{font-size:21px}
+  .hero .photo-copy strong{font-size:30px}
+  .hero .hero-message>b{font-size:17px}
+  .quick-contact .quick-phone b{font-size:24px}
+  .quick-contact .quick-inner .btn{padding:0 18px;font-size:14px;gap:12px}
+  .floating-line{width:196px}
+}
+
+@media (max-width:1000px){
+  header#header .head-inner{height:72px;padding:0 24px}
+  header#header .header-mail{display:none}
+  header#header .header-phone b{font-size:20px}
+  .hero .hero-stage{width:calc(100% - 48px)}
+  .hero .hero-left{padding:36px 20px 0}
+  .hero .hero-big{font-size:18px}
+  .hero .hero-big strong{font-size:36px}
+  .hero .hero-sub{font-size:13px}
+  .hero .hero-tags span{font-size:12px;padding:4px 12px}
+  .hero .hero-tags b{font-size:15px}
+  .hero .hero-art{width:84%;margin-top:84px}
+  .hero .hero-art .bubble{font-size:11px;padding:7px 11px}
+  .hero .hero-art .bubble-three{display:none}
+  .hero .hero-object{display:none}
+  .hero .area-badge{width:96px;height:96px;font-size:9px}
+  .hero .area-badge strong{font-size:15px}
+  .hero .photo-copy{left:16px;bottom:64px;padding:12px 16px;font-size:18px}
+  .hero .photo-copy strong{font-size:26px}
+  .hero .hero-message{flex-direction:column;gap:2px;padding:16px}
+  .hero .hero-message>b{font-size:16px}
+  .hero .hero-message>span{font-size:11.5px}
+  .quick-contact .quick-inner{width:calc(100% - 48px);flex-wrap:wrap;justify-content:center;padding:20px}
+  .quick-contact .quick-inner .btn.green{margin-left:0}
+  #about .center-title h2{font-size:26px}
+  #about .center-title h2 strong{font-size:36px}
+  #about .about-layout{gap:40px}
+  #worry .center-title h2{font-size:26px}
+  #worry .worry-people{max-width:480px;margin:24px auto 40px}
+  #worry .worry-list{max-width:640px}
+  #worry .solution h3{font-size:30px}
+  .floating-line{width:176px;right:14px;bottom:16px}
+  .floating-line .operator-portrait{height:80px}
+  .floating-line .operator-portrait img{width:84px;height:84px}
+  .floating-line .operator-portrait>span{font-size:10px;padding:6px 9px;top:14px}
+  .floating-line>b{font-size:14px;padding:12px 10px 3px}
+  .floating-line>small{font-size:9.5px}
+}
+
+@media (max-width:700px){
+  .topline{font-size:10.5px;padding:5px 12px;letter-spacing:.04em}
+  header#header .head-inner{height:64px;padding:0 12px 0 16px;gap:8px}
+  header#header .header-contact{min-height:44px;padding:4px 12px;font-size:13px}
+  header#header .header-contact small{font-size:9px}
+  header#header .header-contact span{margin-left:6px}
+  header#header nav#nav{top:64px;padding:8px 20px 16px}
+
+  .hero{padding-top:20px}
+  .hero .hero-title{width:calc(100% - 32px);margin-bottom:16px}
+  .hero .hero-title>span{font-size:11px;letter-spacing:.06em}
+  .hero .hero-title h1{font-size:clamp(20px,5.6vw,23px);letter-spacing:.04em;line-height:1.6;margin-top:2px}
+  .hero .hero-stage{width:calc(100% - 24px)}
+  .hero .hero-left{border-radius:var(--ec-radius) var(--ec-radius) 0 0;padding:28px 16px 0}
+  .hero .hero-big{font-size:17px;line-height:1.5}
+  .hero .hero-big strong{font-size:clamp(30px,8.6vw,36px);line-height:1.4;white-space:nowrap}
+  .hero .hero-sub{font-size:12px;line-height:1.8;margin-top:8px;max-width:none;padding:0}
+  .hero .hero-tags{gap:5px;margin-top:16px}
+  .hero .hero-tags span{font-size:10.5px;padding:3px 9px;gap:2px;letter-spacing:.02em}
+  .hero .hero-tags b{font-size:13px;letter-spacing:.02em}
+  .hero .hero-cta{margin-top:18px;flex-direction:column;gap:8px}
+  .hero .hero-cta .btn{min-height:52px;font-size:15px;width:100%;max-width:300px;justify-content:center}
+  .hero .hero-cta ~ .hero-art{margin-top:64px}
+  .hero .hero-art{width:90%;margin-top:66px}
+  .hero .hero-art .bubble{font-size:11px;padding:6px 11px;border-radius:12px}
+  .hero .hero-art .bubble-one{left:-4%;top:-50px}
+  .hero .hero-art .bubble-two{right:-4%;top:-36px}
+  .hero .hero-right{height:200px;border-radius:0}
+  .hero .area-badge{width:84px;height:84px;top:12px;right:12px;font-size:8px;line-height:1.4}
+  .hero .area-badge strong{font-size:13px}
+  .hero .area-badge strong span{font-size:9px}
+  .hero .area-badge small{display:none}
+  .hero .photo-copy{left:12px;bottom:12px;padding:10px 14px;border-radius:10px;font-size:16px;line-height:1.5;max-width:none}
+  .hero .photo-copy strong{font-size:23px}
+  .hero .hero-right .photo-note{font-size:8px;top:8px;left:8px;padding:1px 6px}
+  .hero .hero-message{padding:14px 16px}
+  .hero .hero-message>b{font-size:14.5px;line-height:1.6;letter-spacing:.04em}
+  .hero .hero-message>span{font-size:10.5px;line-height:1.8;letter-spacing:.02em;margin:2px 0 0}
+
+  .quick-contact{padding:28px 0}
+  .quick-contact .quick-inner{
+    width:calc(100% - 24px);display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:18px 16px;
+  }
+  .quick-contact .quick-title{
+    display:flex;grid-column:1/-1;flex-direction:row;justify-content:center;align-items:baseline;gap:6px;
+    padding:0;border:0;
+  }
+  .quick-contact .quick-title>span{font-size:12px}
+  .quick-contact .quick-title>b{font-size:16px}
+  .quick-contact .quick-phone{grid-column:1/-1;text-align:center;margin-bottom:6px}
+  .quick-contact .quick-phone small{font-size:11px}
+  .quick-contact .quick-phone b{font-size:26px}
+  .quick-contact .quick-inner .btn{min-height:52px;padding:0 10px;gap:6px;justify-content:center;font-size:13px}
+
+  #about .center-title{margin-bottom:36px}
+  #about .center-title>span,#worry .center-title>span{font-size:11px;letter-spacing:.14em;margin-bottom:10px}
+  #about .center-title h2{font-size:20px;letter-spacing:.02em;line-height:1.7}
+  #about .center-title h2 strong{font-size:32px;margin-top:4px}
+  #about .about-layout p{font-size:15px;line-height:2;letter-spacing:.02em}
+  #about .about-layout figure{margin-top:32px}
+  #about .about-layout img{height:230px}
+
+  #worry .center-title{margin-bottom:28px}
+  #worry .center-title h2{font-size:21px;letter-spacing:.03em;line-height:1.7}
+  #worry .worry-people{margin:20px auto 28px}
+  #worry .question{font-size:30px}
+  #worry .worry-list li{font-size:15px;line-height:1.75;padding:12px 14px;gap:10px;margin-bottom:8px;letter-spacing:.02em}
+  #worry .check-icon{width:22px;height:22px;font-size:12px;margin-top:2px}
+  #worry .solution{margin-top:40px}
+  #worry .solution-arrow{font-size:24px;margin-bottom:14px}
+  #worry .solution h3{font-size:24px;letter-spacing:.04em;margin-bottom:18px}
+  #worry .solution p{font-size:15px;line-height:2;letter-spacing:.02em}
+
+  /* スマホ下部の固定ボタン：電話は白地の“従”、LINE は緑の“主” */
+  .mobile-contact{
+    background:color-mix(in srgb,var(--ec-bg) 96%,transparent);border-top:1px solid var(--ec-line);
+    box-shadow:0 -6px 20px rgba(34,54,45,.06);gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));min-height:0;
+  }
+  .mobile-contact>a{border-radius:var(--ec-radius-sm);min-height:52px;font-size:14px;font-weight:700;letter-spacing:.04em}
+  .mobile-contact>a:first-child{background:var(--ec-bg);color:var(--ec-green-deep);border:1px solid var(--ec-green)}
+  .mobile-contact .mobile-line{background:var(--ec-green-btn);color:#fff;padding-left:60px;min-height:52px}
+  .mobile-contact .mobile-line>img{width:58px;height:66px;left:4px}
+  .mobile-contact .mobile-line>span{font-size:15px;font-weight:700;line-height:1.4}
+  .mobile-contact .mobile-line small{font-size:9.5px;font-weight:500;opacity:.9}
+}
+
+@media (max-width:365px){
+  .hero .hero-tags span{font-size:10px;padding:3px 8px}
+  .hero .hero-tags b{font-size:13px}
+  .hero .hero-art .bubble{font-size:10px}
+  .mobile-contact .mobile-line>span{font-size:13.5px}
+}
+
+/* ===== ヒーローの動き（強め・11/14 追加） ===== */
+.hero .hero-art{position:relative}
+.hero .hero-art .ec-trio{position:absolute;left:0;top:0;width:100%;pointer-events:none}
+.hero .hero-art .ec-trio .ec-p{position:absolute;left:0;top:0;width:100%;height:auto}
+.hero .hero-art.ec-live img.ec-base{visibility:hidden}
+@keyframes ec-a-nod1{0%,100%{transform:translateY(0) rotate(0)}20%{transform:translateY(-7px) rotate(-1.6deg)}40%{transform:translateY(0) rotate(0)}}
+@keyframes ec-a-nod2{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-9px) rotate(1.4deg)}50%{transform:translateY(0) rotate(0)}}
+@keyframes ec-a-nod3{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-6px) rotate(1.8deg)}55%{transform:translateY(0) rotate(-.6deg)}}
+@keyframes ec-a-pop{0%{opacity:0;transform:translateY(10px) scale(.6)}70%{opacity:1;transform:translateY(-3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes ec-a-bob{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -8px;rotate:-1.2deg}}
+@keyframes ec-a-tagpop{0%{opacity:0;transform:scale(.7)}80%{opacity:1;transform:scale(1.05)}100%{opacity:1;transform:none}}
+@keyframes ec-a-wobble{0%,100%{rotate:0deg}25%{rotate:-4deg}75%{rotate:4deg}}
+@keyframes ec-a-rise{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){
+  body:not(.motion-off) .hero .hero-art.ec-live img.ec-base{animation:none}
+  body:not(.motion-off) .hero .ec-trio .ec-p1{animation:ec-a-nod1 4.2s ease-in-out infinite}
+  body:not(.motion-off) .hero .ec-trio .ec-p2{animation:ec-a-nod2 4.6s ease-in-out .8s infinite}
+  body:not(.motion-off) .hero .ec-trio .ec-p3{animation:ec-a-nod3 5s ease-in-out 1.6s infinite}
+  /* 吹き出し：順番にぽんっと出て、そのあとふわふわ */
+  body:not(.motion-off) .hero .hero-art .bubble{animation:ec-a-pop .6s var(--ec-ease) both,ec-a-bob 3.6s ease-in-out infinite}
+  body:not(.motion-off) .hero .hero-art .bubble-one{animation-delay:.5s,1.1s}
+  body:not(.motion-off) .hero .hero-art .bubble-two{animation-delay:.9s,1.5s}
+  body:not(.motion-off) .hero .hero-art .bubble-three{animation-delay:1.3s,1.9s}
+  /* 上のタグ・写真のコピー・エリアの丸 */
+  body:not(.motion-off) .hero .hero-tags span{animation:ec-a-tagpop .5s var(--ec-ease) both}
+  body:not(.motion-off) .hero .hero-tags span:nth-child(2){animation-delay:.12s}
+  body:not(.motion-off) .hero .hero-tags span:nth-child(3){animation-delay:.24s}
+  body:not(.motion-off) .hero .photo-copy{animation:ec-a-rise .8s var(--ec-ease) .4s both}
+  body:not(.motion-off) .hero .area-badge{animation:ec-a-wobble 5s ease-in-out 2s infinite}
+  body:not(.motion-off) .hero .television{animation:ec-a-wobble 4s ease-in-out 1s infinite}
+}
+@keyframes ec-a-pop3{0%{opacity:0;transform:translateX(-50%) translateY(10px) scale(.6)}70%{opacity:1;transform:translateX(-50%) translateY(-3px) scale(1.06)}100%{opacity:1;transform:translateX(-50%)}}
+@media (prefers-reduced-motion:no-preference){
+  body:not(.motion-off) .hero .hero-art .bubble-three{animation-name:ec-a-pop3,ec-a-bob}
+}
+
+/* ===== ヒーロー左の背景に、家財道具の線画をうっすら（11/14 追加） ===== */
+.hero .hero-left{position:relative;isolation:isolate}
+.hero .hero-left::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url(assets/hero-items-line.svg) center/100% 100% no-repeat;opacity:.13}
+@keyframes ec-a-drift{0%,100%{transform:translate(0,0)}50%{transform:translate(0,-6px)}}
+@media (prefers-reduced-motion:no-preference){
+  body:not(.motion-off) .hero .hero-left::before{animation:ec-a-drift 10s ease-in-out infinite}
+}
+@media (max-width:760px){.hero .hero-left::before{opacity:.12}}
