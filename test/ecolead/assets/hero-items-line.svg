@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 720" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <!-- テレビ（左上） -->
+  <g transform="translate(38 70) rotate(-8)">
+    <rect x="0" y="18" width="120" height="84" rx="10"/>
+    <rect x="12" y="30" width="96" height="60" rx="4"/>
+    <path d="M44 0l16 18 16-18M42 102l-8 16M78 102l8 16"/>
+  </g>
+  <!-- レコード（右上） -->
+  <g transform="translate(640 40) rotate(10)">
+    <circle cx="56" cy="56" r="56"/>
+    <circle cx="56" cy="56" r="40" stroke-dasharray="4 7"/>
+    <circle cx="56" cy="56" r="16"/>
+    <circle cx="56" cy="56" r="3"/>
+  </g>
+  <!-- 冷蔵庫（左の中ほど） -->
+  <g transform="translate(26 300) rotate(4)">
+    <rect x="0" y="0" width="74" height="150" rx="10"/>
+    <path d="M0 56h74M14 18v22M14 72v34"/>
+  </g>
+  <!-- 洗濯機（右の中ほど） -->
+  <g transform="translate(668 270) rotate(-6)">
+    <rect x="0" y="0" width="108" height="118" rx="12"/>
+    <path d="M0 28h108"/>
+    <circle cx="20" cy="14" r="4"/><circle cx="36" cy="14" r="4"/>
+    <circle cx="54" cy="74" r="32"/>
+    <path d="M38 80c8 8 24 8 32 0"/>
+  </g>
+  <!-- ギター（左下） -->
+  <g transform="translate(40 520) rotate(-28)">
+    <circle cx="40" cy="110" r="38"/>
+    <circle cx="40" cy="62" r="26"/>
+    <circle cx="40" cy="104" r="10"/>
+    <path d="M40 36V-36M30 -36h20v-22H30z"/>
+    <path d="M28 132h24"/>
+  </g>
+  <!-- ミシン（右下） -->
+  <g transform="translate(610 560) rotate(5)">
+    <path d="M0 110h150"/>
+    <path d="M14 110V38c0-14 10-24 24-24h82c12 0 20 8 20 20v20H62v56"/>
+    <path d="M120 54v28M114 82h12M120 82v14"/>
+    <circle cx="36" cy="40" r="10"/>
+  </g>
+  <!-- 小物：椅子・ランプ・カメラ（すき間を埋める） -->
+  <g transform="translate(300 18) rotate(-4)" opacity=".8">
+    <path d="M10 0h36l14 46H-4z"/><path d="M28 46v40M10 86h36"/>
+  </g>
+  <g transform="translate(450 630) rotate(6)" opacity=".8">
+    <rect x="0" y="12" width="84" height="56" rx="8"/><path d="M24 12l8-12h20l8 12"/><circle cx="42" cy="40" r="16"/>
+  </g>
+  <g transform="translate(200 640) rotate(-6)" opacity=".8">
+    <path d="M10 0v64M54 0v64M10 24h44M4 64h56M10 0h44"/>
+  </g>
+</svg>
