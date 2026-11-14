@@ -311,3 +311,10 @@ footer .footer-bottom small:last-child{font-size:12px}
   footer .footer-bottom{gap:0 20px;margin-top:16px;padding-top:8px}
   footer .footer-bottom small:last-child{width:100%;font-size:11px;margin-top:4px}
 }
+
+/* ===== 11/14 統合：HTML提案の反映分 ===== */
+.inquiry-form .opt{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;background:var(--ec-bg-mint);color:var(--ec-muted,#6b7a72);font-size:11px;font-weight:600;letter-spacing:.04em;vertical-align:2px}
+.voice-card blockquote{margin:0;padding:0;border:0;quotes:none}
+.voice-card blockquote p{margin:0}
+#flow ol.flow-overview{margin-left:auto;margin-right:auto}
+#flow ol.flow-overview>li{list-style:none;margin:0;padding:0;display:block}
