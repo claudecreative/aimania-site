@@ -369,3 +369,19 @@ header#header .menu[aria-expanded=true] span:last-child{transform:translateY(-4p
 
 .consult-section .consult-card{box-shadow:var(--ec-shadow-hover);border-radius:24px}
 @media (max-width:760px){.consult-section .consult-card{border-radius:20px}}
+
+/* ===== 11/15 相談ブロック：スタッフを切り抜き（背景透明）で下揃えに ===== */
+.consult-card{align-items:end!important;overflow:hidden}
+.consult-photo{min-height:340px!important;height:100%;display:flex;align-items:flex-end;justify-content:center;padding-top:28px}
+.consult-photo:before{content:"";position:absolute;left:50%;bottom:-18%;width:118%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.22),rgba(255,255,255,.07) 70%,transparent)}
+.consult-photo:after{display:none!important}
+.consult-photo img{position:relative!important;inset:auto!important;width:auto!important;height:auto!important;max-width:92%;max-height:360px;object-fit:contain!important;display:block;filter:drop-shadow(0 10px 18px rgba(0,0,0,.18))}
+.consult-v1 .consult-photo img{max-height:340px}
+.consult-v2 .consult-photo img{max-width:96%}
+.consult-v3 .consult-photo img{max-width:88%}
+.consult-body{align-self:center}
+@media (max-width:760px){
+  .consult-photo,.consult-v3 .consult-photo{aspect-ratio:auto!important;min-height:0!important;padding-top:22px}
+  .consult-photo img{max-height:230px}
+  .consult-body,.consult-v3 .consult-body{margin-top:0!important;padding-top:18px!important;border-top:1px solid rgba(255,255,255,.18)}
+}
