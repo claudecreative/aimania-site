@@ -470,3 +470,137 @@ header#header .menu[aria-expanded=true] span:last-child{transform:translateY(-4p
   .cs2-tel-txt{text-align:left}
 }
 .sd2-ba img{object-position:50% 50%}
+
+/* ===== 11/15 美咲さん2回目チェック反映（細部の詰め・大味さの解消） ===== */
+/* ===== 11/15 美咲 2回目チェック：「大味」をなくす（表紙〜選ばれる理由）＝ refine-d.css 末尾に追記 ===== */
+
+/* ---------- 1 相談ブロック×3（.cs2）：全身イラスト→胸から上の丸窓に。点線・チップ・強い影をやめて軽く ---------- */
+.consult-section .cs2{gap:40px;max-width:880px;padding:32px 44px 32px 36px;box-shadow:var(--ec-shadow)}
+.consult-section .cs2-v2{padding:32px 36px 32px 44px}
+.consult-section .cs2:before{display:none}                 /* 二重線（点線）をやめる */
+.consult-section .cs2{grid-template-columns:200px minmax(0,1fr)}
+.consult-section .cs2-v2{grid-template-columns:minmax(0,1fr) 200px}
+.consult-section .cs2-art{height:auto;aspect-ratio:1;width:200px;justify-self:center;border-radius:50%;overflow:hidden;
+  background:radial-gradient(circle at 50% 38%,#fff 0,var(--ec-bg-mint) 62%);box-shadow:inset 0 0 0 1px var(--ec-line)}
+.consult-section .cs2-disc{display:none}
+.consult-section .cs2-art img{position:absolute;left:50%;top:9%;height:205%;max-height:none;max-width:none;width:auto;transform:translateX(-50%)}
+.consult-section .cs2-v2 .cs2-art img{top:11%;height:168%}
+.consult-section .cs2-bubble{display:none}                 /* 丸窓の外にはみ出す吹き出しは外す（見出しと役割が重なる） */
+/* 「出張費・査定料・キャンセル料 すべて無料」を1行の文字に（チップ3つ＋赤字の“にぎやかさ”をやめる） */
+.consult-section .cs2-kicker{gap:0;margin:0 0 8px;font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--ec-green-deep)}
+.consult-section .cs2-kicker span{border:0;background:none;padding:0}
+.consult-section .cs2-kicker span:not(:nth-last-child(2)):after{content:"・"}
+.consult-section .cs2-kicker b{margin-left:.6em;font-size:12.5px;color:var(--ec-coral)}
+#area + .consult-section .cs2-kicker{display:none}          /* 1つ目は直前の対応エリアの「無料」3つと重複するので出さない */
+.consult-section .cs2-title{font-size:clamp(21px,2vw,25px);font-weight:700;line-height:1.5;letter-spacing:.04em;margin:0 0 4px}
+.consult-section .cs2-sub{font-size:13.5px;margin:0 0 18px}
+.consult-section .cs2-tel{padding:10px 18px;border-color:var(--ec-line);border-radius:12px;gap:12px}
+.consult-section .cs2-ico{width:34px;height:34px}
+.consult-section .cs2-tel-txt small{font-size:11px}
+.consult-section .cs2-tel-txt b{font-size:clamp(23px,2.2vw,27px);font-weight:700}
+.consult-section .cs2-row a{min-height:48px;font-size:14px;border-radius:var(--ec-radius-sm);letter-spacing:.04em}
+.consult-section .cs2-line{background:var(--ec-green-btn);box-shadow:none;gap:0}
+.consult-section .cs2-line:hover{background:var(--ec-green-deep)}
+.consult-section .cs2-line span{font-weight:700;letter-spacing:.02em;margin-right:.15em}
+.consult-section .cs2-mail{border-width:1px}
+.consult-section .cs2-mail:hover{background:var(--ec-bg-mint)}
+@media (max-width:760px){
+  /* スマホ：丸窓（小）と見出しを横並びにして、縦の長さを約2/3に */
+  .consult-section .cs2,.consult-section .cs2-v2{grid-template-columns:84px minmax(0,1fr);gap:0 14px;padding:20px 18px;align-items:center}
+  .consult-section .cs2-body{display:contents;text-align:left}
+  .consult-section .cs2-art{grid-column:1;grid-row:1;width:84px;order:0}
+  .consult-section .cs2-title{grid-column:2;grid-row:1;align-self:center;font-size:18px;line-height:1.45;margin:0;text-wrap:balance}
+  .consult-section .cs2-kicker{grid-column:1 / -1;grid-row:2;justify-content:flex-start;margin:14px 0 0;font-size:11.5px;letter-spacing:.02em}
+  .consult-section .cs2-kicker b{font-size:11.5px;margin-left:.5em}
+  .consult-section .cs2-sub{grid-column:1 / -1;grid-row:3;margin:4px 0 14px;font-size:13.5px;line-height:1.8;text-align:left}
+  #area + .consult-section .cs2-sub{margin-top:14px}
+  .consult-section .cs2-actions{grid-column:1 / -1;grid-row:4}
+  .consult-section .cs2-tel{justify-content:flex-start}
+  .consult-section .cs2-tel-txt b{font-size:24px}
+  .consult-section .cs2-row a{font-size:13.5px}
+}
+
+/* ---------- 2 PCの浮きLINE：本文（ヒーローの帯・お悩み・理由03）を隠して“文字が切れて”見える → 小さなピルに。表紙を過ぎてから出す ---------- */
+@media (min-width:761px){
+  body .floating-line{width:auto;right:20px;bottom:20px;filter:none;transition:opacity .3s var(--ec-ease),transform .25s var(--ec-ease)}
+  body .floating-line .operator-portrait,body .floating-line>small{display:none}
+  body .floating-line>b{border:0;border-radius:999px;padding:11px 20px 11px 14px;font-size:14px;gap:8px;background:var(--ec-green-btn);box-shadow:var(--ec-shadow-hover)}
+  body .floating-line .line-symbol{width:24px;height:24px;font-size:7px}
+  body:not(.scrolled-far) .floating-line{opacity:0;pointer-events:none;transform:translateY(8px)}
+  body footer .to-top{bottom:84px}
+}
+
+/* ---------- 3 表紙（PC）：模様・特大見出し・傾いた吹き出し・緑の箱を静かに ---------- */
+#main .hero .hero-left::before{opacity:.15}                /* 家財の線画は“地紋”程度に */
+@media (min-width:1025px){
+  #main .hero .hero-title h1{font-size:28px;letter-spacing:.06em}
+  #main .hero .hero-big{font-size:19px;letter-spacing:.1em}
+  #main .hero .hero-big strong{font-size:48px;font-weight:700;letter-spacing:.06em;line-height:1.45}
+  #main .hero .hero-sub{font-size:14px}
+  #main .hero .hero-tags span{font-size:12px;padding-inline:12px}
+  #main .hero .hero-cta .btn{min-height:52px;font-size:15px}
+  /* 吹き出し：傾きなし・同じ高さ・2つに（「女性スタッフ」はお悩み・理由05で言っている） */
+  #main .hero .hero-art .bubble{rotate:0deg;font-size:12px;padding:7px 14px;border-radius:999px;box-shadow:0 1px 2px rgba(34,54,45,.08)}
+  #main .hero .hero-art .bubble-three{display:none}
+  #main .hero .hero-art .bubble-one{left:2%;top:-40px}
+  #main .hero .hero-art .bubble-two{right:2%;top:-40px}
+  /* 写真のコピー：緑ベタの箱→白い小さな札 */
+  #main .hero .photo-copy{left:28px;bottom:28px;padding:16px 22px;border-radius:12px;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);color:var(--ec-ink);font-size:17px;line-height:1.7;text-shadow:none;box-shadow:var(--ec-shadow)}
+  #main .hero .photo-copy strong{font-size:22px;font-weight:700;color:var(--ec-green-deep)}
+  #main .hero .hero-photo-label{display:none}               /* 写真下の白帯（下の帯と2重。浮きLINEで切れていた） */
+}
+@media (max-width:760px){
+  #main .hero .hero-art .bubble-one{left:3%}
+  #main .hero .hero-art .bubble-two{right:3%}
+  #main .hero .hero-art .bubble{rotate:0deg;border-radius:999px}
+}
+
+/* ---------- 4 対応エリア：大きすぎる県名カードを細身に ---------- */
+#area .area-grid{max-width:640px;gap:16px}
+#area .area-card{padding:22px 16px 20px;box-shadow:0 1px 2px rgba(34,54,45,.05)}
+#area .area-card:before{display:none}
+#area .area-card strong{font-size:clamp(22px,2.6vw,30px);letter-spacing:.1em;margin-top:2px}
+#area .area-en{font-size:11px;letter-spacing:.28em}
+#area .area-free{gap:8px;margin-top:22px}
+#area .area-free li{border-width:1px;padding:5px 14px;font-size:13px;min-height:0}
+#area .area-note{font-size:13px}
+@media (max-width:760px){#area .area-card{padding:16px 10px 14px}#area .area-free li{font-size:12px;padding:4px 12px}}
+
+/* ---------- 5 お悩み：ヒーローと同じ3人を“切れたまま”置かない → アーチ窓に収める。リストは細く ---------- */
+@media (min-width:761px){
+  #worry .worry-people{max-width:440px;margin:0 auto;padding:44px 28px 0;background:#fff;border-radius:200px 200px var(--ec-radius) var(--ec-radius);overflow:hidden;box-shadow:inset 0 0 0 1px var(--ec-line)}
+  #worry .worry-people img{display:block}
+  #worry .worry-people .question{display:none}
+}
+#worry .worry-list li{font-size:16px;font-weight:500;color:var(--ec-ink);border-color:var(--ec-line);text-wrap:pretty}
+#worry .worry-list li .marker{background:linear-gradient(transparent 72%,rgba(244,211,94,.45) 72%)}
+#worry .worry-list li .check-icon{width:20px;height:20px;font-size:11px}
+@media (max-width:760px){#worry .worry-list li{font-size:15px}}
+
+/* ---------- 6 任せて：見出しを他とそろえ、イラストを一回り小さく（640→500px）、吹き出しを細線・水平に ---------- */
+#omakase .omakase-copy h2{font-size:34px;font-weight:700;letter-spacing:.04em;line-height:1.55}
+#omakase .omakase-copy h2 em{background:linear-gradient(transparent 70%,rgba(244,211,94,.55) 70%)}
+#omakase .omakase-copy .btn{min-height:52px;padding:0 28px;font-size:15px;font-weight:700;align-items:center}
+@media (min-width:761px){
+  #omakase .omakase-art{max-width:500px;justify-self:center}
+  #omakase .omakase-art img{border-radius:0}
+}
+#omakase .omakase-bubble{border-width:1px;rotate:0deg;transform:none;font-weight:700;font-size:12px;padding:5px 12px;left:8%;top:8%}
+@media (max-width:760px){#omakase .omakase-copy h2{font-size:24px}#omakase .omakase-art{max-width:240px}}
+
+/* ---------- 7 選ばれる理由：写真が主役になりすぎ → 3:2・幅を絞る。05の顔のアップを引く ---------- */
+@media (min-width:761px){
+  #reasons .reasons-grid{max-width:1140px;margin-inline:auto;gap:28px 24px}
+  #reasons .reason-index,#reasons .reason-card h3,#reasons .reason-card p{padding-inline:22px}
+  #reasons .reason-visual{aspect-ratio:3/2;margin-bottom:18px}
+  #reasons .reason-card h3{font-size:18px;margin:12px 0 8px}
+  #reasons .reason-card p{font-size:14px;line-height:1.85}
+}
+#reasons .reason-card:nth-child(5) .reason-visual img{object-position:50% 18%}
+#reasons .reason-index b{font-size:19px}
+
+/* ---------- 8 不自然な改行 ---------- */
+#area .center-title p,#area .area-note,#about .about-layout p,.consult-section .cs2-sub{text-wrap:pretty;word-break:auto-phrase}
+@media (max-width:760px){#area .center-title p{font-size:13.5px}}
+/* HTML側で「」をまとめて折り返す用（index.html に <span class="nb"> を足した場合） */
+#about .nb,#area .nb{display:inline-block}
