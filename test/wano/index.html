@@ -2,214 +2,363 @@
 <html lang="ja">
 <head><script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_wano_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_wano_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=4181e01b/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_wano_ok","1")}catch(e){}try{document.cookie="aim_wano_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>WANO ETHOS｜LP改訂案（AI mania 提案用）</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Shippori+Mincho:wght@400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<title>WANO ETHOS｜Scalp Shampoo（LP改訂案）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Shippori+Mincho:wght@400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/v3-hero.jpg">
 <style>
-:root{--ivory:#f6f1e9;--ivory2:#efe8dc;--greige:#d8cdbd;--stone:#a2968a;--clay:#8c7b69;--ink:#3a3530;--ink2:#5b544c;--sage:#7f8571;--line:rgba(58,53,48,.14)}
+:root{
+  --ivory:#F5F0E6;--paper:#FAF7F1;--bone:#EDE5D7;--greige:#D8CCBA;--stone:#A99B89;--clay:#86755F;--ink:#322E29;--ink2:#5F584F;--sage:#7C8570;
+  --line:rgba(50,46,41,.13);--ease:cubic-bezier(.19,.7,.22,1);--pad:clamp(24px,5.2vw,84px);
+  --serif:"Shippori Mincho",serif;--en:"Cormorant Garamond",serif;--sans:"Noto Sans JP",sans-serif;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#e9e2d6;color:var(--ink);font-family:"Noto Sans JP",sans-serif;font-weight:300;letter-spacing:.06em;line-height:2}
-.wrap{max-width:480px;margin:0 auto;background:var(--ivory);overflow:hidden}
-img{display:block;width:100%}
-.en{font-family:"Cormorant Garamond",serif;letter-spacing:.3em;text-transform:uppercase}
-.min{font-family:"Shippori Mincho",serif;font-weight:400}
-.eyebrow{font-size:10px;color:var(--clay);letter-spacing:.42em;text-align:center}
-.h2{font-family:"Shippori Mincho",serif;font-weight:400;font-size:21px;line-height:1.9;letter-spacing:.16em;text-align:center;margin:18px 0 26px}
-.p{font-size:13px;line-height:2.4;text-align:center;color:var(--ink2)}
-.p+.p{margin-top:20px}
-section{padding:84px 30px}
-.note{background:var(--ink);color:#cfc6b8;font-size:10px;text-align:center;padding:9px;letter-spacing:.1em}
-.btn{display:inline-block;margin-top:24px;padding:15px 40px;background:var(--ink);color:var(--ivory);text-decoration:none;font-size:12px;letter-spacing:.28em;border-radius:999px}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:14px;letter-spacing:.07em;line-height:2.2;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body:after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.055;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .17 0 0 0 0 .13 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+::selection{background:var(--greige);color:var(--ink)}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1240px,100% - var(--pad)*2);margin-inline:auto}
 
-/* HERO */
-.hero{position:relative;height:760px;overflow:hidden;background:var(--ivory2)}
-.hero .bg{position:absolute;inset:0;background:url(img/wide.webp) center/cover;filter:saturate(.5) brightness(1.15);opacity:.4}
-.hero .light{position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,252,246,.9) 0%,rgba(250,246,239,.55) 50%,rgba(226,216,201,.55) 100%)}
-.hero .inner{position:relative;height:100%;display:flex;flex-direction:column;align-items:center;padding:64px 26px 40px;text-align:center}
-.hero .brand{font-size:14px;letter-spacing:.62em;color:var(--ink)}
-.hero .sub{font-size:9px;letter-spacing:.6em;color:var(--clay);margin-top:4px}
-.hero h1{font-family:"Shippori Mincho",serif;font-weight:400;font-size:28px;line-height:1.75;letter-spacing:.18em;margin-top:44px}
-.hero .lead{font-size:12px;margin-top:16px;color:var(--ink2);line-height:2.2}
-.hero .bottle{position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:300px;mix-blend-mode:multiply}
-.hero .stone{position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,rgba(162,150,138,.35))}
-.buybar{background:var(--ivory);text-align:center;padding:30px 26px 10px}
-.buybar .price{font-size:12px;color:var(--ink2)}
-.buybar .en{font-size:12px;color:var(--clay);display:block}
+/* ---- type ---- */
+.label{display:flex;align-items:baseline;gap:16px;font-family:var(--en);font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--clay);line-height:1}
+.label i{font-style:italic;font-weight:300;font-size:15px;letter-spacing:.1em;color:var(--stone)}
+.label:after{content:"";align-self:center;width:44px;height:1px;background:currentColor;opacity:.45}
+.center .label{justify-content:center}
+.center .label:before{content:"";align-self:center;width:44px;height:1px;background:currentColor;opacity:.45}
+.h2{font-family:var(--serif);font-weight:400;font-size:clamp(23px,2.5vw,34px);line-height:1.9;letter-spacing:.16em;margin:30px 0 28px;font-feature-settings:"palt"}
+.lead{color:var(--ink2);line-height:2.5}
+.lead+.lead{margin-top:1.3em}
+.center{text-align:center}
+.btn{position:relative;display:inline-flex;align-items:center;gap:20px;height:56px;padding:0 34px 0 38px;border-radius:999px;background:var(--ink);color:var(--paper);font-size:12.5px;letter-spacing:.24em;overflow:hidden;isolation:isolate}
+.btn:before{content:"";position:absolute;inset:0;background:#4b443b;transform:translateX(-101%);transition:transform .7s var(--ease);z-index:-1}
+.btn:hover:before{transform:none}
+.btn span{width:26px;height:1px;background:currentColor;position:relative;transition:width .5s var(--ease)}
+.btn span:after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid;border-right:1px solid;transform:rotate(45deg)}
+.btn:hover span{width:36px}
 
-/* SCALP RITUAL */
-.ritual{background:var(--ivory2)}
-.macro{margin:0 -30px 40px;position:relative}
-.macro img{aspect-ratio:4/5;object-fit:cover;filter:saturate(.75)}
-.macro .tag{position:absolute;left:24px;bottom:22px;background:rgba(246,241,233,.88);padding:8px 14px;font-size:10px;letter-spacing:.3em;color:var(--ink)}
-.steps{margin-top:40px;display:grid;gap:18px}
-.step{background:var(--ivory);border-radius:2px;padding:30px 24px;display:grid;grid-template-columns:70px 1fr;gap:16px;align-items:start}
-.step .no{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:44px;line-height:1;color:var(--stone)}
-.step .en{font-size:10px;color:var(--sage)}
-.step h3{font-family:"Shippori Mincho",serif;font-weight:400;font-size:16px;margin:4px 0 8px;letter-spacing:.1em}
-.step p{font-size:12px;line-height:2.1;color:var(--ink2)}
-.fingers{display:block;margin:6px auto 0;width:120px;opacity:.75}
+/* ---- motion ---- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity 1.3s var(--ease) var(--d,0s),transform 1.3s var(--ease) var(--d,0s)}
+.in .rv,.rv.in{opacity:1;transform:none}
+.ph{position:relative;overflow:hidden;background:var(--bone)}
+.ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.09);transition:transform 2.4s var(--ease)}
+.ph:after{content:"";position:absolute;inset:0;background:var(--ivory);transform-origin:top;transition:transform 1.5s var(--ease)}
+.ph.in img{transform:none}.ph.in:after{transform:scaleY(0)}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.ph img{transform:none;transition:none}.ph:after{display:none}.intro{display:none}html{scroll-behavior:auto}}
 
-/* FILM (コマ送り) */
-.film{background:var(--ivory)}
-.filmv{display:block;width:270px;margin:36px auto 0;aspect-ratio:9/16;border-radius:22px;box-shadow:0 30px 60px -30px rgba(58,53,48,.45);background:#ddd;object-fit:cover}
-.phone{width:220px;margin:30px auto 0;aspect-ratio:9/16;border-radius:30px;overflow:hidden;position:relative;box-shadow:0 30px 60px -30px rgba(58,53,48,.45);border:6px solid #e3dacd;background:#ddd}
-.frame{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}
-.frame.on{opacity:1}
-.frame .ph{position:absolute;inset:0;background-size:cover;background-position:center}
-.frame .cap{position:absolute;left:0;right:0;top:0;padding:18px 16px;background:linear-gradient(rgba(246,241,233,.92),transparent);font-size:10px;letter-spacing:.14em;color:var(--ink)}
-.frame .cap b{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:13px;letter-spacing:.25em;display:block;color:var(--clay)}
-.frame .sec{position:absolute;right:12px;bottom:14px;font-family:"Cormorant Garamond",serif;font-size:12px;color:#fff;letter-spacing:.2em;text-shadow:0 1px 6px rgba(0,0,0,.4)}
-.dots{display:flex;gap:8px;justify-content:center;margin-top:18px}
-.dots i{width:22px;height:2px;background:var(--greige)}
-.dots i.on{background:var(--ink)}
-.cuts{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.cuts div{aspect-ratio:9/16;background-size:cover;background-position:center;position:relative;border-radius:4px;overflow:hidden}
-.cuts span{position:absolute;bottom:0;left:0;right:0;background:rgba(246,241,233,.9);font-size:9px;text-align:center;letter-spacing:.08em;padding:3px 0}
-.small{font-size:10px;color:var(--stone);text-align:center;margin-top:14px;line-height:1.8}
+/* ---- intro ---- */
+.intro{position:fixed;inset:0;z-index:80;background:var(--ivory);display:grid;place-items:center;animation:introOut 1s var(--ease) 1.5s forwards}
+.intro b{font-family:var(--en);font-weight:400;font-size:17px;letter-spacing:.7em;text-indent:.7em;text-transform:uppercase;opacity:0;animation:introIn 1.1s var(--ease) .15s forwards}
+@keyframes introIn{from{opacity:0;letter-spacing:1em}to{opacity:1;letter-spacing:.7em}}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
 
-/* ONE BOTTLE */
-.trio{margin-top:34px}
-.trio div{display:flex;gap:18px;padding:22px 4px;border-top:1px solid var(--line)}
-.trio div:last-child{border-bottom:1px solid var(--line)}
-.trio .en{font-size:11px;color:var(--sage);width:64px;flex:none;padding-top:2px}
-.trio p{font-size:12.5px;line-height:2.1;color:var(--ink2)}
+/* ---- header ---- */
+.note{background:var(--ink);color:#cfc6b8;font-size:10px;text-align:center;padding:7px 14px;letter-spacing:.12em;line-height:1.6}
+.top{position:sticky;top:0;z-index:40;transition:background .5s,box-shadow .5s}
+.top.on{background:rgba(245,240,230,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--en);font-size:16px;letter-spacing:.56em;text-transform:uppercase}
+.top nav{display:flex;gap:34px;font-size:11px;letter-spacing:.26em;color:var(--ink2)}
+.top nav a{position:relative;padding:6px 0}
+.top nav a:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.top nav a:hover:after{transform:scaleX(1);transform-origin:left}
+.buy{font-size:11px;letter-spacing:.22em;border:1px solid rgba(50,46,41,.4);border-radius:999px;padding:9px 20px;line-height:1.4;transition:background .4s,color .4s}
+.buy:hover{background:var(--ink);color:var(--paper)}
+@media(max-width:900px){.top nav{display:none}.top .wrap{height:58px}.logo{font-size:14px}}
 
-/* INGREDIENTS */
-.ing{background:var(--ivory2)}
-.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
-.chips span{border:1px solid var(--greige);background:var(--ivory);border-radius:999px;padding:8px 16px;font-size:12px}
+/* ---- hero ---- */
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);min-height:calc(100svh - 96px);max-height:980px;margin-top:-68px;padding-top:68px;background:linear-gradient(180deg,var(--ivory),var(--bone))}
+.hero-l{position:relative;display:grid;grid-template-columns:1fr auto;gap:clamp(20px,3vw,56px);padding:clamp(40px,6vh,84px) clamp(28px,4vw,72px) clamp(48px,7vh,88px) var(--pad)}
+.tate{writing-mode:vertical-rl;font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.5vw,54px);letter-spacing:.3em;line-height:2.1;font-feature-settings:"vpal" 0;white-space:nowrap;align-self:start;margin-top:clamp(8px,3vh,40px)}
+.tate span{display:block;overflow:hidden}
+.tate span i{display:block;font-style:normal;transform:translateY(-102%);animation:tateIn 1.8s var(--ease) forwards}
+.tate span:nth-child(1) i{animation-delay:2s}.tate span:nth-child(2) i{animation-delay:2.35s}
+.tate span:nth-child(2){margin-top:1.6em}
+@keyframes tateIn{to{transform:none}}
+.hero-info{align-self:end;max-width:400px}
+.hero-info .brand{font-family:var(--en);font-size:11.5px;letter-spacing:.5em;text-transform:uppercase;color:var(--clay);line-height:1.8}
+.hero-info .sub{font-family:var(--serif);font-size:clamp(14px,1.15vw,16px);letter-spacing:.16em;white-space:nowrap;line-height:2.3;margin:26px 0 34px;padding-top:26px;border-top:1px solid var(--line)}
+.price{display:flex;align-items:baseline;gap:10px;white-space:nowrap;margin-top:22px;font-size:11.5px;letter-spacing:.14em;color:var(--ink2)}
+.price b{font-family:var(--en);font-weight:400;font-size:25px;letter-spacing:.05em;color:var(--ink);line-height:1}
+.hero-r{position:relative;overflow:hidden}
+.hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 58%;animation:heroIn 3.4s var(--ease) 1.5s both}
+@keyframes heroIn{from{transform:scale(1.12);opacity:0}to{transform:scale(1);opacity:1}}
+.hero-r .side{position:absolute;right:22px;bottom:28px;writing-mode:vertical-rl;font-family:var(--en);font-size:10px;letter-spacing:.44em;color:rgba(50,46,41,.55);text-transform:uppercase}
+.scroll{position:absolute;left:var(--pad);bottom:0;height:54px;width:1px;background:var(--line);overflow:hidden}
+.scroll:after{content:"";position:absolute;inset:0;background:var(--ink);animation:drip 2.8s var(--ease) infinite}
+@keyframes drip{0%{transform:translateY(-100%)}60%,100%{transform:translateY(100%)}}
+@media(max-width:900px){
+  .hero{display:flex;flex-direction:column;min-height:0;max-height:none;margin-top:-58px;padding-top:0;background:var(--ivory)}
+  .hero-r{order:-1;height:min(132vw,78svh);min-height:480px}
+  .hero-r img{object-position:50% 60%}
+  .hero-r .side{display:none}
+  .hero-l{display:block;position:static;padding:0}
+  .tate{position:absolute;top:calc(58px + 34px);right:20px;font-size:clamp(26px,7.2vw,32px);line-height:1.8;margin:0;z-index:2}
+  .hero-info{max-width:none;text-align:center;padding:42px 24px 64px}
+  .hero-info .sub{margin:22px auto 30px;padding-top:22px;max-width:300px;font-size:15px}
+  .h2{font-size:21px;letter-spacing:.11em;line-height:1.95;margin:26px 0 24px}
+  .cut em{display:block}
+  .price{font-size:11px;gap:8px}
+  .price{justify-content:center}
+  .scroll{display:none}
+}
 
-/* WORLD */
-.world{position:relative;color:var(--ivory)}
-.world img{aspect-ratio:3/4;object-fit:cover;filter:saturate(.55) brightness(.92)}
-.world .cap{position:absolute;inset:auto 0 0 0;padding:60px 30px 46px;background:linear-gradient(transparent,rgba(58,53,48,.75));text-align:center}
-.world .min{font-size:19px;line-height:1.9;letter-spacing:.16em}
-.world p{font-size:12px;margin-top:10px;line-height:2.1;color:#ece4d6}
+/* ---- statement ---- */
+.state{padding:clamp(96px,13vw,190px) 0 clamp(70px,9vw,130px);text-align:center}
+.state p{font-family:var(--serif);font-size:clamp(19px,2.2vw,30px);letter-spacing:.24em;line-height:2.4}
+.state .rule{width:1px;height:72px;background:var(--line);margin:0 auto 44px}
+.state small{display:block;margin-top:36px;font-family:var(--en);font-size:12px;letter-spacing:.44em;color:var(--stone);text-transform:uppercase}
 
-/* FAQ */
-details{border-top:1px solid var(--line);padding:18px 2px}
+/* ---- sections ---- */
+.sec{padding:clamp(84px,10.5vw,160px) 0}
+.q{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,1fr) minmax(0,5fr);align-items:center}
+.q .ph{aspect-ratio:4/5.4}
+.q .txt{grid-column:3}
+.q .cap,.cap{display:block;margin-top:14px;font-family:var(--en);font-style:italic;font-size:13px;letter-spacing:.12em;color:var(--stone)}
+@media(max-width:900px){.q{display:block}.q .ph{width:78%;margin-left:auto;aspect-ratio:4/5.2}.q .cap{text-align:right}.q .txt{margin-top:56px}}
+
+.wash{background:var(--paper)}
+.wash-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:clamp(48px,6vw,96px)}
+.wash-head .h2{margin-bottom:0}
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,6vw,110px)}
+.step:nth-child(2){margin-top:clamp(60px,10vw,170px)}
+.step .ph{aspect-ratio:4/5.2}
+.step .no{position:absolute;z-index:2;left:22px;bottom:14px;font-family:var(--en);font-style:italic;font-weight:300;font-size:clamp(64px,7vw,104px);line-height:1;color:rgba(250,247,241,.94)}
+.step .body{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;padding-top:30px}
+.step .kicker{grid-row:span 2;writing-mode:vertical-rl;font-family:var(--en);font-size:11.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--sage);padding-top:6px}
+.step h3{font-family:var(--serif);font-weight:400;font-size:clamp(18px,1.7vw,22px);letter-spacing:.14em;line-height:1.8}
+.step p{color:var(--ink2);line-height:2.3}
+@media(max-width:900px){.wash-head{display:block}.wash-head .lead{margin-top:26px}.steps{grid-template-columns:1fr;gap:64px}.step:nth-child(2){margin-top:0}.step:nth-child(1) .ph{width:86%}.step:nth-child(2) .ph{width:86%;margin-left:auto}}
+
+.one{background:linear-gradient(180deg,var(--paper),var(--bone) 60%,var(--ivory))}
+.one-grid{display:grid;grid-template-columns:minmax(0,5.4fr) minmax(0,.8fr) minmax(0,5fr);align-items:center}
+.one .ph{aspect-ratio:2/3;max-height:880px}
+.one .txt{grid-column:3}
+.trio{margin-top:42px;border-top:1px solid var(--line)}
+.trio div{display:grid;grid-template-columns:92px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.trio b{font-family:var(--en);font-weight:400;font-size:13px;letter-spacing:.38em;text-transform:uppercase;color:var(--sage)}
+.trio p{color:var(--ink2);line-height:2.1}
+.spec{display:flex;flex-wrap:wrap;gap:14px 34px;margin-top:34px;font-size:12px;color:var(--ink2);letter-spacing:.12em}
+.spec b{font-family:var(--en);font-weight:400;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--stone);margin-right:12px}
+@media(max-width:900px){.one-grid{display:block}.one .txt{margin-top:56px}.trio div{grid-template-columns:70px 1fr;gap:16px}}
+
+.form-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,1fr) minmax(0,4.4fr);align-items:center}
+.form-grid .ph{grid-column:3;grid-row:1;aspect-ratio:4/5.4}
+.form-grid .txt{grid-column:1;grid-row:1}
+.ing{list-style:none;margin-top:38px;border-top:1px solid var(--line);counter-reset:i}
+.ing li{counter-increment:i;display:flex;align-items:baseline;gap:24px;padding:17px 2px;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:15px;letter-spacing:.14em;line-height:1.7}
+.ing li:before{content:counter(i,decimal-leading-zero);font-family:var(--en);font-style:italic;font-size:14px;letter-spacing:.08em;color:var(--stone);min-width:22px}
+.fine{font-size:11px;color:var(--stone);margin-top:22px;line-height:1.9}
+@media(max-width:900px){.form-grid{display:flex;flex-direction:column}.form-grid .ph{width:78%;align-self:flex-start;margin-bottom:56px;order:-1}}
+
+/* ---- film ---- */
+.film{background:#2A2622;color:#E9E1D4;position:relative}
+.film .label{color:#B9AD9B}.film .label i{color:#8F8474}
+.film .h2{color:#F5F0E6}
+.film .lead{color:#C9BFB0}
+.film-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(40px,8vw,130px);align-items:center}
+.phone{position:relative;width:min(320px,74vw);aspect-ratio:9/16;border-radius:30px;overflow:hidden;background:#1c1a17;box-shadow:0 50px 90px -40px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.09),0 0 0 9px #201d1a,0 0 0 10px rgba(255,255,255,.06)}
+.phone video,.phone img{width:100%;height:100%;object-fit:cover}
+.cut{list-style:none;margin-top:38px;border-top:1px solid rgba(255,255,255,.13)}
+.cut li{display:grid;grid-template-columns:84px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.13);font-size:13px;line-height:1.9;color:#D6CCBD}
+.cut b{font-family:var(--en);font-weight:400;font-size:14px;letter-spacing:.2em;color:#A99D8B}
+.cut em{font-style:normal;font-family:var(--serif);color:#F5F0E6;letter-spacing:.12em}
+@media(max-width:900px){.film-grid{grid-template-columns:1fr}.phone{margin:0 auto;order:-1}.cut li{grid-template-columns:66px 1fr}}
+
+/* ---- world ---- */
+.world{position:relative;height:min(92svh,860px);min-height:520px;overflow:hidden;display:grid;place-items:center;color:var(--paper);text-align:center}
+.world .bg{position:absolute;inset:-12% 0;background:url(img/v3-world.jpg) 30% center/cover;will-change:transform}
+.world:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 62% 55%,rgba(44,36,28,.42),rgba(44,36,28,.08) 70%)}
+.world .in-w{position:relative;z-index:2;padding:0 24px}
+.world .label{color:#F0E7D8;justify-content:center}.world .label:before{content:"";align-self:center;width:44px;height:1px;background:currentColor;opacity:.45}
+.world .h2{color:#FDFAF4;font-size:clamp(24px,3vw,42px);margin-bottom:14px;text-shadow:0 2px 30px rgba(30,24,18,.35)}
+.world p{font-size:13px;letter-spacing:.2em;color:#F3EBDD}
+
+/* ---- faq ---- */
+.faq{max-width:780px;margin:54px auto 0}
+details{border-top:1px solid var(--line)}
 details:last-of-type{border-bottom:1px solid var(--line)}
-summary{list-style:none;cursor:pointer;font-family:"Shippori Mincho",serif;font-size:14px;display:flex;justify-content:space-between;gap:12px}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:34px 1fr 14px;gap:14px;align-items:center;padding:26px 4px;font-family:var(--serif);font-size:15.5px;letter-spacing:.1em;line-height:1.8}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--clay);font-family:"Cormorant Garamond",serif;font-size:20px;line-height:1}
-details[open] summary::after{content:"−"}
-details p{font-size:12px;line-height:2.1;color:var(--ink2);margin-top:10px}
-footer{background:var(--ivory2);text-align:center;padding:70px 26px 40px}
-footer .min{font-size:16px;letter-spacing:.2em;margin:16px 0 6px}
-footer small{display:block;margin-top:40px;font-size:9px;color:var(--stone)}
+summary:before{content:"Q";font-family:var(--en);font-style:italic;font-size:19px;color:var(--stone)}
+summary:after{content:"";width:13px;height:13px;background:linear-gradient(var(--clay),var(--clay)) center/100% 1px no-repeat,linear-gradient(var(--clay),var(--clay)) center/1px 100% no-repeat;transition:transform .5s var(--ease)}
+details[open] summary:after{transform:rotate(45deg)}
+details p{color:var(--ink2);padding:0 32px 28px 52px;margin-top:-6px;line-height:2.2}
+@media(max-width:600px){summary{grid-template-columns:22px 1fr 13px;gap:10px;padding:22px 0;font-size:14px;letter-spacing:.05em}details p{padding:0 8px 24px 36px}}
+
+/* ---- close ---- */
+.close{position:relative;text-align:center;padding:clamp(110px,13vw,190px) 24px clamp(100px,11vw,160px);background:linear-gradient(180deg,var(--ivory),var(--bone))}
+.arch{position:relative;width:min(280px,64vw);aspect-ratio:1/1.34;margin:0 auto 52px;border-radius:999px 999px 0 0;background:radial-gradient(circle at 50% 46%,#fdfaf4 0,#efe6d7 62%,#e3d7c4 100%);box-shadow:inset 0 0 0 1px rgba(50,46,41,.07),inset 18px 24px 50px rgba(120,100,76,.13)}
+.arch img{position:absolute;left:50%;bottom:9%;height:74%;width:auto;max-width:none;transform:translateX(-50%);filter:drop-shadow(12px 16px 16px rgba(70,58,44,.24))}
+.arch:after{content:"";position:absolute;left:22%;right:22%;bottom:6.5%;height:16px;background:radial-gradient(closest-side,rgba(60,48,36,.3),transparent);filter:blur(4px)}
+.close .h2{font-size:clamp(24px,2.9vw,38px);margin:26px 0 12px}
+.close .price{justify-content:center;margin:0 0 34px}
+footer{padding:44px 24px 96px;text-align:center;font-size:10.5px;color:var(--stone);letter-spacing:.16em;border-top:1px solid var(--line);background:var(--bone)}
+footer .logo{display:block;margin-bottom:12px;color:var(--ink2);font-size:14px}
 </style>
 </head>
 <body>
-<div class="note">デザイン改訂の提案用サンプルです（AI mania 作成・非公開）</div>
-<div class="wrap">
+<div class="intro" aria-hidden="true"><b>Wano Ethos</b></div>
+<div class="note">LP改訂の提案用サンプルです（AI mania 作成・非公開）。写真はイメージ（AI生成）です。</div>
 
-<header class="hero">
-  <div class="bg"></div><div class="light"></div><div class="stone"></div>
-  <div class="inner">
-    <div class="brand en">Wano Ethos</div>
-    <div class="sub en">Scalp Apothecary · Tokyo</div>
-    <h1>指先が、<br>記憶する美しさ。</h1>
-    <p class="lead">二度洗いで、地肌まで。<br>頭皮ケアまで、シャンプー1本で。</p>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#">Wano Ethos</a>
+    <nav aria-label="ページ内リンク"><a href="#wash">二度洗い</a><a href="#bottle">オールインワン</a><a href="#formula">処方</a><a href="#film">動画</a><a href="#faq">よくあるご質問</a></nav>
+    <a class="buy" href="#buy">Amazonで見る</a>
   </div>
-  <img class="bottle" src="img/product.webp" alt="WANO ETHOS SCALP SHAMPOO">
 </header>
-<div class="buybar">
-  <span class="en">Scalp Shampoo</span>
-  <div class="price">200mL　¥5,980（税込）</div>
-  <a class="btn" href="#">Amazonで商品を見る</a>
-</div>
 
-<section>
-  <div class="eyebrow en">The Question</div>
-  <h2 class="h2">毎日のケアに、<br>頭皮は入っていますか。</h2>
-  <p class="p">毎日触れているのに、<br>手をかけたことのない場所。</p>
-  <p class="p">毎日のシャンプーは、<br>頭皮に触れる、いちばん確かな時間。</p>
-</section>
-
-<section class="ritual">
-  <div class="macro"><img src="img/s1.jpg" alt=""><div class="tag en">Scalp Ritual</div></div>
-  <div class="eyebrow en">Two-Step Scalp Ritual</div>
-  <h2 class="h2">一度、手放す。<br>もう一度、地肌をいたわる。</h2>
-  <p class="p">髪ではなく、頭皮から洗う。<br>WANO ETHOSの二度洗いは、<br>地肌のための小さな儀式です。</p>
-  <div class="steps">
-    <div class="step"><div class="no">01</div><div><div class="en">Reset</div><h3>一日の汚れを手放す</h3><p>整髪料、汗、街の空気。<br>一日をまとってきたものを、<br>まずは静かにほどいていく。</p></div></div>
-    <div class="step"><div class="no">02</div><div><div class="en">Care</div><h3>濃密な泡で、地肌をいたわる</h3><p>指の腹で、ゆっくりと地肌に沿わせる。<br>洗うというより、いたわるひととき。</p>
-      <svg class="fingers" viewBox="0 0 120 40" fill="none" stroke="#8c7b69" stroke-width="1"><path d="M8 30c10-14 22-14 32 0M44 30c10-14 22-14 32 0M80 30c10-14 22-14 32 0"/><circle cx="24" cy="12" r="3"/><circle cx="60" cy="12" r="3"/><circle cx="96" cy="12" r="3"/></svg>
-    </div></div>
+<main>
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-info in">
+      <p class="brand rv" style="--d:2.5s">Scalp Apothecary<br>Tokyo</p>
+      <p class="sub rv" style="--d:2.7s">二度洗いで、地肌まで。<br>頭皮ケアまで、シャンプー1本で。</p>
+      <a class="btn rv" style="--d:2.9s" href="#buy">Amazonで商品を見る<span></span></a>
+      <p class="price rv" style="--d:3s">Scalp Shampoo　200mL<b>¥5,980</b>（税込）</p>
+    </div>
+    <h1 class="tate" aria-label="指先が、記憶する美しさ。"><span><i>指先が、</i></span><span><i>記憶する美しさ。</i></span></h1>
+    <div class="scroll" aria-hidden="true"></div>
+  </div>
+  <div class="hero-r">
+    <img src="img/v3-hero.jpg" alt="朝の光が差すトラバーチンの台に置かれた WANO ETHOS SCALP SHAMPOO" fetchpriority="high">
+    <span class="side" aria-hidden="true">Scalp Shampoo — 200mL</span>
   </div>
 </section>
 
-<section class="film">
-  <div class="eyebrow en">Morning Film</div>
-  <h2 class="h2">洗い上げたあとの、<br>ほどけた朝。</h2>
-  <p class="p">縦型ショート動画（約15秒）の絵コンテです。<br>同じ女性が、6つの場面で朝を過ごします。</p>
-  <video class="filmv" src="img/wano_film.mp4" poster="img/wano_film_poster.jpg" autoplay muted loop playsinline controls></video>
-  <p class="small" style="margin-top:10px">動画ラフ（約15秒）。下は各シーンのコマ送りです。</p>
-  <div class="phone" id="phone">
-    <div class="frame on"><div class="ph" style="background-image:url(img/s1.jpg)"></div><div class="cap"><b>S1</b>洗髪：指先で地肌に泡をなじませる</div><div class="sec">0–3s</div></div>
-    <div class="frame"><div class="ph" style="background-image:url(img/s2.jpg)"></div><div class="cap"><b>S2</b>朝の窓辺、お茶を注ぐ</div><div class="sec">3–5s</div></div>
-    <div class="frame"><div class="ph" style="background-image:url(img/s3.jpg)"></div><div class="cap"><b>S3</b>天然石の洗面台、髪を拭く</div><div class="sec">5–8s</div></div>
-    <div class="frame"><div class="ph" style="background-image:url(img/s4.jpg)"></div><div class="cap"><b>S4</b>鏡の前、指で根元から髪を通す</div><div class="sec">8–10s</div></div>
-    <div class="frame"><div class="ph" style="background-image:url(img/s5.jpg)"></div><div class="cap"><b>S5</b>坪庭の見えるリビングで本を開く</div><div class="sec">10–13s</div></div>
-    <div class="frame"><div class="ph" style="background-image:url(img/s6.jpg)"></div><div class="cap"><b>S6</b>光の差す方へ、出かける</div><div class="sec">13–15s</div></div>
-  </div>
-  <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
-  <div class="cuts">
-    <div style="background-image:url(img/s1.jpg)"><span>S1 洗髪</span></div>
-    <div style="background-image:url(img/s2.jpg)"><span>S2 朝の窓辺</span></div>
-    <div style="background-image:url(img/s3.jpg)"><span>S3 天然石の洗面台</span></div>
-    <div style="background-image:url(img/s4.jpg)"><span>S4 鏡の前</span></div>
-    <div style="background-image:url(img/s5.jpg)"><span>S5 リビング</span></div>
-    <div style="background-image:url(img/s6.jpg)"><span>S6 光の差す方へ</span></div>
-  </div>
-  <p class="small">Google Flowで生成した絵コンテです。本番は実物の撮影カットと組み合わせます。</p>
+<section class="state io">
+  <div class="rule rv"></div>
+  <p class="rv" style="--d:.1s">毎日触れているのに、<br>手をかけたことのない場所。</p>
+  <small class="rv" style="--d:.3s">The Scalp</small>
 </section>
 
-<section>
-  <div class="eyebrow en">One Bottle, Complete</div>
-  <h2 class="h2">コンディショナーを、<br>置いてきた理由。</h2>
-  <p class="p">頭皮ケアまで、シャンプー1本で。<br>コンディショナーなしで完結する、<br>オールインワン設計。</p>
-  <div class="trio">
-    <div><span class="en">Scalp</span><p>うるおいを保ちながら、すこやかに洗い上げる。</p></div>
-    <div><span class="en">Hair</span><p>仕上げの一手間を重ねなくても、指がすっとほどける。</p></div>
-    <div><span class="en">Time</span><p>ボトルがひとつ減ると、心の置き場所がひとつ増える。</p></div>
+<section class="sec" style="padding-top:0">
+  <div class="wrap q io">
+    <figure><div class="ph"><img src="img/v3-win2.jpg" alt="朝の窓辺に立つ女性の後ろ姿。艶のある長い黒髪" loading="lazy"></div><figcaption class="cap">Morning light</figcaption></figure>
+    <div class="txt">
+      <p class="label rv"><i>01</i>The Question</p>
+      <h2 class="h2 rv" style="--d:.1s">毎日のケアに、<br>頭皮は入っていますか。</h2>
+      <p class="lead rv" style="--d:.2s">毎日のシャンプーは、<br>頭皮に触れる、いちばん確かな時間。</p>
+    </div>
   </div>
 </section>
 
-<section class="ing">
-  <div class="eyebrow en">Formulation</div>
-  <h2 class="h2">美しさは、<br>処方から生まれる。</h2>
-  <p class="p">植物由来成分を配合。<br>うるおいと毛髪のコンディショニングに配慮しました。</p>
-  <div class="chips"><span>リンゴ果実培養細胞エキス</span><span>イチョウ葉エキス</span><span>ヒアルロン酸Na</span><span>パンテノール</span><span>加水分解ダイズタンパク</span></div>
+<section class="sec wash" id="wash">
+  <div class="wrap">
+    <div class="wash-head io">
+      <div><p class="label rv"><i>02</i>Two-Step Wash</p><h2 class="h2 rv" style="--d:.1s">一度、手放す。<br>もう一度、地肌をいたわる。</h2></div>
+      <p class="lead rv" style="--d:.2s">髪ではなく、頭皮から洗う。<br>WANO ETHOSがおすすめする、二度洗いの洗い方です。</p>
+    </div>
+    <div class="steps">
+      <article class="step io">
+        <div class="ph"><img src="img/v3-touch2.jpg" alt="湯気の中、濡れた髪の根元に指先を添える後ろ姿" loading="lazy"><span class="no">01</span></div>
+        <div class="body"><span class="kicker">Reset</span><h3 class="rv">一日の汚れを手放す</h3><p class="rv" style="--d:.1s">整髪料、汗、街の空気。<br>一日をまとってきたものを、<br>まずは静かにほどいていく。</p></div>
+      </article>
+      <article class="step io">
+        <div class="ph"><img src="img/v3-touch1.jpg" alt="きめ細かな泡を、指の腹で地肌になじませる" loading="lazy"><span class="no">02</span></div>
+        <div class="body"><span class="kicker">Care</span><h3 class="rv">濃密な泡で、地肌をいたわる</h3><p class="rv" style="--d:.1s">指の腹で、ゆっくりと地肌に沿わせる。<br>洗うというより、いたわるひととき。</p></div>
+      </article>
+    </div>
+  </div>
 </section>
 
-<div class="world">
-  <img src="img/s5.jpg" alt="">
-  <div class="cap"><div class="eyebrow en" style="color:#e8dfd0">The World</div><div class="min" style="margin-top:14px">バスルームに、<br>心ほどける上質な空間を。</div><p>自然素材の質感と、やわらかな光。</p></div>
-</div>
-
-<section>
-  <div class="eyebrow en">FAQ</div>
-  <h2 class="h2">よくあるご質問</h2>
-  <details><summary>コンディショナーなしでも大丈夫ですか？</summary><p>コンディショナー不要のオールインワン設計です。仕上がりの感じ方には個人差があります。</p></details>
-  <details><summary>なぜ2ステップで洗うのですか？</summary><p>1度目で一日の汚れや整髪料を洗い流し、2度目で濃密な泡をなじませて頭皮をいたわります。WANO ETHOSがおすすめする洗い方です。</p></details>
-  <details><summary>1本でどれくらい使えますか？</summary><p>200mLで、毎日の2ステップ洗いで約1ヶ月〜1ヶ月半が目安です。髪の長さや量によって前後いたします。</p></details>
-  <details><summary>ノンシリコンですか？</summary><p>いいえ、あえてシリコンを採用した処方設計です。洗髪時の摩擦に配慮するため、機能的な成分をバランス良く配合しています。</p></details>
+<section class="sec one" id="bottle">
+  <div class="wrap one-grid io">
+    <div class="ph"><img src="img/v3-niche.jpg" alt="漆喰のアーチ型ニッチに置かれた WANO ETHOS SCALP SHAMPOO" loading="lazy"></div>
+    <div class="txt">
+      <p class="label rv"><i>03</i>One Bottle, Complete</p>
+      <h2 class="h2 rv" style="--d:.1s">コンディショナーを、<br>置いてきた理由。</h2>
+      <p class="lead rv" style="--d:.2s">頭皮ケアまで、シャンプー1本で。<br>コンディショナーなしで完結する、<br>オールインワン設計。</p>
+      <div class="trio rv" style="--d:.3s">
+        <div><b>Scalp</b><p>うるおいを保ちながら、すこやかに洗い上げる。</p></div>
+        <div><b>Hair</b><p>仕上げの一手間を重ねなくても、指がすっとほどける。</p></div>
+        <div><b>Time</b><p>ボトルがひとつ減ると、心の置き場所がひとつ増える。</p></div>
+      </div>
+      <p class="spec rv" style="--d:.4s"><span><b>Volume</b>200mL</span><span><b>Price</b>¥5,980（税込）</span></p>
+    </div>
+  </div>
 </section>
 
-<footer>
-  <div class="en" style="font-size:13px;letter-spacing:.6em">Wano Ethos</div>
-  <div class="min">指先が、記憶する美しさ。</div>
-  <a class="btn" href="#">Amazonで商品を見る</a>
-  <small>プライバシーポリシー</small>
-</footer>
-</div>
+<section class="sec" id="formula">
+  <div class="wrap form-grid io">
+    <div class="txt">
+      <p class="label rv"><i>04</i>Formulation</p>
+      <h2 class="h2 rv" style="--d:.1s">美しさは、<br>処方から生まれる。</h2>
+      <p class="lead rv" style="--d:.2s">植物由来成分を配合。<br>うるおいと毛髪のコンディショニングに配慮しました。</p>
+      <ol class="ing rv" style="--d:.3s"><li>リンゴ果実培養細胞エキス</li><li>イチョウ葉エキス</li><li>ヒアルロン酸Na</li><li>パンテノール</li><li>加水分解ダイズタンパク</li></ol>
+      <p class="fine rv" style="--d:.4s">※ 成分はいずれも保湿・毛髪補修を目的とした配合です。</p>
+    </div>
+    <figure class="ph"><img src="img/v3-foam.jpg" alt="両手のひらにのせた、きめ細かく濃密な泡" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="sec film" id="film">
+  <div class="wrap film-grid io">
+    <div class="txt">
+      <p class="label rv"><i>05</i>Film — 15 sec</p>
+      <h2 class="h2 rv" style="--d:.1s">15秒の、広告動画。</h2>
+      <p class="lead rv" style="--d:.2s">ボトルではじまり、ボトルで終わる15秒。<br>商品カットは支給のボトル画像を使い、そのほかは光・湯気・質感の動きで構成しています。</p>
+      <ol class="cut rv" style="--d:.3s">
+        <li><b>0–3s</b><span>石と朝の光の中に、ボトルが現れる</span></li>
+        <li><b>3–5s</b><span>手のひらの、きめ細かな泡</span></li>
+        <li><b>5–8s</b><span>指先が地肌に触れる　<em>二度洗いで、地肌まで。</em></span></li>
+        <li><b>8–11s</b><span>朝の光と、艶やかな髪　<em>頭皮ケアまで、シャンプー1本で。</em></span></li>
+        <li><b>11–15s</b><span>ボトルとコピー　<em>指先が、記憶する美しさ。</em></span></li>
+      </ol>
+    </div>
+    <div class="phone rv" style="--d:.2s"><video id="ad" src="img/v3-ad.mp4" poster="img/v3-ad-poster.jpg" muted loop playsinline preload="metadata" aria-label="WANO ETHOS 15秒広告のイメージ"></video></div>
+  </div>
+</section>
+
+<section class="world io">
+  <div class="bg" id="wbg" role="img" aria-label="天然石の洗面ボウルと、たたんだリネン。壁に落ちる朝の葉影"></div>
+  <div class="in-w">
+    <p class="label rv">The World</p>
+    <h2 class="h2 rv" style="--d:.1s">バスルームに、<br>心ほどける上質な空間を。</h2>
+    <p class="rv" style="--d:.2s">自然素材の質感と、やわらかな光。</p>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap io">
+    <div class="center"><p class="label rv">FAQ</p><h2 class="h2 rv" style="--d:.1s">よくあるご質問</h2></div>
+    <div class="faq rv" style="--d:.2s">
+      <details><summary>コンディショナーなしでも大丈夫ですか？</summary><p>コンディショナー不要のオールインワン設計です。仕上がりの感じ方には個人差があります。</p></details>
+      <details><summary>なぜ2ステップで洗うのですか？</summary><p>1度目で一日の汚れや整髪料を洗い流し、2度目で濃密な泡をなじませて頭皮をいたわります。WANO ETHOSがおすすめする洗い方です。</p></details>
+      <details><summary>1本でどれくらい使えますか？</summary><p>200mLで、毎日の2ステップ洗いで約1ヶ月〜1ヶ月半が目安です。髪の長さや量によって前後いたします。</p></details>
+      <details><summary>ノンシリコンですか？</summary><p>いいえ、あえてシリコンを採用した処方設計です。洗髪時の摩擦に配慮するため、機能的な成分をバランス良く配合しています。</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="close io" id="buy">
+  <div class="arch rv"><img src="img/v2-bottle.webp" alt="WANO ETHOS SCALP SHAMPOO 200mL" width="232" height="948"></div>
+  <p class="label rv" style="justify-content:center;--d:.1s">Wano Ethos</p>
+  <h2 class="h2 rv" style="--d:.2s">指先が、記憶する美しさ。</h2>
+  <p class="price rv" style="--d:.3s">Scalp Shampoo　200mL<b>¥5,980</b>（税込）</p>
+  <a class="btn rv" style="--d:.4s" href="#">Amazonで商品を見る<span></span></a>
+</section>
+</main>
+
+<footer><span class="logo">Wano Ethos</span>プライバシーポリシー</footer>
+
 <script>
-(function(){var f=document.querySelectorAll('#phone .frame'),d=document.querySelectorAll('#dots i'),i=0,t=[3000,2500,3000,2500,3000,2500];
-function next(){f[i].classList.remove('on');d[i].classList.remove('on');i=(i+1)%f.length;f[i].classList.add('on');d[i].classList.add('on');setTimeout(next,t[i]);}
-setTimeout(next,t[0]);})();
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -12% 0px',threshold:.08});
+  document.querySelectorAll('.io,.ph').forEach(function(el){io.observe(el)});
+  var top=document.getElementById('top'),bg=document.getElementById('wbg'),still=matchMedia('(prefers-reduced-motion:reduce)').matches,tick=false;
+  function onS(){top.classList.toggle('on',scrollY>24);
+    if(!still&&bg){var r=bg.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){bg.style.transform='translate3d(0,'+((r.top+r.height/2-innerHeight/2)*-0.09).toFixed(1)+'px,0)'}}
+    tick=false}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onS)}},{passive:true});onS();
+  var v=document.getElementById('ad');
+  if(v){v.addEventListener('error',function(){v.outerHTML='<img src="img/v3-ad-poster.jpg" alt="">'});
+    new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else{v.pause()}})},{threshold:.35}).observe(v)}
+})();
 </script>
 <script src="/test/expire.js" data-deadline="2026-11-16T12:00:00+09:00" data-reason="次のテストサイトの順番が迫っているため"></script></body>
 </html>
