@@ -156,3 +156,18 @@ body.scrolled-far .to-top{opacity:1;pointer-events:auto}
   #voice .voice-card .voice-top img{width:112px!important;height:112px!important;max-width:none}
   #voice .voice-card .voice-top span{font-size:14px}
 }
+
+/* ---------- 11/15 商品写真（グレー背景の切り抜き風）に合わせた見せ方 ---------- */
+#items .catalog-card{background:#EEEEEE}
+#items .catalog-card img{object-fit:cover;padding:0;transform-origin:50% 40%}
+#items .catalog-card:after{inset:auto 0 0;height:30%;background:linear-gradient(transparent,rgba(21,94,67,.0) 0%,rgba(21,94,67,.0))}
+#items .catalog-card .catalog-label{color:var(--ec-ink);text-shadow:none;background:#fff;border-radius:999px;padding:4px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08);font-size:15px}
+#items .catalog-card .catalog-plus{background:#fff;color:var(--ec-green-deep);border-color:transparent}
+#items .catalog-card .catalog-detail{color:var(--ec-green-deep)}
+.case-image{background:#EEEEEE!important}
+.case-image img{object-fit:contain!important;padding:5%}
+.case-card:hover .case-image img{transform:scale(1.04)}
+.to-top{bottom:190px}
+@media (max-width:760px){.to-top{bottom:92px}#items .catalog-card .catalog-label{font-size:13px;padding:3px 10px}}
+#items .catalog-card .catalog-label{left:0;right:0;margin:0 auto;width:max-content;max-width:calc(100% - 20px);bottom:14px;white-space:nowrap}
+#items .catalog-card{aspect-ratio:1/1}
