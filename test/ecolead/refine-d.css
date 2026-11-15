@@ -171,3 +171,120 @@ body.scrolled-far .to-top{opacity:1;pointer-events:auto}
 @media (max-width:760px){.to-top{bottom:92px}#items .catalog-card .catalog-label{font-size:13px;padding:3px 10px}}
 #items .catalog-card .catalog-label{left:0;right:0;margin:0 auto;width:max-content;max-width:calc(100% - 20px);bottom:14px;white-space:nowrap}
 #items .catalog-card{aspect-ratio:1/1}
+
+/* ===== 11/15 彩さんチェック反映（下部・全体の使いやすさ） ===== */
+#contact .inquiry-form > .f-submit{min-height:64px;font-size:19px;letter-spacing:.12em;border-radius:12px;box-shadow:0 5px 0 #0f4a33}
+@media (max-width:760px){#contact .inquiry-form > .f-submit{font-size:18px;min-height:60px}}
+@media (max-width:760px){
+  body .mobile-contact{grid-template-columns:1fr 1fr 1.45fr!important;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
+  body .mobile-contact>a{min-height:56px}
+  body .mobile-contact>a:first-child,body .mobile-contact .mobile-mail{font-size:15px;background:#fff;color:var(--ec-green-deep);border:1.5px solid var(--ec-green)}
+  body .mobile-contact>a:first-child:before{content:"☎";margin-right:4px}
+  body .mobile-contact .mobile-mail:before{content:"✉";margin-right:4px}
+  body .mobile-contact .mobile-line span{white-space:nowrap;font-size:14px}
+  footer .to-top{bottom:calc(86px + env(safe-area-inset-bottom));right:10px;width:44px;height:44px}
+}
+footer .footer-toggle:after{content:"＋";margin-left:6px;color:var(--ec-green)}
+footer .footer-toggle[aria-expanded=true]:after{content:"−"}
+@media (max-width:760px){
+  footer .footer-links{display:grid;grid-template-columns:1fr;gap:10px;max-width:360px;margin-inline:auto;padding-inline:20px}
+  footer .footer-links>span{display:none}
+  footer .footer-links button,footer .footer-links a{display:flex;align-items:center;justify-content:center;min-height:48px;border:1px solid var(--ec-line);border-radius:var(--ec-radius-sm);background:#fff;font-size:15px}
+  footer .footer-panel{scroll-margin:96px 0 112px}
+}
+@media (min-width:761px){footer .footer-top{flex-direction:column;justify-content:center;text-align:center;gap:6px}}
+#contact .f-row input,#contact .f-row select,#contact .f-row textarea{border-color:#7D8C83}
+#contact .f-row input:focus,#contact .f-row select:focus,#contact .f-row textarea:focus{border-color:var(--ec-green)}
+#contact .f-row ::placeholder{color:#7A867F}
+#contact .f-row>label b,#contact .f-row>legend b{color:#B3261E;background:#FDECEA;border-radius:6px;padding:1px 8px;font-size:13px;vertical-align:.1em}
+#contact .f-row:has(.is-invalid)::after,#contact fieldset.f-row.is-invalid::after{content:"ご入力・ご確認ください";display:block;margin-top:8px;color:#B3261E;font-weight:700;font-size:15px}
+#contact #f-reason.is-invalid::after{content:"1つ以上お選びください"}
+#contact .f-date input,#contact .f-date select{height:58px;min-height:58px;padding-top:0;padding-bottom:0}
+@media (max-width:760px){
+  #contact .f-date{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 8px}
+  #contact .f-date span{grid-column:1/-1}
+  #contact .f-row input[type=date],#contact .f-row select{font-size:16px;padding-left:12px;padding-right:8px}
+}
+#voice .voice-card .voice-top + *{margin-top:16px}
+@media (max-width:760px){#voice .voice-card{min-height:min(calc(100svh - 190px),640px)}}
+@media (max-width:760px){#faq .faq-list summary{font-size:16px}#faq .faq-list details p{font-size:16px;line-height:1.9}}
+@media (max-width:760px){body .topline{font-size:12px}header#header .menu{flex:none;width:48px}}
+header#header .menu span{transition:transform .2s var(--ec-ease)}
+header#header .menu[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}
+header#header .menu[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+.consult-section .consult-row .consult-line{background:#078448}
+.consult-section .consult-row .consult-mail{background:#fff;color:var(--ec-green-deep);border:1.5px solid #fff}
+
+/* ===== 11/15 美咲さんチェック反映（上部・全体バランス） ===== */
+/* 1 hero SP */
+@media (max-width:760px){
+  #main .hero .hero-right,#main .hero .hero-message{display:none}
+  #main .hero .hero-left{border-radius:var(--ec-radius);overflow:hidden}
+  #main .hero .hero-art{width:100%;max-width:340px}
+  #main .hero{padding-bottom:8px}
+}
+/* PC hero fits 900 */
+@media (min-width:1025px){
+  #main .hero{padding-top:16px}
+  #main .hero .hero-title{margin-bottom:16px}
+  #main .hero .hero-title h1{font-size:30px}
+  #main .hero .hero-left{padding-top:32px}
+  #main .hero .hero-stage{height:580px}
+  #main .hero .hero-art{width:440px}
+  #main .hero .area-badge{display:none}
+}
+/* 3 rhythm */
+#area + .consult-section{background:var(--ec-bg-mint);padding-top:0}
+#area{padding-bottom:56px}
+#omakase{background:var(--ec-bg-mint)}
+/* 4 headings */
+#area .center-title h2,#worry .center-title h2,#reasons .center-title h2,#omakase .omakase-copy h3{font-size:34px;font-weight:700;line-height:1.55;letter-spacing:.04em}
+#about .center-title h2{font-size:22px;line-height:1.6}
+#about .center-title h2 strong{font-size:40px;font-weight:800}
+@media (max-width:760px){
+  #area .center-title h2,#worry .center-title h2,#reasons .center-title h2,#omakase .omakase-copy h3{font-size:24px;line-height:1.55}
+  #about .center-title h2{font-size:16px}
+  #about .center-title h2 strong{font-size:30px}
+}
+/* 5 omakase SP */
+@media (max-width:760px){
+  #omakase{padding-top:56px;padding-bottom:56px}
+  #omakase .omakase-layout{gap:16px}
+  #omakase .omakase-art{order:-1;width:100%;max-width:280px;margin:0 auto}
+  #omakase .omakase-bubble{font-size:12px;padding:6px 12px}
+  #omakase .omakase-copy h3{margin:6px 0 12px}
+  #omakase .omakase-copy p{font-size:14.5px;line-height:1.9;text-align:left}
+  #omakase .omakase-copy p br{display:none}
+  #omakase .omakase-tags{margin:14px 0 18px;gap:6px}
+  #omakase .omakase-tags li{font-size:12px;padding:5px 12px}
+  #omakase .omakase-copy .btn{width:100%;max-width:300px;min-height:54px;justify-content:center;font-size:15px}
+}
+/* 6 marker */
+#worry .worry-list li{display:block;position:relative;padding-left:52px}
+#worry .worry-list li .check-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);margin:0}
+#worry .worry-list li .marker{display:inline;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+@media (max-width:760px){#worry .worry-list li{padding-left:46px}#worry .worry-list li .check-icon{left:14px}}
+/* worry crop */
+@media (max-width:760px){
+  #worry{padding-top:56px;padding-bottom:56px}
+  #worry .worry-people{width:150px;height:150px;margin:16px auto 20px;border-radius:50%;overflow:hidden;background:#fff;box-shadow:var(--ec-shadow)}
+  #worry .worry-people img{width:100%;height:100%;object-fit:cover;object-position:50% 0;transform:scale(1.45);transform-origin:50% 22%}
+  #worry .worry-people .question{display:none}
+}
+/* 7 about */
+@media (max-width:760px){
+  #about{padding-top:56px;padding-bottom:56px}
+  #about .center-title{margin-bottom:24px}
+  #about .about-layout p{font-size:14.5px;line-height:1.9;margin-bottom:1.1em}
+  #about .about-layout figure{margin-top:20px}
+  #about .about-layout img{height:auto;aspect-ratio:16/9;object-position:center}
+}
+/* 8 consult */
+.consult-section .consult-mail{background:transparent;border:1.5px solid rgba(255,255,255,.9);box-shadow:none}
+@media (max-width:760px){#area + .consult-section .consult-art img{max-width:150px}}
+/* 9 reasons */
+@media (max-width:760px){#reasons .reason-visual{aspect-ratio:16/10;margin-bottom:16px}#reasons .reason-card{padding-bottom:20px}}
+#omakase .omakase-copy h2{margin:10px 0 18px;color:var(--ec-ink)}
+#omakase .omakase-copy h2 em{font-style:normal;color:var(--ec-green-deep);background:linear-gradient(transparent 62%,rgba(244,211,94,.7) 62%)}
+/* 相談ブロックのメールは透明地＋白線（青は使わない）。彩さん案より美咲さん案を優先 */
+.consult-section .consult-row .consult-mail{background:transparent!important;color:#fff!important;border:1.5px solid rgba(255,255,255,.9)!important;box-shadow:none}
