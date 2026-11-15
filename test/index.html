@@ -180,7 +180,7 @@ a{color:inherit}
 (function(){
 // パスワード「test」のSHA-256（平文は置かない）
 var HASH='9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08';
-var KEY='aim_test_ok',TOKEN='?k=9f86d081',MAX=24,LIMIT=60;
+var WANO='4181e01b217a1e619bb1568b54c1a97c972297545c8e9a71b3aa9e3b573440c5';var KEY='aim_test_ok',TOKEN='?k=9f86d081',MAX=24,LIMIT=60;
 var body=document.body,kb=document.getElementById('kb'),dots=document.getElementById('dots'),msg=document.getElementById('msg'),mon=document.getElementById('mon'),log=document.getElementById('log');
 var buf='',busy=false,done=false;
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -188,11 +188,11 @@ function store(get,val){var v=null;try{if(get){v=sessionStorage.getItem(KEY)}els
 var safe=function(p){return p&&/^\/test\/[\w\-\/]*$/.test(p)};
 function target(cb){
  var next=new URLSearchParams(location.search).get('next');
- if(safe(next))return cb(next);
+ if(safe(next)&&!/^\/test\/wano\//.test(next))return cb(next);
  fetch('pages.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():[]}).catch(function(){return []}).then(function(l){cb(l&&l[0]&&safe(l[0].path)?l[0].path:'/test/ecolead/')});
 }
 // すでに解錠済みなら、そのまま最新のテストページへ
-if(store(true)==='1'){target(function(p){location.replace(p+TOKEN)});return}
+if(store(true)==='1'&&!/^\/test\/wano\//.test(new URLSearchParams(location.search).get('next')||'')){target(function(p){location.replace(p+TOKEN)});return}
 
 var z=function(n){return ('0'+n).slice(-2)};
 var d0=new Date();document.getElementById('fno').textContent=z(d0.getMonth()+1)+z(d0.getDate());
@@ -245,7 +245,7 @@ function check(){
  busy=true;msg.className='msg';msg.textContent='DECODING …';
  var p=(window.crypto&&crypto.subtle)?crypto.subtle.digest('SHA-256',new TextEncoder().encode(buf)).then(hex):Promise.resolve(buf==='test'?HASH:'');
  p.then(function(h){setTimeout(function(){busy=false;
-  if(h===HASH){store(false,'1');success()}else{fail()}
+  if(h===HASH){store(false,'1');success()}else if(h===WANO){wano()}else{fail()}
  },reduce?100:420)});
 }
 var miss=0,LIVES=3;
@@ -276,6 +276,7 @@ function explode(){
   startTimer();
  },3600);
 }
+function wano(){try{sessionStorage.setItem('aim_wano_ok','1')}catch(e){}try{document.cookie='aim_wano_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure'}catch(e){}done=true;clearInterval(timer);var nx=new URLSearchParams(location.search).get('next');var p=(nx&&/^\/test\/wano\/[\w\-\/]*$/.test(nx))?nx:'/test/wano/';body.classList.add('unlocked');setTimeout(function(){body.classList.add('leaving');var cells=[].slice.call(document.querySelectorAll('#wipe i'));cells.sort(function(){return Math.random()-.5});cells.forEach(function(c,i){c.style.animationDelay=(reduce?0:i*9)+'ms'});setTimeout(function(){location.replace(p+'?k=4181e01b')},reduce?0:520)},reduce?400:2000)}
 function success(){
  done=true;clearInterval(timer);
  target(function(p){
