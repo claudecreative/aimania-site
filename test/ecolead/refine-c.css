@@ -318,3 +318,10 @@ footer .footer-bottom small:last-child{font-size:12px}
 .voice-card blockquote p{margin:0}
 #flow ol.flow-overview{margin-left:auto;margin-right:auto}
 #flow ol.flow-overview>li{list-style:none;margin:0;padding:0;display:block}
+
+/* ===== 11/15 お片付け診断（10問ゲーム）の埋め込み ===== */
+.ec-quest .ec-quest-frame{margin:28px auto 0;max-width:1100px;background:#fff9eb;border:1px solid var(--ec-line,#d2e3d7);border-radius:28px;overflow:hidden;box-shadow:0 14px 40px rgba(32,75,50,.08)}
+.ec-quest iframe{display:block;width:100%;height:760px;border:0;scroll-margin-top:140px;transition:height .25s ease}
+.ec-quest-alt{text-align:center;margin:14px 0 0;font-size:14px}
+.ec-quest-alt a{color:var(--ec-green-deep,#155E43);font-weight:700}
+@media (max-width:760px){.ec-quest .ec-quest-frame{border-radius:20px;margin-top:20px}.ec-quest iframe{height:900px;scroll-margin-top:90px}}
