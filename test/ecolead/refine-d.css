@@ -604,3 +604,163 @@ header#header .menu[aria-expanded=true] span:last-child{transform:translateY(-4p
 @media (max-width:760px){#area .center-title p{font-size:13.5px}}
 /* HTML側で「」をまとめて折り返す用（index.html に <span class="nb"> を足した場合） */
 #about .nb,#area .nb{display:inline-block}
+
+/* ===== 11/15 彩さん2回目チェック反映（下部・全体の詰め） ===== */
+/* =========================================================
+   彩 2回目チェック 11/15 — 「大味」をなくす（下部・固定UI・全体の見切れ）
+   refine-d.css の末尾にそのまま追記できる形。新しい色は使わない（既存トークン＋既存の#078448のみ）
+   ========================================================= */
+
+/* ---------- 1. 右下の追従LINE（PC）：美咲さんのピル化（refine-d 反映済み）に上乗せ。14px→16px・高さ52px・先頭へ戻るを揃える ---------- */
+@media (min-width:761px){
+  body .floating-line{right:24px;bottom:24px}
+  body .floating-line>b{min-height:52px;padding:12px 22px 12px 14px;font-size:16px;letter-spacing:.04em}
+  body .floating-line:hover>b{background:var(--ec-green-deep)}
+  body footer .to-top{right:28px!important;bottom:88px!important;width:44px!important;height:44px!important;border:1px solid var(--ec-line)!important;box-shadow:var(--ec-shadow)}
+  body footer .to-top:before{width:9px;height:9px;border-width:1.5px;border-color:var(--ec-green-deep)}
+}
+
+/* ---------- 2. スマホ下部固定バー：細く・軽く。イラストと☎✉の絵文字をやめ、線のアイコンに ---------- */
+@media (max-width:760px){
+  body .mobile-contact{grid-template-columns:1.15fr .85fr 1.5fr!important;gap:6px!important;
+    padding:6px 8px calc(6px + env(safe-area-inset-bottom))!important;background:rgba(255,255,255,.96);
+    border-top:1px solid var(--ec-line);box-shadow:0 -4px 16px rgba(34,54,45,.06);backdrop-filter:blur(6px)}
+  body .mobile-contact>a{min-height:50px!important;border-radius:var(--ec-radius-sm)!important;box-shadow:none!important}
+  body .mobile-contact>a:first-child,body .mobile-contact .mobile-mail{gap:5px;padding:0 4px!important;font-size:15px!important;
+    letter-spacing:.02em;border:1px solid color-mix(in srgb,var(--ec-green) 55%,transparent)!important}
+  body .mobile-contact>a:first-child:before,body .mobile-contact .mobile-mail:before{content:""!important;margin:0!important;flex:none;width:17px;height:17px;background:currentColor;
+    -webkit-mask:var(--ico) center/contain no-repeat;mask:var(--ico) center/contain no-repeat}
+  body .mobile-contact>a:first-child{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z'/%3E%3C/svg%3E")}
+  body .mobile-contact .mobile-mail{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='m3 7 9 6 9-6'/%3E%3C/svg%3E")}
+  body .mobile-contact .mobile-line{padding:0 8px!important;justify-content:center;background:#078448!important}
+  body .mobile-contact .mobile-line>img{display:none!important}
+  body .mobile-contact .mobile-line small{display:none!important}
+  body .mobile-contact .mobile-line span{font-size:16px!important;letter-spacing:.04em;white-space:nowrap}
+  /* 先頭へ戻る：スマホではフォームや本文に重なるので出さない（ヘッダー固定＋下部バーで十分） */
+  footer .to-top,.to-top{display:none!important}
+}
+
+/* ---------- 3. ヘッダー：スクロール後は低く。スマホはLINEボタンを下部バーに任せる ---------- */
+@media (min-width:1025px){
+  header#header .head-inner{transition:height .3s var(--ec-ease)}
+  body.scrolled-far header#header .head-inner{height:64px!important}
+  body.scrolled-far header#header .brand-logo{transform:scale(.86);transform-origin:left center;transition:transform .3s var(--ec-ease)}
+  header#header .header-contact{min-width:0!important;box-shadow:none!important;padding:0 20px!important;height:48px}
+  header#header .header-contact small{display:none}           /* 10.5pxの補足は読めないので省く */
+  header#header .header-mail{height:48px;border:1px solid var(--ec-line)}
+  header#header .header-phone small{font-size:12px}
+  #nav a{padding-block:9px}                                   /* クリック範囲 26px→44px */
+}
+@media (max-width:760px){
+  header#header .header-contact{display:none!important}       /* 下部バーと重複。ロゴに余白を */
+  header#header .brand{min-height:44px;display:flex;align-items:center}
+}
+
+/* ---------- 4. お客様の声：大きな箱をやめ、静かなカードに。スマホは横スワイプで1人1枚 ---------- */
+#voice .voice-card{padding:28px 28px 26px!important;background:#fff!important;border:1px solid var(--ec-line)!important;box-shadow:var(--ec-shadow)}
+#voice .voice-card::before{font-size:56px!important;top:10px!important;right:20px!important;opacity:.10!important}
+#voice .voice-card .voice-top{display:flex!important;flex-direction:row!important;align-items:center!important;gap:12px!important;text-align:left!important}
+#voice .voice-card .voice-top img{width:48px!important;height:48px!important;padding:0!important;background:var(--ec-bg-mint);border:1px solid var(--ec-line);filter:saturate(.8)}
+#voice .voice-card .voice-top span{display:block;font-size:14px!important;color:var(--ec-muted);letter-spacing:.06em}
+#voice .voice-card h3{font-size:18px!important;line-height:1.7!important;margin:0!important;word-break:normal!important;word-break:auto-phrase!important;overflow-wrap:normal!important;line-break:strict;text-wrap:pretty}
+#voice .voice-card .voice-top + *{margin-top:16px!important;padding-top:16px;border-top:1px solid var(--ec-line)}
+/* 本文は句単位の keep-all をやめ、通常の日本語組版に（ガタガタの改行を解消） */
+#voice .voice-card blockquote p{word-break:normal!important;overflow-wrap:normal!important;line-break:strict;text-align:left!important;font-size:16px!important;line-height:1.95!important;color:var(--ec-ink);text-wrap:pretty}
+/* 見出しをアイコンの横に置くと詰まるので、アイコン＋年代だけ横並び・見出しは下段（全幅共通） */
+#voice .voice-card .voice-top{flex-wrap:wrap}
+#voice .voice-card .voice-top>div{display:contents}
+#voice .voice-card .voice-top h3{flex-basis:100%;margin-top:8px!important}
+@media (max-width:760px){
+  #voice .voice-grid{display:flex!important;gap:12px!important;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:4px 20px 16px;scroll-padding:0 20px;scrollbar-width:none}
+  #voice .voice-grid::-webkit-scrollbar{display:none}
+  #voice .voice-card,#voice .voice-card.voice-extra[hidden]{display:flex!important;flex:0 0 86%;min-height:0!important;scroll-snap-align:start;justify-content:flex-start!important;padding:22px 20px!important}
+  #voice .voice-card .voice-top{flex-direction:row!important;align-items:center!important;text-align:left!important}
+  #voice .voice-card .voice-top img{width:44px!important;height:44px!important}
+  #voice .voice-card h3{font-size:17px!important;margin-top:2px!important}
+  #voice-more{display:none!important}   /* スワイプで6人とも見られる。ボタン不要 */
+}
+
+/* ---------- 5. よくある質問：8つの箱→1枚のパネル＋細い区切り線に。改行も整える ---------- */
+#faq .faq-list{gap:0!important;background:#fff;border:1px solid var(--ec-line);border-radius:var(--ec-radius);box-shadow:var(--ec-shadow);overflow:hidden}
+#faq .faq-list details{border:0!important;border-radius:0!important;box-shadow:none!important;background:none!important}
+#faq .faq-list details+details{border-top:1px solid var(--ec-line)!important}
+#faq .faq-list summary{border-radius:0!important;font-size:17px;text-wrap:pretty;word-break:auto-phrase}
+#faq .faq-list summary>span{width:28px!important;height:28px!important;font-size:14px!important;background:none!important;color:var(--ec-green)!important;border:1.5px solid var(--ec-green)}
+#faq .faq-list summary>b{width:28px!important;height:28px!important}
+#faq .faq-list details[open]{background:color-mix(in srgb,var(--ec-bg-mint) 45%,#fff)!important}
+#faq .faq-list details p{background:none!important;font-size:16px!important;margin:-4px 24px 20px!important;padding:0 0 0 44px!important;
+  word-break:normal!important;word-break:auto-phrase!important;overflow-wrap:normal!important;line-break:strict;text-wrap:pretty;color:var(--ec-ink)}
+#faq .faq-list details p>b:first-child{left:0!important;top:2px!important;width:28px!important;height:28px!important;background:var(--ec-green)!important;border:0!important;color:#fff!important}
+#faq .faq-list details p>b:first-child::before{font-size:14px!important}
+@media (max-width:760px){
+  #faq .faq-list summary{padding:16px!important;font-size:16px!important;gap:12px!important}
+  #faq .faq-list details p{margin:-2px 16px 18px!important;padding-left:40px!important}
+}
+
+/* ---------- 6. お問い合わせ：縦に長く重いフォームを、間隔と線で締める（文字16px・高さ48px以上は維持） ---------- */
+#contact .contact-grid .contact-line,#contact .contact-grid .contact-phone{min-height:88px;padding:16px 24px!important;border-radius:var(--ec-radius)!important}
+#contact .contact-grid small{font-size:14px!important}
+#contact .inquiry-form{padding:44px clamp(20px,5vw,56px) 48px!important;max-width:800px!important;border:1px solid var(--ec-line);box-shadow:var(--ec-shadow)!important}
+#contact .inquiry-form h3{font-size:22px!important;letter-spacing:.06em}
+#contact .form-lead{font-size:15px!important;line-height:1.8}
+#contact .form-lead a{display:inline-block;padding:10px 0;margin:-10px 0}   /* 押せる範囲を広げる */
+#contact .f-row{padding:20px 0!important;border-bottom:0!important}
+#contact .f-row>label,#contact .f-row>legend{font-size:16px!important;margin-bottom:10px!important}
+#contact .f-row>label b,#contact .f-row>legend b{font-size:13px!important;padding:2px 8px!important;font-weight:700}
+#contact .f-row input:not([type=radio]):not([type=checkbox]),#contact .f-row select{min-height:52px!important;height:52px;padding:0 16px!important;font-size:16px!important;border-width:1px!important}
+#contact .f-row textarea{min-height:150px!important;padding:14px 16px!important;font-size:16px!important;border-width:1px!important}
+#contact .f-row input:focus,#contact .f-row select:focus,#contact .f-row textarea:focus{box-shadow:0 0 0 3px color-mix(in srgb,var(--ec-green) 18%,transparent)!important}
+#contact .f-choices{gap:4px 20px!important}
+#contact .f-choice{font-size:16px!important;min-height:44px;white-space:nowrap}
+#contact .f-choice input{width:20px!important;height:20px!important}
+/* 選択肢のグループだけ、ごく薄い面でまとめて区切りを作る */
+#contact fieldset.f-row{background:color-mix(in srgb,var(--ec-bg-mint) 60%,#fff);border-radius:var(--ec-radius-sm);padding:18px 20px!important;margin:12px 0}
+#contact .f-date{gap:10px!important}
+#contact .f-date span{font-size:16px!important;font-weight:600}
+#contact .inquiry-form>.f-submit{min-height:58px!important;font-size:17px!important;letter-spacing:.1em!important;border-radius:var(--ec-radius-sm)!important;
+  box-shadow:0 6px 16px color-mix(in srgb,var(--ec-green) 28%,transparent)!important;margin-top:28px!important}
+@media (min-width:900px){
+  /* PCは「お名前／カナ」「電話／メール」を2列に（入力欄の幅が内容に合う＝間延びしない） */
+  #contact .inquiry-form{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}
+  #contact .inquiry-form>*{grid-column:1/-1}
+  #contact .inquiry-form>.f-row:has(#f-name),#contact .inquiry-form>.f-row:has(#f-kana),
+  #contact .inquiry-form>.f-row:has(#f-tel),#contact .inquiry-form>.f-row:has(#f-mail){grid-column:auto}
+}
+@media (max-width:760px){
+  #contact .inquiry-form{padding:28px 18px 32px!important}
+  #contact .f-row{padding:16px 0!important}
+  #contact fieldset.f-row{padding:16px 14px!important}
+  #contact #f-reason .f-choices{display:grid!important;grid-template-columns:1fr 1fr}
+  #contact .contact-grid .contact-line,#contact .contact-grid .contact-phone{min-height:76px}
+  #contact .contact-grid strong{font-size:20px!important}
+}
+
+/* ---------- 7. フッター：大きな枠ボタンをやめ、1本のリストに。中央でそろえる ---------- */
+footer .footer-bottom small,footer .footer-bottom a,footer #motion-toggle{font-size:13px!important}
+footer .footer-top p{font-size:14px!important;color:var(--ec-muted)}
+@media (min-width:761px){
+  footer .footer-links button,footer .footer-links a{min-height:44px;display:inline-flex;align-items:center;padding:0 6px!important}
+}
+@media (max-width:760px){
+  footer .footer-top{flex-direction:column!important;align-items:center!important;text-align:center;gap:8px!important}
+  footer .footer-links{display:block!important;max-width:none!important;margin:24px 20px 0!important;padding:0!important;border-top:1px solid var(--ec-line);border-bottom:1px solid var(--ec-line)}
+  footer .footer-links button,footer .footer-links a{width:100%;justify-content:space-between!important;min-height:52px!important;padding:0 4px!important;border:0!important;border-radius:0!important;background:none!important;font-size:16px!important}
+  footer .footer-links>*+*:not(span){border-top:1px solid var(--ec-line)!important}
+  footer .footer-links a:after{content:"›";color:var(--ec-green);font-size:20px}
+  footer .footer-panel{margin:0 20px!important;border-radius:0 0 var(--ec-radius-sm) var(--ec-radius-sm)}
+  footer .footer-links{border-bottom:0!important}
+  footer .footer-bottom{gap:6px 18px!important;padding-bottom:8px;text-align:center}
+  footer .footer-bottom small:last-child{width:100%;text-wrap:balance;word-break:auto-phrase}
+  footer .policy p{text-wrap:pretty}
+}
+
+/* ---------- 8. 見切れ・改行のこまかい直し（全体） ---------- */
+/* SP：FAQ・ポリシー・声などの「か？」「す。」1〜2文字の行を防ぐ（Chrome/Edge/Safari17.4+） */
+#faq summary,footer .policy p,footer .footer-bottom small,#voice h3,#contact .center-title p{text-wrap:pretty}
+/* 押せる範囲が44px未満のテキストリンク */
+footer .footer-panel dd a{display:inline-block;padding:12px 0;margin:-12px 0}
+#shindan .ec-quest-alt a{display:inline-block;padding:12px 0}
+@media (max-width:760px){.hero .hero-cta .hero-cta-check{display:inline-flex;align-items:center;min-height:44px}}
+/* ヒーロー左の緑の箱：人物が下で切れないように */
+@media (min-width:1025px){#main .hero .hero-left{overflow:visible}#main .hero .hero-art{margin-bottom:0}}
+.sd2-note a{display:inline-block;padding:10px 0}
