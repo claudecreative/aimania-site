@@ -434,9 +434,7 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div class="tb"><span class="cb"></span><span class="tl"></span><span>Case study</span><span class="tl"></span></div>
 <div style="height: 10px; background: #FF4B3A; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: clamp(20px, 3.4vw, 32px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 40px; align-items: center">
-<div style="display: block; position: relative; aspect-ratio: 16 / 9; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; overflow: hidden; background: #1D1D1F; box-sizing: border-box">
-<iframe src="https://www.youtube-nocookie.com/embed/vPu_x7cImTY?rel=0&amp;modestbranding=1&amp;playsinline=1" title="JCI東京 75周年記念映像" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0"></iframe>
-</div>
+<div class="ytlock" data-id="vPu_x7cImTY" data-title="JCI東京 75周年記念映像"></div>
 <div style="display: flex; flex-direction: column; gap: 10px">
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A">映像制作／2024</span></div>
 <div style="font-size: 14px; font-weight: 700">JCI東京（公益社団法人 東京青年会議所）様</div>
@@ -1235,5 +1233,42 @@ io.observe(a);
 /* 「展示会の相談をする」で相談フォームの種類を選んでおく */
 document.querySelectorAll('a[data-kind]').forEach(function(a){a.addEventListener('click',function(){var sel=document.getElementById('r-kind');if(!sel)return;for(var i=0;i<sel.options.length;i++){if(sel.options[i].text===a.dataset.kind){sel.selectedIndex=i;sel.dispatchEvent(new Event('change',{bubbles:true}));break;}}});});
 </script>
+<style>
+/* YouTubeへ飛べない動画プレーヤー（js/ytlock.js） */
+.ytlock{position:relative;aspect-ratio:16/9;border:2px solid #1D1D1F;border-radius:8px;box-shadow:5px 5px 0 #1D1D1F;overflow:hidden;background:#1D1D1F;box-sizing:border-box;user-select:none;-webkit-user-select:none}
+.ytl-stage{position:absolute;inset:0;cursor:pointer}
+.ytl-stage iframe,.ytl-frame{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+.ytl-cover{position:absolute;inset:0;z-index:2;padding:0;border:0;background:#1D1D1F;cursor:pointer;display:block;width:100%}
+.ytl-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ytl-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.35))}
+.ytl-big{position:absolute;left:50%;top:50%;z-index:1;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:#FFD21F;border:3px solid #1D1D1F;box-shadow:4px 4px 0 #1D1D1F;transition:transform .15s}
+.ytl-big:before{content:"";position:absolute;left:29px;top:21px;border-left:24px solid #1D1D1F;border-top:15px solid transparent;border-bottom:15px solid transparent}
+.ytl-cover:hover .ytl-big{transform:scale(1.07)}
+.ytl-msg{position:absolute;left:50%;top:calc(50% + 50px);transform:translateX(-50%);z-index:1;color:#fff;font-weight:700;font-size:14px;text-shadow:0 1px 4px rgba(0,0,0,.7);white-space:nowrap}
+.ytlock.is-playing .ytl-cover{opacity:0;pointer-events:none}
+.ytlock.is-loading .ytl-big{animation:ytlspin 1s linear infinite}
+@keyframes ytlspin{50%{transform:scale(.88)}}
+.ytl-bar{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;gap:10px;padding:8px 10px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-size:12px;font-weight:700;transition:opacity .25s}
+.ytl-bar[hidden]{display:none}
+.ytlock.is-playing .ytl-bar{opacity:0}
+.ytlock.is-playing:hover .ytl-bar,.ytlock.is-playing:focus-within .ytl-bar{opacity:1}
+.ytl-bar button{flex:none;width:30px;height:30px;padding:0;border:0;border-radius:6px;background:transparent;cursor:pointer;position:relative;color:#fff}
+.ytl-bar button:hover{background:rgba(255,255,255,.15)}
+.ytl-pp:before{content:"";position:absolute;left:11px;top:8px;border-left:12px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent}
+.ytlock.is-playing .ytl-pp:before{left:9px;top:8px;width:4px;height:14px;border:0;background:#fff;box-shadow:8px 0 0 #fff}
+.ytl-mute:before{content:"";position:absolute;left:7px;top:11px;width:5px;height:8px;background:#fff;box-shadow:0 0 0 0 #fff}
+.ytl-mute:after{content:"";position:absolute;left:11px;top:7px;border-right:9px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent}
+.ytl-mute.on{opacity:.45}
+.ytl-fs:before{content:"";position:absolute;inset:8px;border:2px solid #fff;border-radius:2px;clip-path:polygon(0 0,40% 0,40% 20%,20% 20%,20% 40%,0 40%,0 60%,20% 60%,20% 80%,40% 80%,40% 100%,0 100%,0 0,100% 0,100% 40%,80% 40%,80% 20%,60% 20%,60% 0,100% 0,100% 100%,60% 100%,60% 80%,80% 80%,80% 60%,100% 60%,100% 100%)}
+.ytl-seek{flex:1;height:18px;position:relative;cursor:pointer;touch-action:none}
+.ytl-seek:before{content:"";position:absolute;left:0;right:0;top:7px;height:4px;border-radius:2px;background:rgba(255,255,255,.3)}
+.ytl-seek i{position:absolute;left:0;top:7px;height:4px;width:0;border-radius:2px;background:#FFD21F}
+.ytl-seek i:after{content:"";position:absolute;right:-6px;top:-4px;width:12px;height:12px;border-radius:50%;background:#FFD21F;border:2px solid #1D1D1F;box-sizing:border-box}
+.ytl-time{flex:none;font-variant-numeric:tabular-nums}
+.ytlock:fullscreen,.ytlock.is-max{border:0;border-radius:0;box-shadow:none;aspect-ratio:auto;width:100%;height:100%}
+.ytlock.is-max{position:fixed;inset:0;z-index:9999}
+@media (max-width:480px){.ytl-time{display:none}.ytl-big{transform:scale(.85)}}
+</style>
+<script src="js/ytlock.js" defer></script>
 </body>
 </html>
