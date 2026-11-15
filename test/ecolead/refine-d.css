@@ -288,3 +288,84 @@ header#header .menu[aria-expanded=true] span:last-child{transform:translateY(-4p
 #omakase .omakase-copy h2 em{font-style:normal;color:var(--ec-green-deep);background:linear-gradient(transparent 62%,rgba(244,211,94,.7) 62%)}
 /* 相談ブロックのメールは透明地＋白線（青は使わない）。彩さん案より美咲さん案を優先 */
 .consult-section .consult-row .consult-mail{background:transparent!important;color:#fff!important;border:1.5px solid rgba(255,255,255,.9)!important;box-shadow:none}
+
+/* ===== 11/15 相談ブロック再設計：イラスト→スタッフ写真、左右50:50で余白のムダをなくす ===== */
+.consult-card{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)!important;align-items:stretch!important;padding:0!important;gap:0!important;max-width:1040px}
+.consult-card:after{display:none}
+.consult-photo{position:relative;margin:0;min-height:100%;overflow:hidden}
+.consult-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.consult-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,rgba(28,122,85,.55) 100%)}
+.consult-body{padding:40px 44px 40px 36px!important;display:flex;flex-direction:column;justify-content:center;text-align:left!important}
+.consult-badge{align-self:flex-start}
+.consult-lead{text-align:left;font-size:clamp(24px,2.4vw,32px)!important;margin:14px 0 18px!important;line-height:1.45}
+.consult-tel{text-align:left;padding:14px 22px 16px!important}
+.consult-tel b{font-size:clamp(30px,3.3vw,42px)!important}
+.consult-v2 .consult-photo img{object-position:50% 20%}
+.consult-v3{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)!important}
+.consult-v3 .consult-photo{order:2}
+.consult-v3 .consult-photo:after{background:linear-gradient(270deg,transparent 60%,rgba(28,122,85,.55) 100%)}
+.consult-v3 .consult-body{padding:40px 36px 40px 44px!important}
+@media (max-width:760px){
+  .consult-card,.consult-v3{grid-template-columns:1fr!important;border-radius:22px}
+  .consult-photo,.consult-v3 .consult-photo{order:0;aspect-ratio:16/10;min-height:0}
+  .consult-photo:after,.consult-v3 .consult-photo:after{background:linear-gradient(180deg,transparent 55%,rgba(28,122,85,.9) 100%)}
+  .consult-body,.consult-v3 .consult-body{padding:4px 18px 22px!important;text-align:center!important;margin-top:-28px;position:relative}
+  .consult-badge{align-self:center}
+  .consult-lead{text-align:center;font-size:22px!important;margin:10px 0 14px!important}
+  .consult-tel{text-align:center}
+}
+
+/* ===== 11/15 陽子さんチェック反映（中盤） ===== */
+/* ===== 陽子チェック 11/15：refine-d.css 末尾に追記する想定 ===== */
+/* 1 品目：地色をそろえ、商品に余白、ラベルと重ねない */
+#items .catalog-card{background:#ECEAE6}
+#items .catalog-card img{filter:sepia(.06)}
+#items .catalog-card:nth-child(-n+12) img{filter:brightness(1.018) sepia(.06)}
+@media (min-width:761px){#items .catalog-card{border-radius:var(--ec-radius)}}
+#items .catalog-card img{box-sizing:border-box;object-fit:contain;padding:7% 7% 17%}
+#items .catalog-card:after{display:none}
+#items .catalog-card .catalog-label{bottom:12px;font-size:16px;padding:4px 16px}
+#items .catalog-card:hover .catalog-label,#items .catalog-card:focus-visible .catalog-label{transform:translateY(-6px)}
+@media (min-width:1100px){#items .catalog-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}}
+@media (max-width:760px){
+  #items .catalog-card img{padding:6% 6% 19%}
+  #items .catalog-card .catalog-label{bottom:8px;font-size:13px;padding:3px 10px}
+  #items .catalog-card .catalog-plus{top:6px;right:6px}
+}
+/* 2 実績：写真の地色を合わせて「箱の中の箱」をなくす */
+#cases .case-image{background:#E7E7E7!important;aspect-ratio:1/1;filter:sepia(.06)}
+#cases .case-image img{padding:6%!important}
+@media (min-width:1101px){#cases .case-card{flex-basis:calc((100% - 96px)/4.4)}}
+@media (max-width:760px){
+  #cases .case-image{aspect-ratio:5/4}
+  #cases .case-card{flex-basis:76%}
+  #cases .wrap{display:flex;flex-direction:column}
+  #cases .case-controls{order:3;justify-content:center;margin:4px 0 0}
+  #cases .section-footnote{order:4}
+}
+/* 4 サービス：句点だけの行をなくす */
+@media (max-width:760px){
+  #services .card-content{padding:14px 12px 18px}
+  #services .card-content p{font-size:13px;line-height:1.75;letter-spacing:0;overflow-wrap:normal!important}
+  #services .photo-note{font-size:9px;padding:1px 6px;top:auto;bottom:6px;left:auto;right:6px}
+}
+/* 5 流れ：スマホは左の線をやめて全幅カード */
+@media (max-width:760px){
+  #flow .flow-overview{display:none}
+  #flow .flow-step{display:block;margin-bottom:16px}
+  #flow .flow-step:not(:last-child)::after{display:none}
+  #flow .flow-badge{position:absolute;z-index:2;left:20px;top:20px;margin:0;width:44px;height:44px;box-shadow:0 2px 6px rgba(34,54,45,.18)}
+  #flow .flow-body{padding:12px 12px 18px;gap:14px}
+  #flow .flow-body figure{aspect-ratio:2/1;border-radius:12px}
+  #flow .flow-tip{font-size:12.5px;padding:8px 12px;text-wrap:pretty}
+  #flow .flow-copy{padding:0 6px}
+  #flow .flow-copy h3{margin:4px 0 8px}
+  #flow .flow-copy p{margin-bottom:12px;line-height:1.85}
+  #flow .flow-final{margin-top:24px}
+}
+/* 6 診断：二重の見出しを1つに・枠を基準に */
+#shindan .ec-quest-frame{background:var(--ec-bg-warm);border-radius:24px;box-shadow:var(--ec-shadow)}
+@media (max-width:760px){#shindan .center-title>p{display:none}#shindan .ec-quest-frame{border-radius:20px}}
+
+.consult-section .consult-card{box-shadow:var(--ec-shadow-hover);border-radius:24px}
+@media (max-width:760px){.consult-section .consult-card{border-radius:20px}}
