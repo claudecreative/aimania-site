@@ -764,3 +764,80 @@ footer .footer-panel dd a{display:inline-block;padding:12px 0;margin:-12px 0}
 /* ヒーロー左の緑の箱：人物が下で切れないように */
 @media (min-width:1025px){#main .hero .hero-left{overflow:visible}#main .hero .hero-art{margin-bottom:0}}
 .sd2-note a{display:inline-block;padding:10px 0}
+
+/* ===== 11/15 陽子さん2回目チェック反映（中盤の詰め） ===== */
+/* ===== 11/15 陽子チェック2回目：中盤の「大味」解消（refine-d.css 末尾に追記する想定） ===== */
+
+/* --- 1 PCの最大幅：サービス・品目・実績は1140px（選ばれる理由と同じ）で止めて間延びをなくす --- */
+@media (min-width:1101px){
+  #services .service-grid,#items .catalog-grid,#items .other-items,#cases .case-track,#cases .case-controls,#cases .section-footnote{max-width:1140px;margin-left:auto;margin-right:auto}
+}
+
+/* --- 2 サービス紹介：写真を3:2に低く、文字のジャンプ率を整える --- */
+@media (min-width:761px){
+  #services .service-grid{gap:28px 24px}
+  #services .photo{aspect-ratio:3/2;height:auto}
+  #services .card-content{padding:18px 22px 22px}
+  #services .card-content h3{font-size:18px;letter-spacing:.06em;margin-bottom:6px}
+  #services .card-content h3 span{min-width:26px;height:26px;font-size:12px}
+  #services .card-content p{font-size:14px;line-height:1.85;letter-spacing:.02em}
+  #services .num{font-size:11px;letter-spacing:.08em;min-width:30px;height:24px;left:12px;top:12px}
+  #services .photo-note{font-size:10px;opacity:.85}
+}
+
+/* --- 3 買取品目：タイルを小さく、ラベルを細く小さく --- */
+#items .catalog-card .catalog-label{font-size:14px;font-weight:600;letter-spacing:.04em;padding:3px 14px;box-shadow:0 1px 2px rgba(34,54,45,.08)}
+#items .catalog-card .catalog-plus{width:24px;height:24px;font-size:13px;box-shadow:0 1px 2px rgba(34,54,45,.08)}
+@media (min-width:1101px){
+  #items .catalog-grid{gap:16px}
+  #items .other-items{padding:36px 40px;margin-top:40px}
+  #items .other-items h3{font-size:19px}
+  #items .other-items p{font-size:14px}
+}
+@media (max-width:760px){
+  #items .catalog-card{aspect-ratio:5/4}
+  #items .catalog-card img{padding:5% 10% 20%}
+  #items .catalog-card .catalog-label{font-size:12px;padding:2px 10px;bottom:7px}
+  #items .catalog-card .catalog-plus{width:22px;height:22px;font-size:12px}
+}
+
+/* --- 4 実績：価格を一段細く・小さく、右端の見切れはフェードで「続き」に見せる --- */
+#cases .case-card h3{font-size:15px;letter-spacing:.04em}
+#cases .case-price span{font-size:11px;letter-spacing:.06em}
+#cases .case-price strong{font-size:24px;font-weight:700;letter-spacing:.02em}
+#cases .case-price strong small{font-size:12px;font-weight:600;margin-left:2px}
+#cases .case-track{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 72px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 72px),transparent)}
+#cases .case-image img{padding:0!important;object-fit:cover!important}
+@media (max-width:760px){
+  #cases .case-track{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+  #cases .case-price strong{font-size:22px}
+  #cases .case-image img{object-fit:contain!important;padding:5%!important}
+}
+
+/* --- 5 お片付け診断（本体のイントロ）：写真を一回り小さく・ボタンの灰色枠を消す・つまみを線で --- */
+.sd2-card{max-width:960px;gap:48px;padding:36px 44px}
+.sd2-ba{max-width:330px;border-radius:16px;box-shadow:0 1px 2px rgba(34,54,45,.06)}
+.sd2-title{font-size:clamp(20px,1.8vw,23px);letter-spacing:.04em}
+.sd2-points li{font-size:14px}
+.sd2-start{border:0;font-weight:700;box-shadow:0 2px 0 var(--ec-green-deep)}
+.sd2-handle i{width:34px;height:34px;margin:-17px 0 0 -17px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10' viewBox='0 0 16 10' fill='none' stroke='%23155E43' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 1 1 5l4 4M11 1l4 4-4 4'/%3E%3C/svg%3E") center/16px 10px no-repeat}
+.sd2-handle i:before{display:none}
+.sd2-tag{font-size:10px;padding:3px 9px;z-index:3}
+.sd2-frame{max-width:1040px}
+@media (max-width:760px){
+  .sd2-card{padding:18px 18px 22px;gap:18px}
+  .sd2-ba{max-width:250px}
+  .sd2-title{font-size:18px}
+}
+
+/* --- 6 買取までの流れ：STEP丸を小さく軽く、見出しの不自然な改行をなくす --- */
+@media (min-width:761px){
+  #flow .flow-badge{width:58px;height:58px}
+  #flow .flow-badge b{font-size:20px}
+  #flow .flow-badge small{font-size:9px}
+  #flow .flow-copy h3{font-size:21px;letter-spacing:.04em;text-wrap:balance}
+  #flow .flow-copy p{font-size:15px;line-height:1.9}
+  #flow .flow-tip{font-size:13px}
+  #flow .flow-body{padding:28px}
+}
+#flow .flow-copy h3{text-wrap:balance}
