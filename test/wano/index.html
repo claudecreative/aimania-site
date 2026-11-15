@@ -198,6 +198,12 @@ details p{color:var(--ink2);padding:0 32px 28px 52px;margin-top:-6px;line-height
 .close .price{justify-content:center;margin:0 0 34px}
 footer{padding:44px 24px 96px;text-align:center;font-size:10.5px;color:var(--stone);letter-spacing:.16em;border-top:1px solid var(--line);background:var(--bone)}
 footer .logo{display:block;margin-bottom:12px;color:var(--ink2);font-size:14px}
+
+/* ---- reference clip ---- */
+.refv{background:var(--bone)}
+.refv-grid{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(36px,7vw,110px);align-items:center;max-width:980px}
+.phone.sm{width:min(240px,62vw)}
+@media(max-width:900px){.refv-grid{grid-template-columns:1fr}.refv .phone{margin:0 auto}.refv .txt{text-align:center}.refv .label{justify-content:center}}
 </style>
 </head>
 <body>
@@ -313,6 +319,18 @@ footer .logo{display:block;margin-bottom:12px;color:var(--ink2);font-size:14px}
       </ol>
     </div>
     <div class="phone rv" style="--d:.2s"><video id="ad" src="img/v4-ad.mp4?v=4" poster="img/v4-ad-poster.jpg" muted loop playsinline controls preload="metadata" aria-label="WANO ETHOS 30秒広告のイメージ"></video></div>
+  </div>
+</section>
+
+<section class="sec refv" id="ref-seedance">
+  <div class="wrap refv-grid io">
+    <div class="phone sm rv"><video src="img/ref-seedance.mp4" poster="img/ref-seedance-poster.jpg" muted loop playsinline controls preload="metadata" aria-label="参考：Seedance で生成した洗髪カット"></video></div>
+    <div class="txt">
+      <p class="label rv"><i>Ref.</i>Reference</p>
+      <h2 class="h2 rv" style="--d:.1s">参考：Seedance での生成</h2>
+      <p class="lead rv" style="--d:.2s">本編とは別の参考カットです。<br>同じ洗髪の場面を、別の映像生成モデル（Seedance 2.5）で作りました。<br>肌や泡の質感の違いをご覧ください。</p>
+      <p class="fine rv" style="--d:.3s">5秒・音声なし。本編の30秒には入っていません。</p>
+    </div>
   </div>
 </section>
 
