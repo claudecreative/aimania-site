@@ -455,3 +455,10 @@ header#header .menu span{background:var(--ec-ink)}
   body:not(.motion-off) .hero .hero-left::before{animation:ec-a-drift 10s ease-in-out infinite}
 }
 @media (max-width:760px){.hero .hero-left::before{-webkit-mask-size:auto 100%;mask-size:auto 100%}}
+
+/* ===== 11/15 ヒーローから診断への導線 ===== */
+.hero .hero-cta{flex-wrap:wrap}
+.hero .hero-cta-check{flex-basis:100%;display:block;text-align:center;margin-top:4px;color:#fff;font-size:14px;font-weight:600;text-decoration:none;opacity:.95}
+.hero .hero-cta-check b{color:var(--ec-yellow);border-bottom:1.5px solid currentColor}
+.hero .hero-cta-check:hover b{border-bottom-style:dashed}
+@media (min-width:761px){.hero .hero-cta-check{flex-basis:auto;margin-top:0;min-height:44px;display:inline-flex;align-items:center;gap:4px}}
