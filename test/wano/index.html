@@ -46,7 +46,8 @@ a{color:inherit;text-decoration:none}
 .ph{position:relative;overflow:hidden;background:var(--bone)}
 .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.09);transition:transform 2.4s var(--ease)}
 .ph:after{content:"";position:absolute;inset:0;background:var(--ivory);transform-origin:top;transition:transform 1.5s var(--ease)}
-.ph.in img{transform:none}.ph.in:after{transform:scaleY(0)}
+.ph video{width:100%;height:100%;object-fit:cover;transform:scale(1.09);transition:transform 2.4s var(--ease)}
+.ph.in img,.ph.in video{transform:none}.ph.in:after{transform:scaleY(0)}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.ph img{transform:none;transition:none}.ph:after{display:none}.intro{display:none}html{scroll-behavior:auto}}
 
 /* ---- intro ---- */
@@ -265,7 +266,7 @@ footer .logo{display:block;margin-bottom:12px;color:var(--ink2);font-size:14px}
         <div class="body"><span class="kicker">Reset</span><h3 class="rv">一日の汚れを手放す</h3><p class="rv" style="--d:.1s">整髪料、汗、街の空気。<br>一日をまとってきたものを、<br>まずは静かにほどいていく。</p></div>
       </article>
       <article class="step io">
-        <div class="ph"><img src="img/v3-touch1.jpg" alt="きめ細かな泡を、指の腹で地肌になじませる" loading="lazy"><span class="no">02</span></div>
+        <div class="ph"><video class="phv" src="img/ref-seedance.mp4" poster="img/ref-seedance-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="きめ細かな泡を、指の腹で地肌になじませる"></video><span class="no">02</span></div>
         <div class="body"><span class="kicker">Care</span><h3 class="rv">濃密な泡で、地肌をいたわる</h3><p class="rv" style="--d:.1s">指の腹で、ゆっくりと地肌に沿わせる。<br>洗うというより、いたわるひととき。</p></div>
       </article>
     </div>
