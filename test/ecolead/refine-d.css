@@ -677,7 +677,8 @@ header#header .menu[aria-expanded=true] span:last-child{transform:translateY(-4p
   #voice .voice-card .voice-top{flex-direction:row!important;align-items:center!important;text-align:left!important}
   #voice .voice-card .voice-top img{width:44px!important;height:44px!important}
   #voice .voice-card h3{font-size:17px!important;margin-top:2px!important}
-  #voice-more{display:none!important}   /* スワイプで6人とも見られる。ボタン不要 */
+  #voice .voice-card.voice-extra[hidden]{display:none!important}  /* 要望：最初は3人、ボタンで追加表示 */
+  #voice-more{display:flex!important;margin:18px auto 0!important}
 }
 
 /* ---------- 5. よくある質問：8つの箱→1枚のパネル＋細い区切り線に。改行も整える ---------- */
@@ -841,3 +842,8 @@ footer .footer-panel dd a{display:inline-block;padding:12px 0;margin:-12px 0}
   #flow .flow-body{padding:28px}
 }
 #flow .flow-copy h3{text-wrap:balance}
+
+/* ---------- 19時チェック：PC幅で写真枠がメッセージ帯の下にはみ出し、「お部屋も、気持ちも、すっきり。」カードが帯に隠れていたのを修正 ---------- */
+@media (min-width:1001px){
+  #main .hero .hero-stage{height:auto!important;min-height:580px!important}
+}
