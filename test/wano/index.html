@@ -299,18 +299,20 @@ footer .logo{display:block;margin-bottom:12px;color:var(--ink2);font-size:14px}
 <section class="sec film" id="film">
   <div class="wrap film-grid io">
     <div class="txt">
-      <p class="label rv"><i>05</i>Film — 15 sec</p>
-      <h2 class="h2 rv" style="--d:.1s">15秒の、広告動画。</h2>
-      <p class="lead rv" style="--d:.2s">ボトルではじまり、ボトルで終わる15秒。<br>商品カットは支給のボトル画像を使い、そのほかは光・湯気・質感の動きで構成しています。</p>
+      <p class="label rv"><i>05</i>Film — 30 sec</p>
+      <h2 class="h2 rv" style="--d:.1s">30秒の、広告動画。</h2>
+      <p class="lead rv" style="--d:.2s">ボトルではじまり、ボトルで終わる30秒。<br>商品カットは支給のボトル画像を使い、洗髪から朝までの場面はAIで生成した映像です。音楽つき。</p>
       <ol class="cut rv" style="--d:.3s">
-        <li><b>0–3s</b><span>石と朝の光の中に、ボトルが現れる</span></li>
-        <li><b>3–5s</b><span>手のひらの、きめ細かな泡</span></li>
-        <li><b>5–8s</b><span>指先が地肌に触れる　<em>二度洗いで、地肌まで。</em></span></li>
-        <li><b>8–11s</b><span>朝の光と、艶やかな髪　<em>頭皮ケアまで、シャンプー1本で。</em></span></li>
-        <li><b>11–15s</b><span>ボトルとコピー　<em>指先が、記憶する美しさ。</em></span></li>
+        <li><b>0–4s</b><span>石と朝の光の中に、ボトルが現れる</span></li>
+        <li><b>4–10s</b><span>泡で地肌を洗う　<em>二度洗いで、地肌まで。</em></span></li>
+        <li><b>10–12s</b><span>手のひらの、きめ細かな泡</span></li>
+        <li><b>12–17s</b><span>洗い上がり、タオルで髪を押さえる</span></li>
+        <li><b>17–22s</b><span>指が通る、艶やかな髪　<em>頭皮ケアまで、シャンプー1本で。</em></span></li>
+        <li><b>22–26s</b><span>朝の光の方へ</span></li>
+        <li><b>26–30s</b><span>ボトルとコピー　<em>指先が、記憶する美しさ。</em></span></li>
       </ol>
     </div>
-    <div class="phone rv" style="--d:.2s"><video id="ad" src="img/v3-ad.mp4" poster="img/v3-ad-poster.jpg" muted loop playsinline preload="metadata" aria-label="WANO ETHOS 15秒広告のイメージ"></video></div>
+    <div class="phone rv" style="--d:.2s"><video id="ad" src="img/v4-ad.mp4" poster="img/v4-ad-poster.jpg" muted loop playsinline controls preload="metadata" aria-label="WANO ETHOS 30秒広告のイメージ"></video></div>
   </div>
 </section>
 
@@ -356,7 +358,7 @@ footer .logo{display:block;margin-bottom:12px;color:var(--ink2);font-size:14px}
     tick=false}
   addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onS)}},{passive:true});onS();
   var v=document.getElementById('ad');
-  if(v){v.addEventListener('error',function(){v.outerHTML='<img src="img/v3-ad-poster.jpg" alt="">'});
+  if(v){v.addEventListener('error',function(){v.outerHTML='<img src="img/v4-ad-poster.jpg" alt="">'});
     new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else{v.pause()}})},{threshold:.35}).observe(v)}
 })();
 </script>
