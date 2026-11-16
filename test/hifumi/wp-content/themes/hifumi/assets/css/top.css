@@ -713,14 +713,15 @@
   text-decoration: underline;
 }
 /* === 2026-11 高級感リニューアル（ヒーロー） === */
-.p-top__mainvisual { background: #1E1F23; }
-.p-top__mainvisual-text { color: #FFFFFF; letter-spacing: 0.08em; }
+.p-top__mainvisual { background: #EFE7D4; }
+.p-top__mainvisual-text { color: #23262D; letter-spacing: 0.08em; }
 
 /* === 2026-11 浮気調査歴25年（おかげさまで）エンブレム === */
 .p-top__mainvisual-right { position: relative; }
-.p-top__mainvisual-badge { position: absolute; left: -5.5rem; top: 1.5rem; width: 18rem; height: auto; z-index: 2; filter: drop-shadow(0 6px 14px rgba(0,0,0,.35)); }
-.p-top__mainvisual-thanks { display: block; margin-bottom: .6rem; color: #C9A962; font-size: 1.5rem; letter-spacing: .1em; }
+.p-top__mainvisual-badge { position: absolute; left: -5.5rem; top: 1.5rem; width: 18rem; height: auto; z-index: 2;  }
+.p-top__mainvisual-thanks { display: block; margin-bottom: .6rem; color: #8C6D3A; font-weight: 700; font-size: 1.5rem; letter-spacing: .1em; }
 @media only screen and (width <= 767px) {
   .p-top__mainvisual-badge { left: -3vw; top: -2vw; width: 24vw; }
   .p-top__mainvisual-thanks { font-size: 2.6vw; }
 }
+@media only screen and (width >= 768px) { .p-top__mainvisual-thanks .show_pc { display: inline !important; } }
