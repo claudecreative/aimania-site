@@ -756,4 +756,4 @@
 }
 
 /* === 2026-11 アーチ上部の筆記体「25th Anniversary」 === */
-.p-top__mainvisual-anniv { position: absolute; left: 50%; top: 12%; width: 56%; height: auto; transform: translateX(-50%) rotate(-4deg); z-index: 2; pointer-events: none; }
+.p-top__mainvisual-anniv { position: absolute; left: 50%; top: 12%; width: 56%; height: auto; transform: translateX(-50%) rotate(-3deg); z-index: 2; pointer-events: none; }
