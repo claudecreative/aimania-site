@@ -1,0 +1,361 @@
+.menu {
+  display: block;
+  position: relative;
+  z-index: 11;
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+  overflow: hidden;
+  background: none;
+  background: #000;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+@media only screen and (width <= 460px) {
+  .menu {
+    width: 45px;
+    height: 45px;
+    margin-left: 5px;
+  }
+}
+.menu__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 20px;
+}
+.menu__line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  pointer-events: none;
+}
+.menu__line--1 {
+  top: 0;
+}
+.menu__line--2 {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.menu__line--3 {
+  bottom: 0;
+}
+.menu--close1 .menu__line--1 {
+  transition: transform 0.2s ease-in-out;
+}
+.menu--close1 .menu__line--2 {
+  right: 0;
+  transition: right 0.2s ease-in-out, opacity 0.35s ease-in-out, transform 0s ease-in-out;
+}
+.menu--close1 .menu__line--3 {
+  transition: transform 0.2s ease-in-out;
+}
+.menu--close1.open .menu__line--1 {
+  transform: translate3d(0, 9.5px, 0) rotate(135deg);
+}
+.menu--close1.open .menu__line--2 {
+  opacity: 0;
+  right: -120px;
+  transform: translate3d(-30px, 0, 0);
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, right 0s ease-in-out 0.2s;
+}
+.menu--close1.open .menu__line--3 {
+  transform: translate3d(0, -9.5px, 0) rotate(-135deg);
+}
+.menu--close2 .menu__line--1 {
+  transition: transform 0.3s ease-in-out, top 0.2s ease-in-out 0.3s;
+}
+.menu--close2 .menu__line--1::before {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  border-radius: 1px;
+  background-color: #fff;
+  content: "";
+  transition: transform 0.1s ease-in-out 0.2s;
+}
+.menu--close2 .menu__line--2 {
+  transition: opacity 0s ease-in-out 0.3s;
+}
+.menu--close2 .menu__line--3 {
+  transition: opacity 0s ease-in-out 0.3s, bottom 0.2s ease-in-out 0.3s;
+}
+.menu--close2.open .menu__line--1 {
+  top: 9.5px;
+  transform: rotate(135deg);
+  transition: top 0.3s ease-in-out, transform 0.3s linear 0.3s;
+}
+.menu--close2.open .menu__line--1::before {
+  transform: rotate(90deg);
+  transition: transform 0.1s ease-in-out 0.3s;
+}
+.menu--close2.open .menu__line--2 {
+  opacity: 0;
+  transition: opacity 0s ease-in-out 0.3s;
+}
+.menu--close2.open .menu__line--3 {
+  opacity: 0;
+  bottom: 9.5px;
+  transition: bottom 0.3s ease-in-out, opacity 0s ease-in-out 0.3s;
+}
+.menu--close3 .menu__line--1 {
+  transition: transform 0.2s ease-in-out 0.15s, top 0.2s ease-in-out 0.2s;
+}
+.menu--close3 .menu__line--1::before {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  border-radius: 1px;
+  background-color: #fff;
+  content: "";
+  transition: transform 0.15s ease-in-out;
+}
+.menu--close3 .menu__line--2 {
+  transition: opacity 0s ease-in-out 0.35s;
+}
+.menu--close3 .menu__line--3 {
+  transition: opacity 0s ease-in-out 0.25s;
+}
+.menu--close3.open .menu__line--1 {
+  top: 19px;
+  transform: translate3d(0, -9.5px, 0) rotate(-45deg);
+  transition: top 0.2s ease-in-out, transform 0.15s ease-in-out 0.2s;
+}
+.menu--close3.open .menu__line--1::before {
+  transform: rotate(-90deg);
+  transition: transform 0.15s ease-in-out 0.3s;
+}
+.menu--close3.open .menu__line--2 {
+  opacity: 0;
+  transition: opacity 0s ease-in-out 0.1s;
+}
+.menu--close3.open .menu__line--3 {
+  opacity: 0;
+  transition: opacity 0s ease-in-out 0.2s;
+}
+.menu--close4 .menu__line--1, .menu--close4 .menu__line--3 {
+  transition: all 0.2s ease-in-out;
+}
+.menu--close4 .menu__line--2 {
+  transition: transform 0.2s ease-in-out;
+}
+.menu--close4 .menu__line--2::before {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  border-radius: 1px;
+  background-color: #fff;
+  content: "";
+  transition: transform 0.2s ease-in-out;
+}
+.menu--close4.open .menu__line--1 {
+  opacity: 0;
+  transform: translate3d(-19px, 0, 0);
+  transition: all 0.2s ease-in-out;
+}
+.menu--close4.open .menu__line--2 {
+  transform: rotate(45deg);
+  transition: transform 0.2s ease-in-out;
+}
+.menu--close4.open .menu__line--2::before {
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease-in-out;
+}
+.menu--close4.open .menu__line--3 {
+  opacity: 0;
+  transform: translate3d(19px, 0, 0);
+  transition: all 0.2s ease-in-out;
+}
+.menu--close5 .menu__line--4, .menu--close5 .menu__line--5 {
+  opacity: 0;
+  top: 9.5px;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.menu--close5 .menu__line--1 {
+  width: 100%;
+  transition: width 0.2s ease-in-out 0.4s;
+}
+.menu--close5 .menu__line--2 {
+  width: 100%;
+  transition: width 0.2s ease-in-out 0.3s;
+}
+.menu--close5 .menu__line--3 {
+  width: 100%;
+  transition: width 0.2s ease-in-out 0.2s;
+}
+.menu--close5 .menu__line--4 {
+  transform: rotate(45deg) translate3d(-30px, 0, 0);
+  transition: opacity 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0.2s;
+}
+.menu--close5 .menu__line--5 {
+  transform: rotate(-45deg) translate3d(30px, 0, 0);
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.menu--close5.open .menu__line--1 {
+  width: 0;
+  transition: width 0.2s ease-in-out;
+}
+.menu--close5.open .menu__line--2 {
+  width: 0;
+  transition: width 0.2s ease-in-out 0.1s;
+}
+.menu--close5.open .menu__line--3 {
+  width: 0;
+  transition: width 0.2s ease-in-out 0.2s;
+}
+.menu--close5.open .menu__line--4 {
+  opacity: 1;
+  transform: rotate(45deg) translate3d(0, 0, 0);
+  transition: opacity 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0.2s;
+}
+.menu--close5.open .menu__line--5 {
+  opacity: 1;
+  transform: rotate(-45deg) translate3d(0, 0, 0);
+  transition: opacity 0.2s ease-in-out 0.4s, transform 0.2s ease-in-out 0.4s;
+}
+.menu--close6 .menu__icon {
+  transition: transform 0s ease-in-out;
+}
+.menu--close6 .menu__line--1 {
+  transition: transform 0.2s ease-in-out 0.3s, opacity 0s ease-in-out 0.4s;
+}
+.menu--close6 .menu__line--2 {
+  transition: transform 0.2s ease-in-out;
+}
+.menu--close6 .menu__line--2::before {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  border-radius: 1px;
+  background-color: #fff;
+  content: "";
+  transition: transform 0.2s ease-in-out;
+}
+.menu--close6 .menu__line--3 {
+  transition: transform 0.2s ease-in-out 0.3s, opacity 0s ease-in-out 0.4s;
+}
+.menu--close6.open .menu__icon {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: transform 0.2s ease-in-out;
+}
+.menu--close6.open .menu__line--1 {
+  opacity: 0;
+  transform: translate3d(0, 9.5px, 0);
+  transition: transform 0.2s ease-in-out 0.2s, opacity 0s ease-in-out 0.4s;
+}
+.menu--close6.open .menu__line--2 {
+  transform: rotate(45deg);
+  transition: transform 0.2s ease-in-out 0.5s;
+}
+.menu--close6.open .menu__line--2::before {
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease-in-out 0.5s;
+}
+.menu--close6.open .menu__line--3 {
+  opacity: 0;
+  transform: translate3d(0, -9.5px, 0);
+  transition: transform 0.2s ease-in-out 0.2s, opacity 0s ease-in-out 0.4s;
+}
+.menu--back1 .menu__line--1, .menu--back1 .menu__line--3 {
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back1.open .menu__line--1 {
+  transform: translate3d(-6.5px, 1px, 0) rotate(135deg) scaleX(0.7);
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back1.open .menu__line--3 {
+  transform: translate3d(-6.5px, -1px, 0) rotate(-135deg) scaleX(0.7);
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back2 .menu__line--1, .menu--back2 .menu__line--3 {
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back2.open .menu__line--1 {
+  transform: translate3d(-6.5px, 1px, 0) rotate(-225deg) scaleX(0.7);
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back2.open .menu__line--3 {
+  transform: translate3d(-6.5px, -1px, 0) rotate(225deg) scaleX(0.7);
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back3 .menu__line--1 {
+  transition: transform 0.2s ease-in-out 0.2s;
+}
+.menu--back3 .menu__line--2 {
+  transition: transform 0.2s ease-in-out 0.1s;
+}
+.menu--back3 .menu__line--3 {
+  transition: transform 0.2s ease-in-out;
+}
+.menu--back3.open .menu__line--1 {
+  transform: translate3d(-6.5px, 1px, 0) rotate(135deg) scaleX(0.7);
+  transition: transform 0.2s ease-in-out;
+}
+.menu--back3.open .menu__line--2 {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease-in-out 0.1s;
+}
+.menu--back3.open .menu__line--3 {
+  transform: translate3d(-6.5px, -1px, 0) rotate(225deg) scaleX(0.7);
+  transition: transform 0.2s ease-in-out 0.2s;
+}
+.menu--back4 .menu__line--1 {
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back4 .menu__line--2 {
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back4 .menu__line--3 {
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back4.open .menu__line--1 {
+  transform: translate3d(-6.5px, 16px, 0) rotate(-135deg) scaleX(0.7);
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back4.open .menu__line--2 {
+  transform: rotate(-180deg);
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back4.open .menu__line--3 {
+  transform: translate3d(-6.5px, -16px, 0) rotate(-225deg) scaleX(0.7);
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back5 .menu__icon {
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back5 .menu__line--1, .menu--back5 .menu__line--3 {
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back5.open .menu__icon {
+  transform: rotate(180deg) translate(50%, 50%);
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back5.open .menu__line--1 {
+  transform: translate3d(6.5px, 1px, 0) rotate(45deg) scaleX(0.7);
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back5.open .menu__line--3 {
+  transform: translate3d(6.5px, -1px, 0) rotate(-45deg) scaleX(0.7);
+  transition: transform 0.3s ease-in-out;
+}
+.menu--back6 .menu__line--1 {
+  transition: transform 0.3s ease-in-out, top 0.2s ease-in-out 0.3s;
+}
+.menu--back6 .menu__line--3 {
+  transition: transform 0.3s ease-in-out, bottom 0.2s ease-in-out 0.3s;
+}
+.menu--back6.open .menu__line--1 {
+  top: 9.5px;
+  transform: translate3d(-6.5px, -7.5px, 0) rotate(-45deg) scaleX(0.7);
+  transition: top 0.2s ease-in-out, transform 0.3s ease-in-out 0.2s;
+}
+.menu--back6.open .menu__line--3 {
+  bottom: 9.5px;
+  transform: translate3d(-6.5px, 8px, 0) rotate(45deg) scaleX(0.7);
+  transition: bottom 0.2s ease-in-out, transform 0.3s ease-in-out 0.2s;
+}

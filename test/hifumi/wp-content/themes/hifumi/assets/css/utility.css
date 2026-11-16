@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/* ==================================================
+	RWD layout settings
+================================================== */
+.show_sp,
+.show_pc {
+  display: none !important;
+}
+
+/* SP
+-------------------------------------------------- */
+@media only screen and (width <= 767px) {
+  .show_sp {
+    display: block !important;
+  }
+}
+
+/* PC
+-------------------------------------------------- */
+@media print, screen and (width >= 768px) {
+  .show_pc {
+    display: block !important;
+  }
+}
+
+/* SPのみ非表示
+-------------------------------------------------- */
+@media only screen and (width <= 767px) {
+  .sp_none {
+    display: none !important;
+  }
+}
+
+/* 印刷時のみ非表示
+-------------------------------------------------- */
+@media print {
+  .print_none {
+    display: none !important;
+  }
+}
