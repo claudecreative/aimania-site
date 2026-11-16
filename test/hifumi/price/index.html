@@ -78,7 +78,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <link rel='stylesheet' id='sanitize-css' href='../wp-content/themes/hifumi/assets/css/sanitize.css' media='all' />
 <link rel='stylesheet' id='font-awesome-css' href='//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=false' media='all' />
 <link rel='stylesheet' id='utility-css' href='../wp-content/themes/hifumi/assets/css/utility.css' media='all' />
-<link rel='stylesheet' id='base-css' href='../wp-content/themes/hifumi/assets/css/base.css?v=11170534' media='all' />
+<link rel='stylesheet' id='base-css' href='../wp-content/themes/hifumi/assets/css/base.css?v=11170538' media='all' />
 <link rel='stylesheet' id='content-css' href='../wp-content/themes/hifumi/assets/css/content.css' media='all' />
 <link rel='stylesheet' id='menu-css' href='../wp-content/themes/hifumi/assets/css/menu.css' media='all' />
 <script id="jquery-core-js" src="../wp-includes/js/jquery/jquery.min.js"></script>
@@ -234,6 +234,58 @@ gtag("config", "AW-17913901006");
             <p class="p-price__box2-price"><span>1時間</span><b>¥7,000</b><span>／人<br><em></em></span></p>
             <div class="p-price__box2-orange"><a href="./">ピンポイントプラン</a></div>
             <p class="p-price__box2-text">あらかじめ調査時間が予測できる短期間での調査など、1時間単位で契約が可能です。</p>
+          </div>
+          <div class="p-price__cases">
+            <style>
+              .p-price__cases{margin:5rem 0 1rem}
+              .p-price__cases-title{margin:0 0 .8rem;text-align:center;font-size:2.4rem;font-weight:700;color:#23262D}
+              .p-price__cases-lead{margin:0 0 3rem;text-align:center;font-size:1.5rem;line-height:1.8;color:#3A3A3A}
+              .p-price__cases-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
+              .p-price__case{position:relative;background:#FFFFFF;border:1px solid #DDD7CC;border-radius:18px;padding:3.2rem 2.2rem 2.4rem;display:flex;flex-direction:column;gap:1rem;text-align:center}
+              .p-price__case-no{position:absolute;top:-1.8rem;left:50%;transform:translateX(-50%);background:#F8F7F4;padding:0 1rem;font-weight:700;font-size:2rem;line-height:1;color:#B8975A;letter-spacing:.08em;white-space:nowrap}
+              .p-price__case-label{align-self:center;margin:0;padding:.3rem 1.2rem;border-radius:999px;background:#23262D;color:#FFFFFF;font-size:1.2rem;font-weight:700;letter-spacing:.06em}
+              .p-price__case-title{margin:0;font-size:1.7rem;font-weight:700;line-height:1.5;color:#23262D}
+              .p-price__case-text{margin:0;font-size:1.3rem;line-height:1.8;color:#5E5A52;text-align:left;flex:1 1 auto}
+              .p-price__case-calc{margin:0;padding:.8rem .4rem;border-radius:10px;background:#F1EEE8;font-size:1.2rem;font-weight:700;color:#5E5A52;white-space:nowrap;letter-spacing:-.01em}
+              .p-price__case-total{margin:0;display:flex;flex-direction:column;align-items:center;gap:.2rem}
+              .p-price__case-total span{font-size:1.2rem;color:#8A8680}
+              .p-price__case-total b{font-family:"Times New Roman",serif;font-size:3.2rem;color:#8C6D3A;letter-spacing:.02em}
+              .p-price__cases-note{margin:2.4rem 0 0;font-size:1.2rem;line-height:1.9;color:#8A8680}
+              @media only screen and (width <= 767px){
+                .p-price__cases-list{grid-template-columns:1fr;gap:3rem}
+                .p-price__cases-title{font-size:2rem}
+                .p-price__cases-lead{font-size:1.4rem;text-align:left}
+              }
+            </style>
+            <h3 class="p-price__cases-title">費用の目安（調査事例）</h3>
+            <p class="p-price__cases-lead">よくあるご相談をもとにした計算例です。調査員の人数や時間は、状況に合わせてご提案します。</p>
+            <div class="p-price__cases-list">
+              <div class="p-price__case">
+                <span class="p-price__case-no">ケース1</span>
+                <p class="p-price__case-label">ピンポイント調査</p>
+                <h4 class="p-price__case-title">帰りが遅い日だけ<br>確認したい</h4>
+                <p class="p-price__case-text">怪しい日が分かっている場合に、その日だけ短時間で調査します。</p>
+                <p class="p-price__case-calc">¥7,000 × 2名 × 4時間 × 1日</p>
+                <p class="p-price__case-total"><span>費用の目安</span><b>¥56,000</b></p>
+              </div>
+              <div class="p-price__case">
+                <span class="p-price__case-no">ケース2</span>
+                <p class="p-price__case-label">標準的な調査</p>
+                <h4 class="p-price__case-title">怪しい曜日が<br>ある程度わかっている</h4>
+                <p class="p-price__case-text">行動パターンに合わせて、数日に分けて調査します。</p>
+                <p class="p-price__case-calc">¥7,000 × 2名 × 5時間 × 3日</p>
+                <p class="p-price__case-total"><span>費用の目安</span><b>¥210,000</b></p>
+              </div>
+              <div class="p-price__case">
+                <span class="p-price__case-no">ケース3</span>
+                <p class="p-price__case-label">しっかり調査</p>
+                <h4 class="p-price__case-title">いつ会っているのか<br>まったく分からない</h4>
+                <p class="p-price__case-text">行動パターンの把握から始め、証拠が取れるまで調査します。</p>
+                <p class="p-price__case-calc">¥7,000 × 2名 × 6時間 × 5日</p>
+                <p class="p-price__case-total"><span>費用の目安</span><b>¥420,000</b></p>
+              </div>
+            </div>
+            <p class="p-price__cases-note">※上記は基本料金（1時間 ¥7,000／人）で計算した一例です。実際の費用は、調査の内容・時間・人数によって異なります。<br>※調査車両費・撮影機材費・報告書作成費は料金に含まれており、追加料金はかかりません。<br>※初めての方向けの「あんしんパックプラン」など、特別プランをご利用いただける場合もあります。正式なお見積もりは無料相談でご案内します。</p>
           </div>
           <div class="p-price__box2-bottom">
             <h3 class="p-price__box2-title">特別プラン</h3>
