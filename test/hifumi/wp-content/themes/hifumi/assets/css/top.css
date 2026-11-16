@@ -746,3 +746,11 @@
   .p-top__mainvisual-badge { left: 50%; top: -7vw; width: 20vw; }
   .c-yt-float { bottom: 22vw; }
 }
+
+@media only screen and (width <= 767px) {
+  .c-yt-float { width: 38vw; right: 2.5vw; bottom: 24vw; }
+}
+
+@media only screen and (width <= 767px) {
+  .p-top__mainvisual-content { margin-bottom: 5vw; }
+}
