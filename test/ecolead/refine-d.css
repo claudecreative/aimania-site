@@ -847,3 +847,9 @@ footer .footer-panel dd a{display:inline-block;padding:12px 0;margin:-12px 0}
 @media (min-width:1001px){
   #main .hero .hero-stage{height:auto!important;min-height:580px!important}
 }
+
+/* ---------- LINE公式ロゴ（SHINMEIさん要望） ---------- */
+#main .line-ico,.line-ico{display:inline-block;flex:none;width:1.35em!important;height:1.35em!important;margin:0 .45em 0 0;vertical-align:-.32em;border-radius:22%;object-fit:contain;background:none!important;box-shadow:none!important}
+.cs2-line .line-ico,.contact-line .line-ico,.floating-line .line-ico{width:1.6em!important;height:1.6em!important;vertical-align:-.45em}
+.header-contact .line-ico{width:1.2em!important;height:1.2em!important}
+.contact-line strong{display:flex!important;align-items:center;justify-content:flex-start!important;gap:0}
