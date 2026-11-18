@@ -245,6 +245,7 @@ details[open] summary .pm::after{transform:translate(-50%,-50%) rotate(0)}
 
 /* CTA */
 .cta{padding:clamp(80px,11vw,130px) 0;background:linear-gradient(120deg,#e6f1fb 0%,#f9f1e8 50%,#fbe6dd 100%);overflow:hidden;text-align:center}
+.ctabg{position:absolute;inset:0}.ctabg img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;opacity:.28}.cta .wrap{position:relative}
 .cta h2{font-family:"Zen Maru Gothic";font-weight:900;font-size:clamp(26px,4.4vw,44px);line-height:1.5}
 .cta p{color:var(--sub);margin-top:14px}
 .cta .btns{justify-content:center;margin-top:34px}
@@ -266,6 +267,38 @@ footer nav{display:flex;gap:20px}
 .in .draw path,.in .draw circle,.in .draw rect,.in .draw ellipse,.draw.in path,.draw.in circle,.draw.in rect,.draw.in ellipse{stroke-dashoffset:0}
 
 
+
+/* HERO 2 — 抜け感・爽やか */
+.hero2{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;color:#fff;background:#4aa3e8}
+.h2bg{position:absolute;inset:0;overflow:hidden}
+.h2bg img{width:100%;height:100%;object-fit:cover;object-position:62% 40%;animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.h2sh{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,110,200,.38) 0%,rgba(40,140,220,.12) 38%,rgba(255,255,255,0) 60%),linear-gradient(0deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 22%)}
+.h2in{position:relative;z-index:2;padding:100px 0 90px}
+.tag2{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.1em;padding:8px 18px;border-radius:999px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;animation:up .9s .3s forwards}
+.hero2 h1{font-weight:900;font-size:clamp(32px,4.4vw,62px);line-height:1.38;letter-spacing:.04em;margin-top:22px;text-shadow:0 4px 30px rgba(10,70,140,.35)}
+.hero2 h1 .nw{opacity:0;animation:up 1.1s forwards}.hero2 h1 .nw:nth-of-type(1){animation-delay:.45s}.hero2 h1 .nw:nth-of-type(2){animation-delay:.65s}
+.lead2{font-size:clamp(14px,1.4vw,17px);font-weight:500;margin-top:20px;text-shadow:0 2px 16px rgba(10,70,140,.45);opacity:0;animation:up 1s .9s forwards}
+.hero2 .btns{margin-top:32px;opacity:0;animation:up 1s 1.1s forwards}
+.btn.wh{background:rgba(255,255,255,.92);color:#2f86d6;box-shadow:0 14px 30px -14px rgba(10,70,140,.5)}
+.btn.wh .ar{background:#e5f1fc}
+.note2{display:flex;gap:18px;flex-wrap:wrap;margin-top:20px;font-size:13px;font-weight:700;text-shadow:0 2px 10px rgba(10,70,140,.5);opacity:0;animation:up 1s 1.3s forwards}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.h2d{position:absolute;color:#fff;z-index:2;opacity:.9}
+.h2d.d1{left:44%;top:18%;width:70px}.h2d.d2{left:6%;bottom:12%;width:56px}
+.hero2 .scroll{z-index:3}
+@media(max-width:900px){
+ .hero2{align-items:flex-end;min-height:100svh}
+ .hero2{background:linear-gradient(180deg,#5fb2ee,#2f8fdc)}
+ .h2bg{bottom:auto;height:64svh}
+ .h2bg img{object-position:72% 20%}
+ .h2sh{top:0;bottom:auto;height:64.5svh;background:linear-gradient(0deg,#4aa6ea 0%,#4aa6ea 8%,rgba(74,166,234,0) 42%)}
+ .h2in{padding:54svh 0 110px}
+ .hero2 h1{font-size:7.6vw}
+ .hero2 .btns .btn{flex:1 1 100%}
+ .h2d.d1{left:auto;right:8%;top:14%;width:48px}.h2d.d2{display:none}
+ .pc{display:none}
+}
 /* 想い */
 .mani{position:relative;min-height:110svh;display:flex;align-items:center;overflow:hidden;color:#fff;background:#2c3a4c}
 .mani-ph{position:absolute;inset:0}
@@ -390,27 +423,18 @@ footer nav{display:flex;gap:20px}
 
 <main id="top">
 <!-- 1 FV -->
-<section class="hero">
-  <div class="wrap">
-    <div class="rv">
-      <span class="tag"><b></b>看護師のための、無料キャリア相談</span>
-      <h1><span class="nw">がんばるあなたに、</span><br><span class="nw"><span class="u">ちょうどいい</span>働き方を。</span></h1>
-      <p class="lead">求人票だけではわからない「ほんとうの働きやすさ」まで、<br class="pc">いっしょに確かめて、次の一歩を考えます。</p>
-      <div class="btns">
-        <a class="btn main" href="#cta">無料でキャリア相談<span class="ar">→</span></a>
-        <a class="btn sub" href="#diag">1分で働き方診断<span class="ar">→</span></a>
-      </div>
-      <div class="note"><span><svg><use href="#i-check"/></svg>相談は完全無料</span><span><svg><use href="#i-check"/></svg>在職中でもOK</span><span><svg><use href="#i-check"/></svg>しつこい連絡はしません</span></div>
-    </div>
-    <div class="ph-hero rv">
-      <div class="img"><img src="a/hero.jpg" alt="窓辺で微笑む看護師の女性"></div>
-      <svg class="doodle d1 draw"><use href="#i-spark"/></svg>
-      <div class="chip glass c1"><svg><use href="#i-heart"/></svg>話すだけでも、<br>大丈夫。</div>
-      <div class="chip glass c2"><svg><use href="#i-cal"/></svg>日勤のみ・週3など<br>働き方から探せる</div>
-      <div class="chip glass c3"><svg><use href="#i-house"/></svg>家族との時間も<br>大切に</div>
-    </div>
+<section class="hero2">
+  <div class="h2bg"><img src="a/sky.jpg" alt="青空の下で笑顔の女性"></div>
+  <div class="h2sh"></div>
+  <div class="wrap h2in">
+    <span class="tag2">看護師のための、無料キャリア相談</span>
+    <h1 class="mg"><span class="nw">がんばるあなたに、</span><br><span class="nw">ちょうどいい働き方を。</span></h1>
+    <p class="lead2">求人票だけではわからない「ほんとうの働きやすさ」まで、<br class="pc">いっしょに確かめて、次の一歩を考えます。</p>
+    <div class="btns"><a class="btn main" href="#cta">無料でキャリア相談<span class="ar">→</span></a><a class="btn wh" href="#diag">1分で働き方診断<span class="ar">→</span></a></div>
+    <div class="note2"><span>✓ 相談は完全無料</span><span>✓ 在職中でもOK</span><span>✓ しつこい連絡はしません</span></div>
   </div>
-  <div class="scroll en">SCROLL<i></i></div>
+  <svg class="h2d d1 draw"><use href="#i-spark"/></svg><svg class="h2d d2 draw"><use href="#i-heart"/></svg>
+  <div class="scroll en" style="color:#fff">SCROLL<i style="background:linear-gradient(#fff,transparent)"></i></div>
 </section>
 
 <!-- 2 こんな気持ち -->
@@ -590,7 +614,7 @@ footer nav{display:flex;gap:20px}
 </section>
 
 <!-- 9 CTA -->
-<section class="cta" id="cta">
+<section class="cta" id="cta"><div class="ctabg"><img src="a/sky_nurse.jpg" alt=""></div>
   <svg class="d d1 draw"><use href="#i-heart"/></svg><svg class="d d2 draw"><use href="#i-house"/></svg><svg class="d d3 draw"><use href="#i-spark"/></svg>
   <div class="wrap rv">
     <h2>まずは、気軽に<br>話してみませんか。</h2>
