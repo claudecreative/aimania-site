@@ -21,6 +21,9 @@
   '@keyframes mgvHop{0%,100%{transform:translateY(0)}40%{transform:translateY(-14px)}}'+
   '.mgv-say{position:fixed;bottom:100px;z-index:2147482001;background:#fff;color:#1D1D1F;border:3px solid #1D1D1F;padding:9px 14px;font:400 15px/1.4 "DotGothic16",monospace;box-shadow:4px 4px 0 #1D1D1F;white-space:nowrap;opacity:0;transform:translateY(8px) scale(.96);transition:opacity .25s,transform .25s;pointer-events:none}'+
   '.mgv-say.on{opacity:1;transform:none}'+
+  '.mgv-say a{display:block;margin-top:6px;font:400 12px/1.4 "DotGothic16",monospace;color:#6b6b70;text-decoration:none;border-top:2px dashed #ddd;padding-top:6px;pointer-events:auto}'+
+  '.mgv-say a:hover{color:#1D1D1F}'+
+  '.mgv-say.lk{pointer-events:auto}'+
   '.mgv-say.l{left:16px}.mgv-say.r{right:16px}'+
   '.mgv-say:after{content:"";position:absolute;bottom:-12px;width:12px;height:12px;background:#fff;border-right:3px solid #1D1D1F;border-bottom:3px solid #1D1D1F;transform:rotate(45deg)}'+
   '.mgv-say.l:after{left:26px}.mgv-say.r:after{right:26px}'+
@@ -62,8 +65,11 @@
     await wait(700);if(!reduce){m.classList.add('hop');setTimeout(function(){m.classList.remove('hop')},520)}
     await say('どうですか？',2200);
     await wait(250);if(!gone)b.classList.remove('on');await wait(220);
-    await say('ご要望は なんでも いってね！',3000);
-    await wait(400);leave();
+    await say('ご要望は なんでも いってね！',2600);
+    if(!gone){var a=document.createElement('a');a.href='https://aimania.tech/';a.target='_blank';a.rel='noopener';a.textContent='つくったのは AI mania → 見てみる';b.appendChild(a);b.classList.add('lk');
+      var hov=false;b.addEventListener('mouseenter',function(){hov=true});b.addEventListener('mouseleave',function(){hov=false});
+      await wait(3200);while(hov&&!gone)await wait(400);}
+    await wait(300);leave();
   }
   var tmr;
   function schedule(first){clearTimeout(tmr);if(count>=MAX)return;tmr=setTimeout(visit,first?15000:(60000+Math.random()*40000))}
