@@ -826,13 +826,24 @@ for(let i=0;i<TO.length;i++){const A=TO[i];const ax=Math.cos(A.b)*A.r1,ay=Math.s
 const NPE=innerWidth<=820?1000:2400;let sdE=7;const rE=()=>(sdE=(sdE*16807)%2147483647)/2147483647;
 const mkE=(n,inw)=>Array.from({length:n},()=>({sa:inw?Math.PI*(.55+rE()*.9):rE()*6.2832,sr:1.15+Math.pow(rE(),1.5)*.6,w:(.22+rE()*.5),ta:rE()*6.2832,
   tr:inw?Math.pow(rE(),.6)*.82:1.0+(rE()-.5)*.06,d:rE()*.4,sz:rE()<.8?1:rE()<.75?1.7:2.6,al:.3+rE()*.7,ph:rE()*6.2832,f:.6+rE()*1.4}));
+const HEAT=Array.from({length:innerWidth<=820?70:150},()=>({o:Math.random(),v:.35+Math.random()*.6,y:(Math.random()*2-1),f:.5+Math.random(),l:Math.random(),a:.25+Math.random()*.6,t:.6+Math.random()*1.4,c:Math.random()}));
 const FTO=mkE(NPE,true),FDO=mkE(Math.round(NPE*.8),false);
 function dgSize(){const r=dgC.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);DW=dgC.width=dgC.height=Math.round(r.width*d)}
 function drawDG(t){const w=DW;if(!w)return;const c=w/2,R=w*.29,p=DP;
   const heat=RM?(p>.3?1:0):ease(cl((p-.28)/.3)),set=RM?(p>.66?1:0):ease(cl((p-.66)/.22));
   dg.clearRect(0,0,w,w);
-  // heat waves from the dryer (left)
-  if(heat>0){dg.save();dg.globalAlpha=heat*(1-set*.6);dg.lineWidth=w*.004;for(let k=0;k<5;k++){dg.strokeStyle=`rgba(255,${60+k*20},150,${.5-k*.07})`;dg.beginPath();for(let x=0;x<c-R*1.1;x+=4){const y=c+(k-2)*R*.32+Math.sin(x*.03-t*.006+k)*w*.012;x?dg.lineTo(x,y):dg.moveTo(x,y)}dg.stroke()}dg.restore()}
+  // heat from the dryer (left): warm plume + fast shimmering air streaks
+  if(heat>0){const hk=heat*(1-set*.55),tt=RM?0:t/1000,x1=c-R*1.05;dg.save();
+    dg.save();dg.translate(x1*.55,c);dg.scale(1,.42);const pl=dg.createRadialGradient(x1*.25,0,0,x1*.1,0,x1*.75);
+    pl.addColorStop(0,`rgba(255,40,140,${.26*hk})`);pl.addColorStop(.5,`rgba(255,70,120,${.10*hk})`);pl.addColorStop(1,'rgba(255,70,120,0)');dg.fillStyle=pl;dg.fillRect(-x1,-x1,x1*2.4,x1*2);dg.restore();
+    dg.globalCompositeOperation='lighter';
+    for(const h of HEAT){const prog=((tt*h.v+h.o)%1),x=prog*(x1+R*.15),spread=.35+prog*.6,y=c+h.y*R*spread+Math.sin(tt*h.f*6+h.o*20+x*.02)*R*.03*(1+prog);
+      const len=w*(.02+h.l*.05)*(.6+heat*.8),al=Math.sin(prog*Math.PI)*hk*h.a;if(al<.01)continue;
+      const g2=dg.createLinearGradient(x-len,y,x,y);g2.addColorStop(0,'rgba(255,90,60,0)');g2.addColorStop(1,`rgba(255,${120+h.c*100|0},${150+h.c*80|0},${al})`);
+      dg.strokeStyle=g2;dg.lineWidth=Math.max(1,w*.0016*h.t);dg.beginPath();dg.moveTo(x-len,y-Math.sin(tt*5+h.o*9)*w*.002);dg.lineTo(x,y);dg.stroke()}
+    // shimmer haze bands
+    dg.globalCompositeOperation='screen';for(let k=0;k<3;k++){const yy=c+(k-1)*R*.42,ph=tt*1.4+k*2;const gr=dg.createRadialGradient(x1*.55+Math.sin(ph)*R*.2,yy,0,x1*.55,yy,R*.9);gr.addColorStop(0,`rgba(255,60,150,${.07*hk})`);gr.addColorStop(1,'rgba(255,60,150,0)');dg.fillStyle=gr;dg.fillRect(0,yy-R,x1+R,R*2)}
+    dg.restore()}
   // glow
   const g=dg.createRadialGradient(c,c,R*.4,c,c,R*1.6);g.addColorStop(0,`rgba(255,31,143,${.28*heat})`);g.addColorStop(1,'rgba(255,31,143,0)');dg.fillStyle=g;dg.fillRect(0,0,w,w);
   // cortex
