@@ -19,6 +19,13 @@ function makeLabel(opts){
   ['luminosité et humidité','hydratation des cheveux','utilisation quotidienne'].forEach((t,i)=>x.fillText(t,0,i*34));x.restore();
   txt('MAKEit',-0.175,0.968,'500 34px "Cormorant Garamond", Georgia, serif','rgba(255,255,255,.85)');
   txt('200ml/6.8fl.oz',0.06,0.968,'400 22px Outfit, sans-serif','rgba(255,255,255,.8)');
+  // 背面（u=0.25 付近）の表記
+  x.save();x.fillStyle='rgba(255,255,255,.7)';x.textAlign='left';
+  const bx=512-0.17*PU;x.translate(bx,0);x.scale(SX,1);
+  x.font='600 30px Outfit, sans-serif';x.fillText('GRANI HAIR MILK',0,H*0.22);
+  x.font='400 19px Outfit, sans-serif';
+  ['Silky moist hair milk with heat-active','W-formula. Apply to towel-dried hair,','then blow-dry. The heat helps the','formula penetrate for smooth, moist hair.','','INGREDIENTS: Water, Tostea®,','γ-Docosalactone, Glycerin, ...','','200ml / 6.8 fl.oz.   MADE IN JAPAN'].forEach((l,i)=>x.fillText(l,0,H*0.27+i*30));
+  x.restore();
   const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;return t;
 }
 
@@ -38,7 +45,7 @@ function tubeGeometry(){
 }
 
 export async function mountTube(canvas,o={}){
-  const opts=Object.assign({pink:'#FF2E93',logo:'#C4549A',body:'#555459',body2:'#636267',bg:null,auto:0.25,light:'#ffffff',rim:'#FF2E93'},o);
+  const opts=Object.assign({drag:true,pink:'#FF2E93',logo:'#C4549A',body:'#555459',body2:'#636267',bg:null,auto:0,light:'#ffffff',rim:'#FF2E93'},o);
   try{await Promise.all([document.fonts.load('700 182px Outfit'),document.fonts.load('400 50px Outfit'),document.fonts.load('italic 400 27px "Cormorant Garamond"'),document.fonts.load('500 34px "Cormorant Garamond"')])}catch(e){}
   const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});renderer.setPixelRatio(Math.min(2,devicePixelRatio));
   renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.outputColorSpace=THREE.SRGBColorSpace;
@@ -60,7 +67,11 @@ export async function mountTube(canvas,o={}){
   const rim=new THREE.PointLight(opts.rim,26,14);rim.position.set(-3,1,-2);scene.add(rim);
   const rim2=new THREE.PointLight(opts.rim,12,14);rim2.position.set(3,-2,-2.5);scene.add(rim2);
   const fill=new THREE.DirectionalLight('#dfe3ea',0.6);fill.position.set(-4,-1,4);scene.add(fill);
-  let mx=0,my=0,tx=0,ty=0,spin=0,heat=0;
+  let mx=0,my=0,tx=0,ty=0,spin=0,heat=0,rotY=0,vel=0,dragging=false,lastX=0,idle=0;
+  if(opts.drag){canvas.style.cursor='grab';canvas.style.touchAction='pan-y';
+    canvas.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;vel=0;canvas.style.cursor='grabbing';try{canvas.setPointerCapture(e.pointerId)}catch(_){}});
+    canvas.addEventListener('pointermove',e=>{if(!dragging)return;const d=(e.clientX-lastX)*0.012;lastX=e.clientX;rotY+=d;vel=d});
+    const up=()=>{dragging=false;idle=0;canvas.style.cursor='grab'};canvas.addEventListener('pointerup',up);canvas.addEventListener('pointercancel',up);}
   const st={setHeat(v){heat=v},setSpin(v){spin=v},group};
   addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5},{passive:true});
   function size(){const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
@@ -68,7 +79,8 @@ export async function mountTube(canvas,o={}){
   const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
   let t0=performance.now();
   (function loop(t){const dt=(t-t0)/1000;t0=t;tx+=(mx-tx)*0.06;ty+=(my-ty)*0.06;
-    if(!reduce)group.rotation.y+=dt*opts.auto;group.rotation.y+=spin*0.0;
+    if(!dragging){rotY+=vel;vel*=0.94;idle+=dt;if(!reduce&&opts.auto){rotY+=dt*opts.auto}else if(idle>2.5){const tgt=Math.round(rotY/(Math.PI*2))*Math.PI*2;rotY+=(tgt-rotY)*0.03}}
+    group.rotation.y=rotY+(reduce?0:Math.sin(t/2600)*0.18);
     group.rotation.x=ty*0.35;group.rotation.z=-0.12+tx*0.25;group.position.y=0.25+(reduce?0:Math.sin(t/1400)*0.06);
     rim.intensity=26+heat*40;rim2.intensity=12+heat*30;
     renderer.render(scene,cam);requestAnimationFrame(loop)})(t0);

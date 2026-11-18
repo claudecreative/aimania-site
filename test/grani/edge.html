@@ -234,7 +234,7 @@ const P=Array.from({length:70},()=>({x:Math.random(),y:Math.random(),s:.2+Math.r
 /* reveal */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.3});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 /* 3D tube */
-const tube=await mountTube(document.getElementById('tube'),{rim:'#ffffff',auto:.35});
+const tube=await mountTube(document.getElementById('tube'),{rim:'#ffffff'});
 let drag=null;const cv=document.getElementById('tube');cv.addEventListener('pointerdown',e=>{drag=e.clientX;cv.setPointerCapture(e.pointerId)});cv.addEventListener('pointermove',e=>{if(drag!==null){tube.group.rotation.y+=(e.clientX-drag)*.01;drag=e.clientX}});cv.addEventListener('pointerup',()=>drag=null);
 </script>
 </body>

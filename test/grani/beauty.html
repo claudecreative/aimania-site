@@ -197,8 +197,8 @@ const c=document.getElementById('mist'),x=c.getContext('2d');function rs(){c.wid
 const M=Array.from({length:26},()=>({x:Math.random(),y:Math.random(),r:.15+Math.random()*.3,v:(Math.random()-.5)*.0004}));
 (function mi(t){x.clearRect(0,0,c.width,c.height);M.forEach(m=>{m.x+=m.v;if(m.x<-.3)m.x=1.3;if(m.x>1.3)m.x=-.3;const X=m.x*c.width,Y=(m.y+Math.sin(t/4000+m.x*5)*.04)*c.height,Rr=m.r*Math.max(c.width,c.height)*.5;const g=x.createRadialGradient(X,Y,0,X,Y,Rr);g.addColorStop(0,'rgba(255,61,154,.10)');g.addColorStop(1,'rgba(255,61,154,0)');x.fillStyle=g;x.fillRect(X-Rr,Y-Rr,Rr*2,Rr*2)});if(!R)requestAnimationFrame(mi)})(0);
 /* 3D tubes */
-await mountTube(document.getElementById('t1'),{rim:'#FF3D9A',auto:.18});
-await mountTube(document.getElementById('t2'),{rim:'#FF3D9A',auto:.3});
+await mountTube(document.getElementById('t1'),{rim:'#FF3D9A'});
+await mountTube(document.getElementById('t2'),{rim:'#FF3D9A'});
 </script>
 </body>
 </html>
