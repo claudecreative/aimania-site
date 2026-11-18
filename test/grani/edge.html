@@ -124,7 +124,7 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
 .files figcaption small{display:block;font:600 10px/1.4 var(--lat);letter-spacing:.14em;color:#8d8d93}
 
 /* ===== 3 Heat ===== */
-.s1{height:240vh;position:relative;background:#000;color:#fff}
+.s1{height:200vh;position:relative;background:#000;color:#fff}
 .s1-ph{position:absolute;inset:0;clip-path:inset(calc((1 - var(--o,0))*46%) 0 calc((1 - var(--o,0))*46%) 0)}
 .s1-ph img{width:100%;height:100%;object-fit:cover;object-position:60% 40%;transform:scale(calc(1.18 - var(--o,0)*.18))}
 .s1 .no{position:absolute;left:var(--pad);top:88px;z-index:3}
@@ -150,7 +150,7 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
 .s2a-ph img{width:100%;height:120%;object-fit:cover;transform:translateY(calc(var(--p,0)*-14%))}
 .s2a-ph figcaption{position:absolute;right:14px;bottom:12px;font:600 10px/1 var(--lat);letter-spacing:.12em;color:#ddd}
 
-.s2b{height:340vh;position:relative;background:#121214;color:#fff}
+.s2b{height:280vh;position:relative;background:#121214;color:#fff}
 .s2b .stk{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:4vw;padding:80px var(--pad) 40px}
 .dg{position:relative;justify-self:center;width:min(78vh,44vw);aspect-ratio:1}
 .dg canvas{width:100%;height:100%;display:block}
@@ -188,7 +188,7 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
 .why p{grid-column:8/13;font-size:14.5px}
 
 /* ===== 5 24h ===== */
-.s3{height:260vh;position:relative;background:#000;color:#fff}
+.s3{height:220vh;position:relative;background:#000;color:#fff}
 .s3 .stk{display:grid;grid-template-columns:1fr 1fr}
 .s3-ph{position:relative;overflow:hidden}
 .s3-ph img{width:100%;height:100%;object-fit:cover;object-position:42% 40%;transform:scale(calc(1.12 - var(--p,0)*.12))}
@@ -242,7 +242,7 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
 .step .d{position:absolute;left:22px;right:22px;top:20px;opacity:0;transform:translateY(10px);transition:opacity .45s .25s,transform .45s .25s}
 .step.on .d{opacity:1;transform:none}
 .step.on .tt{opacity:0}
-.step .d h3{font-size:clamp(24px,3vw,52px)}
+.step .d h3{font-size:clamp(24px,2.5vw,44px);white-space:nowrap}
 .step .d p{font-size:15px;margin-top:8px;max-width:22em}
 .step .d small{font:600 11px/1 var(--lat);letter-spacing:.1em}
 .step.dark .d,.step.dark .tt{color:#fff}
@@ -250,7 +250,7 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
 .step.dark{background:#141416}.step.dark .bg{opacity:.62;filter:grayscale(.6);transition:opacity .6s,filter .6s}.step.dark.on .bg{filter:none}.step.dark.on .bg{opacity:1}.step.dark .n{color:rgba(255,255,255,.18)}
 
 /* ===== 8 scent ===== */
-.scent{height:230vh;position:relative;background:#9d9ea3}
+.scent{height:185vh;position:relative;background:#9d9ea3}
 .scent-ph{position:absolute;inset:0}
 .scent-ph img{width:100%;height:100%;object-fit:cover;object-position:12% 30%;transform:scaleX(-1) scale(calc(1.14 - var(--p,0)*.14))}
 .scent-t{position:absolute;right:var(--pad);top:0;bottom:0;width:min(400px,28vw);display:flex;flex-direction:column;justify-content:center;z-index:2}
@@ -281,7 +281,7 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
 .dummy{margin-top:8vh;font-size:12px;color:#555}
 
 /* ===== 10 philosophy ===== */
-.philo{height:220vh;position:relative;background:var(--concrete)}
+.philo{height:180vh;position:relative;background:var(--concrete)}
 .philo .stk{display:grid;grid-template-columns:1fr minmax(0,34vw);gap:4vw;padding:96px var(--pad) 6vh;align-items:center}
 .philo .mf{font-size:clamp(30px,4.2vw,76px);line-height:1.25;letter-spacing:-.04em;font-weight:900}
 .philo .mf span{color:rgba(0,0,0,.16);transition:color .25s}
@@ -362,7 +362,7 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
   .ba-r .meter{margin-top:0;width:110px}
   .meter .val b{font-size:32px}
   .ba-word{display:none}
-  .files{padding:12vh 16px}
+  .files{padding:12vh 16px 8vh}
   .files-h{grid-template-columns:1fr;gap:16px}
   .files-g{grid-template-columns:1fr 1fr;gap:12px}
   .files-g figure:nth-child(1){grid-column:1/3}
@@ -371,7 +371,7 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
   .files figcaption{gap:10px}
   .files figcaption b{font-size:26px}
   .files figcaption span{font-size:12px}
-  .s1{height:220vh}
+  .s1{height:185vh}
   .s1-ph img{object-position:55% 40%}
   .s1 .no{top:70px}
   .s1-big{top:12vh;font-size:18vw;text-shadow:0 2px 30px rgba(0,0,0,.45)}
@@ -384,9 +384,9 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
   .s2a h2{font-size:20vw}
   .s2a-sub{grid-template-columns:1fr;gap:10px}
   .s2a-ph{height:42vh}
-  .s2b{height:320vh}
-  .s2b .stk{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:6px;padding:64px 16px 16px;align-items:start}
-  .dg{width:min(86vw,44svh)}
+  .s2b{height:260vh}
+  .s2b .stk{grid-template-columns:1fr;grid-template-rows:auto auto;gap:6px;padding:64px 16px 16px;align-items:start;align-content:center}
+  .dg{width:min(90vw,48svh)}
   .dg-st b{font-size:34px}
   .s2b h2{font-size:22px}
   .ph-list{margin:12px 0 10px}
@@ -399,7 +399,7 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
   .why{display:block}
   .why .eq{font-size:15vw}
   .why p{margin-top:24px}
-  .s3{height:240vh}
+  .s3{height:195vh}
   .s3 .stk{grid-template-columns:1fr;grid-template-rows:36svh 1fr}
   .s3-r{padding:20px 16px 4vh;justify-content:flex-start;gap:6vh}
   .s3-clock{display:none}
@@ -431,7 +431,7 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
   .step .d h3{font-size:19px}.step .d p{font-size:12px;margin-top:4px;line-height:1.6}
   .step.dark .n{color:rgba(255,255,255,.55);font-size:96px;top:8px;bottom:auto;left:10px}
   .step.dark:nth-child(4) .n,.step.dark:nth-child(5) .n{color:var(--pk)}
-  .scent{height:200vh}
+  .scent{height:170vh}
   .scent-ph{bottom:36%}
   .scent-ph img{object-position:58% 30%}
   .scent-t{left:0;right:0;width:auto;top:auto;bottom:0;padding:9vh 16px 4vh;justify-content:flex-end;background:linear-gradient(rgba(157,158,163,0),#9d9ea3 22%)}
@@ -443,9 +443,9 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
   .qs{display:block}
   .qv{margin:0 0 9vh!important;transform:none}
   .qv p{font-size:17px}
-  .philo{height:200vh}
-  .philo .stk{grid-template-columns:1fr;grid-template-rows:auto 1fr;padding:64px 16px 16px;gap:16px;align-content:start}
-  .philo-ph{height:22svh;order:-1}
+  .philo{height:165vh}
+  .philo .stk{grid-template-columns:1fr;grid-template-rows:auto auto;padding:64px 16px 16px;gap:20px;align-content:center}
+  .philo-ph{height:30svh;order:-1}
   .philo .logo-l{display:none}
   .philo .mf{font-size:8.2vw}
   .philo .body{font-size:13px;line-height:1.8;margin-top:2vh}
@@ -807,9 +807,9 @@ const hfs=$$('.hf');on('#files',p=>{hfs.forEach((h,i)=>{const w=RM?1:ease(cl((p-
 /* S1 — kinetic type blown by the dryer */
 const s1=$('#s1'),s1c=$$('.s1-big span',s1);
 const s1seed=s1c.map((_,i)=>({x:-(40+i*9),y:(i%2?1:-1)*(8+i*3),r:(i%2?-1:1)*(18+i*4)}));
-on(s1,(p,r)=>{const o=RM?1:ease(cl((innerHeight-r.top)/(innerHeight*1.35)));s1.style.setProperty('--o',o.toFixed(4));
-  s1c.forEach((c,i)=>{const q=RM?1:ease(cl((p-.12-i*.035)/.34)),s=s1seed[i],k=1-q;c.style.transform=`translate(${s.x*k}vw,${s.y*k}vh) rotate(${s.r*k}deg)`;c.style.filter=k>.01?`blur(${k*14}px)`:'none';c.style.opacity=(.15+q*.85).toFixed(3)});
-  s1.style.setProperty('--k',(RM?1:cl((p-.5)/.2)).toFixed(3))});
+on(s1,(p,r)=>{const e=(innerHeight-r.top)/innerHeight,o=RM?1:ease(cl(e/.95));s1.style.setProperty('--o',o.toFixed(4));
+  s1c.forEach((c,i)=>{const q=RM?1:ease(cl((e-.45-i*.04)/.42)),s=s1seed[i],k=1-q;c.style.transform=`translate(${s.x*k}vw,${s.y*k}vh) rotate(${s.r*k}deg)`;c.style.filter=k>.01?`blur(${k*14}px)`:'none';c.style.opacity=(.15+q*.85).toFixed(3)});
+  s1.style.setProperty('--k',(RM?1:cl((p-.22)/.2)).toFixed(3))});
 
 /* S2a headline photo-mask drift */
 const s2a=$('#s2');on(s2a,p=>s2a.style.setProperty('--p',p.toFixed(4)));
@@ -875,9 +875,9 @@ on(dgS,p=>{DP=p;const ph=p<.3?0:p<.66?1:2;if(ph!==dgPh){dgPh=ph;phL.forEach((l,i
 
 /* S3 24h */
 const s3=$('#s3'),stp=$$('.stamps span',s3),tli=$$('.tl li',s3),clk=$('#clk');
-on(s3,p=>{s3.style.setProperty('--p',p.toFixed(4));
-  stp.forEach((s,i)=>{const q=RM?1:ease(cl((p-.04-i*.1)/.1));s.style.transform=`scale(${1+(1-q)*1.4})`;s.style.opacity=q.toFixed(3)});
-  const t=cl((p-.42)/.5);s3.style.setProperty('--t',t.toFixed(4));tli.forEach((l,i)=>l.classList.toggle('on',t>=i*.45+.02));
+on(s3,(p,r)=>{s3.style.setProperty('--p',p.toFixed(4));const e=(innerHeight-r.top)/innerHeight;
+  stp.forEach((s,i)=>{const q=RM?1:ease(cl((e-.55-i*.14)/.18));s.style.transform=`scale(${1+(1-q)*1.4})`;s.style.opacity=q.toFixed(3)});
+  const t=cl((p-.18)/.66);s3.style.setProperty('--t',t.toFixed(4));tli.forEach((l,i)=>l.classList.toggle('on',t>=i*.45+.02));
   const hrs=(22+t*15)%24,h=Math.floor(hrs),m=Math.floor((hrs-h)*60/5)*5;clk.textContent=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')});
 
 /* S4 static sparks */
@@ -900,7 +900,7 @@ addEventListener('resize',spSize);
 const steps=$$('.step');on('#how',p=>{if(isSP())return;const i=Math.min(4,Math.floor(cl(p/.96)*5));steps.forEach((s,k)=>s.classList.toggle('on',k===i))});
 
 /* Scent: diffusion focus */
-const sc=$('#scent'),notes=$$('.notes li',sc);on(sc,p=>{sc.style.setProperty('--p',p.toFixed(4));notes.forEach((n,i)=>n.style.setProperty('--b',(RM?0:1-ease(cl((p-.12-i*.16)/.22))).toFixed(3)))});
+const sc=$('#scent'),notes=$$('.notes li',sc);on(sc,p=>{sc.style.setProperty('--p',p.toFixed(4));notes.forEach((n,i)=>n.style.setProperty('--b',(RM?0:1-ease(cl((p-.02-i*.13)/.2))).toFixed(3)))});
 
 /* Voices: counter drift */
 const qv=$$('.qv');on('#voice',p=>{if(RM||isSP())return;qv.forEach(q=>q.style.setProperty('--s',((p-.5)*80*+q.dataset.d).toFixed(1)))});
@@ -908,8 +908,8 @@ const qv=$$('.qv');on('#voice',p=>{if(RM||isSP())return;qv.forEach(q=>q.style.se
 /* Philosophy: heat passes through the manifesto */
 const mf=$('#mf'),raw=mf.textContent;mf.setAttribute('aria-label',raw.replace(/\|/g,''));mf.textContent='';const chs=[];
 [...raw].forEach(ch=>{if(ch==='|'){mf.appendChild(document.createElement('br'));return}const s=document.createElement('span');s.textContent=ch;s.setAttribute('aria-hidden','true');mf.appendChild(s);chs.push(s)});
-const ph=$('#philo');on(ph,p=>{const f=RM?1:cl((p-.08)/.6);const k=Math.floor(f*(chs.length+3));chs.forEach((c,i)=>{c.classList.toggle('on',i<k);c.classList.toggle('hot',!RM&&f<1&&i<k&&i>=k-3)});
-  ph.style.setProperty('--k',(RM?1:cl((p-.66)/.18)).toFixed(3));ph.style.setProperty('--m',(RM?1:ease(cl(p/.5))).toFixed(3))});
+const ph=$('#philo');on(ph,(p,r)=>{const g=(innerHeight-r.top)/r.height,f=RM?1:cl((g-.34)/.46);const k=Math.floor(f*(chs.length+3));chs.forEach((c,i)=>{c.classList.toggle('on',i<k);c.classList.toggle('hot',!RM&&f<1&&i<k&&i>=k-3)});
+  ph.style.setProperty('--k',(RM?1:cl((g-.78)/.12)).toFixed(3));ph.style.setProperty('--m',(RM?1:ease(cl((g-.12)/.42))).toFixed(3))});
 
 subs.forEach(s=>io.observe(s.el));req();
 

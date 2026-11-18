@@ -47,7 +47,7 @@ function tubeGeometry(){
 export async function mountTube(canvas,o={}){
   const opts=Object.assign({drag:true,pink:'#FF2E93',logo:'#C4549A',body:'#555459',body2:'#636267',bg:null,auto:0,light:'#ffffff',rim:'#FF2E93'},o);
   try{await Promise.all([document.fonts.load('700 182px Outfit'),document.fonts.load('400 50px Outfit'),document.fonts.load('italic 400 27px "Cormorant Garamond"'),document.fonts.load('500 34px "Cormorant Garamond"')])}catch(e){}
-  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});renderer.setPixelRatio(Math.min(2,devicePixelRatio));
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});renderer.setPixelRatio(Math.min(1.5,devicePixelRatio));
   renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.outputColorSpace=THREE.SRGBColorSpace;
   const scene=new THREE.Scene();const cam=new THREE.PerspectiveCamera(28,1,0.1,50);cam.position.set(0,0,opts.dist||9.2);
   const group=new THREE.Group();scene.add(group);
@@ -77,12 +77,13 @@ export async function mountTube(canvas,o={}){
   function size(){const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
   size();addEventListener('resize',size);
   const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let vis=true;if('IntersectionObserver' in window)new IntersectionObserver(e=>{vis=e[0].isIntersecting},{rootMargin:'120px 0px'}).observe(canvas);
   let t0=performance.now();
   (function loop(t){const dt=(t-t0)/1000;t0=t;tx+=(mx-tx)*0.06;ty+=(my-ty)*0.06;
     if(!dragging){rotY+=vel;vel*=0.94;idle+=dt;if(!reduce&&opts.auto){rotY+=dt*opts.auto}else if(idle>2.5){const tgt=Math.round(rotY/(Math.PI*2))*Math.PI*2;rotY+=(tgt-rotY)*0.03}}
     group.rotation.y=rotY+(reduce?0:Math.sin(t/2600)*0.18);
     group.rotation.x=ty*0.35;group.rotation.z=-0.12+tx*0.25;group.position.y=0.25+(reduce?0:Math.sin(t/1400)*0.06);
     rim.intensity=26+heat*40;rim2.intensity=12+heat*30;
-    renderer.render(scene,cam);requestAnimationFrame(loop)})(t0);
+    if(vis)renderer.render(scene,cam);requestAnimationFrame(loop)})(t0);
   return st;
 }

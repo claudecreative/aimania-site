@@ -23,6 +23,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
 .min{font-family:var(--min);font-weight:500}
 .spb{display:none}
+.ib{display:inline-block}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .folio{display:flex;align-items:baseline;gap:14px;font-size:12px;letter-spacing:.12em;color:var(--mute)}
 .folio i{font:italic 400 22px/1 var(--serif);color:var(--ink);letter-spacing:0}
@@ -58,7 +59,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 /* ---------- 02 before/after ---------- */
-.ba{position:relative;height:330vh;background:var(--paper)}
+.ba{position:relative;height:290vh;background:var(--paper)}
 .ba .stage{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(24px,3.4vw,64px);padding:84px var(--pad) 40px;overflow:hidden}
 .ba .lft{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;padding:4vh 0 2vh}
 .ba h2{font:500 clamp(40px,4.6vw,86px)/1.1 var(--min);letter-spacing:.04em;margin-top:5vh}
@@ -106,7 +107,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .sci .plate{position:relative;height:min(78vh,56vw);overflow:hidden}
 .sci .plate svg{position:absolute;inset:0;width:100%;height:100%}
 .sci .plate figcaption{position:absolute;left:var(--pad);bottom:20px;font-size:11px;color:#bdb8c2}
-.sci .dia{position:relative;height:300vh}
+.sci .dia{position:relative;height:250vh}
 .sci .dstage{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:6vw;padding:80px var(--pad) 40px}
 .sci .dstage canvas{width:min(76svh,44vw);aspect-ratio:1;display:block}
 .sci .phases{position:relative;max-width:520px}
@@ -117,14 +118,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .sci .ph h3{font:500 clamp(22px,2vw,32px)/1.4 var(--min);margin:.4em 0 .3em;letter-spacing:.06em}
 .sci .ph h3 .dot{display:inline-block;width:.42em;height:.42em;border-radius:50%;vertical-align:.2em;margin-right:.5em}
 .sci .ph p{font-size:14px;color:#d6d2da}
-.sci .why{padding:14vh var(--pad) 20vh;display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.sci .why{padding:6vh var(--pad) 16vh;display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
 .sci .why .q{grid-column:1/6;font:500 clamp(26px,2.6vw,44px)/1.55 var(--min);letter-spacing:.06em}
 .sci .why .c1{grid-column:7/10;font-size:14px}.sci .why .c2{grid-column:10/13;font-size:14px}
 .sci .why h4{font:500 16px/1.6 var(--min);margin-bottom:.8em;letter-spacing:.1em}
 .sci .why .ast{grid-column:7/13;font-size:11px;color:#9d99a3}
 
 /* ---------- 05 24h ---------- */
-.day{position:relative;height:260vh;background:var(--fog)}
+.day{position:relative;height:225vh;background:var(--fog)}
 .day .stage{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);overflow:hidden}
 .day .txt{padding:110px var(--pad) 6vh;display:flex;flex-direction:column;justify-content:space-between}
 .day h2{font:500 clamp(32px,3.3vw,60px)/1.25 var(--min);letter-spacing:.04em;margin-top:4vh}.day h2 span{display:inline-block}
@@ -187,7 +188,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .how .rail i{position:absolute;inset:0;background:var(--pink);transform-origin:left;transform:scaleX(0)}
 
 /* ---------- 08 fragrance ---------- */
-.scent{position:relative;height:220vh;background:#efe9e6}
+.scent{position:relative;height:190vh;background:#efe9e6}
 .scent .stage{position:sticky;top:0;height:100svh;overflow:hidden}
 .scent .bg{position:absolute;inset:0;background:url(a/b_scent.jpg) 70% 40%/cover}
 .scent .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(242,236,232,.9) 0%,rgba(242,236,232,.55) 34%,rgba(242,236,232,0) 56%)}
@@ -218,7 +219,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .voice figcaption i{font:italic 400 16px var(--serif);color:var(--ink)}
 
 /* ---------- 10 philosophy ---------- */
-.phil{position:relative;height:240vh;background:#1f1d22;color:#fff}
+.phil{position:relative;height:180vh;background:#1f1d22;color:#fff}
 .phil .stage{position:sticky;top:0;height:100svh;overflow:hidden}
 .phil svg{position:absolute;inset:0;width:100%;height:100%}
 .phil .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,23,28,.82),rgba(25,23,28,.6) 40%,rgba(25,23,28,.1) 75%,rgba(25,23,28,0));pointer-events:none}
@@ -243,7 +244,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .obj .r dt{font:italic 400 15px var(--serif);color:var(--mute)}
 
 /* ---------- 11 guarantee + buy ---------- */
-.gu{background:var(--paper);padding:16vh var(--pad) 10vh}
+.gu{background:var(--paper);padding:12vh var(--pad) 10vh}
 .gu .gua{max-width:980px;margin:0 auto;border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:6px;padding:7vh 6vw;display:grid;grid-template-columns:auto 1fr;gap:5vw;align-items:center}
 .gu .gua .days{font:400 clamp(80px,8vw,140px)/.8 var(--serif);letter-spacing:-.03em}
 .gu .gua .days small{display:block;font:italic 400 18px var(--serif);letter-spacing:0;margin-top:14px;color:var(--mute)}
@@ -280,7 +281,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .hero .w .big{font-size:92px}
  .hero .w .jp{margin:0 0 6px;font-size:15px}
  .hero .cap,.hero .cue{display:none}
- .ba{height:300vh}
+ .ba{height:260vh}
  .ba .stage{grid-template-columns:1fr;grid-template-rows:auto auto auto;align-content:space-between;justify-items:center;gap:10px;padding:78px 16px 16px}
  .ba .lft,.ba .rgt{padding:0;width:100%}
  .ba .lft{display:block}
@@ -305,19 +306,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .sci .open{grid-template-columns:1fr;padding:15vh 22px 8vh;gap:30px}
  .sci h2{font-size:72px}
  .sci .plate{height:58vw}
- .sci .dia{height:320vh}
- .sci .dstage{grid-template-columns:1fr;grid-template-rows:auto 1fr;justify-items:center;align-content:start;gap:8px;padding:64px 20px 20px}
- .sci .dstage canvas{width:min(84vw,40svh)}
- .sci .phases{width:100%;min-height:260px}
+ .sci .dia{height:250vh}
+ .sci .dstage{grid-template-columns:1fr;grid-template-rows:auto auto;justify-items:center;align-content:center;gap:4px;padding:64px 20px 20px}
+ .sci .dstage canvas{width:min(92vw,46svh)}
+ .sci .phases{width:100%;min-height:190px}
  .sci .ph{position:absolute;left:0;right:0;top:0;opacity:0;padding:14px 0}
  .sci .ph.on{opacity:1}
  .sci .ph h3{font-size:21px}
  .sci .ph p{font-size:13px;line-height:1.85}
- .sci .why{grid-template-columns:1fr;padding:10vh 22px 14vh;gap:34px}
+ .sci .why{grid-template-columns:1fr;padding:4vh 22px 12vh;gap:34px}
  .sci .why>*{grid-column:1/-1!important}
- .day{height:240vh}
+ .day{height:210vh}
  .day .stage{grid-template-columns:1fr;grid-template-rows:44svh 1fr}
- .day .pic{order:1}.day .txt{order:2;padding:20px 22px 18px}
+ .day .pic{order:1}.day .txt{order:2;padding:20px 22px 18px;justify-content:flex-start;gap:24px}
  .day h2{font-size:26px;margin-top:6px}.day .sub{font-size:14px;margin-top:2px}
  .day .txt .folio{display:none}
  .day li{padding:9px 0;grid-template-columns:5.6em 1fr;gap:0 10px}
@@ -340,8 +341,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .how .st .tx p:not(.en){order:3}
  .how .st h3{font-size:22px}
  .how .st .en{font-size:15px}
- .how .st .vis{clip-path:inset(0 0 100% 0);transition:clip-path 1.3s cubic-bezier(.7,0,.2,1)}
- .how .st .vis img{transform:scale(1.16);transition:transform 1.8s cubic-bezier(.2,.7,.2,1)}
+ .how .st .vis{clip-path:inset(0 0 100% 0);transition:clip-path .9s cubic-bezier(.6,0,.2,1)}
+ .how .st .vis img{transform:scale(1.12);transition:transform 1.3s cubic-bezier(.2,.7,.2,1)}
  .how .st .vis.in{clip-path:inset(0)}
  .how .st .vis.in img{transform:none}
  .how .rail{display:none}
@@ -359,7 +360,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .voice figure:nth-child(n){grid-column:1/-1;margin-top:0}
  .voice figure:nth-child(1) blockquote{font-size:23px}
  .voice blockquote{font-size:18px}
- .phil{height:200vh}
+ .phil{height:165vh}
  .phil .scrim{background:linear-gradient(0deg,rgba(25,23,28,.85),rgba(25,23,28,.35) 60%,rgba(25,23,28,.1))}
  .phil .txt{left:22px;right:22px;max-width:none;justify-content:flex-end;padding-bottom:9vh}
  .phil h2{font-size:min(6.6vw,26px);white-space:normal}.spb{display:inline}
@@ -471,7 +472,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </div>
  </div>
  <div class="why">
-  <p class="q">内側を支える成分と、表面を整える成分。熱で働く2つを、ひとつのミルクに。</p>
+  <p class="q"><span class="ib">内側を支える成分と、</span><span class="ib">表面を整える成分。</span><span class="ib">熱で働く2つを、</span><span class="ib">ひとつのミルクに。</span></p>
   <div class="c1"><h4>なぜ、W成分なのか</h4><p>内側だけを補っても、表面が乱れていれば髪は広がって見えます。表面だけを整えても、芯がもろければ潤いは続きません。トステア®とγ-ドコサラクトンは、どちらも熱をきっかけに働く成分。役割の違う2つがそろって、はじめて芯から毛先までの髪質に届きます。</p></div>
   <div class="c2"><h4>なぜ、GRANIだけなのか</h4><p>熱に反応する2つの成分を、ひとつのミルクの中で安定させて同居させる。その処方を世界で初めて形にしたのがGRANIです。毎日のドライヤーという、誰もが持っている熱源を、そのままケアの力に変えます。</p></div>
   <p class="ast">※世界初の表記は、根拠（調査方法・時期）を併記する前提のデザイン案です。</p>
@@ -714,7 +715,7 @@ requestAnimationFrame(baLoop);
 const dg={cv:$('#diaCv'),p:0,vis:false};const dctx=dg.cv.getContext('2d');
 let sd2=11;const r3=()=>(sd2=(sd2*16807)%2147483647)/2147483647;
 const NP=innerWidth<=820?1100:2600;
-const mkP=(n,pink)=>Array.from({length:n},()=>({sa:r3()*6.2832,sr:1.18+Math.pow(r3(),1.6)*.62,w:(.25+r3()*.5)*(r3()<.5?1:1.15),
+const mkP=(n,pink)=>Array.from({length:n},()=>({sa:r3()*6.2832,sr:1.14+Math.pow(r3(),1.6)*.34,w:(.25+r3()*.5)*(r3()<.5?1:1.15),
  ta:r3()*6.2832,tr:pink?.965+(r3()-.5)*.05:Math.pow(r3(),.62)*.86,d:r3()*.45,sz:r3()<.82?1:r3()<.8?1.6:2.4,al:.25+r3()*.75,ph:r3()*6.2832,f:.6+r3()*1.4}));
 const tos=mkP(NP,false),gam=mkP(Math.round(NP*.85),true);
 let dLast=-1;
@@ -779,7 +780,7 @@ new IntersectionObserver(es=>es.forEach(e=>sc.vis=e.isIntersecting)).observe(sc.
 
 /* ---- horizontal how-to ---- */
 const how=$('#how'),track=$('#howTrack'),howSt=$$('.how .st');let howMax=0;
-const howImgs=howSt.map(e=>e.querySelector('.vis')),howIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');howIo.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});
+const howImgs=howSt.map(e=>e.querySelector('.vis')),howIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');howIo.unobserve(e.target)}}),{rootMargin:'0px 0px 15% 0px'});
 howImgs.forEach(v=>howIo.observe(v));
 function revealHow(){if(isSP()||reduce){howImgs.forEach(v=>{v.style.clipPath='';v.firstChild.style.transform=''});return}
  howImgs.forEach(v=>{const r=v.getBoundingClientRect();const k=easeO(clamp((innerWidth-r.left)/(Math.min(innerWidth*.55,r.width*1.6))));
@@ -799,7 +800,7 @@ function tick(){ticking=false;const y=scrollY;
  const hp=pass($('#heat'));heatH.style.backgroundPosition=`${(100-clamp((hp-.18)/.42)*100).toFixed(2)}% 0`;
  if(!reduce&&!isSP())heatBg.style.transform=`translate3d(0,${((hp-.5)*-8).toFixed(2)}%,0) scale(${(1.08-hp*.06).toFixed(4)})`;
  // strand plate
- const sp=pass(plate);strandS.set(reduce?1:clamp((sp-.1)/.45));
+ const sp=pass(plate);strandS.set(reduce?1:clamp((sp-.02)/.3));
  // diagram
  dg.p=sticky(dia);const ai=dg.p<.36?0:dg.p<.72?1:2;phs.forEach((e,i)=>e.classList.toggle('on',isSP()?i===ai:i<=ai));
  // day
@@ -815,7 +816,7 @@ function tick(){ticking=false;const y=scrollY;
  if(!isSP()){const p=sticky(scent);const ni=Math.min(2,Math.floor(p*3));notes.forEach((e,i)=>e.classList.toggle('on',i===ni));
   const n0=notes[0],n2=notes[2];const top=n0.offsetTop+(n2.offsetTop-n0.offsetTop)*clamp(p*1.2-.1)-(80-n0.offsetHeight/2);haze.style.transform=`translate3d(0,${top}px,0)`}
  // philosophy
- const pr2=phil.getBoundingClientRect();const pt=clamp((VH-pr2.top)/(VH*1.5));philS.set(reduce?1:pt);phil.classList.toggle('go',pt>.7||reduce);
+ const pr2=phil.getBoundingClientRect();const pt=clamp((VH-pr2.top)/(VH*1.05));philS.set(reduce?1:pt);phil.classList.toggle('go',pt>.55||reduce);
 }
 const req=()=>{if(!ticking){ticking=true;requestAnimationFrame(tick)}};
 addEventListener('scroll',req,{passive:true});
