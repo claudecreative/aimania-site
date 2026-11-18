@@ -111,7 +111,7 @@ br.sp{display:none}@media (max-width:600px){br.sp{display:inline}.hero-h{font-si
 #xpost:hover .xp-x svg,#xpost:focus-visible .xp-x svg{transform:rotate(-8deg) scale(1.08)}
 @keyframes blink{50%{opacity:0}}
 @media (max-width:420px){#xpost{gap:10px}#xpost .xp-chr{width:42px;height:42px}#xpost .xp-chr .chr{font-size:3.5px!important}#xpost .xp-bub{max-width:calc(100vw - 150px)}#xpost .xp-t{font-size:13px}}
-.booth-frame{height:min(600px,72vh)}
+.booth-frame{height:min(520px,68vh)}
 .booth-pts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
 .booth-pts .bp{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px}
 .booth-pts b{font-size:17px}
@@ -138,6 +138,28 @@ br.sp{display:none}@media (max-width:600px){br.sp{display:inline}.hero-h{font-si
 .wk-panel{display:flex;flex-direction:column;gap:40px}
 .tabbed .wk-panel[hidden]{display:none}
 .tabbed .wk-panel>h3:first-child,.tabbed #booth>h3:first-child{display:none}
+/* 2026-11 全体を少し圧縮（見た目は維持） */
+#about,#works,#service,#flow,#member,#faq,#contact{padding-top:56px!important;padding-bottom:56px!important}
+#partner{padding-top:56px!important}#motto{padding:52px 0!important}
+#works{gap:32px!important}.wk-panel{gap:28px}
+#wk-lp>div img{aspect-ratio:4/3!important}
+@media (min-width:960px){
+#wk-case{display:grid!important;grid-template-columns:1fr 1fr;gap:24px}
+#wk-case>*:not(.lift){grid-column:1/-1}
+#wk-case>.win.lift>div:last-child{grid-template-columns:1fr!important;gap:14px!important;align-items:start!important;padding:22px 24px!important}
+#wk-case>.win.lift>div:last-child>a img{aspect-ratio:16/9!important}
+#wk-case>.win.lift h4{font-size:22px!important}
+}
+@media (max-width:720px){
+#about,#works,#service,#flow,#member,#faq,#contact{padding-top:44px!important;padding-bottom:44px!important}
+#wk-case>.win.lift>div:last-child>a img{aspect-ratio:16/9!important}
+#wk-lp>div{grid-template-columns:1fr 1fr!important;gap:22px 14px!important}
+#wk-lp>div .lift>div:first-of-type{font-size:15px!important}
+#wk-lp .lift>div>a,#wk-game>div:not(.win) .lift>div>a{font-size:12.5px!important;padding:3px 0!important;line-height:1.5}#wk-lp .lift>div:last-child,#wk-game>div:not(.win) .lift>div:last-child{gap:2px 12px!important}
+#wk-lp .lift>div:nth-of-type(2),#wk-game>div:not(.win) .lift>div:nth-of-type(2){font-size:12px!important}
+#wk-game>div:not(.win){grid-template-columns:1fr 1fr!important;gap:22px 14px!important}
+#wk-game>div:not(.win) .lift>div:first-of-type{font-size:15px!important}
+}
 </style>
 </head>
 <body>
