@@ -182,7 +182,8 @@ a{color:inherit}
 var HASH='9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08';
 var WANO='4181e01b217a1e619bb1568b54c1a97c972297545c8e9a71b3aa9e3b573440c5';
 // ひふみ探偵事務所 テスト版（パスワードのSHA-256）
-var TANTEI='ae82c4dbdccb8570b0f7f448ac2d5c7c1692be05d841e6a0898135887f77aa7e';var KEY='aim_test_ok',TOKEN='?k=9f86d081',MAX=24,LIMIT=60;
+var TANTEI='ae82c4dbdccb8570b0f7f448ac2d5c7c1692be05d841e6a0898135887f77aa7e';// POWER WASHER 選考用サンプル（パスワードのSHA-256）
+var PWASH='0fa3106ea6264ed86e7da69186b7180f0dd002cb46bf2139c423faf6b8a61867';var KEY='aim_test_ok',TOKEN='?k=9f86d081',MAX=24,LIMIT=60;
 var body=document.body,kb=document.getElementById('kb'),dots=document.getElementById('dots'),msg=document.getElementById('msg'),mon=document.getElementById('mon'),log=document.getElementById('log');
 var buf='',busy=false,done=false;
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -247,7 +248,7 @@ function check(){
  busy=true;msg.className='msg';msg.textContent='DECODING …';
  var p=(window.crypto&&crypto.subtle)?crypto.subtle.digest('SHA-256',new TextEncoder().encode(buf)).then(hex):Promise.resolve(buf==='test'?HASH:'');
  p.then(function(h){setTimeout(function(){busy=false;
-  if(h===HASH){store(false,'1');success()}else if(h===WANO){wano()}else if(h===TANTEI){tantei()}else{fail()}
+  if(h===HASH){store(false,'1');success()}else if(h===WANO){wano()}else if(h===TANTEI){tantei()}else if(h===PWASH){pwash()}else{fail()}
  },reduce?100:420)});
 }
 var miss=0,LIVES=3;
@@ -280,6 +281,7 @@ function explode(){
 }
 function wano(){try{sessionStorage.setItem('aim_wano_ok','1')}catch(e){}try{document.cookie='aim_wano_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure'}catch(e){}done=true;clearInterval(timer);var nx=new URLSearchParams(location.search).get('next');var p=(nx&&/^\/test\/wano\/[\w\-\/]*$/.test(nx))?nx:'/test/wano/';body.classList.add('unlocked');setTimeout(function(){body.classList.add('leaving');var cells=[].slice.call(document.querySelectorAll('#wipe i'));cells.sort(function(){return Math.random()-.5});cells.forEach(function(c,i){c.style.animationDelay=(reduce?0:i*9)+'ms'});setTimeout(function(){location.replace(p+'?k=4181e01b')},reduce?0:520)},reduce?400:2000)}
 function tantei(){try{sessionStorage.setItem('aim_tantei_ok','1')}catch(e){}try{document.cookie='aim_tantei_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure'}catch(e){}done=true;clearInterval(timer);var nx=new URLSearchParams(location.search).get('next');var p=(nx&&/^\/test\/hifumi\/[\w\-\/.]*$/.test(nx))?nx:'/test/hifumi/';body.classList.add('unlocked');setTimeout(function(){body.classList.add('leaving');var cells=[].slice.call(document.querySelectorAll('#wipe i'));cells.sort(function(){return Math.random()-.5});cells.forEach(function(c,i){c.style.animationDelay=(reduce?0:i*9)+'ms'});setTimeout(function(){location.replace(p+'?k=ae82c4db')},reduce?0:520)},reduce?400:2000)}
+function pwash(){try{sessionStorage.setItem('aim_pw_ok','1')}catch(e){}try{document.cookie='aim_pw_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure'}catch(e){}done=true;clearInterval(timer);var nx=new URLSearchParams(location.search).get('next');var p=(nx&&/^\/test\/powerwasher\/[\w\-\/.]*$/.test(nx))?nx:'/test/powerwasher/';body.classList.add('unlocked');setTimeout(function(){body.classList.add('leaving');var cells=[].slice.call(document.querySelectorAll('#wipe i'));cells.sort(function(){return Math.random()-.5});cells.forEach(function(c,i){c.style.animationDelay=(reduce?0:i*9)+'ms'});setTimeout(function(){location.replace(p+'?k=0fa3106e')},reduce?0:520)},reduce?400:2000)}
 function success(){
  done=true;clearInterval(timer);
  target(function(p){
