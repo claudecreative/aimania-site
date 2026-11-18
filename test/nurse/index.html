@@ -29,6 +29,7 @@ section{position:relative}
 .ttl .en{display:block;font-size:13px;color:var(--blue);font-weight:700;margin-bottom:10px}
 .ttl h2{font-family:"Zen Maru Gothic";font-weight:700;font-size:clamp(25px,4.2vw,40px);line-height:1.5;letter-spacing:.06em}
 .ttl p{color:var(--sub);margin-top:14px;font-size:15px}
+.nw{white-space:nowrap;display:inline-block}
 .hand{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
 /* buttons */
@@ -264,6 +265,64 @@ footer nav{display:flex;gap:20px}
 .draw path,.draw circle,.draw rect,.draw ellipse{stroke-dasharray:var(--l,600);stroke-dashoffset:var(--l,600);transition:stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1)}
 .in .draw path,.in .draw circle,.in .draw rect,.in .draw ellipse,.draw.in path,.draw.in circle,.draw.in rect,.draw.in ellipse{stroke-dashoffset:0}
 
+
+/* 想い */
+.mani{position:relative;min-height:110svh;display:flex;align-items:center;overflow:hidden;color:#fff;background:#2c3a4c}
+.mani-ph{position:absolute;inset:0}
+.mani-ph img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;transform:scale(calc(1.12 - var(--m,0)*.12));transition:transform .2s linear}
+.mani-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,40,58,.82) 0%,rgba(28,40,58,.55) 45%,rgba(28,40,58,.05) 80%)}
+.mani-in{position:relative;z-index:2;padding:120px 0}
+.mani .en{font-size:12px;letter-spacing:.24em;opacity:.8}
+.mani h2{font-weight:700;font-size:clamp(26px,3.6vw,44px);line-height:1.75;margin-top:18px}
+.mani h2 .ln{display:block}
+.mani-tx{max-width:520px;margin-top:36px}
+.mani-tx p{font-size:15.5px;line-height:2.2;opacity:.92}
+.mani-tx p+p{margin-top:18px}
+.mani-tx .big{font-size:clamp(24px,3vw,34px);line-height:1.6;margin-top:36px;opacity:1;color:#ffd9cc}
+.mani .ln{opacity:0;transform:translateY(16px);filter:blur(6px);transition:opacity 1.4s,transform 1.4s,filter 1.4s}
+.mani .ln.in{opacity:1;transform:none;filter:none}
+/* 正直に */
+.honest{background:linear-gradient(180deg,#fff,#f6f9fc)}
+.hon{display:grid;gap:22px;max-width:980px;margin:0 auto}
+.hc{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);background:#fff}
+.hq{position:relative;padding:30px 30px 30px 32px;background:#f1f3f6;color:#5d6574}
+.hq .qm{display:inline-block;font-size:11px;font-weight:700;color:#8a93a3;border:1px solid #cfd5de;border-radius:999px;padding:1px 10px;margin-bottom:10px}
+.hq b{display:block;font-family:"Zen Maru Gothic";font-size:17px;line-height:1.7}
+.hq::after{content:"";position:absolute;right:-14px;top:50%;width:28px;height:28px;background:#f1f3f6;transform:translateY(-50%) rotate(45deg);z-index:1}
+.ha{display:flex;gap:16px;align-items:center;padding:30px 30px 30px 40px}
+.ha svg{width:52px;height:52px;flex:none;color:var(--peach)}
+.ha p{font-size:15px;line-height:1.95}
+.ha b{background:linear-gradient(transparent 62%,rgba(247,194,176,.6) 62%)}
+/* ものさし */
+.ruler{background:linear-gradient(180deg,#f6f9fc,#fbf6f0)}
+.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.fc{position:relative;aspect-ratio:1/1.05;border:0;background:none;cursor:pointer;perspective:900px;font:inherit;color:inherit;text-align:center}
+.fc .f,.fc .b{position:absolute;inset:0;border-radius:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;backface-visibility:hidden;transition:transform .7s cubic-bezier(.3,.8,.3,1);box-shadow:var(--sh)}
+.fc .f{background:#fff}
+.fc .f svg{width:52px;height:52px;color:#a7b0bf;margin-bottom:12px}
+.fc .f small{font-size:12px;color:var(--sub)}
+.fc .f b{font-family:"Zen Maru Gothic";font-size:18px;color:#7a8291;margin-top:2px;text-decoration:line-through;text-decoration-color:rgba(242,160,138,.6);text-decoration-thickness:2px}
+.fc .b{background:linear-gradient(145deg,#fff,#fff3ee);transform:rotateY(180deg)}
+.fc .b em{font-style:normal;font-size:11px;font-weight:700;color:#fff;background:var(--peach);border-radius:999px;padding:2px 10px}
+.fc .b b{font-family:"Zen Maru Gothic";font-size:20px;margin-top:10px;line-height:1.4}
+.fc .b small{font-size:12.5px;color:var(--sub);margin-top:8px;line-height:1.7}
+.fc.on .f{transform:rotateY(-180deg)}.fc.on .b{transform:none}
+@media(hover:hover){.fc:hover .f{transform:rotateY(-180deg)}.fc:hover .b{transform:none}}
+.fc.last{cursor:default;border-radius:26px;overflow:hidden;box-shadow:var(--sh)}
+.fc.last img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fc.last span{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 18px;background:linear-gradient(transparent,rgba(40,50,64,.7));color:#fff;font-family:"Zen Maru Gothic";font-weight:700;font-size:18px;line-height:1.55;text-align:left}
+.rnote{text-align:center;font-size:12px;color:var(--sub);margin-top:22px}
+.prio{margin-top:16px;background:#fff;border-radius:22px;padding:16px 18px}
+.prio h6{font-family:"Zen Maru Gothic";font-size:15px}
+.prio ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.prio li{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;background:var(--bluebg);border-radius:999px;padding:5px 12px 5px 8px}
+.prio li svg{width:20px;height:20px;color:var(--blue)}
+@media(max-width:900px){
+ .mani h2{font-size:6.2vw}.mani{min-height:auto}.mani-ph::after{background:linear-gradient(180deg,rgba(28,40,58,.25) 0%,rgba(28,40,58,.85) 55%,rgba(28,40,58,.92) 100%)}
+ .mani-ph img{object-position:62% 30%}.mani-in{padding:46vh 0 80px}
+ .hc{grid-template-columns:1fr}.hq::after{right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%) rotate(45deg)}.hq{padding:24px 22px}.ha{padding:30px 22px 24px}
+ .rgrid{grid-template-columns:1fr 1fr;gap:12px}.fc .f b{font-size:15px}.fc .b b{font-size:16px}.fc .b small{font-size:11.5px}.fc .f svg{width:40px;height:40px}
+}
 @media(max-width:900px){
   .hd nav{display:none}.hd .hb .main{display:none}.logo{font-size:16px;white-space:nowrap}.logo small{display:none}.logo i{width:30px;height:30px}.hd{padding:8px 8px 8px 14px}.hd .btn{min-height:40px;padding:0 16px;font-size:13px}
   .hero{padding-top:96px}
@@ -325,7 +384,7 @@ footer nav{display:flex;gap:20px}
 
 <header class="hd">
   <a class="logo" href="#top"><i><svg width="22" height="22" style="color:#fff"><use href="#i-heart"/></svg></i><span>〔サービス名〕<small>看護師のキャリア相談</small></span></a>
-  <nav><a href="#diag">働き方診断</a><a href="#support">サポート</a><a href="#flow">ご利用の流れ</a><a href="#faq">よくある質問</a></nav>
+  <nav><a href="#ruler">働きやすさ</a><a href="#diag">働き方診断</a><a href="#support">サポート</a><a href="#flow">ご利用の流れ</a><a href="#faq">よくある質問</a></nav>
   <div class="hb"><a class="btn line" href="#line">LINEで相談</a><a class="btn main" href="#cta">無料相談</a></div>
 </header>
 
@@ -336,12 +395,12 @@ footer nav{display:flex;gap:20px}
     <div class="rv">
       <span class="tag"><b></b>看護師のための、無料キャリア相談</span>
       <h1><span class="nw">がんばるあなたに、</span><br><span class="nw"><span class="u">ちょうどいい</span>働き方を。</span></h1>
-      <p class="lead">夜勤、人間関係、家族のこと。ひとりで抱えずに、<br class="pc">あなたのペースで、次の一歩をいっしょに考えます。</p>
+      <p class="lead">求人票だけではわからない「ほんとうの働きやすさ」まで、<br class="pc">いっしょに確かめて、次の一歩を考えます。</p>
       <div class="btns">
         <a class="btn main" href="#cta">無料でキャリア相談<span class="ar">→</span></a>
         <a class="btn sub" href="#diag">1分で働き方診断<span class="ar">→</span></a>
       </div>
-      <div class="note"><span><svg><use href="#i-check"/></svg>相談は完全無料</span><span><svg><use href="#i-check"/></svg>在職中でもOK</span><span><svg><use href="#i-check"/></svg>LINE・オンライン対応</span></div>
+      <div class="note"><span><svg><use href="#i-check"/></svg>相談は完全無料</span><span><svg><use href="#i-check"/></svg>在職中でもOK</span><span><svg><use href="#i-check"/></svg>しつこい連絡はしません</span></div>
     </div>
     <div class="ph-hero rv">
       <div class="img"><img src="a/hero.jpg" alt="窓辺で微笑む看護師の女性"></div>
@@ -365,6 +424,50 @@ footer nav{display:flex;gap:20px}
       <div class="bub rv"><svg class="draw"><use href="#i-baby"/></svg><p>子育てと仕事を<br>両立したい</p></div>
     </div>
     <div class="after rv"><div class="arr"></div><p>その気持ち、<em>とても自然なこと</em>です。<br>まずは、あなたに合う働き方を知ることから。</p></div>
+  </div>
+</section>
+
+<!-- 2.5 想い -->
+<section class="mani">
+  <div class="mani-ph"><img src="a/dawn.jpg" alt="夜勤明けの朝、窓辺で朝日を見る看護師"></div>
+  <div class="wrap mani-in">
+    <p class="en">FOR YOU, WHO CARES FOR OTHERS</p>
+    <h2 class="mg"><span class="ln">患者さんには、</span><span class="ln">あんなにやさしくできるのに。</span><span class="ln">自分のことは、</span><span class="ln">いつも後回し。</span></h2>
+    <div class="mani-tx">
+      <p class="ln">夜勤明けの朝日。休憩も取れずに終わった一日。<br>「辞めたい」より先に、「迷惑をかけたくない」が浮かぶ。</p>
+      <p class="ln">そんなあなたが、ちゃんと休めて、ちゃんと笑える場所は、きっとあります。</p>
+      <p class="ln big mg">がんばり方を、<br>変えてもいい。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2.6 業界の当たり前に正直に -->
+<section class="sec honest">
+  <div class="wrap">
+    <div class="ttl rv"><span class="en">HONESTLY</span><h2><span class="nw">看護師の転職の</span><span class="nw">“あたりまえ”に、</span><br>正直でいたい。</h2><p>転職したのに、また同じ悩み。そんなことを、もう繰り返さないために。</p></div>
+    <div class="hon">
+      <div class="hc rv"><div class="hq"><span class="qm">よくある</span><b>「残業少なめ」と書いてあったのに、<br>実際は毎日サービス残業。</b></div><div class="ha"><svg><use href="#i-search"/></svg><p>求人票の言葉ではなく、<b>実際の残業時間や、記録・申し送りの実態</b>まで確かめてからご紹介します。</p></div></div>
+      <div class="hc rv"><div class="hq"><span class="qm">よくある</span><b>いつも求人が出ている職場は、<br>人が辞めていく職場かもしれない。</b></div><div class="ha"><svg><use href="#i-people"/></svg><p>求人が多いことより、<b>人が定着しているか、ひとりあたりの負担はどうか</b>を大切にします。</p></div></div>
+      <div class="hc rv"><div class="hq"><span class="qm">よくある</span><b>何度も電話がきて、<br>急かされるように決めてしまった。</b></div><div class="ha"><svg><use href="#i-heart"/></svg><p>しつこい電話や、決断を急かすことはしません。<b>「今は転職しない」も、立派な答え</b>です。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2.7 働きやすさのものさし -->
+<section class="sec ruler" id="ruler">
+  <div class="wrap">
+    <div class="ttl rv"><span class="en">7 RULERS</span><h2>求人票の、その先へ。<br><span class="nw">「働きやすさ」</span><span class="nw">7つのものさし</span></h2><p>カードをタップすると、私たちが確かめることが見られます。</p></div>
+    <div class="rgrid">
+      <button class="fc rv" type="button"><span class="f"><svg><use href="#i-moon"/></svg><small>求人票では</small><b>「残業少なめ」</b></span><span class="b"><em>私たちが確かめること</em><b>実際の残業時間</b><small>記録や申し送りで、毎日どれくらい残っているか</small></span></button>
+      <button class="fc rv" type="button"><span class="f"><svg><use href="#i-cal"/></svg><small>求人票では</small><b>「年間休日◯日」</b></span><span class="b"><em>私たちが確かめること</em><b>有休の取りやすさ</b><small>希望休は通る？急な休みにも理解はある？</small></span></button>
+      <button class="fc rv" type="button"><span class="f"><svg><use href="#i-sun"/></svg><small>求人票では</small><b>「夜勤あり」</b></span><span class="b"><em>私たちが確かめること</em><b>夜勤の回数と体制</b><small>月に何回？何人で回している？仮眠はとれる？</small></span></button>
+      <button class="fc rv" type="button"><span class="f"><svg><use href="#i-people"/></svg><small>求人票では</small><b>「アットホーム」</b></span><span class="b"><em>私たちが確かめること</em><b>人間関係と定着</b><small>どんな人が、どれくらい長く働いている？</small></span></button>
+      <button class="fc rv" type="button"><span class="f"><svg><use href="#i-hosp"/></svg><small>求人票では</small><b>「人員充実」</b></span><span class="b"><em>私たちが確かめること</em><b>ひとりあたりの負担</b><small>受け持ち人数や、忙しい時間帯の人の配置</small></span></button>
+      <button class="fc rv" type="button"><span class="f"><svg><use href="#i-leaf"/></svg><small>求人票では</small><b>「教育制度あり」</b></span><span class="b"><em>私たちが確かめること</em><b>入職後のフォロー</b><small>ブランクや新しい分野でも、誰が教えてくれる？</small></span></button>
+      <button class="fc rv" type="button"><span class="f"><svg><use href="#i-house"/></svg><small>求人票では</small><b>「育児支援あり」</b></span><span class="b"><em>私たちが確かめること</em><b>両立の実例</b><small>子育て中の人が、実際にどう働いている？</small></span></button>
+      <div class="fc last rv"><img src="a/family.jpg" alt="休日に子どもと公園を歩く女性"><span>働きやすさは、<br>人生の<br>やさしさになる。</span></div>
+    </div>
+    <p class="rnote rv">※確認する項目・方法は〔運営会社〕の実際の取り組みに合わせて調整します。</p>
   </div>
 </section>
 
@@ -392,6 +495,7 @@ footer nav{display:flex;gap:20px}
           <div class="rtype"><div class="ic"><svg id="rIc"><use href="#i-clinic"/></svg></div><div><small id="rSub">TYPE</small><h4 id="rName">—</h4><div class="tags" id="rTags"></div></div></div>
           <div class="advice"><div class="av"><svg><use href="#i-nurse"/></svg></div><p id="rAdv"></p></div>
           <p class="also">ほかにも合いそう：<b id="rAlso"></b></p>
+          <div class="prio"><h6>あなたの職場選びで、とくに確かめたい「働きやすさ」</h6><ul id="rPrio"></ul></div>
           <div class="pay"><h5><svg><use href="#i-yen"/></svg>給与の目安をチェック</h5>
             <div class="bars" id="bars"></div>
             <p class="fn">※年収の目安は運営会社のデータを掲載する枠です（バーの長さはイメージ）。地域・経験・勤務形態により異なります。</p>
@@ -420,11 +524,11 @@ footer nav{display:flex;gap:20px}
 <!-- 5 選ばれる理由 -->
 <section class="sec reason">
   <div class="wrap">
-    <div class="ttl rv"><span class="en">REASON</span><h2>選ばれる理由</h2></div>
+    <div class="ttl rv"><span class="en">REASON</span><h2>選ばれる理由</h2><p>働きやすさを、いちばん大切に。</p></div>
     <div class="cards3">
       <div class="rcard rv"><svg class="ill draw"><use href="#i-heart"/></svg><span class="pt">POINT 1</span><h3>〔理由1の見出し〕</h3><p>〔理由1の説明を入れる枠〕例：看護師の働き方にくわしい担当者が、気持ちに寄り添ってお話をうかがいます。</p></div>
-      <div class="rcard rv"><svg class="ill draw"><use href="#i-shield"/></svg><span class="pt">POINT 2</span><h3>〔理由2の見出し〕</h3><p>〔理由2の説明を入れる枠〕例：職場の雰囲気や人間関係など、求人票ではわからない情報もお伝えします。</p></div>
-      <div class="rcard rv"><svg class="ill draw"><use href="#i-leaf"/></svg><span class="pt">POINT 3</span><h3>〔理由3の見出し〕</h3><p>〔理由3の説明を入れる枠〕例：急かさない、押しつけない。あなたのペースを大切にします。</p></div>
+      <div class="rcard rv"><svg class="ill draw"><use href="#i-shield"/></svg><span class="pt">POINT 2</span><h3>〔理由2の見出し〕</h3><p>〔理由2の説明を入れる枠〕例：残業や有休の実態、人間関係など、求人票ではわからない「働きやすさ」を確かめてからご紹介します。</p></div>
+      <div class="rcard rv"><svg class="ill draw"><use href="#i-leaf"/></svg><span class="pt">POINT 3</span><h3>〔理由3の見出し〕</h3><p>〔理由3の説明を入れる枠〕例：しつこい連絡や、決断を急かすことはしません。「転職しない」という答えも大切にします。</p></div>
     </div>
   </div>
 </section>
@@ -490,7 +594,7 @@ footer nav{display:flex;gap:20px}
   <svg class="d d1 draw"><use href="#i-heart"/></svg><svg class="d d2 draw"><use href="#i-house"/></svg><svg class="d d3 draw"><use href="#i-spark"/></svg>
   <div class="wrap rv">
     <h2>まずは、気軽に<br>話してみませんか。</h2>
-    <p>無理にすすめることはありません。あなたのペースで、大丈夫です。</p>
+    <p>転職するかどうかは、あとで決めればいい。<br>まずは、あなたの「しんどい」を聞かせてください。</p>
     <div class="btns"><a class="btn main" href="#cta">無料でキャリア相談<span class="ar">→</span></a><a class="btn sub" href="#diag">1分で働き方診断<span class="ar">→</span></a><a class="btn line" href="#line">LINEで相談</a></div>
   </div>
 </section>
@@ -508,6 +612,10 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 document.querySelectorAll('.rv,.draw').forEach(function(el){io.observe(el)});
 var sp=document.getElementById('spcta');addEventListener('scroll',function(){sp.classList.toggle('on',scrollY>innerHeight*.8&&scrollY<document.body.scrollHeight-innerHeight*1.6)},{passive:true});
 
+document.querySelectorAll('.fc:not(.last)').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('on')})});
+var mlines=document.querySelectorAll('.mani .ln'),mio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var i=[].indexOf.call(mlines,e.target);setTimeout(function(){e.target.classList.add('in')},(i%4)*260);mio.unobserve(e.target)}})},{threshold:.5});
+mlines.forEach(function(l){mio.observe(l)});
+var mani=document.querySelector('.mani');addEventListener('scroll',function(){var r=mani.getBoundingClientRect();var m=Math.max(0,Math.min(1,1-(r.bottom/(innerHeight+r.height))));mani.style.setProperty('--m',m.toFixed(3))},{passive:true});
 /* 診断 */
 var Q=[
  {t:'夜勤はできますか？',o:[['moon','夜勤もOK',{hosp:1,home:1}],['sun','日勤だけがいい',{day:2,clinic:2,check:2,beauty:1}],['cal','月に数回ならOK',{day:1,home:1,hosp:1}],['q','まだわからない',{}]]},
@@ -544,6 +652,9 @@ function result(){
   document.getElementById('rAdv').textContent=t.adv;
   document.getElementById('rAlso').textContent=T[order[1]].n+'、'+T[order[2]].n;
   document.getElementById('bars').innerHTML=PAY.map(function(p){return '<div class="bar'+(p[0]===top?' me':'')+'"><span>'+p[1]+(p[0]===top?' ★':'')+'</span><div class="tr"><i data-w="'+p[2]+'"></i></div><span class="v">〔◯◯〕万円</span></div>'}).join('');
+  var PR={yen:[['yen','給与と手当の内訳'],['moon','夜勤の回数と手当'],['spark','昇給・評価のしくみ']],sun:[['cal','有休の取りやすさ'],['moon','実際の残業時間'],['house','急な休みへの理解']],people:[['people','人間関係と定着'],['heart','相談しやすい雰囲気'],['hosp','ひとりあたりの負担']],spark:[['leaf','入職後のフォロー'],['spark','学べる症例・研修'],['people','先輩の働き方']]};
+  var k3=['yen','sun','people','spark'][ans[2]]||'sun';if(ans[0]===1)PR[k3]=PR[k3].concat([['sun','完全日勤の確認']]);
+  document.getElementById('rPrio').innerHTML=PR[k3].map(function(x){return '<li><svg><use href="#i-'+x[0]+'"/></svg>'+x[1]+'</li>'}).join('');
   res.classList.add('on');
   setTimeout(function(){res.querySelectorAll('.tr i').forEach(function(i){i.style.width=i.dataset.w+'%'})},120);
 }
