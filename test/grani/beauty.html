@@ -159,19 +159,29 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .how .intro{flex:0 0 auto;width:min(40vw,640px);padding:120px var(--pad) 8vh;display:flex;flex-direction:column;justify-content:space-between}
 .how .intro h2{font:500 clamp(40px,4.4vw,80px)/1.2 var(--min);letter-spacing:.06em;margin-top:4vh}
 .how .intro p{font-size:14px;max-width:22em;color:#4b4851}
-.how .st{flex:0 0 auto;width:min(31vw,520px);border-left:1px solid var(--stone);padding:120px clamp(24px,2.6vw,48px) 8vh;display:flex;flex-direction:column;position:relative}
-.how .st .n{font:400 clamp(96px,10vw,180px)/.8 var(--serif);letter-spacing:-.04em;color:#c4c1c8}
-.how .st h3{font:500 clamp(22px,1.9vw,30px)/1.4 var(--min);letter-spacing:.1em;margin-top:auto}
-.how .st .en{font:italic 400 17px var(--serif);color:var(--mute);margin-top:4px}
-.how .st p{font-size:13.5px;margin-top:14px;max-width:20em;color:#4b4851}
-.how .st .vis{position:relative;margin:4vh 0 0;height:34vh;overflow:hidden}
+.how .st{flex:0 0 auto;width:clamp(360px,30vw,600px);padding:clamp(96px,13vh,140px) clamp(22px,2.2vw,44px) clamp(56px,9vh,96px);display:flex;flex-direction:column;position:relative}
+.how .st{border-left:1px solid var(--stone)}
+.how .st .vis{position:relative;margin:0;height:calc(100svh - clamp(96px,13vh,140px) - clamp(56px,9vh,96px) - 150px);min-height:240px;overflow:hidden;background:#dcdade;clip-path:inset(0 0 0 0)}
+.how .st .vis img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;transform-origin:50% 50%;will-change:transform}
+.how .st1 .vis img{object-position:48% 30%}
+.how .st2{padding-top:calc(clamp(96px,13vh,140px) + 7vh)}
+.how .st2 .vis{height:calc(100svh - clamp(96px,13vh,140px) - 7vh - clamp(56px,9vh,96px) - 150px)}
+.how .st2 .vis img{object-position:40% 20%}
+.how .st3 .vis img{object-position:46% 40%}
+.how .st4{width:clamp(520px,46vw,900px)}
+.how .st4 .vis img{object-position:40% 50%}
+.how .st5{padding-top:calc(clamp(96px,13vh,140px) + 7vh)}
+.how .st5 .vis{height:calc(100svh - clamp(96px,13vh,140px) - 7vh - clamp(56px,9vh,96px) - 150px)}
+.how .st5 .vis img{object-position:38% 40%}
+.how .st .n{position:absolute;z-index:2;left:clamp(22px,2.2vw,44px);top:calc(clamp(96px,13vh,140px) - .52em);font:400 clamp(84px,8vw,150px)/1 var(--serif);letter-spacing:-.04em;color:var(--ink);pointer-events:none}
+.how .st2 .n,.how .st5 .n{top:calc(clamp(96px,13vh,140px) + 7vh - .52em)}
 .how .st.key .n{color:var(--pink)}
-.how .st .vis.prod{background:#f4f4f5}
-.how .st .vis.prod img{position:absolute;inset:0;margin:auto;height:92%;width:auto;mix-blend-mode:multiply}
-.how .st .vis.dry{background:url(a/b_hero.jpg) 56% 18%/cover}
-.how .st .vis.dry::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 30% 40%,rgba(255,46,147,.35),transparent 70%);mix-blend-mode:screen}
-.how .st .vis.line{border-top:1px solid var(--stone);height:34vh}
-.how .st .vis.line svg{width:100%;height:100%}
+.how .st .tx{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:baseline;margin-top:22px}
+.how .st h3{font:500 clamp(20px,1.6vw,28px)/1.4 var(--min);letter-spacing:.1em}
+.how .st .en{font:italic 400 16px var(--serif);color:var(--mute);margin:0}
+.how .st .tx p:not(.en){grid-column:1/-1;font-size:13.5px;margin-top:10px;max-width:24em;color:#4b4851}
+.how .st .vis::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(35,33,39,.04)}
+.how .st5 .vis::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(50% 60% at 62% 55%,rgba(255,46,147,.16),transparent 70%);mix-blend-mode:multiply}
 .how .track::after{content:"";flex:0 0 8vw}
 .how .rail{position:absolute;left:var(--pad);right:var(--pad);bottom:28px;height:1px;background:var(--stone)}
 .how .rail i{position:absolute;inset:0;background:var(--pink);transform-origin:left;transform:scaleX(0)}
@@ -320,13 +330,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  .how .stage{position:relative;height:auto}
  .how .track{flex-direction:column;transform:none!important}
  .how .intro{width:auto;padding:16vh 22px 6vh;gap:24px}
- .how .st{width:auto;border-left:0;border-top:1px solid var(--stone);margin:0 22px;padding:28px 0 34px;display:grid;grid-template-columns:auto 1fr;gap:0 22px;align-items:start}
- .how .st .n{font-size:72px;grid-row:span 4}
- .how .st h3{margin:0;font-size:21px}
+ .how .st,.how .st4{width:auto;border-left:0!important;border-top:1px solid var(--stone);margin:0 22px;padding:30px 0 46px!important;display:flex;flex-direction:column}
+ .how .st .vis,.how .st2 .vis,.how .st5 .vis{order:2;height:auto;min-height:0;aspect-ratio:4/5;margin:18px -22px 0}
+ .how .st4 .vis{aspect-ratio:1/1}
+ .how .st4 .vis img{object-position:38% 50%}
+ .how .st2 .vis img{object-position:42% 20%}
+ .how .st .n,.how .st2 .n,.how .st5 .n{position:static;order:0;font-size:84px;line-height:.9;margin-bottom:-4px}
+ .how .st .tx{order:1;margin-top:10px}
+ .how .st .tx p:not(.en){order:3}
+ .how .st h3{font-size:22px}
  .how .st .en{font-size:15px}
- .how .st p{margin-top:6px}
- .how .st .vis{height:34vw;margin-top:16px;grid-column:2;order:5}
- .how .st .vis.line{display:none}
+ .how .st .vis{clip-path:inset(0 0 100% 0);transition:clip-path 1.3s cubic-bezier(.7,0,.2,1)}
+ .how .st .vis img{transform:scale(1.16);transition:transform 1.8s cubic-bezier(.2,.7,.2,1)}
+ .how .st .vis.in{clip-path:inset(0)}
+ .how .st .vis.in img{transform:none}
  .how .rail{display:none}
  .scent{height:auto}
  .scent .stage{position:relative;height:auto}
@@ -356,6 +373,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 @media (max-width:820px) and (max-height:700px){.ba .sub{display:none}}
 @media (prefers-reduced-motion:reduce){
+ .how .st .vis{clip-path:none!important;transition:none}.how .st .vis img{transform:none!important;transition:none}
  .hero .catch span{animation:none;clip-path:none}.hero .w{animation:none;opacity:1}.hero .cue{display:none}
  .phil h2 span{clip-path:none;transition:none}.phil p.b{opacity:1;transition:none}
 }
@@ -504,11 +522,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <div><p class="folio"><i>07</i>使用方法</p><h2>いつもの<br>夜に、<br>ひと手間。</h2></div>
     <p>タオルドライの後になじませて、あとはドライヤーで乾かすだけ。熱を当てる時間が、そのままケアの時間になります。</p>
    </div>
-   <div class="st"><span class="n">1</span><div class="vis line"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g fill="none" stroke="#9f9ba5" stroke-width=".8"><circle cx="70" cy="110" r="26"/><circle cx="112" cy="86" r="18"/><circle cx="128" cy="128" r="12"/><circle cx="90" cy="60" r="8"/></g></svg></div><h3>シャンプー</h3><p class="en">Shampoo</p><p>頭皮と髪の汚れを、やさしく洗い流します。</p></div>
-   <div class="st"><span class="n">2</span><div class="vis line"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g fill="none" stroke="#9f9ba5" stroke-width=".8"><path d="M40 40 C70 90 60 130 90 170"/><path d="M60 36 C90 88 80 128 110 170"/><path d="M80 32 C110 86 100 126 130 170"/><path d="M100 30 C130 84 120 124 150 170"/></g></svg></div><h3>コンディショナー</h3><p class="en">Conditioner</p><p>毛先を中心になじませ、すすぎます。</p></div>
-   <div class="st"><span class="n">3</span><div class="vis line"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g fill="none" stroke="#9f9ba5" stroke-width=".8"><path d="M30 80 Q100 60 170 80 L170 140 Q100 120 30 140 Z"/><path d="M30 95 Q100 75 170 95"/><path d="M30 110 Q100 90 170 110"/><path d="M30 125 Q100 105 170 125"/></g></svg></div><h3>タオルドライ</h3><p class="en">Towel dry</p><p>こすらず、押さえるように水気を取ります。</p></div>
-   <div class="st key"><span class="n">4</span><div class="vis prod"><img src="a/product_photo.jpg" alt="GRANI ヘアミルクのチューブ" loading="lazy"></div><h3>GRANI</h3><p class="en">Hair milk</p><p>適量を手のひらに広げ、毛先から中間へなじませます。</p></div>
-   <div class="st key"><span class="n">5</span><div class="vis dry" role="img" aria-label="ドライヤーの熱を受ける髪のイメージ"></div><h3>ドライヤー</h3><p class="en">Blow dry</p><p>根元から毛先へ、熱を当てて乾かします。この熱で、成分が届きます。</p></div>
+   <div class="st st1"><figure class="vis"><img src="a/b_s1.jpg" alt="泡で髪を洗うモデル" width="1376" height="768" loading="lazy" decoding="async"></figure><span class="n">1</span><div class="tx"><h3>シャンプー</h3><p class="en">Shampoo</p><p>頭皮と髪の汚れを、やさしく洗い流します。</p></div></div>
+   <div class="st st2"><figure class="vis"><img src="a/b_s2.jpg" alt="濡れた髪にコンディショナーをなじませるモデル" width="1376" height="768" loading="lazy" decoding="async"></figure><span class="n">2</span><div class="tx"><h3>コンディショナー</h3><p class="en">Conditioner</p><p>毛先を中心になじませ、すすぎます。</p></div></div>
+   <div class="st st3"><figure class="vis"><img src="a/b_s3.jpg" alt="タオルで髪の水気を押さえるモデル" width="1376" height="768" loading="lazy" decoding="async"></figure><span class="n">3</span><div class="tx"><h3>タオルドライ</h3><p class="en">Towel dry</p><p>こすらず、押さえるように水気を取ります。</p></div></div>
+   <div class="st st4 key"><figure class="vis"><img src="a/b_s4.jpg" alt="GRANI ヘアミルクを毛先になじませるモデルとチューブ" width="1376" height="768" loading="lazy" decoding="async"></figure><span class="n">4</span><div class="tx"><h3>GRANI</h3><p class="en">Hair milk</p><p>適量を手のひらに広げ、毛先から中間へなじませます。</p></div></div>
+   <div class="st st5 key"><figure class="vis"><img src="a/b_s5.jpg" alt="ドライヤーで髪を乾かすモデル" width="1376" height="768" loading="lazy" decoding="async"></figure><span class="n">5</span><div class="tx"><h3>ドライヤー</h3><p class="en">Blow dry</p><p>根元から毛先へ、熱を当てて乾かします。この熱で、成分が届きます。</p></div></div>
   </div>
   <div class="rail" aria-hidden="true"><i id="howRail"></i></div>
  </div>
@@ -695,9 +713,12 @@ requestAnimationFrame(baLoop);
 /* ---- science diagram ---- */
 const dg={cv:$('#diaCv'),p:0,vis:false};const dctx=dg.cv.getContext('2d');
 let sd2=11;const r3=()=>(sd2=(sd2*16807)%2147483647)/2147483647;
-const tos=Array.from({length:120},()=>{const a=r3()*7,ta=r3()*7,tr=Math.sqrt(r3())*.8+.02;return{sa:a,sr:1.25+r3()*.5,ta,tr,d:r3()*.35,z:.6+r3()*.9,ph:r3()*7}});
-const gam=Array.from({length:110},()=>{const a=r3()*7;return{sa:a+(r3()-.5)*.6,sr:1.3+r3()*.45,ta:a,tr:.9+r3()*.1,d:r3()*.35,z:.6+r3()*.9,ph:r3()*7}});
-function sizeDia(){const r=dg.cv.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);dg.cv.width=Math.round(r.width*d);dg.cv.height=Math.round(r.height*d)}
+const NP=innerWidth<=820?1100:2600;
+const mkP=(n,pink)=>Array.from({length:n},()=>({sa:r3()*6.2832,sr:1.18+Math.pow(r3(),1.6)*.62,w:(.25+r3()*.5)*(r3()<.5?1:1.15),
+ ta:r3()*6.2832,tr:pink?.965+(r3()-.5)*.05:Math.pow(r3(),.62)*.86,d:r3()*.45,sz:r3()<.82?1:r3()<.8?1.6:2.4,al:.25+r3()*.75,ph:r3()*6.2832,f:.6+r3()*1.4}));
+const tos=mkP(NP,false),gam=mkP(Math.round(NP*.85),true);
+let dLast=-1;
+function sizeDia(){dLast=-1;const r=dg.cv.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);dg.cv.width=Math.round(r.width*d);dg.cv.height=Math.round(r.height*d)}
 function drawDia(t){
  const S=dg.cv.width;if(!S)return;const c=dctx,cx=S/2,cy=S/2,R=S*.33,p=dg.p;
  const p1=clamp(p/.42),p2=clamp((p-.36)/.42),heat=clamp((p-.3)/.4);const tt=reduce?0:t/1000;
@@ -710,18 +731,34 @@ function drawDia(t){
  // cuticle scales
  c.lineWidth=S/420;for(let i=0;i<44;i++){const a=i/44*Math.PI*2;c.strokeStyle=`rgba(255,255,255,${.18+.25*p2})`;c.beginPath();c.arc(cx,cy,R*(.93+.05*(i%2)),a,a+.2);c.stroke()}
  c.strokeStyle='rgba(255,255,255,.3)';c.beginPath();c.arc(cx,cy,R,0,7);c.stroke();
- const dot=(x,y,r,col)=>{c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,7);c.fill()};
- for(const o of tos){const k=ease(clamp((p1-o.d)/.65));const a=o.sa+(o.ta-o.sa)*k,r=(o.sr+(o.tr-o.sr)*k)*R;const w=Math.sin(tt*1.2+o.ph)*S*.004*(1-k*.6);
-  dot(cx+Math.cos(a)*r+w,cy+Math.sin(a)*r+w*.6,S*.0048*o.z,`rgba(244,238,232,${.35+.6*Math.min(1,p1*3)})`)}
- for(const o of gam){const k=ease(clamp((p2-o.d)/.65));const a=o.sa+(o.ta-o.sa)*k,r=(o.sr+(o.tr-o.sr)*k)*R;const w=Math.sin(tt*1.5+o.ph)*S*.004*(1-k*.7);
-  dot(cx+Math.cos(a)*r+w,cy+Math.sin(a)*r-w*.6,S*.0052*o.z,`rgba(255,46,147,${.3+.7*Math.min(1,p*2)})`)}
+ c.save();c.globalCompositeOperation='lighter';
+ const u=S/600,TAU=6.2832;
+ const field=(arr,pk,col,inward)=>{c.fillStyle=col;
+  for(const o of arr){const k=ease(clamp((pk-o.d)/.5));
+   // free state: swirling heat vortex around the strand
+   const fa=o.sa+tt*o.w*(1+heat*.9),fr=o.sr+Math.sin(tt*o.f+o.ph)*.05+Math.sin(fa*3+tt*.7)*.025;
+   let a,r;
+   if(inward){// tosteare: spiral into the cortex, then drift slowly inside
+    const ia=o.ta+tt*.05*o.w+Math.sin(tt*.6*o.f+o.ph)*.06,ir=o.tr+Math.sin(tt*o.f*.8+o.ph)*.012;
+    a=fa+(ia-fa)*k+k*(1-k)*4.2;r=fr+(ir-fr)*k;
+   }else{// γ-docosalactone: settle into a thin aligned shell along the cuticle
+    const ia=o.ta+tt*.035+Math.sin(tt*o.f+o.ph)*.004*(1-p2*.5),ir=o.tr+Math.sin(o.ta*44)*.012;
+    a=fa+(ia-fa)*k+k*(1-k)*2.6;r=fr+(ir-fr)*k;}
+   const x=cx+Math.cos(a)*r*R,y=cy+Math.sin(a)*r*R,z=o.sz*u*1.1;
+   const tw=.6+.4*Math.sin(tt*2.3*o.f+o.ph);
+   c.globalAlpha=o.al*tw*(inward?(.35+.65*Math.min(1,p1*2.5+.3))*(1-k*.25):Math.min(1,(.4+.9*Math.min(1,p*2+.25))*(1+p2*.5)));
+   c.fillRect(x-z/2,y-z/2,z,z);
+   if(o.sz>1){c.globalAlpha*=.16;c.fillRect(x-z*1.6,y-z*1.6,z*3.2,z*3.2)}}};
+ field(tos,p1,'#F6EFE6',true);
+ field(gam,p2,'#FF5AAE',false);
+ c.restore();
  // labels
  c.font=`italic ${Math.round(S*.026)}px "Bodoni Moda"`;c.fillStyle='rgba(255,255,255,.55)';c.textAlign='left';
  c.fillText('cuticle',cx+R*.78,cy-R*1.02);c.fillText('cortex',cx+R*.3,cy+R*.15);
  c.textAlign='center';c.fillStyle='rgba(255,255,255,.4)';c.fillText(`heat ${Math.round(24+heat*56)}°`,cx,cy+R*1.62);
 }
 new IntersectionObserver(es=>es.forEach(e=>dg.vis=e.isIntersecting)).observe(dg.cv);
-(function dLoop(t){if(dg.vis)drawDia(t);requestAnimationFrame(dLoop)})(0);
+(function dLoop(t){if(dg.vis&&(!reduce||dg.p!==dLast)){dLast=dg.p;drawDia(t)}requestAnimationFrame(dLoop)})(0);
 
 /* ---- static sparks ---- */
 const sc={cv:$('#statCv'),I:1,vis:false};const sctx=sc.cv.getContext('2d');
@@ -741,7 +778,12 @@ new IntersectionObserver(es=>es.forEach(e=>sc.vis=e.isIntersecting)).observe(sc.
 (function sLoop(t){if(sc.vis)drawStat(t);requestAnimationFrame(sLoop)})(0);
 
 /* ---- horizontal how-to ---- */
-const how=$('#how'),track=$('#howTrack');let howMax=0;
+const how=$('#how'),track=$('#howTrack'),howSt=$$('.how .st');let howMax=0;
+const howImgs=howSt.map(e=>e.querySelector('.vis')),howIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');howIo.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});
+howImgs.forEach(v=>howIo.observe(v));
+function revealHow(){if(isSP()||reduce){howImgs.forEach(v=>{v.style.clipPath='';v.firstChild.style.transform=''});return}
+ howImgs.forEach(v=>{const r=v.getBoundingClientRect();const k=easeO(clamp((innerWidth-r.left)/(Math.min(innerWidth*.55,r.width*1.6))));
+  v.style.clipPath=`inset(0 0 0 ${((1-k)*100).toFixed(2)}%)`;v.firstChild.style.transform=`scale(${(1.22-k*.22).toFixed(4)}) translate3d(${((1-k)*6).toFixed(2)}%,0,0)`})}
 function sizeHow(){if(isSP()){how.style.height='';howMax=0;return}howMax=Math.max(0,track.scrollWidth-innerWidth);how.style.height=(howMax+VH)+'px'}
 
 /* ---- scroll engine ---- */
@@ -768,6 +810,7 @@ function tick(){ticking=false;const y=scrollY;
  sc.I=1-clamp((pass(stat)-.18)/.32);
  // how
  if(howMax){const p=sticky(how);track.style.transform=`translate3d(${(-p*howMax).toFixed(1)}px,0,0)`;$('#howRail').style.transform=`scaleX(${p.toFixed(4)})`}
+ revealHow();
  // scent
  if(!isSP()){const p=sticky(scent);const ni=Math.min(2,Math.floor(p*3));notes.forEach((e,i)=>e.classList.toggle('on',i===ni));
   const n0=notes[0],n2=notes[2];const top=n0.offsetTop+(n2.offsetTop-n0.offsetTop)*clamp(p*1.2-.1)-(80-n0.offsetHeight/2);haze.style.transform=`translate3d(0,${top}px,0)`}

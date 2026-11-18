@@ -34,7 +34,8 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
 /* ===== header ===== */
 .logo-fx{position:fixed;left:var(--pad);top:16px;z-index:51}
 .logo-fx img{height:34px;width:auto}
-.hd{position:fixed;top:0;right:0;z-index:50;padding:18px var(--pad);mix-blend-mode:difference;color:#fff}
+.hd{position:fixed;top:0;right:0;z-index:50;padding:18px var(--pad);color:#fff;text-shadow:0 0 14px rgba(0,0,0,.45),0 0 2px rgba(0,0,0,.35);transition:color .35s,text-shadow .35s}
+.hd.ink{color:#0b0b0c;text-shadow:0 0 12px rgba(255,255,255,.55)}
 .hd nav{display:flex;gap:22px;font:600 12px/1 var(--lat);letter-spacing:.06em}
 .hd nav a{text-decoration:none;padding:6px 0;position:relative}
 .hd nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s}
@@ -141,7 +142,7 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
 /* ===== 4 W formula ===== */
 .s2a{background:#000;color:#fff;padding:16vh var(--pad) 10vh;position:relative;overflow:hidden}
 .s2a .no{margin-bottom:4vh}
-.s2a h2{display:inline-block;font-size:min(19vw,30vh);line-height:1.02;letter-spacing:-.06em;background:url(a/w_strand.jpg) no-repeat;background-size:160% auto;background-position:calc(10% + var(--p,0)*60%) 62%;-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.s2a h2{display:inline-block;font-size:min(19vw,30vh);line-height:1.02;letter-spacing:-.06em;background-image:linear-gradient(100deg,rgba(255,46,147,.62),rgba(255,140,120,.5) 50%,rgba(255,46,147,.62)),url(a/w_strand.jpg);background-repeat:no-repeat;background-size:100% 100%,160% auto;background-position:0 0,calc(10% + var(--p,0)*60%) 62%;background-blend-mode:screen,normal;-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
 .s2a-sub{display:grid;grid-template-columns:1fr 1fr;gap:4vw;margin-top:5vh;align-items:end}
 .s2a-sub h3{font-size:clamp(22px,2.4vw,40px)}
 .s2a-sub p{font-size:clamp(16px,1.4vw,21px);font-weight:700;color:var(--pk)}
@@ -230,6 +231,10 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
 .step.on{flex:3.4}
 .step .bg{position:absolute;inset:0;opacity:0;transition:opacity .6s}
 .step .bg img{width:100%;height:100%;object-fit:cover}
+.step.dark .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,0) 34%,rgba(0,0,0,0) 62%,rgba(0,0,0,.45));pointer-events:none}
+.step.dark .tt{text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.step.dark.on .n{color:var(--pk);mix-blend-mode:normal}
+@media (min-width:821px){.step.dark.g .d{top:auto;bottom:20px;left:auto;right:16px}}
 .step.on .bg{opacity:1}
 .step .n{position:absolute;left:14px;bottom:-.06em;font-size:min(34vh,15vw);line-height:.78;color:rgba(0,0,0,.14);transition:color .5s}
 .step.on .n{color:var(--pk)}
@@ -370,6 +375,8 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
   .s1-ph img{object-position:55% 40%}
   .s1 .no{top:70px}
   .s1-big{top:12vh;font-size:18vw;text-shadow:0 2px 30px rgba(0,0,0,.45)}
+  .s1-ph{top:36svh}
+  .s1-ph img{object-position:58% 20%}
   .s1-copy{left:12px;right:12px;width:auto;bottom:12px;padding:20px 20px 18px}
   .s1-copy p.t{font-size:12.5px;line-height:1.75;margin-top:8px}
   .s1-tl{margin-top:12px}.s1-tl b{font-size:20px}.s1-tl li{font-size:11px}
@@ -417,9 +424,17 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
   .step .n{font-size:120px;left:10px;color:rgba(0,0,0,.2)}
   .step:nth-child(4) .n,.step:nth-child(5) .n{color:var(--pk);top:10px;bottom:auto}
   .step .d h3{font-size:22px}.step .d p{font-size:13px}
+  .step,.step.on,.step:nth-child(4),.step:nth-child(5){min-height:0;aspect-ratio:4/3}
+  .step:nth-child(4),.step:nth-child(5){aspect-ratio:1/1}
+  .step.dark .bg{opacity:1;filter:none}
+  .step.dark .d{padding:10px 14px 12px;max-width:78%;right:auto}
+  .step .d h3{font-size:19px}.step .d p{font-size:12px;margin-top:4px;line-height:1.6}
+  .step.dark .n{color:rgba(255,255,255,.55);font-size:96px;top:8px;bottom:auto;left:10px}
+  .step.dark:nth-child(4) .n,.step.dark:nth-child(5) .n{color:var(--pk)}
   .scent{height:200vh}
-  .scent-ph img{object-position:42% 30%}
-  .scent-t{left:0;right:0;width:auto;top:auto;bottom:0;padding:28vh 16px 5vh;justify-content:flex-end;background:linear-gradient(transparent,rgba(190,191,195,.92) 32%)}
+  .scent-ph{bottom:36%}
+  .scent-ph img{object-position:58% 30%}
+  .scent-t{left:0;right:0;width:auto;top:auto;bottom:0;padding:9vh 16px 4vh;justify-content:flex-end;background:linear-gradient(rgba(157,158,163,0),#9d9ea3 22%)}
   .scent-t .ttl{font-size:44px}
   .notes{margin-top:2.4vh}.notes li{padding:9px 0}
   .voice{padding:12vh 16px}
@@ -617,14 +632,14 @@ sup{font-size:.5em;vertical-align:super;line-height:0}
       <li class="step dark on"><div class="bg"><img src="a/e_s1.jpg" alt="" loading="lazy" style="object-position:50% 30%"></div><span class="n x">1</span><span class="tt">シャンプー</span><div class="d"><small>Step 1</small><h3>シャンプー</h3><p>いつも通りに洗う。</p></div></li>
       <li class="step dark"><div class="bg"><img src="a/e_s2.jpg" alt="" loading="lazy" style="object-position:50% 30%"></div><span class="n x">2</span><span class="tt">コンディショナー</span><div class="d"><small>Step 2</small><h3>コンディショナー</h3><p>すすいで、指どおりを整える。</p></div></li>
       <li class="step dark"><div class="bg"><img src="a/e_s3.jpg" alt="" loading="lazy" style="object-position:50% 30%"></div><span class="n x">3</span><span class="tt">タオルドライ</span><div class="d"><small>Step 3</small><h3>タオルドライ</h3><p>こすらず、押さえるように水気をとる。</p></div></li>
-      <li class="step dark"><div class="bg"><img src="a/e_s4.jpg" alt="" loading="lazy" style="object-position:45% 35%"></div><span class="n x">4</span><span class="tt">GRANI</span><div class="d"><small>Step 4</small><h3>GRANI</h3><p>適量を手にとり、毛先を中心に中間までなじませる。</p></div></li>
+      <li class="step dark"><div class="bg"><img src="a/e_s4.jpg" alt="" loading="lazy" style="object-position:30% 35%"></div><span class="n x">4</span><span class="tt">GRANI</span><div class="d"><small>Step 4</small><h3>GRANI</h3><p>適量を手にとり、毛先を中心に中間までなじませる。</p></div></li>
       <li class="step dark g"><div class="bg"><img src="a/e_dryer.jpg" alt="" loading="lazy" style="object-position:55% 40%"></div><span class="n x">5</span><span class="tt">ドライヤー</span><div class="d"><small>Step 5</small><h3>ドライヤー</h3><p>根元から毛先へ。熱をあてて、成分を浸透させる。</p></div></li>
     </ol>
   </div>
 </section>
 
 <!-- 8 FRAGRANCE -->
-<section id="scent" class="scent" data-s>
+<section id="scent" class="scent" data-s data-hd="lt">
   <div class="stk">
     <div class="scent-ph"><img src="a/e_haze.jpg" alt="ボブの横顔とピンクのもや" loading="lazy"></div>
     <div class="scent-t">
@@ -719,13 +734,18 @@ const isSP=()=>innerWidth<=820;
 /* ---------- scroll scrub engine ---------- */
 const subs=[];
 function on(sel,fn){const el=typeof sel==='string'?$(sel):sel;if(!el)return;subs.push({el,fn,vis:false,mode:el.dataset.s||'stick'})}
-const io=new IntersectionObserver(es=>es.forEach(e=>{const s=subs.find(s=>s.el===e.target);if(s)s.vis=e.isIntersecting}),{rootMargin:'25% 0px'});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{const s=subs.find(s=>s.el===e.target);if(s)s.vis=e.isIntersecting});req()},{rootMargin:'25% 0px'});
 let ticking=false;
+const hdEl=$('.hd'),hdSecs=$$('main>section,footer');let hdLast='';
+const lumOf=el=>{const m=getComputedStyle(el).backgroundColor.match(/[\d.]+/g);if(!m||(m[3]!==undefined&&+m[3]<.5))return 0;return(.2126*m[0]+.7152*m[1]+.0722*m[2])/255};
+function hdTone(){const y=30;let t='lt';for(const sc of hdSecs){const r=sc.getBoundingClientRect();if(r.top<=y&&r.bottom>y){t=sc.dataset.hd||(lumOf(sc)>.5?'ink':'lt');break}}
+  if(t!==hdLast){hdLast=t;hdEl.classList.toggle('ink',t==='ink')}}
 function tick(){ticking=false;const vh=innerHeight;
   for(const s of subs){if(!s.vis)continue;const r=s.el.getBoundingClientRect();let p;
     if(s.mode==='pass')p=cl((vh-r.top)/(vh+r.height));else p=cl(-r.top/Math.max(1,r.height-vh));
     s.fn(p,r)}
   const sp=scrollY/Math.max(1,document.documentElement.scrollHeight-vh);document.documentElement.style.setProperty('--sp',sp.toFixed(4));
+  hdTone();
   $('.buy-tab').classList.toggle('on',scrollY>vh*1.2&&$('#buy').getBoundingClientRect().top>vh*.6);
 }
 const req=()=>{if(!ticking){ticking=true;requestAnimationFrame(tick)}};
@@ -787,7 +807,7 @@ const hfs=$$('.hf');on('#files',p=>{hfs.forEach((h,i)=>{const w=RM?1:ease(cl((p-
 /* S1 — kinetic type blown by the dryer */
 const s1=$('#s1'),s1c=$$('.s1-big span',s1);
 const s1seed=s1c.map((_,i)=>({x:-(40+i*9),y:(i%2?1:-1)*(8+i*3),r:(i%2?-1:1)*(18+i*4)}));
-on(s1,p=>{const o=RM?1:ease(cl(p/.32));s1.style.setProperty('--o',o.toFixed(4));
+on(s1,(p,r)=>{const o=RM?1:ease(cl((innerHeight-r.top)/(innerHeight*1.35)));s1.style.setProperty('--o',o.toFixed(4));
   s1c.forEach((c,i)=>{const q=RM?1:ease(cl((p-.12-i*.035)/.34)),s=s1seed[i],k=1-q;c.style.transform=`translate(${s.x*k}vw,${s.y*k}vh) rotate(${s.r*k}deg)`;c.style.filter=k>.01?`blur(${k*14}px)`:'none';c.style.opacity=(.15+q*.85).toFixed(3)});
   s1.style.setProperty('--k',(RM?1:cl((p-.5)/.2)).toFixed(3))});
 
@@ -803,6 +823,10 @@ for(let i=0;i<70;i++){const a=rnd(Math.PI*.6,Math.PI*1.4),b=rnd(0,Math.PI*2);TO.
 for(let i=0;i<64;i++){const a=rnd(0,Math.PI*2);DO.push({a,r0:rnd(1.16,1.5),b:a+rnd(-.5,.5),r1:rnd(.97,1.05),d:rnd(0,.35),ph:rnd(0,6)})}
 for(let i=0;i<46;i++){const a=rnd(0,Math.PI*2),r=Math.sqrt(rnd(.06,.68));FIB.push({x:Math.cos(a)*r,y:Math.sin(a)*r,s:rnd(.05,.09)})}
 for(let i=0;i<TO.length;i++){const A=TO[i];const ax=Math.cos(A.b)*A.r1,ay=Math.sin(A.b)*A.r1;for(let j=i+1;j<TO.length;j++){const B=TO[j],d=Math.hypot(ax-Math.cos(B.b)*B.r1,ay-Math.sin(B.b)*B.r1);if(d<.2)BONDS.push([i,j])}}
+const NPE=innerWidth<=820?1000:2400;let sdE=7;const rE=()=>(sdE=(sdE*16807)%2147483647)/2147483647;
+const mkE=(n,inw)=>Array.from({length:n},()=>({sa:inw?Math.PI*(.55+rE()*.9):rE()*6.2832,sr:1.15+Math.pow(rE(),1.5)*.6,w:(.22+rE()*.5),ta:rE()*6.2832,
+  tr:inw?Math.pow(rE(),.6)*.82:1.0+(rE()-.5)*.06,d:rE()*.4,sz:rE()<.8?1:rE()<.75?1.7:2.6,al:.3+rE()*.7,ph:rE()*6.2832,f:.6+rE()*1.4}));
+const FTO=mkE(NPE,true),FDO=mkE(Math.round(NPE*.8),false);
 function dgSize(){const r=dgC.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);DW=dgC.width=dgC.height=Math.round(r.width*d)}
 function drawDG(t){const w=DW;if(!w)return;const c=w/2,R=w*.29,p=DP;
   const heat=RM?(p>.3?1:0):ease(cl((p-.28)/.3)),set=RM?(p>.66?1:0):ease(cl((p-.66)/.22));
@@ -820,12 +844,17 @@ function drawDG(t){const w=DW;if(!w)return;const c=w/2,R=w*.29,p=DP;
   // bonds
   if(set>0){dg.strokeStyle=`rgba(255,92,173,${set*.75})`;dg.lineWidth=Math.max(1,w*.0018);dg.beginPath();BONDS.forEach(([i,j])=>{const A=TO[i],B=TO[j];dg.moveTo(c+Math.cos(A.b)*A.r1*R,c+Math.sin(A.b)*A.r1*R);dg.lineTo(c+Math.cos(B.b)*B.r1*R,c+Math.sin(B.b)*B.r1*R)});dg.stroke()}
   const jit=RM?0:1;
-  // tostea (pink, into the core)
-  dg.fillStyle='#FF1F8F';TO.forEach(o=>{const e=ease(cl((heat-o.d)/(.65)));const x0=Math.cos(o.a)*o.r0,y0=Math.sin(o.a)*o.r0,x1=Math.cos(o.b)*o.r1,y1=Math.sin(o.b)*o.r1;
-    const x=c+(x0+(x1-x0)*e)*R+Math.sin(t*.002+o.ph)*w*.004*jit*(1-set),y=c+(y0+(y1-y0)*e)*R+Math.cos(t*.0023+o.ph)*w*.004*jit*(1-set);dg.beginPath();dg.arc(x,y,w*.0085,0,7);dg.fill()});
-  // docosalactone (white ring, to the surface)
-  dg.strokeStyle='#fff';dg.lineWidth=Math.max(1.2,w*.003);DO.forEach(o=>{const e=ease(cl((heat-o.d)/(.65)));const a=o.a+(o.b-o.a)*e,r=o.r0+(o.r1-o.r0)*e;
-    const x=c+Math.cos(a)*r*R+Math.sin(t*.0018+o.ph)*w*.004*jit*(1-e),y=c+Math.sin(a)*r*R+Math.cos(t*.002+o.ph)*w*.004*jit*(1-e);dg.beginPath();dg.arc(x,y,w*.008,0,7);dg.stroke()});
+  // fine particle fields: tostea (pink) spirals into the cortex, docosalactone (white) aligns on the cuticle
+  if(set>0){dg.fillStyle=`rgba(255,31,143,${set})`;TO.forEach(o=>{dg.beginPath();dg.arc(c+Math.cos(o.b)*o.r1*R,c+Math.sin(o.b)*o.r1*R,w*.0042,0,7);dg.fill()})}
+  {const tt=RM?0:t/1000,u=w/600;dg.save();dg.globalCompositeOperation='lighter';
+   const fld=(arr,col,inw)=>{dg.fillStyle=col;for(const o of arr){const k=ease(cl((heat-o.d)/.5));
+     const fa=o.sa+tt*o.w*(.35+heat*1.1),fr=o.sr+Math.sin(tt*o.f+o.ph)*.05+Math.sin(fa*3+tt*.8)*.03;
+     const ia=o.ta+(inw?tt*.04*o.w+Math.sin(tt*.6*o.f+o.ph)*.05:tt*.03),ir=o.tr+(inw?Math.sin(tt*o.f+o.ph)*.012:Math.sin(o.ta*44)*.01);
+     const a=fa+(ia-fa)*k+k*(1-k)*(inw?4.2:2.6),r=fr+(ir-fr)*k;
+     const x=c+Math.cos(a)*r*R,y=c+Math.sin(a)*r*R,z=o.sz*u*1.15,tw=.6+.4*Math.sin(tt*2.4*o.f+o.ph);
+     dg.globalAlpha=Math.min(1,o.al*tw*(inw?1:(.55+.6*set)));dg.fillRect(x-z/2,y-z/2,z,z);
+     if(o.sz>1){dg.globalAlpha*=.16;dg.fillRect(x-z*1.6,y-z*1.6,z*3.2,z*3.2)}}};
+   fld(FTO,'#FF2A95',true);fld(FDO,'#FFFFFF',false);dg.restore()}
   // gloss when set
   if(set>0){dg.strokeStyle=`rgba(255,255,255,${set*.7})`;dg.lineWidth=R*.025;dg.beginPath();dg.arc(c,c,R*1.03,Math.PI*1.1,Math.PI*1.45);dg.stroke()}
 }
