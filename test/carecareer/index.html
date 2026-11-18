@@ -596,335 +596,49 @@ body.prof-n .only-d,body.prof-d .only-n{display:none!important}
 main.swap .sw{animation:swap .8s var(--ease)}
 @keyframes swap{from{opacity:.15;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-/* =========================================================
-   HORIZONTAL DECK — "映画を観るように、横に流れるプレゼン"
-   縦スクロール（ホイール／トラックパッド／スワイプ）→ 横移動
-   ========================================================= */
-:root{--bb:64px;--ink2:#0e1724}
-html{scroll-snap-type:y mandatory;scrollbar-width:none;overscroll-behavior:none}
-html::-webkit-scrollbar{display:none}
-body{overflow-x:hidden;background:var(--bgw)}
-.snaps{pointer-events:none;position:relative;z-index:0}
-.snaps>div{height:100vh;scroll-snap-align:start;scroll-snap-stop:always}
-.deck{position:fixed;inset:0;z-index:1;overflow:clip;background:var(--bgw);transition:opacity .32s var(--ease)}
-.deck.fade{opacity:0}
-.dtrack{display:flex;width:100%;height:100%}
-.slide{position:relative;flex:0 0 100%;height:100%;overflow:clip;background:var(--bgw);contain:layout paint style;--d:1;--ad:1;--io:0}
-.slide.alt{background:var(--bgp)}
-.slide.mo{display:none}
-/* 霧のディゾルブ（隣のスライドほど霧が濃い） */
-.slide::after{content:"";position:absolute;inset:0;z-index:20;pointer-events:none;background:radial-gradient(120% 95% at 50% 55%,color-mix(in srgb,#eef1f4 80%,transparent),#eef1f4);opacity:calc(var(--ad) * .92)}
-.slide.near::after,.slide.near .sl-in{will-change:opacity,transform}
-.sl-in{position:absolute;left:0;right:0;top:var(--hh);bottom:var(--bb);z-index:2;display:flex;flex-direction:column;justify-content:center;justify-content:safe center;padding:clamp(12px,3vh,40px) 0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;transform:translate3d(calc(var(--d) * 6vw),0,0);opacity:calc(1 - var(--ad) * .9)}
-.sl-in::-webkit-scrollbar{display:none}
-.sl-in>.wrap{width:min(1180px,100% - 128px)}
-/* パララックス＋Ken Burns（translate/scale は個別プロパティ、Ken Burns は transform） */
-.px{overflow:hidden}
-.px img{translate:calc(var(--d) * -14%) 0;scale:calc(var(--sx,1) * 1.2) 1.2;transform:none!important}
-.near .px img{will-change:transform,translate}
-.is-cur .px img,.is-cur .kb img{animation:kb 22s cubic-bezier(.3,.1,.3,1) both}
-@keyframes kb{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.07) translate3d(-1.6%,-1%,0)}}
-/* 朝日：霧が晴れるほど光が差す */
-.dawn{position:fixed;inset:0;z-index:44;pointer-events:none;background:radial-gradient(70% 60% at 88% -8%,rgba(255,226,180,.55),rgba(255,236,206,.18) 45%,transparent 70%);opacity:calc(var(--c) * .75)}
-
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,88px);align-items:center}
-.chead{margin-bottom:clamp(14px,3vh,40px)}
-.chead h2{font-size:clamp(24px,min(2.9vw,4.9vh),44px);line-height:1.62}
-.chead p.l{margin-top:clamp(10px,2.2vh,24px);font-size:clamp(14px,1.9vh,16px)}
-.cnum{margin-bottom:clamp(10px,2.2vh,24px)}
-.cnum b{font-size:clamp(44px,min(5vw,8vh),76px)}
-.ghost{font-size:clamp(150px,min(20vw,32vh),300px)}
-.mhead .cnum{margin-bottom:clamp(12px,2.6vh,28px)}
-.howto{display:flex;align-items:flex-start;gap:12px;font-family:var(--min);font-weight:600;font-size:14px;color:var(--ink);margin-bottom:14px;line-height:1.65}
-.howto b{flex:none;font-size:11.5px;letter-spacing:.12em;color:#fff;background:var(--navy);padding:2px 9px;margin-top:1px;font-weight:600}
-.btn .arw.w{width:26px}
-
-/* ---------- header on deck ---------- */
-.hd{background:color-mix(in srgb,var(--bgw) 0%,transparent)}
-.prog{transform:scaleX(var(--sp,0));transition:none}
-
-/* ---------- bottom presentation bar (PC) ---------- */
-.pbar{position:fixed;left:0;right:0;bottom:0;height:var(--bb);z-index:55;display:flex;align-items:center;gap:26px;padding:0 28px 0 40px;background:color-mix(in srgb,var(--bgw) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 -1px 0 var(--line)}
-.pb-ch{display:flex;align-items:baseline;gap:12px;min-width:0;max-width:260px;font-family:var(--min);font-weight:600;font-size:13.5px;white-space:nowrap;text-align:left}
-.pb-ch b{font-family:var(--lat);font-style:italic;font-weight:400;font-size:19px;color:var(--blue)}
-.pb-ch span{overflow:hidden;text-overflow:ellipsis}
-.pb-ch:hover span{text-decoration:underline;text-underline-offset:4px}
-.pb-segs{flex:1;display:flex;gap:4px;align-items:center;height:30px;min-width:120px}
-.pb-segs button{position:relative;flex:1 1 0;height:30px;display:flex;align-items:center}
-.pb-segs button i{display:block;width:100%;height:2px;background:var(--line2);position:relative;overflow:hidden}
-.pb-segs button i::after{content:"";position:absolute;inset:0;background:var(--navy);transform-origin:0 50%;transform:scaleX(var(--f,0));transition:transform .6s var(--ease)}
-.pb-segs button span{position:absolute;bottom:34px;left:50%;transform:translate(-50%,6px);background:var(--ink);color:#fff;font-family:var(--min);font-size:12px;font-weight:600;padding:3px 10px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease)}
-.pb-segs button:hover span,.pb-segs button:focus-visible span{opacity:1;transform:translate(-50%,0)}
-.pb-cnt{font-family:var(--lat);font-size:15px;color:var(--mute);white-space:nowrap;letter-spacing:.08em}
-.pb-cnt b{color:var(--navy);font-weight:500;font-size:17px}
-.pb-nt{font-family:var(--min);font-weight:600;font-size:12.5px;color:var(--sub);white-space:nowrap;max-width:220px;overflow:hidden;text-overflow:ellipsis;text-align:right;line-height:1.4}
-.pb-nt small{display:block;font-family:var(--lat);font-style:italic;font-weight:400;font-size:12px;color:var(--mute);letter-spacing:.14em}
-.pb-btns{display:flex;gap:8px}
-.pb-prev{width:46px;height:46px;box-shadow:inset 0 0 0 1px var(--line2);background:#fff;display:grid;place-items:center;color:var(--navy);font-size:18px}
-.pb-prev:disabled{opacity:.35;cursor:default}
-.pb-next{min-height:46px!important;padding:0 22px!important;font-size:15px!important}
-.pb-next.pulse{animation:pulse 2.4s var(--ease) infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--blue) 45%,transparent)}60%{box-shadow:0 0 0 10px transparent}}
-
-/* ---------- title card (SCENE 0X) ---------- */
-.tcard{position:fixed;inset:var(--hh) 0 var(--bb);z-index:50;display:grid;place-items:center;pointer-events:none;opacity:0;visibility:hidden}
-.tcard.on{animation:tcard 1.9s var(--ease) both;visibility:visible}
-@keyframes tcard{0%{opacity:0}18%{opacity:1}68%{opacity:1}100%{opacity:0}}
-.tcard::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 50%,color-mix(in srgb,var(--bgw) 92%,transparent),color-mix(in srgb,var(--bgw) 55%,transparent))}
-.tcard div{position:relative;text-align:center}
-.tcard p{font-family:var(--lat);font-style:italic;font-size:15px;letter-spacing:.42em;color:var(--blue);display:flex;align-items:center;justify-content:center;gap:16px}
-.tcard p::before,.tcard p::after{content:"";width:40px;height:1px;background:currentColor;opacity:.6}
-.tcard h4{font-family:var(--min);font-weight:600;font-size:clamp(24px,2.6vw,36px);letter-spacing:.16em;margin-top:10px;color:var(--ink)}
-.tcard.on h4{animation:tIn 1.9s var(--ease) both}
-@keyframes tIn{from{letter-spacing:.32em;opacity:0}30%{opacity:1}to{letter-spacing:.16em}}
-
-/* ---------- cinema scene (full-bleed photo + letterbox + subtitles) ---------- */
-.scn{background:var(--ink2)}
-.scn .sc-ph{position:absolute;left:0;right:0;top:calc(var(--hh) + 3.2vh);bottom:calc(var(--bb) + 3.2vh);z-index:1}
-.scn .sc-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.scn .sc-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,20,34,.62),rgba(10,20,34,.3) 45%,rgba(10,20,34,.05) 72%),linear-gradient(0deg,rgba(10,20,34,.55),transparent 34%)}
-.scn .sl-in{top:calc(var(--hh) + 3.2vh);bottom:calc(var(--bb) + 3.2vh);color:#fff}
-.scn .cnum,.scn .cnum .tot{color:#fff}
-.scn .chead h2{color:#fff;text-shadow:0 2px 30px rgba(10,24,44,.35);font-size:clamp(26px,min(3.2vw,5.6vh),50px);letter-spacing:.1em}
-.scn .chead p.l{color:rgba(255,255,255,.9);text-shadow:0 2px 14px rgba(10,24,44,.4)}
-.scn .chead{max-width:640px;margin:0}
-.subt{position:absolute;left:50%;bottom:calc(var(--bb) + 3.2vh + clamp(18px,4vh,40px));transform:translateX(-50%);z-index:3;width:min(860px,88%);text-align:center;color:#fff;font-family:var(--min);font-weight:500;font-size:clamp(14px,1.9vh,17px);line-height:1.9;letter-spacing:.12em;text-shadow:0 1px 10px rgba(0,0,0,.55);opacity:calc(1 - var(--ad) * 1.4)}
-.subt>span{display:block}
-.subt .tbc{text-shadow:none;vertical-align:.2em}
-.is-cur .subt>span{animation:subIn 1.4s var(--ease) both;animation-delay:calc(.5s + var(--i,0) * 1.1s)}
-@keyframes subIn{from{opacity:0;filter:blur(6px);transform:translateY(6px)}to{opacity:1;filter:none;transform:none}}
-.is-cur .scn-line{animation:lineIn 1.8s var(--ease) both}
-@keyframes lineIn{from{opacity:0;transform:translateY(14px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
-
-/* ---------- FV ---------- */
-.s-top{--q:0;--p:0}
-.s-top .fv-photo{clip-path:inset(calc(var(--hh) + 3vh) 40px calc(var(--bb) + 2.4vh) 50vw)}
-.s-top .fv-photo img.only-d{--sx:-1}
-.s-top .fv-copy{top:var(--hh);bottom:var(--bb);opacity:calc(1 - var(--ad));transform:translate3d(calc(var(--d) * 6vw),0,0);z-index:3}
-.s-top h1{font-size:clamp(34px,min(3.9vw,6.4vh),60px);margin:clamp(10px,2.2vh,22px) 0}
-.s-top .fv-panel{margin-top:clamp(14px,3vh,30px);padding-top:clamp(12px,2.4vh,24px)}
-.s-top .fv-tate,.s-top .fv-badges{opacity:calc(1 - var(--ad))}
-.s-top .fv-badges{bottom:auto;top:calc(var(--hh) + 3vh + 20px);left:calc(50vw + 22px)}
-.fv-hint{position:absolute;right:64px;bottom:calc(var(--bb) + 2.4vh + 22px);z-index:4;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.95);color:var(--navy);padding:12px 20px;font-family:var(--min);font-weight:600;font-size:14px;letter-spacing:.08em;box-shadow:0 12px 30px -14px rgba(14,32,58,.45);opacity:calc(1 - var(--ad));animation:fade 1.6s 1.4s both}
-.fv-hint i{width:44px;height:1px;background:var(--line2);position:relative;overflow:hidden;flex:none}
-.fv-hint i::after{content:"";position:absolute;inset:0;background:var(--navy);animation:slide 2.2s var(--ease) infinite}
-.fv-hint em{font-style:normal;font-family:var(--lat);font-size:18px;line-height:1}
-
-/* ---------- intro ---------- */
-.s-intro .sl-in{align-items:center}
-.intro-tx{text-align:center;color:#fff;width:min(900px,90%)}
-.intro-tx .en{font-family:var(--lat);font-style:italic;font-size:17px;letter-spacing:.24em;margin-bottom:18px;opacity:.9}
-.intro-tx .stmt{font-size:clamp(24px,min(2.8vw,5vh),40px);line-height:1.85;letter-spacing:.1em;text-shadow:0 2px 30px rgba(10,24,44,.4)}
-.s-intro .sc-ph::after{background:rgba(12,22,36,.5)}
-
-/* ---------- agenda ---------- */
-.agenda-g{grid-template-columns:5fr 7fr;align-items:center}
-.s-agenda h2{font-size:clamp(24px,min(2.6vw,4.6vh),38px);line-height:1.75}
-.s-agenda .lead{margin-top:clamp(12px,2.4vh,22px);color:var(--sub)}
-.s-agenda .time{display:inline-flex;align-items:center;gap:10px;margin-top:clamp(12px,2.4vh,24px);font-family:var(--min);font-weight:600;font-size:14px;color:var(--navy);padding-top:14px;border-top:1px solid var(--line2)}
-.s-agenda .time svg{width:20px;height:20px}
-.toc a{padding:clamp(9px,1.7vh,15px) 4px}
-
-/* ---------- ch1 ---------- */
-.c1-next .nw{display:block}
-
-/* ---------- ch2 ---------- */
-.s-c2b .big-stmt{font-size:clamp(19px,min(1.9vw,3.4vh),28px);max-width:30em}
-.lead2{margin-top:clamp(10px,2vh,18px);color:var(--sub);max-width:52em}
-.reasons{margin-top:clamp(18px,3.5vh,44px)}
-.reasons li{padding:clamp(18px,3.4vh,38px) 36px 4px}
-.reasons li b.en{font-size:clamp(36px,6vh,52px);margin-bottom:clamp(8px,1.8vh,20px)}
-.c2s .conc{opacity:1;transform:none}
-.prow .say{width:100%;text-align:left;cursor:pointer;padding:2px 0}
-.prow .say:hover q{background-size:100% 100%}
-.prow .say i::after{content:" ＋";font-style:normal}
-.prow.cur .say i::after{content:" －"}
-.c2s .howto{margin-bottom:26px}
-.post .prow{padding:clamp(8px,1.4vh,13px) 0}
-
-/* ---------- ch3 ---------- */
-.s-fill{background:var(--bgw)}
-.s-fill .fogbg{position:absolute;inset:0;z-index:0}
-.s-fill .fogbg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;filter:saturate(calc(.25 + var(--fl,0) * .6)) blur(calc((1 - var(--fl,0)) * 5px));opacity:calc(.2 + var(--fl,0) * .16);transition:filter 3s var(--ease),opacity 3s var(--ease)}
-.s-fill.played{--fl:1}
-.s-fill .fogbg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 55% at 50% 50%,var(--bgw) 30%,color-mix(in srgb,var(--bgw) 40%,transparent))}
-.s-fill .sl-in{align-items:center;text-align:center}
-.s-fill .inner{max-width:1000px;padding:0 28px}
-.s-fill .cnum{justify-content:center}
-.fill{font-size:clamp(28px,min(4.2vw,7vh),62px)}
-.fill .c{transition:color .8s var(--ease);transition-delay:calc(var(--i) * 60ms)}
-.fill-sub{margin-top:clamp(18px,4vh,36px);color:var(--sub);font-family:var(--min);font-size:16px;line-height:2.1;opacity:0;transition:opacity 1.4s 1.5s}
-.s-fill.played .fill-sub{opacity:1}
-.concept .ph-w{aspect-ratio:5/4;max-height:calc(100vh - var(--hh) - var(--bb) - 12vh);width:100%}
-.concept h3{font-size:clamp(21px,min(2.1vw,3.8vh),30px);margin-bottom:clamp(12px,2.4vh,24px)}
-.concept p{margin-bottom:clamp(8px,1.6vh,14px)}
-.why{margin-top:0}
-.why li{padding:clamp(20px,4vh,40px) 36px}
-.why li .ico{margin-bottom:clamp(10px,2.2vh,24px)}
-
-/* ---------- ch4 ---------- */
-.s-c4a .radar{width:min(480px,100%,calc(100vh - var(--hh) - var(--bb) - 10vh))}
-.axgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
-.axslot{display:flex}
-.axslot .axcard{position:relative;inset:auto;opacity:1;transform:none;pointer-events:auto;flex:1;padding:clamp(20px,3.6vh,34px) 30px clamp(18px,3.2vh,30px)}
-.axcard h3{font-size:clamp(20px,2.8vh,25px)}
-
-/* ---------- ch5 ---------- */
-.pic{position:relative;overflow:hidden}
-.pic img{width:100%;height:100%;object-fit:cover}
-.pic img.dh{object-position:62% 30%}.pic img.ns{object-position:46% 30%}
-.s-c5a .pic{aspect-ratio:4/3;max-height:calc(100vh - var(--hh) - var(--bb) - 12vh);width:100%}
-.s-c5a .btn{margin-top:clamp(10px,2.4vh,28px)}
-.s-dgq .wrap{display:grid;grid-template-columns:4fr 7fr;gap:clamp(40px,5vw,72px);align-items:center}
-.dg-side h3{font-size:clamp(21px,min(2vw,3.6vh),28px);line-height:1.65;margin-bottom:clamp(12px,2.4vh,24px)}
-.dg-how{list-style:none;border-top:1px solid var(--ink)}
-.dg-how li{display:flex;align-items:center;gap:14px;padding:clamp(8px,1.5vh,13px) 4px;border-bottom:1px solid var(--line2);font-family:var(--min);font-weight:600;font-size:14.5px}
-.dg-how b{font-family:var(--lat);font-style:italic;font-weight:400;font-size:20px;color:var(--blue);width:18px}
-.dg{min-height:0;padding:clamp(20px,3.8vh,40px) 46px clamp(18px,3.4vh,38px)}
-.dg-top{margin-bottom:clamp(10px,2.2vh,24px)}
-.dq h3{margin:4px 0 clamp(10px,2.2vh,26px)}
-.opts button{padding:clamp(8px,1.5vh,16px) 14px}
-.dg-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:clamp(10px,1.8vh,18px)}
-.dg-foot .dg-back{margin:0}
-.dg-tip{margin-left:auto;font-size:12.5px;color:var(--mute);font-family:var(--min)}
-.dg-done p{color:var(--sub)}
-.acts2{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.again{font-family:var(--min);font-size:14px;font-weight:600;color:var(--sub);padding:0 22px;min-height:52px;box-shadow:inset 0 0 0 1px var(--line2)}
-.resbox{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,56px);background:#fff;box-shadow:inset 0 0 0 1px var(--line2);border-top:2px solid var(--navy);padding:clamp(20px,3.8vh,40px) clamp(24px,3.4vw,46px)}
-.resbox.empty{grid-template-columns:1fr;max-width:760px;margin:auto}
-.resbox.empty .resB{display:none}
-.res .tp{margin:clamp(8px,1.6vh,16px) 0 clamp(8px,1.6vh,18px);padding-bottom:clamp(10px,2vh,20px)}
-.res .blk{margin-top:clamp(10px,2.2vh,24px);padding-top:clamp(10px,1.8vh,18px)}
-.res .blk.first{margin-top:0;padding-top:0;border-top:0}
-.res .acts{margin-top:clamp(14px,2.6vh,26px)}
-.res-empty .qn{font-family:var(--lat);font-style:italic;color:var(--blue);font-size:18px;letter-spacing:.2em}
-.res-empty h3{font-size:clamp(21px,2vw,28px);margin:6px 0 12px}
-.res-empty p{color:var(--sub);margin-bottom:20px}
-.bar{grid-template-columns:11em 1fr}
-
-/* ---------- ch6 ---------- */
-.scgrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
-.scslot{display:flex;box-shadow:-1px 0 0 var(--line2)}
-.scslot:first-child{box-shadow:none}
-.scslot .sc{flex:1;width:auto;min-height:0;box-shadow:none;padding:clamp(20px,3.6vh,38px) 32px clamp(18px,3vh,32px)}
-.sc .no{font-size:clamp(46px,7vh,70px)}
-.sc h3{margin:clamp(12px,2.8vh,34px) 0 12px}
-.s-end6{background:var(--navy)}
-.s-end6 .sl-in{color:#fff}
-.end6{max-width:720px}
-.end6 h3{font-size:clamp(28px,min(3.2vw,5.4vh),46px);line-height:1.7;letter-spacing:.1em;margin-bottom:22px}
-.end6 p{color:rgba(255,255,255,.88);font-size:16px}
-.end6 .en{font-family:var(--lat);font-style:italic;font-size:17px;letter-spacing:.2em;color:var(--sky);margin-bottom:18px}
-
-/* ---------- ch7 ---------- */
-.c7s .chead{margin-bottom:clamp(10px,2vh,22px)}
-.vs-bar{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:clamp(12px,2.4vh,30px)}
-.vs-bar .vs-tabs{margin:0}
-.vs-bar .howto{margin:0}
-.vs-list li{padding:clamp(9px,1.7vh,20px) 6px}
-.vs-score{padding:clamp(20px,3.8vh,46px) 30px}
-.vs-score .meter{width:min(220px,25vh);height:min(220px,25vh);margin-bottom:12px}
-.merits{margin-top:0}
-.merit{padding:clamp(22px,4vh,36px) 30px clamp(18px,3.4vh,32px)}
-
-/* ---------- ch8 ---------- */
-.cases{gap:clamp(24px,2.6vw,36px)}
-.case{padding-top:clamp(14px,2.4vh,26px)}
-.case .who{margin-bottom:clamp(10px,1.8vh,18px)}
-.ba,.case dl{margin-bottom:clamp(10px,1.6vh,16px)}
-.case dl div{padding:clamp(4px,.8vh,8px) 0}
-.disc{margin-top:clamp(14px,2.6vh,30px);font-size:12.5px;color:var(--mute);text-align:center}
-.s-c8b .chead p.l{margin:0 0 clamp(12px,2.4vh,26px);font-size:13.5px;color:var(--sub)}
-
-/* ---------- ch9 ---------- */
-.s-flow .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;padding:84px 0 0;margin-top:clamp(10px,2vh,24px)}
-.s-flow .flow::before,.s-flow .flow::after{left:24px;right:24px;top:24px;bottom:auto;width:auto;height:1px}
-.s-flow .flow::after{transform-origin:0 50%;transform:scaleX(var(--fp,0));transition:transform 2.6s var(--ease)}
-.s-flow .flow li{padding:0}
-.s-flow .flow li .dt{left:0;top:-84px}
-.s-flow .flow h3{font-size:clamp(18px,2.6vh,21px)}
-
-/* ---------- ch10 ---------- */
-.s-faq .wrap{display:grid;grid-template-columns:4fr 7fr;gap:clamp(40px,5vw,72px);align-items:center}
-.faq summary{padding:clamp(11px,2vh,22px) 8px}
-.faq .a{padding:0 52px clamp(14px,2.4vh,26px) 54px}
-
-/* ---------- last ---------- */
-.s-hero .chead h2{font-size:clamp(30px,min(3.8vw,6.6vh),60px);line-height:1.6}
-.goals{margin-top:0}
-.goal{padding:clamp(22px,4.2vh,50px) clamp(28px,3.4vw,50px)}
-.goal h3{margin-bottom:clamp(8px,1.6vh,14px)}
-.goal>p{margin-bottom:clamp(10px,1.8vh,18px)}
-.goal ul{margin-bottom:clamp(14px,2.6vh,28px);padding-top:clamp(10px,1.8vh,16px)}
-.reg{margin-top:0;padding:clamp(22px,4.4vh,56px) clamp(28px,3.6vw,56px);gap:clamp(32px,4.6vw,72px)}
-.form .row{padding:clamp(9px,1.7vh,18px) 0}
-.form .btn{margin-top:clamp(12px,2.4vh,24px)}
-.s-end{background:var(--ink)}
-.s-end::after{background:radial-gradient(120% 95% at 50% 55%,color-mix(in srgb,var(--ink) 70%,transparent),var(--ink))}
-.s-end .ft{margin:0;padding:0;background:none}
-.s-end .ft .wrap{width:100%}
-.end-h{color:#fff;margin-bottom:clamp(28px,6vh,60px)}
-.end-h .en{font-family:var(--lat);font-style:italic;letter-spacing:.3em;font-size:16px;color:var(--sky);margin-bottom:12px}
-.end-h h2{font-size:clamp(24px,min(2.6vw,4.6vh),38px);line-height:1.7;letter-spacing:.1em}
-.end-h .acts2 .btn.sub{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)}
-
-/* ---------- short PC screens ---------- */
-@media (max-height:800px) and (min-width:821px){
-  .worries button{padding:8px 14px;font-size:15.5px}
-  .wl-head{margin-bottom:10px}
-  .wl-res{margin-top:12px;padding:12px 18px}
-  .wl-res .msg{margin-top:2px;font-size:13px;line-height:1.7}
-  .c1-next{margin-top:8px;padding-top:8px;font-size:15px}
-  .post{padding:26px 30px 10px}
-  .post .ttl{padding-bottom:10px}
-  .axcard>p{margin-bottom:10px;font-size:14px;line-height:1.85}
-  .axcard .chk{padding-top:10px}
-  .axcard li{font-size:13.5px}
-  .sc p{font-size:14px;line-height:1.85}
-  .case .vc{padding:10px 14px;font-size:13px;line-height:1.75}
-  .ba>div{padding:8px 12px}
-  .res .desc,.res .blk p,.res .blk li{font-size:13.5px;line-height:1.75}
-  .res .tp .ico{width:52px;height:52px}
-  .bars{gap:8px}.bar .tr{height:22px}
-  .goal li,.goal>p{font-size:13.5px}
-  .s-flow .flow p{font-size:13.5px;line-height:1.85}
-  .reasons p,.why li p{font-size:14px;line-height:1.85}
-  .merit p{font-size:13px}
-  .faq .a{font-size:14px;line-height:1.85}
-  .vs-list dd span{font-size:15px}
-  .c7s .chead h2 br{display:none}
-  .c7s .ghost{display:none}
-  .c7s .cnum{margin-bottom:6px}
-  .vs-score .val b{font-size:18px}.vs-score .val small{font-size:11px}
-  .vs-score p{font-size:13.5px;line-height:1.8}
-  .s-c8b .chead{display:flex;align-items:baseline;gap:28px;margin-bottom:6px!important}
-  .s-c8b .chead .cnum{margin:0;flex:none}
-  .s-c8b .chead p.l{margin:0}
-  .case .smp{margin-bottom:8px}
-  .disc{margin-top:10px}
-}
-
-/* =========================================================
-   SMARTPHONE / narrow
-   ========================================================= */
-@media (max-width:820px){
-  :root{--hh:58px;--bb:calc(62px + env(safe-area-inset-bottom))}
-  body{font-size:14.5px;line-height:1.85}
-  .sp{display:inline}
-  .pc,.pc-only{display:none!important}
-  .slide.mo{display:block}
-  .sl-in{padding:12px 0}
-  .sl-in>.wrap{width:calc(100% - 40px)}
-  .g2,.c1 .wrap,.c2s .wrap,.concept,.s-dgq .wrap,.vs,.reg,.s-faq .wrap,.agenda-g{grid-template-columns:1fr;gap:14px}
-  .hd{padding:0 14px;gap:10px}
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
   .hd-now{display:none}
+  .rail{display:none}
+}
+@media (max-width:1100px){.hd .hcta .btn.sub{display:none}}
+@media (max-width:959px){
+  .wrap{width:calc(100% - 64px)}
+  .c2-hero,.concept,.c5 .wrap,.c9 .wrap.grid,.vs,.reg,.agenda .wrap{grid-template-columns:1fr;gap:48px}
+  .reasons,.why ol,.cases{grid-template-columns:1fr}
+  .reasons li,.why li{border-left:0;padding-left:0;padding-right:0;border-bottom:1px solid var(--line2)}
+  .reasons li{padding-bottom:30px}
+  .merits{grid-template-columns:1fr 1fr}
+  .merit{padding-left:0}
+  .merit:nth-child(even){border-left:1px solid var(--line2);padding-left:24px}
+  .merit:nth-child(odd){border-left:0}
+  .merit:nth-child(-n+2){border-bottom:1px solid var(--line2)}
+  .c5 .side{position:static}
+  .c9 .pic{position:relative;top:0;aspect-ratio:16/10}
+  .c6s{height:auto!important}
+  .c6s .stage{position:relative;height:auto;overflow:visible;display:block}
+  .track{display:grid;grid-template-columns:1fr 1fr;padding:clamp(90px,12vw,130px) 32px 60px;transform:none!important}
+  .tk-intro{width:auto;grid-column:1/-1;padding:0 0 30px}
+  .sc,.sc.photo,.sc.end{width:auto;min-height:0;margin:0;box-shadow:inset 0 1px 0 var(--line2)}
+  .sc.photo{grid-column:1/-1;aspect-ratio:16/9;margin-bottom:10px;box-shadow:none}
+  .sc.end{grid-column:1/-1;margin-top:20px}
+  .goals{grid-template-columns:1fr}
+  .goal+.goal{box-shadow:0 -1px 0 var(--line2)}
+  .fv-tate{display:none}
+}
+@media (max-width:640px){
+  :root{--hh:58px;--dock:64px}
+  body{font-size:15px;line-height:1.9}
+  .sp{display:inline}
+  .pc,.pc-only{display:none}
+  .wrap{width:calc(100% - 40px)}
+  .hd{padding:0 14px;gap:10px}
   .logo{font-size:15px;gap:9px}.logo i{width:30px;height:30px}.logo i svg{width:17px;height:17px}.logo small{font-size:9px;letter-spacing:.04em}
   .hd .hcta{display:none}
   .hd .seg{margin-left:auto;padding:3px}
   .seg .knob{top:3px;bottom:3px;left:4px}
   .seg button{font-size:12px;padding:5px 9px}
-  .pbar,.prog{display:none}
-  .dock{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:55;height:var(--bb);padding:8px 10px calc(8px + env(safe-area-inset-bottom)) 12px;background:color-mix(in srgb,var(--bgw) 95%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 -1px 0 var(--line2)}
+  .dock{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:8px 10px calc(8px + env(safe-area-inset-bottom)) 12px;background:color-mix(in srgb,var(--bgw) 95%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 -1px 0 var(--line2)}
   .dock .chp{display:flex;align-items:center;gap:10px;min-width:0;text-align:left}
   .dock .ring{width:40px;height:40px;flex:none;position:relative}
   .dock .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
@@ -934,223 +648,167 @@ body{overflow-x:hidden;background:var(--bgw)}
   .dock .ring b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--lat);font-weight:500;font-size:15px;color:var(--navy)}
   .dock .chp>span:last-child{min-width:0;font-family:var(--min);font-weight:600;font-size:13px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .dock .chp small{display:block;font-family:var(--lat);font-style:italic;font-weight:400;font-size:12px;color:var(--mute);letter-spacing:.12em}
-  .dock .pb-prev{width:44px;height:44px}
-  .dock .btn{min-height:44px;font-size:14px;padding:0 16px;gap:10px}
+  .dock .btn{min-height:46px;font-size:14px;padding:0 16px;gap:10px}
   .dock .btn .arw{width:16px}
+  .prog{display:none}
   .mist{inset:-10% -40%}
-  .tcard{inset:var(--hh) 0 var(--bb)}
-  .chead{margin-bottom:12px}
-  .chead h2{font-size:clamp(21px,6.2vw,26px);line-height:1.6;letter-spacing:.06em}
-  .chead p.l{font-size:13.5px;margin-top:10px;line-height:1.85}
-  .cnum{margin-bottom:10px}.cnum b{font-size:42px}.cnum>span:first-child{font-size:14px}.cnum i{flex-basis:36px}.cnum .tot{font-size:13px}
-  .ghost{font-size:120px;top:-.2em}
-  .howto{font-size:13px;margin-bottom:10px}
-  .subt{font-size:13px;width:calc(100% - 40px);letter-spacing:.06em;line-height:1.8}
-  .scn .chead h2{font-size:clamp(23px,6.6vw,28px)}
-  .scn .sc-ph{top:calc(var(--hh) + 2vh);bottom:calc(var(--bb) + 2vh)}
-  .scn .sl-in{top:calc(var(--hh) + 2vh);bottom:calc(var(--bb) + 2vh);justify-content:flex-start;padding-top:28px}
-  .scn .sc-ph::after{background:linear-gradient(180deg,rgba(10,20,34,.66),rgba(10,20,34,.25) 48%,rgba(10,20,34,.6))}
 
-  /* FV */
-  .s-top .fv-photo{clip-path:inset(calc(var(--hh) + 4px) 14px 57% 14px)}
-  .s-top .fv-photo img{object-position:64% 40%}
-  .s-top .fv-photo img.only-d{object-position:28% 45%;--sx:1}
-  .s-top .fv-copy{left:20px;right:20px;width:auto;top:calc(43% + 12px);bottom:calc(var(--bb) + 8px);justify-content:flex-start}
-  .fv-kick{font-size:13px}.fv-kick::before{width:24px}
-  .s-top h1{font-size:clamp(28px,8vw,33px);margin:4px 0 6px;line-height:1.45}
-  .fv-lead{font-size:13px;line-height:1.8}
-  .s-top .fv-panel{margin-top:10px;padding-top:10px}
+  .fv-photo{clip-path:inset(calc((1 - var(--q)) * (var(--hh) + 4px)) calc((1 - var(--q)) * 14px) calc((1 - var(--q)) * 51svh) calc((1 - var(--q)) * 14px))}
+  .fv-photo img{object-position:64% 40%}
+  .fv-photo img.only-d{object-position:28% 45%;transform:scale(calc(1.06 - var(--q) * .06))}
+  .fv-copy{left:20px;right:20px;width:auto;top:calc(49svh + 16px);bottom:calc(var(--dock) + 10px);justify-content:flex-start}
+  .fv-kick{font-size:14px}
+  .fv-kick::before{width:24px}
+  .fv h1{font-size:clamp(29px,8.2vw,34px);margin:6px 0 6px;line-height:1.45}
+  .fv-lead{font-size:13px;line-height:1.85}
+  .fv-panel{margin-top:12px;padding-top:12px}
   .fv-panel .q{font-size:12px;margin-bottom:8px}
-  .who{margin-bottom:8px}
-  .who button{font-size:15px;padding:8px}
+  .who{margin-bottom:0}
+  .who button{font-size:15px;padding:9px 8px}
   .who button svg{width:22px;height:22px}
-  .fv-cta .btn{min-height:46px;font-size:14px;padding:0 10px;gap:8px}
-  .fv-cta .btn .arw{width:14px}
-  .fv-badges,.fv-tate{display:none}
-  .fv-hint{right:24px;left:auto;bottom:calc(57% + 12px);padding:8px 12px;font-size:12px;gap:8px}
-  .fv-hint i{width:24px}
+  .fv-cta,.fv-badges,.fv-scroll{display:none}
+  .fv-intro .stmt{font-size:22px}
 
-  /* agenda */
+  .agenda{padding:90px 0 70px}
   .toc{grid-template-columns:1fr}
-  .toc a{padding:10px 2px;font-size:14.5px}
+  .toc a{padding:12px 2px;font-size:14.5px}
   .toc a b{font-size:19px}
-  .s-agenda h2{font-size:24px}
+  .chead h2{font-size:clamp(24px,6.8vw,29px);line-height:1.65}
+  .chead p.l{font-size:14.5px;margin-top:16px}
+  .cnum{margin-bottom:16px}
+  .cnum b{font-size:50px}
+  .cnum>span:first-child{font-size:15px}
+  .cnum i{flex-basis:40px}
+  .ghost{font-size:150px;top:-.3em}
 
-  /* ch1 */
-  .c1 .chead h2{font-size:21px;line-height:1.55}
-  .c1 .chead .cnum{margin-bottom:6px}
-  .c1 .chead .cnum b{font-size:36px}
+  .c1 .wrap{grid-template-columns:1fr;gap:14px}
+  .c1 .chead h2{font-size:22px;line-height:1.6}
+  .c1 .chead .cnum{margin-bottom:10px}
+  .c1 .chead .cnum b{font-size:40px}
   .c1 .chead p.l{display:none}
-  .c1 .chead{margin-bottom:0}
-  .wl-head{margin-bottom:8px;gap:10px}
-  .wl-head .st{font-size:10.5px;padding:4px 7px}
-  .wl-head p{font-size:15px}
-  .wl-head small{font-size:11.5px}
-  .worries button{padding:8px 6px;font-size:13.5px;gap:10px;line-height:1.5}
+  .c1 .count{margin-top:10px;padding-top:10px;gap:14px}
+  .c1 .count .n{font-size:44px}
+  .c1 .count p{font-size:12px;line-height:1.7}
+  .c1 .count p b{font-size:13.5px}
+  .worries button{padding:9px 6px;font-size:14px;gap:12px;line-height:1.55}
   .worries .bx{width:20px;height:20px}
-  .wl-res{margin-top:10px;padding:10px 14px}
-  .wl-res .n{font-size:24px}
-  .wl-res .mt p{font-size:12.5px}
-  .wl-res .msg{font-size:12px;margin-top:2px;line-height:1.6}
-  .c1-next{font-size:13.5px;margin-top:8px;padding-top:8px;line-height:1.55}
-  .c1-next .nw{font-size:12.5px}
+  .worries li.hint{display:none}
+  .c1-end{font-size:14.5px;margin-top:10px}
 
-  /* ch2 */
-  .s-c2b .big-stmt{font-size:20px;line-height:1.9}
-  .reasons li{padding:14px 0 12px;border-left:0;border-bottom:1px solid var(--line2);display:grid;grid-template-columns:44px 1fr;column-gap:12px}
-  .reasons li b.en{font-size:34px;margin:0;grid-row:span 2}
-  .reasons h3{font-size:16.5px;margin-bottom:4px;line-height:1.55}
-  .reasons p{font-size:13px;line-height:1.75}
-  .reasons{grid-template-columns:1fr;margin-top:0}
-  .c2s h3{font-size:20px}
+  .c2-photo figcaption{font-size:12px}
+  .reasons{margin-top:60px}
+  .c2s .wrap{grid-template-columns:1fr;gap:20px}
+  .c2s h3{font-size:21px}
   .c2s .l{display:none}
-  .c2s .cnum{margin-bottom:6px}
-  .c2s .wrap>div:first-child{display:contents}
-  .c2s .conc{order:3;margin-top:0;font-size:13.5px;line-height:1.75;padding:12px 14px}
-  .post{padding:20px 14px 6px}
-  .post::before{left:14px}
-  .post .ttl b{font-size:14px}
-  .post .ttl{padding-bottom:8px}
+  .c2s .cnum{margin-bottom:8px}
+  .c2s .conc{margin-top:0;font-size:14px;line-height:1.8;padding:14px 16px;position:absolute;left:20px;right:20px;bottom:calc(var(--dock) + 14px);z-index:3}
+  .post{padding:24px 16px 8px}
+  .post::before{left:16px}
+  .post .ttl b{font-size:14.5px}
+  .prow{padding:9px 0}
   .prow .say{font-size:14px;gap:8px}
   .prow .say i{font-size:10px;padding:0 6px}
   .prow .real p{font-size:12.5px;line-height:1.7;padding-top:6px}
 
-  /* ch3 */
   .fill{font-size:clamp(25px,7.2vw,31px)}
-  .fill-sub{font-size:14px}
-  .concept .ph-w{aspect-ratio:16/9;max-height:none}
-  .concept h3{font-size:19px;margin-bottom:8px}
-  .concept p{font-size:13.5px;line-height:1.8}
-  .why-h{padding-bottom:12px}
-  .why ol{grid-template-columns:1fr}
-  .why li{padding:14px 0;border-left:0;border-bottom:1px solid var(--line2);display:grid;grid-template-columns:40px 1fr;column-gap:14px}
-  .why li .ico{width:36px;height:36px;margin:0;grid-row:span 2}
-  .why li .no{right:0;top:14px;font-size:20px}
-  .why h4{font-size:18px;margin-bottom:4px}
-  .why li p{font-size:13px;line-height:1.75}
+  .c3 .sub{font-size:14px}
+  .c3b{padding-top:40px}
+  .concept h3{font-size:21px}
+  .why{margin-top:80px}
+  .why li{padding:30px 0}
+  .why li .no{right:0;top:30px}
 
-  /* ch4 */
-  .s-c4a .radar{width:min(300px,78vw)}
-  .radar .lb{font-size:20px}
+  .c4s .wrap{grid-template-columns:1fr;gap:6px}
+  .radar{width:min(240px,62vw)}
+  .radar .lb{font-size:22px}
   .radar .lbn{display:none}
-  .axgrid{grid-template-columns:1fr;gap:12px}
-  .axslot .axcard{padding:14px 16px}
-  .axcard .top{margin-bottom:4px;gap:12px}
-  .axcard .top .ico{width:34px;height:34px}
-  .axcard h3{font-size:18px}
-  .axcard>p{font-size:13px;margin-bottom:6px;line-height:1.7}
-  .axcard .chk{padding-top:6px}
-  .axcard .chk b{font-size:12.5px;margin-bottom:4px}
-  .axcard li{font-size:12.5px;gap:8px;line-height:1.6}
-  .axcard ul{gap:3px}
+  .axcards{min-height:370px}
+  .axcard{padding:18px 18px 16px}
+  .axcard .top{margin-bottom:6px;gap:12px}
+  .axcard .top .ico{width:36px;height:36px}
+  .axcard h3{font-size:19px}
+  .axcard>p{font-size:13.5px;margin-bottom:8px;line-height:1.75}
+  .axcard .chk{padding-top:8px}
+  .axcard li{font-size:13.5px;gap:8px}
+  .axdots{margin-top:10px}
 
-  /* ch5 */
-  .s-c5a .pic{aspect-ratio:16/10;max-height:none}
-  .s-c5a .btn{width:100%}
-  .dg-side h3{font-size:18px;margin-bottom:6px}
-  .dg-side .cnum{margin-bottom:6px}
-  .dg-how{display:none}
-  .dg{padding:16px 16px 14px}
-  .dg-top{margin-bottom:8px}
+  .c5 .wrap{gap:32px}
+  .dg{padding:26px 18px 24px;min-height:0}
   .dg-top .lab em{display:none}
-  .dg-steps i{width:18px}
-  .dq h3{font-size:19px;margin:2px 0 10px}
-  .opts button{padding:11px 8px;font-size:14.5px;gap:12px}
+  .dg-steps i{width:20px}
+  .opts button{padding:13px 8px;font-size:15px;gap:12px}
   .opts button:hover{padding-left:12px}
-  .resbox{grid-template-columns:1fr;padding:16px}
-  .res .tp{gap:14px}
-  .res .tp .ico{width:48px;height:48px}.res .tp .ico svg{width:30px;height:30px}
-  .res h3{font-size:22px}
-  .res .catch{font-size:16px}
-  .res .desc,.res .blk p,.res .blk li{font-size:13px;line-height:1.75}
-  .bar{grid-template-columns:1fr;gap:2px}
-  .bars{gap:6px}.bar .tr{height:20px}
+  .bar{grid-template-columns:1fr;gap:4px}
   .res .acts{grid-template-columns:1fr}
-  .res .acts .btn{font-size:14.5px;padding:0 12px;white-space:normal;text-align:center;line-height:1.5}
-  .res .again{min-height:44px}
-  .note{font-size:11px}
+  .res .acts .btn{font-size:15px;padding:0 14px;white-space:normal;text-align:center;line-height:1.5}
+  .res .again{min-height:46px}
 
-  /* ch6 */
-  .scgrid{grid-template-columns:1fr}
-  .scslot{box-shadow:0 -1px 0 var(--line2)!important}
-  .scslot .sc{padding:14px 0 16px}
-  .sc .no{font-size:40px}
-  .sc .ico{right:0;top:18px;width:34px;height:34px}
-  .sc h3{margin:6px 0 6px;font-size:18px}
-  .sc p{font-size:13px;line-height:1.75}
-  .sc .eg{padding-top:8px;margin-top:10px;font-size:12.5px}
-  .end6 h3{font-size:26px}
-  .end6 p{font-size:14px}
+  .track{grid-template-columns:1fr;padding:80px 20px 40px}
+  .sc{padding:26px 0 28px}
+  .sc .no{font-size:52px}
+  .sc .ico{right:0;top:30px;width:38px;height:38px}
+  .sc h3{margin:14px 0 8px;font-size:20px}
+  .sc.end{padding:32px 24px}
+  .tk-intro .hint{display:none}
 
-  /* ch7 */
-  .vs-bar{gap:8px}
   .vs-tabs{display:grid;width:100%}
   .vs-tabs button{padding:10px 6px;font-size:14px}
-  .vs-list li{grid-template-columns:1fr;gap:0;padding:9px 4px}
-  .vs-list dt{font-size:12.5px}
-  .vs-list dd span{font-size:14px}
-  .vs-score{padding:24px 18px}
-  .merits{grid-template-columns:1fr 1fr}
-  .merit{padding:16px 0 14px}
-  .merit:nth-child(even){border-left:1px solid var(--line2);padding-left:14px}
-  .merit:nth-child(odd){border-left:0}
-  .merit:nth-child(-n+2){border-bottom:1px solid var(--line2)}
-  .merit .big{font-size:40px;margin-bottom:8px}
-  .merit h4{font-size:15.5px}
-  .merit p{font-size:12px;line-height:1.7}
+  .vs-list li{grid-template-columns:1fr;gap:2px;padding:14px 4px}
+  .vs-list dt{font-size:13px}
+  .vs-list dd span{font-size:14.5px}
+  .vs-score{padding:34px 20px}
+  .vs-score .meter{width:180px;height:180px}
+  .merits{margin-top:70px}
+  .merit{padding:24px 0 22px}
+  .merit:nth-child(even){padding-left:16px}
+  .merit .big{font-size:44px;margin-bottom:10px}
+  .merit h4{font-size:16px}
+  .merit p{font-size:12.5px}
 
-  /* ch8 */
-  .cases{grid-template-columns:1fr}
-  .s-c8b .chead p.l{font-size:12px;margin-bottom:8px}
+  .c8-band{height:240px;margin-bottom:56px}
+  .c8-band .cap{font-size:16px;padding:16px 18px 0 0}
+  .flow{padding-left:62px}
+  .flow::before,.flow::after{left:20px}
+  .flow li .dt{left:-62px;width:41px;height:41px;font-size:18px}
+  .flow h3{font-size:18.5px}
+  .flow li{padding-bottom:40px}
+  .faq summary{padding:18px 2px;font-size:15px;gap:14px}
+  .faq summary .q{font-size:22px}
+  .faq .a{padding:0 6px 22px 38px;font-size:14px}
 
-  /* ch9 */
-  .s-flow .flow{display:block;padding:0 0 0 58px;margin-top:4px}
-  .s-flow .flow::before,.s-flow .flow::after{left:20px;right:auto;top:20px;bottom:40px;width:1px;height:auto}
-  .s-flow .flow::after{transform-origin:0 0;transform:scaleY(var(--fp,0))}
-  .s-flow .flow li{padding:0 0 18px}
-  .s-flow .flow li .dt{left:-58px;top:0;width:40px;height:40px;font-size:18px}
-  .s-flow .flow h3{font-size:16.5px}
-  .s-flow .flow p{font-size:13px;line-height:1.7;margin-top:2px}
-
-  /* ch10 */
-  .faq summary{padding:12px 2px;font-size:14.5px;gap:12px;line-height:1.55}
-  .faq summary .q{font-size:20px}
-  .faq .a{padding:0 4px 14px 34px;font-size:13px;line-height:1.75}
-
-  /* last */
-  .goals{grid-template-columns:1fr}
-  .goal{padding:22px 20px}
-  .goal h3{font-size:21px}
-  .goal li,.goal>p{font-size:13.5px}
-  .reg{padding:18px 16px;gap:10px}
-  .reg h3{font-size:19px;margin-bottom:4px}
-  .reg p{font-size:12.5px}
-  .form .row{padding:9px 0;gap:6px}
-  .chips span{padding:6px 12px;font-size:13px}
-  .form input[type=text],.form input[type=tel]{height:44px}
-  .form .btn{white-space:nowrap;font-size:14px;letter-spacing:.04em;min-height:52px;padding:0 14px;gap:10px}
-  .form .btn .arw{width:16px}
-  #ch8 .sc-ph img.only-n{object-position:74% 25%!important}
-  #ch8 .sc-ph img.only-d{object-position:60% 34%!important}
-  #goal .sc-ph img{object-position:76% 40%!important}
-  #ch2 .sc-ph img.only-n{object-position:58% 50%!important}
-  .ft .wrap{flex-direction:column;gap:14px}
-  .ft b{font-size:17px}
-  .ft p{font-size:12px;line-height:1.9}
+  .last-hero{height:auto;min-height:0;padding:130px 0 170px;align-items:end}
+  .last-hero img{object-position:64% 40%}
+  .last-hero::after{background:linear-gradient(0deg,rgba(14,32,58,.66),rgba(14,32,58,.3) 55%,rgba(14,32,58,.12))}
+  .last-hero .wrap{padding-bottom:0}
+  .last-hero h2{font-size:clamp(28px,8vw,34px)}
+  .goals{margin-top:-100px}
+  .goal{padding:30px 22px 28px}
+  .reg{padding:30px 20px;gap:22px;margin-top:48px}
+  .ft{padding-bottom:140px;margin-top:90px}
 }
-@media (max-width:820px) and (max-height:700px){
-  .worries button{padding:6px 4px;font-size:13px}
-  .c1 .chead h2{font-size:19px}
+@media (max-height:760px) and (min-width:641px){
+  .worries button{padding:10px 14px;font-size:15px}
+  .axcard{padding:24px 28px}
 }
-
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition-duration:.01s!important;transition-delay:0s!important}
+  *,*::before,*::after{animation:none!important;transition-duration:.01s!important}
   .mist{animation:none}
-  .deck{transition:none}
-  .tcard{display:none}
+  .scene{height:auto!important}
+  .stage{position:relative;height:auto;min-height:0}
+  .fv .stage{height:100svh}
+  .fv-intro{display:none}
+  .worries li,.c1-end,.c2s .conc,.axcard,.rv{opacity:1!important;transform:none!important}
+  .prow .real{grid-template-rows:1fr}
+  .prow .say q{background-size:100% 100%}
+  .c1 .stage,.c2s .stage,.c4s .stage,.c3 .stage{padding:110px 0 70px}
+  .axcards{min-height:0;display:grid;gap:14px}
+  .axcard{position:relative}
   .fill .c{color:var(--ink)}
   .fill .hl .c{color:var(--navy)}
-  .fill-sub{opacity:1}
+  .c3 .sub{opacity:1}
+  .flow li{opacity:1}
+  .flow::after{transform:none}
+  .c2s .conc{position:static;margin-top:16px}
 }
 </style>
 </head>
@@ -1201,331 +859,284 @@ body{overflow-x:hidden;background:var(--bgw)}
 
 <div class="prog" id="prog"></div>
 <div class="mist" aria-hidden="true"></div>
-<div class="dawn" aria-hidden="true"></div>
 
 <header class="hd" id="hd">
   <a class="logo" href="#top"><i><svg><use href="#i-leaf"/></svg></i><span>〔サービス名〕<small>看護師・歯科衛生士のキャリア相談</small></span></a>
   <div class="hd-now"><div class="now hide" id="now"><span class="en" id="nowN">01</span><span class="t" id="nowT">あなたの今</span></div></div>
   <div class="seg" role="group" aria-label="職種の切り替え"><i class="knob"></i><button data-prof="n" aria-pressed="true">看護師</button><button data-prof="d" aria-pressed="false">歯科衛生士</button></div>
-  <div class="hcta"><a class="btn sub" href="#goal-reg">かんたん登録</a><a class="btn main" href="#goal-cards">無料キャリア相談</a></div>
+  <div class="hcta"><a class="btn sub" href="#goal-reg">かんたん登録</a><a class="btn main" href="#goal">無料キャリア相談</a></div>
 </header>
 
-<nav class="pbar" id="pbar" aria-label="スライド操作">
-  <button class="pb-ch" id="pbCh" aria-label="目次をひらく"><b id="pbN">00</b><span id="pbT">はじめに</span></button>
-  <div class="pb-segs" id="pbSegs"></div>
-  <p class="pb-cnt"><b id="pbI">01</b> / <span id="pbAll">30</span></p>
-  <p class="pb-nt" id="pbNt"><small>NEXT</small><span id="pbNtT"></span></p>
-  <div class="pb-btns"><button class="pb-prev" id="pbPrev" aria-label="前のスライドへ">←</button><button class="btn main pb-next" id="pbNext"><span id="pbNextL">次へ</span><span class="arw"></span></button></div>
-</nav>
+<nav class="rail hide" id="rail" aria-label="チャプター"></nav>
 
 <div class="dock" id="dock">
-  <button class="chp" id="dockChp" aria-label="目次をひらく"><span class="ring" id="dockRing"><svg viewBox="0 0 42 42"><circle class="bg" cx="21" cy="21" r="18"/><circle class="fg" cx="21" cy="21" r="18"/></svg><b id="dockN">00</b></span><span><small>SCENE</small><em style="font-style:normal" id="dockT">はじめに</em></span></button>
-  <button class="pb-prev" id="dPrev" aria-label="前のスライドへ">←</button>
-  <button class="btn main" id="dNext"><span id="dNextL">次へ</span><span class="arw"></span></button>
+  <button class="chp" id="dockChp" aria-label="目次をひらく"><span class="ring"><svg viewBox="0 0 42 42"><circle class="bg" cx="21" cy="21" r="18"/><circle class="fg" cx="21" cy="21" r="18"/></svg><b id="dockN">00</b></span><span><small>CHAPTER</small><em style="font-style:normal" id="dockT">はじめに</em></span></button>
+  <a class="btn main" href="#goal">無料で相談する<span class="arw"><svg class="ic" style="width:12px;height:12px"><use href="#i-arrow"/></svg></span></a>
 </div>
 
 <div class="menu" id="menu" aria-hidden="true">
   <button class="x" id="menuX" aria-label="閉じる">×</button>
   <ol id="menuList"></ol>
-  <div class="mcta"><a class="btn main" href="#goal-cards">無料キャリア相談</a><a class="btn sub" href="#goal-reg">かんたん新規登録（約1分）</a></div>
+  <div class="mcta"><a class="btn main" href="#goal">無料キャリア相談</a><a class="btn sub" href="#goal-reg">かんたん新規登録（約1分）</a></div>
 </div>
 <div class="toast" id="toast"></div>
-<div class="tcard" id="tcard" aria-hidden="true"><div><p id="tcN">SCENE 01</p><h4 id="tcT">あなたの今</h4></div></div>
 
-<main class="deck" id="main"><div class="dtrack" id="dtrack">
+<main id="main">
 
-<!-- ===== 00 FV ===== -->
-<section class="slide fv s-top" id="top" data-ch="0" data-st="表紙">
-  <div class="fv-photo px"><img class="only-n" src="a/nurse_fog.jpg" alt="霧の朝、病院の窓辺でうつむく看護師" fetchpriority="high"><img class="only-d" src="a/dh_fog.jpg" alt="夕方の休憩室で窓の外を見つめる歯科衛生士"></div>
+<!-- ===== FV ===== -->
+<section class="scene fv" id="top" data-ch="0" data-title="はじめに">
+ <div class="stage">
+  <div class="fv-photo"><img class="only-n" src="a/nurse_fog.jpg" alt="霧の朝、病院の窓辺でうつむく看護師" fetchpriority="high"><img class="only-d" src="a/dh_fog.jpg" alt="夕方の休憩室で窓の外を見つめる歯科衛生士"></div>
   <p class="fv-tate" aria-hidden="true">看護師と歯科衛生士のための、キャリアの相談室</p>
   <div class="fv-copy">
     <p class="fv-kick">For Nurses &amp; Dental Hygienists</p>
     <h1><span class="ln"><span>働きやすさから、</span></span><span class="ln"><span>選びなおそう。</span></span></h1>
     <p class="fv-lead"><span class="only-n">看護師</span><span class="only-d">歯科衛生士</span>のための、<br class="sp">“働きやすさ”を軸にしたキャリア相談。<br>転職する・しないも、ここから一緒に考えます。</p>
     <div class="fv-panel">
-      <p class="q"><b>Q.</b>このプレゼンを、あなた向けにします。あなたは？</p>
+      <p class="q"><b>Q.</b>あなたに合わせた内容でお届けします。あなたは？</p>
       <div class="who">
         <button data-prof="n" aria-pressed="true"><svg><use href="#i-nurse"/></svg>看護師</button>
         <button data-prof="d" aria-pressed="false"><svg><use href="#i-tooth"/></svg>歯科衛生士</button>
       </div>
-      <div class="fv-cta"><a class="btn main" href="#goal-cards">無料キャリア相談<span class="arw"><svg class="ic" style="width:12px;height:12px"><use href="#i-arrow"/></svg></span></a><a class="btn sub" href="#goal-reg">かんたん登録</a></div>
+      <div class="fv-cta"><a class="btn main" href="#goal">無料キャリア相談<span class="arw"><svg class="ic" style="width:12px;height:12px"><use href="#i-arrow"/></svg></span></a><a class="btn sub" href="#goal-reg">かんたん登録</a></div>
     </div>
   </div>
   <div class="fv-badges"><span><svg><use href="#i-shield"/></svg>相談・登録 無料</span><span><svg><use href="#i-line"/></svg>LINEだけでもOK<i class="tbc" style="font-style:normal">要確認</i></span></div>
-  <button class="fv-hint" type="button" data-next><span class="pc">スクロール（またはスワイプ）で次へ</span><span class="sp">スワイプ（またはスクロール）で次へ</span><i></i><em>→</em></button>
+  <div class="fv-intro"><div><p class="en">A PRESENTATION FOR YOU</p><p class="stmt">ここから約5分、<br>あなたの“働きやすさ”の話をさせてください。</p><p>全10章＋最後の一歩。途中から読んでも大丈夫です。</p></div></div>
+  <div class="fv-scroll">SCROLL<i></i></div>
+ </div>
 </section>
 
-<!-- intro -->
-<section class="slide scn s-intro" id="intro" data-ch="0" data-st="ごあいさつ">
-  <div class="sc-ph px"><img class="only-n" src="a/nurse_fog.jpg" alt=""><img class="only-d" src="a/dh_fog.jpg" alt=""></div>
-  <div class="sl-in"><div class="intro-tx scn-line"><p class="en">A PRESENTATION FOR YOU</p><p class="stmt">ここから約5分、<br>あなたの“働きやすさ”の話を<br class="sp">させてください。</p></div></div>
-  <p class="subt"><span style="--i:0">全10章＋最後の一歩。途中から読んでも大丈夫です。</span><span style="--i:1">スクロール、スワイプ、または「次へ」で進みます。</span></p>
-</section>
-
-<!-- agenda -->
-<section class="slide alt s-agenda" id="agenda" data-ch="0" data-st="目次">
- <div class="sl-in"><div class="wrap g2 agenda-g">
-  <div>
-    <p class="cnum"><span>Agenda</span><i></i></p>
-    <h2>今日のプレゼンは、<br>10のチャプターで<br class="sp">お届けします。</h2>
-    <p class="lead">「今の職場を続けるべき？」「何から始めれば？」——その答えを、順番にほどいていきます。気になるところから読んでもOKです。</p>
-    <p class="time"><svg><use href="#i-clock"/></svg>読了の目安 約5分</p>
+<!-- ===== Agenda ===== -->
+<section class="agenda" id="agenda">
+  <div class="wrap">
+    <div class="rv">
+      <p class="cnum"><span>Agenda</span><i></i></p>
+      <h2>このページは、<br>10のお話で<br class="sp">お届けします。</h2>
+      <p class="lead">「今の職場を続けるべき？」「何から始めれば？」——その答えを、順番にほどいていきます。気になるところから読んでもOKです。</p>
+      <p class="time"><svg><use href="#i-clock"/></svg>読了の目安 約5分</p>
+    </div>
+    <ol class="toc rv d2" id="toc"></ol>
   </div>
-  <div data-m="m-agenda"><p class="howto"><b>操作</b>気になる章をクリック（タップ）すると、そのページへ移動します。</p><ol class="toc" id="toc"></ol></div>
- </div></div>
 </section>
-<section class="slide mo alt s-agenda" id="m-agenda" data-ch="0" data-st="目次"><div class="sl-in"><div class="wrap" data-mdest></div></div></section>
 
 <!-- ===== 01 ===== -->
-<section class="slide c1" id="ch1" data-ch="1" data-st="チェックしてみる">
- <div class="sl-in"><div class="wrap">
+<section class="scene c1 chap" id="ch1" data-ch="1" data-title="あなたの今" data-steps="7" style="--len:1.4">
+ <div class="stage">
+  <div class="wrap">
     <div>
       <div class="chead">
-        <p class="cnum"><span>Scene</span><b>01</b><i></i><span class="tot">/ 10</span></p>
+        <p class="cnum"><span>Chapter</span><b>01</b><i></i><span class="tot">/ 10</span></p>
         <h2>今の職場、<br>このまま続けて<br class="sp">いいのかな。</h2>
         <p class="l">いきなり答えを出さなくて大丈夫です。<br>まずは少しだけ、最近のことを振り返ってみませんか。</p>
       </div>
+      
     </div>
     <div>
       <div class="wl-head"><span class="st">チェックしてみる</span><p>最近、こんなことはありませんでしたか？<br><small>当てはまるものを<b>タップ</b>してください（いくつでも・あとから外せます）</small></p></div>
       <ul class="worries sw" id="worries"></ul>
       <div class="wl-res" id="wlres"><div class="mt"><div class="bar"><i id="cbar"></i></div><p><span class="n" id="cnt">0</span><span class="of">/ <span id="ctot">6</span></span> 当てはまっています</p></div><p class="msg" id="cntMsg"></p>
-      <button class="c1-next" id="c1end" type="button">それ、あなたの“がんばり不足”ではありません。<span class="nw">次の章で、理由をお話しします →</span></button></div>
+      <button class="c1-next" id="c1end" type="button">それ、あなたの“がんばり不足”ではありません。<span class="nw">次の章で、理由をお話しします ↓</span></button></div>
     </div>
- </div></div>
+  </div>
+ </div>
 </section>
 
 <!-- ===== 02 ===== -->
-<section class="slide scn" id="ch2" data-ch="2" data-st="あなたのせいじゃない">
-  <div class="sc-ph px"><img class="fz only-n" src="a/dawn.jpg" alt="夜勤明け、窓辺で朝焼けを見つめる看護師" style="object-position:62% 50%"><img class="fz only-d" src="a/dh_fog.jpg" alt="休憩室で窓の外を見つめる歯科衛生士" style="object-position:30% 50%"></div>
-  <div class="sl-in"><div class="wrap"><div class="chead scn-line">
-    <p class="cnum"><span>Scene</span><b>02</b><i></i><span class="tot">/ 10</span></p>
-    <h2>転職しても、<br class="sp">また同じ悩み。<br>それは、<br class="sp">あなたのせいじゃない。</h2>
-  </div></div></div>
-  <p class="subt"><span style="--i:0"><span class="only-n">夜勤明けの朝。</span><span class="only-d">診療後の休憩室で。</span></span><span style="--i:1">「次こそは」と思ったはずなのに。</span></p>
-</section>
-<section class="slide alt s-c2b" id="ch2-b" data-ch="2" data-st="くり返す3つの理由">
- <div class="sl-in"><div class="wrap">
-   <div>
-     <p class="cnum"><span>Scene 02</span><i></i><span class="tot">なぜ繰り返すのか</span></p>
-     <p class="big-stmt">求人票の言葉だけで選ぶと、<br><em>“入ってみないと分からない”</em>ことが、<br>あとから一気にやってきます。</p>
-     <p class="lead2">医療の現場は、どこも人手が足りません。だからこそ求人はいつも出ていて、言葉はどこも似ている。違いが出るのは、<b style="color:var(--ink)">書かれていない部分</b>です。</p>
-   </div>
-   <ol class="reasons" data-m="m-ch2">
-     <li><b class="en">01</b><h3>求人票には、<br>本当のことが書かれにくい</h3><p>残業の実態、人の入れ替わり、<span class="only-n">夜勤やオンコールの本当の回数</span><span class="only-d">衛生士業務とアシスト業務の割合</span>。いちばん知りたいことほど、紙には載りません。</p></li>
-     <li><b class="en">02</b><h3>忙しすぎて、<br>比べる時間がない</h3><p>シフトの合間に求人を見て、見学にも行けないまま応募。比べる余裕がないことが、ミスマッチの入口になります。</p></li>
-     <li><b class="en">03</b><h3>急かされて、<br>決めてしまう</h3><p>何度もかかってくる電話、「今週中にお返事を」。焦って決めた転職ほど、同じ悩みをくり返しがちです。</p></li>
-   </ol>
- </div></div>
-</section>
-<section class="slide mo alt s-c2b" id="m-ch2" data-ch="2" data-st="書かれていない部分"><div class="sl-in"><div class="wrap" data-mdest></div></div></section>
-<section class="slide c2s" id="post" data-ch="2" data-st="求人票を読み解く">
- <div class="sl-in"><div class="wrap">
-    <div>
-      <p class="cnum"><span>Case study</span><i></i></p>
-      <h3>よくある求人票の言葉を、<br>読み解いてみる。</h3>
-      <p class="l">悪い職場だと言いたいわけではありません。<br>ただ、その言葉の“裏側”を確かめないまま選ぶのは、もったいない。</p>
-      <p class="conc" id="conc">だから私たちは、求人票の<span class="nw">“外側”</span>まで確かめてから、ご紹介します。<span class="tbc" style="background:#fff">要確認</span></p>
+<section class="c2 chap" id="ch2" data-ch="2" data-title="なぜ繰り返すのか">
+  <div class="c2-intro">
+    <div class="wrap">
+      <div class="chead rv">
+        <span class="ghost" aria-hidden="true">02</span>
+        <p class="cnum"><span>Chapter</span><b>02</b><i></i><span class="tot">/ 10</span></p>
+        <h2>転職しても、<br class="sp">また同じ悩み。<br>それは、<br class="sp">あなたのせいじゃない。</h2>
+      </div>
+      <div class="c2-hero">
+        <figure class="c2-photo frm rv io"><img class="fz only-n" src="a/dawn.jpg" alt="夜勤明け、窓辺で朝焼けを見つめる看護師" loading="lazy"><img class="fz only-d" src="a/dh_fog.jpg" alt="休憩室で窓の外を見つめる歯科衛生士" loading="lazy"><figcaption><span class="only-n">夜勤明けの朝。</span><span class="only-d">診療後の休憩室で。</span>「次こそは」と思ったはずなのに。</figcaption></figure>
+        <div class="rv d2">
+          <p class="big-stmt">求人票の言葉だけで選ぶと、<br><em>“入ってみないと分からない”</em>ことが、<br>あとから一気にやってきます。</p>
+          <p style="margin-top:20px;color:var(--sub)">医療の現場は、どこも人手が足りません。だからこそ求人はいつも出ていて、言葉はどこも似ている。違いが出るのは、<b style="color:var(--ink)">書かれていない部分</b>です。</p>
+        </div>
+      </div>
+      <ol class="reasons">
+        <li class="rv"><b class="en">01</b><h3>求人票には、<br>本当のことが書かれにくい</h3><p>残業の実態、人の入れ替わり、<span class="only-n">夜勤やオンコールの本当の回数</span><span class="only-d">衛生士業務とアシスト業務の割合</span>。いちばん知りたいことほど、紙には載りません。</p></li>
+        <li class="rv d1"><b class="en">02</b><h3>忙しすぎて、<br>比べる時間がない</h3><p>シフトの合間に求人を見て、見学にも行けないまま応募。比べる余裕がないことが、ミスマッチの入口になります。</p></li>
+        <li class="rv d2"><b class="en">03</b><h3>急かされて、<br>決めてしまう</h3><p>何度もかかってくる電話、「今週中にお返事を」。焦って決めた転職ほど、同じ悩みをくり返しがちです。</p></li>
+      </ol>
     </div>
-    <div>
-      <p class="howto"><b>操作</b>求人票の言葉をタップすると、その“裏側”が開きます（全5か所）</p>
+  </div>
+  <div class="scene c2s" id="post" data-steps="6">
+   <div class="stage">
+    <div class="wrap">
+      <div>
+        <p class="cnum"><span>Case study</span><i></i></p>
+        <h3>よくある求人票の言葉を、<br>読み解いてみる。</h3>
+        <p class="l">悪い職場だと言いたいわけではありません。<br>ただ、その言葉の“裏側”を確かめないまま選ぶのは、もったいない。</p>
+        <p class="conc" id="conc">だから私たちは、求人票の<span class="nw">“外側”</span>まで確かめてから、ご紹介します。<span class="tbc" style="background:#fff">要確認</span></p>
+      </div>
       <div class="post sw" id="postCard"></div>
     </div>
- </div></div>
+   </div>
+  </div>
 </section>
 
 <!-- ===== 03 ===== -->
-<section class="slide s-fill" id="ch3" data-ch="3" data-st="私たちの考え方">
-  <div class="fogbg"><img src="a/fog_path.jpg" alt=""></div>
-  <div class="sl-in"><div class="inner">
-      <p class="cnum"><span>Scene</span><b>03</b><i></i><span class="tot">/ 10</span></p>
+<section class="chap" id="ch3" data-ch="3" data-title="私たちの考え方">
+  <div class="scene c3" id="c3s" style="--len:2.4">
+   <div class="stage">
+    <div class="inner">
+      <p class="cnum"><span>Chapter</span><b>03</b><i></i><span class="tot">/ 10</span></p>
       <p class="fill" id="fill"><span>給料や条件の前に、</span><br><span class="hl">まず“働きやすさ”で</span><span>選ぶ。</span></p>
-      <p class="fill-sub">がんばり続けられる場所より、<br class="sp">無理なく続けられる場所を。<br>それが〔サービス名〕の考え方です。</p>
-  </div></div>
-</section>
-<section class="slide" id="ch3-b" data-ch="3" data-st="コンセプト">
- <div class="sl-in"><div class="wrap">
+      <p class="sub">がんばり続けられる場所より、<br class="sp">無理なく続けられる場所を。<br>それが〔サービス名〕の考え方です。</p>
+    </div>
+   </div>
+  </div>
+  <div class="c3b">
+    <div class="wrap">
       <div class="concept">
-        <figure class="ph-w frm l px io"><img src="a/fog_path.jpg" alt="霧の並木道に朝日が差しはじめる" loading="lazy"><figcaption>— the fog is lifting.</figcaption></figure>
-        <div>
+        <figure class="ph-w frm l rv io"><img src="a/fog_path.jpg" alt="霧の並木道に朝日が差しはじめる" loading="lazy"><figcaption>— the fog is lifting.</figcaption></figure>
+        <div class="rv d2">
           <p class="cnum"><span>Concept</span><i></i></p>
           <h3>「どこに転職するか」より先に、<br>「どう働きたいか」を。</h3>
           <p>給与や休日の数字は、比べやすい。でも毎日を左右するのは、帰れる時間、人との距離、からだの負担、そして将来の安心です。</p>
           <p>〔サービス名〕は、<span class="only-n">看護師</span><span class="only-d">歯科衛生士</span>の現場を知るアドバイザー<span class="tbc">要確認</span>が、あなたの“働きやすさ”を一緒に言葉にするところから始めます。「今の職場に残る」という答えになっても、それでいいんです。</p>
         </div>
       </div>
- </div></div>
-</section>
-<section class="slide alt" id="ch3-c" data-ch="3" data-st="選ばれる3つの理由">
- <div class="sl-in"><div class="wrap">
       <div class="why">
-        <div class="why-h"><span class="en">Why us</span><h3>選ばれる、3つの理由</h3></div>
+        <div class="why-h rv"><span class="en">Why us</span><h3>選ばれる、3つの理由</h3></div>
         <ol>
-          <li><span class="no">01</span><span class="ico"><svg><use href="#i-chat"/></svg></span><h4>急かさない</h4><p>連絡の手段も頻度も、あなたが決められます。電話は苦手・LINEだけ・平日夜だけ、もOK。<span class="tbc">要確認</span></p></li>
-          <li><span class="no">02</span><span class="ico"><svg><use href="#i-search"/></svg></span><h4>隠さない</h4><p>良いところだけでなく、気になる点も正直に。残業の実態や人の入れ替わりなど、確認できたことはそのままお伝えします。<span class="tbc">要確認</span></p></li>
-          <li><span class="no">03</span><span class="ico"><svg><use href="#i-heart"/></svg></span><h4>働きやすさで比べる</h4><p>次の章でご紹介する「6つのものさし」で、職場を同じ目線で比べます。条件の数字だけで決めません。</p></li>
+          <li class="rv"><span class="no">01</span><span class="ico"><svg><use href="#i-chat"/></svg></span><h4>急かさない</h4><p>連絡の手段も頻度も、あなたが決められます。電話は苦手・LINEだけ・平日夜だけ、もOK。<span class="tbc">要確認</span></p></li>
+          <li class="rv d1"><span class="no">02</span><span class="ico"><svg><use href="#i-search"/></svg></span><h4>隠さない</h4><p>良いところだけでなく、気になる点も正直に。残業の実態や人の入れ替わりなど、確認できたことはそのままお伝えします。<span class="tbc">要確認</span></p></li>
+          <li class="rv d2"><span class="no">03</span><span class="ico"><svg><use href="#i-heart"/></svg></span><h4>働きやすさで比べる</h4><p>次の章でご紹介する「6つのものさし」で、職場を同じ目線で比べます。条件の数字だけで決めません。</p></li>
         </ol>
       </div>
- </div></div>
+    </div>
+  </div>
 </section>
 
 <!-- ===== 04 ===== -->
-<section class="slide alt s-c4a" id="ch4" data-ch="4" data-st="6つのものさし">
- <div class="sl-in"><div class="wrap g2">
-      <div class="chead" style="margin-bottom:0">
+<section class="c4 chap" id="ch4" data-ch="4" data-title="働きやすさのものさし">
+  <div class="c4-intro">
+    <div class="wrap">
+      <div class="chead rv" style="margin-bottom:0">
         <span class="ghost" aria-hidden="true">04</span>
-        <p class="cnum"><span>Scene</span><b>04</b><i></i><span class="tot">/ 10</span></p>
+        <p class="cnum"><span>Chapter</span><b>04</b><i></i><span class="tot">/ 10</span></p>
         <h2>“働きやすさ”は、<br>6つのものさしで<br class="sp">見えてくる。</h2>
         <p class="l">ふんわりした言葉を、確かめられる質問に変えていきます。スクロールで、ひとつずつ。</p>
       </div>
+    </div>
+  </div>
+  <div class="scene c4s" id="ruler" data-steps="6">
+   <div class="stage">
+    <div class="wrap">
       <div class="radar" id="radar"></div>
- </div></div>
-</section>
-<section class="slide alt" id="ch4-b" data-ch="4" data-st="ものさし 01–03">
- <div class="sl-in"><div class="wrap">
-   <div class="mhead"><p class="cnum"><span>Scene 04</span><i></i><span class="tot">6つのものさし</span></p></div>
-   <div class="axgrid"><div class="axslot" id="ax0"></div><div class="axslot" id="ax1"></div><div class="axslot" id="ax2" data-m="m-ch4"></div></div>
- </div></div>
-</section>
-<section class="slide mo alt" id="m-ch4" data-ch="4" data-st="ものさし 03–04"><div class="sl-in"><div class="wrap"><div class="mhead"><p class="cnum"><span>Scene 04</span><i></i><span class="tot">6つのものさし</span></p></div><div class="axgrid" data-mdest></div></div></div></section>
-<section class="slide alt" id="ch4-c" data-ch="4" data-st="ものさし 04–06">
- <div class="sl-in"><div class="wrap">
-   <div class="mhead"><p class="cnum"><span>Scene 04</span><i></i><span class="tot">6つのものさし</span></p></div>
-   <div class="axgrid"><div class="axslot" id="ax3" data-m="m-ch4"></div><div class="axslot" id="ax4"></div><div class="axslot" id="ax5"></div></div>
- </div></div>
+      <div>
+        <div class="axcards sw" id="axcards"></div>
+        <div class="axdots" id="axdots"></div>
+      </div>
+    </div>
+   </div>
+  </div>
 </section>
 
 <!-- ===== 05 ===== -->
-<section class="slide s-c5a" id="ch5" data-ch="5" data-st="働き方タイプ診断">
- <div class="sl-in"><div class="wrap g2">
-    <div>
-      <div class="chead" style="margin-bottom:0">
-        <p class="cnum"><span>Scene</span><b>05</b><i></i><span class="tot">/ 10</span></p>
+<section class="c5 chap" id="ch5" data-ch="5" data-title="あなたに合う働き方">
+  <div class="wrap">
+    <div class="side">
+      <div class="chead rv" style="margin-bottom:0">
+        <p class="cnum"><span>Chapter</span><b>05</b><i></i><span class="tot">/ 10</span></p>
         <h2>あなたに合う<br>働き方は？</h2>
         <p class="l">5つの質問に、タップで答えるだけ。<br>向いている職場のタイプと、<br class="pc">見学で確かめたいポイントがわかります。</p>
       </div>
-      <button class="btn main" type="button" data-go="dgq">診断をはじめる（約1分）<span class="arw"></span></button>
+      <div class="pic frm rv d2 pc-only"><img class="fz only-n ns" src="a/nurse.jpg" alt="病院の廊下でほほえむ看護師" loading="lazy"><img class="fz only-d dh" src="a/dh.jpg" alt="歯科医院でほほえむ歯科衛生士" loading="lazy"></div>
     </div>
-    <div class="pic frm px"><img class="fz only-n ns" src="a/nurse.jpg" alt="病院の廊下でほほえむ看護師" loading="lazy"><img class="fz only-d dh" src="a/dh.jpg" alt="歯科医院でほほえむ歯科衛生士" loading="lazy"></div>
- </div></div>
+    <div class="dg rv d1" id="dg" aria-live="polite"></div>
+  </div>
 </section>
-<section class="slide alt s-dgq" id="dgq" data-ch="5" data-st="診断の質問">
- <div class="sl-in"><div class="wrap">
-   <div class="dg-side">
-     <p class="cnum"><span>Scene 05</span><i></i><span class="tot">働き方タイプ診断</span></p>
-     <h3>5つの質問に、<br class="pc">タップで答えてください。</h3>
-     <ol class="dg-how"><li><b>1</b>いちばん近い答えをタップ</li><li><b>2</b>自動で次の質問へ進みます</li><li><b>3</b>5問目のあと、結果のページへ</li></ol>
-   </div>
-   <div class="dg" id="dg" aria-live="polite"></div>
- </div></div>
-</section>
-<section class="slide s-dgr" id="dgr" data-ch="5" data-st="診断の結果">
- <div class="sl-in"><div class="wrap"><div class="resbox empty" id="resbox"><div class="resA" id="resA"></div><div class="resB" id="resB" data-m="m-dgr"></div></div></div></div>
-</section>
-<section class="slide mo" id="m-dgr" data-ch="5" data-st="診断の結果（つづき）"><div class="sl-in"><div class="wrap"><div class="resbox" data-mdest></div></div></div></section>
 
 <!-- ===== 06 ===== -->
-<section class="slide scn" id="ch6" data-ch="6" data-st="支援の中身">
-  <div class="sc-ph px"><img class="fz" src="a/consult.jpg" alt="真剣に話を聞くアドバイザー" style="object-position:62% 50%" loading="lazy"></div>
-  <div class="sl-in"><div class="wrap"><div class="chead scn-line">
-    <p class="cnum"><span>Scene</span><b>06</b><i></i><span class="tot">/ 10</span></p>
-    <h2>相談すると、<br>何をしてくれるの？</h2>
-  </div></div></div>
-  <p class="subt"><span style="--i:0">求人を紹介するだけでは終わりません。</span><span style="--i:1">あなたの“働きやすさ”を軸に、入職のあとまで伴走します。</span></p>
-</section>
-<section class="slide" id="ch6-b" data-ch="6" data-st="支援 01–03">
- <div class="sl-in"><div class="wrap">
-   <div class="mhead"><p class="cnum"><span>Scene 06</span><i></i><span class="tot">支援の中身</span></p></div>
-   <div class="scgrid">
-      <div class="scslot"><article class="sc"><span class="no">01</span><span class="ico"><svg><use href="#i-q"/></svg></span><h3>キャリアの棚卸し</h3><p>これまでの経験と、「本当はどうしたいか」を一緒に言葉に。モヤモヤのままでも大丈夫です。</p><p class="eg">例：<span class="only-n">「急性期は好き。でも夜勤は減らしたい」</span><span class="only-d">「衛生士業務をもっとやりたい」</span></p></article></div>
-      <div class="scslot"><article class="sc"><span class="no">02</span><span class="ico"><svg><use href="#i-flag"/></svg></span><h3>ゆずれない条件の整理</h3><p>6つのものさしで、ゆずれないこと・ゆずれることを仕分け。比べる軸がはっきりします。</p><p class="eg">例：時間と休みは最優先。給与は現状維持でもOK</p></article></div>
-      <div class="scslot" data-m="m-ch6"><article class="sc"><span class="no">03</span><span class="ico"><svg><use href="#i-search"/></svg></span><h3>職場の“中”を確認</h3><p>残業の実態、離職の状況、<span class="only-n">夜勤・オンコールの回数</span><span class="only-d">担当制の有無や社保の種類</span>、産休育休の取得実績など、聞きにくいことを代わりに確認。<span class="tbc">要確認</span></p><p class="eg">求人票に書かれない情報を、可能な範囲でお伝えします</p></article></div>
+<section class="c6 chap" id="ch6" data-ch="6" data-title="支援の中身">
+  <div class="scene c6s" id="hs">
+   <div class="stage">
+    <div class="track" id="track">
+      <div class="tk-intro">
+        <div class="chead">
+          <p class="cnum"><span>Chapter</span><b>06</b><i></i><span class="tot">/ 10</span></p>
+          <h2>相談すると、<br>何をしてくれるの？</h2>
+          <p class="l">求人を紹介するだけでは終わりません。あなたの“働きやすさ”を軸に、入職のあとまで伴走します。</p>
+        </div>
+        <p class="hint pc">SCROLL<i></i></p>
+      </div>
+      <div class="sc photo"><img class="fz" src="a/consult.jpg" alt="真剣に話を聞くアドバイザー" loading="lazy"></div>
+      <article class="sc"><span class="no">01</span><span class="ico"><svg><use href="#i-q"/></svg></span><h3>キャリアの棚卸し</h3><p>これまでの経験と、「本当はどうしたいか」を一緒に言葉に。モヤモヤのままでも大丈夫です。</p><p class="eg">例：<span class="only-n">「急性期は好き。でも夜勤は減らしたい」</span><span class="only-d">「衛生士業務をもっとやりたい」</span></p></article>
+      <article class="sc"><span class="no">02</span><span class="ico"><svg><use href="#i-flag"/></svg></span><h3>ゆずれない条件の整理</h3><p>6つのものさしで、ゆずれないこと・ゆずれることを仕分け。比べる軸がはっきりします。</p><p class="eg">例：時間と休みは最優先。給与は現状維持でもOK</p></article>
+      <article class="sc"><span class="no">03</span><span class="ico"><svg><use href="#i-search"/></svg></span><h3>職場の“中”を確認</h3><p>残業の実態、離職の状況、<span class="only-n">夜勤・オンコールの回数</span><span class="only-d">担当制の有無や社保の種類</span>、産休育休の取得実績など、聞きにくいことを代わりに確認。<span class="tbc">要確認</span></p><p class="eg">求人票に書かれない情報を、可能な範囲でお伝えします</p></article>
+      <article class="sc"><span class="no">04</span><span class="ico"><svg><use href="#i-doc"/></svg></span><h3>書類・面接のサポート</h3><p>履歴書・職務経歴書の添削、面接対策、見学の日程調整まで。ブランクがある方もご相談ください。</p><p class="eg">シフトの合間でも進められるよう調整します</p></article>
+      <article class="sc"><span class="no">05</span><span class="ico"><svg><use href="#i-yen"/></svg></span><h3>条件の交渉</h3><p>給与・勤務開始日・勤務形態など、自分からは言い出しにくい条件の調整を代行します。<span class="tbc">要確認</span></p><p class="eg">退職の伝え方の相談にも乗ります</p></article>
+      <article class="sc"><span class="no">06</span><span class="ico"><svg><use href="#i-shield"/></svg></span><h3>入職後のフォロー</h3><p>入ってから感じたギャップも、遠慮なくご相談を。働きはじめてからが本番です。<span class="tbc">要確認</span></p><p class="eg">「思っていたのと違う」を、ひとりで抱えない</p></article>
+      <div class="sc end"><h3>「転職しない」も、<br>立派な答え。</h3><p>話してみて、今の職場で続ける道が見えたなら、それもひとつの答えです。無理に転職をすすめることはありません。</p></div>
+    </div>
    </div>
- </div></div>
-</section>
-<section class="slide mo" id="m-ch6" data-ch="6" data-st="支援 03–04"><div class="sl-in"><div class="wrap"><div class="mhead"><p class="cnum"><span>Scene 06</span><i></i><span class="tot">支援の中身</span></p></div><div class="scgrid" data-mdest></div></div></div></section>
-<section class="slide" id="ch6-c" data-ch="6" data-st="支援 04–06">
- <div class="sl-in"><div class="wrap">
-   <div class="mhead"><p class="cnum"><span>Scene 06</span><i></i><span class="tot">支援の中身</span></p></div>
-   <div class="scgrid">
-      <div class="scslot" data-m="m-ch6"><article class="sc"><span class="no">04</span><span class="ico"><svg><use href="#i-doc"/></svg></span><h3>書類・面接のサポート</h3><p>履歴書・職務経歴書の添削、面接対策、見学の日程調整まで。ブランクがある方もご相談ください。</p><p class="eg">シフトの合間でも進められるよう調整します</p></article></div>
-      <div class="scslot"><article class="sc"><span class="no">05</span><span class="ico"><svg><use href="#i-yen"/></svg></span><h3>条件の交渉</h3><p>給与・勤務開始日・勤務形態など、自分からは言い出しにくい条件の調整を代行します。<span class="tbc">要確認</span></p><p class="eg">退職の伝え方の相談にも乗ります</p></article></div>
-      <div class="scslot"><article class="sc"><span class="no">06</span><span class="ico"><svg><use href="#i-shield"/></svg></span><h3>入職後のフォロー</h3><p>入ってから感じたギャップも、遠慮なくご相談を。働きはじめてからが本番です。<span class="tbc">要確認</span></p><p class="eg">「思っていたのと違う」を、ひとりで抱えない</p></article></div>
-   </div>
- </div></div>
-</section>
-<section class="slide s-end6" id="ch6-d" data-ch="6" data-st="転職しない、も答え">
- <div class="sl-in"><div class="wrap"><div class="end6 scn-line"><p class="en">— and if you stay, that's fine too.</p><h3>「転職しない」も、<br>立派な答え。</h3><p>話してみて、今の職場で続ける道が見えたなら、それもひとつの答えです。無理に転職をすすめることはありません。</p></div></div></div>
+  </div>
 </section>
 
 <!-- ===== 07 ===== -->
-<section class="slide alt c7s" id="ch7" data-ch="7" data-st="ひとりで探すのと比べる">
- <div class="sl-in"><div class="wrap">
-    <div class="chead">
+<section class="c7 chap" id="ch7" data-ch="7" data-title="使うメリット">
+  <div class="wrap">
+    <div class="chead rv">
       <span class="ghost" aria-hidden="true">07</span>
-      <p class="cnum"><span>Scene</span><b>07</b><i></i><span class="tot">/ 10</span></p>
+      <p class="cnum"><span>Chapter</span><b>07</b><i></i><span class="tot">/ 10</span></p>
       <h2>ひとりで探すのと、<br>何がちがう？</h2>
     </div>
-    <div class="vs-bar"><div class="vs-tabs" id="vsTabs" data-v="0" role="group" aria-label="比較の切り替え"><i class="knob"></i><button aria-pressed="true" data-v="0">ひとりで探す</button><button aria-pressed="false" data-v="1">〔サービス名〕と探す</button></div><p class="howto"><b>操作</b>タブを切り替えて、比べてみてください</p></div>
+    <div class="rv"><div class="vs-tabs" id="vsTabs" data-v="0" role="group" aria-label="比較の切り替え"><i class="knob"></i><button aria-pressed="true" data-v="0">ひとりで探す</button><button aria-pressed="false" data-v="1">〔サービス名〕と探す</button></div></div>
     <div class="vs" id="vs" data-v="0">
-      <ul class="vs-list">
+      <ul class="vs-list rv">
         <li><dt>職場の内側の情報</dt><dd><span class="a">求人票と口コミだけが頼り</span><span class="b">残業・離職・取得実績などを確認してお伝え<i class="tbc" style="font-style:normal">要確認</i></span></dd></li>
         <li><dt>比べる手間</dt><dd><span class="a">シフトの合間に、ひとつずつ調べる</span><span class="b">6つのものさしで、並べて比較</span></dd></li>
         <li><dt>聞きにくいこと</dt><dd><span class="a">面接で聞いたら印象が悪いかも…</span><span class="b">給与・休み・制度はアドバイザーが確認</span></dd></li>
         <li><dt>連絡のペース</dt><dd><span class="a">自分で全部を調整</span><span class="b">手段も頻度も、あなたが指定できる<i class="tbc" style="font-style:normal">要確認</i></span></dd></li>
         <li><dt>費用</dt><dd><span class="a">0円</span><span class="b">0円（ずっと無料）<i class="tbc" style="font-style:normal">要確認</i></span></dd></li>
       </ul>
-      <div class="vs-score" id="vsScore" style="--m:.32" data-m="m-ch7">
-        <div class="meter"><svg viewBox="0 0 220 220"><circle class="bg" cx="110" cy="110" r="95"/><circle class="fg" cx="110" cy="110" r="95"/></svg><div class="val"><small>職場について分かること</small><b id="vsVal">求人票の<br>範囲だけ</b></div></div>
+      <div class="vs-score rv d2" id="vsScore" style="--m:.32">
+        <div class="meter"><svg viewBox="0 0 220 220"><defs><linearGradient id="mg2" x1="0" x2="1"><stop offset="0" stop-color="#2fc9dc"/><stop offset="1" stop-color="#1a86e0"/></linearGradient></defs><circle class="bg" cx="110" cy="110" r="95"/><circle class="fg" cx="110" cy="110" r="95"/></svg><div class="val"><small>職場について分かること</small><b id="vsVal">求人票の<br>範囲だけ</b></div></div>
         <p id="vsTxt">“入ってみないと分からない”が多いまま、決めることになりがちです。</p>
       </div>
     </div>
- </div></div>
-</section>
-<section class="slide mo alt" id="m-ch7" data-ch="7" data-st="分かることの差"><div class="sl-in"><div class="wrap"><p class="howto"><b>操作</b>前のページのタブで、メーターが変わります</p><div data-mdest></div></div></div></section>
-<section class="slide" id="ch7-b" data-ch="7" data-st="使うメリット">
- <div class="sl-in"><div class="wrap">
-    <div class="mhead"><p class="cnum"><span>Scene 07</span><i></i><span class="tot">使うメリット</span></p></div>
     <div class="merits">
-      <div class="merit"><p class="big">0<small>円</small></p><h4>相談も登録も無料</h4><p>費用は、採用した医療機関側が負担する仕組みです。<span class="tbc">要確認</span></p></div>
-      <div class="merit"><p class="big">1<small>分</small></p><h4>かんたん登録</h4><p>資格と希望の時期だけでOK。くわしい話は相談のときに。</p></div>
-      <div class="merit"><p class="big">LINE</p><h4>電話なしでも</h4><p>やりとりはLINEやメールだけでも進められます。<span class="tbc">要確認</span></p></div>
-      <div class="merit"><p class="big">2<small>職種</small></p><h4>専門のアドバイザー</h4><p>看護師・歯科衛生士それぞれの現場を知る担当がつきます。<span class="tbc">要確認</span></p></div>
+      <div class="merit rv"><p class="big">0<small>円</small></p><h4>相談も登録も無料</h4><p>費用は、採用した医療機関側が負担する仕組みです。<span class="tbc">要確認</span></p></div>
+      <div class="merit rv d1"><p class="big">1<small>分</small></p><h4>かんたん登録</h4><p>資格と希望の時期だけでOK。くわしい話は相談のときに。</p></div>
+      <div class="merit rv d2"><p class="big">LINE</p><h4>電話なしでも</h4><p>やりとりはLINEやメールだけでも進められます。<span class="tbc">要確認</span></p></div>
+      <div class="merit rv d3"><p class="big">2<small>職種</small></p><h4>専門のアドバイザー</h4><p>看護師・歯科衛生士それぞれの現場を知る担当がつきます。<span class="tbc">要確認</span></p></div>
     </div>
- </div></div>
+  </div>
 </section>
 
 <!-- ===== 08 ===== -->
-<section class="slide scn" id="ch8" data-ch="8" data-st="先輩の転職事例">
-  <div class="sc-ph px"><img class="fz only-n" src="a/nurse_calm.jpg" alt="窓辺で穏やかにほほえむ看護師" style="object-position:50% 22%" loading="lazy"><img class="fz only-d" src="a/dh_calm.jpg" alt="明るい待合でほほえむ歯科衛生士" style="object-position:50% 34%" loading="lazy"></div>
-  <div class="sl-in"><div class="wrap"><div class="chead scn-line">
-    <p class="cnum"><span>Scene</span><b>08</b><i></i><span class="tot">/ 10</span></p>
-    <h2>先輩たちは、<br class="sp">働き方をこう変えた。</h2>
-  </div></div></div>
-  <p class="subt"><span style="--i:0">「変えたのは職場じゃなくて、選び方でした。」<span class="tbc" style="background:#fff">実際の声に差し替え</span></span></p>
+<section class="c8 chap" id="ch8" data-ch="8" data-title="先輩の転職事例">
+  <div class="wrap">
+    <div class="chead rv">
+      <span class="ghost" aria-hidden="true">08</span>
+      <p class="cnum"><span>Chapter</span><b>08</b><i></i><span class="tot">/ 10</span></p>
+      <h2>先輩たちは、<br class="sp">働き方をこう変えた。</h2>
+      <p class="l">ここでは事例の“見せ方”をご提案しています。内容は、掲載許諾をいただいた実際の事例に差し替えます。</p>
+    </div>
+    <div class="c8-band rv io"><img class="fz only-n" src="a/nurse_calm.jpg" alt="窓辺で穏やかにほほえむ看護師" loading="lazy"><img class="fz only-d" src="a/dh_calm.jpg" alt="明るい待合でほほえむ歯科衛生士" loading="lazy"><p class="cap">「変えたのは職場じゃなくて、<br class="sp">選び方でした。」<span class="tbc" style="background:#fff">実際の声に差し替え</span></p></div>
+    <div class="cases sw" id="cases"></div>
+    <p class="disc">※事例はすべて構成サンプルです。〔 〕内は取材・許諾後に実際の内容へ差し替えます。数値の誇張や架空の体験談は掲載しません。</p>
+  </div>
 </section>
-<section class="slide s-c8b" id="ch8-b" data-ch="8" data-st="事例">
- <div class="sl-in"><div class="wrap">
-   <div class="chead" style="margin:0"><p class="cnum"><span>Scene 08</span><i></i><span class="tot">先輩の転職事例</span></p><p class="l">ここでは事例の“見せ方”をご提案しています。内容は、掲載許諾をいただいた実際の事例に差し替えます。</p></div>
-   <div class="cases sw"><div id="cs0"></div><div id="cs1" data-m="m-ch8a"></div><div id="cs2" data-m="m-ch8b"></div></div>
-   <p class="disc">※事例はすべて構成サンプルです。〔 〕内は取材・許諾後に実際の内容へ差し替えます。数値の誇張や架空の体験談は掲載しません。</p>
- </div></div>
-</section>
-<section class="slide mo" id="m-ch8a" data-ch="8" data-st="事例 2"><div class="sl-in"><div class="wrap"><div class="cases" data-mdest></div></div></div></section>
-<section class="slide mo" id="m-ch8b" data-ch="8" data-st="事例 3"><div class="sl-in"><div class="wrap"><div class="cases" data-mdest></div></div></div></section>
 
 <!-- ===== 09 ===== -->
-<section class="slide scn" id="ch9" data-ch="9" data-st="相談から転職まで">
-  <div class="sc-ph px"><img class="fz" src="a/online.jpg" alt="オンラインで相談する女性" style="object-position:58% 50%" loading="lazy"></div>
-  <div class="sl-in"><div class="wrap"><div class="chead scn-line">
-    <p class="cnum"><span>Scene</span><b>09</b><i></i><span class="tot">/ 10</span></p>
-    <h2>まずは話すだけ。<br>転職までの5ステップ。</h2>
-  </div></div></div>
-  <p class="subt"><span style="--i:0">オンライン・電話・LINE。</span><span style="--i:1">自宅から、すっぴんでも大丈夫。</span></p>
-</section>
-<section class="slide alt s-flow" id="ch9-b" data-ch="9" data-st="5ステップ">
- <div class="sl-in"><div class="wrap">
-   <div class="mhead"><p class="cnum"><span>Scene 09</span><i></i><span class="tot">転職までの5ステップ</span></p></div>
+<section class="c9 chap" id="ch9" data-ch="9" data-title="相談から転職まで">
+  <div class="wrap">
+    <div class="chead rv">
+      <span class="ghost" aria-hidden="true">09</span>
+      <p class="cnum"><span>Chapter</span><b>09</b><i></i><span class="tot">/ 10</span></p>
+      <h2>まずは話すだけ。<br>転職までの5ステップ。</h2>
+    </div>
+  </div>
+  <div class="wrap grid">
+    <div class="pic frm l rv"><img class="fz" src="a/online.jpg" alt="オンラインで相談する女性" loading="lazy"><p class="cap"><svg><use href="#i-laptop"/></svg>オンライン・電話・LINE。<br>自宅から、すっぴんでも大丈夫。</p></div>
     <ol class="flow" id="flow">
       <li><span class="dt">1</span><h3>かんたん登録<small>約1分</small></h3><p>資格・希望の時期・連絡方法を入力するだけ。「まだ迷っている」でもOKです。</p></li>
       <li><span class="dt">2</span><h3>無料キャリア相談<small>30〜60分<span class="tbc">要確認</span></small></h3><p>今の働き方のモヤモヤを聞かせてください。6つのものさしで、大切にしたいことを整理します。</p></li>
@@ -1533,50 +1144,48 @@ body{overflow-x:hidden;background:var(--bgw)}
       <li><span class="dt">4</span><h3>見学・面接</h3><p>日程調整はおまかせ。見学で見るべきポイントもお伝えします。<span class="only-d">ユニットの雰囲気や、衛生士の動き方も要チェック。</span><span class="only-n">ナースステーションの雰囲気や、記録の様子も要チェック。</span></p></li>
       <li><span class="dt">5</span><h3>内定・入職、その後も</h3><p>条件の調整や、退職の伝え方の相談も。入職後のギャップも、遠慮なくどうぞ。<span class="tbc">要確認</span></p></li>
     </ol>
- </div></div>
+  </div>
 </section>
 
 <!-- ===== 10 ===== -->
-<section class="slide s-faq" id="ch10" data-ch="10" data-st="よくある質問">
- <div class="sl-in"><div class="wrap">
-    <div class="chead">
-      <p class="cnum"><span>Scene</span><b>10</b><i></i><span class="tot">/ 10</span></p>
-      <h2>最後に、<br>よくある質問。</h2>
-      <p class="howto" style="margin-top:18px"><b>操作</b>質問をタップすると、答えが開きます</p>
+<section class="c10 chap" id="ch10" data-ch="10" data-title="よくある質問">
+  <div class="wrap">
+    <div class="chead rv">
+      <p class="cnum"><span>Chapter</span><b>10</b><i></i><span class="tot">/ 10</span></p>
+      <h2>最後に、<br class="sp">よくある質問。</h2>
     </div>
-    <div class="faq">
-      <details name="faq" open><summary><span class="q">Q</span>電話がしつこくかかってきませんか？<span class="pm"></span></summary><p class="a">連絡手段（LINE・メール・電話）と時間帯は、登録時にお選びいただけます。こちらから何度も電話をかけたり、応募を急かしたりすることはありません。<span class="tbc">要確認</span></p></details>
-      <details name="faq"><summary><span class="q">Q</span>すぐに転職するつもりがなくても、相談していいですか？<span class="pm"></span></summary><p class="a">もちろんです。「今の職場を続けるべきか迷っている」段階のご相談も歓迎しています。話してみて、転職しないという結論になっても大丈夫です。</p></details>
-      <details name="faq"><summary><span class="q">Q</span>本当に無料ですか？<span class="pm"></span></summary><p class="a">はい。相談・登録・求人紹介まで、求職者の方に費用はかかりません。費用は採用した医療機関が負担する仕組みです。<span class="tbc">要確認</span></p></details>
-      <details name="faq"><summary><span class="q">Q</span>歯科衛生士でも利用できますか？<span class="pm"></span></summary><p class="a">はい。一般歯科・矯正・小児・訪問歯科・病院の歯科口腔外科・企業など、歯科衛生士の働き方にも対応しています。<span class="tbc">対応範囲 要確認</span></p></details>
-      <details name="faq" data-m="m-ch10"><summary><span class="q">Q</span>今の職場に知られることはありませんか？<span class="pm"></span></summary><p class="a">ご本人の同意なく、現在の勤務先に情報をお伝えすることはありません。応募先についても、事前にご相談のうえで進めます。<span class="tbc">要確認</span></p></details>
-      <details name="faq" data-m="m-ch10"><summary><span class="q">Q</span>ブランクがあっても大丈夫ですか？<span class="pm"></span></summary><p class="a">大丈夫です。研修体制のある職場や、時短・扶養内など、復帰しやすい働き方からご提案します。</p></details>
-      <details name="faq" data-m="m-ch10"><summary><span class="q">Q</span>退職の伝え方も相談できますか？<span class="pm"></span></summary><p class="a">はい。引き止めにあったときの伝え方や、退職までのスケジュールの立て方もご相談いただけます。</p></details>
+    <div class="faq rv">
+      <details open><summary><span class="q">Q</span>電話がしつこくかかってきませんか？<span class="pm"></span></summary><p class="a">連絡手段（LINE・メール・電話）と時間帯は、登録時にお選びいただけます。こちらから何度も電話をかけたり、応募を急かしたりすることはありません。<span class="tbc">要確認</span></p></details>
+      <details><summary><span class="q">Q</span>すぐに転職するつもりがなくても、相談していいですか？<span class="pm"></span></summary><p class="a">もちろんです。「今の職場を続けるべきか迷っている」段階のご相談も歓迎しています。話してみて、転職しないという結論になっても大丈夫です。</p></details>
+      <details><summary><span class="q">Q</span>本当に無料ですか？<span class="pm"></span></summary><p class="a">はい。相談・登録・求人紹介まで、求職者の方に費用はかかりません。費用は採用した医療機関が負担する仕組みです。<span class="tbc">要確認</span></p></details>
+      <details><summary><span class="q">Q</span>歯科衛生士でも利用できますか？<span class="pm"></span></summary><p class="a">はい。一般歯科・矯正・小児・訪問歯科・病院の歯科口腔外科・企業など、歯科衛生士の働き方にも対応しています。<span class="tbc">対応範囲 要確認</span></p></details>
+      <details><summary><span class="q">Q</span>今の職場に知られることはありませんか？<span class="pm"></span></summary><p class="a">ご本人の同意なく、現在の勤務先に情報をお伝えすることはありません。応募先についても、事前にご相談のうえで進めます。<span class="tbc">要確認</span></p></details>
+      <details><summary><span class="q">Q</span>ブランクがあっても大丈夫ですか？<span class="pm"></span></summary><p class="a">大丈夫です。研修体制のある職場や、時短・扶養内など、復帰しやすい働き方からご提案します。</p></details>
+      <details><summary><span class="q">Q</span>退職の伝え方も相談できますか？<span class="pm"></span></summary><p class="a">はい。引き止めにあったときの伝え方や、退職までのスケジュールの立て方もご相談いただけます。</p></details>
     </div>
- </div></div>
+  </div>
 </section>
-<section class="slide mo" id="m-ch10" data-ch="10" data-st="よくある質問（つづき）"><div class="sl-in"><div class="wrap"><p class="howto"><b>操作</b>質問をタップすると、答えが開きます</p><div class="faq" data-mdest></div></div></div></section>
 
 <!-- ===== Last ===== -->
-<section class="slide scn s-hero" id="goal" data-ch="11" data-st="最後の一歩">
-  <div class="sc-ph px"><img class="fz" src="a/walk.jpg" alt="朝の並木道を、前を向いて歩く女性" style="object-position:62% 40%" loading="lazy"></div>
-  <div class="sl-in"><div class="wrap"><div class="chead scn-line">
-      <p class="cnum"><span>Last scene</span><i></i></p>
-      <h2>働きやすさは、<br>あなたが<br class="sp">選んでいい。</h2>
-  </div></div></div>
-  <p class="subt"><span style="--i:0">プレゼンは、ここまで。</span><span style="--i:1">続きは、あなたの話を聞かせてください。</span></p>
-</section>
-<section class="slide alt" id="goal-cards" data-ch="11" data-st="2つのゴール">
- <div class="sl-in"><div class="wrap">
+<section class="last chap" id="goal" data-ch="11" data-title="最後の一歩">
+  <div class="last-hero io">
+    <img class="fz" src="a/walk.jpg" alt="朝の並木道を、前を向いて歩く女性" loading="lazy">
+    <div class="wrap">
+      <p class="cnum rv"><span>Last chapter</span><i></i></p>
+      <h2 class="rv d1">働きやすさは、<br>あなたが<br class="sp">選んでいい。</h2>
+      <p class="l rv d2">私たちのお話は、ここまで。<br>続きは、あなたの話を聞かせてください。</p>
+    </div>
+  </div>
+  <div class="wrap">
     <div class="goals">
-      <div class="goal">
+      <div class="goal rv">
         <span class="lab">GOAL 01</span>
         <h3>まずは話してみる<br><span style="color:var(--blue)">無料キャリア相談</span></h3>
         <p>転職するか決めていなくても大丈夫。30分〜、オンライン・電話・LINEで。<span class="tbc">要確認</span></p>
         <ul><li><svg><use href="#i-tick"/></svg>今の職場を続けるべきかの相談もOK</li><li><svg><use href="#i-tick"/></svg>診断結果をもとに、働きやすさを整理</li><li><svg><use href="#i-tick"/></svg>しつこい連絡はしません</li></ul>
         <div class="btns"><a class="btn main" href="#goal-reg" data-goal="consult">無料キャリア相談を予約する<span class="arw"><svg class="ic" style="width:12px;height:12px"><use href="#i-arrow"/></svg></span></a><a class="btn line" href="#goal-reg">LINEで気軽に相談する</a></div>
       </div>
-      <div class="goal" data-m="m-goal">
+      <div class="goal rv d1">
         <span class="lab">GOAL 02</span>
         <h3>希望だけ伝えておく<br><span style="color:var(--blue)">かんたん新規登録</span></h3>
         <p>条件に合う求人が出たときだけ、指定の方法でお知らせします。約1分で完了。</p>
@@ -1584,12 +1193,7 @@ body{overflow-x:hidden;background:var(--bgw)}
         <div class="btns"><a class="btn sub" href="#goal-reg" data-goal="reg">1分でかんたん登録<span class="arw"><svg class="ic" style="width:12px;height:12px"><use href="#i-arrow"/></svg></span></a></div>
       </div>
     </div>
- </div></div>
-</section>
-<section class="slide mo alt" id="m-goal" data-ch="11" data-st="かんたん新規登録"><div class="sl-in"><div class="wrap"><div class="goals" data-mdest></div></div></div></section>
-<section class="slide" id="goal-reg" data-ch="11" data-st="かんたん登録フォーム">
- <div class="sl-in"><div class="wrap">
-    <div class="reg">
+    <div class="reg rv" id="goal-reg">
       <div>
         <p class="cnum"><span>Entry</span><i></i></p>
         <h3>約1分、<br class="pc">3つだけ教えてください。</h3>
@@ -1604,28 +1208,20 @@ body{overflow-x:hidden;background:var(--bgw)}
         <p class="ok" id="ok"></p>
       </form>
     </div>
- </div></div>
-</section>
-<section class="slide s-end" id="end" data-ch="11" data-st="おわり">
- <div class="sl-in"><div class="wrap">
-  <div class="end-h"><p class="en">FIN.</p><h2>最後まで見てくださり、<br class="sp">ありがとうございました。</h2><div class="acts2"><a class="btn main" href="#goal-cards">無料キャリア相談<span class="arw"></span></a><button class="btn sub" type="button" data-go="top">最初から見る ↺</button></div></div>
+  </div>
   <footer class="ft">
     <div class="wrap">
       <div><b>〔サービス名〕</b><p>看護師・歯科衛生士のための、働きやすさから選ぶキャリア相談</p></div>
       <div><p>運営：〔運営会社〕<br>有料職業紹介事業 許可番号：〔◯◯-ユ-◯◯◯◯◯◯〕<span class="tbc">要確認</span><br>プライバシーポリシー ／ 利用規約</p><p class="demo">※このページはLPデザインのサンプルです。実在のサービスではなく、フォームは送信されません。</p></div>
     </div>
   </footer>
- </div></div>
 </section>
-
-</div></main>
-<div class="snaps" id="snaps" aria-hidden="true"></div>
+</main>
 
 <script>
 (()=>{
 const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const MQ=matchMedia('(max-width:820px)');
 const ic=(id,cls='')=>`<svg class="${cls}"><use href="#${id}"/></svg>`;
 const CH=[["00","はじめに","#top"],["01","あなたの今","#ch1"],["02","なぜ繰り返すのか","#ch2"],["03","私たちの考え方","#ch3"],["04","働きやすさのものさし","#ch4"],["05","あなたに合う働き方","#ch5"],["06","支援の中身","#ch6"],["07","使うメリット","#ch7"],["08","先輩の転職事例","#ch8"],["09","相談から転職まで","#ch9"],["10","よくある質問","#ch10"],["→","最後の一歩","#goal"]];
 
@@ -1700,80 +1296,65 @@ const D={
 };
 const TIMING={t0:"急ぐときほど、比べる軸が大切。まずは優先順位を一緒に整理してから動きましょう。",t1:"情報収集を始めるのにちょうどいいタイミング。見学の時期も逆算できます。",t2:"いい求人が出たときに動けるよう、希望だけ先に登録しておくのがおすすめです。",t3:"迷っている段階でも大丈夫。「今の職場に残る」も含めて、一緒に考えます。"};
 
-
 let prof='n';
 try{const s=localStorage.getItem('aim_np_prof');if(s==='d'||s==='n')prof=s}catch(e){}
 
 /* ---------------- builders ---------------- */
+document.addEventListener('click',e=>{if(e.target.closest('#c1end')){const t=document.getElementById('ch2');t&&t.scrollIntoView({behavior:'smooth'})}});
 const checked=new Set();
 function buildWorries(){
   const ul=$('#worries');checked.clear();
-  ul.innerHTML=D[prof].worries.map((w,i)=>`<li data-i="${i}" class="on"><button aria-pressed="false"><span class="bx">${ic('i-tick')}</span>${w}</button></li>`).join('');
+  ul.innerHTML=D[prof].worries.map((w,i)=>`<li data-i="${i}"><button aria-pressed="false"><span class="bx">${ic('i-tick')}</span>${w}</button></li>`).join('')+``;
   $$('button',ul).forEach(b=>b.addEventListener('click',()=>{const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);const i=b.parentNode.dataset.i;on?checked.add(i):checked.delete(i);updCnt()}));
   updCnt();
 }
-function updCnt(){const n=checked.size,t=D[prof].worries.length;$('#cnt').textContent=n;$('#ctot').textContent=t;$('#cbar').style.width=(n/t*100)+'%';$('#wlres').classList.toggle('has',n>0);$('#cntMsg').textContent=n===0?'ひとつでも当てはまったら、このプレゼンはあなたのためのものです。':n<3?'その気持ち、あとの章で一緒にほどいていきます。':'かなりがんばってきましたね。まずは、その疲れを認めてあげてください。'}
+function updCnt(){const n=checked.size,t=D[prof].worries.length;$('#cnt').textContent=n;$('#ctot').textContent=t;$('#cbar').style.width=(n/t*100)+'%';$('#wlres').classList.toggle('has',n>0);$('#cntMsg').textContent=n===0?'ひとつでも当てはまったら、この先のお話はきっとあなたの役に立ちます。':n<3?'その気持ち、あとの章で一緒にほどいていきます。':'かなりがんばってきましたね。まずは、その疲れを認めてあげてください。'}
 function buildPost(){
   const p=D[prof].post;
-  $('#postCard').innerHTML=`<div class="ttl"><b>${p.t}</b><span>${p.s}</span></div>`+p.rows.map((r,i)=>`<div class="prow${i===0?' on cur':''}" data-i="${i}"><button class="say" type="button" aria-expanded="${i===0}"><q>${r[0]}</q><i>確認ポイント ${i+1}</i></button><div class="real"><div><p>${r[1]}</p></div></div></div>`).join('');
-  const rows=$$('#postCard .prow');
-  rows.forEach(r=>$('.say',r).addEventListener('click',()=>{const open=!r.classList.contains('cur');rows.forEach(x=>{x.classList.remove('cur');$('.say',x).setAttribute('aria-expanded','false')});if(open){r.classList.add('cur','on');$('.say',r).setAttribute('aria-expanded','true')}}));
+  $('#postCard').innerHTML=`<div class="ttl"><b>${p.t}</b><span>${p.s}</span></div>`+p.rows.map((r,i)=>`<div class="prow" data-i="${i}"><p class="say"><q>${r[0]}</q><i>確認ポイント ${i+1}</i></p><div class="real"><div><p>${r[1]}</p></div></div></div>`).join('');
 }
 const AXV=[.88,.72,.8,.62,.7,.84];
-let radarP=0;
 function buildRuler(){
   const ax=D[prof].axes;
-  ax.forEach((a,i)=>{$('#ax'+i).innerHTML=`<article class="axcard on" data-i="${i}"><div class="top"><span class="ico">${ic(a[1])}</span><div><small>MEASURE ${String(i+1).padStart(2,'0')} / 06</small><h3>${a[0]}</h3></div></div><p>${a[2]}</p><div class="chk"><b>${ic('i-search','ic')}私たちが確かめること<span class="tbc">要確認</span></b><ul>${a[3].map(c=>`<li>${ic('i-tick')}${c}</li>`).join('')}</ul></div></article>`});
+  $('#axcards').innerHTML=ax.map((a,i)=>`<article class="axcard" data-i="${i}"><div class="top"><span class="ico">${ic(a[1])}</span><div><small>MEASURE ${String(i+1).padStart(2,'0')} / 06</small><h3>${a[0]}</h3></div></div><p>${a[2]}</p><div class="chk"><b>${ic('i-search','ic')}私たちが確かめること<span class="tbc">要確認</span></b><ul>${a[3].map(c=>`<li>${ic('i-tick')}${c}</li>`).join('')}</ul></div></article>`).join('');
+  $('#axdots').innerHTML=ax.map(()=>'<i></i>').join('');
+  // radar svg
   const cx=260,cy=260,R=170;
   const pt=(i,r)=>{const a=-Math.PI/2+i*Math.PI/3;return [cx+Math.cos(a)*r,cy+Math.sin(a)*r]};
   let g='';
   for(let k=1;k<=4;k++){g+=`<polygon class="grid" points="${[0,1,2,3,4,5].map(i=>pt(i,R*k/4).join(',')).join(' ')}"/>`}
-  for(let i=0;i<6;i++){const[x,y]=pt(i,R);g+=`<line class="ax" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"/>`;const[lx,ly]=pt(i,R+42);g+=`<text class="lb on" data-i="${i}" x="${lx}" y="${ly+6}">${ax[i][0]}</text><text class="lbn" x="${lx}" y="${ly-16}">0${i+1}</text>`}
-  $('#radar').innerHTML=`<svg viewBox="0 0 520 520" role="img" aria-label="働きやすさの6つのものさし">${g}<polygon class="shape" id="shape"/>${[0,1,2,3,4,5].map(i=>`<circle class="dot" r="6" data-i="${i}"/>`).join('')}</svg>`;
-  radar.pt=pt;radar.R=R;
-  drawRadar(RM?1:radarP);
+  for(let i=0;i<6;i++){const[x,y]=pt(i,R);g+=`<line class="ax" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"/>`;const[lx,ly]=pt(i,R+42);g+=`<text class="lb" data-i="${i}" x="${lx}" y="${ly+6}">${ax[i][0]}</text><text class="lbn" x="${lx}" y="${ly-16}">0${i+1}</text>`}
+  $('#radar').innerHTML=`<svg viewBox="0 0 520 520" role="img" aria-label="働きやすさの6つのものさし"><defs><radialGradient id="rg"><stop offset="0" stop-color="#2fc9dc" stop-opacity=".18"/><stop offset="1" stop-color="#49b3f2" stop-opacity=".42"/></radialGradient></defs>${g}<polygon class="shape" id="shape"/>${[0,1,2,3,4,5].map(i=>`<circle class="dot" r="6" data-i="${i}"/>`).join('')}</svg>`;
+  radar.pt=pt;radar.R=R;radar.cx=cx;radar.cy=cy;
+  drawRadar(RM?1:($('#ruler')._p||0));
 }
 function radar(){}
 function drawRadar(p){
   const sh=$('#shape');if(!sh)return;
   const pts=[],dots=$$('#radar .dot');
   for(let i=0;i<6;i++){
-    const t=Math.min(1,Math.max(0,(p*7.2-i*1.05)));const e=1-Math.pow(1-t,3);
+    const t=RM?1:Math.min(1,Math.max(0,(p*7.2-i*1.05)));const e=1-Math.pow(1-t,3);
     const r=radar.R*(0.12+(AXV[i]-0.12)*e);const[x,y]=radar.pt(i,r);pts.push(x.toFixed(1)+','+y.toFixed(1));
     dots[i].setAttribute('cx',x);dots[i].setAttribute('cy',y);
   }
   sh.setAttribute('points',pts.join(' '));
 }
-function animRadar(){if(RM||radarP>=1){radarP=1;drawRadar(1);return}const t0=performance.now();const st=()=>{radarP=Math.min(1,(performance.now()-t0)/2200);drawRadar(radarP);if(radarP<1)requestAnimationFrame(st)};requestAnimationFrame(st)}
 function buildCases(){
   const cs=D[prof].cases,isN=prof==='n';
-  cs.forEach((c,i)=>{$('#cs'+i).innerHTML=`<article class="case"><span class="smp">構成サンプル</span><div class="who"><span class="av">${ic(isN?'i-nurse':'i-tooth')}</span><div><b>〔イニシャル〕さん／${c[0]}</b><small>${c[1]}</small></div></div><div class="ba"><div class="bf"><b>BEFORE</b>${c[2]}</div><span class="ar">${ic('i-arrow')}</span><div class="af"><b>AFTER</b>${c[3]}</div></div><dl><div><dt>決め手</dt><dd>${c[4]}</dd></div><div><dt>確かめたこと</dt><dd>${c[5].join('・')}</dd></div><div><dt>入職まで</dt><dd>約〔◯〕か月</dd></div></dl><p class="vc">〔実際の声：転職を考えたきっかけ、相談してよかったこと、今の働き方を2〜3行で〕</p></article>`});
+  $('#cases').innerHTML=cs.map((c,i)=>`<article class="case rv in"><span class="smp">構成サンプル</span><div class="who"><span class="av">${ic(isN?'i-nurse':'i-tooth')}</span><div><b>〔イニシャル〕さん／${c[0]}</b><small>${c[1]}</small></div></div><div class="ba"><div class="bf"><b>BEFORE</b>${c[2]}</div><span class="ar">${ic('i-arrow')}</span><div class="af"><b>AFTER</b>${c[3]}</div></div><dl><div><dt>決め手</dt><dd>${c[4]}</dd></div><div><dt>確かめたこと</dt><dd>${c[5].join('・')}</dd></div><div><dt>入職まで</dt><dd>約〔◯〕か月</dd></div></dl><p class="vc">〔実際の声：転職を考えたきっかけ、相談してよかったこと、今の働き方を2〜3行で〕</p></article>`).join('');
 }
 
 /* ---------------- diagnosis ---------------- */
 let dqI=0,ans=[];
-const ARW='<span class="arw"></span>';
 function dgRender(){
   const dg=$('#dg'),Q=D[prof].qs;
-  if(dqI>=Q.length)return dgDone();
+  if(dqI>=Q.length){return dgResult()}
   const q=Q[dqI];
   dg.innerHTML=`<div class="dg-top"><p class="lab"><span>${prof==='n'?'看護師':'歯科衛生士'}向け</span><em style="font-style:normal">働き方タイプ診断</em></p><div class="dg-steps">${Q.map((_,i)=>`<i class="${i<=dqI?'on':''}"></i>`).join('')}</div></div>
-  <div class="dq"><p class="qn">Q${dqI+1} / ${Q.length}</p><h3>${q[0]}</h3><div class="opts">${q[1].map((o,i)=>`<button data-i="${i}"><span class="k">${'ABCDE'[i]}</span>${o[0]}</button>`).join('')}</div>
-  <div class="dg-foot"><button class="dg-back" ${dqI?'':'hidden'}>← ひとつ前にもどる</button><span class="dg-tip">答えをタップすると、次の質問へ進みます</span></div></div>`;
-  $$('.opts button',dg).forEach(b=>b.addEventListener('click',()=>{b.classList.add('pick');ans[dqI]=+b.dataset.i;setTimeout(()=>{dqI++;dgRender()},RM?0:280)}));
+  <div class="dq" key="${dqI}"><p class="qn">Q${dqI+1} / ${Q.length}</p><h3>${q[0]}</h3><div class="opts">${q[1].map((o,i)=>`<button data-i="${i}"><span class="k">${'ABCDE'[i]}</span>${o[0]}</button>`).join('')}</div>
+  <button class="dg-back" ${dqI?'':'hidden'}>← ひとつ前にもどる</button></div>`;
+  $$('.opts button',dg).forEach(b=>b.addEventListener('click',()=>{b.classList.add('pick');ans[dqI]=+b.dataset.i;setTimeout(()=>{dqI++;dgRender()},RM?0:260)}));
   const bk=$('.dg-back',dg);bk&&bk.addEventListener('click',()=>{dqI=Math.max(0,dqI-1);dgRender()});
-}
-function dgDone(){
-  $('#dg').innerHTML=`<div class="dq dg-done"><div class="dg-top"><p class="lab"><span>${prof==='n'?'看護師':'歯科衛生士'}向け</span></p><div class="dg-steps">${D[prof].qs.map(()=>'<i class="on"></i>').join('')}</div></div><p class="qn">COMPLETE</p><h3>5つの質問に、すべて答えました。</h3><p>次のページに、あなたに合いそうな働き方を表示しています。</p><div class="acts2"><button class="btn main" type="button" data-go="dgr">結果を見る${ARW}</button><button class="again" type="button">答えなおす</button></div></div>`;
-  $('#dg .again').addEventListener('click',dgReset);
-  dgResult();
-  setTimeout(()=>{const s=slides[cur];if(s&&s.id==='dgq')goId('dgr')},RM?0:700);
-}
-function dgReset(){dqI=0;ans=[];dgRender();resEmpty();goId('dgq')}
-function resEmpty(){
-  $('#resbox').classList.add('empty');
-  $('#resA').innerHTML=`<div class="res-empty"><p class="qn">RESULT</p><h3>結果は、まだありません。</h3><p>前のページで5つの質問に答えると、ここに「あなたに合いそうな働き方」が表示されます。</p><button class="btn sub" type="button" data-go="dgq">← 診断の質問へ</button></div>`;
-  $('#resB').innerHTML=`<div class="res-empty"><p class="qn">RESULT</p><p>見学・面接で確かめたいポイントと、給与の目安も、診断のあとにここへ表示されます。</p><button class="btn sub" type="button" data-go="dgq">← 診断の質問へ</button></div>`;
 }
 function dgResult(){
   const P=D[prof],Q=P.qs,sc={A:0,B:0,C:0,D:0,E:0,F:0};let tm='t3';
@@ -1781,235 +1362,128 @@ function dgResult(){
   const order=Object.keys(sc).sort((a,b)=>sc[b]-sc[a]||'ABCDEF'.indexOf(a)-'ABCDEF'.indexOf(b));
   const t=P.types[order[0]];
   const bars=order.slice(0,3).map((k,i)=>`<div class="bar ${i===0?'me':''}" data-w="${P.types[k][6]}"><span>${P.types[k][0]}${i===0?'<small style="color:var(--blue)">（あなた）</small>':''}</span><span class="tr"><span class="fl"><span>月給 〔◯◯〕万円〜</span></span></span></div>`).join('');
-  $('#resbox').classList.remove('empty');
-  $('#resA').innerHTML=`<div class="res"><span class="tag">RESULT</span>
+  $('#dg').innerHTML=`<div class="res"><span class="tag">RESULT</span>
    <div class="tp"><span class="ico">${ic(t[1])}</span><div><small>あなたに合いそうなのは</small><h3>${t[0]}<span style="font-size:.6em">タイプ</span></h3></div></div>
    <p class="catch">${t[2]}</p><p class="desc">${t[3]}</p>
-   <div class="blk"><h4>${ic('i-spark')}アドバイザーからのひとこと</h4><p>${t[4]}</p><p style="margin-top:6px;color:var(--deep);font-weight:700">${TIMING[tm]}</p></div></div>`;
-  $('#resB').innerHTML=`<div class="res">
-   <div class="blk first"><h4>${ic('i-search')}見学・面接で確かめたい働きやすさ</h4><ul>${t[5].map(c=>`<li>${c}</li>`).join('')}</ul></div>
+   <div class="blk"><h4>${ic('i-spark')}アドバイザーからのひとこと</h4><p>${t[4]}</p><p style="margin-top:6px;color:var(--deep);font-weight:700">${TIMING[tm]}</p></div>
+   <div class="blk"><h4>${ic('i-search')}見学・面接で確かめたい働きやすさ</h4><ul>${t[5].map(c=>`<li>${c}</li>`).join('')}</ul></div>
    <div class="blk"><h4>${ic('i-yen')}給与の目安（常勤・月給）</h4><div class="bars">${bars}</div><p class="note">※バーの長さはイメージです。金額は最新の求人データをもとに〔要確認〕。地域・経験により異なります。</p></div>
-   <div class="acts"><a class="btn main" href="#goal-cards">この結果をもとに無料相談する<span class="arw"><svg class="ic" style="width:12px;height:12px"><use href="#i-arrow"/></svg></span></a><button class="again" type="button">もう一度</button></div></div>`;
-  $('#resB .again').addEventListener('click',dgReset);
+   <div class="acts"><a class="btn main" href="#goal">この結果をもとに無料相談する<span class="arw"><svg class="ic" style="width:12px;height:12px"><use href="#i-arrow"/></svg></span></a><button class="again">もう一度</button></div></div>`;
+  $('.again').addEventListener('click',()=>{dqI=0;ans=[];dgRender();$('#dg').scrollIntoView({behavior:RM?'auto':'smooth',block:'center'})});
+  requestAnimationFrame(()=>setTimeout(()=>$$('#dg .bar').forEach(b=>{b.querySelector('.fl').style.width=(b.dataset.w*100)+'%';b.classList.add('go')}),120));
 }
-function growBars(){$$('.bar[data-w]').forEach(b=>{if(b.classList.contains('go'))return;b.querySelector('.fl').style.width=(b.dataset.w*100)+'%';b.classList.add('go')})}
 
 /* ---------------- profession ---------------- */
 let toastT;
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),2200)}
-function knob(){const b=$(`.hd .seg button[data-prof="${prof}"]`),k=$('.hd .seg .knob');k.style.width=b.offsetWidth+'px';k.style.transform=`translateX(${b.offsetLeft-4}px)`}
+function knob(){const seg=$('.hd .seg'),b=$(`.hd .seg button[data-prof="${prof}"]`),k=$('.hd .seg .knob');k.style.width=b.offsetWidth+'px';k.style.transform=`translateX(${b.offsetLeft-4}px)`}
 function setProf(p,user){
   prof=p;try{localStorage.setItem('aim_np_prof',p)}catch(e){}
   document.body.classList.toggle('prof-n',p==='n');document.body.classList.toggle('prof-d',p==='d');
   $$('[data-prof]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.prof===p));
   const q=$(`#form input[name=q][value="${p}"]`);if(q)q.checked=true;
-  buildWorries();buildPost();buildRuler();buildCases();dqI=0;ans=[];dgRender();resEmpty();
-  knob();
+  buildWorries();buildPost();buildRuler();buildCases();dqI=0;ans=[];dgRender();
+  knob();sceneSteps(true);
   if(user){const m=$('#main');m.classList.remove('swap');void m.offsetWidth;m.classList.add('swap');toast(p==='n'?'看護師向けの内容に切り替えました':'歯科衛生士向けの内容に切り替えました')}
 }
 $$('[data-prof]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.prof!==prof)setProf(b.dataset.prof,true)}));
 
-/* ---------------- nav lists ---------------- */
+/* ---------------- nav ---------------- */
 $('#toc').innerHTML=CH.slice(1).map((c,i)=>`<li class="${i===10?'last':''}"><a href="${c[2]}"><b>${c[0]}</b>${c[1]}</a></li>`).join('');
+$('#rail').innerHTML=CH.map((c,i)=>`<a href="${c[2]}" data-i="${i}"><span>${c[1]}</span><b>${c[0]}</b></a>`).join('');
 $('#menuList').innerHTML=CH.map((c,i)=>`<li><a href="${c[2]}" data-i="${i}" style="transition-delay:${i*25}ms"><b>${c[0]}</b>${c[1]}</a></li>`).join('');
-$('#pbSegs').innerHTML=CH.map((c,i)=>`<button type="button" data-href="${c[2]}" aria-label="${c[0]} ${c[1]}"><i></i><span>${c[0]}　${c[1]}</span></button>`).join('');
 const menu=$('#menu');
 const openMenu=o=>{menu.classList.toggle('open',o);menu.setAttribute('aria-hidden',!o)};
-$('#dockChp').addEventListener('click',()=>openMenu(true));$('#pbCh').addEventListener('click',()=>openMenu(true));$('#menuX').addEventListener('click',()=>openMenu(false));
+$('#dockChp').addEventListener('click',()=>openMenu(true));$('#menuX').addEventListener('click',()=>openMenu(false));
+$$('#menu a').forEach(a=>a.addEventListener('click',()=>openMenu(false)));
+addEventListener('keydown',e=>{if(e.key==='Escape')openMenu(false)});
 
 /* ---------------- fill text ---------------- */
-const fill=$('#fill');let ci=0;
-fill.querySelectorAll(':scope>span').forEach(sp=>{sp.innerHTML=[...sp.textContent].map(c=>`<span class="c" style="--i:${ci++}">${c}</span>`).join('')});
+const fill=$('#fill');
+fill.querySelectorAll(':scope>span').forEach(sp=>{sp.innerHTML=[...sp.textContent].map(c=>`<span class="c">${c}</span>`).join('')});
 const fillC=$$('.c',fill);
 
 /* ---------------- vs ---------------- */
 const VS=[{m:.32,v:'求人票の<br>範囲だけ',t:'“入ってみないと分からない”が多いまま、決めることになりがちです。'},{m:.86,v:'働きやすさまで<br>見える',t:'求人票の外側まで確かめてから、比べて選べます。〔要確認〕'}];
 $$('#vsTabs button').forEach(b=>b.addEventListener('click',()=>{const v=+b.dataset.v;$('#vsTabs').dataset.v=v;$('#vs').dataset.v=v;$$('#vsTabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('#vsScore').style.setProperty('--m',VS[v].m);$('#vsVal').innerHTML=VS[v].v;$('#vsTxt').textContent=VS[v].t}));
+// auto flip once when seen
 let vsDone=false;
-
-/* ---------------- faq (exclusive fallback) ---------------- */
-$$('.faq details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)$$('.faq details').forEach(x=>{if(x!==d&&x.open)x.open=false})}));
 
 /* ---------------- form ---------------- */
 $('#submit').addEventListener('click',()=>{$('#ok').textContent='ありがとうございます。※デザインサンプルのため、実際には送信されません。'});
+$$('[data-goal]').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>$('#tel').focus({preventScroll:true}),700)));
 
-/* ---------------- mobile re-flow (split long slides) ---------------- */
-const movers=$$('[data-m]').map(el=>{const mk=document.createComment('m');el.before(mk);return {el,mk,dest:$('#'+el.dataset.m+' [data-mdest]')}});
-function applyMobile(m){movers.forEach(o=>{if(m)o.dest.appendChild(o.el);else o.mk.after(o.el)})}
+/* ---------------- reveal ---------------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.closest('#vs')&&!vsDone){vsDone=true;setTimeout(()=>$('#vsTabs button[data-v="1"]').click(),1400)}}}),{rootMargin:'0px 0px -12% 0px'});
+$$('.rv').forEach(el=>RM?el.classList.add('in'):io.observe(el));
 
-/* =========================================================
-   DECK ENGINE
-   縦スクロール位置（スナップ付きの透明スペーサー）→ 横位置
-   ========================================================= */
-const deck=$('#main'),dtrack=$('#dtrack'),snaps=$('#snaps'),hd=$('#hd'),now=$('#now'),progEl=$('#prog'),ring=$('#dockRing'),tcard=$('#tcard');
-let slides=[],N=0,W=innerWidth,SH=innerHeight,pos=0,target=0,cur=-1,curCh=-1,want=0,navTo=null,navT=0,dragX=0,dragging=false,isM=null,clr=-1,chCount=[],chFirst=[];
-const seenCh=new Set([0]);
-const clampI=i=>Math.max(0,Math.min(N-1,i));
-const idxOfEl=el=>{const s=el&&el.closest('.slide');return s?slides.indexOf(s):-1};
-function goId(id){const i=idxOfEl(document.getElementById(id));if(i>=0)go(i)}
-
-function collect(){
-  const keep=slides[cur];
-  slides=$$('.slide',dtrack).filter(s=>getComputedStyle(s).display!=='none');
-  N=slides.length;
-  if(snaps.children.length!==N)snaps.innerHTML='<div></div>'.repeat(N);
-  chCount=CH.map(()=>0);chFirst=[];
-  slides.forEach((s,i)=>{const c=+s.dataset.ch;s._c=c;s._k=chCount[c]++;if(chFirst[c]===undefined)chFirst[c]=i;s.setAttribute('role','group');s.setAttribute('aria-roledescription','slide');s.setAttribute('aria-label',`${i+1} / ${N}：${s.dataset.st||''}`)});
-  $$('#pbSegs button').forEach((b,c)=>b.style.flexGrow=Math.max(1,chCount[c]));
-  $('#pbAll').textContent=String(N).padStart(2,'0');
-  if(!keep)return 0;
-  let p=keep,ni=-1;while(p&&(ni=slides.indexOf(p))<0)p=p.previousElementSibling;
-  return Math.max(0,ni);
+/* ---------------- scroll engine ---------------- */
+const scenes=$$('.scene'),chaps=$$('[data-ch]'),ios=$$('.io'),ghosts=$$('.ghost');
+const hs=$('#hs'),track=$('#track');
+const hd=$('#hd'),now=$('#now'),rail=$('#rail'),dock=$('#dock'),prog=document.documentElement;
+let vh=innerHeight,isH=false,curCh=-1;
+function layout(){
+  vh=innerHeight;
+  isH=!RM&&innerWidth>=960;
+  if(isH){const dist=track.scrollWidth-innerWidth;hs.style.height=(dist+vh*1.25)+'px';hs._dist=dist}else{hs.style.height='';track.style.transform=''}
+  knob();
 }
-function layout(force){
-  const m=MQ.matches;const nw=deck.clientWidth;
-  const modeChanged=m!==isM;
-  if(!force&&!modeChanged&&nw===W&&snaps.firstElementChild&&snaps.firstElementChild.offsetHeight===SH)return;
-  if(modeChanged){isM=m;applyMobile(m)}
-  let ni=collect();
-  if(cur<0){const h=location.hash.slice(1);const el=h&&document.getElementById(h);const j=el?idxOfEl(el):-1;ni=j>=0?j:0}
-  W=nw;SH=snaps.firstElementChild.offsetHeight||innerHeight;
-  navTo=null;scrollTo(0,ni*SH);target=pos=want=ni;cur=-1;render();knob();
+function stepOf(s,p){const n=+s.dataset.steps;if(RM)return n;return p<=.02?0:Math.min(n,1+Math.floor((p-.02)/.84*n))}
+function sceneSteps(force){
+  scenes.forEach(s=>{if(!s.dataset.steps)return;const st=stepOf(s,s._p||0);if(st===s._st&&!force)return;s._st=st;applyStep(s,st)});
 }
-function go(i){
-  i=clampI(i);want=i;
-  const from=Math.round(pos);
-  if(Math.abs(i-from)>2&&!RM){
-    deck.classList.add('fade');clearTimeout(go._t);
-    go._t=setTimeout(()=>{navTo=i;navT=performance.now();scrollTo(0,i*SH);target=pos=i;render();deck.classList.remove('fade')},320);
-    return;
+function applyStep(s,st){
+  if(s.id==='ch1'){$$('#worries li').forEach(li=>li.classList.add('on'))}
+  if(s.id==='post'){$$('#postCard .prow').forEach(r=>{const i=+r.dataset.i;r.classList.toggle('on',i<st);r.classList.toggle('cur',RM||i===st-1||(st>=6&&i===4))});$('#conc').classList.toggle('on',st>=6)}
+  if(s.id==='ruler'){const a=Math.max(0,Math.min(5,st-1));$$('#axcards .axcard').forEach(c=>c.classList.toggle('on',+c.dataset.i===a));$$('#axdots i').forEach((d,i)=>d.classList.toggle('on',i===a));$$('#radar .lb').forEach(l=>l.classList.toggle('on',+l.dataset.i===a))}
+}
+let ticking=false,clr=-1;
+function frame(){
+  ticking=false;
+  const y=scrollY,H=document.documentElement.scrollHeight-vh;
+  prog.style.setProperty('--sp',(y/Math.max(1,H)).toFixed(4));
+  {const g=$('#goal');const end=Math.max(1,g.offsetTop-vh*.35);let c=Math.min(1,Math.max(0,(y-vh*.3)/end));c=Math.round(Math.pow(c,.85)*20)/20;if(c!==clr){clr=c;prog.style.setProperty('--clear',c)}}
+  hd.classList.toggle('solid',y>vh*.9);
+  scenes.forEach(s=>{
+    const r=s.getBoundingClientRect();if(r.bottom<-50||r.top>vh+50)return;
+    const len=r.height-vh;const p=len>0?Math.min(1,Math.max(0,-r.top/len)):(r.top<0?1:0);
+    if(s._p!==undefined&&Math.abs(p-s._p)<.0004)return;s._p=p;
+    if(!RM)s.style.setProperty('--p',p.toFixed(4));
+    if(s.dataset.steps){const st=stepOf(s,p);if(st!==s._st){s._st=st;applyStep(s,st)}}
+    if(s===hs&&isH)track.style.transform=`translate3d(${(-p*hs._dist).toFixed(1)}px,0,0)`;
+    if(s.id==='ruler'&&!RM)drawRadar(p);
+    if(s.id==='c3s'&&!RM){const q=Math.min(1,Math.max(0,(p-.04)/.62));const k=Math.round(q*fillC.length);fillC.forEach((c,i)=>{const on=i<k;if(c._on!==on){c._on=on;c.classList.toggle('on',on)}})}
+  });
+  if(!RM){
+    ios.forEach(el=>{const r=el.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;el.style.setProperty('--io',(1-(r.top+r.height)/(vh+r.height)).toFixed(3))});
+    ghosts.forEach(g=>{const r=g.parentNode.getBoundingClientRect();if(r.bottom<-200||r.top>vh)return;g.style.setProperty('--gy',(r.top*-.18).toFixed(1))});
   }
-  navTo=i;navT=performance.now();target=i;
-  scrollTo({top:i*SH,behavior:RM?'auto':'smooth'});
-  kick();
-}
-addEventListener('scroll',()=>{
-  const t=scrollY/SH;
-  if(navTo!==null){if(Math.abs(t-navTo)<.003||performance.now()-navT>1600)navTo=null;else return}
-  target=Math.max(0,Math.min(N-1,t));want=Math.round(target);kick();
-},{passive:true});
-
-let raf=0,last=0;
-function kick(){if(!raf)raf=requestAnimationFrame(tick)}
-function tick(t){
-  raf=0;const dt=last?Math.min(64,t-last):16;last=t;
-  if(RM){pos=Math.round(target)}
-  else{const k=1-Math.exp(-dt/150);pos+=(target-pos)*k;if(Math.abs(target-pos)<.0005)pos=target}
-  render();
-  if(pos!==target||dragging)raf=requestAnimationFrame(tick);else last=0;
-}
-function render(){
-  const xe=pos-dragX/W;
-  dtrack.style.transform=`translate3d(${(-xe*W).toFixed(2)}px,0,0)`;
-  for(let j=0;j<N;j++){
-    const s=slides[j],d=j-xe,a=Math.abs(d),near=a<1.25;
-    if(near){s.style.setProperty('--d',d.toFixed(4));s.style.setProperty('--ad',Math.min(1,a).toFixed(4));s.style.setProperty('--io',(1-Math.min(1,a)).toFixed(3))}
-    else if(s._near){s.style.setProperty('--d',d>0?1:-1);s.style.setProperty('--ad',1);s.style.setProperty('--io',0)}
-    if(near!==s._near){s.classList.toggle('near',near);s._near=near}
-  }
-  const sp=N>1?Math.max(0,Math.min(1,xe/(N-1))):0;
-  progEl.style.setProperty('--sp',sp.toFixed(4));ring.style.setProperty('--sp',sp.toFixed(4));
-  let c=Math.round(Math.pow(sp,.85)*20)/20;if(c!==clr){clr=c;document.documentElement.style.setProperty('--clear',c)}
-  hd.classList.toggle('solid',xe>.35);
-  const ai=clampI(Math.round(xe));if(ai!==cur)setActive(ai);
-}
-function setActive(i){
-  const prev=cur;cur=i;const s=slides[i];
-  slides.forEach((x,j)=>{const on=j===i;if(x._on!==on){x._on=on;x.inert=!on;x.classList.toggle('is-cur',on)}});
-  const c=s._c;if(c!==curCh){const fw=prev>=0&&c>curCh;curCh=c;setCh(c);if(fw&&!seenCh.has(c)&&c>0&&!RM)titleCard(c);seenCh.add(c)}
-  $('#pbI').textContent=String(i+1).padStart(2,'0');
-  const nx=slides[i+1];const lastS=i===N-1;
-  $('#pbNtT').textContent=nx?(nx._c!==c?CH[nx._c][1]:nx.dataset.st||''):'最初のスライドへ';
-  $('#pbNextL').textContent=lastS?'最初から':'次へ';$('#dNextL').textContent=lastS?'最初から':'次へ';
-  $('#pbPrev').disabled=i===0;$('#dPrev').disabled=i===0;
-  $('#pbNext').classList.toggle('pulse',i===0);
-  $$('#pbSegs button').forEach((b,k)=>b.style.setProperty('--f',k<c?1:k>c?0:((s._k+1)/chCount[k]).toFixed(3)));
-  onEnter(s);
+  // flow line
+  const fl=$('#flow'),fr=fl.getBoundingClientRect();const fp=RM?1:Math.min(1,Math.max(0,(vh*.62-fr.top)/fr.height));fl.style.setProperty('--fp',fp.toFixed(3));
+  $$('#flow li').forEach(li=>{const r=li.getBoundingClientRect();li.classList.toggle('on',RM||r.top<vh*.66)});
+  // chapter
+  let c=0;chaps.forEach(el=>{if(el.getBoundingClientRect().top<=vh*.45)c=+el.dataset.ch});
+  if(y<vh*.5)c=0;
+  if(c!==curCh){curCh=c;setCh(c)}
+  rail.classList.toggle('hide',y<vh*.9);
+  now.classList.toggle('hide',y<vh*.9);
 }
 function setCh(c){
   const C=CH[c];
+  $$('#rail a').forEach((a,i)=>{a.classList.toggle('on',i===c);a.classList.toggle('done',i<c)});
   $$('#menu a').forEach((a,i)=>a.classList.toggle('on',i===c));
-  $('#dockN').textContent=C[0];$('#dockT').textContent=C[1];$('#pbN').textContent=C[0];$('#pbT').textContent=C[1];
-  now.classList.toggle('hide',c===0);
+  $('#dockN').textContent=C[0];$('#dockT').textContent=C[1];
   const t=$('#nowT');t.classList.add('out');setTimeout(()=>{t.textContent=C[1];$('#nowN').textContent=C[0];t.classList.remove('out')},RM?0:220);
 }
-let tcT;
-function titleCard(c){
-  $('#tcN').textContent=c===11?'LAST SCENE':'SCENE '+CH[c][0];$('#tcT').textContent=CH[c][1];
-  tcard.classList.remove('on');void tcard.offsetWidth;tcard.classList.add('on');clearTimeout(tcT);tcT=setTimeout(()=>tcard.classList.remove('on'),2000);
-}
-function onEnter(s){
-  const id=s.id;
-  if(id==='ch3'&&!s.classList.contains('played')){s.classList.add('played');fillC.forEach(c=>c.classList.add('on'))}
-  if(id==='ch4')animRadar();
-  if(id==='ch7'&&!vsDone){vsDone=true;setTimeout(()=>{if(slides[cur]===s&&$('#vsTabs').dataset.v==='0')$('#vsTabs button[data-v="1"]').click()},RM?0:1500)}
-  if(id==='ch9-b'&&!s.classList.contains('played')){s.classList.add('played');const fl=$('#flow');fl.style.setProperty('--fp',1);$$('#flow li').forEach((li,k)=>setTimeout(()=>li.classList.add('on'),RM?0:200+k*420))}
-  if(s.querySelector('.bar[data-w]'))setTimeout(growBars,RM?0:250);
-}
+addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(frame)}},{passive:true});
+addEventListener('resize',()=>{layout();frame()});
+// smooth anchor
+$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');const el=id.length>1&&$(id);if(!el)return;e.preventDefault();const top=id==='#top'?0:el.getBoundingClientRect().top+scrollY-(id.startsWith('#ch')||id==='#goal'?0:80);scrollTo({top,behavior:RM?'auto':'smooth'})}));
 
-/* ---- controls ---- */
-const next=()=>go(cur===N-1?0:want+1),prev=()=>go(want-1);
-$('#pbNext').addEventListener('click',next);$('#dNext').addEventListener('click',next);
-$('#pbPrev').addEventListener('click',prev);$('#dPrev').addEventListener('click',prev);
-$$('#pbSegs button').forEach((b,c)=>b.addEventListener('click',()=>{if(chFirst[c]!==undefined)go(chFirst[c])}));
-document.addEventListener('click',e=>{
-  const a=e.target.closest('a[href^="#"]');
-  if(a){const id=a.getAttribute('href').slice(1);const el=id&&document.getElementById(id);const i=el?idxOfEl(el):-1;if(i>=0){e.preventDefault();openMenu(false);go(i);if(a.dataset.goal)setTimeout(()=>$('#tel').focus({preventScroll:true}),1100)}return}
-  const g=e.target.closest('[data-go]');if(g){goId(g.dataset.go);return}
-  if(e.target.closest('[data-next]')){next();return}
-  if(e.target.closest('#c1end')){goId('ch2')}
-});
-addEventListener('keydown',e=>{
-  if(e.key==='Escape'){openMenu(false);return}
-  if(menu.classList.contains('open')||e.altKey||e.ctrlKey||e.metaKey)return;
-  const t=e.target;if(t.closest&&t.closest('input,textarea,select,[contenteditable]'))return;
-  const k=e.key;let d=0;
-  if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown')d=1;
-  else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp')d=-1;
-  else if(k===' '&&!(t.closest&&t.closest('button,a,summary')))d=e.shiftKey?-1:1;
-  else if(k==='Home'){e.preventDefault();go(0);return}
-  else if(k==='End'){e.preventDefault();go(N-1);return}
-  if(d){e.preventDefault();go(want+d)}
-});
-/* ホイール／トラックパッド：縦横どちらの量も「横の位置」に。指に追従→止まったら方向へスナップ */
-let wOff=0,wBase=0,wT=0,wLast=0,wLock=false;
-function scrollableIn(el,dy){for(let n=el;n&&n!==deck;n=n.parentElement){if(n.scrollHeight>n.clientHeight+2){const cs=getComputedStyle(n).overflowY;if((cs==='auto'||cs==='scroll')&&((dy>0&&n.scrollTop+n.clientHeight<n.scrollHeight-1)||(dy<0&&n.scrollTop>0)))return true}}return false}
-function wSettle(){clearTimeout(wT);const o=wOff;wOff=0;const dir=o>.06?1:o<-.06?-1:0;wLock=dir!==0;go(wBase+dir)}
-addEventListener('wheel',e=>{
-  if(menu.classList.contains('open')||e.ctrlKey)return;
-  let d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;
-  if(e.deltaMode===1)d*=40;else if(e.deltaMode===2)d*=SH;
-  if(!Math.abs(e.deltaX)&&scrollableIn(e.target,d))return;
-  e.preventDefault();
-  const n=performance.now(),gap=n-wLast;wLast=n;
-  if(wLock){if(gap<220)return;wLock=false}
-  if(!wOff){wBase=want;navTo=null}
-  wOff=Math.max(-.85,Math.min(.85,wOff+d/SH*.9));
-  if((wBase===0&&wOff<0)||(wBase===N-1&&wOff>0))wOff*=.4;
-  target=clampI(wBase)+wOff;kick();
-  clearTimeout(wT);
-  if(Math.abs(wOff)>=.45)wSettle();else wT=setTimeout(wSettle,130);
-},{passive:false});
-/* 横スワイプ（指に追従） */
-let tx0=0,ty0=0,tmode=0,tt0=0;
-deck.addEventListener('touchstart',e=>{if(e.touches.length>1)return;const p=e.touches[0];tx0=p.clientX;ty0=p.clientY;tmode=0;tt0=performance.now();navTo=null},{passive:true});
-deck.addEventListener('touchmove',e=>{
-  if(e.touches.length>1)return;const p=e.touches[0],dx=p.clientX-tx0,dy=p.clientY-ty0;
-  if(!tmode){if(Math.abs(dx)>10&&Math.abs(dx)>Math.abs(dy)*1.15){tmode=1;dragging=true}else if(Math.abs(dy)>10)tmode=2}
-  if(tmode===1){if(e.cancelable)e.preventDefault();let d=dx;if((cur===0&&d>0)||(cur===N-1&&d<0))d*=.3;dragX=d;kick()}
-},{passive:false});
-const tEnd=()=>{if(tmode!==1)return;tmode=0;dragging=false;const dt=Math.max(1,performance.now()-tt0),v=dragX/dt;let dir=0;if(dragX<-W*.16||v<-.45)dir=1;else if(dragX>W*.16||v>.45)dir=-1;pos-=dragX/W;dragX=0;go(cur+dir);kick()};
-deck.addEventListener('touchend',tEnd);deck.addEventListener('touchcancel',tEnd);
-
-/* ---------------- init ---------------- */
-try{history.scrollRestoration='manual'}catch(e){}
 setProf(prof,false);
-layout(true);
-addEventListener('resize',()=>layout(false));
-MQ.addEventListener&&MQ.addEventListener('change',()=>layout(true));
-document.fonts&&document.fonts.ready.then(knob);
-addEventListener('load',knob);
-window.__deck={go,get cur(){return cur},get N(){return N},slides:()=>slides.map(s=>s.id)};
+layout();frame();
+document.fonts&&document.fonts.ready.then(()=>{layout();frame()});
+addEventListener('load',()=>{layout();frame()});
 })();
 </script>
 </body>
