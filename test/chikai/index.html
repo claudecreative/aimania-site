@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_chikai_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_chikai_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=ee4d9544/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_chikai_ok","1")}catch(e){}try{document.cookie="aim_chikai_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+<title>誓いの縁｜結婚相談所（デザインサンプル）</title>
+<meta name="description" content="結婚相談所 誓いの縁（IBJ加盟）。外見 × 戦略 × 完全伴走で、ふたりの物語のはじまりをお手伝いします。">
+<link rel="icon" href="./brand/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@400;500&family=Shippori+Mincho+B1:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1F3A5F; --deep:#14263F; --mist:#DCE6F0; --pale:#F3F5F8; --white:#FFFFFF; --gold:#B4975A;
+  --ink:#24303F; --mute:#5C6878; --line:rgba(31,58,95,.16);
+  --film:#14263F;
+  --mincho:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
+  --gothic:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --latin:"Cormorant Garamond","Times New Roman",serif;
+  --wrap:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--gothic);font-weight:400;color:var(--ink);background:var(--white);line-height:1.95;font-size:15px;letter-spacing:.04em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:min(var(--wrap),calc(100% - 64px));margin-inline:auto}
+.nb{display:inline-block}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- film grain ---------- */
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:90;opacity:.055;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+
+/* ---------- shared type ---------- */
+.en{font-family:var(--latin);font-weight:400;letter-spacing:.32em;color:var(--gold);font-size:14px;line-height:1}
+.sec-head{margin-bottom:56px}
+.sec-head .en{display:block;margin-bottom:18px}
+.sec-head h2,.triad h3,.feat__item h3,.post h3,.cut__sub,.cta h2{word-break:auto-phrase}
+.sec-head h2{font-family:var(--mincho);font-weight:500;font-size:clamp(25px,2.5vw,36px);letter-spacing:.14em;line-height:1.6;color:var(--navy);margin:0}
+.sec-head p{margin:22px 0 0;color:var(--mute);max-width:36em}
+.sec-head.center{text-align:center}
+.sec-head.center p{margin-inline:auto}
+.hair{display:block;width:56px;height:1px;background:var(--gold);margin:26px 0 0}
+.center .hair{margin-inline:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;height:54px;padding:0 34px;font-family:var(--mincho);font-weight:500;letter-spacing:.16em;font-size:15px;border:1px solid var(--navy);transition:background .35s var(--ease),color .35s var(--ease),border-color .35s}
+.btn--navy{background:var(--navy);color:#fff}
+.btn--navy:hover{background:var(--deep);border-color:var(--deep)}
+.btn--line{color:var(--navy);background:transparent}
+.btn--line:hover{background:var(--navy);color:#fff}
+.btn--gold{border-color:var(--gold);color:#fff;background:transparent}
+.btn--gold:hover{background:var(--gold);color:var(--deep)}
+.btn--white{background:#fff;border-color:#fff;color:var(--deep)}
+.btn--white:hover{background:var(--mist);border-color:var(--mist)}
+.link{display:inline-flex;align-items:center;gap:12px;font-family:var(--mincho);letter-spacing:.14em;color:var(--navy);font-size:14px;padding-bottom:6px;border-bottom:1px solid var(--line);transition:border-color .3s}
+.link:hover{border-color:var(--gold)}
+.link svg{width:28px;height:8px;transition:transform .35s var(--ease)}
+.link:hover svg{transform:translateX(5px)}
+
+/* ---------- header ---------- */
+.hd{position:fixed;inset:0 0 auto;z-index:80;height:84px;color:#fff;transition:background .5s var(--ease),color .5s var(--ease),box-shadow .5s,height .4s}
+.hd.is-scrolled{background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);color:var(--navy);box-shadow:0 1px 0 var(--line);height:74px}
+.hd__in{height:100%;display:flex;align-items:center;justify-content:space-between;width:min(1360px,calc(100% - 64px));margin-inline:auto}
+.logo{display:flex;align-items:center;gap:13px;color:inherit}
+.logo svg{width:34px;height:38px;flex:none}
+.logo b{display:block;font-family:var(--mincho);font-weight:600;font-size:21px;letter-spacing:.18em;line-height:1.2}
+.logo small{display:block;font-family:var(--latin);font-weight:500;font-size:10px;letter-spacing:.42em;color:var(--gold);margin-top:3px;white-space:nowrap}
+.gnav{display:flex;align-items:center;gap:38px}
+.gnav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+.gnav a{font-family:var(--latin);font-weight:500;font-size:14px;letter-spacing:.2em;position:relative;padding:6px 0}
+.gnav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.gnav ul a:hover::after{transform:scaleX(1)}
+.hd .btn{height:44px;padding:0 24px;font-size:14px;letter-spacing:.14em}
+.hd:not(.is-scrolled) .btn--navy{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.7)}
+.hd:not(.is-scrolled) .btn--navy:hover{background:#fff;color:var(--navy)}
+.burger{display:none;width:44px;height:44px;border:0;background:none;color:inherit;cursor:pointer;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:1px;background:currentColor;transition:transform .4s var(--ease),opacity .3s}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:26px}
+.nav-open .burger span:nth-child(1){transform:translateY(4.5px) rotate(20deg)}
+.nav-open .burger span:nth-child(2){transform:translateY(-4.5px) rotate(-20deg)}
+
+/* ---------- hero / opening ---------- */
+.hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;background:var(--film);color:#fff;--lb:1;--bar:max(56px,calc((100svh - 100vw / 2.39) / 2))}
+.hero__media{position:absolute;inset:0;animation:fromBlack 2.4s var(--ease) both}
+.hero__still,.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.hero__still{animation:kenburns 26s ease-out both}
+.hero__video{z-index:1}
+.hero__media::after{content:"";position:absolute;inset:0;z-index:2;background:
+  radial-gradient(ellipse 70% 60% at 50% 46%,rgba(10,22,40,.15),rgba(10,22,40,.55) 100%),
+  linear-gradient(180deg,rgba(10,22,40,.25),rgba(10,22,40,0) 30%,rgba(10,22,40,0) 60%,rgba(10,22,40,.45))}
+@keyframes fromBlack{from{opacity:0}to{opacity:1}}
+@keyframes kenburns{from{transform:scale(1.14) translate(1.5%,1%)}to{transform:scale(1.02) translate(0,0)}}
+.lb{position:absolute;left:0;right:0;height:var(--bar);background:var(--film);z-index:4;transform:scaleY(var(--lb));will-change:transform}
+.lb--t{top:0;transform-origin:top}
+.lb--b{bottom:0;transform-origin:bottom}
+.hero__title{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-bottom:2vh}
+.hero__mark{width:clamp(70px,6.4vw,96px);height:auto;overflow:visible;filter:drop-shadow(0 2px 14px rgba(0,0,0,.25))}
+.hero__mark .p{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s .5s cubic-bezier(.6,.05,.3,1) forwards}
+.hero__mark .p2{animation-delay:.75s}
+.hero__mark circle{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.2s 2.2s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero__name{margin:26px 0 0;font-family:var(--mincho);font-weight:600;font-size:clamp(34px,3.6vw,52px);letter-spacing:.3em;text-indent:.3em;line-height:1.25;opacity:0;animation:rise 1.8s 2.6s var(--ease) forwards;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.hero__en{display:block;margin-top:14px;font-family:var(--latin);font-weight:500;font-size:13px;letter-spacing:.6em;text-indent:.6em;color:#D9C595;opacity:0;animation:rise 1.6s 3.2s var(--ease) forwards}
+.hero__concept{margin-top:34px;font-family:var(--mincho);font-weight:400;font-size:14px;letter-spacing:.32em;opacity:0;animation:rise 1.6s 3.7s var(--ease) forwards;display:flex;align-items:center;gap:18px}
+.hero__concept i{display:block;width:40px;height:1px;background:rgba(217,197,149,.7)}
+@keyframes rise{from{opacity:0;transform:translateY(10px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+.hero__sub{position:absolute;left:0;right:0;bottom:calc(var(--bar) * var(--lb) + 34px);z-index:5;text-align:center;font-family:var(--mincho);font-weight:500;font-size:clamp(16px,1.5vw,21px);letter-spacing:.24em;text-shadow:0 1px 3px rgba(0,0,0,.85),0 0 20px rgba(0,0,0,.4);opacity:0;animation:sub .9s 4.4s ease forwards;padding:0 20px}
+@keyframes sub{to{opacity:1}}
+.hero__meta{position:absolute;z-index:6;left:0;right:0;bottom:0;height:var(--bar);display:flex;align-items:center;justify-content:space-between;width:min(1360px,calc(100% - 64px));margin-inline:auto;font-family:var(--latin);font-size:12px;letter-spacing:.3em;color:rgba(255,255,255,.55);opacity:calc(var(--lb));pointer-events:none}
+.scroll{position:absolute;z-index:6;left:50%;bottom:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;padding-bottom:18px;font-family:var(--latin);font-size:12px;letter-spacing:.36em;text-indent:.36em;color:rgba(255,255,255,.8);opacity:0;animation:sub 1s 5s ease forwards}
+.scroll i{display:block;width:1px;height:46px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
+.scroll i::after{content:"";position:absolute;left:0;top:-46px;width:1px;height:46px;background:#D9C595;animation:drop 2.4s 5.2s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes drop{to{top:46px}}
+.scroll,.hero__meta{transition:visibility 0s .3s}
+.hero.is-open .scroll{visibility:hidden}
+
+/* ---------- film cuts ---------- */
+.cut{position:relative;background:var(--film);color:#fff;padding:clamp(44px,7vh,76px) 0}
+.cut__label{position:absolute;top:0;left:0;right:0;height:clamp(44px,7vh,76px);display:flex;align-items:center;justify-content:space-between;width:min(1360px,calc(100% - 64px));margin-inline:auto;font-family:var(--latin);font-size:13px;letter-spacing:.3em;color:rgba(255,255,255,.5)}
+.cut__label b{font-family:var(--mincho);font-weight:400;letter-spacing:.2em;color:rgba(255,255,255,.85);font-size:13px}
+.cut__label b em{font-style:normal;font-family:var(--latin);color:#D9C595;letter-spacing:.24em;margin-right:6px}
+.cut__frame{position:relative;height:min(76vh,calc(100vw / 2.0));overflow:hidden}
+.cut__frame img{width:100%;height:100%;object-fit:cover}
+.js .cut__frame img{opacity:0;transform:scale(1.12);transition:opacity 2.2s ease,transform 16s cubic-bezier(.15,.5,.3,1)}
+.js .cut.is-in .cut__frame img{opacity:1;transform:scale(1.0)}
+.cut__frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.45))}
+.cut__sub{position:absolute;left:0;right:0;bottom:clamp(26px,5vh,48px);z-index:2;text-align:center;font-family:var(--mincho);font-weight:500;font-size:clamp(16px,1.45vw,21px);letter-spacing:.2em;line-height:1.9;text-shadow:0 1px 3px rgba(0,0,0,.9),0 0 18px rgba(0,0,0,.4);padding:0 24px}
+.js .cut__sub{opacity:0;transition:opacity .9s ease 1.6s}
+.js .cut.is-in .cut__sub{opacity:1}
+
+/* ---------- concept ---------- */
+.concept{background:var(--pale);padding:150px 0 150px;position:relative;overflow:hidden}
+.concept__mark{position:absolute;right:-70px;bottom:-90px;width:380px;opacity:.045;pointer-events:none}
+.concept__top{display:grid;grid-template-columns:1fr 1.05fr;gap:80px;align-items:end;margin-bottom:96px}
+.concept__eq{font-family:var(--mincho);font-weight:500;color:var(--navy);font-size:clamp(38px,4.6vw,66px);letter-spacing:.08em;line-height:1.3;margin:22px 0 0;white-space:nowrap}
+.concept__eq span{color:var(--gold);font-family:var(--latin);font-weight:400;margin:0 .14em;font-size:.8em;vertical-align:.06em}
+.concept__lead{font-family:var(--mincho);font-size:17px;line-height:2.3;color:var(--ink);margin:0;letter-spacing:.08em}
+.triad{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.triad__item{padding:54px 46px 10px 0;position:relative}
+.triad__item + .triad__item{padding-left:46px;border-left:1px solid var(--line)}
+.triad__k{display:flex;align-items:baseline;gap:16px;margin-bottom:24px}
+.triad__k b{font-family:var(--mincho);font-weight:500;font-size:34px;letter-spacing:.14em;color:var(--navy);line-height:1}
+.triad__k small{font-family:var(--latin);font-style:italic;font-size:17px;letter-spacing:.06em;color:var(--gold)}
+.triad h3{font-family:var(--mincho);font-weight:500;font-size:19px;letter-spacing:.1em;line-height:1.7;color:var(--navy);margin:0 0 16px}
+.triad p{margin:0;color:var(--mute);font-size:14.5px}
+.triad__item::before{content:"";position:absolute;top:-1px;left:0;height:1px;width:0;background:var(--gold);transition:width 1.6s var(--ease)}
+.triad__item + .triad__item::before{left:46px}
+.triad.is-in .triad__item::before{width:64px}
+.triad.is-in .triad__item:nth-child(2)::before{transition-delay:.3s}
+.triad.is-in .triad__item:nth-child(3)::before{transition-delay:.6s}
+
+/* ---------- features ---------- */
+.features{padding:150px 0;background:var(--white)}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.feat__item{background:var(--pale);padding:56px 40px 50px;position:relative}
+.feat__item svg{width:64px;height:64px;margin-bottom:34px}
+.feat__item small{display:block;font-family:var(--mincho);font-size:13px;letter-spacing:.16em;color:var(--gold);margin-bottom:10px}
+.feat__item h3{font-family:var(--mincho);font-weight:500;font-size:22px;letter-spacing:.12em;line-height:1.6;color:var(--navy);margin:0 0 22px}
+.feat__item p{margin:0;font-size:14.5px;color:var(--mute)}
+
+/* ---------- counselor ---------- */
+.counselor{padding:150px 0;background:var(--mist);position:relative}
+.counselor__grid{display:grid;grid-template-columns:1.1fr 1fr;gap:88px;align-items:center}
+.counselor__ph{position:relative;isolation:isolate}
+.counselor__ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:52% 30%}
+.counselor__ph::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);z-index:-1;opacity:.6}
+.counselor__ph figcaption{position:absolute;left:-1px;bottom:28px;background:var(--white);padding:16px 26px;font-family:var(--mincho);font-size:13px;letter-spacing:.14em;color:var(--navy);line-height:1.7}
+.counselor__ph figcaption b{display:block;font-weight:500;font-size:20px;letter-spacing:.2em}
+.counselor__msg{font-family:var(--mincho);font-size:16px;line-height:2.35;color:var(--ink);letter-spacing:.06em}
+.counselor__msg p{margin:0 0 1.4em}
+.counselor__sign{display:flex;align-items:center;gap:20px;margin-top:38px;padding-top:28px;border-top:1px solid var(--line)}
+.counselor__sign span{font-family:var(--mincho);color:var(--navy);letter-spacing:.14em;font-size:14px}
+.counselor__sign b{font-family:var(--mincho);font-weight:500;font-size:22px;letter-spacing:.24em;color:var(--navy)}
+.counselor__cred{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-wrap:wrap;gap:8px 10px}
+.counselor__cred li{font-size:12.5px;color:var(--navy);padding:4px 12px;border:1px solid rgba(31,58,95,.25);letter-spacing:.06em;line-height:1.7}
+
+/* ---------- support ---------- */
+.support{padding:150px 0;background:var(--white)}
+.support__grid{display:grid;grid-template-columns:.92fr 1fr;gap:96px;align-items:start}
+.support__aside{position:sticky;top:120px}
+.support__ph{margin-top:44px;position:relative}
+.support__ph img{width:100%;aspect-ratio:4/3.3;object-fit:cover;object-position:40% 50%}
+.support__ph figcaption{margin-top:14px;font-size:12.5px;color:var(--mute);letter-spacing:.08em}
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl li{display:grid;grid-template-columns:47px 1fr;gap:30px;padding:0 0 46px;position:relative}
+.tl li:not(:last-child)::before,.tl li:not(:last-child)::after{content:"";position:absolute;left:23px;top:47px;bottom:0;width:1px;background:var(--line)}
+.tl li:not(:last-child)::after{background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .5s linear}
+.tl.is-in li::after{transform:scaleY(1)}
+.tl.is-in li:nth-child(2)::after{transition-delay:.45s}.tl.is-in li:nth-child(3)::after{transition-delay:.9s}.tl.is-in li:nth-child(4)::after{transition-delay:1.35s}.tl.is-in li:nth-child(5)::after{transition-delay:1.8s}.tl.is-in li:nth-child(6)::after{transition-delay:2.25s}
+.tl__n{transition:border-color .4s}
+.tl.is-in li .tl__n{border-color:rgba(180,151,90,.7)}
+.tl li:last-child{padding-bottom:0}
+.tl__n{width:47px;height:47px;border-radius:50%;border:1px solid var(--line);background:var(--white);display:grid;place-items:center;font-family:var(--latin);font-size:19px;color:var(--navy);position:relative;z-index:1}
+.tl li:last-child .tl__n{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tl h3{font-family:var(--mincho);font-weight:500;font-size:19px;letter-spacing:.1em;color:var(--navy);margin:8px 0 8px;line-height:1.6}
+.tl h3 small{font-family:var(--gothic);font-size:12px;color:var(--gold);letter-spacing:.1em;margin-left:12px;font-weight:500}
+.tl p{margin:0;color:var(--mute);font-size:14.5px}
+
+/* ---------- IBJ ---------- */
+.ibj{padding:140px 0 130px;background:var(--pale)}
+.ibj__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-block:1px solid var(--line)}
+.stat{padding:58px 30px 50px;text-align:center;position:relative}
+.stat + .stat::before{content:"";position:absolute;left:0;top:40px;bottom:40px;width:1px;background:var(--line)}
+.stat dt{font-family:var(--mincho);font-size:15px;letter-spacing:.2em;color:var(--navy);margin-bottom:16px}
+.stat dd{margin:0;display:flex;align-items:baseline;justify-content:center;gap:6px;color:var(--navy);white-space:nowrap}
+.stat .pre{font-family:var(--mincho);font-size:16px;letter-spacing:.1em;margin-right:4px}
+.stat .num{font-family:var(--latin);font-weight:400;font-size:clamp(56px,6vw,86px);line-height:1;letter-spacing:.02em;font-variant-numeric:lining-nums}
+.stat .unit{font-family:var(--mincho);font-size:18px;letter-spacing:.06em}
+.ibj__note{margin:26px 0 0;font-size:12.5px;color:var(--mute);text-align:right;letter-spacing:.08em}
+
+/* ---------- movie ---------- */
+.movie{padding:140px 0;background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.movie .sec-head h2{color:#fff}
+.movie .sec-head p{color:rgba(255,255,255,.7)}
+.screen{position:relative;width:min(1000px,100%);margin:0 auto;aspect-ratio:16/9;background:radial-gradient(ellipse at 50% 45%,#2c4a72 0%,#1a3150 55%,#112038 100%);outline:1px solid rgba(180,151,90,.55);outline-offset:14px;overflow:hidden;display:grid;place-items:center}
+.screen__leader{position:absolute;inset:0;width:100%;height:100%;opacity:.16}
+.screen__play{position:relative;width:104px;height:104px;border-radius:50%;border:1px solid rgba(255,255,255,.75);background:rgba(255,255,255,.04);display:grid;place-items:center;cursor:pointer;color:#fff;transition:background .4s,transform .4s var(--ease)}
+.screen__play:hover{background:rgba(255,255,255,.12);transform:scale(1.04)}
+.screen__play svg{width:26px;height:30px;margin-left:6px}
+.screen__label{position:absolute;bottom:30px;left:0;right:0;text-align:center;font-family:var(--mincho);font-size:15px;letter-spacing:.3em;color:rgba(255,255,255,.85)}
+.screen__label small{display:block;font-family:var(--latin);font-size:12px;letter-spacing:.34em;color:#D9C595;margin-top:6px}
+.screen__corner{position:absolute;top:22px;left:26px;font-family:var(--latin);font-size:12px;letter-spacing:.3em;color:rgba(255,255,255,.45)}
+.screen__corner.r{left:auto;right:26px}
+
+/* ---------- blog ---------- */
+.blog{padding:150px 0 140px;background:var(--white)}
+.blog__head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:56px}
+.blog__head .sec-head{margin:0}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:44px}
+.post a{display:block}
+.post__img{overflow:hidden;aspect-ratio:3/2;background:var(--pale)}
+.post__img img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.post a:hover .post__img img{transform:scale(1.05)}
+.post__meta{display:flex;align-items:center;gap:16px;margin:22px 0 10px}
+.post__meta time{font-family:var(--latin);font-size:15px;letter-spacing:.14em;color:var(--mute)}
+.post__meta span{font-size:11.5px;letter-spacing:.1em;color:var(--navy);background:var(--mist);padding:2px 10px;line-height:1.8}
+.post h3{font-family:var(--mincho);font-weight:500;font-size:17px;line-height:1.85;letter-spacing:.06em;color:var(--navy);margin:0;padding-bottom:22px;border-bottom:1px solid var(--line)}
+
+/* ---------- guides ---------- */
+.guides{padding:30px 0 150px;background:var(--white)}
+.guides .sec-head{margin-bottom:40px}
+.guides__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.guide{position:relative;display:block;aspect-ratio:4/4.6;overflow:hidden;color:#fff;background:var(--deep)}
+.guide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease),opacity .6s;opacity:.85}
+.guide:hover img{transform:scale(1.05);opacity:.7}
+.guide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,38,63,0) 25%,rgba(20,38,63,.55) 55%,rgba(20,38,63,.94))}
+.guide__body{position:absolute;left:36px;right:36px;bottom:36px;z-index:2}
+.guide__body .en{color:#EADBB4;font-size:13px;display:block;margin-bottom:12px;text-shadow:0 1px 6px rgba(10,22,40,.6)}
+.guide__body h3,.guide__body p{text-shadow:0 1px 8px rgba(10,22,40,.35)}
+.guide__body h3{font-family:var(--mincho);font-weight:500;font-size:24px;letter-spacing:.14em;margin:0 0 10px;line-height:1.5}
+.guide__body p{margin:0 0 22px;font-size:13.5px;color:rgba(255,255,255,.82);line-height:1.85}
+.guide__more{display:inline-flex;align-items:center;gap:12px;font-family:var(--mincho);font-size:13.5px;letter-spacing:.16em;padding-bottom:6px;border-bottom:1px solid rgba(217,197,149,.7)}
+.guide__more svg{width:28px;height:8px;transition:transform .35s var(--ease)}
+.guide:hover .guide__more svg{transform:translateX(5px)}
+
+/* ---------- CTA ---------- */
+.cta{background:var(--deep);color:#fff;padding:150px 0 140px;text-align:center;position:relative;overflow:hidden}
+.cta::before,.cta::after{content:"";position:absolute;left:50%;width:1px;height:70px;background:linear-gradient(var(--gold),transparent)}
+.cta::before{top:0}
+.cta::after{bottom:0;transform:rotate(180deg)}
+.cta__frame{width:min(920px,calc(100% - 64px));margin:0 auto;border-block:1px solid rgba(180,151,90,.5);padding:72px 20px 76px}
+.cta__en{font-family:var(--latin);font-style:italic;font-weight:400;font-size:clamp(34px,4vw,56px);letter-spacing:.04em;color:#E2D3AC;line-height:1.2;margin:0}
+.cta h2{font-family:var(--mincho);font-weight:500;font-size:clamp(22px,2.2vw,30px);letter-spacing:.2em;margin:28px 0 18px;line-height:1.7}
+.cta p{margin:0 auto;color:rgba(255,255,255,.75);max-width:34em}
+.cta__btns{display:flex;justify-content:center;gap:18px;margin-top:46px;flex-wrap:wrap}
+.cta__btns .btn{min-width:250px}
+.cta__tel{margin-top:34px;font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.1em;line-height:1.8}
+.cta__tel b{font-family:var(--latin);font-weight:500;font-size:24px;letter-spacing:.12em;color:#fff;margin:0 12px;vertical-align:-2px;font-variant-numeric:lining-nums;white-space:nowrap}
+.cta__tel small{display:block;font-size:12px;margin-top:2px}
+
+/* ---------- footer / credits ---------- */
+.ft{border-top:1px solid rgba(180,151,90,.28);background:var(--deep);color:rgba(255,255,255,.72);padding:120px 0 50px;text-align:center}
+.ft__logo{display:inline-flex;flex-direction:column;align-items:center;color:#fff}
+.ft__logo img{width:58px;height:auto}
+.ft__logo b{font-family:var(--mincho);font-weight:600;font-size:26px;letter-spacing:.22em;text-indent:.22em;margin-top:16px;line-height:1.3}
+.ft__logo small{font-family:var(--latin);font-weight:500;font-size:11px;letter-spacing:.46em;text-indent:.46em;color:var(--gold);margin-top:6px}
+.credits{margin:76px auto 0;width:min(560px,100%);display:grid;grid-template-columns:1fr 1fr;column-gap:36px;row-gap:14px;font-size:13.5px;letter-spacing:.12em}
+.credits dt{text-align:right;font-family:var(--latin);font-style:italic;font-size:15px;color:rgba(255,255,255,.45);letter-spacing:.08em}
+.credits dd{margin:0;text-align:left;font-family:var(--mincho);color:#fff}
+.credits dd a:hover{color:#D9C595}
+.credits .gap{grid-column:1/-1;height:18px}
+.sns{display:flex;justify-content:center;gap:12px;margin-top:70px;list-style:none;padding:0}
+.sns a{width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.18);border-radius:50%;color:#fff;transition:border-color .3s,color .3s}
+.sns a:hover{border-color:var(--gold);color:#D9C595}
+.sns svg{width:18px;height:18px}
+.ft__fin{margin:80px 0 0;font-family:var(--latin);font-style:italic;font-size:30px;letter-spacing:.1em;color:#E2D3AC}
+.ft__copy{margin:30px 0 0;font-family:var(--latin);font-size:12.5px;letter-spacing:.2em;color:rgba(255,255,255,.4)}
+.ft__copy small{display:block;font-family:var(--gothic);font-size:11px;letter-spacing:.08em;margin-top:8px}
+
+/* ---------- SP nav ---------- */
+.spnav{position:fixed;inset:0;z-index:79;background:var(--deep);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.nav-open .spnav{opacity:1;visibility:visible}
+.spnav a{font-family:var(--latin);font-size:22px;letter-spacing:.3em;padding:8px}
+.spnav .btn{margin-top:28px;font-size:15px}
+.nav-open .hd{color:#fff;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .gnav ul{gap:20px}
+  .gnav{gap:24px}
+  .concept__top{grid-template-columns:1fr;gap:40px}
+}
+@media (max-width:960px){
+  .gnav{display:none}
+  .burger{display:block}
+  .hd__in{width:calc(100% - 36px)}
+  .triad{grid-template-columns:1fr}
+  .triad__item,.triad__item + .triad__item{padding:40px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .triad__item + .triad__item::before{left:0}
+  .feat{grid-template-columns:1fr;gap:16px}
+  .counselor__grid,.support__grid{grid-template-columns:1fr;gap:60px}
+  .support__aside{position:static}
+  .posts{grid-template-columns:1fr;gap:40px}
+  .guides__grid{grid-template-columns:1fr}
+  .guide{aspect-ratio:16/10}
+}
+@media (max-width:640px){
+  body{font-size:14.5px}
+  .wrap{width:calc(100% - 44px)}
+  .hd,.hd.is-scrolled{height:64px}
+  .logo svg{width:28px;height:32px}
+  .logo b{font-size:18px}
+  .logo small{font-size:9px;letter-spacing:.34em}
+  .hero{--bar:11svh;min-height:560px}
+  .hero__still,.hero__video{object-position:62% 60%}
+  .hero__name{letter-spacing:.24em;text-indent:.24em}
+  .hero__en{letter-spacing:.44em;text-indent:.44em;font-size:11px}
+  .hero__concept{font-size:12.5px;letter-spacing:.22em;gap:12px}
+  .hero__concept i{width:22px}
+  .hero__sub{font-size:15px;letter-spacing:.16em;bottom:calc(var(--bar) * var(--lb) + 22px)}
+  .hero__meta{display:none}
+  .scroll{padding-bottom:10px;gap:6px;font-size:10px}
+  .scroll i{height:30px}
+  .cut{padding:40px 0}
+  .cut__label{height:40px;width:calc(100% - 36px);font-size:11px}
+  .cut__label b{font-size:12px}
+  .cut__frame{height:56svh}
+  .cut__frame img{object-position:var(--sp,50% 50%)!important}
+  .cut__sub{font-size:14.5px;letter-spacing:.12em;bottom:24px}
+  .concept,.features,.counselor,.support,.blog{padding:96px 0}
+  .ibj,.movie{padding:96px 0}
+  .guides{padding-bottom:96px}
+  .sec-head{margin-bottom:40px}
+  .concept__top{margin-bottom:56px}
+  .concept__eq{font-size:clamp(28px,8.6vw,40px);white-space:normal}
+  .concept__lead{font-size:15px;line-height:2.2}
+  .concept__mark{width:240px;right:-70px;top:30px}
+  .triad__k b{font-size:28px}
+  .feat__item{padding:40px 28px 36px}
+  .feat__item svg{width:54px;height:54px;margin-bottom:24px}
+  .feat__item h3{font-size:20px}
+  .counselor__ph{margin-right:14px}
+  .counselor__ph figcaption{bottom:18px;padding:12px 18px}
+  .counselor__msg{font-size:15px;line-height:2.2}
+  .tl li{grid-template-columns:40px 1fr;gap:18px;padding-bottom:36px}
+  .tl__n{width:40px;height:40px;font-size:17px}
+  .tl li:not(:last-child)::before,.tl li:not(:last-child)::after{left:20px;top:40px}
+  .tl h3{font-size:17px;margin-top:5px}
+  .tl h3 small{display:block;margin:0}
+  .ibj__grid{grid-template-columns:1fr}
+  .stat{padding:38px 10px 34px}
+  .stat + .stat::before{left:30px;right:30px;top:0;bottom:auto;width:auto;height:1px}
+  .stat .num{font-size:60px}
+  .ibj__note{text-align:center}
+  .screen{outline-offset:8px}
+  .screen__play{width:54px;height:54px;margin-top:-26px}
+  .screen__play svg{width:15px;height:18px;margin-left:4px}
+  .screen__label{bottom:12px;font-size:12px}
+  .screen__label small{display:none}
+  .screen__corner{top:12px;left:14px;font-size:10px}
+  .screen__corner.r{right:14px}
+  .blog__head{flex-direction:column;align-items:flex-start}
+  .guide{aspect-ratio:4/3.4}
+  .guide__body{left:24px;right:24px;bottom:26px}
+  .cta{padding:100px 0 96px}
+  .cta__frame{width:calc(100% - 44px);padding:52px 4px 56px}
+  .cta h2{letter-spacing:.12em}
+  .cta p{text-align:left}
+  .cta p.cta__tel{text-align:center}
+  .cta__btns .btn{width:100%;min-width:0}
+  .ft{padding:90px 0 40px}
+  .credits{grid-template-columns:.8fr 1.3fr;column-gap:18px;font-size:12.5px}
+  .credits dd{letter-spacing:.06em}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .grain{animation:none}
+  .hero__mark .p,.hero__mark circle{stroke-dashoffset:0}
+  .js .cut__frame img{transform:none;opacity:1}
+  .js .cut__sub{opacity:1}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ 1. HEADER ============ -->
+<header class="hd" id="hd">
+  <div class="hd__in">
+    <a href="#top" class="logo" aria-label="誓いの縁 トップへ">
+      <svg viewBox="0 0 100 110" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M62 104 L50 88 C30 70 16 52 18 36 C20 22 34 16 44 24 C47 26.5 49 29.5 50 32" stroke="currentColor" stroke-width="3.4"/>
+        <path d="M38 104 L50 88 C70 70 84 52 82 36 C80 22 66 16 56 24 C53 26.5 51 29.5 50 32" stroke="#B4975A" stroke-width="3.4"/>
+        <circle cx="50" cy="40" r="6.2" stroke="#B4975A" stroke-width="2.4"/>
+      </svg>
+      <span><b>誓いの縁</b><small>CHIKAI NO EN</small></span>
+    </a>
+    <nav class="gnav" aria-label="グローバルメニュー">
+      <ul>
+        <li><a href="#top">TOP</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#service">SERVICE</a></li>
+        <li><a href="#flow">FLOW</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+      <a href="#contact" class="btn btn--navy">無料相談</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="spnav"><span></span><span></span></button>
+  </div>
+</header>
+<nav class="spnav" id="spnav" aria-label="スマートフォンメニュー">
+  <a href="#top">TOP</a><a href="#about">ABOUT</a><a href="#service">SERVICE</a><a href="#flow">FLOW</a><a href="#faq">FAQ</a><a href="#contact">CONTACT</a>
+  <a href="#contact" class="btn btn--gold">無料相談を予約する</a>
+</nav>
+
+<main>
+<!-- ============ 2. OPENING / MAIN VISUAL ============ -->
+<section class="hero" id="top" aria-label="メインビジュアル">
+  <div class="hero__media">
+    <img class="hero__still" src="./a/opening_poster.jpg" alt="夕暮れの海辺を並んで歩くふたり">
+    <video class="hero__video" id="heroVideo" src="./a/opening.mp4" poster="./a/opening_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+  </div>
+  <div class="lb lb--t" aria-hidden="true"></div>
+  <div class="lb lb--b" aria-hidden="true"></div>
+
+  <div class="hero__title">
+    <svg class="hero__mark" viewBox="0 0 100 110" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path class="p" pathLength="1" d="M62 104 L50 88 C30 70 16 52 18 36 C20 22 34 16 44 24 C47 26.5 49 29.5 50 32" stroke="#FFFFFF" stroke-width="2.4"/>
+      <path class="p p2" pathLength="1" d="M38 104 L50 88 C70 70 84 52 82 36 C80 22 66 16 56 24 C53 26.5 51 29.5 50 32" stroke="#C9AE72" stroke-width="2.4"/>
+      <circle pathLength="1" cx="50" cy="40" r="6.2" stroke="#C9AE72" stroke-width="1.8"/>
+    </svg>
+    <h1 class="hero__name">誓いの縁<span class="hero__en">CHIKAI NO EN</span></h1>
+    <p class="hero__concept"><i></i>外見 × 戦略 × 完全伴走<i></i></p>
+  </div>
+
+  <p class="hero__sub">ふたりの物語は、ここから始まる。</p>
+  <div class="hero__meta" aria-hidden="true"><span>Marriage Agency</span><span>IBJ Member</span></div>
+  <a href="#scene1" class="scroll">Scroll<i></i></a>
+</section>
+
+<!-- ============ CUT: Scene 1 ============ -->
+<section class="cut" id="scene1" aria-label="Scene 1 出会い">
+  <div class="cut__label"><b><em>Scene 1</em>出会い</b><span>Chapter I</span></div>
+  <div class="cut__frame">
+    <img src="./a/meet.jpg" alt="ホテルのラウンジで初めて会い、笑顔で話すふたり" style="object-position:50% 45%;--sp:56% 50%" loading="lazy">
+    <p class="cut__sub">「はじめまして」の、少しの緊張も。<br>きっと、あとで笑い話になる。</p>
+  </div>
+</section>
+
+<!-- ============ 3. CONCEPT ============ -->
+<section class="concept" id="about" aria-labelledby="concept-ttl">
+  <img class="concept__mark" src="./brand/mark.svg" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="concept__top">
+      <div class="sec-head" style="margin:0">
+        <span class="en">Concept</span>
+        <h2 id="concept-ttl" class="sr">コンセプト</h2>
+        <p class="concept__eq" aria-label="外見 かける 戦略 かける 完全伴走">外見<span>×</span>戦略<span>×</span>完全伴走</p>
+      </div>
+      <p class="concept__lead">婚活は、がんばり方さえ分かれば、<br>もっと穏やかに進められるものです。<br>第一印象を整え、出会い方を設計し、<br>成婚の日までとなりを歩く。<br>誓いの縁は、この三つをひとつの流れとして<br>お手伝いします。</p>
+    </div>
+    <div class="triad" data-io>
+      <article class="triad__item">
+        <div class="triad__k"><b>外見</b><small>Appearance</small></div>
+        <h3>あなたらしさが、<br>きちんと伝わる見た目へ。</h3>
+        <p>大きく変える必要はありません。髪型、服の色、写真の表情。ほんの少し整えるだけで、あなたの誠実さや優しさは、初対面の相手にもずっと伝わりやすくなります。</p>
+      </article>
+      <article class="triad__item">
+        <div class="triad__k"><b>戦略</b><small>Strategy</small></div>
+        <h3>出会いを、<br>運まかせにしない。</h3>
+        <p>どんな方と、どんな毎日を過ごしたいのか。対話を重ねて言葉にし、プロフィールの書き方やお申し込み先の選び方へ、ひとつずつ落とし込んでいきます。</p>
+      </article>
+      <article class="triad__item">
+        <div class="triad__k"><b>完全伴走</b><small>Companion</small></div>
+        <h3>迷ったときに、<br>すぐ話せる人がいる。</h3>
+        <p>お見合いの前夜も、交際中の小さな不安も。担当カウンセラーが入会から成婚まで一貫して担当し、あなたのペースに合わせて一緒に考えます。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. FEATURES ============ -->
+<section class="features" id="service" aria-labelledby="feat-ttl">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="en">Our Service</span>
+      <h2 id="feat-ttl"><span class="nb">誓いの縁が</span><span class="nb">大切にしている、</span><span class="nb">三つのこと</span></h2>
+      <span class="hair"></span>
+    </div>
+    <div class="feat">
+      <article class="feat__item">
+        <svg viewBox="0 0 64 64" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M32 9 L24 17 L14 20 L10 56 H54 L50 20 L40 17 Z" stroke="#1F3A5F"/>
+          <path d="M24 17 L32 30 L40 17" stroke="#1F3A5F"/>
+          <path d="M32 30 L28 36 L32 52 L36 36 Z" stroke="#B4975A"/>
+          <path d="M32 30 V56" stroke="#1F3A5F" stroke-dasharray="1.5 3"/>
+        </svg>
+        <small>外見プロデュース</small>
+        <h3>印象設計</h3>
+        <p>プロのスタイリストと一緒に、服選びから髪型、写真の撮り方まで考えます。目指すのは“盛る”ことではなく、実際に会ったとき「写真のとおりの方だ」と安心してもらえることです。</p>
+      </article>
+      <article class="feat__item">
+        <svg viewBox="0 0 64 64" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="12" y="8" width="34" height="46" stroke="#1F3A5F"/>
+          <path d="M19 19 H39 M19 26 H39 M19 33 H31" stroke="#1F3A5F"/>
+          <circle cx="44" cy="44" r="9" stroke="#B4975A"/>
+          <path d="M50.5 50.5 L56 56" stroke="#B4975A"/>
+        </svg>
+        <small>お相手選び・プロフィール設計</small>
+        <h3>戦略的な出会い</h3>
+        <p>データと対話の両方から、あなたに合うお相手像を描きます。自己紹介文は「この人に会ってみたい」と思ってもらえる一文になるまで、何度でも一緒に磨きます。</p>
+      </article>
+      <article class="feat__item">
+        <svg viewBox="0 0 64 64" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 50 C18 50 20 34 32 34 C44 34 46 18 58 18" stroke="#1F3A5F"/>
+          <path d="M6 54 C18 54 22 38 32 38 C42 38 46 22 58 22" stroke="#B4975A"/>
+          <circle cx="58" cy="20" r="3" stroke="#1F3A5F"/>
+          <circle cx="6" cy="52" r="2" fill="#1F3A5F" stroke="none"/>
+        </svg>
+        <small>成婚まで</small>
+        <h3>完全伴走</h3>
+        <p>お見合いの振り返り、交際の進め方、プロポーズのタイミングまで。担当カウンセラーが最後までそばにいるので、ひとりで抱え込まずに婚活を続けられます。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CUT: Scene 2 ============ -->
+<section class="cut" aria-label="Scene 2 歩幅">
+  <div class="cut__label"><b><em>Scene 2</em>歩幅</b><span>Chapter II</span></div>
+  <div class="cut__frame">
+    <img src="./a/walk.jpg" alt="夜の海辺の遊歩道を歩くふたり" style="object-position:50% 70%;--sp:58% 50%" loading="lazy">
+    <p class="cut__sub">並んで歩く速さが、<br>いつの間にか同じになっていた。</p>
+  </div>
+</section>
+
+<!-- ============ 5. COUNSELOR ============ -->
+<section class="counselor" aria-labelledby="cs-ttl">
+  <div class="wrap counselor__grid">
+    <figure class="counselor__ph" style="margin:0">
+      <img src="./a/counselor.jpg" alt="代表カウンセラーのポートレート" loading="lazy">
+      <figcaption>代表カウンセラー<b>〇〇 〇〇</b></figcaption>
+    </figure>
+    <div>
+      <div class="sec-head">
+        <span class="en">Counselor</span>
+        <h2 id="cs-ttl">あなたの物語の、<br>最初の聞き手として。</h2>
+      </div>
+      <div class="counselor__msg">
+        <p>はじめまして。結婚相談所と聞くと、少し身構えてしまう方も多いかもしれません。</p>
+        <p>私がいちばん大切にしているのは、最初にじっくりお話を伺うことです。これまでの恋愛のこと、仕事のこと、思い描いている暮らしのこと。言葉にしてみると、本当に大切にしたいものが見えてきます。</p>
+        <p>見た目を整えることも、作戦を立てることも、すべてはあなたが自然体で誰かと向き合うための準備。成婚のその日まで、責任をもって伴走します。</p>
+      </div>
+      <div class="counselor__sign"><span>代表カウンセラー</span><b>〇〇 〇〇</b></div>
+      <ul class="counselor__cred">
+        <li>IBJ認定カウンセラー</li><li>カウンセラー歴 〇年</li><li>成婚サポート 〇〇組</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. SUPPORT ============ -->
+<section class="support" id="flow" aria-labelledby="sp-ttl">
+  <div class="wrap support__grid">
+    <div class="support__aside">
+      <div class="sec-head" style="margin:0">
+        <span class="en">Support</span>
+        <h2 id="sp-ttl">ご入会から成婚まで、<br>途切れないサポート体制</h2>
+        <p>節目ごとに必要なサポートを、担当カウンセラーがご一緒します。どのタイミングでも、気になることはすぐにご相談いただけます。</p>
+      </div>
+      <figure class="support__ph" style="margin-top:44px;margin-inline:0">
+        <img src="./a/styling.jpg" alt="ネイビーのスーツでスタイリングを受ける男性" loading="lazy">
+        <figcaption>スタイリング同行の様子。似合う色とサイズ感を、鏡の前で一緒に確かめます。</figcaption>
+      </figure>
+    </div>
+    <ol class="tl" data-io>
+      <li><span class="tl__n">1</span><div><h3>初回面談・ヒアリング<small>ご入会時</small></h3><p>これまでのこと、これからのこと。理想のお相手像や結婚後の暮らしを、時間をかけて伺います。</p></div></li>
+      <li><span class="tl__n">2</span><div><h3>スタイリング<small>ご入会〜1か月</small></h3><p>プロのスタイリストとショップへ。服・髪型・小物まで、あなたに似合うものを一緒に選びます。</p></div></li>
+      <li><span class="tl__n">3</span><div><h3>写真撮影同行<small>プロフィール作成</small></h3><p>カウンセラーが撮影に立ち会い、表情や姿勢をその場で確認。自然な笑顔の一枚を残します。</p></div></li>
+      <li><span class="tl__n">4</span><div><h3>お見合い前後の面談<small>活動中</small></h3><p>事前に会話の準備をし、終わったあとは一緒に振り返り。次のお見合いがもっと楽になります。</p></div></li>
+      <li><span class="tl__n">5</span><div><h3>交際中のLINE相談<small>交際中</small></h3><p>「次のデートはどこに行こう」「この返信で大丈夫？」そんな小さな迷いも、気軽にご相談ください。</p></div></li>
+      <li><span class="tl__n">6</span><div><h3>月1回の定例面談<small>毎月</small></h3><p>活動の進み具合を一緒に見直し、必要に応じてお申し込みの方針を調整します。</p></div></li>
+      <li><span class="tl__n">7</span><div><h3>プロポーズ・ご成婚<small>ゴール</small></h3><p>プロポーズの準備やご両親へのご挨拶まで。ふたりが新しい一歩を踏み出す日を、見届けます。</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CUT: Scene 3 ============ -->
+<section class="cut" aria-label="Scene 3 約束">
+  <div class="cut__label"><b><em>Scene 3</em>約束</b><span>Chapter III</span></div>
+  <div class="cut__frame">
+    <img src="./a/ring.jpg" alt="指輪をはめた手を重ねるふたり" style="object-position:50% 50%;--sp:50% 70%" loading="lazy">
+    <p class="cut__sub">この手を、これからも。</p>
+  </div>
+</section>
+
+<!-- ============ 7. IBJ STATS ============ -->
+<section class="ibj" aria-labelledby="ibj-ttl">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="en">IBJ Network</span>
+      <h2 id="ibj-ttl"><span class="nb">IBJの全国ネットワークで、</span><span class="nb">出会いの幅を広げる</span></h2>
+      <p>誓いの縁はIBJの加盟相談所です。全国の会員の中から、あなたに合う方を探すことができます。</p>
+    </div>
+    <dl class="ibj__grid">
+      <div class="stat"><dt>会員数</dt><dd><span class="pre">約</span><span class="num">96,000</span><span class="unit">名</span></dd></div>
+      <div class="stat"><dt>年間成婚数</dt><dd><span class="pre">約</span><span class="num">16,000</span><span class="unit">組</span></dd></div>
+      <div class="stat"><dt>加盟相談所</dt><dd><span class="num">4,500</span><span class="unit">社以上</span></dd></div>
+    </dl>
+    <p class="ibj__note">※数値はダミーです</p>
+  </div>
+</section>
+
+<!-- ============ 8. MOVIE ============ -->
+<section class="movie" aria-labelledby="mv-ttl">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="en">Movie</span>
+      <h2 id="mv-ttl">映像で知る、誓いの縁</h2>
+      <p>相談室の雰囲気や、カウンセラーの人柄を映像でご紹介します。</p>
+    </div>
+    <div class="screen">
+      <svg class="screen__leader" viewBox="0 0 1600 900" fill="none" stroke="#fff" stroke-width="1.5" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <circle cx="800" cy="450" r="300"/><circle cx="800" cy="450" r="250"/>
+        <path d="M0 450 H1600 M800 0 V900"/>
+      </svg>
+      <span class="screen__corner">Reel 01</span><span class="screen__corner r">YouTube</span>
+      <button class="screen__play" type="button" aria-label="動画を再生（準備中）">
+        <svg viewBox="0 0 26 30" aria-hidden="true"><path d="M0 0 L26 15 L0 30 Z" fill="currentColor"/></svg>
+      </button>
+      <p class="screen__label">動画準備中<small>Coming soon</small></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. BLOG ============ -->
+<section class="blog" aria-labelledby="blog-ttl">
+  <div class="wrap">
+    <div class="blog__head">
+      <div class="sec-head">
+        <span class="en">Journal</span>
+        <h2 id="blog-ttl">婚活コラム</h2>
+      </div>
+      <a href="#" class="link">記事一覧を見る<svg viewBox="0 0 28 8" fill="none" stroke="currentColor"><path d="M0 7 H27 L20 1"/></svg></a>
+    </div>
+    <div class="posts">
+      <article class="post"><a href="#">
+        <div class="post__img"><img src="./a/meet.jpg" alt="" loading="lazy"></div>
+        <div class="post__meta"><time datetime="2026-11-12">2026.11.12</time><span>お見合い</span></div>
+        <h3>初対面の60分を、心地よい時間にするために大切な五つのこと</h3>
+      </a></article>
+      <article class="post"><a href="#">
+        <div class="post__img"><img src="./a/ring.jpg" alt="" loading="lazy"></div>
+        <div class="post__meta"><time datetime="2026-10-28">2026.10.28</time><span>成婚レポート</span></div>
+        <h3>「この人となら」と思えた瞬間。30代のおふたりが成婚するまで</h3>
+      </a></article>
+      <article class="post"><a href="#">
+        <div class="post__img"><img src="./a/consult.jpg" alt="" loading="lazy"></div>
+        <div class="post__meta"><time datetime="2026-10-09">2026.10.09</time><span>はじめての方へ</span></div>
+        <h3>結婚相談所の無料相談では、どんなことを話すの？</h3>
+      </a></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. GUIDES ============ -->
+<section class="guides" id="faq" aria-labelledby="gd-ttl">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">Guide</span>
+      <h2 id="gd-ttl">はじめての方へ</h2>
+    </div>
+  </div>
+  <div class="wrap guides__grid">
+    <a href="#" class="guide">
+      <img src="./a/styling.jpg" alt="" loading="lazy" style="object-position:60% 40%">
+      <div class="guide__body"><span class="en">Price &amp; Service</span><h3>料金・サービス</h3><p>コースごとの料金と、含まれるサポート内容をご案内します。</p><span class="guide__more">詳しく見る<svg viewBox="0 0 28 8" fill="none" stroke="currentColor"><path d="M0 7 H27 L20 1"/></svg></span></div>
+    </a>
+    <a href="#" class="guide">
+      <img src="./a/wedding.jpg" alt="" loading="lazy" style="object-position:48% 50%">
+      <div class="guide__body"><span class="en">Flow</span><h3>成婚までの流れ</h3><p>無料相談からご成婚まで、どのように進むのかをご紹介します。</p><span class="guide__more">詳しく見る<svg viewBox="0 0 28 8" fill="none" stroke="currentColor"><path d="M0 7 H27 L20 1"/></svg></span></div>
+    </a>
+    <a href="#" class="guide">
+      <img src="./a/consult.jpg" alt="" loading="lazy" style="object-position:35% 50%">
+      <div class="guide__body"><span class="en">Q &amp; A</span><h3>よくある質問</h3><p>活動期間や必要書類など、よくいただくご質問にお答えします。</p><span class="guide__more">詳しく見る<svg viewBox="0 0 28 8" fill="none" stroke="currentColor"><path d="M0 7 H27 L20 1"/></svg></span></div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ CUT: Scene 4 ============ -->
+<section class="cut" aria-label="Scene 4 誓い">
+  <div class="cut__label"><b><em>Scene 4</em>誓い</b><span>Final Chapter</span></div>
+  <div class="cut__frame">
+    <img src="./a/wedding.jpg" alt="白いチャペルで微笑み合う新郎新婦" style="object-position:50% 40%;--sp:52% 40%" loading="lazy">
+    <p class="cut__sub">そして、ふたりの物語は続いていく。</p>
+  </div>
+</section>
+
+<!-- ============ 11. CTA ============ -->
+<section class="cta" id="contact" aria-labelledby="cta-ttl">
+  <div class="cta__frame">
+    <p class="cta__en">Your story begins here.</p>
+    <h2 id="cta-ttl">無料相談・お問い合わせ</h2>
+    <p>まずは、あなたのお話を聞かせてください。無料相談はオンライン・対面のどちらでも。その場で入会をおすすめすることはありませんので、安心してお越しください。</p>
+    <div class="cta__btns">
+      <a href="#" class="btn btn--white">無料相談を予約する</a>
+      <a href="#" class="btn btn--gold">お問い合わせ</a>
+    </div>
+    <p class="cta__tel">お電話でのご相談<b>00-0000-0000</b><small>受付 10:00〜19:00（水曜定休）</small></p>
+  </div>
+</section>
+</main>
+
+<!-- ============ 12. FOOTER / END CREDITS ============ -->
+<footer class="ft">
+  <div class="wrap">
+    <a href="#top" class="ft__logo" aria-label="誓いの縁 トップへ">
+      <img src="./brand/mark_w.svg" alt="">
+      <b>誓いの縁</b><small>CHIKAI NO EN</small>
+    </a>
+    <dl class="credits">
+      <dt>Concept</dt><dd>外見 × 戦略 × 完全伴走</dd>
+      <dt>Counselor</dt><dd>代表カウンセラー 〇〇 〇〇</dd>
+      <dt>Network</dt><dd>IBJ 加盟相談所</dd>
+      <div class="gap"></div>
+      <dt>Top</dt><dd><a href="#top">トップ</a></dd>
+      <dt>About</dt><dd><a href="#about">誓いの縁について</a></dd>
+      <dt>Service</dt><dd><a href="#service">サービス・料金</a></dd>
+      <dt>Flow</dt><dd><a href="#flow">成婚までの流れ</a></dd>
+      <dt>FAQ</dt><dd><a href="#faq">よくある質問</a></dd>
+      <dt>Contact</dt><dd><a href="#contact">無料相談・お問い合わせ</a></dd>
+    </dl>
+    <ul class="sns" aria-label="SNS">
+      <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".8" fill="currentColor" stroke="none"/></svg></a></li>
+      <li><a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3H20.7L14.4 10.2L21.8 21H16L11.4 14.6L6.2 21H3.3L10 13.2L2.9 3H8.8L13 8.9L17.8 3ZM16.8 19.3H18.4L8 4.6H6.3L16.8 19.3Z"/></svg></a></li>
+      <li><a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.2 L15 12 L10 14.8 Z" fill="currentColor"/></svg></a></li>
+      <li><a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M14 3 V15.5 A3.6 3.6 0 1 1 10.4 11.9"/><path d="M14 3 C14.4 5.8 16.3 7.6 19 7.8"/></svg></a></li>
+      <li><a href="#" aria-label="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 19 V7.5 C5 6.1 6.1 5 7.5 5 H14.5 C17 5 19 7 19 9.5 V19"/></svg></a></li>
+    </ul>
+    <p class="ft__fin">Fin.</p>
+    <p class="ft__copy">© 誓いの縁 All rights reserved.<small>結婚相談所 誓いの縁｜IBJ加盟店（本ページはデザインサンプルです）</small></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hd = document.getElementById('hd');
+  var hero = document.querySelector('.hero');
+
+  /* hero video: hide on error / when unavailable, keep the poster still */
+  var v = document.getElementById('heroVideo');
+  if (v){
+    var kill = function(){ v.style.display='none'; try{v.removeAttribute('src');v.load();}catch(e){} };
+    v.addEventListener('error', kill);
+    if (v.error) kill();
+    if (reduce){ v.removeAttribute('autoplay'); try{v.pause()}catch(e){} }
+    setTimeout(function(){ if (v.style.display!=='none' && v.readyState === 0 && v.networkState === 3) kill(); }, 2500);
+  }
+
+  /* header state + letterbox opening on scroll */
+  var ticking = false;
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    hd.classList.toggle('is-scrolled', y > 40 && !document.body.classList.contains('nav-open'));
+    if (hero){
+      var h = hero.offsetHeight;
+      var p = Math.min(Math.max(1 - y / (h * 0.42), 0), 1);
+      hero.style.setProperty('--lb', p.toFixed(3));
+      hero.classList.toggle('is-open', p < .75);
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(onScroll);} }, {passive:true});
+  onScroll();
+
+  /* scene reveals — only cuts, the triad hairlines and the timeline thread */
+  var targets = document.querySelectorAll('.cut, [data-io]');
+  if ('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, {threshold:.28});
+    targets.forEach(function(t){ io.observe(t); });
+  } else {
+    targets.forEach(function(t){ t.classList.add('is-in'); });
+  }
+
+  /* SP nav */
+  var burger = document.getElementById('burger');
+  function setNav(open){
+    document.body.classList.toggle('nav-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    onScroll();
+  }
+  burger.addEventListener('click', function(){ setNav(!document.body.classList.contains('nav-open')); });
+  document.querySelectorAll('#spnav a').forEach(function(a){ a.addEventListener('click', function(){ setNav(false); }); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') setNav(false); });
+})();
+</script>
+<script src="/test/mogubo-visit.js" defer></script>
+</body>
+</html>
