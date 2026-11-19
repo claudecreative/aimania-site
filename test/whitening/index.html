@@ -229,7 +229,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 /* ---------- 9. doctor ---------- */
 .dr{display:grid;grid-template-columns:5fr 6fr;gap:8vw;align-items:center;padding-top:120px}
 .dr-frame{position:relative;aspect-ratio:3/4;max-height:820px;border:1px solid var(--hair);display:grid;place-items:center;background:#EEE7DD}
-.dr-frame::before{content:"";position:absolute;inset:14px;border:1px solid rgba(184,155,114,.45)}
+.dr-frame::before{content:"";position:absolute;inset:14px;border:1px solid rgba(244,239,232,.55);z-index:1}
+.dr-frame{overflow:hidden}
+.dr-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.dr-note{position:absolute;right:22px;bottom:18px;z-index:1;font-size:10.5px;letter-spacing:.14em;color:rgba(244,239,232,.9)}
 .dr-frame span{display:flex;flex-direction:column;align-items:center;gap:18px;font-size:12px;color:var(--taupe);letter-spacing:.24em}
 .dr-frame svg{width:44px;height:44px;stroke:var(--gold);fill:none;stroke-width:.7}
 .dr-body .h2{margin:36px 0 48px}
@@ -565,9 +568,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
   </div>
   <ol class="tl" id="tl">
     <li class="rv-o"><p class="no fade">STEP<em>01</em></p><div class="body"><h3 class="ln">カウンセリング</h3><p class="ln" style="--d:.3s">ご希望の白さや気になること、白さを見せたい生活の場面をうかがいます。</p><span class="time fade" style="--d:.5s">所要時間 <span class="ph">〔要確認〕</span></span></div><div class="ph-w"><div class="mask" style="--d:.3s"><img src="./b/counsel.jpg" alt="女性の歯科医師によるカウンセリング" width="1376" height="768" loading="lazy" style="object-position:58% 50%"></div></div></li>
-    <li class="rv-o"><p class="no fade">STEP<em>02</em></p><div class="body"><h3 class="ln">お口の検査</h3><p class="ln" style="--d:.3s">歯と歯ぐきの状態を確認し、施術を受けられるかを判断します。</p><span class="time fade" style="--d:.5s">所要時間 <span class="ph">〔要確認〕</span></span></div><div></div></li>
-    <li class="rv-o"><p class="no fade">STEP<em>03</em></p><div class="body"><h3 class="ln">クリーニング</h3><p class="ln" style="--d:.3s">歯の表面の汚れを落とし、状態を整えます。</p><span class="time fade" style="--d:.5s">所要時間 <span class="ph">〔要確認〕</span></span></div><div></div></li>
-    <li class="rv-o"><p class="no fade">STEP<em>04</em></p><div class="body"><h3 class="ln">施術</h3><p class="ln" style="--d:.3s"><span class="ph">〔施術内容：医院の資料で確認〕</span></p><span class="time fade" style="--d:.5s">所要時間 <span class="ph">〔要確認〕</span></span></div><div></div></li>
+    <li class="rv-o"><p class="no fade">STEP<em>02</em></p><div class="body"><h3 class="ln">お口の検査</h3><p class="ln" style="--d:.3s">歯と歯ぐきの状態を確認し、施術を受けられるかを判断します。</p><span class="time fade" style="--d:.5s">所要時間 <span class="ph">〔要確認〕</span></span></div><div class="ph-w"><div class="mask" style="--d:.3s"><img src="./b/exam.jpg" alt="女性の歯科医師による、お口の検査" width="1376" height="768" loading="lazy" style="object-position:60% 45%"></div></div></li>
+    <li class="rv-o"><p class="no fade">STEP<em>03</em></p><div class="body"><h3 class="ln">クリーニング</h3><p class="ln" style="--d:.3s">歯の表面の汚れを落とし、状態を整えます。</p><span class="time fade" style="--d:.5s">所要時間 <span class="ph">〔要確認〕</span></span></div><div class="ph-w"><div class="mask" style="--d:.3s"><img src="./b/clean.jpg" alt="歯科衛生士によるクリーニング" width="1376" height="768" loading="lazy" style="object-position:55% 45%"></div></div></li>
+    <li class="rv-o"><p class="no fade">STEP<em>04</em></p><div class="body"><h3 class="ln">施術</h3><p class="ln" style="--d:.3s"><span class="ph">〔施術内容：医院の資料で確認〕</span></p><span class="time fade" style="--d:.5s">所要時間 <span class="ph">〔要確認〕</span></span></div><div class="ph-w"><div class="mask" style="--d:.3s"><img src="./b/room.jpg" alt="落ち着いた施術室" width="1376" height="768" loading="lazy" style="object-position:50% 50%"></div></div></li>
     <li class="rv-o"><p class="no fade">STEP<em>05</em></p><div class="body"><h3 class="ln">仕上がりの確認</h3><p class="ln" style="--d:.3s">色見本を使いながら、仕上がりの色を一緒に確かめます。</p><span class="time fade" style="--d:.5s">所要時間 <span class="ph">〔要確認〕</span></span></div><div class="ph-w"><div class="mask" style="--d:.3s"><img src="./b/shade.jpg" alt="歯の色見本" width="1376" height="768" loading="lazy" style="object-position:55% 50%"></div></div></li>
     <li class="rv-o"><p class="no fade">STEP<em>06</em></p><div class="body"><h3 class="ln">アフターケア</h3><p class="ln" style="--d:.3s">白さを保つための、日々の過ごし方や食事の注意をご案内します。</p><span class="time fade" style="--d:.5s">所要時間 <span class="ph">〔要確認〕</span></span></div><div class="ph-w"><div class="mask" style="--d:.3s"><img src="./b/after.jpg" alt="夕方の自宅でくつろぐ女性" width="1376" height="768" loading="lazy" style="object-position:45% 50%"></div></div></li>
   </ol>
@@ -605,7 +608,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter
 
 <!-- 9. doctor -->
 <section class="sec dr" id="doctor" aria-labelledby="dr-h">
-  <div class="dr-frame fade rv-o" role="img" aria-label="医師の写真（差し替え予定）"><span><svg viewBox="0 0 44 44" aria-hidden="true"><rect x="6" y="10" width="32" height="24"/><circle cx="22" cy="22" r="6"/><path d="M16 10l2-4h8l2 4"/></svg>ここに医師の写真</span></div>
+  <div class="dr-frame fade rv-o"><img src="./b/doctor.jpg" alt="院長（仮のイメージ）" width="1376" height="768" loading="lazy"><small class="dr-note">※仮のイメージ写真です</small></div>
   <div class="dr-body rv-o">
     <p class="label fade">Message</p>
     <h2 class="h2" id="dr-h"><span class="ln" style="--d:.2s">その人らしい白さを、</span><span class="ln" style="--d:.5s">ともに選ぶ。</span></h2>
