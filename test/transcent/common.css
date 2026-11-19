@@ -1,0 +1,198 @@
+/* =========================================================
+   トランセントホワイトニング LP デザイン案 共通スタイル
+   配色：生成り / ベージュ / ダークブラウン / くすみブラウン / 白
+   ========================================================= */
+:root{
+  --kinari:#F7F3EE;      /* メイン（背景）  */
+  --beige:#E4DBD1;       /* サブ（帯・面）  */
+  --ink:#4A3B30;         /* 文字           */
+  --accent:#8A7360;      /* アクセント      */
+  --white:#FFFFFF;
+  --ink-soft:#6E5E51;    /* 補助テキスト（文字色の階調） */
+  --hair:rgba(74,59,48,.18);
+  --hair-soft:rgba(74,59,48,.10);
+  --mincho:"Shippori Mincho B1","Shippori Mincho","Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --gothic:"Zen Kaku Gothic New","Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --latin:"Cormorant Garamond","Times New Roman",serif;
+  --ease:cubic-bezier(.25,.6,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--kinari);color:var(--ink);font-family:var(--gothic);font-weight:300;
+  font-size:15px;line-height:2.1;letter-spacing:.06em;-webkit-font-smoothing:antialiased;
+  font-feature-settings:"palt" 0;word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p{margin:0}
+.ph{display:inline-block}            /* 文節を割らないための単位 */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+
+/* ---------- ロゴ・メニュー ---------- */
+.hd{position:absolute;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+  height:96px;padding:0 56px}
+.logo{font-family:var(--latin);font-weight:400;font-size:19px;letter-spacing:.5em;margin-right:-.5em;color:var(--ink);
+  line-height:1}
+.gnav{display:flex;gap:44px;font-size:13px;letter-spacing:.16em;font-weight:400}
+.gnav a{position:relative;padding:6px 0}
+.gnav a::after{content:"";position:absolute;left:0;right:.16em;bottom:0;height:1px;background:currentColor;
+  transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.gnav a:hover::after{transform:scaleX(1)}
+.burger{display:none;position:relative;width:44px;height:44px;margin-right:-10px;border:0;background:none;cursor:pointer;color:var(--ink)}
+.burger span{position:absolute;left:10px;right:10px;height:1px;background:currentColor;transition:transform .5s var(--ease),top .5s var(--ease)}
+.burger span:nth-child(1){top:18px}.burger span:nth-child(2){top:26px}
+.menu-open .burger span:nth-child(1){top:22px;transform:rotate(30deg)}
+.menu-open .burger span:nth-child(2){top:22px;transform:rotate(-30deg)}
+.drawer{position:fixed;inset:0;z-index:15;background:var(--kinari);display:flex;flex-direction:column;justify-content:center;
+  padding:0 40px;gap:8px;opacity:0;visibility:hidden;transition:opacity .6s var(--ease),visibility .6s}
+.drawer a{font-family:var(--mincho);font-size:18px;letter-spacing:.2em;padding:14px 0;border-bottom:1px solid var(--hair-soft)}
+.menu-open .drawer{opacity:1;visibility:visible}
+
+/* ---------- ボタン ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-width:248px;height:58px;padding:0 40px;
+  border-radius:2px;background:var(--ink);color:var(--kinari);font-family:var(--gothic);font-weight:400;font-size:14px;
+  letter-spacing:.24em;transition:background .6s var(--ease),color .6s var(--ease)}
+.btn::after{content:"";width:22px;height:1px;background:currentColor;opacity:.7;transition:width .6s var(--ease)}
+.btn:hover{background:var(--accent)}
+.btn:hover::after{width:30px}
+.btn--line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn--line:hover{background:var(--ink);color:var(--kinari)}
+
+/* ---------- 英字の小見出し ---------- */
+.kicker{font-family:var(--latin);font-weight:400;font-size:15px;letter-spacing:.34em;line-height:1;color:var(--accent)}
+
+/* ---------- 仮イメージ表記 ---------- */
+.tmp-note{position:absolute;right:20px;bottom:14px;z-index:3;font-size:10px;letter-spacing:.08em;line-height:1;
+  color:rgba(74,59,48,.55)}
+
+/* ---------- ファーストビュー 共通 ---------- */
+.fv{position:relative;height:100vh;height:100svh;min-height:680px;overflow:hidden;background:var(--kinari)}
+.fv-photo{position:absolute;overflow:hidden}
+.fv-photo img{width:100%;height:100%;object-fit:cover}
+.fv-copy{font-family:var(--mincho);font-weight:400;color:var(--ink)}
+.fv-sub{font-size:15px;line-height:2.1;letter-spacing:.1em;color:var(--ink-soft)}
+
+/* ゆっくりしたフェードイン（ページを開いたときの1回だけ） */
+.fade{opacity:0;animation:fadeIn 1.8s var(--ease) forwards}
+.d1{animation-delay:.2s}.d2{animation-delay:.6s}.d3{animation-delay:1.0s}.d4{animation-delay:1.4s}.d5{animation-delay:1.8s}
+.fv-photo.fade{animation-duration:2.4s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.static .fade{animation:none;opacity:1}
+@media (prefers-reduced-motion:reduce){.fade{animation:none;opacity:1}}
+
+/* ===== 案A：写真の壁に縦書きを溶け込ませる（体験軸） ===== */
+.fv-a .fv-photo{top:96px;left:0;right:0;bottom:0}
+.fv-a .fv-photo img{object-position:100% 50%}
+.fv-a .fv-body{position:absolute;top:96px;bottom:0;left:31%;width:26%;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding-top:0}
+.fv-a .fv-head{display:flex;flex-direction:row-reverse;align-items:flex-start;gap:30px;margin-right:-43px}
+.fv-a .kicker{writing-mode:vertical-rl;font-size:13px;letter-spacing:.42em;margin-top:6px;color:var(--ink-soft)}
+.fv-a .fv-copy{writing-mode:vertical-rl;font-size:40px;line-height:1.75;letter-spacing:.22em;height:11.4em}
+.fv-a .fv-copy span{display:block}
+.fv-a .fv-copy span+span{padding-top:2.6em}
+.fv-a .fv-sub{margin-top:40px;text-align:center;color:var(--ink)}
+.fv-a .btn{margin-top:36px}
+/* ===== 案B：写真全面 × 横書き左寄せ（医院の考え方軸） ===== */
+.fv-b .fv-photo{top:88px;left:0;right:0;bottom:0}
+.fv-b .fv-photo img{object-position:100% 50%}
+.fv-b .hd{height:88px}
+.fv-b .kicker{color:var(--ink-soft)}
+.fv-b .fv-photo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(247,243,238,.42) 0%,rgba(247,243,238,.18) 34%,rgba(247,243,238,0) 52%)}
+.fv-b .fv-body{position:absolute;left:10%;top:calc(50% + 44px);transform:translateY(-50%)}
+.fv-b .fv-copy{margin-top:40px;font-size:42px;line-height:1.8;letter-spacing:.14em}
+.fv-b .fv-copy span{display:block}
+.fv-b .fv-sub{margin-top:30px;color:var(--ink)}
+.fv-b .btn{margin-top:48px}
+.fv-b .rule{display:block;width:40px;height:1px;background:var(--accent);margin-top:34px}
+
+/* ===== 案C：写真左 × ベージュ面に横書き（ご本人の気持ち軸） ===== */
+.fv-c{background:var(--beige)}
+.fv-c .fv-photo{top:0;left:0;bottom:0;width:58%}
+.fv-c .fv-photo img{object-position:6% 50%}
+.fv-c .fv-body{position:absolute;top:0;bottom:0;right:0;width:42%;display:flex;flex-direction:column;justify-content:center;
+  padding:40px 0 0 7.2%}
+.fv-c .fv-copy{margin-top:44px;font-size:34px;line-height:1.9;letter-spacing:.12em}
+.fv-c .fv-copy span{display:block}
+.fv-c .fv-copy span+span{padding-left:1.2em}
+.fv-c .fv-sub{margin-top:34px}
+.fv-c .btn{margin-top:48px;align-self:flex-start}
+.fv-c .tmp-note{right:auto;left:20px}
+.fv-c .hd .logo{color:var(--ink)}
+
+/* ---------- タブレット・SP ---------- */
+@media (max-width:1100px){
+  .hd{padding:0 32px}
+  .gnav{gap:28px}
+  .fv-a .fv-copy{font-size:34px}
+  .fv-b .fv-copy{font-size:36px}
+  .fv-c .fv-copy{font-size:28px}
+}
+@media (max-width:767px){
+  body{font-size:14px;line-height:2}
+  .hd{height:64px;padding:0 20px}
+  .logo{font-size:16px}
+  .gnav{display:none}
+  .burger{display:block}
+  .fv{min-height:640px}
+  .fv-sub{font-size:14px;line-height:2;letter-spacing:.08em}
+  .btn{width:100%;height:56px}
+  .tmp-note{font-size:9px;right:12px;bottom:10px}
+
+  /* A：写真の壁に縦書きを重ね、下に案内 */
+  .fv-a .fv-photo{left:0;right:0;top:0;bottom:auto;height:66%}
+  .fv-a .fv-photo img{object-position:70% 50%}
+  .fv-a .fv-body{position:absolute;inset:0;width:auto;display:block;padding:0}
+  .fv-a .fv-head{margin:0}
+  .fv-a .fv-head{position:absolute;left:22px;top:104px;flex-direction:row-reverse;gap:0}
+  .fv-a .fv-head .kicker{display:none}
+  .fv-a .fv-foot .kicker-h{writing-mode:horizontal-tb;margin:0;display:block;font-size:13px}
+  .fv-a .fv-copy{font-size:25px;letter-spacing:.2em;line-height:1.72;height:auto}
+  .fv-a .fv-copy span+span{padding-top:2.4em}
+  .fv-a .fv-foot{position:absolute;left:24px;right:24px;top:66%;padding-top:30px}
+  .fv-a .fv-foot .kicker-h{display:block}
+  .fv-a .fv-sub{margin-top:18px;text-align:left}
+  .fv-a .btn{margin-top:26px}
+  .fv-a .tmp-note{top:calc(66% - 20px);bottom:auto}
+
+  /* B：写真上・文字下 */
+  .fv-b .fv-photo{top:0;left:0;right:0;bottom:auto;height:54%}
+  .fv-b .fv-photo img{object-position:76% 30%}
+  .fv-b .fv-photo::after{display:none}
+  .fv-b .fv-body{left:24px;right:24px;top:54%;transform:none;padding-top:30px}
+  .fv-b .fv-copy{margin-top:18px;font-size:25px;line-height:1.75;letter-spacing:.12em}
+  .fv-b .rule{margin-top:22px;width:32px}
+  .fv-b .fv-sub{margin-top:18px}
+  .fv-b .btn{margin-top:26px}
+  .fv-b .tmp-note{top:calc(54% - 20px);bottom:auto}
+
+  /* C：写真上（左に人物）・ベージュ面に文字 */
+  .fv-c .fv-photo{top:0;left:0;right:0;bottom:auto;width:auto;height:54%}
+  .fv-c .fv-photo img{object-position:16% 40%}
+  .fv-c .fv-body{left:0;right:0;width:auto;top:54%;bottom:auto;display:block;padding:30px 24px 0}
+  .fv-c .fv-copy{margin-top:18px;font-size:24px;line-height:1.8;letter-spacing:.1em}
+  .fv-c .fv-sub{margin-top:18px}
+  .fv-c .btn{margin-top:26px}
+  .fv-c .tmp-note{top:calc(54% - 20px);bottom:auto;left:auto;right:12px}
+}
+.kicker-h{display:none}
+.fv-a .fv-foot{display:flex;flex-direction:column;align-items:center}
+@media (max-width:767px){.fv-a .fv-foot{display:block}}
+.fv-c .fv-sub{color:var(--ink)}
+@media (max-width:767px){
+  .fv-b .hd{height:64px}
+  .fv-b .fv-photo{top:64px;height:calc(56% - 64px)}
+  .fv-b .fv-body{top:56%}
+  .fv-b .tmp-note{top:calc(56% - 20px)}
+}
+/* 縦書きコピーの高さを固定（ビューポートの高さに左右されないように） */
+@media (max-width:767px){.fv-a .fv-copy{height:10.8em}}
+/* 案C：上部をベージュの帯にしてロゴとメニューを写真から外す */
+.fv-c .hd{height:88px}
+.fv-c .fv-photo{top:88px}
+.fv-c .fv-body{top:88px;padding-top:0}
+@media (max-width:767px){
+  .fv-c .hd{height:64px}
+  .fv-c .fv-photo{top:64px;height:calc(54% - 64px)}
+  .fv-c .fv-body{top:54%;padding-top:30px}
+}
