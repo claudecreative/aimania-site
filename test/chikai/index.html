@@ -73,7 +73,8 @@ p,dd,figcaption,blockquote{text-wrap:pretty}
 .link:hover svg{transform:translateX(6px)}
 
 /* ---------- header ---------- */
-.hd{position:fixed;inset:0 0 auto;z-index:80;height:88px;color:#fff;transition:background .5s var(--ease),color .5s var(--ease),box-shadow .5s,height .4s}
+.hd{position:fixed;inset:0 0 auto;z-index:80;height:88px;color:#fff;transition:background .5s var(--ease),color .5s var(--ease),box-shadow .5s,height .4s,top .4s var(--ease)}
+.hd:not(.is-scrolled){top:var(--lbh)}
 .hd.is-scrolled{background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);color:var(--navy);box-shadow:0 1px 0 var(--line);height:72px}
 .hd__in{height:100%;display:flex;align-items:center;justify-content:space-between;width:min(1400px,calc(100% - 80px));margin-inline:auto}
 .logo{display:flex;align-items:center;gap:12px;color:inherit}
