@@ -4,7 +4,7 @@
 <script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_chikai_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_chikai_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=ee4d9544/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_chikai_ok","1")}catch(e){}try{document.cookie="aim_chikai_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script>
 <meta charset="utf-8">
 <script>document.documentElement.classList.add("js")</script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
 <title>誓いの縁｜結婚相談所（デザインサンプル）</title>
 <meta name="description" content="結婚相談所 誓いの縁（IBJ加盟）。外見 × 戦略 × 完全伴走で、ふたりの物語のはじまりをお手伝いします。">
@@ -37,6 +37,8 @@ a{color:inherit;text-decoration:none}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 section[id]{scroll-margin-top:72px}
 h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
+.kp{word-break:keep-all;overflow-wrap:anywhere}
+p,dd,figcaption,blockquote{text-wrap:pretty}
 
 /* ---------- film grain ---------- */
 .grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:90;opacity:.045;
@@ -89,8 +91,8 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
 .burger{display:none;width:44px;height:44px;border:0;background:none;color:inherit;cursor:pointer;position:relative}
 .burger span{position:absolute;left:10px;right:10px;height:1px;background:currentColor;transition:transform .4s var(--ease)}
 .burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:26px}
-.nav-open .burger span:nth-child(1){transform:translateY(4.5px) rotate(20deg)}
-.nav-open .burger span:nth-child(2){transform:translateY(-4.5px) rotate(-20deg)}
+.nav-open .burger span:nth-child(1){transform:translateY(4.5px) rotate(32deg)}
+.nav-open .burger span:nth-child(2){transform:translateY(-4.5px) rotate(-32deg)}
 
 /* ---------- hero : key visual ---------- */
 .hero{position:relative;height:100vh;height:100svh;min-height:640px;overflow:hidden;background:var(--film);color:#fff;--lb:1}
@@ -116,7 +118,7 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
 .hero__mark circle{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .6s 1.2s ease-out forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
 .hero__ttl{margin:0;writing-mode:vertical-rl;font-family:var(--mincho);font-weight:600;font-size:min(12.4vh,8.8vw,124px);letter-spacing:.16em;line-height:1;text-shadow:0 2px 30px rgba(10,22,40,.35);animation:unveil 1.6s .9s cubic-bezier(.7,0,.2,1) both}
-@keyframes unveil{from{clip-path:inset(0 0 100% 0);opacity:.2}to{clip-path:inset(0 0 0 0);opacity:1}}
+@keyframes unveil{from{clip-path:inset(-10% -50% 100% -50%);opacity:.2}to{clip-path:inset(-10% -50% -10% -50%);opacity:1}}
 .hero__en{writing-mode:vertical-rl;font-family:var(--latin);font-weight:500;font-size:13px;letter-spacing:.5em;color:var(--gold-l);margin-top:96px;animation:fadeIn 1.2s 1.8s ease both}
 .hero__catch{margin:0;margin-top:clamp(56px,9vh,104px);writing-mode:vertical-rl;font-family:var(--mincho);font-weight:500;font-size:clamp(16px,1.5vw,22px);letter-spacing:.3em;line-height:2.1;text-shadow:0 1px 3px rgba(10,22,40,.7),0 0 20px rgba(10,22,40,.35)}
 .hero__catch span{display:block;animation:fadeIn 1.4s ease both}
@@ -346,7 +348,7 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
 .cta p{margin:0 auto;color:rgba(255,255,255,.75);max-width:34em}
 .cta__btns{display:flex;justify-content:center;gap:16px;margin-top:48px;flex-wrap:wrap}
 .cta__btns .btn{min-width:256px}
-.cta__tel{margin-top:40px;font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.1em;line-height:1.8}
+.cta .cta__tel{margin-top:40px;font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.1em;line-height:1.8}
 .cta__tel b{font-family:var(--latin);font-weight:500;font-size:24px;letter-spacing:.12em;color:#fff;margin:0 12px;vertical-align:-2px;font-variant-numeric:lining-nums;white-space:nowrap}
 .cta__tel small{display:block;font-size:12px;margin-top:2px}
 
@@ -371,10 +373,23 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
 .ft__copy small{display:block;font-family:var(--gothic);font-size:11px;letter-spacing:.08em;margin-top:8px}
 
 /* ---------- SP nav ---------- */
-.spnav{position:fixed;inset:0;z-index:79;background:var(--deep);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.spnav{position:fixed;inset:0;z-index:79;background:var(--deep);color:#fff;display:flex;flex-direction:column;padding:calc(104px + env(safe-area-inset-top)) 32px calc(32px + env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.spnav::before{content:"";position:absolute;z-index:-1;right:-72px;bottom:96px;width:280px;height:308px;background:url("./brand/mark_w.svg") no-repeat center/contain;opacity:.035;pointer-events:none}
 .nav-open .spnav{opacity:1;visibility:visible}
-.spnav a{font-family:var(--latin);font-size:22px;letter-spacing:.3em;padding:8px}
-.spnav .btn{margin-top:32px;font-size:15px}
+.spnav__list{list-style:none;margin:auto 0 0;padding:0;border-top:1px solid rgba(255,255,255,.12)}
+.spnav__list li{border-bottom:1px solid rgba(255,255,255,.12);opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.nav-open .spnav__list li{opacity:1;transform:none}
+.nav-open .spnav__list li:nth-child(2){transition-delay:.05s}.nav-open .spnav__list li:nth-child(3){transition-delay:.1s}.nav-open .spnav__list li:nth-child(4){transition-delay:.15s}.nav-open .spnav__list li:nth-child(5){transition-delay:.2s}.nav-open .spnav__list li:nth-child(6){transition-delay:.25s}
+.spnav__list a{display:flex;align-items:baseline;justify-content:space-between;gap:16px;min-height:60px;padding:14px 0 12px}
+.spnav__list span{font-family:var(--latin);font-weight:400;font-size:26px;letter-spacing:.06em;line-height:1.2}
+.spnav__list small{font-family:var(--mincho);font-size:12px;letter-spacing:.14em;color:rgba(217,197,149,.85)}
+.spnav__list a:focus-visible{outline-offset:-1px}
+.spnav__foot{margin:40px 0 auto;text-align:center}
+.spnav__foot .btn{width:100%;height:54px;font-size:15px;letter-spacing:.14em}
+.spnav__tel{margin:20px 0 0;font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.62);line-height:1.8}
+.spnav__tel b{display:inline-block;margin-left:12px;font-family:var(--latin);font-weight:500;font-size:20px;letter-spacing:.1em;color:#fff;vertical-align:-1px;font-variant-numeric:lining-nums}
+.spnav__tel small{display:block;font-size:11.5px}
+body.nav-open,html:has(body.nav-open){overflow:hidden}
 .nav-open .hd{color:#fff;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
 
 /* ---------- responsive ---------- */
@@ -406,128 +421,195 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
   .concept__lead{grid-column:1 / -1}
 }
 @media (max-width:640px){
-  :root{--sec:96px;--lbh:18px}
+  :root{--sec:96px;--lbh:0px;--hdh:64px;--gut:24px}
   body{font-size:14.5px}
-  .wrap{width:calc(100% - 48px)}
-  .hd,.hd.is-scrolled{height:64px}
-  .logo svg{width:28px;height:32px}
-  .logo b{font-size:18px}
-  .logo small{font-size:9px;letter-spacing:.34em}
+  .wrap{width:calc(100% - var(--gut) * 2)}
+  section[id]{scroll-margin-top:64px}
+
+  /* header : safe-area aware, aligned to the 24px gutter */
+  .hd,.hd.is-scrolled{height:calc(var(--hdh) + env(safe-area-inset-top));padding-top:env(safe-area-inset-top)}
+  .hd__in{width:calc(100% - var(--gut) * 2)}
+  .logo{gap:10px}
+  .logo svg{width:26px;height:29px}
+  .logo b{font-size:17px;letter-spacing:.16em;line-height:1.15}
+  .logo small{font-size:9.5px;letter-spacing:.3em;margin-top:4px}
+  .burger{margin-right:-10px}
+  .hd:not(.is-scrolled) .logo{text-shadow:0 1px 10px rgba(10,22,40,.45)}
+  .hd:not(.is-scrolled) .logo small{color:var(--gold-l)}
+  .spnav{padding-left:var(--gut);padding-right:var(--gut)}
+  .burger span{left:10px;right:10px}
+
   .sec-head{margin-bottom:48px}
-  .sec-head h2{font-size:clamp(24px,6.6vw,28px);letter-spacing:.1em}
+  .sec-head h2{font-size:clamp(22px,6.1vw,26px);letter-spacing:.08em}
+  .sec-head p{font-size:14px;line-height:2}
   .en{font-size:16px}
 
-  .hero{min-height:620px}
-  .hero__still,.hero__video{object-position:50% 50%}
+  /* hero : poster layout. picture above, billing block on film navy below. */
+  .hero{display:grid;grid-template-columns:100%;grid-template-rows:minmax(0,1fr) auto;height:100vh;height:100svh;min-height:560px}
+  .hero__media{position:relative;inset:auto;grid-area:1/1;min-height:0;overflow:hidden}
+  .hero__still,.hero__video{object-position:45% 50%}
   .hero__media::after{background:
-    linear-gradient(270deg,rgba(14,28,48,.5) 0%,rgba(14,28,48,0) 60%),
-    linear-gradient(0deg,rgba(14,28,48,.85) 0%,rgba(14,28,48,.4) 34%,rgba(14,28,48,0) 56%),
-    linear-gradient(180deg,rgba(14,28,48,.45) 0%,rgba(14,28,48,0) 18%)}
-  .hero__key{top:88px;right:20px;gap:14px}
-  .hero__ttlcol{gap:16px}
-  .hero__mark{width:34px}
-  .hero__ttl{font-size:min(9.6vh,17.5vw,80px);letter-spacing:.12em}
-  .hero__en{font-size:10px;margin-top:64px;letter-spacing:.42em}
-  .hero__catch{font-size:14px;letter-spacing:.24em;line-height:2;margin-top:48px}
-  .hero__catch span:nth-child(2){padding-top:3em}
-  .hero__foot{width:calc(100% - 48px);bottom:calc(var(--lbh) * var(--lb) + 16px)}
-  .hero__lead{font-size:13px;letter-spacing:.1em;margin-bottom:16px;line-height:1.9}
-  .hero__btns{flex-direction:column;gap:8px}
-  .hero__btns .btn{width:100%;height:50px;font-size:14px}
-  .billing{margin-top:24px}
-  .billing p{font-size:8.5px;letter-spacing:.16em;column-gap:1em;transform:scaleY(1.22)}
-  .billing b{font-size:12px;letter-spacing:.28em}
-  .billing small{display:none}
+    linear-gradient(180deg,rgba(14,28,48,.62) 0%,rgba(14,28,48,.3) 12%,rgba(14,28,48,0) 26%),
+    linear-gradient(270deg,rgba(14,28,48,.5) 0%,rgba(14,28,48,.3) 22%,rgba(14,28,48,.08) 40%,rgba(14,28,48,0) 52%),
+    linear-gradient(0deg,#14263F 0%,#14263F 6%,rgba(20,38,63,.78) 18%,rgba(20,38,63,.34) 33%,rgba(20,38,63,0) 48%)}
+  .lb{display:none}
+  .hero__key{position:relative;grid-area:1/1;top:auto;right:auto;justify-self:end;align-self:stretch;min-height:0;padding:calc(var(--hdh) + env(safe-area-inset-top) + 24px) var(--gut) 56px 0;gap:clamp(14px,4.4vw,20px)}
+  .hero__mark,.hero__en{display:none}
+  .hero__ttl{font-size:min(7.2svh,15vw,64px);letter-spacing:.12em;text-shadow:0 2px 24px rgba(10,22,40,.4)}
+  .hero__catch{align-self:flex-end;margin-top:0;text-shadow:0 1px 3px rgba(10,22,40,.8),0 0 18px rgba(10,22,40,.55);font-size:clamp(13.5px,1.8svh,15px);letter-spacing:.2em;line-height:2.05}
+  .hero__catch span:nth-child(2){padding-top:1.5em}
+  .hero__foot{position:relative;grid-area:2/1;inset:auto;width:auto;margin:-24px 0 0;padding:0 var(--gut) calc(20px + env(safe-area-inset-bottom))}
+  .hero__lead{font-size:14px;letter-spacing:.08em;line-height:1.9;margin-bottom:20px}
+  .hero__btns{flex-direction:column;align-items:stretch;gap:6px}
+  .hero__btns .btn--white{height:54px;font-size:14.5px;letter-spacing:.14em;padding:0 16px}
+  .hero__btns .btn--ghost{height:44px;padding:0;border:0;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;font-size:13.5px;letter-spacing:.14em;gap:12px;color:rgba(255,255,255,.92)}
+  .hero__btns .btn--ghost svg{box-sizing:content-box;width:6px;height:8px;padding:8px 8px 8px 10px;border:1px solid rgba(255,255,255,.5);border-radius:50%}
+  .billing{margin-top:14px;padding-top:14px;border-top:1px solid rgba(217,197,149,.22);color:rgba(255,255,255,.62)}
+  .billing p{font-size:11px;letter-spacing:.12em;column-gap:.9em;row-gap:2px;line-height:1.5;transform:scaleY(1.12)}
+  .billing p + p{margin-top:6px}
+  .billing b{font-size:13px;letter-spacing:.24em}
+  .billing p + p span:nth-of-type(2),.billing small{display:none}
   .scroll{display:none}
 
-  .story__ph{margin-right:24px}
+  .story__ph{margin-right:var(--gut)}
   .story__ph img{aspect-ratio:4/4.4}
-  .story__txt .en{align-self:flex-start;margin-bottom:32px}
-  .story__v{height:300px}
-  .story__v h2{font-size:22px;margin-left:20px;letter-spacing:.16em}
-  .story__v p{font-size:13.5px;line-height:2.15;letter-spacing:.1em}
-  .story__v p + p{margin-right:1em}
+  .story__ph figcaption{font-size:14px;margin-top:12px}
+  .story__grid{gap:56px}
+  .story__txt .en{align-self:flex-start;margin-bottom:36px}
+  .story__v{height:304px}
+  .story__v h2{font-size:22px;margin-left:22px;letter-spacing:.16em}
+  .story__v p{font-size:13.5px;line-height:2.1;letter-spacing:.1em}
+  .story__v p + p{margin-right:.9em}
 
-  .cut{padding:40px 0}
-  .cut__label{height:40px;width:calc(100% - 40px);font-size:11px}
-  .cut__label b{font-size:12px}
+  .cut{padding:40px 0 28px}
+  .cut__label{height:40px;width:calc(100% - var(--gut) * 2);font-size:11px;letter-spacing:.22em}
+  .cut__label b{font-size:12.5px}
   .cut__label b em{font-size:13px;margin-right:8px}
-  .cut__frame{height:60svh;min-height:0}
+  .cut__frame{height:auto;min-height:0;aspect-ratio:4/5;max-height:72svh}
+  .cut__frame--wide{aspect-ratio:6/5}
   .cut__frame img{object-position:var(--sp,50% 50%)!important}
-  .cut__sub{font-size:15px;letter-spacing:.12em;bottom:24px}
+  .cut__frame::after{background:linear-gradient(180deg,rgba(10,22,40,0) 52%,rgba(10,22,40,.55))}
+  .cut__sub{font-size:15px;letter-spacing:.12em;line-height:1.85;bottom:22px;padding:0 var(--gut)}
 
   .concept__eq{font-size:min(13vw,52px);letter-spacing:.04em}
   .concept__eq span:nth-child(2){padding-left:.6em}
   .concept__eq span:nth-child(3){padding-left:1.2em}
   .concept__body{margin-top:48px}
-  .concept__lead{font-size:15px;line-height:2.2;padding-left:24px}
+  .concept__lead{font-size:14.5px;line-height:2.15;letter-spacing:.04em;padding-left:20px}
   .concept__mark{width:240px;right:-80px;top:40px}
   .triad{margin-top:72px}
+  .triad__item,.triad__item + .triad__item{padding:36px 0 40px}
+  .triad__item:last-child{border-bottom:0;padding-bottom:0}
+  .triad__k{margin-bottom:20px}
   .triad__k b{font-size:28px}
+  .triad h3{font-size:18px;letter-spacing:.08em}
 
-  .frows{gap:80px}
+  .frows{gap:72px}
   .frow__img{aspect-ratio:16/11}
-  .frow__txt,.frow--rev .frow__txt{padding:32px 24px 0}
+  .frow__txt,.frow--rev .frow__txt{padding:32px var(--gut) 0}
   .frow__icon{margin-bottom:24px;gap:16px}
-  .frow__icon svg{width:48px;height:48px}
+  .frow__icon svg{width:44px;height:44px}
   .frow__icon span{font-size:18px}
-  .frow__txt h3{font-size:26px;margin-bottom:16px}
-  .frow__txt p{font-size:14.5px}
+  .frow__txt small{font-size:13px;letter-spacing:.14em}
+  .frow__txt h3{font-size:25px;letter-spacing:.12em;margin-bottom:16px}
+  .frow__txt p{font-size:14.5px;line-height:2.05}
 
-  .cast__ph{margin-right:24px}
-  .cast__ph::before{bottom:-24px}
-  .cast__body{padding-top:16px}
+  .cast__grid{gap:56px}
+  .cast__ph{margin-right:var(--gut)}
+  .cast__ph::before{left:auto;right:calc(var(--gut) * -2);top:-24px;bottom:auto;width:62%;height:72%}
+  .cast__ph figcaption{font-size:14px;margin-top:12px}
+  .cast__body{padding-top:0}
   .cast__body .en{margin-bottom:32px}
-  .cast__role{font-size:13px;margin-bottom:16px}
-  .cast__nm{font-size:40px;letter-spacing:.2em}
-  .cast__nm small{font-size:15px;margin-top:12px}
-  .cast__quote{margin-top:48px;padding-left:32px}
-  .cast__quote::before{font-size:72px;top:-20px}
+  .cast__role{font-size:13px;letter-spacing:.24em;margin-bottom:16px}
+  .cast__nm{font-size:32px;letter-spacing:.14em}
+  .cast__nm small{font-size:15px;margin-top:10px}
+  .cast__quote{margin-top:44px;padding-left:28px}
+  .cast__quote::before{font-size:64px;top:-14px;left:-6px}
   .sp{display:inline}
-  .cast__quote p{font-size:20px;letter-spacing:.08em}
-  .cast__msg{font-size:14.5px}
-  .cast__prof div{grid-template-columns:88px 1fr;gap:16px;font-size:13.5px}
+  .cast__quote p{font-size:19px;letter-spacing:.08em;line-height:1.95}
+  .cast__msg{font-size:14.5px;margin-top:40px;line-height:2.05}
+  .cast__prof div{grid-template-columns:72px 1fr;gap:16px;font-size:14px;padding:14px 0;line-height:1.8}
 
-  .tl li{grid-template-columns:40px 1fr;gap:16px;padding-bottom:40px}
+  .support__grid{gap:56px}
+  .support__ph{margin-top:40px}
+  .support__ph img{object-position:42% 50%}
+  .support__ph figcaption{margin-top:12px}
+  .tl li{grid-template-columns:40px 1fr;gap:18px;padding-bottom:36px}
   .tl__n{width:40px;height:40px;font-size:17px}
   .tl li:not(:last-child)::before,.tl li:not(:last-child)::after{left:19.5px;top:40px}
-  .tl h3{font-size:17px;margin-top:4px}
-  .tl h3 small{display:block;margin:0}
+  .tl h3{font-size:17px;margin-top:3px;letter-spacing:.08em}
+  .tl h3 small{display:block;margin:2px 0 0;font-size:12px}
+  .tl p{margin-top:8px;font-size:14px;line-height:1.95}
 
-  .ibj{padding-bottom:96px}
+  .ibj{padding-bottom:88px}
   .ibj__grid{grid-template-columns:1fr}
-  .stat{padding:40px 8px 32px}
+  .stat{padding:36px 8px 32px}
   .stat + .stat::before{left:32px;right:32px;top:0;bottom:auto;width:auto;height:1px}
-  .stat .num{font-size:64px}
-  .ibj__note{text-align:center}
+  .stat dt{font-size:14px;margin-bottom:10px}
+  .stat .num{font-size:60px}
+  .ibj__note{text-align:center;margin-top:20px}
 
-  .c-quote{padding-top:48px}
-  .c-quote::before{font-size:80px;top:-12px}
-  .c-quote p{font-size:18px;letter-spacing:.06em;line-height:1.95}
+  .comments{row-gap:56px}
+  .c-quote{padding-top:40px}
+  .c-quote::before{font-size:72px;top:-14px;left:-4px}
+  .c-quote p{font-size:17.5px;letter-spacing:.06em;line-height:1.95}
+  .c-quote footer{margin-top:18px}
   .comment__note{margin-top:56px;text-align:center}
 
-  .screen{outline-offset:8px}
-  .screen-wrap::before{top:-16px;left:-16px;width:16px;height:16px}
-  .screen-wrap::after{bottom:-16px;right:-16px;width:16px;height:16px}
-  .screen__play{width:56px;height:56px}
+  .movie .screen-wrap{width:calc(100% - 24px)}
+  .screen{outline-offset:6px}
+  .screen-wrap::before{top:-14px;left:-14px;width:14px;height:14px}
+  .screen-wrap::after{bottom:-14px;right:-14px;width:14px;height:14px}
+  .screen__play{width:60px;height:60px}
   .screen__play svg{width:14px;height:17px;margin-left:4px}
-  .screen__label{bottom:calc(9% + 8px);font-size:11px;letter-spacing:.2em}
-  .screen__corner{top:calc(9% + 6px);left:14px;font-size:11px}
+  .screen__label{bottom:calc(9% + 10px);font-size:12px;letter-spacing:.2em}
+  .screen__corner{top:calc(9% + 8px);left:14px;font-size:12px}
   .screen__corner.r{right:14px}
 
-  .blog{padding-bottom:96px}
-  .blog__head{flex-direction:column;align-items:flex-start;margin-bottom:48px}
-  .guide{aspect-ratio:4/3.4}
-  .guide__body{left:24px;right:24px;bottom:24px}
-  .cta{padding:104px 0 96px}
-  .cta__frame{width:calc(100% - 48px);padding:56px 8px}
-  .cta h2{letter-spacing:.12em}
-  .cta p{text-align:left}
-  .cta p.cta__tel{text-align:center}
-  .cta__btns .btn{width:100%;min-width:0}
-  .ft{padding:96px 0 40px}
-  .credits{grid-template-columns:.8fr 1.3fr;column-gap:16px;font-size:12.5px}
+  .blog{padding-bottom:88px}
+  .blog .wrap{display:flex;flex-direction:column}
+  .blog__head{display:contents}
+  .blog__head .sec-head{margin-bottom:40px}
+  .blog__head .link{order:3;align-self:center;margin-top:48px;min-height:44px;padding-bottom:10px}
+  .posts{order:2;gap:40px}
+  .post__meta{margin:18px 0 6px}
+  .post__meta span{font-size:11.5px}
+  .post h3{font-size:16.5px;line-height:1.8;padding-bottom:20px}
+
+  .guides{padding-bottom:var(--sec)}
+  .guides__grid{gap:16px}
+  .guide{aspect-ratio:auto;display:flex;flex-direction:column}
+  .guide img{position:relative;inset:auto;height:auto;aspect-ratio:16/9;opacity:1}
+  .guide:hover img,.guide:focus-visible img{opacity:1}
+  .guide::after{inset:0 0 auto;aspect-ratio:16/9;background:linear-gradient(180deg,rgba(20,38,63,0) 50%,rgba(20,38,63,.7) 80%,#14263F 100%)}
+  .guide__body{position:relative;left:auto;right:auto;bottom:auto;margin-top:-28px;padding:0 var(--gut) 28px}
+  .guide__body .en{font-size:16px;margin-bottom:10px}
+  .guide__body h3{font-size:21px;letter-spacing:.12em}
+  .guide__body p{font-size:14px;line-height:1.9;margin-bottom:20px;color:rgba(255,255,255,.85)}
+  .guide__more{min-height:36px;align-items:center;font-size:14px}
+
+  .cta{padding:96px 0 88px}
+  .cta::before,.cta::after{height:56px}
+  .cta__frame{width:calc(100% - var(--gut) * 2);padding:56px 0 52px}
+  .cta .cta__en{font-size:34px;text-align:center;line-height:1.25}
+  .cta h2{font-size:21px;letter-spacing:.12em;margin:24px 0 20px}
+  .cta p{text-align:left;font-size:14px;line-height:2}
+  .cta__btns{gap:12px;margin-top:40px}
+  .cta__btns .btn{width:100%;min-width:0;height:54px;letter-spacing:.14em}
+  .cta .cta__tel{text-align:center;margin-top:32px;font-size:12.5px}
+  .cta__tel b{display:block;margin:4px 0 2px;font-size:26px}
+  .ft{padding:88px 0 calc(40px + env(safe-area-inset-bottom))}
+  .ft__logo img{width:48px}
+  .ft__logo b{font-size:23px}
+  .credits{margin-top:64px;grid-template-columns:.8fr 1.3fr;column-gap:16px;row-gap:12px;font-size:13px}
+  .credits dt{font-size:14px}
   .credits dd{letter-spacing:.06em}
+  .credits dd a{display:inline-block;padding:10px 0;margin:-10px 0}
+  .sns{margin-top:56px;gap:12px}
+  .sns a{width:46px;height:46px}
+  .ft__fin{margin-top:64px;font-size:30px}
+  .ft__copy{margin-top:24px;font-size:12px;letter-spacing:.14em}
+  .ft__copy small{font-size:11px;line-height:1.8;margin-top:10px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -569,8 +651,18 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
   </div>
 </header>
 <nav class="spnav" id="spnav" aria-label="スマートフォンメニュー">
-  <a href="#top">TOP</a><a href="#about">ABOUT</a><a href="#service">SERVICE</a><a href="#flow">FLOW</a><a href="#faq">FAQ</a><a href="#contact">CONTACT</a>
-  <a href="#contact" class="btn btn--gold">無料相談を予約する</a>
+  <ul class="spnav__list">
+    <li><a href="#top"><span>Top</span><small>トップ</small></a></li>
+    <li><a href="#about"><span>About</span><small>誓いの縁について</small></a></li>
+    <li><a href="#service"><span>Service</span><small>サービス</small></a></li>
+    <li><a href="#flow"><span>Flow</span><small>成婚までの流れ</small></a></li>
+    <li><a href="#faq"><span>FAQ</span><small>よくある質問</small></a></li>
+    <li><a href="#contact"><span>Contact</span><small>お問い合わせ</small></a></li>
+  </ul>
+  <div class="spnav__foot">
+    <a href="#contact" class="btn btn--white">無料相談を予約する</a>
+    <p class="spnav__tel">お電話でのご相談<b>00-0000-0000</b><small>受付 10:00〜19:00（水曜定休）</small></p>
+  </div>
 </nav>
 
 <main>
@@ -632,7 +724,7 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
 <!-- ============ CUT: Scene 1 ============ -->
 <section class="cut" id="scene1" aria-label="Scene 1 出会い">
   <div class="cut__label"><b><em>Scene 1</em>出会い</b><span>Chapter I</span></div>
-  <div class="cut__frame">
+  <div class="cut__frame cut__frame--wide">
     <img src="./a/meet.jpg" alt="ホテルのラウンジで初めて会い、笑顔で話すふたり" style="object-position:50% 45%;--sp:56% 50%" loading="lazy">
     <p class="cut__sub">「はじめまして」の、少しの緊張も。<br>きっと、あとで笑い話になる。</p>
   </div>
@@ -648,23 +740,23 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
     </div>
     <p class="concept__eq" aria-hidden="true"><span>外見</span><span><i>×</i>戦略</span><span><i>×</i>完全伴走</span></p>
     <div class="concept__body">
-      <p class="concept__lead">婚活は、がんばり方さえ分かれば、<br>もっと穏やかに進められるものです。<br>第一印象を整え、出会い方を設計し、<br>成婚の日までとなりを歩く。<br>誓いの縁は、この三つをひとつの流れとしてお手伝いします。</p>
+      <p class="concept__lead">婚活は、がんばり方さえ分かれば、<br>もっと穏やかに進められるものです。<br>第一印象を整え、出会い方を設計し、<br>成婚の日までとなりを歩く。<br><span class="nb">誓いの縁は、この三つを</span><span class="nb">ひとつの流れとして</span><span class="nb">お手伝いします。</span></p>
     </div>
     <div class="triad" data-io>
       <article class="triad__item">
         <div class="triad__k"><b>外見</b><small>Appearance</small></div>
         <h3>あなたらしさが、<br>きちんと伝わる見た目へ。</h3>
-        <p>大きく変える必要はありません。髪型、服の色、写真の表情。ほんの少し整えるだけで、あなたの誠実さや優しさは、初対面の相手にもずっと伝わりやすくなります。</p>
+        <p>大きく変える必要はありません。髪型、服の色、写真の表情。ほんの少し整えるだけで、あなたの誠実さや優しさは、初対面の相手にもずっと<span class="nb">伝わりやすくなります。</span></p>
       </article>
       <article class="triad__item">
         <div class="triad__k"><b>戦略</b><small>Strategy</small></div>
         <h3>出会いを、<br>運まかせにしない。</h3>
-        <p>どんな方と、どんな毎日を過ごしたいのか。対話を重ねて言葉にし、プロフィールの書き方やお申し込み先の選び方へ、ひとつずつ落とし込んでいきます。</p>
+        <p>どんな方と、どんな毎日を過ごしたいのか。対話を重ねて言葉にし、プロフィールの書き方やお申し込み先の選び方へ、ひとつずつ<span class="nb">落とし込んでいきます。</span></p>
       </article>
       <article class="triad__item">
         <div class="triad__k"><b>完全伴走</b><small>Companion</small></div>
         <h3>迷ったときに、<br>すぐ話せる人がいる。</h3>
-        <p>お見合いの前夜も、交際中の小さな不安も。担当カウンセラーが入会から成婚まで一貫して担当し、あなたのペースに合わせて一緒に考えます。</p>
+        <p>お見合いの前夜も、交際中の小さな不安も。担当カウンセラーが入会から成婚まで一貫して担当し、あなたのペースに合わせて<span class="nb">一緒に考えます。</span></p>
       </article>
     </div>
   </div>
@@ -693,7 +785,7 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
         </div>
         <small>外見プロデュース</small>
         <h3>印象設計</h3>
-        <p>プロのスタイリストと一緒に、服選びから髪型、写真の撮り方まで考えます。目指すのは“盛る”ことではなく、実際に会ったとき「写真のとおりの方だ」と安心してもらえることです。</p>
+        <p>プロのスタイリストと一緒に、服選びから髪型、写真の撮り方まで考えます。目指すのは“盛る”ことではなく、実際に会ったとき「写真のとおりの方だ」と<span class="nb">安心してもらえることです。</span></p>
       </div>
     </article>
     <article class="frow frow--rev">
@@ -710,7 +802,7 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
         </div>
         <small>お相手選び・プロフィール設計</small>
         <h3>戦略的な出会い</h3>
-        <p>データと対話の両方から、あなたに合うお相手像を描きます。自己紹介文は「この人に会ってみたい」と思ってもらえる一文になるまで、何度でも一緒に磨きます。</p>
+        <p>データと対話の両方から、あなたに合うお相手像を描きます。自己紹介文は「この人に会ってみたい」と思ってもらえる一文になるまで、何度でも<span class="nb">一緒に磨きます。</span></p>
       </div>
     </article>
     <article class="frow">
@@ -727,7 +819,7 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
         </div>
         <small>成婚まで</small>
         <h3>完全伴走</h3>
-        <p>お見合いの振り返り、交際の進め方、プロポーズのタイミングまで。担当カウンセラーが最後までそばにいるので、ひとりで抱え込まずに婚活を続けられます。</p>
+        <p>お見合いの振り返り、交際の進め方、プロポーズのタイミングまで。担当カウンセラーが最後までそばにいるので、ひとりで抱え込まずに<span class="nb">婚活を続けられます。</span></p>
       </div>
     </article>
   </div>
@@ -754,13 +846,13 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
       <h2 class="cast__name" id="cs-ttl"><span class="cast__role">代表カウンセラー</span><span class="cast__nm">〇〇 〇〇<small>Name Name</small></span></h2>
       <blockquote class="cast__quote"><p>無理に変わらなくて、大丈夫。<br>自然体のあなたで<br class="sp">出会える場所を、<br>一緒に見つけましょう。</p></blockquote>
       <div class="cast__msg">
-        <p>結婚相談所と聞くと、少し身構えてしまう方も多いかもしれません。私がいちばん大切にしているのは、最初にじっくりお話を伺うこと。これまでの恋愛や仕事、思い描いている暮らしを言葉にしてみると、本当に大切にしたいものが見えてきます。</p>
-        <p>見た目を整えることも、作戦を立てることも、すべてはあなたが自然体で誰かと向き合うための準備。成婚のその日まで、責任をもって伴走します。</p>
+        <p>結婚相談所と聞くと、少し身構えてしまう方も多いかもしれません。私がいちばん大切にしているのは、最初にじっくりお話を伺うこと。これまでの恋愛や仕事、思い描いている暮らしを言葉にしてみると、本当に大切にしたいものが<span class="nb">見えてきます。</span></p>
+        <p>見た目を整えることも、作戦を立てることも、すべてはあなたが自然体で誰かと向き合うための準備。成婚のその日まで、<span class="nb">責任をもって</span><span class="nb">伴走します。</span></p>
       </div>
       <dl class="cast__prof">
         <div><dt>資格</dt><dd>IBJ認定カウンセラー</dd></div>
-        <div><dt>経歴</dt><dd>カウンセラー歴 〇年／成婚サポート 〇〇組</dd></div>
-        <div><dt>担当</dt><dd>無料相談から成婚まで、一貫して担当します</dd></div>
+        <div><dt>経歴</dt><dd><span class="nb">カウンセラー歴 〇年</span>／<span class="nb">成婚サポート 〇〇組</span></dd></div>
+        <div><dt>担当</dt><dd><span class="nb">無料相談から成婚まで、</span><span class="nb">一貫して担当します</span></dd></div>
       </dl>
     </div>
   </div>
@@ -773,21 +865,21 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
       <div class="sec-head" style="margin:0">
         <span class="en">Support</span>
         <h2 id="sp-ttl">ご入会から成婚まで、<br>途切れないサポート体制</h2>
-        <p>節目ごとに必要なサポートを、担当カウンセラーがご一緒します。どのタイミングでも、気になることはすぐにご相談いただけます。</p>
+        <p class="kp">節目ごとに<wbr>必要なサポートを、<wbr>担当カウンセラーが<wbr>ご一緒します。<wbr>どのタイミングでも、<wbr>気になることは<wbr>すぐに<wbr>ご相談いただけます。</p>
       </div>
       <figure class="support__ph">
         <img src="./a/meet.jpg" alt="ラウンジでお見合いをするふたり" loading="lazy">
-        <figcaption>お見合いの前には会話の準備を、終わったあとは振り返りを一緒に。</figcaption>
+        <figcaption class="kp">お見合いの前には<wbr>会話の準備を、<wbr>終わったあとは<wbr>振り返りを一緒に。</figcaption>
       </figure>
     </div>
     <ol class="tl" data-io>
-      <li><span class="tl__n">1</span><div><h3>初回面談・ヒアリング<small>ご入会時</small></h3><p>これまでのこと、これからのこと。理想のお相手像や結婚後の暮らしを、時間をかけて伺います。</p></div></li>
-      <li><span class="tl__n">2</span><div><h3>スタイリング<small>ご入会〜1か月</small></h3><p>プロのスタイリストとショップへ。服・髪型・小物まで、あなたに似合うものを一緒に選びます。</p></div></li>
-      <li><span class="tl__n">3</span><div><h3>写真撮影同行<small>プロフィール作成</small></h3><p>カウンセラーが撮影に立ち会い、表情や姿勢をその場で確認。自然な笑顔の一枚を残します。</p></div></li>
-      <li><span class="tl__n">4</span><div><h3>お見合い前後の面談<small>活動中</small></h3><p>事前に会話の準備をし、終わったあとは一緒に振り返り。次のお見合いがもっと楽になります。</p></div></li>
-      <li><span class="tl__n">5</span><div><h3>交際中のLINE相談<small>交際中</small></h3><p>「次のデートはどこに行こう」「この返信で大丈夫？」そんな小さな迷いも、気軽にご相談ください。</p></div></li>
-      <li><span class="tl__n">6</span><div><h3>月1回の定例面談<small>毎月</small></h3><p>活動の進み具合を一緒に見直し、必要に応じてお申し込みの方針を調整します。</p></div></li>
-      <li><span class="tl__n">7</span><div><h3>プロポーズ・ご成婚<small>ゴール</small></h3><p>プロポーズの準備やご両親へのご挨拶まで。ふたりが新しい一歩を踏み出す日を、見届けます。</p></div></li>
+      <li><span class="tl__n">1</span><div><h3>初回面談・ヒアリング<small>ご入会時</small></h3><p>これまでのこと、これからのこと。理想のお相手像や結婚後の暮らしを、<span class="nb">時間をかけて伺います。</span></p></div></li>
+      <li><span class="tl__n">2</span><div><h3>スタイリング<small>ご入会〜1か月</small></h3><p>プロのスタイリストとショップへ。服・髪型・小物まで、あなたに似合うものを<span class="nb">一緒に選びます。</span></p></div></li>
+      <li><span class="tl__n">3</span><div><h3>写真撮影同行<small>プロフィール作成</small></h3><p>カウンセラーが撮影に立ち会い、表情や姿勢をその場で確認。自然な笑顔の<span class="nb">一枚を残します。</span></p></div></li>
+      <li><span class="tl__n">4</span><div><h3>お見合い前後の面談<small>活動中</small></h3><p>事前に会話の準備をし、終わったあとは一緒に振り返り。次のお見合いが<span class="nb">もっと楽になります。</span></p></div></li>
+      <li><span class="tl__n">5</span><div><h3>交際中のLINE相談<small>交際中</small></h3><p>「次のデートはどこに行こう」「この返信で大丈夫？」そんな小さな迷いも、<span class="nb">気軽にご相談ください。</span></p></div></li>
+      <li><span class="tl__n">6</span><div><h3>月1回の定例面談<small>毎月</small></h3><p>活動の進み具合を一緒に見直し、必要に応じてお申し込みの<span class="nb">方針を調整します。</span></p></div></li>
+      <li><span class="tl__n">7</span><div><h3>プロポーズ・ご成婚<small>ゴール</small></h3><p>プロポーズの準備やご両親へのご挨拶まで。ふたりが新しい一歩を踏み出す日を、<span class="nb">見届けます。</span></p></div></li>
     </ol>
   </div>
 </section>
@@ -807,7 +899,7 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
     <div class="sec-head center">
       <span class="en">IBJ Network</span>
       <h2 id="ibj-ttl"><span class="nb">IBJの全国ネットワークで、</span><span class="nb">出会いの幅を広げる</span></h2>
-      <p>誓いの縁はIBJの加盟相談所です。全国の会員の中から、あなたに合う方を探すことができます。</p>
+      <p class="kp">誓いの縁は<wbr>IBJの<wbr>加盟相談所です。<wbr>全国の会員の中から、<wbr>あなたに合う方を<wbr>探すことができます。</p>
     </div>
     <dl class="ibj__grid">
       <div class="stat"><dt>会員数</dt><dd><span class="pre">約</span><span class="num">96,000</span><span class="unit">名</span></dd></div>
@@ -826,10 +918,10 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
       <h2 id="cm-ttl">ご成婚されたおふたりから</h2>
     </div>
     <ul class="comments">
-      <li><blockquote class="c-quote"><p>最初の面談で「無理に変わらなくていい」と言われて、肩の力が抜けました。そこから、婚活が少し楽しくなりました。</p><footer>34歳・会社員　女性</footer></blockquote></li>
-      <li><blockquote class="c-quote"><p>服と写真を一緒に選んでもらってから、自分のプロフィールに自信が持てるようになりました。</p><footer>37歳・公務員　男性</footer></blockquote></li>
-      <li><blockquote class="c-quote"><p>交際中、返信ひとつで迷ったときも、すぐに相談できた。ひとりだったら途中でやめていたと思います。</p><footer>32歳・看護師　女性</footer></blockquote></li>
-      <li><blockquote class="c-quote"><p>プロポーズの前日まで、話を聞いてもらいました。いまは妻と、あの日のことを話して笑っています。</p><footer>39歳・メーカー勤務　男性</footer></blockquote></li>
+      <li><blockquote class="c-quote"><p class="kp">最初の面談で<wbr>「無理に<wbr>変わらなくていい」と<wbr>言われて、<wbr>肩の力が<wbr>抜けました。<wbr>そこから、<wbr>婚活が<wbr>少し<wbr>楽しくなりました。</p><footer>34歳・会社員　女性</footer></blockquote></li>
+      <li><blockquote class="c-quote"><p class="kp">服と写真を<wbr>一緒に<wbr>選んでもらってから、<wbr>自分の<wbr>プロフィールに<wbr>自信が<wbr>持てるように<wbr>なりました。</p><footer>37歳・公務員　男性</footer></blockquote></li>
+      <li><blockquote class="c-quote"><p class="kp">交際中、<wbr>返信ひとつで<wbr>迷ったときも、<wbr>すぐに<wbr>相談できた。<wbr>ひとりだったら<wbr>途中で<wbr>やめていたと<wbr>思います。</p><footer>32歳・看護師　女性</footer></blockquote></li>
+      <li><blockquote class="c-quote"><p class="kp">プロポーズの<wbr>前日まで、<wbr>話を<wbr>聞いてもらいました。<wbr>いまは妻と、<wbr>あの日のことを<wbr>話して<wbr>笑っています。</p><footer>39歳・メーカー勤務　男性</footer></blockquote></li>
     </ul>
     <p class="comment__note">※掲載内容はイメージです</p>
   </div>
@@ -841,7 +933,7 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
     <div class="sec-head center">
       <span class="en">Trailer</span>
       <h2 id="mv-ttl">コンセプト映像</h2>
-      <p>相談室の雰囲気や、カウンセラーの人柄を映像でご紹介します。</p>
+      <p class="kp">相談室の雰囲気や、<wbr>カウンセラーの人柄を<wbr>映像でご紹介します。</p>
     </div>
     <div class="screen-wrap">
       <div class="screen">
@@ -871,17 +963,17 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
       <article class="post"><a href="#">
         <div class="post__img"><img src="./a/meet.jpg" alt="" loading="lazy"></div>
         <div class="post__meta"><time datetime="2026-11-12">2026.11.12</time><span>お見合い</span></div>
-        <h3>初対面の60分を、心地よい時間にするために大切な五つのこと</h3>
+        <h3 class="kp">初対面の60分を、<wbr>心地よい時間に<wbr>するために<wbr>大切な<wbr>五つのこと</h3>
       </a></article>
       <article class="post"><a href="#">
         <div class="post__img"><img src="./a/ring.jpg" alt="" loading="lazy"></div>
         <div class="post__meta"><time datetime="2026-10-28">2026.10.28</time><span>成婚レポート</span></div>
-        <h3>「この人となら」と思えた瞬間。30代のおふたりが成婚するまで</h3>
+        <h3 class="kp">「この人となら」と<wbr>思えた瞬間。<wbr>30代のおふたりが<wbr>成婚するまで</h3>
       </a></article>
       <article class="post"><a href="#">
         <div class="post__img"><img src="./a/consult.jpg" alt="" loading="lazy"></div>
         <div class="post__meta"><time datetime="2026-10-09">2026.10.09</time><span>はじめての方へ</span></div>
-        <h3>結婚相談所の無料相談では、どんなことを話すの？</h3>
+        <h3 class="kp">結婚相談所の<wbr>無料相談では、<wbr>どんなことを話すの？</h3>
       </a></article>
     </div>
   </div>
@@ -898,15 +990,15 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
   <div class="wrap guides__grid">
     <a href="#" class="guide">
       <img src="./a/styling.jpg" alt="" loading="lazy" style="object-position:60% 40%">
-      <div class="guide__body"><span class="en">Price &amp; Service</span><h3>料金・サービス</h3><p>コースごとの料金と、含まれるサポート内容をご案内します。</p><span class="guide__more">詳しく見る<svg viewBox="0 0 28 8" fill="none" stroke="currentColor"><path d="M0 7 H27 L20 1"/></svg></span></div>
+      <div class="guide__body"><span class="en">Price &amp; Service</span><h3>料金・サービス</h3><p class="kp">コースごとの料金と、<wbr>含まれる<wbr>サポート内容を<wbr>ご案内します。</p><span class="guide__more">詳しく見る<svg viewBox="0 0 28 8" fill="none" stroke="currentColor"><path d="M0 7 H27 L20 1"/></svg></span></div>
     </a>
     <a href="#" class="guide">
       <img src="./a/wedding.jpg" alt="" loading="lazy" style="object-position:48% 50%">
-      <div class="guide__body"><span class="en">Flow</span><h3>成婚までの流れ</h3><p>無料相談からご成婚まで、どのように進むのかをご紹介します。</p><span class="guide__more">詳しく見る<svg viewBox="0 0 28 8" fill="none" stroke="currentColor"><path d="M0 7 H27 L20 1"/></svg></span></div>
+      <div class="guide__body"><span class="en">Flow</span><h3>成婚までの流れ</h3><p class="kp">無料相談から<wbr>ご成婚まで、<wbr>どのように<wbr>進むのかを<wbr>ご紹介します。</p><span class="guide__more">詳しく見る<svg viewBox="0 0 28 8" fill="none" stroke="currentColor"><path d="M0 7 H27 L20 1"/></svg></span></div>
     </a>
     <a href="#" class="guide">
       <img src="./a/consult.jpg" alt="" loading="lazy" style="object-position:35% 50%">
-      <div class="guide__body"><span class="en">Q &amp; A</span><h3>よくある質問</h3><p>活動期間や必要書類など、よくいただくご質問にお答えします。</p><span class="guide__more">詳しく見る<svg viewBox="0 0 28 8" fill="none" stroke="currentColor"><path d="M0 7 H27 L20 1"/></svg></span></div>
+      <div class="guide__body"><span class="en">Q &amp; A</span><h3>よくある質問</h3><p class="kp">活動期間や<wbr>必要書類など、<wbr>よくいただく<wbr>ご質問に<wbr>お答えします。</p><span class="guide__more">詳しく見る<svg viewBox="0 0 28 8" fill="none" stroke="currentColor"><path d="M0 7 H27 L20 1"/></svg></span></div>
     </a>
   </div>
 </section>
@@ -925,7 +1017,7 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
   <div class="cta__frame">
     <p class="cta__en">Your story begins here.</p>
     <h2 id="cta-ttl">無料相談・お問い合わせ</h2>
-    <p>まずは、あなたのお話を聞かせてください。無料相談はオンライン・対面のどちらでも。その場で入会をおすすめすることはありませんので、安心してお越しください。</p>
+    <p class="kp">まずは、<wbr>あなたのお話を<wbr>聞かせてください。<wbr>無料相談は<wbr>オンライン・対面の<wbr>どちらでも。<wbr>その場で<wbr>入会を<wbr>おすすめすることは<wbr>ありませんので、<wbr>安心して<wbr>お越しください。</p>
     <div class="cta__btns">
       <a href="#" class="btn btn--white">無料相談を予約する</a>
       <a href="#" class="btn btn--gold">お問い合わせ</a>
@@ -962,7 +1054,7 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
       <li><a href="#" aria-label="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 19 V7.5 C5 6.1 6.1 5 7.5 5 H14.5 C17 5 19 7 19 9.5 V19"/></svg></a></li>
     </ul>
     <p class="ft__fin">Fin.</p>
-    <p class="ft__copy">© 誓いの縁 All rights reserved.<small>結婚相談所 誓いの縁｜IBJ加盟店（本ページはデザインサンプルです）</small></p>
+    <p class="ft__copy">© 誓いの縁 All rights reserved.<small><span class="nb">結婚相談所 誓いの縁｜IBJ加盟店</span><span class="nb">（本ページはデザインサンプルです）</span></small></p>
   </div>
 </footer>
 
@@ -980,6 +1072,28 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
     if (v.error) kill();
     if (reduce){ v.removeAttribute('autoplay'); try{v.pause()}catch(e){} }
     setTimeout(function(){ if (v.style.display!=='none' && v.readyState === 0 && v.networkState === 3) kill(); }, 2500);
+
+    /* SP pan & scan: the 16:9 montage is shown through a portrait window,
+       so the window follows the people in each shot (lounge pans from him to her,
+       then seaside, hands with the ring, chapel). Keyframes are in source x (0-1). */
+    var sp = window.matchMedia && matchMedia('(max-width:640px)');
+    var K = [[0,.3],[1.1,.3],[3.3,.7],[3.7,.7],[4.6,.58],[7,.6],[7.8,.5],[10.3,.5],[11.2,.555],[99,.555]];
+    var cx = function(t){
+      for (var i=0;i<K.length-1;i++){ if (t < K[i+1][0]){ var u=(t-K[i][0])/(K[i+1][0]-K[i][0]); u=u*u*(3-2*u); return K[i][1]+(K[i+1][1]-K[i][1])*u; } }
+      return K[K.length-1][1];
+    };
+    var pan = function(){
+      if (v.style.display==='none') return;
+      if (sp && sp.matches && !reduce && v.videoWidth){
+        var f = Math.min(1, v.clientWidth / (v.clientHeight * v.videoWidth / v.videoHeight));
+        if (f < 1){
+          var L = Math.min(Math.max(cx(v.currentTime) - .4 * f, 0), 1 - f);
+          v.style.objectPosition = (L / (1 - f) * 100).toFixed(2) + '% 50%';
+        }
+      } else if (v.style.objectPosition){ v.style.objectPosition = ''; }
+      requestAnimationFrame(pan);
+    };
+    requestAnimationFrame(pan);
   }
 
   /* header state + thin letterbox retracting on scroll */
@@ -1011,12 +1125,26 @@ h2,h3,.cut__sub,.c-quote p,.cast__quote p{word-break:auto-phrase}
 
   /* SP nav */
   var burger = document.getElementById('burger');
+  var spnav = document.getElementById('spnav');
+  var outside = document.querySelectorAll('main, .ft');
   function setNav(open){
+    var was = document.body.classList.contains('nav-open');
     document.body.classList.toggle('nav-open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     burger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    outside.forEach(function(el){ if (open) el.setAttribute('inert',''); else el.removeAttribute('inert'); });
+    if (open && !was){ setTimeout(function(){ var a = spnav.querySelector('a'); if (a) a.focus({preventScroll:true}); }, 60); }
+    if (!open && was && spnav.contains(document.activeElement)){ burger.focus({preventScroll:true}); }
     onScroll();
   }
+  /* keep Tab inside the open menu (header close button + menu links) */
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Tab' || !document.body.classList.contains('nav-open')) return;
+    var f = [burger].concat([].slice.call(spnav.querySelectorAll('a')));
+    var i = f.indexOf(document.activeElement);
+    if (e.shiftKey && i <= 0){ e.preventDefault(); f[f.length-1].focus(); }
+    else if (!e.shiftKey && i === f.length-1){ e.preventDefault(); f[0].focus(); }
+  });
   burger.addEventListener('click', function(){ setNav(!document.body.classList.contains('nav-open')); });
   document.querySelectorAll('#spnav a').forEach(function(a){ a.addEventListener('click', function(){ setNav(false); }); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') setNav(false); });
