@@ -45,14 +45,178 @@
 .notice-box dt,.notice-box dd{margin:0;padding:10px 0;border-top:1px solid var(--hair-soft)}
 .notice-box dt{color:var(--ink);font-weight:400}
 
-/* ---------- 次のセクション（続きの気配） ---------- */
-.next{position:relative;padding:40px 0 0;height:560px;overflow:hidden;
-  -webkit-mask-image:linear-gradient(#000 30%,transparent 92%);mask-image:linear-gradient(#000 30%,transparent 92%)}
-.next .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin:64px 0 0;padding:0;list-style:none}
-.next .step-ph{aspect-ratio:4/3;background:var(--beige);overflow:hidden}
-.next .step-ph img{width:100%;height:100%;object-fit:cover}
-.next .num{font-variant-numeric:lining-nums;font-feature-settings:"lnum";display:block;margin-top:22px;font-family:var(--latin);font-size:22px;letter-spacing:.1em;color:var(--accent);line-height:1}
-.next h3{margin-top:12px;font-family:var(--mincho);font-weight:400;font-size:17px;letter-spacing:.12em}
+/* =========================================================
+   ここから下：LP全体（注記より後ろのセクション）
+   ========================================================= */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+[id]{scroll-margin-top:24px}
+.lp p,.lp dd,.lp li,.lp td,.lp th{word-break:normal}
+@supports (word-break:auto-phrase){.lp p,.lp dd,.lp li,.lp td,.lp th,.lp summary{word-break:auto-phrase}}
+.lp p{text-wrap:pretty}
+.sec{padding:150px 0}
+.sec-lead{max-width:640px;margin:32px auto 0;text-align:center;font-size:15px;line-height:2.2;letter-spacing:.08em;color:var(--ink-soft)}
+.fig{position:relative;margin:0;overflow:hidden;background:var(--beige)}
+.fig img{width:100%;height:100%;object-fit:cover}
+.cap{position:absolute;right:12px;bottom:10px;font-size:10px;line-height:1;letter-spacing:.08em;color:rgba(255,255,255,.88)}
+.lbl{display:flex;align-items:center;gap:16px;font-family:var(--mincho);font-weight:400;font-size:15px;letter-spacing:.2em;line-height:1.6;color:var(--accent)}
+.lbl::before{content:"";flex:none;width:32px;height:1px;background:currentColor}
+.more{display:inline-flex;align-items:center;gap:16px;padding-bottom:8px;border-bottom:1px solid var(--hair);font-size:13px;letter-spacing:.16em;line-height:1.6;transition:border-color .6s var(--ease)}
+.more::after{content:"";width:22px;height:1px;background:currentColor;opacity:.7;transition:width .6s var(--ease)}
+.more:hover{border-color:var(--ink)}
+.more:hover::after{width:30px}
+@media (max-width:767px){br.pc{display:none}}
+.lat{font-family:var(--latin);font-variant-numeric:lining-nums;font-feature-settings:"lnum"}
+
+/* ---------- トランセントホワイトニングとは ---------- */
+.about{padding:120px 0 150px}
+.ab-grid{display:grid;grid-template-columns:minmax(0,45fr) minmax(0,55fr);align-items:center}
+.ab-photo{aspect-ratio:5/6}
+.ab-photo img{object-position:10% 50%}
+.ab-text{display:flex;flex-direction:row-reverse;justify-content:center;align-items:flex-start;gap:80px;padding:0 56px 0 72px}
+.ab-catch{writing-mode:vertical-rl;font-family:var(--mincho);font-weight:400;font-size:34px;line-height:1.8;letter-spacing:.22em;height:10.2em;margin-top:-4px}
+.ab-catch span{display:block}
+.ab-catch span+span{padding-top:2.4em}
+.ab-body{max-width:410px}
+.ab-body .lbl{margin-bottom:44px}
+.ab-body p:not(.lbl){font-size:15px;line-height:2.2;letter-spacing:.08em}
+.ab-body p:not(.lbl)+p{margin-top:1.3em}
+.ab-body .more{margin-top:48px}
+
+/* ---------- 施術の流れ ---------- */
+.flow{background:var(--beige)}
+.fl-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:104px;align-items:start;margin-top:80px}
+.fl-photos{position:relative}
+.fl-ph1{aspect-ratio:3/4}
+.fl-ph1 img{object-position:24% 50%}
+.fl-ph2{width:58%;aspect-ratio:1/1;margin:-64px -1px 0 auto;outline:12px solid var(--beige)}
+.fl-ph2 img{object-position:60% 30%}
+.fl-list{margin:0;padding:0;list-style:none;counter-reset:none}
+.fl-list li:not(.fl-note){display:grid;grid-template-columns:76px minmax(0,1fr);padding:34px 0 36px;border-top:1px solid var(--hair)}
+.fl-list li:first-child{border-top:0;padding-top:4px}
+.fl-list .num{font-family:var(--latin);font-variant-numeric:lining-nums;font-feature-settings:"lnum";font-size:30px;line-height:1.1;letter-spacing:.06em;color:var(--accent)}
+.fl-list h3{font-family:var(--mincho);font-weight:400;font-size:19px;line-height:1.7;letter-spacing:.12em}
+.fl-list h3 small{font-size:14px;letter-spacing:.08em;color:var(--ink-soft)}
+.fl-list p{margin-top:10px;font-size:14px;line-height:2.05;letter-spacing:.06em;color:var(--ink-soft)}
+.fl-list .fl-note{margin-top:4px;padding-left:76px;font-size:12px;line-height:2;letter-spacing:.06em;color:var(--ink-soft)}
+
+/* ---------- 医院について ---------- */
+.doctor{padding-bottom:120px}
+.dr-grid{display:grid;grid-template-columns:400px minmax(0,1fr);gap:104px;align-items:center;max-width:1040px;margin:80px auto 0}
+.dr-portrait{position:relative;aspect-ratio:4/5;background:var(--beige);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.dr-portrait::before{content:"";position:absolute;inset:16px;border:1px solid rgba(138,115,96,.35)}
+.dr-portrait svg{width:72px;height:72px;stroke:var(--accent);stroke-width:.8;fill:none}
+.dr-portrait span{font-size:12px;letter-spacing:.2em;color:var(--accent);line-height:1.6}
+.dr-text h3{font-family:var(--mincho);font-weight:400;font-size:24px;line-height:1.95;letter-spacing:.12em}
+.dr-text .rule{display:block;width:40px;height:1px;background:var(--accent);margin:36px 0}
+.dr-text p{font-size:15px;line-height:2.2;letter-spacing:.08em}
+.dr-text p+p{margin-top:1.2em}
+.dr-sign{display:flex;align-items:baseline;justify-content:flex-end;gap:20px;margin-top:40px;font-family:var(--mincho)}
+.dr-sign small{font-size:12px;letter-spacing:.14em;color:var(--ink-soft)}
+.dr-sign b{font-weight:400;font-size:17px;letter-spacing:.16em}
+.dr-prof{display:grid;grid-template-columns:7em minmax(0,1fr);margin:36px 0 0;font-size:12.5px;line-height:1.9;letter-spacing:.06em;color:var(--ink-soft)}
+.dr-prof dt,.dr-prof dd{margin:0;padding:12px 0;border-top:1px solid var(--hair-soft)}
+.dr-prof dt{color:var(--ink)}
+
+/* ---------- 院内のご案内 ---------- */
+.room{padding:0 0 150px}
+.rm-photo{height:600px;margin-top:72px}
+.rm-photo img{object-position:50% 62%}
+.rm-notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:64px;margin:72px 0 0;padding:0;list-style:none}
+.rm-notes li{padding-top:30px;border-top:1px solid var(--hair)}
+.rm-notes h3{font-family:var(--mincho);font-weight:400;font-size:18px;line-height:1.7;letter-spacing:.14em}
+.rm-notes p{margin-top:14px;font-size:14px;line-height:2.05;letter-spacing:.06em;color:var(--ink-soft)}
+
+/* ---------- 料金 ---------- */
+.price{background:var(--beige)}
+.pr-card{max-width:880px;margin:72px auto 0;background:var(--kinari);padding:28px 64px 30px}
+.pr-tbl{width:100%;border-collapse:collapse}
+.pr-tbl th,.pr-tbl td{padding:30px 0;border-top:1px solid var(--hair-soft);vertical-align:middle;text-align:left;font-weight:400}
+.pr-tbl tr:first-child th,.pr-tbl tr:first-child td{border-top:0}
+.pr-tbl th{font-family:var(--mincho);font-size:17px;line-height:1.7;letter-spacing:.12em}
+.pr-tbl th small{display:block;margin-top:4px;font-family:var(--gothic);font-weight:300;font-size:12.5px;letter-spacing:.06em;color:var(--ink-soft)}
+.pr-tbl td{text-align:right;white-space:nowrap;font-family:var(--mincho);font-size:20px;letter-spacing:.08em;line-height:1.4}
+.pr-tbl td span{margin-left:4px;font-family:var(--gothic);font-size:12px;letter-spacing:.06em;color:var(--ink-soft)}
+.pr-notes{max-width:880px;margin:34px auto 0;padding:0;list-style:none;font-size:12.5px;line-height:2;letter-spacing:.06em;color:var(--ink-soft)}
+.pr-notes li{padding-left:1em;text-indent:-1em}
+.pr-notes .ph{text-indent:0}
+.pr-link{max-width:880px;margin:36px auto 0}
+
+/* ---------- よくある質問 ---------- */
+.faq-list{max-width:880px;margin:72px auto 0;border-top:1px solid var(--hair)}
+.faq-list details{border-bottom:1px solid var(--hair)}
+.faq-list summary{display:grid;grid-template-columns:48px minmax(0,1fr) 24px;align-items:center;padding:30px 4px;cursor:pointer;list-style:none}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list .qa{font-family:var(--latin);font-size:26px;line-height:1;color:var(--accent)}
+.faq-list summary span:nth-child(2){font-family:var(--mincho);font-size:17px;line-height:1.8;letter-spacing:.1em}
+.pm{position:relative;width:16px;height:16px;justify-self:end}
+.pm::before,.pm::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--accent);transition:transform .6s var(--ease)}
+.pm::after{transform:rotate(90deg)}
+details[open] .pm::after{transform:rotate(0)}
+.faq-a{display:grid;grid-template-columns:48px minmax(0,1fr) 24px;padding:0 4px 34px}
+.faq-a .qa{color:rgba(138,115,96,.6)}
+.faq-a p{font-size:14.5px;line-height:2.1;letter-spacing:.06em;color:var(--ink-soft);margin-top:-6px}
+.faq-more{margin-top:40px;text-align:center;font-size:13px;line-height:2;letter-spacing:.06em;color:var(--ink-soft)}
+
+/* ---------- ご予約・ご相談 ---------- */
+.cta-band{position:relative;height:680px;overflow:hidden;background:var(--beige)}
+.cta-photo{position:absolute;inset:0;margin:0}
+.cta-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.cta-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(247,243,238,.62) 0%,rgba(247,243,238,.5) 38%,rgba(247,243,238,0) 56%)}
+.cta-photo .cap{z-index:1}
+.cta-body{position:absolute;top:50%;left:max(56px,calc(50% - 544px));transform:translateY(-50%);width:500px}
+.cta-body h2{font-family:var(--mincho);font-weight:400;font-size:30px;line-height:1.9;letter-spacing:.14em}
+.cta-body .rule{display:block;width:40px;height:1px;background:var(--accent);margin:32px 0}
+.cta-body>p{font-size:15px;line-height:2.1;letter-spacing:.08em}
+.cta-actions{display:flex;align-items:center;gap:40px;margin-top:44px}
+.cta-actions .btn,.tel{flex:none;white-space:nowrap}
+.tel{display:flex;flex-direction:column;line-height:1}
+.tel small{font-size:12px;letter-spacing:.14em;color:var(--ink-soft)}
+.tel span{margin-top:12px;font-family:var(--latin);font-variant-numeric:lining-nums;font-feature-settings:"lnum";font-size:32px;letter-spacing:.08em}
+.cta-hours{margin-top:28px;font-size:12px;line-height:1.9;letter-spacing:.06em;color:var(--ink-soft)}
+
+.info{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:96px;max-width:1200px;margin:0 auto;padding:120px 56px 150px}
+.info h3{display:flex;align-items:center;gap:16px;margin-bottom:32px;font-family:var(--mincho);font-weight:400;font-size:20px;line-height:1.6;letter-spacing:.16em}
+.info h3::before{content:"";width:1px;height:20px;background:var(--accent)}
+.hr-tbl{width:100%;border-collapse:collapse;font-size:13px;letter-spacing:.04em}
+.hr-tbl th,.hr-tbl td{padding:16px 0;border-bottom:1px solid var(--hair-soft);text-align:center;font-weight:400;line-height:1.5}
+.hr-tbl thead th{border-bottom:1px solid var(--hair);font-size:12.5px;color:var(--ink-soft)}
+.hr-tbl tbody th{text-align:left;white-space:nowrap;padding-right:12px}
+.hr-tbl td{color:var(--accent)}
+.hr-tbl td.off{color:rgba(74,59,48,.32)}
+.hr-notes{margin:20px 0 0;padding:0;list-style:none;font-size:12.5px;line-height:2;letter-spacing:.06em;color:var(--ink-soft)}
+.map{position:relative;aspect-ratio:16/8;background-color:var(--beige);
+  background-image:linear-gradient(rgba(74,59,48,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(74,59,48,.07) 1px,transparent 1px);
+  background-size:48px 48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.map svg{width:30px;height:30px;stroke:var(--accent);stroke-width:1;fill:none}
+.map span{font-size:12px;letter-spacing:.12em;color:var(--accent);line-height:1.6}
+.ac-dl{display:grid;grid-template-columns:6.5em minmax(0,1fr);margin:24px 0 0;font-size:13px;line-height:1.9;letter-spacing:.06em}
+.ac-dl dt,.ac-dl dd{margin:0;padding:12px 0;border-bottom:1px solid var(--hair-soft)}
+.ac-dl dt{color:var(--ink-soft)}
+
+/* ---------- フッター ---------- */
+.ft{background:var(--beige);padding:80px 56px 40px}
+.ft-top{display:flex;align-items:center;justify-content:space-between;max-width:1088px;margin:0 auto;padding:0 0 48px}
+.ft-brand .logo{display:inline-block}
+.ft-brand p{margin-top:16px;font-family:var(--mincho);font-size:13px;letter-spacing:.16em;line-height:1.6;color:var(--ink-soft)}
+.ft-nav{display:flex;gap:36px;font-size:12.5px;letter-spacing:.14em;line-height:1.6}
+.ft-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;max-width:1088px;margin:0 auto;padding-top:28px;border-top:1px solid var(--hair)}
+.ft-bottom p{font-size:11.5px;line-height:1.9;letter-spacing:.06em;color:var(--ink-soft)}
+.ft-bottom a{border-bottom:1px solid var(--hair)}
+.ft-bottom small{flex:none;font-family:var(--latin);font-size:13px;letter-spacing:.1em;color:var(--ink-soft)}
+
+/* ---------- スマートフォンのメニュー（全画面） ---------- */
+.drawer{justify-content:flex-start;padding:104px 32px 40px;overflow-y:auto;gap:0}
+.drawer>*{flex:none}
+.drawer .kicker{writing-mode:horizontal-tb;margin:0;font-size:12px;letter-spacing:.36em;color:var(--ink-soft)}
+.dr-list{margin:28px 0 0;padding:0;list-style:none;border-top:1px solid var(--hair)}
+.drawer .dr-list a{display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid var(--hair-soft);font-family:var(--mincho);font-size:16px;letter-spacing:.16em;line-height:1.6}
+.drawer .dr-list a::after{content:"";width:14px;height:1px;background:var(--accent)}
+.drawer .btn{margin-top:36px;border-bottom:0;font-family:var(--gothic);font-size:14px;letter-spacing:.24em;padding:0 40px}
+.dr-tel{margin-top:24px;text-align:center;font-size:12px;letter-spacing:.12em;line-height:1.6;color:var(--ink-soft)}
+.dr-tel .lat{margin-left:10px;font-size:22px;letter-spacing:.08em;color:var(--ink)}
+.menu-open{overflow:hidden}
+.menu-open .hd{position:fixed}
 
 @media (max-width:767px){
   .wrap{padding:0 24px}
@@ -78,9 +242,120 @@
   .notice{padding-bottom:80px}
   .notice-box{padding:32px 0 34px}
   .notice-box dl{grid-template-columns:9.6em 1fr;font-size:11.5px}
-  .next{height:520px}
-  .next .steps{grid-template-columns:1fr 1fr;gap:28px 16px;margin-top:44px}
-  .next h3{font-size:15px}
+
+  /* ---- LP全体（SP） ---- */
+  .sec{padding:96px 0}
+  .sec-lead{margin-top:24px;font-size:14px;line-height:2.05;text-align:left}
+  .cap{font-size:9px;right:10px;bottom:8px}
+  .lbl{font-size:14px;gap:14px}
+  .lbl::before{width:24px}
+
+  .about{padding:24px 0 96px}
+  .ab-grid{display:flex;flex-direction:column;align-items:stretch;padding:0 24px}
+  .ab-text,.ab-body{display:contents}
+  .ab-body .lbl{order:-3;margin:0}
+  .ab-catch{order:-2;writing-mode:horizontal-tb;height:auto;margin:22px 0 0;font-size:24px;line-height:1.85;letter-spacing:.14em}
+  .ab-catch span+span{padding:0 0 0 1.2em}
+  .ab-photo{order:-1;margin:36px -24px 40px;aspect-ratio:4/3.3}
+  .ab-photo img{object-position:0% 40%}
+  .ab-body p:not(.lbl){font-size:14px;line-height:2.1}
+  .ab-body .more{align-self:flex-start;margin-top:36px}
+
+  .fl-grid{display:block;margin-top:40px}
+  .fl-ph1{aspect-ratio:4/3;margin:0 -24px}
+  .fl-ph1 img{object-position:22% 50%}
+  .fl-ph2{display:none}
+  .fl-list{margin-top:16px}
+  .fl-list li:not(.fl-note){grid-template-columns:48px minmax(0,1fr);padding:26px 0 28px}
+  .fl-list li:first-child{padding-top:26px;border-top:0}
+  .fl-list .num{font-size:24px;line-height:1.3}
+  .fl-list h3{font-size:16.5px;letter-spacing:.1em}
+  .fl-list h3 small{display:block;font-size:12.5px;line-height:1.6}
+  .fl-list p{margin-top:8px;font-size:13.5px;line-height:2}
+  .fl-list .fl-note{margin-top:0;padding-left:0;font-size:11.5px}
+
+  .doctor{padding-bottom:80px}
+  .dr-grid{display:block;margin-top:40px}
+  .dr-portrait{width:62%;margin:0 auto;aspect-ratio:4/5}
+  .dr-portrait::before{inset:10px}
+  .dr-portrait svg{width:52px;height:52px}
+  .dr-text{margin-top:44px}
+  .dr-text h3{font-size:19.5px;line-height:1.95;letter-spacing:.1em}
+  .dr-text .rule{margin:28px 0}
+  .dr-text p{font-size:14px;line-height:2.1}
+  .dr-sign{margin-top:32px;gap:14px}
+  .dr-sign b{font-size:18px}
+  .dr-prof{font-size:12px;grid-template-columns:5.5em minmax(0,1fr)}
+
+  .room{padding-bottom:96px}
+  .rm-photo{height:auto;aspect-ratio:4/3.4;margin-top:40px}
+  .rm-photo img{object-position:46% 60%}
+  .rm-notes{grid-template-columns:1fr;gap:0;margin-top:44px}
+  .rm-notes li{padding:24px 0 26px}
+  .rm-notes li:last-child{border-bottom:1px solid var(--hair)}
+  .rm-notes h3{font-size:16.5px}
+  .rm-notes p{margin-top:6px;font-size:13.5px;line-height:2}
+
+  .pr-card{margin:40px -8px 0;padding:6px 22px 8px}
+  .pr-tbl,.pr-tbl tbody,.pr-tbl tr,.pr-tbl th,.pr-tbl td{display:block}
+  .pr-tbl tr{padding:24px 0 22px;border-top:1px solid var(--hair-soft)}
+  .pr-tbl tr:first-child{border-top:0}
+  .pr-tbl th,.pr-tbl td{padding:0;border:0}
+  .pr-tbl th{font-size:15.5px;letter-spacing:.1em}
+  .pr-tbl th small{font-size:12px}
+  .pr-tbl td{margin-top:10px;font-size:20px}
+  .pr-notes{margin-top:26px;font-size:11.5px}
+  .pr-link{margin-top:28px}
+  .pr-link .more{font-size:12.5px;letter-spacing:.1em}
+
+  .faq-list{margin-top:40px}
+  .faq-list summary{grid-template-columns:34px minmax(0,1fr) 20px;padding:24px 0;align-items:start}
+  .faq-list .qa{font-size:22px;line-height:1.3}
+  .faq-list summary span:nth-child(2){font-size:15px;line-height:1.85;letter-spacing:.06em}
+  .pm{width:14px;height:14px;margin-top:9px}
+  .faq-a{grid-template-columns:34px minmax(0,1fr);padding:0 0 28px}
+  .faq-a p{font-size:13.5px;line-height:2;margin-top:-3px}
+  .faq-more{margin-top:28px;font-size:12.5px;text-align:left}
+
+  .cta-band{height:auto;background:var(--beige)}
+  .cta-photo{position:relative;inset:auto;aspect-ratio:4/3.3}
+  .cta-photo::after{display:none}
+  .cta-photo img{object-position:100% 30%}
+  .cta-photo .cap{left:auto;right:10px;color:rgba(255,255,255,.85)}
+  .cta-body{position:static;transform:none;width:auto;max-width:none;padding:48px 24px 64px}
+  .cta-body h2{font-size:22px;line-height:1.9;letter-spacing:.1em}
+  .cta-body .rule{margin:24px 0}
+  .cta-body>p{font-size:14px;line-height:2.05}
+  .cta-actions{flex-direction:column;align-items:stretch;gap:28px;margin-top:32px}
+  .tel{align-items:center}
+  .tel span{font-size:30px}
+  .cta-hours{margin-top:20px;text-align:center;font-size:11.5px}
+
+  .info{grid-template-columns:1fr;gap:64px;padding:80px 24px 96px}
+  .info h3{font-size:18px;margin-bottom:22px}
+  .hr-tbl{font-size:11.5px;letter-spacing:0}
+  .hr-tbl th,.hr-tbl td{padding:13px 0}
+  .hr-tbl thead th{font-size:11px}
+  .hr-tbl tbody th{padding-right:6px}
+  .hr-notes{font-size:11.5px}
+  .map{aspect-ratio:4/3}
+  .ac-dl{grid-template-columns:5.5em minmax(0,1fr);font-size:12.5px}
+
+  .ft{padding:56px 24px 32px}
+  .ft-top{flex-direction:column;align-items:flex-start;gap:32px;padding-bottom:36px}
+  .ft-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;width:100%}
+  .ft-bottom{flex-direction:column;align-items:flex-start;gap:20px;padding-top:24px}
+  .ft-bottom p{font-size:11px}
+}
+@media (min-width:768px){.drawer{display:none}}
+@media (min-width:768px) and (max-width:1100px){
+  .ab-text{gap:48px;padding:0 32px 0 48px}
+  .fl-grid,.dr-grid{gap:56px}
+  .dr-grid{grid-template-columns:320px minmax(0,1fr)}
+  .rm-notes{gap:36px}
+  .cta-body{left:32px;width:440px}
+  .info{gap:56px;padding-left:32px;padding-right:32px}
+  .ft-nav{gap:20px}
 }
 </style>
 </head>
@@ -92,7 +367,20 @@
   <nav class="gnav" aria-label="メニュー"><a href="#points">特徴</a><a href="#flow">施術の流れ</a><a href="#price">料金</a><a href="#faq">よくある質問</a></nav>
   <button class="burger" type="button" aria-label="メニューを開く" aria-expanded="false" onclick="var o=document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',o)"><span></span><span></span></button>
 </header>
-<nav class="drawer" aria-label="メニュー（スマートフォン）" onclick="document.body.classList.remove('menu-open')"><a href="#points">特徴</a><a href="#flow">施術の流れ</a><a href="#price">料金</a><a href="#faq">よくある質問</a></nav>
+<nav class="drawer" id="drawer" aria-label="メニュー（スマートフォン）" onclick="document.body.classList.remove('menu-open');var b=document.querySelector('.burger');if(b)b.setAttribute('aria-expanded','false')">
+  <p class="kicker" lang="en">TRANSCENT WHITENING</p>
+  <ul class="dr-list">
+    <li><a href="#about">トランセントホワイトニングとは</a></li>
+    <li><a href="#points">特徴</a></li>
+    <li><a href="#flow">施術の流れ</a></li>
+    <li><a href="#doctor">医院について</a></li>
+    <li><a href="#room">院内のご案内</a></li>
+    <li><a href="#price">料金</a></li>
+    <li><a href="#faq">よくある質問</a></li>
+  </ul>
+  <a class="btn" href="#reserve">ご予約・ご相談</a>
+  <p class="dr-tel">お電話<span class="lat">00-0000-0000</span></p>
+</nav>
 
   <div class="fv-photo fade d1"><img src="a/fv1.jpg" alt="柔らかな光の中で微笑む女性" width="1376" height="768"></div>
   <div class="fv-body">
@@ -134,7 +422,7 @@
   </div>
 </section>
 
-<section class="notice" aria-labelledby="nt-title">
+<section class="notice" id="notice" aria-labelledby="nt-title">
   <div class="wrap">
     <div class="notice-box">
       <h2 id="nt-title">自由診療について</h2>
@@ -149,18 +437,195 @@
   </div>
 </section>
 
-<section class="next" id="flow" aria-labelledby="fl-title">
+<section class="about lp" id="about" aria-labelledby="ab-title">
+  <div class="ab-grid">
+    <figure class="fig ab-photo"><img src="a/fvL.jpg" alt="やわらかな光の中で、穏やかに微笑む女性" loading="lazy" width="1376" height="768"><figcaption class="cap">※写真は仮イメージです</figcaption></figure>
+    <div class="ab-text">
+      <p class="ab-catch" aria-hidden="true"><span>白さの前に、</span><span>歯の健康を。</span></p>
+      <div class="ab-body">
+        <h2 class="lbl" id="ab-title">トランセントホワイトニングとは</h2>
+        <p>トランセントホワイトニングは、白さだけを急ぐのではなく、歯の健康を土台に考えるホワイトニングです。</p>
+        <p>はじめにカウンセリングでご希望をうかがい、歯や歯ぐきの状態を確認します。そのうえで、ご自身に合った進め方を一緒に決めていきます。</p>
+        <p>白さの感じ方には個人差があるからこそ、<span class="ph">一つひとつの</span>段階をていねいにご説明することを大切にしています。</p>
+        <a class="more" href="#flow">施術の流れを見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow sec lp" id="flow" aria-labelledby="fl-title">
   <div class="wrap">
     <h2 class="sec-title" id="fl-title">施術の流れ</h2>
-    <ol class="steps">
-      <li><div class="step-ph"><img src="a/counsel.jpg" alt="" loading="lazy" style="object-position:62% 50%"></div><span class="num">01</span><h3>カウンセリング</h3></li>
-      <li><div class="step-ph"><img src="a/counsel.jpg" alt="" loading="lazy" style="object-position:48% 70%;transform:scale(1.6);transform-origin:46% 72%"></div><span class="num">02</span><h3>お口の状態の確認</h3></li>
-      <li><div class="step-ph"><img src="a/room.jpg" alt="" loading="lazy"></div><span class="num">03</span><h3>ホワイトニング</h3></li>
-      <li><div class="step-ph"><img src="a/fvL.jpg" alt="" loading="lazy" style="object-position:20% 40%"></div><span class="num">04</span><h3>アフターケア</h3></li>
-    </ol>
+    <p class="sec-lead">ご予約から次回のご相談まで、お口の状態を確かめながら、一つずつ進めます。</p>
+    <div class="fl-grid">
+      <div class="fl-photos">
+        <figure class="fig fl-ph1"><img src="a/counsel.jpg" alt="明るい個室で、歯科医師と女性がカウンセリングをしている様子" loading="lazy" width="1376" height="768"><figcaption class="cap">※写真は仮イメージです</figcaption></figure>
+        <figure class="fig fl-ph2"><img src="a/smile.jpg" alt="口元に手を添えて微笑む女性" loading="lazy" width="1376" height="768"></figure>
+      </div>
+      <ol class="fl-list">
+        <li><span class="num">01</span><div><h3>ご予約</h3><p>お電話またはWebから、ご都合のよい日時をお選びください。初めての方は、カウンセリングのご予約からどうぞ。</p></div></li>
+        <li><span class="num">02</span><div><h3>カウンセリング・お口の状態の確認</h3><p>ご希望の白さや気になることをうかがい、歯や歯ぐきの状態を確認します。ホワイトニングが適しているかどうかも、ここで一緒に考えます。</p></div></li>
+        <li><span class="num">03</span><div><h3>クリーニング <small>（必要に応じて）</small></h3><p>歯の表面の汚れなどが気になる場合は、ホワイトニングの前にクリーニングをご提案することがあります。</p></div></li>
+        <li><span class="num">04</span><div><h3>ホワイトニング</h3><p>個室で、歯の状態を見ながら施術を行います。施術中に気になることがあれば、いつでもお声がけください。</p></div></li>
+        <li><span class="num">05</span><div><h3>アフターケア・次回のご相談</h3><p>施術後の過ごし方をご説明します。次回のご相談は、ご様子をうかがいながら無理のないペースで決めていきます。</p></div></li>
+        <li class="fl-note">※施術の内容や回数は、お口の状態によって異なります。</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="doctor sec lp" id="doctor" aria-labelledby="dr-title">
+  <div class="wrap">
+    <h2 class="sec-title" id="dr-title">医院について</h2>
+    <div class="dr-grid">
+      <div class="dr-portrait" role="img" aria-label="院長写真（撮影予定）">
+        <svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="27" r="11"/><path d="M14 62c2.5-12 11-18 22-18s19.5 6 22 18"/></svg>
+        <span>院長写真（撮影予定）</span>
+      </div>
+      <div class="dr-text">
+        <h3><span class="ph">一人ひとりの歯と、</span><br><span class="ph">ていねいに向き合う</span><span class="ph">医院でありたい。</span></h3>
+        <span class="rule"></span>
+        <p>「白くしたい」というお気持ちの奥には、人と会うときや写真に写るときの、ささやかな願いがあるように思います。</p>
+        <p>私たちは、そのお気持ちを大切にしながら、まず歯と歯ぐきの健康を確かめることから始めます。ご不安なことは、どんなに小さなことでもお聞かせください。</p>
+        <p class="dr-sign"><small>〇〇歯科クリニック 院長</small><b>〇〇 〇〇</b></p>
+        <dl class="dr-prof">
+          <dt>経歴</dt><dd>（ここに記載）</dd>
+          <dt>所属学会</dt><dd>（ここに記載）</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="room lp" id="room" aria-labelledby="rm-title">
+  <div class="wrap">
+    <h2 class="sec-title" id="rm-title">院内のご案内</h2>
+    <p class="sec-lead"><span class="ph">診療室は個室をご用意しています。</span><br class="pc"><span class="ph">周りを気にせず、ゆっくり</span><span class="ph">ご相談いただけるように整えました。</span></p>
+  </div>
+  <figure class="fig rm-photo"><img src="a/room.jpg" alt="木の色味とやわらかな間接照明の個室の診療室" loading="lazy" width="1376" height="768"><figcaption class="cap">※写真は仮イメージです</figcaption></figure>
+  <div class="wrap">
+    <ul class="rm-notes">
+      <li><h3>個室の診療室</h3><p>ご相談やご質問を、周りを気にせずお話しいただけるよう、個室でご案内します。</p></li>
+      <li><h3>予約制</h3><p>お一人おひとりの時間を確保できるよう、予約制で診療を行っています。</p></li>
+      <li><h3>衛生管理</h3><p>器具の滅菌や院内の清掃など、日々の衛生管理に努めています。</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="price sec lp" id="price" aria-labelledby="pr-title">
+  <div class="wrap">
+    <h2 class="sec-title" id="pr-title">料金</h2>
+    <p class="sec-lead"><span class="ph">費用は、カウンセリングで</span><span class="ph">お見積りをご説明し、</span><br class="pc"><span class="ph">ご納得いただいてから</span><span class="ph">施術を行います。</span></p>
+    <div class="pr-card">
+      <table class="pr-tbl">
+        <tbody>
+          <tr><th scope="row">初回カウンセリング<small>お口の状態の確認を含みます</small></th><td>〇,〇〇〇<span>円（税込）</span></td></tr>
+          <tr><th scope="row">トランセントホワイトニング（1回）<small>施術時間の目安：約〇〇分</small></th><td>〇〇,〇〇〇<span>円（税込）</span></td></tr>
+          <tr><th scope="row">複数回プラン（〇回）<small>1回あたり 〇〇,〇〇〇円（税込）</small></th><td>〇〇,〇〇〇<span>円（税込）</span></td></tr>
+          <tr><th scope="row">クリーニング（必要に応じて）<small>お口の状態によって内容が異なります</small></th><td>〇,〇〇〇<span>円〜（税込）</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="pr-notes">
+      <li>※表示の料金は、すべて税込です。</li>
+      <li>※<span class="ph">トランセントホワイトニングは</span><span class="ph">自由診療（保険適用外）です。</span></li>
+      <li>※<span class="ph">必要な回数や費用は、</span><span class="ph">お口の状態やご希望によって異なります。</span></li>
+    </ul>
+    <p class="pr-link"><a class="more" href="#notice">自由診療について（費用・期間・リスクなど）</a></p>
+  </div>
+</section>
+
+<section class="faq sec lp" id="faq" aria-labelledby="fq-title">
+  <div class="wrap">
+    <h2 class="sec-title" id="fq-title">よくある質問</h2>
+    <div class="faq-list">
+      <details open>
+        <summary><span class="qa" lang="en">Q</span><span>どのくらい白くなりますか。</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a"><span class="qa" lang="en">A</span><p>白さの感じ方や変化には個人差があり、もともとの歯の色や状態によっても異なります。目安は、カウンセリングで歯の状態を確認したうえでご説明します。</p></div>
+      </details>
+      <details>
+        <summary><span class="qa" lang="en">Q</span><span>施術中や施術後に、しみることはありますか。</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a"><span class="qa" lang="en">A</span><p>施術後に、一時的に歯がしみる感じ（知覚過敏）が出ることがあります。歯の状態を確認しながら進めますので、気になる症状があればご相談ください。</p></div>
+      </details>
+      <details>
+        <summary><span class="qa" lang="en">Q</span><span>何回くらい通う必要がありますか。</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a"><span class="qa" lang="en">A</span><p>回数は、ご希望の白さやお口の状態によって異なります。カウンセリングで、無理のないペースを一緒に考えます。</p></div>
+      </details>
+      <details>
+        <summary><span class="qa" lang="en">Q</span><span>白さは、どのくらい続きますか。</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a"><span class="qa" lang="en">A</span><p>続く期間には個人差があり、飲食や生活習慣によっても変わります。施術後の過ごし方や、次回のご相談の目安をお伝えします。</p></div>
+      </details>
+      <details>
+        <summary><span class="qa" lang="en">Q</span><span>詰め物やかぶせ物があっても受けられますか。</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a"><span class="qa" lang="en">A</span><p>詰め物やかぶせ物などの人工の歯は、ホワイトニングでは色が変わりません。お口の状態を確認したうえで、進め方をご説明します。</p></div>
+      </details>
+      <details>
+        <summary><span class="qa" lang="en">Q</span><span>カウンセリングだけでも受けられますか。</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="faq-a"><span class="qa" lang="en">A</span><p>はい、カウンセリングのみのご予約も承っています。お話をうかがったうえで、施術を受けるかどうかはゆっくりご検討ください。</p></div>
+      </details>
+    </div>
+    <p class="faq-more">そのほかのご質問は、お電話またはカウンセリングの際にお気軽にお尋ねください。</p>
+  </div>
+</section>
+
+<section class="cta lp" id="reserve" aria-labelledby="ct-title">
+  <div class="cta-band">
+    <figure class="cta-photo"><img src="a/fv2.jpg" alt="窓辺のやわらかな光の中で微笑む女性" loading="lazy" width="1376" height="768"><figcaption class="cap">※写真は仮イメージです</figcaption></figure>
+    <div class="cta-body">
+      <h2 id="ct-title"><span class="ph">まずは、お話を</span><br><span class="ph">うかがうところから。</span></h2>
+      <span class="rule"></span>
+      <p>ご予約・ご相談は、Webまたはお電話で承っています。カウンセリングのみのご予約もお気軽にどうぞ。</p>
+      <div class="cta-actions">
+        <a class="btn" href="#reserve">Webでご予約・ご相談</a>
+        <a class="tel" href="tel:00-0000-0000"><small>お電話でのご予約</small><span>00-0000-0000</span></a>
+      </div>
+      <p class="cta-hours"><span class="ph">受付時間 〇〇:〇〇〜〇〇:〇〇</span><span class="ph">（〇曜・日曜・祝日を除く）</span></p>
+    </div>
+  </div>
+
+  <div class="info lp">
+    <div class="hours">
+      <h3>診療時間</h3>
+      <table class="hr-tbl">
+        <thead><tr><th scope="col"><span class="sr">時間</span></th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col">土</th><th scope="col">日・祝</th></tr></thead>
+        <tbody>
+          <tr><th scope="row" class="lat">00:00 – 00:00</th><td>●</td><td>●</td><td>●</td><td class="off">―</td><td>●</td><td>●</td><td class="off">―</td></tr>
+          <tr><th scope="row" class="lat">00:00 – 00:00</th><td>●</td><td>●</td><td>●</td><td class="off">―</td><td>●</td><td>▲</td><td class="off">―</td></tr>
+        </tbody>
+      </table>
+      <ul class="hr-notes">
+        <li>▲ 土曜の午後は〇〇:〇〇まで</li>
+        <li>休診日：〇曜・日曜・祝日</li>
+        <li>※診療時間は仮の表記です。</li>
+      </ul>
+    </div>
+    <div class="access">
+      <h3>アクセス</h3>
+      <div class="map" role="img" aria-label="地図（埋め込み予定）">
+        <svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 27s-8.5-8.2-8.5-14.2a8.5 8.5 0 0 1 17 0C23.5 18.8 15 27 15 27z"/><circle cx="15" cy="12.8" r="3"/></svg>
+        <span>地図（Googleマップを埋め込み予定）</span>
+      </div>
+      <dl class="ac-dl">
+        <dt>医院名</dt><dd>〇〇歯科クリニック</dd>
+        <dt>住所</dt><dd>〒000-0000 東京都〇〇区〇〇 0-0-0 〇〇ビル 0階</dd>
+        <dt>最寄り駅</dt><dd>〇〇線「〇〇駅」〇番出口から徒歩〇分</dd>
+        <dt>電話</dt><dd><span class="lat">00-0000-0000</span></dd>
+      </dl>
+    </div>
   </div>
 </section>
 </main>
+
+<footer class="ft lp">
+  <div class="ft-top">
+    <div class="ft-brand"><a class="logo" href="#" aria-label="医院ロゴ（仮）">LOGO</a><p>〇〇歯科クリニック</p></div>
+    <nav class="ft-nav" aria-label="フッターメニュー"><a href="#points">特徴</a><a href="#flow">施術の流れ</a><a href="#price">料金</a><a href="#faq">よくある質問</a><a href="#reserve">ご予約・ご相談</a></nav>
+  </div>
+  <div class="ft-bottom">
+    <p>※<span class="ph">トランセントホワイトニングは</span><span class="ph">自由診療（保険適用外）です。</span><span class="ph">費用・期間・主なリスクなどは</span><span class="ph"><a href="#notice">「自由診療について」</a>を</span><span class="ph">ご確認ください。</span></p>
+    <small lang="en">© 〇〇 Dental Clinic</small>
+  </div>
+</footer>
 <script src="/test/mogubo-visit.js" defer></script>
 </body>
 </html>

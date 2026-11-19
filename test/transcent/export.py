@@ -46,8 +46,11 @@ async def main():
         for n, v in (("01", "A"), ("02", "B"), ("03", "C")):
             jobs.append((f"fv-{v.lower()}.html", PC, 1, f"{n}_FV_{v}_PC.png", None, False))
             jobs.append((f"fv-{v.lower()}.html", SP, 2, f"{n}_FV_{v}_SP.png", None, False))
+        # 04：おすすめ案A のLP全体（FV〜フッターまで、ページの全長）
         jobs.append(("index.html", PC, 1, "04_おすすめ案_PC.png", None, True))
         jobs.append(("index.html", SP, 2, "04_おすすめ案_SP.png", None, True))
+        # 08：スマートフォンのメニュー（ハンバーガーを開いた状態）
+        jobs.append(("index.html", SP, 2, "08_SPメニュー.png", None, "menu"))
         jobs.append(("sheet.html", dict(width=1440, height=1020), 1, "05_デザインの考え方シート.png", "#sheet", False))
         for i, k in enumerate("ABC"):
             jobs.append(("banner.html", dict(width=1300, height=900), 1, f"06_banner_1200x400_{k}.png", f"#b{i+1}", False))
@@ -57,6 +60,10 @@ async def main():
             dest = os.path.join(OUT, name)
             if sel:
                 await pg.locator(sel).screenshot(path=dest)
+            elif full == "menu":
+                await pg.click(".burger")
+                await pg.wait_for_timeout(900)
+                await pg.screenshot(path=dest)
             else:
                 if full:
                     # 全体撮影で画面の高さが変わってもFVが実機と同じ高さになるよう、px で固定する
