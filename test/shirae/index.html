@@ -1,0 +1,689 @@
+<!doctype html><html><head>
+<script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_shirae_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_shirae_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=4c4275d0/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_shirae_ok","1")}catch(e){}try{document.cookie="aim_shirae_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script>
+<meta name="robots" content="noindex,nofollow">
+<meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>SHIRAE coffee &amp; bake</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&family=Jost:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f6f5f2; --paper:#fbfaf8; --stone:#e3e1dc; --ash:#6b6965; --ink:#222220; --text:#4a4844; --roast:#6b5443; --white:#ffffff;
+  --display:"Shippori Mincho","Yu Mincho","Hiragino Mincho ProN",serif;
+  --latin:"Jost","Helvetica Neue",Arial,sans-serif;
+  --body:"Noto Sans JP","Hiragino Sans",sans-serif;
+  /* type scale (12/14/16/20/28/40) + body 15 */
+  --fs-12:12px; --fs-14:14px; --fs-body:15px; --fs-16:16px; --fs-20:20px; --fs-28:28px; --fs-40:40px;
+  /* radius: the brand is square-cornered; only circles use pill */
+  --r-0:0; --r-pill:999px;
+  --gut:max(20px,env(safe-area-inset-left,0px));
+  --gut-r:max(20px,env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-weight:400;line-height:2;font-size:var(--fs-body);letter-spacing:.04em;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+p{margin:0;text-wrap:pretty}
+h1,h2,h3,.news a>span,.cap span,.choice span,.quiz legend,.result .bean,.result .why,.rlist dd,.store p,.voices p{word-break:auto-phrase}
+h1,h2,h3,.quiz legend,.result .roast,.ph-t{font-feature-settings:"palt"}
+a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset:4px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+.nb{display:inline-block}
+
+/* header */
+.head{position:relative;z-index:5;padding-top:env(safe-area-inset-top,0px)}
+.head .wrap{display:flex;justify-content:space-between;align-items:center;height:76px}
+.head .logo{display:flex;align-items:center;min-height:44px}
+.head .logo img{height:54px;width:auto;margin-left:-8px}
+.head nav{display:flex;gap:30px;font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.22em}
+.head nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;color:var(--ash);transition:color .2s}
+.head nav a:hover,.head nav a:focus-visible{color:var(--ink);outline:none}
+.head .sp-links{display:none;gap:4px}
+.head .sp-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.2em;color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.head .sp-links a:last-child{margin-right:-8px}
+
+/* first view */
+.fv{position:relative}
+.fv picture,.fv img{display:block;width:100%}
+.fv img{aspect-ratio:16/9.4;object-fit:cover;object-position:50% 62%}
+.fv-copy{position:absolute;left:0;bottom:-1px;background:var(--ground);padding:44px 56px 0 0;max-width:600px}
+.fv h1{font-family:var(--display);font-weight:400;font-size:var(--fs-40);line-height:1.75;margin:0;letter-spacing:.08em}
+.fv .sub{font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.32em;color:var(--ash);margin-top:14px}
+.intro .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;padding-top:40px}
+.intro p{max-width:30em;color:var(--text)}
+.vert{writing-mode:vertical-rl;font-family:var(--display);font-size:var(--fs-14);letter-spacing:.32em;color:var(--text);line-height:1;margin:-4px 4px -150px 0;white-space:nowrap}
+
+section{padding-block:128px;position:relative}
+.label{font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.34em;color:var(--ash);text-transform:uppercase;display:flex;align-items:center;gap:16px;margin-bottom:32px;font-weight:400}
+.label b{font-weight:400;color:var(--ink)}
+.label::after{content:"";height:1px;width:64px;background:var(--stone)}
+h2{font-family:var(--display);font-weight:400;font-size:var(--fs-28);line-height:1.85;margin:0 0 28px;letter-spacing:.07em}
+h3{margin:0}
+
+/* concept */
+.concept{display:grid;grid-template-columns:5fr 6fr;gap:88px;align-items:start}
+.concept .txt{padding-top:24px}
+.concept .txt p{color:var(--text);max-width:27em}
+.concept .txt p+p{margin-top:1.4em}
+.cphotos{position:relative;padding-bottom:120px}
+.cphotos .a{width:78%;aspect-ratio:4/5;object-fit:cover;margin-left:auto}
+.cphotos .b{position:absolute;left:0;bottom:0;width:44%;aspect-ratio:4/5;object-fit:cover;border:10px solid var(--ground)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:88px}
+.pillar img{width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:24px}
+.pillar .ptxt{border-top:1px solid var(--ink);padding-top:22px}
+.pillar .en{font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.3em;color:var(--ash);line-height:1.6}
+.pillar h3{font-family:var(--display);font-weight:500;font-size:var(--fs-20);letter-spacing:.1em;margin:6px 0 10px;line-height:1.6}
+.pillar p{font-size:var(--fs-14);color:var(--text);line-height:1.95}
+
+/* menu */
+.menu{background:var(--white)}
+.mhead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px}
+.mhead h2{margin:0}
+.mhead p{font-size:var(--fs-14);color:var(--text);max-width:24em}
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.item figure{margin:0 0 18px;overflow:hidden;background:var(--ground)}
+.item img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .8s ease}
+.item:hover img{transform:scale(1.03)}
+.item .cat{font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.26em;color:var(--ash);display:flex;align-items:center;gap:10px;line-height:1.8}
+.item .cat .season{color:var(--roast);border:1px solid var(--roast);padding:0 7px;letter-spacing:.16em;line-height:1.7}
+.item h3{font-family:var(--display);font-weight:500;font-size:var(--fs-16);letter-spacing:.06em;margin:6px 0 2px;line-height:1.6}
+.item .price{font-family:var(--latin);font-size:var(--fs-14);letter-spacing:.08em;color:var(--ink);line-height:1.8}
+.item .price small.single{display:block;margin-left:0;line-height:1.6}
+.item .price small{font-family:var(--body);font-size:var(--fs-12);color:var(--ash);letter-spacing:.04em;margin-left:4px}
+.item p{margin-top:8px;font-size:var(--fs-14);color:var(--text);line-height:1.9}
+.swipe{display:none}
+.note{font-size:var(--fs-12);color:var(--ash);margin-top:40px;letter-spacing:.04em}
+
+/* info */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+dl{margin:0;display:grid;grid-template-columns:7.5em 1fr;font-size:var(--fs-14)}
+dt,dd{padding:16px 0;border-bottom:1px solid var(--stone)}
+dt{color:var(--ash);font-family:var(--latin);letter-spacing:.2em;font-size:var(--fs-12);padding-top:19px}
+dd{margin:0;line-height:1.85}
+dd small{display:block;color:var(--ash);font-size:var(--fs-12)}
+.guide{margin-top:48px}
+.guide h3{font-family:var(--latin);font-weight:400;font-size:var(--fs-12);letter-spacing:.3em;color:var(--ash);margin-bottom:14px}
+.guide ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;font-size:var(--fs-14)}
+.guide li{padding-left:18px;position:relative;line-height:1.8}
+.guide li::before{content:"";position:absolute;left:0;top:.85em;width:8px;height:1px;background:var(--ink)}
+.mapbox{scroll-margin-top:24px}
+.mapbox>img{width:100%;aspect-ratio:4/3;object-fit:cover;background:#efeeea}
+.mapbox .cap{margin-top:14px;font-size:var(--fs-14);color:var(--text)}
+.gmap{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:48px;margin-top:16px;border:1px solid var(--ink);font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.24em;text-decoration:none;color:var(--ink);transition:background .2s,color .2s}
+.gmap span{font-family:var(--body);letter-spacing:.08em}
+.gmap:hover,.gmap:focus-visible{background:var(--ink);color:#fff;outline:none}
+.link{display:inline-block;padding-block:12px;font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.24em;color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px;white-space:nowrap;transition:color .2s}
+.link:hover,.link:focus-visible{color:var(--roast);outline:none}
+.store{margin-top:32px;display:grid;grid-template-columns:168px 1fr;gap:24px;align-items:center}
+.store img{aspect-ratio:1/1;object-fit:cover;width:168px}
+.store p{font-size:var(--fs-14);color:var(--text);line-height:1.9}
+.store p b{display:block;font-family:var(--display);font-weight:500;font-size:var(--fs-16);color:var(--ink);letter-spacing:.08em;margin-bottom:4px}
+
+/* updates */
+.info-sec{background:var(--white)}
+.ugrid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
+.news{list-style:none;margin:0;padding:0;border-top:1px solid var(--stone)}
+.news li{border-bottom:1px solid var(--stone)}
+.news a{display:grid;grid-template-columns:7.5em 1fr;gap:12px;padding:20px 0;text-decoration:none;font-size:var(--fs-14);transition:color .2s}
+.news a:hover{color:var(--roast)}
+.news time{font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.14em;color:var(--ash);padding-top:2px}
+.news .cat{display:inline-block;font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.16em;color:var(--ash);border:1px solid var(--stone);padding:0 8px;margin-right:10px;vertical-align:1px;line-height:1.7}
+.cal{background:var(--white);padding:30px 28px 18px;scroll-margin-top:24px}
+.cal-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.cal-head .m{font-family:var(--latin);font-size:var(--fs-14);letter-spacing:.3em}
+.cal-head .y{font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.2em;color:var(--ash)}
+.cal table{border-collapse:collapse;width:100%;font-family:var(--latin);font-size:var(--fs-14);text-align:center;table-layout:fixed}
+.cal th{color:var(--ash);font-weight:400;font-size:var(--fs-12);letter-spacing:.1em;padding:4px 0 10px}
+.cal td{padding:0;height:40px}
+.cal td span{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:var(--r-pill)}
+.cal td.off span{background:var(--ink);color:#fff}
+.cal td.today span{outline:1px solid var(--roast);outline-offset:1px}
+.cal-legend{display:flex;gap:18px;font-size:var(--fs-12);color:var(--text);margin-top:12px;align-items:center;flex-wrap:wrap}
+.cal-legend i{display:inline-block;width:10px;height:10px;border-radius:var(--r-pill);background:var(--ink);margin-right:6px;vertical-align:-1px}
+.cal-legend i.t{background:none;outline:1px solid var(--roast)}
+.cal .link{margin-top:6px}
+
+.insta{margin-top:112px;scroll-margin-top:24px}
+.ihead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:20px}
+.ihead .handle{font-family:var(--latin);font-size:var(--fs-20);letter-spacing:.12em;font-weight:400;line-height:1.6}
+.ihead .handle small{display:block;font-size:var(--fs-12);letter-spacing:.3em;color:var(--ash)}
+.feed{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.feed a{display:block;position:relative;overflow:hidden}
+.feed img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:opacity .3s}
+.feed a:hover img{opacity:.82}
+.voices{display:grid;grid-template-columns:auto 1fr 1fr;gap:20px 48px;margin-top:56px;align-items:start}
+.voices .vh{font-family:var(--latin);font-weight:400;font-size:var(--fs-12);letter-spacing:.3em;color:var(--ash);line-height:1.8;padding-top:4px}
+.voices .vh span{display:block;font-family:var(--body);letter-spacing:.06em;color:var(--text)}
+.voices figure{margin:0;border-left:1px solid var(--stone);padding-left:24px}
+.voices blockquote{margin:0}
+.voices p{font-family:var(--display);font-size:var(--fs-16);line-height:1.95;letter-spacing:.06em;color:var(--ink)}
+.voices figcaption{font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.2em;color:var(--ash);margin-top:10px}
+.voices .fine{grid-column:2 / -1;font-family:var(--body);font-size:var(--fs-12);line-height:1.8;letter-spacing:.04em;color:var(--ash);margin-top:-4px}
+.follow{display:flex;justify-content:center;margin-top:48px}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.26em;color:var(--white);background:var(--ink);text-decoration:none;padding:14px 34px;transition:background .2s}
+.btn:hover,.btn:focus-visible{background:var(--roast);outline:none}
+.btn svg{width:16px;height:16px}
+
+/* pairing */
+.pair-head{display:grid;grid-template-columns:4fr 7fr;gap:72px;align-items:end;margin-bottom:64px}
+.pair-head p{color:var(--text);max-width:24em;font-size:var(--fs-14)}
+.beans{margin:0}
+.beans img{width:100%;aspect-ratio:16/7;object-fit:cover;object-position:50% 50%}
+.rscale{display:grid;grid-template-columns:repeat(3,1fr);font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.24em;color:var(--ash);text-align:center;line-height:1.6}
+.rscale span{transition:color .3s;position:relative;padding-bottom:10px}
+.rscale b{display:block;font-family:var(--display);font-weight:500;font-size:var(--fs-14);letter-spacing:.12em;color:inherit}
+.rscale span::after{content:"";position:absolute;left:50%;bottom:0;width:20px;height:1px;margin-left:-10px;background:var(--roast);opacity:0;transition:opacity .3s}
+.rscale span.on{color:var(--ink)}
+.rscale span.on::after{opacity:1}
+.beans .rscale{margin-top:14px;padding:0 4.5%}
+.meter{display:none}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.quiz fieldset{border:0;margin:0;padding:0 0 26px}
+.quiz fieldset+fieldset{padding-top:26px;border-top:1px solid var(--stone)}
+.quiz legend{padding:0;font-family:var(--display);font-weight:500;font-size:var(--fs-16);letter-spacing:.06em;margin-bottom:14px;line-height:1.7;float:left;width:100%}
+.quiz legend span{font-family:var(--latin);font-weight:400;font-size:var(--fs-12);letter-spacing:.3em;color:var(--ash);margin-right:14px}
+.choices{clear:both;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.choice{position:relative}
+.choice input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:pointer}
+.choice span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:52px;padding:8px 4px;border:1px solid var(--stone);font-size:var(--fs-14);letter-spacing:.02em;line-height:1.5;color:var(--text);background:transparent;transition:background .2s,color .2s,border-color .2s}
+.choice input:hover+span{border-color:var(--ash)}
+.choice input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.choice input:focus-visible+span{outline:1px solid var(--ink);outline-offset:3px}
+.result{background:var(--white);padding:40px 40px 36px;position:sticky;top:32px;scroll-margin-top:72px}
+.result .en{font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.32em;color:var(--ash)}
+.ph{padding:28px 0 8px}
+.ph-t{font-family:var(--display);font-size:var(--fs-20);letter-spacing:.06em;line-height:1.8;color:var(--ink)}
+.ph-n{margin-top:18px;font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.24em;color:var(--ash)}
+.ph .scale3{margin:16px 0 0}
+.result .roast{font-family:var(--display);font-weight:400;font-size:var(--fs-28);letter-spacing:.12em;line-height:1.5;margin-top:10px}
+.result .bean{font-size:var(--fs-14);color:var(--text);margin-top:4px}
+.scale3{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:22px 0 30px}
+.res .scale3{grid-template-columns:repeat(3,1fr)}
+.scale3 i{height:2px;background:var(--stone);transition:background .3s}
+.scale3 i.on{background:var(--roast)}
+.rlist{margin:0;display:block;border-top:1px solid var(--stone)}
+.rlist div{display:grid;grid-template-columns:6.5em 1fr auto;gap:12px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--stone)}
+.rlist dt{font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.24em;color:var(--ash);padding:0;border:0}
+.rlist dd{margin:0;padding:0;border:0;font-family:var(--display);font-weight:500;font-size:var(--fs-16);letter-spacing:.06em;line-height:1.7}
+.rlist .yen{font-family:var(--latin);font-size:var(--fs-14);letter-spacing:.08em;color:var(--text);white-space:nowrap}
+.result .why{margin-top:22px;font-size:var(--fs-14);color:var(--text);line-height:2}
+.result .fine{margin-top:18px;font-size:var(--fs-12);color:var(--ash)}
+.result [hidden]{display:none}
+
+/* SP access bar */
+.minibar{display:none}
+
+footer{padding-block:72px 80px;text-align:center;background:var(--white)}
+footer .flogo img{height:52px;width:auto;margin:0 auto}
+footer .fnav{display:flex;justify-content:center;gap:0 28px;margin:20px 0 0;font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.22em;color:var(--ash);flex-wrap:wrap}
+footer .fnav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+footer .fnav a:hover{color:var(--ink)}
+footer .copy{font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.22em;color:var(--ash);margin-top:20px}
+footer .disc{font-size:var(--fs-12);color:var(--ash);margin-top:10px;letter-spacing:.04em;line-height:1.8}
+
+@media (max-width:900px){
+  .concept{gap:48px}
+  .mgrid{grid-template-columns:repeat(2,1fr);gap:36px 16px}
+  .info,.ugrid{grid-template-columns:1fr;gap:56px}
+  .pair-head{grid-template-columns:1fr;gap:28px;margin-bottom:40px}
+  .pair{grid-template-columns:1fr;gap:40px}
+  .result{position:static}
+  .meter{display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:4;background:var(--ground);border-bottom:1px solid var(--stone);margin:0 calc(-1*var(--gut-r)) 28px calc(-1*var(--gut));padding:10px var(--gut-r) 8px var(--gut)}
+  .meter .rscale{flex:1;font-size:var(--fs-12)}
+  .meter .rscale b{font-size:var(--fs-12)}
+  .meter .rscale span{padding-bottom:8px}
+  .meter .prog{font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.14em;color:var(--ash);white-space:nowrap;border-left:1px solid var(--stone);padding-left:12px;line-height:1.6;text-align:center}
+  .meter .prog b{display:block;font-weight:400;font-size:var(--fs-14);color:var(--ink);letter-spacing:.08em}
+  .beans .rscale{display:none}
+  .voices{grid-template-columns:1fr 1fr;gap:24px 32px}
+  .voices .vh{grid-column:1 / -1}
+  .voices .fine{grid-column:1 / -1}
+}
+@media (max-width:767px){
+  body{font-size:var(--fs-body);line-height:1.95;padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))}
+  .head .wrap{height:64px}
+  .head .logo img{height:30px;margin-left:-4px}
+  .head nav{display:none}
+  .head .sp-links{display:flex}
+  .fv .wrap.fvw{padding-left:0;padding-right:0}
+  .fv img{aspect-ratio:9/12.6;object-position:50% 78%}
+  .fv-copy{position:relative;margin-top:-64px;padding:26px 20px 0 var(--gut);max-width:94%}
+  .fv h1{font-size:24px;line-height:1.8;letter-spacing:.06em}
+  .fv .sub{font-size:var(--fs-12);letter-spacing:.16em;margin-top:8px}
+  .intro .wrap{display:block;padding-top:24px}
+  .vert{display:none}
+  section{padding-block:88px}
+  h2{font-size:22px;letter-spacing:.06em;line-height:1.75}
+  .concept{grid-template-columns:1fr}
+  .concept .txt{padding-top:0}
+  .cphotos{padding-bottom:90px;margin-right:calc(-1*var(--gut-r))}
+  .cphotos .a{width:82%}
+  .cphotos .b{width:46%;border-width:8px}
+  .pillars{grid-template-columns:1fr;gap:0;margin-top:56px;border-top:1px solid var(--ink)}
+  .pillar{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;padding:20px 0;border-bottom:1px solid var(--stone)}
+  .pillar img{width:64px;height:64px;aspect-ratio:1/1;margin:4px 0 0}
+  .pillar .ptxt{border-top:0;padding-top:0}
+  .pillar h3{font-size:var(--fs-16);margin:0 0 4px;display:inline-block}
+  .pillar .en{display:inline-block;margin-left:10px;float:right;padding-top:3px}
+  .pillar p{font-size:var(--fs-14);line-height:1.9}
+  .mhead{flex-direction:column;align-items:flex-start;margin-bottom:28px;gap:14px}
+  .mgrid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78vw;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1*var(--gut)) calc(-1*var(--gut-r));padding-inline:var(--gut) var(--gut-r);scroll-padding-inline:var(--gut);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .mgrid::-webkit-scrollbar{display:none}
+  .item{scroll-snap-align:start}
+  .item:hover img{transform:none}
+  .item figure{margin-bottom:14px}
+  .item p{margin-top:6px}
+  .swipe{display:flex;justify-content:space-between;align-items:center;margin-top:20px;font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.24em;color:var(--ash)}
+  .swipe .dots{display:flex;gap:6px}
+  .swipe .dots i{width:16px;height:1px;background:var(--stone);transition:background .3s}
+  .swipe .dots i.on{background:var(--ink)}
+  .note{margin-top:24px}
+  dl{grid-template-columns:6.5em 1fr}
+  .guide ul{grid-template-columns:1fr}
+  .store{grid-template-columns:1fr;gap:14px;margin-top:36px}
+  .store img{width:100%;aspect-ratio:3/2}
+  .cal{padding:24px 14px 14px}
+  .news a{grid-template-columns:1fr;gap:2px;padding:18px 0}
+  .insta{margin-top:88px}
+  .feed{grid-template-columns:repeat(3,1fr);gap:4px}
+  .ihead .handle{font-size:var(--fs-16)}
+  .voices{grid-template-columns:1fr;gap:20px;margin-top:40px}
+  .voices p{font-size:var(--fs-16)}
+  .btn{width:100%;justify-content:center}
+  .beans{margin-inline:calc(-1*var(--gut)) calc(-1*var(--gut-r))}
+  .beans img{aspect-ratio:16/9}
+  .quiz legend{font-size:var(--fs-16)}
+  .choice span{letter-spacing:0}
+  .result{padding:30px 22px 28px}
+  .rlist div{grid-template-columns:5.6em 1fr;gap:4px 10px}
+  .rlist .yen{grid-column:2}
+  footer{padding-block:56px 40px}
+  footer .fnav{max-width:300px;margin-inline:auto;gap:0 28px}
+  .minibar{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(246,245,242,.96);border-top:1px solid var(--stone);padding:0 var(--gut-r) env(safe-area-inset-bottom,0px) var(--gut);transform:translateY(100%);transition:transform .35s ease;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .minibar.show{transform:none}
+  .minibar a{display:flex;align-items:center;justify-content:center;height:56px;font-family:var(--latin);font-size:var(--fs-12);letter-spacing:.22em;color:var(--ink);text-decoration:none}
+  .minibar a+a{border-left:1px solid var(--stone)}
+  .minibar a:active{background:var(--stone)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.movie video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#000}
+.movie .mv-note{font-size:12px;margin-top:10px}
+</style>
+
+<header class="head" lang="ja">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="SHIRAE coffee &amp; bake トップへ">
+      <picture>
+        <source media="(max-width:767px)" srcset="img/logo-sp.svg" width="264" height="60">
+        <img src="img/logo.svg" alt="SHIRAE coffee &amp; bake" width="165" height="44">
+      </picture>
+    </a>
+    <nav aria-label="メイン">
+      <a href="#concept">CONCEPT</a><a href="#menu">MENU</a><a href="#pairing">YOUR CUP</a><a href="#info">ACCESS</a><a href="#updates">NEWS</a>
+    </nav>
+    <div class="sp-links"><a href="#info">ACCESS</a><a href="#insta">INSTAGRAM</a></div>
+  </div>
+</header>
+
+<main id="top" lang="ja">
+<div class="fv" id="fv">
+  <div class="wrap fvw">
+    <div style="position:relative">
+      <picture>
+        <source media="(min-width:768px)" srcset="img/hero_pc_v2.webp" width="1536" height="1024">
+        <img src="img/hero_sp_v2.webp" alt="午後の斜光が差し込む、白い左官壁とオーク材の長いカウンター。手前に白いカップ" width="864" height="1536" fetchpriority="high">
+      </picture>
+      <div class="fv-copy">
+        <h1><span class="nb">一杯と、</span><span class="nb">ひと口のために。</span><br><span class="nb">静かな午後を</span><span class="nb">つくる店。</span></h1>
+        <div class="sub">SPECIALTY COFFEE &amp; HOMEMADE BAKE</div>
+      </div>
+    </div>
+  </div>
+  <div class="intro">
+    <div class="wrap">
+      <p>白い壁と、木のカウンターと、窓からの光。<br><span class="nb">SHIRAE は、ていねいに淹れた一杯と、</span><span class="nb">毎朝焼く焼き菓子のための小さな店です。</span></p>
+      <p class="vert" aria-hidden="true">珈琲と焼き菓子と、静かな午後</p>
+    </div>
+  </div>
+</div>
+
+<section id="concept">
+  <div class="wrap">
+    <div class="label"><b>01</b>Brand Concept</div>
+    <div class="concept">
+      <div class="txt">
+        <h2><span class="nb">豆を選び、</span><span class="nb">焼き菓子を焼き、</span><br><span class="nb">余白を整える。</span></h2>
+        <p>産地を訪ね、焙煎の度合いまで決めたスペシャルティコーヒー。その日の豆の個性に合わせて、一杯ずつハンドドリップで淹れています。</p>
+        <p>焼き菓子は、毎朝店の奥のオーブンで。発酵バターと国産小麦を使い、コーヒーの味わいを邪魔しない甘さに仕上げます。</p>
+        <p>音と光を少しだけ抑えた店内で、ひとりの時間を、ゆっくりと。</p>
+      </div>
+      <div class="cphotos">
+        <img class="a" src="img/concept_drip.webp" alt="ドリッパーにケトルでお湯を注ぐ手元" width="1024" height="1280" loading="lazy">
+        <img class="b" src="img/concept_beans.webp" alt="白い器に盛られた焙煎したコーヒー豆" width="1024" height="1280" loading="lazy">
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><img src="img/people_counter_reading.webp" alt="窓辺のカウンター席で文庫本を開く女性の後ろ姿" width="1024" height="1280" loading="lazy" style="object-position:50% 30%"><div class="ptxt"><div class="en">SPACE</div><h3>空間</h3><p>席数はあえて18席。隣の会話が気にならない距離と、窓辺の光を大切にしています。</p></div></div>
+      <div class="pillar"><img src="img/insta_05.webp" alt="クラフト紙の豆の袋と木のコーヒーミル" width="1024" height="1024" loading="lazy" style="object-position:50% 60%"><div class="ptxt"><div class="en">BEANS</div><h3>豆</h3><p>常時4種のシングルオリジンを用意。浅煎りから深煎りまで、好みに合わせてお選びいただけます。</p></div></div>
+      <div class="pillar"><img src="img/kitchen_canele_oven.webp" alt="早朝の厨房で、オーブンからカヌレの天板を取り出すミトンの手元" width="1024" height="1280" loading="lazy" style="object-position:50% 55%"><div class="ptxt"><div class="en">BAKE</div><h3>焼き菓子</h3><p>カヌレ、パウンドケーキ、マドレーヌ。その日に焼いた分がなくなり次第、終了です。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="movie" id="scene">
+  <div class="wrap">
+    <div class="label">Morning</div>
+    <div style="margin-top:28px">
+      <img src="img/shirae-still.jpg" alt="早朝の厨房でカヌレを焼く様子" width="1280" height="720" loading="lazy" style="display:block;width:100%;height:auto">
+    </div>
+    <p class="mv-note" style="color:#6b6965">Instagram の投稿やリール用の素材にも展開できます。</p>
+  </div>
+</section>
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="label"><b>02</b>Signature Menu</div>
+    <div class="mhead">
+      <h2><span class="nb">いつもの一杯と、</span><span class="nb">季節のひと品。</span></h2>
+      <p>コーヒーはすべてテイクアウトもできます。焼き菓子は午前中がいちばん揃っています。</p>
+    </div>
+    <div class="mgrid" id="mgrid">
+      <article class="item">
+        <figure><img src="img/menu_handdrip_flatlay.webp" alt="真上から見た、ドリッパーとサーバー、ケトル、カップ、豆の器" width="1024" height="1280" loading="lazy"></figure>
+        <div class="cat">HAND DRIP</div>
+        <h3>シングルオリジン</h3>
+        <div class="price">¥650〜</div>
+        <p>日替わり4種の豆から、その日の気分で。香りの違いはスタッフがご案内します。</p>
+      </article>
+      <article class="item">
+        <figure><img src="img/menu_latte_lowangle.webp" alt="低い角度から見た、ラテアートのカフェラテ" width="1024" height="1280" loading="lazy"></figure>
+        <div class="cat">CAFFE LATTE</div>
+        <h3>カフェラテ</h3>
+        <div class="price">¥680</div>
+        <p>中深煎りのエスプレッソに、低温殺菌の牛乳をなめらかに合わせて。</p>
+      </article>
+      <article class="item">
+        <figure><img src="img/menu_sweets_closeup.webp" alt="艶のある焼き色のカヌレと、気泡の見えるパウンドケーキの断面" width="1024" height="1280" loading="lazy"></figure>
+        <div class="cat">SIGNATURE BAKE</div>
+        <h3>カヌレとパウンド</h3>
+        <div class="price">¥380 / ¥420</div>
+        <p>艶のある焼き色のカヌレと、焦がしバターのパウンド。開店からの定番です。</p>
+      </article>
+      <article class="item">
+        <figure><img src="img/menu_winter_linen.webp" alt="リネンクロスの上の、ほうじ茶ラテと和栗のタルト" width="1024" height="1280" loading="lazy"></figure>
+        <div class="cat">WINTER <span class="season">LIMITED</span></div>
+        <h3>ほうじ茶ラテと和栗のタルト</h3>
+        <div class="price">¥1,200 <small>セット</small><small class="single">単品 ラテ ¥720／タルト ¥580</small></div>
+        <p>香ばしいほうじ茶ラテと、和栗を絞ったタルト。冬だけの組み合わせです。</p>
+      </article>
+    </div>
+    <div class="swipe" aria-hidden="true"><span>SWIPE</span><span class="dots" id="mdots"><i class="on"></i><i></i><i></i><i></i></span></div>
+    <p class="note">※価格はすべて表示例です（税込）。季節限定メニューは2月末までの予定です。</p>
+  </div>
+</section>
+
+<section class="pairing" id="pairing">
+  <div class="wrap">
+    <div class="label"><b>03</b>Coffee Pairing</div>
+    <div class="pair-head">
+      <div>
+        <h2><span class="nb">あなたに合う一杯、</span><span class="nb">見つけます。</span></h2>
+        <p>4つの質問に答えると、おすすめの焙煎度と一杯、それに合う焼き菓子をメニューからご提案します。注文のときの、ちょっとした手がかりに。</p>
+      </div>
+      <figure class="beans">
+        <img src="img/beans_guide.webp" alt="浅煎り・中煎り・深煎りのコーヒー豆を、白い器に入れて並べた様子" width="1536" height="1024" loading="lazy">
+        <figcaption class="rscale" aria-hidden="true"><span data-r="light">LIGHT<b>浅煎り</b></span><span data-r="medium">MEDIUM<b>中煎り</b></span><span data-r="dark">DARK<b>深煎り</b></span></figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <form class="quiz" id="quiz" aria-label="あなたに合う一杯 診断">
+        <div class="meter" aria-hidden="true">
+          <div class="rscale"><span data-r="light">LIGHT<b>浅煎り</b></span><span data-r="medium">MEDIUM<b>中煎り</b></span><span data-r="dark">DARK<b>深煎り</b></span></div>
+          <div class="prog"><b><span class="qn">0</span>/4</b>ANSWERED</div>
+        </div>
+        <fieldset>
+          <legend><span>Q1</span>コーヒーの酸味は好きですか？</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="acid" value="-2"><span>好き</span></label>
+            <label class="choice"><input type="radio" name="acid" value="0"><span>ふつう</span></label>
+            <label class="choice"><input type="radio" name="acid" value="2"><span>苦手</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend><span>Q2</span>ミルクは入れますか？</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="milk" value="black"><span>入れない</span></label>
+            <label class="choice"><input type="radio" name="milk" value="some"><span>ときどき</span></label>
+            <label class="choice"><input type="radio" name="milk" value="always"><span>たっぷり</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend><span>Q3</span>飲むのは、どの時間帯？</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="time" value="morning"><span>朝</span></label>
+            <label class="choice"><input type="radio" name="time" value="noon"><span>午後</span></label>
+            <label class="choice"><input type="radio" name="time" value="evening"><span>夕方以降</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend><span>Q4</span>合わせるなら、どんな焼き菓子？</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="bake" value="canele"><span>カリッと<br>香ばしく</span></label>
+            <label class="choice"><input type="radio" name="bake" value="pound"><span>バターの風味で<br>しっとり</span></label>
+            <label class="choice"><input type="radio" name="bake" value="tart"><span>季節の<br>ものを</span></label>
+          </div>
+        </fieldset>
+      </form>
+      <div class="result" id="cupResult" aria-live="polite" aria-atomic="true">
+        <div class="en">YOUR CUP</div>
+        <div class="ph" id="cPh">
+          <p class="ph-t">4つ答えると、<br>あなたの一杯が出ます。</p>
+          <div class="scale3" aria-hidden="true" id="cPhBar"><i></i><i></i><i></i><i></i></div>
+          <p class="ph-n"><span class="qn">0</span> / 4 ANSWERED</p>
+        </div>
+        <div class="res" id="cRes" hidden>
+          <p class="roast" id="cRoast"></p>
+          <p class="bean" id="cBean"></p>
+          <div class="scale3" aria-hidden="true"><i data-r="light"></i><i data-r="medium"></i><i data-r="dark"></i></div>
+          <dl class="rlist">
+            <div><dt>COFFEE</dt><dd id="cDrink"></dd><span class="yen" id="cDrinkY"></span></div>
+            <div><dt>BAKE</dt><dd id="cBake"></dd><span class="yen" id="cBakeY"></span></div>
+          </dl>
+          <p class="why" id="cWhy"></p>
+        </div>
+        <p class="fine">※診断はお好みの目安です。豆の在庫は日によって変わります。価格は表示例です（税込）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="info-sec" id="info">
+  <div class="wrap">
+    <div class="label"><b>04</b>Information &amp; Access</div>
+    <div class="info">
+      <div>
+        <h2>店舗情報</h2>
+        <dl>
+          <dt>OPEN</dt><dd>9:00 – 18:00<small>ラストオーダー 17:30</small></dd>
+          <dt>CLOSED</dt><dd>水曜日・第3火曜日<small>臨時休業は営業カレンダーでお知らせします</small></dd>
+          <dt>ADDRESS</dt><dd>東京都渋谷区〇〇 0-0-0 1F</dd>
+          <dt>ACCESS</dt><dd>〇〇駅 東口から徒歩5分</dd>
+          <dt>SEATS</dt><dd>18席（カウンター6席・テーブル12席）</dd>
+        </dl>
+        <div class="guide">
+          <h3>GUIDE ／ ご利用案内</h3>
+          <ul>
+            <li>全メニュー テイクアウト可</li>
+            <li>キャッシュレス決済のみ</li>
+            <li>Wi-Fi・電源はカウンター席に</li>
+            <li>PC作業は平日のみ・90分を目安に</li>
+            <li>ベビーカーでの入店可</li>
+            <li><span class="nb">全席禁煙・</span><span class="nb">ご予約は承っていません</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mapbox" id="map">
+        <img src="img/map.svg" alt="〇〇駅から店までの道順を示す地図" width="640" height="480" loading="lazy">
+        <p class="cap">駅を出て右へ、2つ目の角を左に曲がってすぐ。</p>
+        <a class="gmap" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA" target="_blank" rel="noopener">GOOGLE MAPS<span>で開く</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M4 2h6v6M10 2 2.5 9.5"/></svg></a>
+        <div class="store">
+          <img src="img/insta_06.webp" alt="白い外壁と木の扉の店舗外観" width="1024" height="1024" loading="lazy">
+          <p><b>白い外壁と、木の扉が目印。</b>入口前のベンチは、テイクアウトの待ち合わせにもどうぞ。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="updates" id="updates">
+  <div class="wrap">
+    <div class="label"><b>05</b>Official Updates</div>
+    <div class="ugrid">
+      <div>
+        <h2>お知らせ</h2>
+        <ul class="news">
+          <li><a href="#updates"><time datetime="2026-11-18">2026.11.18</time><span><span class="cat">MENU</span>冬の季節メニュー「ほうじ茶ラテと和栗のタルト」がはじまりました</span></a></li>
+          <li><a href="#updates"><time datetime="2026-11-14">2026.11.14</time><span><span class="cat">BAKE</span>クリスマスのシュトーレン、ご予約の受付をはじめました</span></a></li>
+          <li><a href="#updates"><time datetime="2026-11-06">2026.11.06</time><span><span class="cat">INFO</span>12月の営業カレンダーと、年末年始の営業日を公開しました</span></a></li>
+          <li><a href="#updates"><time datetime="2026-11-01">2026.11.01</time><span><span class="cat">BEANS</span>冬季限定の深煎り「スマトラ」が入荷しました</span></a></li>
+        </ul>
+      </div>
+      <div class="cal" id="calendar" aria-label="営業カレンダー">
+        <div class="cal-head"><span class="m">NOVEMBER</span><span class="y">OPEN CALENDAR 2026</span></div>
+        <table>
+          <thead><tr><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr></thead>
+          <tbody>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td><span>1</span></td></tr>
+            <tr><td><span>2</span></td><td><span>3</span></td><td class="off"><span>4</span></td><td><span>5</span></td><td><span>6</span></td><td><span>7</span></td><td><span>8</span></td></tr>
+            <tr><td><span>9</span></td><td><span>10</span></td><td class="off"><span>11</span></td><td><span>12</span></td><td><span>13</span></td><td><span>14</span></td><td><span>15</span></td></tr>
+            <tr><td><span>16</span></td><td class="off"><span>17</span></td><td class="off"><span>18</span></td><td><span>19</span></td><td class="today"><span>20</span></td><td><span>21</span></td><td><span>22</span></td></tr>
+            <tr><td><span>23</span></td><td><span>24</span></td><td class="off"><span>25</span></td><td><span>26</span></td><td><span>27</span></td><td><span>28</span></td><td><span>29</span></td></tr>
+            <tr><td><span>30</span></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+        <div class="cal-legend"><span><i></i>定休日</span><span><i class="t"></i>本日</span></div>
+        <a class="link" href="#calendar">営業カレンダーをすべて見る →</a>
+      </div>
+    </div>
+
+    <div class="insta" id="insta">
+      <div class="ihead">
+        <div class="handle"><small>INSTAGRAM</small>@shirae_coffee</div>
+        <a class="link" href="#insta">FOLLOW →</a>
+      </div>
+      <div class="feed">
+        <a href="#insta"><img src="img/insta_01.webp" alt="カフェラテとカヌレ" width="1024" height="1024" loading="lazy"></a>
+        <a href="#insta"><img src="img/people_counter_reading.webp" alt="カウンター席で本を読む、午後のひととき" width="1024" height="1280" loading="lazy" style="object-position:50% 35%"></a>
+        <a href="#insta"><img src="img/insta_04.webp" alt="ラテアートを描く手元" width="1024" height="1024" loading="lazy"></a>
+        <a href="#insta"><img src="img/kitchen_canele_oven.webp" alt="焼き上がったカヌレをオーブンから出す朝の厨房" width="1024" height="1280" loading="lazy"></a>
+        <a href="#insta"><img src="img/insta_03.webp" alt="窓辺のテーブル席" width="1024" height="1024" loading="lazy"></a>
+        <a href="#insta"><img src="img/insta_02.webp" alt="焼き上がったパウンドケーキとマドレーヌ" width="1024" height="1024" loading="lazy"></a>
+      </div>
+      <div class="voices">
+        <h3 class="vh">COMMENTS<span>Instagramに寄せられたコメントより</span></h3>
+        <figure><blockquote><p>窓際の席で、浅煎りのハンドドリップとカヌレ。音楽が小さくて、本が思ったより進みました。</p></blockquote><figcaption>— M.K.</figcaption></figure>
+        <figure><blockquote><p>ほうじ茶ラテと和栗のタルト、冬の楽しみがひとつ増えました。午前中は焼き菓子がぜんぶ揃っています。</p></blockquote><figcaption>— A.S.</figcaption></figure>
+        <p class="fine">※掲載イメージです。実際のお客様の声に差し替えます。</p>
+      </div>
+      <div class="follow"><a class="btn" href="#insta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></svg>INSTAGRAM で最新情報を見る</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer lang="ja" id="foot">
+  <div class="wrap">
+    <div class="flogo"><img src="img/logo.svg" alt="SHIRAE coffee &amp; bake" width="195" height="52"></div>
+    <nav class="fnav" aria-label="フッター"><a href="#concept">CONCEPT</a><a href="#menu">MENU</a><a href="#pairing">YOUR CUP</a><a href="#info">ACCESS</a><a href="#updates">NEWS</a></nav>
+    <div class="copy">© SHIRAE coffee &amp; bake</div>
+    <p class="disc"><span class="nb">このページは提案用のデザインサンプルです</span><span class="nb">（制作：AI mania）。</span><span class="nb">店名・料金・写真は仮のものです。</span></p>
+  </div>
+</footer>
+
+<nav class="minibar" id="minibar" aria-label="来店のご案内" lang="ja" inert>
+  <a href="#map">MAP</a><a href="#calendar">CALENDAR</a><a href="#insta">INSTAGRAM</a>
+</nav>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+
+  /* coffee pairing */
+  var q=$('quiz');
+  if(q){
+    var R={light:{n:'浅煎り',b:'エチオピア ― 柑橘や紅茶のような、明るい酸味'},medium:{n:'中煎り',b:'グアテマラ ― ナッツとチョコレートのような、丸い甘さ'},dark:{n:'深煎り',b:'スマトラ（冬季限定）― ビターチョコのようなコクと、長い余韻'}};
+    var BEAN={light:'エチオピア',medium:'グアテマラ',dark:'スマトラ'};
+    var BAKE={canele:['カヌレ','¥380'],pound:['焦がしバターのパウンド','¥420'],tart:['和栗のタルト（冬季限定）','¥580']};
+    var WHY={
+      light:{canele:'カヌレのほろ苦いカラメルが、浅煎りの明るい酸味をやわらげます。',pound:'焦がしバターのコクのあとに、浅煎りの果実味が軽やかに抜けていきます。',tart:'栗のやさしい甘さと、紅茶のような浅煎りの香り。ゆっくり味わいたい組み合わせです。'},
+      medium:{canele:'香ばしさ同士がよく合う、いちばん定番の組み合わせです。',pound:'ナッツのような甘さが、バターの風味をまっすぐ引き立てます。',tart:'丸い甘さの中煎りが、和栗の風味を邪魔せずに寄り添います。'},
+      dark:{canele:'深いコクとカラメルの苦み。静かで、少し大人っぽい組み合わせです。',pound:'しっかりした苦みが、パウンドの甘さを心地よく引き締めます。',tart:'深煎りのコクが、栗のペーストの濃厚さをしっかり受け止めます。'}
+    };
+    var M={black:-1,some:0,always:1}, T={morning:-1,noon:0,evening:1};
+    var names=['acid','milk','time','bake'], wasDone=false;
+    var sp=window.matchMedia('(max-width:900px)');
+    function val(n){var el=q.querySelector('input[name="'+n+'"]:checked');return el?el.value:null}
+    function run(e){
+      var v={};names.forEach(function(n){v[n]=val(n)});
+      var count=names.filter(function(n){return v[n]!==null}).length;
+      var lean=null;
+      if(v.acid!==null||v.milk!==null||v.time!==null){
+        var sc=(v.acid!==null?+v.acid:0)+(v.milk?M[v.milk]:0)+(v.time?T[v.time]:0);
+        lean=sc<=-2?'light':sc>=2?'dark':'medium';
+      }
+      document.querySelectorAll('.qn').forEach(function(el){el.textContent=count});
+      document.querySelectorAll('#cPhBar i').forEach(function(el,i){el.classList.toggle('on',i<count)});
+      document.querySelectorAll('[data-r]').forEach(function(el){el.classList.toggle('on',el.getAttribute('data-r')===lean)});
+      var done=count===4;
+      $('cPh').hidden=done; $('cRes').hidden=!done;
+      if(!done){
+        var left=4-count;
+        $('cPh').querySelector('.ph-t').innerHTML=count===0?'4つ答えると、<br>あなたの一杯が出ます。':'あと'+left+'つ答えると、<br>あなたの一杯が出ます。';
+        wasDone=false; return;
+      }
+      var r=lean, milk=v.milk, time=v.time, bake=v.bake;
+      var drink,dy,extra='';
+      if(milk==='always'&&time==='evening'){drink='ほうじ茶ラテ（冬季限定）';dy='¥720';extra='夕方からは、カフェインの少ないほうじ茶ラテもおすすめです。豆を選ぶなら'+R[r].n+'を。'}
+      else if(milk==='always'){drink='カフェラテ';dy='¥680';extra=r==='light'?'ミルクと合わせても酸味が気にならないよう、ラテは中深煎りのエスプレッソで。':''}
+      else {drink='ハンドドリップ（'+BEAN[r]+'）';dy='¥650〜';if(milk==='some')extra='後半に少しミルクを足すと、また違った表情に。'}
+      $('cRoast').textContent=R[r].n; $('cBean').textContent=R[r].b;
+      $('cDrink').textContent=drink; $('cDrinkY').textContent=dy;
+      $('cBake').textContent=BAKE[bake][0]; $('cBakeY').textContent=BAKE[bake][1];
+      $('cWhy').textContent=WHY[r][bake]+extra;
+      var justDone=!wasDone; wasDone=true;
+      if(e&&sp.matches&&(justDone||e.target.name==='bake')){
+        var rm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+        $('cupResult').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'});
+      }
+    }
+    q.addEventListener('change',run); run();
+  }
+
+  /* menu carousel dots (SP) */
+  var mg=$('mgrid'), dots=document.querySelectorAll('#mdots i');
+  if(mg&&dots.length){
+    mg.addEventListener('scroll',function(){
+      var items=mg.children, best=0, bd=1e9;
+      for(var i=0;i<items.length;i++){var d=Math.abs(items[i].getBoundingClientRect().left-mg.getBoundingClientRect().left-20);if(d<bd){bd=d;best=i}}
+      dots.forEach(function(el,i){el.classList.toggle('on',i===best)});
+    },{passive:true});
+  }
+
+  /* SP access bar: show after the first view, hide over the footer */
+  var bar=$('minibar'), fv=$('fv'), ft=$('foot');
+  if(bar&&fv&&ft&&'IntersectionObserver' in window){
+    var st={fv:true,ft:false};
+    function upd(){var on=!st.fv&&!st.ft;bar.classList.toggle('show',on);if(on)bar.removeAttribute('inert');else bar.setAttribute('inert','')}
+    new IntersectionObserver(function(es){es.forEach(function(en){st[en.target===fv?'fv':'ft']=en.isIntersecting});upd()}).observe(fv);
+    var io2=new IntersectionObserver(function(es){es.forEach(function(en){st.ft=en.isIntersecting});upd()});io2.observe(ft);
+  }
+})();
+</script>
+
+</body></html>
