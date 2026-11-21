@@ -738,19 +738,12 @@ html.en .hx-copy .bx.big span{font-size:clamp(18px,2.2vw,32px)}
 .seal svg text{fill:#fff!important;font-size:8.4px!important;letter-spacing:1.5px!important;font-family:Montserrat,Arial,sans-serif!important;font-weight:800!important}
 
 /* hero slideshow */
-.hx-sl img{position:absolute!important;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:none!important;transform:scale(1.08)}
-.hx-sl img.on{opacity:1;animation:kb 7.5s linear both!important}
-.hx-sl .sht{position:absolute;inset:0;z-index:3;pointer-events:none}
-.hx-sl .sht i{position:absolute;left:0;right:0;height:50%;background:#0B0A0E;transform:scaleY(0)}
-.hx-sl .sht i:first-child{top:0;transform-origin:top}.hx-sl .sht i:nth-child(2){bottom:0;transform-origin:bottom}
-.hx-sl .sht b{position:absolute;inset:0;background:#fff;opacity:0}
-.hx-sl.snap .sht i{animation:shut .34s cubic-bezier(.8,0,.2,1) both}
-.hx-sl.snap .sht b{animation:sflash .45s ease-out .17s both}
-@keyframes shut{0%{transform:scaleY(0)}38%,50%{transform:scaleY(1.01)}100%{transform:scaleY(0)}}
-@keyframes sflash{0%{opacity:.4}100%{opacity:0}}
-.hx-sl.snap img.on{animation:snapz .5s cubic-bezier(.2,.8,.2,1) both,kb 7.5s .5s linear both!important}
-@keyframes snapz{from{transform:scale(1.14)}to{transform:scale(1.08)}}
-@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hx-sl img{position:absolute!important;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:none!important;transform:scale(1.04);z-index:0}
+.hx-sl img.prev{opacity:1;z-index:1;transition:transform 1.4s cubic-bezier(.77,0,.18,1);transform:scale(1.02) translateX(-4%)}
+.hx-sl img.on{opacity:1;z-index:2;}
+.hx-sl.go img.on{clip-path:inset(0 0 0 0);animation:wipe 1.4s cubic-bezier(.77,0,.18,1) both,kb 8s linear both!important}
+@keyframes wipe{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 0)}}
+@keyframes kb{from{transform:scale(1.1)}to{transform:scale(1)}}
 .hx-dots{position:absolute;right:16px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:4}
 .hx-dots b{width:3px;height:22px;background:rgba(255,255,255,.45);border-radius:3px;transition:background .4s,height .4s}
 .hx-dots b.on{background:var(--pink);height:38px}
@@ -778,7 +771,7 @@ html.en .hx-copy .bx.big span{font-size:clamp(18px,2.2vw,32px)}
   <section class="hx">
     <div class="hx-l"><img src="p/3155.jpg" alt="GRANIシルキーモイストヘアミルク"></div>
     <div class="hx-fl" aria-hidden="true"><div class="hx-fl3"><img src="p/tube.png" alt=""></div><i class="hx-sh"></i></div>
-    <div class="hx-r hx-sl"><img class="on" src="p/0664.jpg" alt="長い黒髪を広げたモデル" data-pc="70% 30%" data-sp="68% 20%"><img src="p/1093.jpg" alt="" data-pc="50% 30%" data-sp="50% 25%"><img src="p/1316.jpg" alt="" data-pc="50% 30%" data-sp="50% 30%"><img src="p/1035.jpg" alt="" data-pc="60% 30%" data-sp="62% 25%"><span class="sht" aria-hidden="true"><i></i><i></i><b></b></span><i class="hx-dots" aria-hidden="true"><b class="on"></b><b></b><b></b><b></b></i></div>
+    <div class="hx-r hx-sl"><img class="on" src="p/0664.jpg" alt="長い黒髪を広げたモデル" data-pc="70% 30%" data-sp="68% 20%"><img src="p/1093.jpg" alt="" data-pc="50% 30%" data-sp="50% 25%"><img src="p/1316.jpg" alt="" data-pc="50% 30%" data-sp="50% 30%"><img src="p/1035.jpg" alt="" data-pc="60% 30%" data-sp="62% 25%"><i class="hx-dots" aria-hidden="true"><b class="on"></b><b></b><b></b><b></b></i></div>
     <p class="hx-word" aria-label="HEAT COUTURE"><span>HEAT</span><span>COUTURE</span></p>
     <div class="hx-copy">
       <p class="bx q"><span>ヒートクチュールとは？</span></p>
@@ -1254,7 +1247,8 @@ window.addEventListener("hashchange",function(){done=false;r.classList.remove("i
 (function(){var box=document.querySelector(".hx-sl");if(!box)return;var im=box.querySelectorAll("img"),dt=box.querySelectorAll(".hx-dots b"),i=0;
 function pos(){var sp=matchMedia("(max-width:760px)").matches;[].forEach.call(im,function(m){m.style.objectPosition=m.getAttribute(sp?"data-sp":"data-pc");});}
 pos();window.addEventListener("resize",pos);
-setInterval(function(){if(document.hidden)return;box.classList.remove("snap");void box.offsetWidth;box.classList.add("snap");setTimeout(function(){im[i].classList.remove("on");dt[i].classList.remove("on");i=(i+1)%im.length;im[i].classList.add("on");dt[i].classList.add("on");},140);},5500);})();
+function next(){box.classList.add("go");[].forEach.call(im,function(m){m.classList.remove("prev");});im[i].classList.remove("on");im[i].classList.add("prev");dt[i].classList.remove("on");i=(i+1)%im.length;im[i].classList.add("on");dt[i].classList.add("on");}
+setInterval(function(){if(document.hidden)return;next();},5500);})();
 </script>
 </body>
 </html>
