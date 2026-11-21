@@ -180,6 +180,36 @@ h3{font-weight:700;font-size:clamp(19px,2.4vw,30px);line-height:1.45}
 .cbar b{font-size:13px;white-space:nowrap}.cbar span{font-size:11px;color:var(--mute,#9a98a0);line-height:1.5}
 .cbar>div:nth-child(3),.cbar>div:nth-child(4){min-width:96px}
 @media (max-width:760px){.cbar{flex-direction:column}.cbar>div{flex:none!important;display:grid;grid-template-columns:80px 1fr;align-items:center;gap:4px 10px}.cbar i{grid-row:span 2;height:30px}}
+
+.vs{display:grid;grid-template-columns:9em 1fr 1fr;gap:0;margin-top:clamp(18px,3vh,30px);border-top:1px solid var(--line)}
+.vs>div{padding:14px 16px;border-bottom:1px solid var(--line);font-size:clamp(15px,1.25vw,19px);font-weight:700;line-height:1.5}
+.vs small{display:block;font-size:12px;font-weight:400;color:var(--mute,#9a98a0);margin-top:4px}
+.vs .vs-h{font-weight:900;font-size:clamp(15px,1.3vw,19px)}
+.vs .a{color:var(--mute,#9a98a0)}
+.vs .b{background:rgba(255,45,143,.08)}
+.vs .b b{color:#FF2D8F;font-weight:900}
+.vs .vs-h.b{background:var(--grad);color:#fff}.vs .vs-h.b small{color:rgba(255,255,255,.85)}
+.vs .vs-l{font-size:13px;color:var(--mute,#9a98a0);font-weight:700}
+@media (max-width:760px){.vs{grid-template-columns:5.5em 1fr 1fr}.vs>div{padding:10px 8px;font-size:13px}.vs small{font-size:10.5px}}
+
+.an{display:grid;grid-template-columns:11em 1fr 1fr 1.3fr;margin-top:clamp(14px,2.4vh,24px);border-top:1px solid var(--line)}
+.an>div{padding:10px 14px;border-bottom:1px solid var(--line);font-size:clamp(14px,1.15vw,17px);font-weight:700}
+.an .an-h{font-size:12px;color:var(--mute,#9a98a0);font-weight:700;letter-spacing:.05em}
+.an .an-h.b{color:#FF2D8F}
+.an .b{background:rgba(255,45,143,.08)}.an .b b{color:#fff;font-weight:900}
+.an .q{color:#57555C;font-weight:700}
+.an .n{font-size:12px;color:var(--mute,#9a98a0);font-weight:400}
+.an .an-l{font-size:13px}
+.an-r{margin-top:14px}
+@media (max-width:760px){.an{grid-template-columns:6.5em 1fr 1fr}.an .n,.an .an-h:nth-child(4){display:none}.an>div{padding:8px 6px;font-size:12px}}
+
+.prem{margin-top:clamp(14px,2.4vh,22px);border:1px solid #FF2D8F;border-radius:2px;padding:14px 18px;background:rgba(255,45,143,.06)}
+.prem-k{margin:0;font-size:11px;letter-spacing:.2em;color:#FF2D8F;font-weight:800}
+.prem-h{margin:4px 0 6px;font-size:clamp(18px,1.8vw,26px);font-weight:900}
+.prem-t{margin:0;font-size:12.5px;color:var(--mute,#9a98a0);line-height:1.7}.prem-t b{color:#fff}
+.pmap{width:100%;height:auto;max-height:60vh;display:block}
+.pm{align-items:center;grid-template-columns:1.3fr 1fr!important}
+@media (max-width:760px){.pm{grid-template-columns:1fr!important}}
 </style>
 </head>
 <body>
@@ -208,7 +238,8 @@ h3{font-weight:700;font-size:clamp(19px,2.4vw,30px);line-height:1.45}
 <section class="slide">
   <div class="in">
     <p class="kick">結論</p>
-    <h2><span class="g">ヒートクチュール</span>の市場をつくる。<br>広告費ではなく、<mark>在庫</mark>で広める。</h2>
+    <h2><span class="g">ヒートクチュール</span>の市場をつくる。<br>新しい広告ではなく、<mark>今ある商品</mark>で広める。</h2>
+    <p class="lead"><b>前提：</b>使ってもらえれば、また買ってもらえる商品だから。</p>
     <div class="body steps s4">
       <div><span class="n">1</span><h3>名前をつける</h3><p class="tx">熱で美しくなるケアを、ヒートクチュールと呼ぶ。</p></div>
       <div><span class="n">2</span><h3>サイトで伝える</h3><p class="tx">「ヒートクチュールとは？」に答える。買う場所は、楽天を先頭に。</p></div>
@@ -230,6 +261,43 @@ h3{font-weight:700;font-size:clamp(19px,2.4vw,30px);line-height:1.45}
     </div>
     <p class="so">広告は止める。在庫で体験を増やす。買った人とつながる。</p>
     <p class="foot">2026年8月からの数字です。1本あたりの広告費は、価格3,300〜3,960円で計算した概算です。在庫を使う前に、使用期限を確認します。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick">コスパの比較</p>
+    <h2>新しい広告より、<mark>今ある商品</mark>を動かす。</h2>
+    <p class="lead"><b>同じ1万円で比べると：</b>広告は1本売って終わる。商品は、使った人の声が残る。</p>
+    <div class="vs">
+      <div class="vs-h"></div><div class="vs-h a">新しい広告<small>お金を新しく使う</small></div><div class="vs-h b">今ある商品<small>在庫8,000本を動かす</small></div>
+      <div class="vs-l">1万円で</div><div class="a">1本売れる<small>これまでの実績：600万円で200万円分</small></div><div class="b"><b>5〜10人</b>が使う<small>原価が1本1,000〜2,000円のとき（仮定）</small></div>
+      <div class="vs-l">あとに残るもの</div><div class="a">なし<small>止めれば、売上も止まる</small></div><div class="b"><b>投稿・レビュー・LINE</b><small>次のお客様を連れてくる</small></div>
+      <div class="vs-l">在庫は</div><div class="a">減らない<small>4年半分が倉庫に残る</small></div><div class="b"><b>減る</b><small>使用期限の前に、お金と声に変わる</small></div>
+    </div>
+    <div class="prem"><p class="prem-k">この戦略の前提</p><p class="prem-h">使ってもらえれば、<span class="g">また買ってもらえる。</span></p><p class="prem-t"><b>根拠：</b>@cosme クチコミ187件・平均5.7 / 7（2026年11月時点）。<b>確かめ方：</b>モニターとプロの「2本目」を、同梱カードとLINEで数える。</p></div>
+    <p class="foot">広告の数字は、いただいた2026年8月からの実績です。商品の原価は仮定のため、実際の原価で計算し直します。在庫を使う前に、使用期限を確認します。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick">広告の分析</p>
+    <h2>広告費は、売上の<mark>3倍</mark>かかっている。</h2>
+    <p class="lead"><b>2026年8月から：</b>600万円の広告で、売れたのは200万円。2025年と比べて、効き方が落ちたのかを確かめます。</p>
+    <div class="an">
+      <div class="an-h">指標</div><div class="an-h">2025年</div><div class="an-h b">2026年8月〜</div><div class="an-h">見方</div>
+      <div class="an-l">広告費</div><div class="q">要確認</div><div class="b"><b>600万円</b></div><div class="n">使ったお金</div>
+      <div class="an-l">広告からの売上</div><div class="q">要確認</div><div class="b"><b>200万円</b></div><div class="n">広告で動いた売上</div>
+      <div class="an-l">広告費の回収率</div><div class="q">要確認</div><div class="b"><b>約33%</b></div><div class="n">100%を下回ると赤字</div>
+      <div class="an-l">1本売るための広告費</div><div class="q">要確認</div><div class="b"><b>約1万円</b></div><div class="n">価格3,300〜3,960円より高い</div>
+      <div class="an-l">2本目を買う人</div><div class="q">要確認</div><div class="q">要確認</div><div class="n">広告を再開するかの決め手</div>
+    </div>
+    <div class="rows an-r" style="--c1:9.5em">
+      <div><h3>わかること</h3><span class="tx">今のやり方では、1本売るたびに広告費だけで約6,000〜7,000円のマイナス。続けるほど損が大きくなる。</span></div>
+      <div><h3>2025年と比べる</h3><span class="tx">広告が効いていた時期があれば、その条件（媒体・訴求・価格）に戻して小さく試す。効いた時期がなければ、広告は在庫が回ってから。</span></div>
+    </div>
+    <p class="foot">2026年の数字は、いただいた回答からの概算です。1本の広告費は価格3,300〜3,960円で計算しています。2025年の広告費・売上・媒体別の内訳をいただければ、この表を埋めて比べます。</p>
   </div>
 </section>
 
@@ -341,7 +409,57 @@ h3{font-weight:700;font-size:clamp(19px,2.4vw,30px);line-height:1.45}
       <div><span class="n">3</span><h3>広がる</h3><p class="where">モニターの投稿</p><p class="tx">「#ヒートクチュール」で投稿してもらい、公式とサイトで紹介する。</p><p class="why">お客様の言葉で、広がるため。</p></div>
     </div>
     <p class="so">まず300本（案）。在庫8,000本の約4％です。広告費は使いません。</p>
-    <p class="foot">モニターの投稿には、提供を受けたことを明記してもらいます。内容は指定しません。サロンでも、同じ体験と投稿につなげる余地を残します。</p>
+    <p class="foot">モニターの投稿には、提供を受けたことを明記してもらいます。内容は指定しません。次のページのプロへの提供とあわせて進めます。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick">ポジショニング</p>
+    <h2>「熱で仕上げる」<mark>プロ仕様</mark>の席は、空いている。</h2>
+    <div class="body two pm">
+      <div><svg class="pmap" viewBox="0 0 560 420" role="img" aria-label="ポジショニングの概念図。横軸は ふだん使い から プロの仕上げ、縦軸は 熱から守る から 熱で仕上げる。GRANIは右上">
+<defs><linearGradient id="pg" x1="0" x2="1"><stop offset="0" stop-color="#FF7A00"/><stop offset=".5" stop-color="#FF3D5A"/><stop offset="1" stop-color="#FF2D8F"/></linearGradient>
+<radialGradient id="pglow"><stop offset="0" stop-color="#FF2D8F" stop-opacity=".45"/><stop offset="1" stop-color="#FF2D8F" stop-opacity="0"/></radialGradient></defs>
+<rect x="280" y="20" width="260" height="190" fill="rgba(255,45,143,.07)"/>
+<line x1="20" y1="210" x2="540" y2="210" stroke="#57555C" stroke-width="1.5"/><line x1="280" y1="20" x2="280" y2="400" stroke="#57555C" stroke-width="1.5"/>
+<g font-family="Noto Sans JP,sans-serif" font-size="13" font-weight="700" fill="#9a98a0">
+<text x="24" y="232">ふだん使い</text><text x="536" y="232" text-anchor="end">プロの仕上げ</text>
+<text x="290" y="36">熱で仕上げる</text><text x="290" y="394">熱から守る</text></g>
+<g font-family="Noto Sans JP,sans-serif" font-size="12.5" fill="#F4F3F1">
+<circle cx="120" cy="320" r="34" fill="#232226" stroke="#57555C"/><text x="120" y="316" text-anchor="middle">一般的な</text><text x="120" y="332" text-anchor="middle">ヘアミルク</text>
+<circle cx="230" cy="275" r="34" fill="#232226" stroke="#57555C"/><text x="230" y="271" text-anchor="middle">熱を防ぐ</text><text x="230" y="287" text-anchor="middle">スプレー</text>
+<circle cx="420" cy="320" r="38" fill="#232226" stroke="#57555C"/><text x="420" y="316" text-anchor="middle">サロン専売</text><text x="420" y="332" text-anchor="middle">トリートメント</text></g>
+<circle cx="440" cy="95" r="80" fill="url(#pglow)"/>
+<circle cx="440" cy="95" r="46" fill="url(#pg)"/>
+<text x="440" y="92" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="18" fill="#fff">GRANI</text>
+<text x="440" y="111" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="700" font-size="11" fill="#fff">HEAT COUTURE</text>
+<path d="M300 150 L395 108" stroke="#FF2D8F" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+<text x="300" y="170" font-family="Noto Sans JP,sans-serif" font-size="12" font-weight="700" fill="#FF2D8F">ここが空いている</text>
+</svg></div>
+      <div class="rows" style="--c1:7.8em">
+        <div><h3>今の棚</h3><span class="tx">多くは「熱から守る」もの。熱を味方にする商品は少ない。</span></div>
+        <div><h3>GRANIの席</h3><span class="tx"><b>熱で仕上げる、プロ仕様。</b>プロの仕上げを、家のドライヤーで。</span></div>
+        <div><h3>裏づけ</h3><span class="tx">熱に反応する2つの成分。現場で使えるつくり。</span></div>
+        <div><h3>だから</h3><span class="tx">まずプロに使ってもらい、信頼の入口にする。</span></div>
+      </div>
+    </div>
+    <p class="foot">図は考え方を示す概念図で、市場調査の結果ではありません。他社の個別の商品は示していません。「プロ仕様」と表示するときは、表現を薬機法・景品表示法の観点で確認します。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick"><b>3</b>在庫で広める（プロ）</p>
+    <h2>プロの手で、<mark>現場</mark>から広める。</h2>
+    <p class="lead"><b>何のために：</b>「プロが現場で使っている」が、いちばんの信頼になるため。</p>
+    <div class="body steps act">
+      <div><span class="n">1</span><h3>サロン</h3><p class="where">美容室・ヘアサロン</p><p class="tx">ブローの最後に使ってもらい、そのまま店販へ。取扱サロンを募る。</p><p class="why">1人の美容師が、毎日たくさんの髪に触れるため。</p></div>
+      <div><span class="n">2</span><h3>ヘアメイク</h3><p class="where">撮影・ブライダル・ショーの現場</p><p class="tx">ヘアメイクの方に商品を届け、現場の仕上げで使ってもらう。</p><p class="why">モデルや花嫁の髪で、熱の仕上げを見せられるため。</p></div>
+      <div><span class="n">3</span><h3>発信</h3><p class="where">プロのInstagram</p><p class="tx">使った感想や現場の写真を、「#ヒートクチュール」で投稿してもらう。</p><p class="why">20代が見ている人の言葉で、広がるため。</p></div>
+    </div>
+    <p class="so">まず100本（案）。サイトに「取扱サロン・ヘアメイクの方」の窓口を置きます。</p>
+    <p class="foot">プロの投稿にも、提供を受けたことを明記してもらいます。卸条件・提供の条件は、決まりしだい入れます。</p>
   </div>
 </section>
 
