@@ -414,7 +414,7 @@ h2,.h2{font-weight:800;font-size:clamp(26px,3.8vw,52px);line-height:1.35}
 .hx-copy .bx:nth-child(1) span{animation-delay:1.5s}.hx-copy .bx:nth-child(2) span{animation-delay:1.62s}.hx-copy .bx:nth-child(3) span{animation-delay:1.74s;color:var(--pink)}.hx-copy .bx:nth-child(4) span{animation-delay:1.86s}
 @keyframes boxin{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 .tick{position:absolute;left:0;right:0;bottom:0;z-index:3;background:var(--ink);color:#fff;white-space:nowrap;overflow:hidden;padding:10px 0}
-.tick p{display:inline-block;animation:run 28s linear infinite;font-size:13px;letter-spacing:.14em}
+.tick p{display:inline-block;animation:run 70s linear infinite;font-size:13px;letter-spacing:.14em}
 .tick span{font-family:var(--en);font-weight:800;margin:0 18px}
 .tick b{font-weight:700;background:var(--yel);color:var(--ink);padding:3px 10px;margin:0 6px}
 .hx-nt{position:absolute;right:16px;bottom:48px;z-index:3;font-size:10px;color:var(--ink);background:rgba(255,255,255,.7);padding:2px 8px}
@@ -634,16 +634,6 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;border-to
 @media (max-width:760px){.intro-ph.iv{width:150vw;right:-38vw;bottom:2vh;top:auto;transform:none}}
 @media (min-width:761px){#pin-intro .intro-co{margin-left:clamp(48px,7vw,120px);margin-right:auto;max-width:42vw;padding-left:0;padding-right:0}#pin-intro .intro-l{max-width:26em}}
 
-/* particle CG */
-.pcg{background:radial-gradient(120% 90% at 30% 20%,#2a2230 0%,#121016 60%,#0b0a0e 100%);border-radius:2px}
-.pcg canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.pcg-t{position:absolute;left:16px;top:14px;margin:0;font-family:var(--en);color:#fff;display:flex;gap:10px;align-items:baseline;z-index:2}
-.pcg-t b{font-size:11px;letter-spacing:.3em;color:rgba(255,255,255,.6)}
-.pcg-t span{font-weight:900;font-size:clamp(26px,2.6vw,40px);letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.pcg-l{position:absolute;left:16px;bottom:14px;margin:0;font-size:11px;font-weight:700;line-height:1.9;color:rgba(255,255,255,.85);z-index:2}
-.pcg-l i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
-.pcg-l .la{background:#FF2D8F;box-shadow:0 0 10px #FF2D8F}.pcg-l .lb{background:#FF8A1F;box-shadow:0 0 10px #FF8A1F}
-.pcg-n{position:absolute;right:14px;bottom:14px;margin:0;font-size:10px;color:rgba(255,255,255,.4);z-index:2}
 
 /* SP floating 3D product */
 .hx-fl{display:none}
@@ -657,7 +647,54 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;border-to
  .hx-fl3 img{width:100%;display:block;filter:drop-shadow(0 24px 30px rgba(0,0,0,.45)) drop-shadow(0 0 30px rgba(255,45,143,.35))}
  .hx-sh{position:absolute;left:18%;right:18%;bottom:-18px;height:14px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.55),transparent);animation:flsh 6s ease-in-out infinite;display:block}
 }
+
+/* how it works (hair cross-section) */
+.hx2-s{background:#F4F2F5;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:clamp(20px,4vw,70px);padding:0 clamp(20px,6vw,110px)}
+.hx2-k{font-family:var(--en);font-weight:700;font-size:11px;letter-spacing:.32em;color:var(--pink);margin:0 0 14px}
+.hx2-h{font-weight:900;font-size:clamp(28px,3.4vw,50px);line-height:1.25;margin:0 0 clamp(22px,4vh,40px);font-feature-settings:"palt" 1}
+.hx2-st{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.hx2-st li{display:grid;grid-template-columns:48px 1fr;gap:6px;padding:16px 0;border-bottom:1px solid var(--line);opacity:.32;transition:opacity .5s}
+.hx2-st li.on{opacity:1}
+.hx2-st b{font-family:var(--en);font-weight:800;font-size:13px;letter-spacing:.08em;color:var(--pink);padding-top:3px}
+.hx2-st strong{display:block;font-size:clamp(16px,1.5vw,20px);font-weight:900;margin-bottom:4px}
+.hx2-st span{font-size:13.5px;line-height:1.85;color:var(--sub);display:block}
+.hx2-st em{font-style:normal;font-weight:800;color:var(--ink);white-space:nowrap}
+.hx2-st em.ca{box-shadow:inset 0 -.42em rgba(255,45,143,.25)}.hx2-st em.cb{box-shadow:inset 0 -.42em rgba(255,138,31,.3)}
+.hx2-fig{position:relative;margin:0;aspect-ratio:1/1;width:min(100%,78vh)}
+.hx2-fig canvas{width:100%;height:100%;display:block}
+.hx2-fig figcaption{position:absolute;left:0;right:0;bottom:-6px;display:flex;justify-content:space-between;align-items:baseline;font-family:var(--en)}
+.hx2-fig figcaption span{font-weight:900;font-size:13px;letter-spacing:.2em;color:var(--ink)}
+.hx2-fig figcaption small{font-family:var(--jp);font-size:10px;color:var(--grey)}
+@media (max-width:760px){.hx2-s{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-content:start;gap:10px;padding:74px 18px 20px}
+ .hx2-fig{grid-row:1;width:min(88vw,46svh);justify-self:center}
+ .hx2-h{font-size:22px;margin-bottom:10px}.hx2-k{margin-bottom:6px}
+ .hx2-st li{display:none;border:0;padding:6px 0;opacity:1}.hx2-st li.on{display:grid}.hx2-st{border:0}}
+
+.vc-sum{display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,60px);align-items:flex-end;margin-top:clamp(18px,3vh,30px);padding-bottom:18px;border-bottom:1px solid var(--line)}
+.vc-sum p{margin:0;display:flex;align-items:baseline;gap:8px}
+.vc-sum b{font-family:var(--en);font-weight:900;font-size:clamp(44px,5vw,72px);line-height:.9;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vc-sum span{font-size:13px;font-weight:700}
+.vc-sum .vs-s{font-size:11px;color:var(--grey);line-height:1.6;margin-left:auto}
+.vc6{grid-template-columns:repeat(3,1fr)}
+.vc6 figure{position:relative;border:1px solid var(--line);background:#fff;transition:transform .35s,box-shadow .35s}
+.vc6 figure:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(255,45,143,.12)}
+.vc .vt{margin:0;display:flex;justify-content:space-between;align-items:center;font-size:11px}
+.vc .vt span{background:var(--ink);color:#fff;font-weight:700;padding:4px 10px}
+.vc .vt em{font-style:normal;color:var(--grey);font-weight:700;letter-spacing:.06em}
+.vc .sc{margin:0;font-family:var(--en);font-size:12px;color:var(--grey)}.vc .sc b{font-size:22px;font-weight:900;color:var(--pink);margin-right:2px}
+
+.lang{appearance:none;border:1px solid var(--line);background:transparent;border-radius:40px;padding:7px 12px;font-family:var(--en);font-weight:800;font-size:11px;letter-spacing:.12em;color:var(--grey);cursor:pointer;display:inline-flex;gap:5px;align-items:center}
+.lang i{font-style:normal;opacity:.4}
+.lang span.on{color:var(--pink)}
+html.en .bx span,html.en .hx2-h,html.en h2,html.en .h2{word-break:normal;overflow-wrap:break-word}
+html.en .hx-copy .bx.big span{font-size:clamp(18px,2.2vw,32px)}
+
+/* hero word: slow flowing gradient */
+@keyframes gflow{to{background-position:200% 0}}
+.hx-word span{background-image:linear-gradient(95deg,#FF7A00 0%,#FF3D5A 25%,#FF2D8F 50%,#FF3D5A 75%,#FF7A00 100%)!important;background-size:200% 100%!important;filter:none!important;animation:slit 1.2s 1s cubic-bezier(.7,0,.2,1) both,gflow 9s linear infinite!important}
+.hx-word span+span{animation-delay:1.12s,0s!important}
 </style>
+<script>window.I18N={"購入する": "Shop now", "ヒートクチュールとは？": "What is HEAT COUTURE?", "ドライヤーの熱で、": "With your dryer's heat,", "成分が浸透※。": "care sinks in.*", "熱を、まとう。W成分配合※のヘアミルク": "Wear the heat. A hair milk with two heat-active ingredients*", "毛先までしっとり": "Moist to the ends", "雨の日もなめらか": "Smooth even on rainy days", "ベタつかない": "Never sticky", "甘すぎない香り": "Not-too-sweet scent", "熱が、ケアになる": "Heat becomes care", "ロングヘアにもたっぷり": "Plenty for long hair", "@cosme 平均5.7 / 7": "@cosme avg. 5.7 / 7", "※ トステア®とγ-ドコサラクトン。浸透は毛髪の内部まで。": "* TOSTEA® and γ-docosalactone. Penetration refers to the inside of the hair.", "熱を、まとう。": "Wear the heat.", "熱で傷む髪から、": "From hair damaged by heat,", "熱で美しくなる髪へ。": "to hair made beautiful by heat.", "毎日のドライヤーの熱を、ケアのきっかけに。熱に反応する2つの成分が、乾かすたびに髪を仕立てる。それが、ヒートクチュール。": "Turn your daily blow-dry into care. Two heat-responsive ingredients tailor your hair every time you dry it. That is HEAT COUTURE.", "熱で、潤いUP。": "Heat, for more moisture.", "パサつきから、まとまるへ。": "From frizz to smooth.", "ドライヤー前": "Before drying", "ドライヤー後": "After drying", "毛先まで、まとまる。": "Smooth to the very ends.", "写真はイメージです（生成画像）。仕上がりには個人差があります。": "Images are for illustration (AI-generated). Results vary by individual.", "熱で、": "Heat", "傷む": "damages.", "美しくなる。": "beautifies.", "ヒートクチュールとは、ドライヤーやアイロンの熱で、髪を美しく仕立てるケアのこと。": "HEAT COUTURE is care that tailors your hair beautifully with the heat of a dryer or iron.", "ヒートクチュールとは": "About HEAT COUTURE", "GRANIの、4つの強み。": "Four strengths of GRANI.", "熱が味方": "Heat on your side", "ドライヤーの熱で、成分が浸透※。": "Your dryer's heat helps care sink in.*", "W成分": "Dual ingredients", "熱に反応する、2つの成分。": "Two heat-responsive ingredients.", "24時間、保湿・補正": "24-hour moisture & control", "夜も、朝も、日中も。": "Night, morning and daytime.", "静電気から守る": "Anti-static", "潤いをキープして、1日中。": "Keeps moisture all day.", "※ 毛髪の内部まで": "* To the inside of the hair", "熱が、スイッチ。": "Heat is the switch.", "W成分が、髪の内部へ": "Two ingredients, into the hair", "ドライヤーの熱をきっかけに、トステア®とγ-ドコサラクトンが髪にはたらきかけます。": "Triggered by your dryer's heat, TOSTEA® and γ-docosalactone go to work on your hair.", "成分を見る": "See ingredients", "シルキーモイスト": "Silky Moist", "ヘアミルク": "Hair Milk", "夜も、朝も、日中も。1本で24時間。": "Night, morning and day. One bottle, 24 hours.", "ほのかに香る、ピュアリネン。": "A soft scent of pure linen.", "商品を見る": "View product", "新しいお知らせは、Instagramで。#ヒートクチュール": "News on Instagram. #heatcouture", "Instagramを見る": "Follow on Instagram", "熱で、美しく仕立てる。": "Tailored beautifully by heat.", "STRENGTH 01　熱が味方": "STRENGTH 01　HEAT ON YOUR SIDE", "成分が浸透": "care sinks in", "これまで、熱は髪を傷めるものでした。GRANIは、その熱をケアのきっかけにします。未知の潤いへ。翌朝、感動。": "Until now, heat was something that damaged hair. GRANI turns that heat into a moment of care. Discover a new kind of moisture, and wake up impressed.", "STRENGTH 02　W成分": "STRENGTH 02　DUAL INGREDIENTS", "髪に、革命。": "A revolution for your hair.", "熱が、": "Heat is", "2つの成分のスイッチ。": "the switch for two ingredients.", "つける": "Apply", "タオルドライした髪に、2つの成分を含むミルクをなじませる。": "Work the milk with both ingredients into towel-dried hair.", "熱をあてる": "Add heat", "ドライヤーの熱が、成分がはたらくきっかけに。": "Your dryer's heat sets the ingredients to work.", "内側と表面から": "Inside and out", "A トステア®": "A TOSTEA®", "は髪の内部にはたらきかけ、うねりや広がりをおさえる。": " works inside the hair to tame waves and frizz.", "B γ-ドコサラクトン": "B γ-docosalactone", "は表面をなめらかに整え、ツヤを与える。": " smooths the surface and adds shine.", "髪の断面イメージ（模式図）": "Hair cross-section (illustration)", "タオルドライした髪に、W成分のミルクをなじませる。": "Work the milk into towel-dried hair.", "熱を当てる": "Add heat", "ドライヤーの熱が、2つの成分のスイッチになる。": "Your dryer's heat switches on both ingredients.", "まとまる": "Smooth", "乾かすほど、しっとり。翌朝まで、まとまる髪へ。": "The more you dry, the more moisture. Smooth hair through the next morning.", "髪質を上げる、": "Elevate your hair,", "最上級のヘアケア。": "with premium hair care.", "毎日のドライヤーの熱を、味方に。W成分のミルクをつけて、熱を当てる。潤いを保ち、健やかな髪へ。": "Make your daily blow-dry your ally. Apply the milk, add heat, and keep hair moist and healthy.", "HAIR MILKを見る": "View HAIR MILK", "熱に反応するW成分を配合した、洗い流さないヘアミルク。": "A leave-in hair milk with two heat-responsive ingredients.", "容量": "Volume", "注目成分": "Key ingredients", "トステア® × γ-ドコサラクトン": "TOSTEA® × γ-docosalactone", "香り": "Scent", "ピュアリネン": "Pure linen", "使う時間": "When to use", "夜・朝・日中": "Night / morning / day", "税込・200ml（仮）": "incl. tax / 200 ml (TBC)", "公式サイトで購入": "Buy on the official site", "価格は@cosmeの掲載価格による仮の表示です。": "Price is provisional, based on the @cosme listing.", "STRENGTH 03　24時間、保湿・補正": "STRENGTH 03　24-HOUR MOISTURE & CONTROL", "硬い。太い。多い。": "Coarse. Thick. Abundant.", "その髪に、潤いを持続。": "Lasting moisture for that hair.", "夜のケア": "Night care", "タオルドライ後の濡れた髪になじませ、ドライヤーで乾かす。": "Apply to damp, towel-dried hair, then blow-dry.", "朝のスタイリング": "Morning styling", "乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。": "Apply a little to dry hair and finish with a dryer or iron.", "日中の保護": "Daytime protection", "外出前や日中に、毛先へなじませる。": "Smooth onto the ends before heading out or during the day.", "夜のケアは、": "Night care in", "4ステップ": "4 steps", "シャンプー": "Shampoo", "タオルドライ": "Towel-dry", "GRANIをなじませる": "Apply GRANI", "ドライヤーで乾かす": "Blow-dry", "朝は、乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げます。写真はイメージです。": "In the morning, apply a little to dry hair and finish with a dryer or iron. Photos are for illustration.", "STRENGTH 04　静電気": "STRENGTH 04　ANTI-STATIC", "潤いをキープして、": "Keeps moisture in,", "1日中、": "all day,", "静電気から守る。": "guarding against static.", "ほのかに香る、": "A soft scent of", "ピュアリネン。": "pure linen.", "シトラス・グリーン": "Citrus green", "フローラル・ムスク": "Floral musk", "ウッディ・サンダルウッド": "Woody sandalwood", "香水を邪魔しない、控えめな香り。": "Subtle enough not to clash with your perfume.", "使用者の声": "Reviews", "件のクチコミ": "reviews", "/ 7　平均評価": "/ 7　average rating", "@cosme　GRANIシルキーモイストヘアミルク": "@cosme　GRANI Silky Moist Hair Milk", "（2026年11月時点）": "(as of November 2026)", "熱がケアになる": "Heat as care", "モニター": "Monitor", "熱を味方にする、という考え方が新鮮。多めになじませると、しっとりまとまる。": "Using heat as an ally feels fresh. With a little extra, my hair turns out moist and smooth.", "40代・乾燥肌": "40s · dry skin", "テクスチャー": "Texture", "ベタつかず、重くないミルク。ドライヤー前に使うと、毛先までしっとり。": "A light, non-sticky milk. Used before blow-drying, it keeps my ends moist.", "40代・普通肌": "40s · normal skin", "ロングヘア": "Long hair", "購入品": "Purchased", "たっぷり入っていて、オイルだけでは足りないロングヘアにちょうどいい。": "Generous size, just right for long hair where oil alone isn't enough.", "30代・普通肌": "30s · normal skin", "雨の日": "Rainy days", "乾かしたあとの収まりがよく、雨の日もなめらかなまま。": "Hair settles nicely after drying and stays smooth even on rainy days.", "甘すぎない、フレッシュで落ち着いた香りが好み。": "I love the fresh, calm scent that isn't too sweet.", "30代・乾燥肌": "30s · dry skin", "うねり": "Waves", "うねりやすい季節の味方。ドライヤーやアイロンの熱がケアの時間になる。": "A friend in frizzy season. Dryer and iron time becomes care time.", "@cosmeに投稿されたクチコミを要約して掲載しています（原文ではありません）。「モニター」は商品提供を受けた方の投稿です。公開前に、掲載の許可と最新の件数・評価を確認します。": "Summaries of reviews posted on @cosme (not the original wording). \"Monitor\" marks reviewers who received the product free. Permission and the latest figures will be confirmed before launch.", "合わなければ、": "If it's not for you,", "返品できます。": "return it.", "日間": "days", "はじめてのご購入の方が対象": "For first-time purchases", "使用後でも、1本まで返品可能": "One bottle may be returned even after use", "公式サイトでのご購入に限ります": "Official online store purchases only", "条件は仮です。正式な内容は決まりしだい差し替えます。": "Terms are provisional and will be updated once finalized.", "楽天市場": "Rakuten", "いちばん人気": "Most popular", "公式サイト": "Official site", "定期便あり": "Subscription available", "リンクは仮で、各ストアの検索結果に飛びます。公開前に商品ページのURLへ差し替えます。": "Links are provisional and go to each store's search results.", "都内近郊の美容室でも取り扱いがあります。": "Also available at selected salons around Tokyo.", "取扱サロン様 募集中": "Now recruiting partner salons", "ヒートクチュールを、": "HEAT COUTURE,", "サロンから。": "from your salon.", "ドライヤーの熱で仕上がるヘアミルクは、ブローの最後にお客様へそのまま伝えられます。GRANIを一緒に広げてくださるサロン様を募集しています。": "A hair milk finished by dryer heat is easy to share with clients at the end of a blow-dry. We're looking for salons to grow GRANI with us.", "施術でそのまま使える": "Ready for treatments", "ブロー前になじませるだけ。仕上げの一工程に。": "Just apply before blow-drying, as one finishing step.", "店販のご相談": "Retail inquiries", "卸条件・最小ロットはお問い合わせください（仮）。": "Contact us for wholesale terms and minimum orders (TBC).", "販促ツールのご用意": "Promotional tools", "POP・サンプル・Instagram素材など（仮）。": "POP, samples, Instagram assets and more (TBC).", "お問い合わせ ／ 取扱のご相談": "Contact / Stockist inquiries", "取扱サロンのご相談": "Salon partnership", "法人・取材": "Business / Press", "商品について": "About the product", "サロン名・会社名": "Salon / Company", "お名前": "Name", "必須": "Required", "お名前を入力してください": "Please enter your name", "メールアドレス": "Email", "メールアドレスを正しく入力してください": "Please enter a valid email", "電話番号": "Phone", "所在地（都道府県・市区町村）": "Location (prefecture / city)", "お問い合わせ内容": "Message", "内容を入力してください": "Please enter a message", "プライバシーポリシー（仮）に同意して送信します": "I agree to the privacy policy (TBC)", "送信する": "Send", "※試作フォームです。送信先は公開前に設定します。": "* Prototype form. The destination will be set before launch.", "ありがとうございます。": "Thank you.", "内容を確認し、担当よりご連絡します。（試作のため実際には送信されていません）": "We'll be in touch soon. (Prototype: nothing was actually sent.)", "公式オンラインショップ": "Official online store", "試作ページ ／ 一部の写真は生成画像": "Prototype / some images are AI-generated", "メインメニュー": "Main menu", "GRANIシルキーモイストヘアミルク": "GRANI Silky Moist Hair Milk", "長い黒髪を広げたモデル": "Model with long black hair spread out", "パサついて広がった髪のイメージ（後ろ姿）": "Dry, frizzy hair (back view, illustration)", "まとまったツヤのある髪のイメージ（後ろ姿）": "Smooth, glossy hair (back view, illustration)", "濡れた髪をかき上げるモデル": "Model sweeping back wet hair", "GRANIヘアミルクのチューブ": "GRANI hair milk tube", "髪の断面図。熱をあてると、成分Aが内部のすき間を埋め、成分Bが表面をなめらかに包むイメージ": "Hair cross-section: with heat, ingredient A fills gaps inside and ingredient B smooths the surface", "髪をなびかせるモデル": "Model with flowing hair", "商品を顔の横に持つモデル": "Model holding the product", "なめらかなミルクの質感": "Smooth milk texture", "ダメージで空いた、すき間": "Gaps from damage", "めくれたキューティクル": "Lifted cuticle", "内部のすき間を補修": "Repairs gaps inside", "表面をなめらかに": "Smooths the surface"};window.LANG="ja";window.tr=function(s){return window.LANG==="en"&&window.I18N[s]||s};</script>
 </head>
 <body>
 <div class="ld" id="ld" aria-hidden="true"><span style="color:var(--pink)">GRANI</span><i></i></div>
@@ -669,6 +706,7 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;border-to
     <a href="#top" data-nav="top">TOP</a>
     <a href="#heat-couture" data-nav="heat-couture">HEAT COUTURE</a>
     <a href="#hair-milk" data-nav="hair-milk" class="hm">HAIR MILK</a>
+    <button type="button" class="lang" id="lang" aria-label="Switch language"><span data-l="ja">JP</span><i>/</i><span data-l="en">EN</span></button>
     <a href="#hair-milk" class="buy">購入する</a>
   </nav>
 </div></header>
@@ -686,7 +724,7 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;border-to
       <p class="bx big"><span>成分が浸透※。</span></p>
       <p class="bx"><span>熱を、まとう。W成分配合※のヘアミルク</span></p>
     </div>
-    <div class="tick" aria-hidden="true"><p><span>GRANI</span><b>熱をまとうヘアミルク</b><span>HEAT COUTURE</span><b>W成分配合</b><span>GRANI</span><b>熱をまとうヘアミルク</b><span>HEAT COUTURE</span><b>W成分配合</b><span>GRANI</span><b>熱をまとうヘアミルク</b><span>HEAT COUTURE</span><b>W成分配合</b><span>GRANI</span><b>熱をまとうヘアミルク</b><span>HEAT COUTURE</span><b>W成分配合</b></p></div>
+    <div class="tick" aria-hidden="true"><p><span>VOICE</span><b>毛先までしっとり</b><span>VOICE</span><b>雨の日もなめらか</b><span>VOICE</span><b>ベタつかない</b><span>VOICE</span><b>甘すぎない香り</b><span>VOICE</span><b>熱が、ケアになる</b><span>VOICE</span><b>ロングヘアにもたっぷり</b><span>HEAT COUTURE</span><b>@cosme 平均5.7 / 7</b><span>VOICE</span><b>毛先までしっとり</b><span>VOICE</span><b>雨の日もなめらか</b><span>VOICE</span><b>ベタつかない</b><span>VOICE</span><b>甘すぎない香り</b><span>VOICE</span><b>熱が、ケアになる</b><span>VOICE</span><b>ロングヘアにもたっぷり</b><span>HEAT COUTURE</span><b>@cosme 平均5.7 / 7</b></p></div>
     <p class="hx-nt">※ トステア®とγ-ドコサラクトン。浸透は毛髪の内部まで。</p>
   </section>
 
@@ -795,14 +833,27 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;border-to
   <section class="pad"><div class="w">
     <p class="k rv">STRENGTH 02　W成分</p>
     <h2 class="rv">髪に、革命。<br><span class="pk">熱に反応する、2つの成分。</span></h2>
-    <div class="ing" id="wx">
-      <div class="ing-ph pcg rv" id="pcg"><canvas aria-label="熱で2つの成分が髪の内部へ入っていくイメージ（CG）" role="img"></canvas>
-        <p class="pcg-t"><b>HEAT</b><span id="pcg-h">0%</span></p>
-        <p class="pcg-l"><i class="la"></i>A トステア®<br><i class="lb"></i>B γ-ドコサラクトン</p>
-        <p class="pcg-n">CGイメージ</p></div>
-      <div class="ing-a rv d1"><p class="n">A</p><p class="nm">TOSTEA®</p><h3>トステア®</h3><p class="tx">熱をきっかけに、髪の内部にはたらきかける毛髪補修成分。うねりや広がりをおさえる。</p></div>
-      <div class="ing-b rv d2"><p class="n">B</p><p class="nm">γ-DOCOSALACTONE</p><h3>γ-ドコサラクトン</h3><p class="tx">ドライヤーの熱で髪になじむ毛髪補修成分。表面をなめらかに整え、ツヤを与える。</p></div>
+  </div></section>
+
+  <section class="pin hx2" id="pin-ing" style="height:340vh">
+    <div class="stk hx2-s">
+      <div class="hx2-txt">
+        <p class="hx2-k">HOW IT WORKS</p>
+        <p class="hx2-h">熱が、<br>2つの成分のスイッチ。</p>
+        <ol class="hx2-st">
+          <li data-i="0"><b>01</b><div><strong>つける</strong><span>タオルドライした髪に、2つの成分を含むミルクをなじませる。</span></div></li>
+          <li data-i="1"><b>02</b><div><strong>熱をあてる</strong><span>ドライヤーの熱が、成分がはたらくきっかけに。</span></div></li>
+          <li data-i="2"><b>03</b><div><strong>内側と表面から</strong><span><em class="ca">A トステア®</em>は髪の内部にはたらきかけ、うねりや広がりをおさえる。<em class="cb">B γ-ドコサラクトン</em>は表面をなめらかに整え、ツヤを与える。</span></div></li>
+        </ol>
+      </div>
+      <figure class="hx2-fig">
+        <canvas id="hx2c" role="img" aria-label="髪の断面図。熱をあてると、成分Aが内部のすき間を埋め、成分Bが表面をなめらかに包むイメージ"></canvas>
+        <figcaption><span id="hx2-h">HEAT 0%</span><small>髪の断面イメージ（模式図）</small></figcaption>
+      </figure>
     </div>
+  </section>
+
+  <section class="pad" style="padding-top:clamp(40px,8vh,90px)"><div class="w">
     <div class="heat-row rv" id="heat">
       <div class="steps3">
         <div><p class="n">1</p><h3>つける</h3><p class="tx">タオルドライした髪に、W成分のミルクをなじませる。</p></div>
@@ -893,12 +944,9 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;border-to
   <section class="pad"><div class="w">
     <div>
       <div class="rv vc-wrap"><p class="k">VOICE</p><p class="h2" style="font-size:clamp(24px,3vw,40px)">使用者の声</p>
-        <div class="vc">
-          <figure><p class="st">★★★★★</p><blockquote>乾かすだけで、毛先までまとまる。朝のアイロンが短くなりました。</blockquote><figcaption>20代・くせ毛・毎朝アイロン</figcaption></figure>
-          <figure><p class="st">★★★★★</p><blockquote>ドライヤーの後、手ぐしが通る。翌朝の広がりが違います。</blockquote><figcaption>30代・広がりやすい髪</figcaption></figure>
-          <figure><p class="st">★★★★☆</p><blockquote>香りが控えめで、香水とぶつからないのがうれしい。</blockquote><figcaption>20代・カラー毛</figcaption></figure>
-        </div>
-        <p class="tmp">仮の文章です。公開前に、ご本人の許可を得た実際の声に差し替えます。</p>
+        <div class="vc-sum"><p><b>187</b><span>件のクチコミ</span></p><p><b>5.7</b><span>/ 7　平均評価</span></p><p class="vs-s">@cosme　GRANIシルキーモイストヘアミルク<br>（2026年11月時点）</p></div>
+        <div class="vc vc6"><figure><p class="vt"><span>熱がケアになる</span><em>モニター</em></p><blockquote>熱を味方にする、という考え方が新鮮。多めになじませると、しっとりまとまる。</blockquote><p class="sc"><b>5</b>/7</p><figcaption>40代・乾燥肌</figcaption></figure><figure><p class="vt"><span>テクスチャー</span><em>モニター</em></p><blockquote>ベタつかず、重くないミルク。ドライヤー前に使うと、毛先までしっとり。</blockquote><p class="sc"><b>6</b>/7</p><figcaption>40代・普通肌</figcaption></figure><figure><p class="vt"><span>ロングヘア</span><em>購入品</em></p><blockquote>たっぷり入っていて、オイルだけでは足りないロングヘアにちょうどいい。</blockquote><p class="sc"><b>7</b>/7</p><figcaption>30代・普通肌</figcaption></figure><figure><p class="vt"><span>雨の日</span><em>購入品</em></p><blockquote>乾かしたあとの収まりがよく、雨の日もなめらかなまま。</blockquote><p class="sc"><b>7</b>/7</p><figcaption>40代・乾燥肌</figcaption></figure><figure><p class="vt"><span>香り</span><em>購入品</em></p><blockquote>甘すぎない、フレッシュで落ち着いた香りが好み。</blockquote><p class="sc"><b>6</b>/7</p><figcaption>30代・乾燥肌</figcaption></figure><figure><p class="vt"><span>うねり</span><em>モニター</em></p><blockquote>うねりやすい季節の味方。ドライヤーやアイロンの熱がケアの時間になる。</blockquote><p class="sc"><b>6</b>/7</p><figcaption>40代・普通肌</figcaption></figure></div>
+        <p class="tmp">@cosmeに投稿されたクチコミを要約して掲載しています（原文ではありません）。「モニター」は商品提供を受けた方の投稿です。公開前に、掲載の許可と最新の件数・評価を確認します。</p>
       </div>
     </div>
   </div></section>
@@ -965,7 +1013,7 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;border-to
   <p class="fl">GRANI</p>
   <div class="fc"><a href="#top">TOP</a><a href="#heat-couture">HEAT COUTURE</a><a href="#hair-milk">HAIR MILK</a><a href="#contact" data-c>CONTACT</a></div>
   <div class="fc"><a href="https://www.instagram.com/granibeauty/">Instagram</a><a href="https://lin.ee/6NXg6k3">LINE</a><a href="https://grani-beauty.com/">公式オンラインショップ</a></div>
-  <p class="fb"><span>© MAKE IT INC.</span><span>試作ページ ／ 写真は撮影済みのビジュアル</span></p>
+  <p class="fb"><span>© MAKE IT INC.</span><span>試作ページ ／ 一部の写真は生成画像</span></p>
 </div></footer>
 
 <script>
@@ -1006,7 +1054,7 @@ function prog(el){var r=el.getBoundingClientRect(),h=el.offsetHeight-window.inne
 var heat=document.getElementById("pin-heat"),hzs=document.getElementById("pin-hz"),track=document.getElementById("hz-track"),hzn=document.getElementById("hz-n"),wx=document.getElementById("wx");
 function drive(){
   var it=document.getElementById("pin-intro");if(it&&it.offsetParent){var q=prog(it);var st=it.firstElementChild;st.style.setProperty("--p",Math.max(0,Math.min(1,(q-.2)/.35)).toFixed(3));var bs=st.querySelectorAll(".bx");bs.forEach(function(b,i){var v=Math.max(0,Math.min(1,(q-.04-i*.08)/.14));b.style.setProperty("--b",v.toFixed(3));});st.querySelector(".intro-l").style.setProperty("--b",Math.max(0,Math.min(1,(q-.36)/.15)).toFixed(3));st.querySelectorAll(".stack p").forEach(function(p,i){var k=Math.max(0,Math.min(1,(q*1.4-i*.09)));p.style.setProperty("--c",(Math.min(100,k*k*95)).toFixed(1));p.style.setProperty("--x",((i%2?1:-1)*k*80).toFixed(1));});}
-  var sw=document.getElementById("pin-ba");if(sw&&sw.offsetParent){var q=prog(sw);var el=document.getElementById("sweep");el.style.setProperty("--p",(q*100).toFixed(1)+"%");var qq=Math.max(0,Math.min(1,(q-.1)/.45)),zz=Math.max(0,Math.min(1,(q-.68)/.25));el.style.setProperty("--q",qq.toFixed(3));el.style.setProperty("--g",(Math.sin(qq*Math.PI)).toFixed(3));el.style.setProperty("--z",zz.toFixed(3));var bg=sw.querySelector(".bg2");bg.style.setProperty("--q",qq.toFixed(3));document.getElementById("sw-l").textContent=qq>.5?"AFTER":"BEFORE";document.getElementById("sw-s").textContent=qq>.5?"ドライヤー後":"ドライヤー前";var hp=Math.round(Math.max(0,Math.min(1,(q-.1)/.45))*100);document.getElementById("sw-p").textContent=hp>=100?"HEAT COUTURE":"HEAT "+hp+"%";el.classList.toggle("done",q>=.55);}
+  var sw=document.getElementById("pin-ba");if(sw&&sw.offsetParent){var q=prog(sw);var el=document.getElementById("sweep");el.style.setProperty("--p",(q*100).toFixed(1)+"%");var qq=Math.max(0,Math.min(1,(q-.1)/.45)),zz=Math.max(0,Math.min(1,(q-.68)/.25));el.style.setProperty("--q",qq.toFixed(3));el.style.setProperty("--g",(Math.sin(qq*Math.PI)).toFixed(3));el.style.setProperty("--z",zz.toFixed(3));var bg=sw.querySelector(".bg2");bg.style.setProperty("--q",qq.toFixed(3));document.getElementById("sw-l").textContent=qq>.5?"AFTER":"BEFORE";document.getElementById("sw-s").textContent=tr(qq>.5?"ドライヤー後":"ドライヤー前");var hp=Math.round(Math.max(0,Math.min(1,(q-.1)/.45))*100);document.getElementById("sw-p").textContent=hp>=100?"HEAT COUTURE":"HEAT "+hp+"%";el.classList.toggle("done",q>=.55);}
   if(heat&&heat.offsetParent){var p=prog(heat);var st=heat.firstElementChild;st.style.setProperty("--r",Math.min(1,p*2.2).toFixed(3));st.style.setProperty("--h",Math.max(0,Math.min(1,(p-.35)/.45)).toFixed(3));}
   if(hzs&&hzs.offsetParent){var q=prog(hzs);var max=track.scrollWidth-window.innerWidth+parseFloat(getComputedStyle(track).paddingLeft);track.style.transform="translateX("+(-q*Math.max(0,max))+"px)";hzn.textContent="0"+Math.min(4,1+Math.floor(q*3.999));}
   if(wx&&wx.offsetParent){var r=wx.getBoundingClientRect(),vh=window.innerHeight;var m=Math.max(0,Math.min(1,(vh-r.top)/(vh*.8)));wx.style.setProperty("--m",m.toFixed(3));}
@@ -1031,54 +1079,76 @@ f.addEventListener("submit",function(e){e.preventDefault();var ok=true;
  if(ok){cf.classList.add("sent");}});
 })();
 
-(function(){var box=document.getElementById("pcg");if(!box)return;var cv=box.querySelector("canvas"),cx=cv.getContext("2d"),hl=document.getElementById("pcg-h");
-var W,H,R,L,dpr,P=[],run=false,t0=performance.now(),heat=0,red=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-var ANG=-0.5,CA=Math.cos(ANG),SA=Math.sin(ANG);
-function size(){dpr=Math.min(2,window.devicePixelRatio||1);W=box.clientWidth;H=box.clientHeight;cv.width=W*dpr;cv.height=H*dpr;R=Math.min(W,H)*.15;L=Math.hypot(W,H)*.7;}
-function spawn(p,init){p.t=Math.random()<.5?0:1;p.u=(Math.random()*2-1)*L*(init?1:.9);var sg=Math.random()<.5?-1:1;p.v=sg*(R*1.5+Math.random()*R*3.2);p.vu=.15+Math.random()*.35;p.vv=0;p.s=1+Math.random()*2.2;p.in=0;p.life=0;p.ph=Math.random()*6.28;p.tv=(Math.random()*2-1)*R*.75;return p;}
-function init(){P=[];var n=Math.round(Math.min(420,W*H/900));for(var i=0;i<n;i++)P.push(spawn({},true));}
-function heatNow(now){var r=box.getBoundingClientRect(),vh=window.innerHeight;var vis=Math.max(0,Math.min(1,(vh-r.top)/(vh*.75)));var cyc=.5+.5*Math.sin((now-t0)/2600);return Math.min(1,vis*(.55+.45*cyc));}
-function toXY(u,v){return[W/2+u*CA-v*SA,H/2+u*SA+v*CA];}
-function strand(now){cx.save();cx.translate(W/2,H/2);cx.rotate(ANG);
- var g=cx.createLinearGradient(0,-R,0,R);g.addColorStop(0,"#1b1210");g.addColorStop(.18,"#5a3a2c");g.addColorStop(.32,"#b98267");g.addColorStop(.42,"#6e4a3a");g.addColorStop(.8,"#2b1c16");g.addColorStop(1,"#120c0a");
- cx.fillStyle=g;cx.fillRect(-L,-R,2*L,2*R);
- // cuticle scales
- cx.globalAlpha=.22;cx.strokeStyle="#f3d2bf";cx.lineWidth=1;var step=Math.max(10,R*.32),off=((now/40)%step);
- for(var x=-L-step;x<L;x+=step){cx.beginPath();cx.moveTo(x+off,-R);cx.quadraticCurveTo(x+off+step*.55,0,x+off,R);cx.stroke();}
- cx.globalAlpha=1;
- // heat glow along the strand
- var hg=cx.createLinearGradient(0,-R*1.9,0,R*1.9);var a=.55*heat;hg.addColorStop(0,"rgba(255,122,0,0)");hg.addColorStop(.38,"rgba(255,90,60,"+a*.6+")");hg.addColorStop(.5,"rgba(255,45,143,"+a*.25+")");hg.addColorStop(.62,"rgba(255,90,60,"+a*.6+")");hg.addColorStop(1,"rgba(255,45,143,0)");
- cx.globalCompositeOperation="lighter";cx.fillStyle=hg;cx.fillRect(-L,-R*1.9,2*L,R*3.8);
- // moving heat wave
- var wx=((now/12)%(2*L+400))-L-200;var wg=cx.createRadialGradient(wx,0,0,wx,0,R*2.4);wg.addColorStop(0,"rgba(255,140,60,"+.55*heat+")");wg.addColorStop(1,"rgba(255,45,143,0)");cx.fillStyle=wg;cx.fillRect(wx-R*2.4,-R*2.4,R*4.8,R*4.8);
- cx.globalCompositeOperation="source-over";
- // edge highlight
- cx.strokeStyle="rgba(255,220,200,.25)";cx.lineWidth=1.2;cx.beginPath();cx.moveTo(-L,-R);cx.lineTo(L,-R);cx.stroke();
- cx.restore();}
-function draw(now){heat+=(heatNow(now)-heat)*.06;hl.textContent=Math.round(heat*100)+"%";
- cx.setTransform(dpr,0,0,dpr,0,0);cx.clearRect(0,0,W,H);
- var inside=[],out=[];
- for(var i=0;i<P.length;i++){var p=P[i];p.ph+=.03;
-  if(!p.in){p.u+=p.vu;var pull=heat*heat*.022;p.vv+=(-p.v)*pull*.02+Math.sin(p.ph)*.04;p.vv*=.92;p.v+=p.vv;
-   if(Math.abs(p.v)<R*.95&&heat>.15){p.in=1;p.life=0;}}
-  else{p.life+=.006+heat*.008;p.u+=p.vu*.35;p.v+=(p.tv-p.v)*.04;if(p.life>=1)spawn(p);}
-  if(p.u>L)p.u=-L;
-  (p.in?inside:out).push(p);}
- strand(now);
- cx.globalCompositeOperation="lighter";
- // absorbed particles: clipped to strand, glowing and fading
- cx.save();cx.translate(W/2,H/2);cx.rotate(ANG);cx.beginPath();cx.rect(-L,-R,2*L,2*R);cx.clip();cx.rotate(-ANG);cx.translate(-W/2,-H/2);
- for(i=0;i<inside.length;i++){p=inside[i];var xy=toXY(p.u,p.v),al=(1-p.life)*.9,rr=p.s*(1+p.life*2.5);dot(xy[0],xy[1],rr,p.t,al);}
+
+(function(){var sec=document.getElementById("pin-ing");if(!sec)return;var cv=document.getElementById("hx2c"),cx=cv.getContext("2d"),hl=document.getElementById("hx2-h"),lis=sec.querySelectorAll(".hx2-st li");
+var S,dpr,C,RO,RC,F=[],A=[],B=[],q=0,qs=0,run=false;
+function rnd(a){var x=Math.sin(a*127.1)*43758.5453;return x-Math.floor(x);}
+function ss(a,b,x){x=Math.max(0,Math.min(1,(x-a)/(b-a)));return x*x*(3-2*x);}
+function build(){dpr=Math.min(2,window.devicePixelRatio||1);S=cv.clientWidth;cv.width=S*dpr;cv.height=S*dpr;C=S/2;RO=S*.34;RC=RO*.9;
+ F=[];var r=RC*.062,tries=0;while(F.length<320&&tries<9000){tries++;var a=rnd(tries)*6.283,d=Math.sqrt(rnd(tries+.5))*(RC-r*1.1),x=Math.cos(a)*d,y=Math.sin(a)*d,ok=true;for(var i=0;i<F.length;i++){var dx=F[i].x-x,dy=F[i].y-y;if(dx*dx+dy*dy<(r*2.05)*(r*2.05)){ok=false;break;}}if(ok)F.push({x:x,y:y,r:r*(.85+rnd(tries+.3)*.3),hole:false});}
+ var holes=0;F.forEach(function(f,i){if(rnd(i+9.1)<.16){f.hole=true;holes++;}});
+ A=[];var k=0;F.forEach(function(f,i){if(!f.hole)return;var a=-2.6+rnd(i+3)*1.9,d=RO*(1.35+rnd(i+4)*.4);A.push({sx:Math.cos(a)*d,sy:Math.sin(a)*d,tx:f.x,ty:f.y,f:f,dl:rnd(i+5)*.35,ph:rnd(i)*6});k++;});
+ B=[];for(var j=0;j<90;j++){var ang=j/90*6.283,a2=ang+(rnd(j+7)-.5)*.6,d2=RO*(1.3+rnd(j+8)*.5);B.push({sx:Math.cos(a2)*d2,sy:Math.sin(a2)*d2,ang:ang,dl:rnd(j+6)*.3,ph:rnd(j+2)*6});}}
+function draw(now){var t=now/1000;qs+=(q-qs)*.12;var Q=qs;
+ var app=ss(0,.18,Q),heat=ss(.22,.5,Q),pa=ss(.45,.78,Q),pb=ss(.55,.86,Q),sm=ss(.6,.92,Q);
+ hl.textContent="HEAT "+Math.round(heat*100)+"%";
+ var step=Q<.3?0:Q<.55?1:2;for(var i=0;i<lis.length;i++)lis[i].classList.toggle("on",i===step);
+ cx.setTransform(dpr,0,0,dpr,0,0);cx.clearRect(0,0,S,S);cx.translate(C,C);
+ // heat field from dryer side (left)
+ if(heat>0){var hg=cx.createRadialGradient(-RO*.5,0,0,-RO*.5,0,RO*.98);hg.addColorStop(0,"rgba(255,122,0,"+.28*heat+")");hg.addColorStop(.5,"rgba(255,61,90,"+.12*heat+")");hg.addColorStop(1,"rgba(255,45,143,0)");cx.fillStyle=hg;cx.beginPath();cx.arc(-RO*.5,0,RO*.98,0,6.283);cx.fill();
+  cx.save();cx.globalAlpha=.5*heat*(1-sm*.6);cx.strokeStyle="#FF6A3D";cx.lineWidth=1.2;cx.lineCap="round";for(var w=0;w<5;w++){var yy=(w-2)*RO*.32,ph=(t*1.4+w*.7)%1;cx.beginPath();for(var x=-C;x<-RO*.95;x+=4){var y=yy+Math.sin(x*.05+t*4+w)*4;if(x===-C)cx.moveTo(x,y);else cx.lineTo(x,y);}cx.stroke();}cx.restore();}
+ // cortex
+ var cg=cx.createRadialGradient(-RC*.3,-RC*.35,RC*.1,0,0,RC);cg.addColorStop(0,"#6b4a3c");cg.addColorStop(1,"#2e1f1a");cx.fillStyle=cg;cx.beginPath();cx.arc(0,0,RC,0,6.283);cx.fill();
+ F.forEach(function(f){var fill=f.hole?0:1;if(f.hole){fill=f.fill||0;}
+  cx.beginPath();cx.arc(f.x,f.y,f.r,0,6.283);
+  if(f.hole&&fill<1){cx.fillStyle="rgba(244,242,245,"+(1-fill)*.85+")";cx.fill();if(fill>0){cx.fillStyle="rgba(255,45,143,"+fill*.85+")";cx.fill();}}
+  else{var g=cx.createRadialGradient(f.x-f.r*.35,f.y-f.r*.35,f.r*.1,f.x,f.y,f.r);g.addColorStop(0,f.hole?"#ff7ab8":"#9a6b55");g.addColorStop(1,f.hole?"#c22a6f":"#4a3027");cx.fillStyle=g;cx.fill();}
+ });
+ // cuticle ring: rough -> smooth
+ var N=64;cx.save();for(var n=0;n<N;n++){var a0=n/N*6.283,a1=(n+1.35)/N*6.283,lift=(1-sm)*RO*.055*(.4+rnd(n+1))*(.6+.4*Math.sin(t*1.2+n));
+  cx.beginPath();cx.arc(0,0,RO-RO*.01+lift,a0,a1);cx.arc(0,0,RC+1,a1,a0,true);cx.closePath();
+  var cc=cx.createLinearGradient(Math.cos(a0)*RC,Math.sin(a0)*RC,Math.cos(a0)*RO,Math.sin(a0)*RO);cc.addColorStop(0,"#3b2820");cc.addColorStop(1,"#7a5646");cx.fillStyle=cc;cx.fill();cx.strokeStyle="rgba(23,15,12,"+(.55*(1-sm)+.08)+")";cx.lineWidth=1;cx.stroke();}
  cx.restore();
- for(i=0;i<out.length;i++){p=out[i];xy=toXY(p.u,p.v);var d=Math.abs(p.v)/R;dot(xy[0],xy[1],p.s,p.t,Math.min(1,.35+.5/d+heat*.2));}
- cx.globalCompositeOperation="source-over";}
-function dot(x,y,r,t,a){var c=t?"255,138,31":"255,45,143";var g=cx.createRadialGradient(x,y,0,x,y,r*3);g.addColorStop(0,"rgba(255,255,255,"+a+")");g.addColorStop(.25,"rgba("+c+","+a+")");g.addColorStop(1,"rgba("+c+",0)");cx.fillStyle=g;cx.beginPath();cx.arc(x,y,r*3,0,6.283);cx.fill();}
-function loop(now){if(!run)return;draw(now);requestAnimationFrame(loop);}
-size();init();draw(performance.now());
-window.addEventListener("resize",function(){size();init();});
-if("IntersectionObserver" in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!red){if(!run){run=true;if(!W){size();init();}requestAnimationFrame(loop);}}else run=false;});}).observe(box);}
-document.addEventListener("visibilitychange",function(){if(document.hidden)run=false;});
-window.addEventListener("hashchange",function(){setTimeout(function(){size();init();},60);});
+ // B coat
+ var coat=pb;if(coat>0){cx.save();cx.lineWidth=RO*.045;var gc=cx.createLinearGradient(-RO,-RO,RO,RO);gc.addColorStop(0,"rgba(255,138,31,"+coat*.9+")");gc.addColorStop(1,"rgba(255,61,90,"+coat*.9+")");cx.strokeStyle=gc;cx.beginPath();cx.arc(0,0,RO+RO*.02,0,6.283*Math.min(1,coat*1.15));cx.stroke();
+  // gloss highlight
+  cx.globalAlpha=sm;cx.lineWidth=RO*.02;cx.strokeStyle="rgba(255,255,255,.9)";cx.lineCap="round";cx.beginPath();cx.arc(0,0,RO+RO*.02,-2.5+Math.sin(t*.8)*.08,-1.6+Math.sin(t*.8)*.08);cx.stroke();cx.restore();}
+ // A particles
+ A.forEach(function(p){var k=ss(p.dl,p.dl+.65,pa),x=p.sx+(p.tx-p.sx)*k,y=p.sy+(p.ty-p.sy)*k,fl=Math.sin(t*1.5+p.ph)*4*(1-k);p.f.fill=ss(.85,1,k);if(app<=0||k>=1)return;
+  dot(x+fl,y-fl,RO*.024,"255,45,143",app*(1-ss(.85,1,k)));});
+ // B particles
+ B.forEach(function(p){var k=ss(p.dl,p.dl+.7,pb),tx=Math.cos(p.ang)*(RO*1.02),ty=Math.sin(p.ang)*(RO*1.02),x=p.sx+(tx-p.sx)*k,y=p.sy+(ty-p.sy)*k,fl=Math.sin(t*1.3+p.ph)*4*(1-k);if(app<=0||k>=1)return;
+  dot(x+fl,y+fl,RO*.018,"255,138,31",app*(1-ss(.8,1,k)));});
+ // labels
+ var ld=ss(.04,.14,Q)*(1-ss(.36,.46,Q));if(ld>0)lab(ld,"dmg");var la=ss(.8,.95,Q);if(la>0)lab(la,"fix");
+}
+function dot(x,y,r,c,a){var g=cx.createRadialGradient(x,y,0,x,y,r*2.2);g.addColorStop(0,"rgba("+c+","+a+")");g.addColorStop(.55,"rgba("+c+","+a*.5+")");g.addColorStop(1,"rgba("+c+",0)");cx.fillStyle=g;cx.beginPath();cx.arc(x,y,r*2.2,0,6.283);cx.fill();cx.fillStyle="rgba(255,255,255,"+a*.9+")";cx.beginPath();cx.arc(x,y,r*.45,0,6.283);cx.fill();}
+function lab(a,which){var fs=Math.max(11,S*.028);cx.font="800 "+fs+"px Montserrat, 'Noto Sans JP', sans-serif";cx.lineWidth=1;cx.strokeStyle="#17161A";
+ if(which==="dmg"){var h=null;for(var i=0;i<F.length;i++)if(F[i].hole&&F[i].x<-RC*.1&&F[i].y>RC*.1){h=F[i];break;}if(!h)for(i=0;i<F.length;i++)if(F[i].hole){h=F[i];break;}
+  cx.globalAlpha=a;cx.beginPath();cx.moveTo(h.x,h.y);cx.lineTo(-RO*.7,RO*1.2);cx.lineTo(-RO*1.32,RO*1.2);cx.stroke();cx.fillStyle="#17161A";cx.fillText(tr("ダメージで空いた、すき間"),-RO*1.32,RO*1.2-fs*.5);
+  var ux=Math.cos(-2.2)*RO*1.05,uy=Math.sin(-2.2)*RO*1.05;cx.beginPath();cx.moveTo(ux,uy);cx.lineTo(-RO*.9,-RO*1.24);cx.lineTo(-RO*1.32,-RO*1.24);cx.stroke();cx.fillText(tr("めくれたキューティクル"),-RO*1.32,-RO*1.24-fs*.5);cx.globalAlpha=1;return;}
+ cx.globalAlpha=a;var h2=null;for(i=0;i<F.length;i++)if(F[i].hole&&F[i].x>RC*.1&&F[i].y>RC*.1){h2=F[i];break;}if(!h2)for(i=0;i<F.length;i++)if(F[i].hole){h2=F[i];break;}
+ cx.beginPath();cx.moveTo(h2.x,h2.y);cx.lineTo(RO*.35,RO*1.22);cx.lineTo(RO*.35+fs*8,RO*1.22);cx.stroke();cx.fillStyle="#FF2D8F";cx.fillText("A",RO*.37,RO*1.22-fs*.5);cx.fillStyle="#17161A";cx.fillText(tr("内部のすき間を補修"),RO*.37+fs*1.1,RO*1.22-fs*.5);
+ var bx=Math.cos(-1.05)*RO*1.05,by=Math.sin(-1.05)*RO*1.05;cx.beginPath();cx.moveTo(bx,by);cx.lineTo(RO*.35,-RO*1.24);cx.lineTo(RO*.35+fs*8,-RO*1.24);cx.stroke();cx.fillStyle="#FF8A1F";cx.fillText("B",RO*.37,-RO*1.24-fs*.5);cx.fillStyle="#17161A";cx.fillText(tr("表面をなめらかに"),RO*.37+fs*1.1,-RO*1.24-fs*.5);cx.globalAlpha=1;}
+function loop(now){if(!run)return;if(sec.offsetParent){var r=sec.getBoundingClientRect(),h=sec.offsetHeight-window.innerHeight;q=Math.max(0,Math.min(1,-r.top/(h||1)));draw(now);}requestAnimationFrame(loop);}
+function start(){if(!S||cv.clientWidth!==S)build();if(!run){run=true;requestAnimationFrame(loop);}}
+if("IntersectionObserver" in window)new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)start();else run=false;});}).observe(sec);else start();
+window.addEventListener("resize",function(){build();});
+window.addEventListener("hashchange",function(){setTimeout(function(){if(cv.clientWidth)build();},80);});
+})();
+
+(function(){var btn=document.getElementById("lang");
+function walk(root,fn){var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentNode&&n.parentNode.nodeName;return p==="SCRIPT"||p==="STYLE"?2:1;}});var n;while(n=w.nextNode())fn(n);}
+function apply(l){window.LANG=l;document.documentElement.lang=l==="en"?"en":"ja";document.documentElement.classList.toggle("en",l==="en");
+ walk(document.body,function(n){if(n.__ja===undefined){if(!/[぀-ヿ一-鿿]/.test(n.nodeValue))return;n.__ja=n.nodeValue;}var o=n.__ja,k=o.trim(),e=window.I18N[k];n.nodeValue=(l==="en"&&e)?o.replace(k,e):o;});
+ ["alt","aria-label","placeholder"].forEach(function(a){[].forEach.call(document.querySelectorAll("["+a+"]"),function(el){var key="__ja_"+a;if(el[key]===undefined)el[key]=el.getAttribute(a);var o=el[key],e=window.I18N[o];el.setAttribute(a,(l==="en"&&e)?e:o);});});
+ [].forEach.call(btn.querySelectorAll("span"),function(sp){sp.classList.toggle("on",sp.getAttribute("data-l")===l);});
+ try{localStorage.setItem("grani-lang",l);}catch(e){}
+ window.dispatchEvent(new Event("resize"));}
+var init="ja";try{init=localStorage.getItem("grani-lang")||"ja";}catch(e){}
+if(/[?&]lang=en/.test(location.search))init="en";if(/[?&]lang=ja/.test(location.search))init="ja";
+apply(init);
+btn.addEventListener("click",function(){apply(window.LANG==="en"?"ja":"en");});
 })();
 </script>
 </body>
