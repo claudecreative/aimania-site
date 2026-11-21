@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--aim-guard--><script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_grani-plan_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_grani-plan_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=f62f5b52/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_grani-plan_ok","1")}catch(e){}try{document.cookie="aim_grani-plan_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script><meta name="robots" content="noindex,nofollow"><!--aim-guard-->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRANI ブランディング提案 HEAT COUTURE</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  /* layout: one black stage, nine pages in a row. black = stage, grey = product, pink = GRANI, heat-to-pink gradient = HEAT COUTURE */
+  color-scheme:dark;
+  --black:#0E0E10; --panel:#232226; --grey:#57555C; --line:#3B3A40; --ink:#F4F3F1; --sub:#B9B7BD;
+  --pink:#FF2D8F; --heat:#FF7A00;
+  --grad:linear-gradient(95deg,#FF7A00 0%,#FF3D5A 48%,#FF2D8F 100%);
+  --en:'Montserrat','Helvetica Neue',Arial,sans-serif;
+  --jp:'Noto Sans JP','Hiragino Sans','Yu Gothic',Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--black);color:var(--ink);font-family:var(--jp);font-size:16px;line-height:1.8;word-break:auto-phrase;display:flex;flex-direction:column;-webkit-text-size-adjust:100%}
+h1,h2,h3,p{margin:0}
+img{max-width:100%}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+mark{background:none;color:var(--pink)}
+
+header{flex:none;background:var(--black)}
+.bar{display:flex;align-items:center;gap:14px;padding:10px clamp(16px,4vw,48px)}
+.logo{font-family:var(--en);font-weight:800;font-size:22px;color:var(--pink);margin-right:auto;line-height:1}
+.pager{display:flex;align-items:center;gap:10px}
+.pager button{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--ink);background:none;color:var(--ink);font-size:17px;line-height:1}
+.pager button:hover:not(:disabled){background:var(--pink);border-color:var(--pink);color:#fff}
+.pager button:disabled{opacity:.25;cursor:default}
+.cnt{font-family:var(--en);font-weight:700;font-size:14px;min-width:3.4em;text-align:center;font-variant-numeric:tabular-nums}
+.tape{height:4px;background:var(--panel);position:relative}
+.tape i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--grad);transition:width .35s}
+
+.deck{flex:1;min-height:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none}
+.deck::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start;height:100%;overflow-y:auto;position:relative;background:var(--black)}
+.in{position:relative;max-width:1160px;min-height:100%;margin:0 auto;padding:clamp(22px,5vh,56px) clamp(20px,5vw,64px) clamp(24px,5vh,48px);display:flex;flex-direction:column}
+.kick{font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--sub);margin-bottom:clamp(12px,2.6vh,26px)}
+.kick b{font-family:var(--en);font-weight:800;color:var(--pink);margin-right:.8em;letter-spacing:0;font-size:15px}
+h2{font-weight:900;font-size:clamp(26px,4.1vw,52px);line-height:1.3;letter-spacing:.01em;text-wrap:balance}
+h3{font-weight:700;font-size:clamp(19px,2.4vw,30px);line-height:1.45}
+.lead{margin-top:clamp(12px,2.2vh,20px);font-size:clamp(16px,1.9vw,23px);font-weight:500;line-height:1.7;max-width:32em}
+.lead b{color:var(--pink)}
+.tx{font-size:clamp(15px,1.7vw,20px);line-height:1.7;color:var(--sub)}
+.body{margin-top:clamp(18px,3.6vh,40px)}
+.so{margin-top:clamp(16px,3vh,30px);font-weight:700;font-size:clamp(17px,2.1vw,26px);line-height:1.5;border-left:4px solid var(--pink);padding-left:16px}
+.foot{margin-top:auto;padding-top:clamp(14px,3vh,26px);font-size:13px;color:var(--sub)}
+
+/* cover */
+.cover .ph{position:absolute;inset:0}
+.cover .ph img{width:100%;height:100%;object-fit:cover;object-position:100% 35%;filter:grayscale(1) contrast(1.05) brightness(.92)}
+.cover .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,16,.84) 0%,rgba(14,14,16,.62) 40%,rgba(14,14,16,.12) 70%,rgba(14,14,16,0) 100%)}
+.cover .in{justify-content:space-between}
+@media (max-width:760px){.cover .ph{inset:36% 0 0 0}.cover .ph::after{background:linear-gradient(180deg,var(--black) 0%,rgba(14,14,16,0) 34%),linear-gradient(0deg,rgba(14,14,16,.9) 0%,rgba(14,14,16,0) 24%)}}
+.hc{font-family:var(--en);font-weight:800;font-size:clamp(54px,11.5vw,160px);line-height:.92;letter-spacing:-.01em;display:inline-block}
+.hcj{font-weight:900;font-size:clamp(20px,3vw,38px);margin-top:clamp(12px,2.4vh,24px)}
+.hcj small{font-size:.5em;font-weight:500;letter-spacing:.2em;margin-left:1em;color:var(--sub)}
+
+/* three steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr)}
+.steps>div{padding:0 clamp(12px,2.2vw,30px);border-left:1px solid var(--line)}
+.steps>div:first-child{padding-left:0;border-left:0}
+.n{font-family:var(--en);font-weight:800;color:var(--pink);font-size:clamp(34px,5vw,64px);line-height:1}
+.steps h3{margin:8px 0 4px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}.steps>div{border-left:0;border-top:1px solid var(--line);padding:14px 0}.steps>div:first-child{border-top:0}}
+
+/* four steps on the conclusion page */
+.steps.s4{grid-template-columns:repeat(4,1fr)}
+.steps.s4 h3{font-size:clamp(17px,1.95vw,24px)}
+.steps.s4 .tx{font-size:clamp(14px,1.45vw,17px)}
+@media (max-width:760px){.steps.s4{grid-template-columns:1fr}}
+.act .n{font-size:clamp(28px,3.6vw,46px)}
+/* what, where, why inside a step */
+.where{font-size:13px;font-weight:700;letter-spacing:.1em;color:var(--sub);margin-bottom:8px}
+.act .why{margin-top:10px;font-size:clamp(14px,1.55vw,18px);line-height:1.6}
+.act .tx{color:var(--ink)}
+/* before and after */
+.ba{display:grid;grid-template-columns:1fr auto 1.25fr;gap:clamp(12px,2.4vw,30px);align-items:stretch}
+.ba>div{background:var(--panel);padding:clamp(16px,2.6vw,32px)}
+.ba .new{background:#18171A;border:1px solid var(--pink)}
+.ba .lab{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--sub);margin-bottom:10px}
+.ba .w{font-family:var(--en);font-weight:800;font-size:clamp(20px,3vw,40px);line-height:1.1}
+.ba .old .w{color:#8F8D93}
+.ba .ar{background:none;padding:0;align-self:center;font-family:var(--en);font-weight:800;font-size:clamp(22px,3vw,36px);color:var(--pink)}
+@media (max-width:760px){.ba{grid-template-columns:1fr}.ba .ar{justify-self:center;transform:rotate(90deg)}}
+
+/* rows */
+.rows>div{display:grid;grid-template-columns:var(--c1,6em) 1fr;gap:6px 22px;align-items:baseline;padding:clamp(10px,2vh,17px) 0;border-top:1px solid var(--line)}
+.rows>div:last-child{border-bottom:1px solid var(--line)}
+.rows .tx{color:var(--ink)}
+.rows h3{font-size:clamp(17px,2vw,24px);white-space:nowrap}
+.rows.ww>div{grid-template-columns:8.5em 1.5fr 1.1fr}
+.rows.ww .hd{border-top:0;padding:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--sub)}
+.why{font-weight:700;color:var(--pink)}
+@media (max-width:760px){.rows>div,.rows.ww>div{grid-template-columns:1fr}.rows.ww .hd{display:none}}
+
+/* persona */
+.pers{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(18px,4vw,56px);align-items:stretch}
+.pers .ph{position:relative;min-height:clamp(180px,38vh,340px)}
+.pers .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;filter:grayscale(1) contrast(1.05)}
+@media (max-width:760px){.pers{grid-template-columns:1fr}}
+/* colours */
+.sw{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,1.4vw,16px)}
+.sw>div{display:flex;flex-direction:column;gap:10px}
+.sw i{display:block;height:clamp(56px,11vh,110px);border:1px solid var(--line)}
+.sw h3{font-size:clamp(17px,2vw,24px)}
+@media (max-width:760px){.sw{grid-template-columns:1fr 1fr}}
+.two.colr{align-items:stretch}
+@media (min-width:761px){.two.colr{grid-template-columns:minmax(0,.74fr) minmax(0,1.26fr)}}
+.shot{position:relative;min-height:clamp(170px,34vh,320px)}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 40%}
+.chips>div{display:grid;grid-template-columns:clamp(40px,4.4vw,56px) clamp(124px,14.6vw,176px) 1fr;gap:6px clamp(12px,1.6vw,20px);align-items:center;padding:clamp(8px,1.5vh,13px) 0;border-top:1px solid var(--line)}
+.chips>div:last-child{border-bottom:1px solid var(--line)}
+.chips i{display:block;aspect-ratio:1;border:1px solid var(--line)}
+.chips h3{font-size:clamp(17px,2vw,24px);white-space:nowrap;justify-self:start}
+.chips .tx{color:var(--ink);font-size:clamp(14px,1.5vw,18px)}
+@media (max-width:760px){.chips>div{grid-template-columns:40px 1fr}.chips .tx{grid-column:2}}
+
+/* LP sketch */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,4vw,56px);align-items:center}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.mock{position:relative;overflow:hidden;background:#000;border:1px solid var(--line);padding:clamp(16px,2.4vw,28px);display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-height:clamp(180px,30vh,270px)}
+.mock>*{position:relative}
+.mock>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:100% 30%;filter:grayscale(1) contrast(1.05) brightness(.8)}
+.mock>.v{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.45) 55%,rgba(0,0,0,0) 100%)}
+.mock .lg{font-family:var(--en);font-weight:800;font-size:15px;color:var(--pink)}
+.mock .q{align-self:flex-start;border:1px solid var(--ink);font-weight:700;font-size:12.5px;padding:1px 10px}
+.mock .h{font-family:var(--en);font-weight:800;font-size:clamp(26px,3.8vw,48px);line-height:.95;margin-top:10px;display:inline-block}
+.mock .j{font-weight:700;font-size:clamp(14px,1.5vw,18px);margin-top:8px}
+.mock .b{align-self:flex-start;background:var(--pink);color:#fff;font-weight:700;font-size:13px;padding:8px 20px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2.4vw,36px)}
+.stats>div{border-top:2px solid var(--pink);padding-top:clamp(10px,2vh,18px)}
+.stats .v{font-family:var(--en);font-weight:800;font-size:clamp(34px,5.6vw,76px);line-height:1.05;letter-spacing:-.01em;white-space:nowrap}
+.stats .v small{font-family:var(--jp);font-size:.36em;font-weight:700;margin-left:.12em;letter-spacing:0}
+.stats h3{margin-top:clamp(6px,1.4vh,14px)}
+.stats .tx{margin-top:4px}
+@media (max-width:760px){.stats{grid-template-columns:1fr}}
+
+/* timeline */
+.line{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.line::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--grad)}
+.line>div{padding-right:clamp(10px,2vw,26px);position:relative}
+.line>div::before{content:"";display:block;width:20px;height:20px;border-radius:50%;background:var(--black);border:2px solid var(--ink);margin-bottom:clamp(12px,2.6vh,24px);position:relative}
+.line>div.on::before{background:var(--pink);border-color:var(--pink)}
+.line .m{font-family:var(--en);font-weight:800;color:var(--pink);font-size:15px}
+@media (max-width:760px){.line{grid-template-columns:1fr;gap:16px}.line::before{left:9px;right:auto;top:0;bottom:0;width:2px;height:auto}.line>div{padding-left:36px}.line>div::before{position:absolute;left:0;top:4px;margin:0}}
+
+/* questions: one page, stacked */
+.qs{display:grid;gap:clamp(12px,2.4vh,22px);max-width:820px}
+.qg{font-size:13px;font-weight:700;letter-spacing:.2em;color:var(--pink);margin-top:10px;padding-top:14px;border-top:1px solid var(--line)}
+.qg:first-child{margin-top:0;padding-top:0;border-top:0}
+.q label{display:block;font-weight:700;font-size:clamp(15px,1.6vw,18px);line-height:1.6;margin-bottom:6px}
+.q textarea{width:100%;min-height:64px;resize:vertical;font:inherit;font-size:16px;line-height:1.7;color:var(--ink);background:var(--panel);border:0;border-bottom:2px solid var(--grey);padding:8px 10px;border-radius:0}
+.q textarea:focus{outline:0;border-bottom-color:var(--pink)}
+.q .st{font-size:12px;color:var(--sub);min-height:1.4em;text-align:right}
+.q .st.ok{color:#7FD3A8}.q .st.ng{color:#FF8A8A}
+.status{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:14px;margin-top:10px;color:var(--sub)}
+.pill{font-weight:700;padding:2px 12px;font-size:12px;letter-spacing:.08em;background:var(--panel);color:var(--ink)}
+.pill.ok{background:#1E3A2D;color:#9BE3BD}.pill.warn{background:#4A1230;color:#FFB3D6}
+.cta{border:1.5px solid var(--ink);background:none;color:var(--ink);font-weight:700;font-size:15px;padding:12px 28px}
+.cta:hover{background:var(--pink);border-color:var(--pink);color:#fff}
+.cta.send{background:var(--pink);border-color:var(--pink);color:#fff}
+.cta.send:hover{background:#D9007A;border-color:#D9007A}
+.cta:disabled{opacity:.5;cursor:default}
+#copyout{width:100%;max-width:820px;min-height:150px;margin-top:14px;font:inherit;font-size:13px;background:var(--panel);color:var(--ink);border:1px solid var(--line);padding:10px;display:none}
+@media (prefers-reduced-motion:reduce){.tape i{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <span class="logo">GRANI</span>
+    <div class="pager"><button type="button" id="prev" aria-label="前のページ">←</button><span class="cnt" id="cnt" aria-live="polite">1 / 1</span><button type="button" id="next" aria-label="次のページ">→</button></div>
+  </div>
+  <div class="tape" aria-hidden="true"><i id="prog"></i></div>
+</header>
+
+<div class="deck" id="deck" tabindex="0" aria-label="提案スライド。左右の矢印キーで移動できます">
+
+<section class="slide cover">
+  <div class="ph"><img src="img/cover-ai.jpg" alt="長い髪を大きくなびかせて振り向く女性。AIで生成したイメージ"></div>
+  <div class="in">
+    <p class="kick">GRANI ブランディング戦略　2026.11.21</p>
+    <div>
+      <h1 class="hc g">HEAT<br>COUTURE</h1>
+      <p class="hcj">熱で、美しく仕立てる。<small>ヒートクチュール</small></p>
+    </div>
+    <p class="foot" style="display:flex;flex-wrap:wrap;gap:2px 2em"><span>株式会社メイクイット 御中</span><span style="opacity:.7">表紙の画像：AI生成（試作）</span></p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick">結論</p>
+    <h2><span class="g">ヒートクチュール</span>の市場をつくる。<br>広告費ではなく、<mark>在庫</mark>で広める。</h2>
+    <div class="body steps s4">
+      <div><span class="n">1</span><h3>名前をつける</h3><p class="tx">熱で美しくなるケアを、ヒートクチュールと呼ぶ。</p></div>
+      <div><span class="n">2</span><h3>サイトで伝える</h3><p class="tx">「ヒートクチュールとは？」に答える。買う場所は、楽天を先頭に。</p></div>
+      <div><span class="n">3</span><h3>在庫で広める</h3><p class="tx">モニターに商品を届け、Instagramの投稿を増やす。</p></div>
+      <div><span class="n">4</span><h3>つながる</h3><p class="tx">同梱カードからLINEへ。2本目と定期便につなげる。</p></div>
+    </div>
+    <p class="so">目標は、1年後に月500本。3年後に月1,000本と、シリーズ化。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick">いただいた回答から</p>
+    <h2>なぜ、<mark>在庫</mark>で広めるのか。</h2>
+    <div class="body stats">
+      <div><p class="v">600<small>万円</small></p><h3>広告費。</h3><p class="tx">売れたのは200万円。1本に約1万円。</p></div>
+      <div><p class="v">8,000<small>本</small></p><h3>在庫。</h3><p class="tx">いまのペースで、約4年半分ある。</p></div>
+      <div><p class="v">ほぼ0<small>人</small></p><h3>連絡できるお客様。</h3><p class="tx">LINEもメールも、ほとんどいない。</p></div>
+    </div>
+    <p class="so">広告は止める。在庫で体験を増やす。買った人とつながる。</p>
+    <p class="foot">2026年8月からの数字です。1本あたりの広告費は、価格3,300〜3,960円で計算した概算です。在庫を使う前に、使用期限を確認します。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick">なぜ、市場づくりか</p>
+    <h2>まず、<mark>市場づくり</mark>が必要です。</h2>
+    <p class="lead"><b>なぜか。</b></p>
+    <div class="body rows" style="--c1:5em;margin-top:clamp(8px,1.6vh,16px)">
+      <div><h3>広告</h3><span class="tx">600万円かけて、売れたのは200万円。押すだけでは、選ばれない。</span></div>
+      <div><h3>成分</h3><span class="tx">同じ成分の商品が増えた。成分では、選ばれない。</span></div>
+      <div><h3>名前</h3><span class="tx">熱で美しくなるケアには、まだ呼び名がない。</span></div>
+    </div>
+    <p class="so">名前をつけたブランドが、その市場の顔になる。</p>
+    <p class="foot">成分と名前は、公開されている商品情報を確認した範囲での見立てです。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick">その答え</p>
+    <h2>答えは、この言葉。<br><span class="g">ヒートクチュール</span></h2>
+    <p class="lead">「熱で傷む」から、<b>「熱で美しくなる」</b>へ。</p>
+    <div class="body ba">
+      <div class="old"><p class="lab">これまで</p><p class="w">HEAT DAMAGE</p><p class="tx">熱で、髪は傷む。</p></div>
+      <p class="ar" aria-hidden="true">→</p>
+      <div class="new"><p class="lab">これから</p><p class="w g">HEAT COUTURE</p><p class="tx" style="color:var(--ink)">熱で、髪は美しくなる。</p></div>
+    </div>
+    <p class="so">ヒートクチュールとは、ドライヤーやアイロンの熱で、<span style="white-space:nowrap">髪を美しく仕立てるケアのこと。</span></p>
+    <p class="foot">広告で使う表現は、薬機法の確認を通します。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick">ターゲット</p>
+    <h2>相手は、<mark>毎日、熱を使う20代</mark>。</h2>
+    <div class="body pers">
+      <div class="ph"><img src="img/p2.jpg" alt="ドレッサーの前で髪を整える20代女性のイメージ"></div>
+      <div class="rows" style="--c1:6em">
+        <div><h3>人物</h3><span class="tx">美咲さん（仮）。27歳、会社員。</span></div>
+        <div><h3>習慣</h3><span class="tx">夜はドライヤー。朝はアイロン。</span></div>
+        <div><h3>悩み</h3><span class="tx">熱の傷みが気になる。でも、熱は毎日使う。</span></div>
+        <div><h3>情報源</h3><span class="tx">Instagramのリール。</span></div>
+        <div><h3>買う場所</h3><span class="tx">楽天。</span></div>
+        <div><h3>響く言葉</h3><span class="tx why">熱で、美しくなる。</span></div>
+      </div>
+    </div>
+    <p class="foot">いま買っているのは20代が中心で、次が30代です（ご回答より）。人物像は仮説で、画像はAIで生成したイメージです。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick">色の意味</p>
+    <h2>黒、グレー、ピンク。<br>そして、<span class="g">熱が美に変わる色</span>。</h2>
+    <div class="body two colr">
+      <div class="shot"><img src="img/shoot-product.jpg" alt="GRANIのヘアミルクを顔の横に持つモデル。グレーのチューブに、ピンクのロゴ"></div>
+      <div class="chips">
+        <div><i style="background:#0E0E10"></i><h3>黒</h3><p class="tx">舞台。すべての地の色。</p></div>
+        <div><i style="background:#80798B;border-color:#80798B"></i><h3>グレー</h3><p class="tx">商品。チューブの色。</p></div>
+        <div><i style="background:#FF2D8F;border-color:#FF2D8F"></i><h3>ピンク</h3><p class="tx">GRANI。ロゴの色を、より強く。</p></div>
+        <div><i style="background:var(--grad);border:0"></i><h3 class="g">グラデーション</h3><p class="tx">ヒートクチュール。熱が、美に変わる。</p></div>
+      </div>
+    </div>
+    <p class="so">4色目は、単色では使わない。「HEAT COUTURE」の文字にだけ使う。</p>
+    <p class="foot">ロゴと商品は変えません。色の数値は仮の値です。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick"><b>2</b>サイトで伝える</p>
+    <h2><mark>3ページのサイト</mark>で、意味を伝える。</h2>
+    <p class="lead"><b>何のために：</b>ヒートクチュールの意味を伝え、買ってもらうため。</p>
+    <div class="body two">
+      <div class="mock">
+        <img src="img/shoot-wet.jpg" alt="">
+        <div class="v"></div>
+        <span class="lg">GRANI</span>
+        <div><span class="q">ヒートクチュールとは？</span><br><p class="h g">HEAT<br>COUTURE</p><p class="j">熱で、美しく仕立てる。</p></div>
+        <span class="b">熱を当てる前に</span>
+      </div>
+      <div class="rows" style="--c1:8.6em">
+        <div><h3>TOP</h3><span class="tx">「ヒートクチュールとは？」と問いかける。</span></div>
+        <div><h3>ヒートクチュール</h3><span class="tx">「熱で傷む」から「熱で美しくなる」へ。夜と朝の使い方。</span></div>
+        <div><h3>商品</h3><span class="tx">GRANIのヘアミルク。買う場所は、楽天、公式サイト、Qoo10。</span></div>
+      </div>
+    </div>
+    <p class="foot">売るためのLPであり、ブランドのサイトでもあります。写真は撮影済みのビジュアル、使い方は公式の商品説明に合わせます。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick"><b>3</b>在庫で広める</p>
+    <h2>Instagramのモニターに、<br><mark>在庫を使う</mark>。</h2>
+    <div class="body steps act">
+      <div><span class="n">1</span><h3>伝える</h3><p class="where">公式アカウントのリール</p><p class="tx">「ヒートクチュールとは？」を、動画で出す。</p><p class="why">言葉と意味を、知ってもらうため。</p></div>
+      <div><span class="n">2</span><h3>届ける</h3><p class="where">Instagramのモニター募集</p><p class="tx">20代を中心に募り、在庫から商品を送る。夜と朝に使ってもらう。</p><p class="why">自分の髪で、体験してもらうため。</p></div>
+      <div><span class="n">3</span><h3>広がる</h3><p class="where">モニターの投稿</p><p class="tx">「#ヒートクチュール」で投稿してもらい、公式とサイトで紹介する。</p><p class="why">お客様の言葉で、広がるため。</p></div>
+    </div>
+    <p class="so">まず300本（案）。在庫8,000本の約4％です。広告費は使いません。</p>
+    <p class="foot">モニターの投稿には、提供を受けたことを明記してもらいます。内容は指定しません。サロンでも、同じ体験と投稿につなげる余地を残します。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick"><b>4</b>つながる</p>
+    <h2>同梱カードで、<br><mark>買った人とつながる</mark>。</h2>
+    <div class="body steps act">
+      <div><span class="n">1</span><h3>同梱カード</h3><p class="where">商品と一緒に届ける</p><p class="tx">「ヒートクチュール」の意味と使い方。LINE登録のQRコード。</p><p class="why">2本目の時期に、声をかけるため。</p></div>
+      <div><span class="n">2</span><h3>レビュー</h3><p class="where">楽天</p><p class="tx">レビューを書いてくれた人に、次回のクーポンを送る。</p><p class="why">売れている場所に、声を増やすため。</p></div>
+      <div><span class="n">3</span><h3>定期便</h3><p class="where">公式サイト。2〜3か月ごと</p><p class="tx">30％引きで、使い切る頃に届ける。</p><p class="why">続けて使ってもらうため。</p></div>
+    </div>
+    <p class="so">値引きより、「もう1本プレゼント」。友だちに渡る1本が、次のお客様をつくる。</p>
+    <p class="foot">いま、連絡できるお客様はほとんどいません。200mlは使い切るまでが長いので、2本目の時期はこれからです。楽天のルールは、実施前に確認します。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick">広告</p>
+    <h2>広告は、<mark>いったん止める</mark>。</h2>
+    <p class="lead">600万円かけて、売れたのは200万円。1本売るのに、約1万円かかっています。</p>
+    <div class="body rows" style="--c1:5em">
+      <div><h3>条件1</h3><span class="tx">新しいサイトが公開されている。</span></div>
+      <div><h3>条件2</h3><span class="tx">2本目を買う人の割合が、見えている。</span></div>
+      <div><h3>条件3</h3><span class="tx">1本あたりに使える広告費の上限を、先に決めてある。</span></div>
+    </div>
+    <p class="so">3つがそろったら、小さく試す。当たれば広げる。外れたら、すぐ止める。</p>
+    <p class="foot">広告は、事業を加速させるエンジンです。使う順番を、後ろにします。600万円の内訳は未確認です。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="in">
+    <p class="kick">目標と進め方</p>
+    <h2><span class="g">ヒートクチュール</span>の市場をつくる。</h2>
+    <div class="body line">
+      <div><p class="m">12月</p><h3>名前と言葉を決める</h3></div>
+      <div><p class="m">1月</p><h3>サイトと同梱カードを用意する</h3></div>
+      <div><p class="m">2月</p><h3>Instagramでモニター募集</h3></div>
+      <div class="on"><p class="m">3月</p><h3>投稿を広げる</h3></div>
+    </div>
+    <div class="body rows" style="--c1:5em">
+      <div><h3>3月</h3><span class="tx">広告なしで、Instagramのフォロワー<mark>1,000人</mark>。</span></div>
+      <div><h3>1年後</h3><span class="tx">月<mark>500本</mark>。いまの約3.3倍。</span></div>
+      <div><h3>3年後</h3><span class="tx">月<mark>1,000本</mark>。シャンプーとトリートメントを加え、「ヒートクチュール」をシリーズの名前にする。</span></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id);};
+function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+
+/* deck */
+var deck=$("deck"),slides=[].slice.call(deck.children),cur=0;
+var smooth=!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches);
+function go(i){i=Math.max(0,Math.min(slides.length-1,i));deck.scrollTo({left:slides[i].offsetLeft-deck.offsetLeft,behavior:smooth?"smooth":"auto"});}
+function upd(){
+  var best=0,bd=1e9;slides.forEach(function(s,i){var d=Math.abs(s.offsetLeft-deck.offsetLeft-deck.scrollLeft);if(d<bd){bd=d;best=i;}});cur=best;
+  $("cnt").textContent=(cur+1)+" / "+slides.length;$("prev").disabled=cur===0;$("next").disabled=cur===slides.length-1;
+  $("prog").style.width=((cur+1)/slides.length*100)+"%";
+}
+$("prev").addEventListener("click",function(){go(cur-1);});
+$("next").addEventListener("click",function(){go(cur+1);});
+deck.addEventListener("scroll",function(){window.requestAnimationFrame(upd);});
+document.addEventListener("keydown",function(e){var t=e.target&&e.target.tagName;if(t==="TEXTAREA"||t==="INPUT")return;if(e.key==="ArrowRight"){e.preventDefault();go(cur+1);}else if(e.key==="ArrowLeft"){e.preventDefault();go(cur-1);}});
+window.addEventListener("resize",function(){deck.scrollLeft=slides[cur].offsetLeft-deck.offsetLeft;upd();});
+function route(){if(location.hash==="#questions"){deck.scrollLeft=slides[slides.length-1].offsetLeft-deck.offsetLeft;}upd();}
+window.addEventListener("hashchange",route);route();
+
+})();
+</script>
+</body>
+</html>
