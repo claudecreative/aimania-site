@@ -1229,6 +1229,8 @@ function go(){if(done)return;done=true;r.classList.add("in");[].forEach.call(r.q
 if("IntersectionObserver" in window)new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)go();});},{threshold:.3}).observe(r);else go();
 window.addEventListener("hashchange",function(){done=false;r.classList.remove("in");});
 })();
+
+(function(){var m=/[?&]hero=([abcd])/.exec(location.search);var H={a:["p/0664.jpg","48% 35%","52% 30%"],b:["p/1093.jpg","50% 30%","50% 25%"],c:["p/1316.jpg","50% 30%","50% 30%"],d:["p/1035.jpg","60% 30%","62% 25%"]};if(!m)return;var h=H[m[1]],img=document.querySelector(".hx-r img");if(!img)return;img.src=h[0];var sp=matchMedia("(max-width:760px)").matches;img.style.setProperty("object-position",sp?h[2]:h[1],"important");})();
 </script>
 </body>
 </html>
