@@ -630,7 +630,7 @@ footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;border-to
 
 /* intro video cut-out v15 */
 .intro-ph.iv{width:min(56vw,900px);aspect-ratio:16/9;right:-3vw;border-radius:0!important;box-shadow:none;overflow:visible;clip-path:inset(calc((1 - var(--p,0)) * 100%) 0 0 0);transform:translateY(-50%) translateY(calc((1 - var(--p,0)) * 40px))}
-.intro-ph.iv video{width:100%;height:100%;object-fit:cover;display:block;-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent)}
+.intro-ph.iv video{width:100%;height:100%;object-fit:cover;display:block;-webkit-mask-image:linear-gradient(transparent,#000 3%,#000 82%,transparent),linear-gradient(90deg,transparent,#000 12%);-webkit-mask-composite:source-in;mask-image:linear-gradient(transparent,#000 3%,#000 82%,transparent),linear-gradient(90deg,transparent,#000 12%);mask-composite:intersect}
 @media (max-width:760px){.intro-ph.iv{width:150vw;right:-38vw;bottom:2vh;top:auto;transform:none}}
 @media (min-width:761px){#pin-intro .intro-co{margin-left:clamp(48px,7vw,120px);margin-right:auto;max-width:42vw;padding-left:0;padding-right:0}#pin-intro .intro-l{max-width:26em}}
 
@@ -731,7 +731,7 @@ html.en .hx-copy .bx.big span{font-size:clamp(18px,2.2vw,32px)}
   <section class="pin intro" id="pin-intro" style="height:220vh">
     <div class="stk">
       <div class="stack" aria-hidden="true"><p>HEAT COUTURE</p><p>HEAT COUTURE</p><p>HEAT COUTURE</p><p>HEAT COUTURE</p><p>HEAT COUTURE</p><p>HEAT COUTURE</p><p>HEAT COUTURE</p></div>
-      <figure class="intro-ph iv" aria-hidden="true"><video poster="p/wind.jpg" autoplay muted loop playsinline preload="metadata"></video></figure>
+      <figure class="intro-ph iv" aria-hidden="true"><video src="p/wind.mp4" poster="p/wind.jpg" autoplay muted loop playsinline preload="auto"></video></figure>
       <div class="w intro-co">
         <p class="bx tag"><span>熱を、まとう。</span></p>
         <p class="bx big2"><span>熱で傷む髪から、</span></p>
