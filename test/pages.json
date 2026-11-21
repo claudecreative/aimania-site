@@ -60,11 +60,6 @@
   "date": "11/20"
  },
  {
-  "title": "GRANI HEAT COUTURE サイト試作",
-  "path": "/test/grani-site/",
-  "date": "11/21"
- },
- {
   "title": "GRANI ブランディング提案（企画書）",
   "path": "/test/grani-plan/",
   "date": "11/21"
@@ -77,6 +72,11 @@
  {
   "title": "KAWASUJI（大阪Web制作・3D CGサイト）",
   "path": "/test/kawasuji/",
+  "date": "11/22"
+ },
+ {
+  "title": "GRANI HEAT COUTURE サイト試作",
+  "path": "/test/grani-site/",
   "date": "11/22"
  }
 ]
