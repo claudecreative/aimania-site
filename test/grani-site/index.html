@@ -738,12 +738,13 @@ html.en .hx-copy .bx.big span{font-size:clamp(18px,2.2vw,32px)}
 .seal svg text{fill:#fff!important;font-size:8.4px!important;letter-spacing:1.5px!important;font-family:Montserrat,Arial,sans-serif!important;font-weight:800!important}
 
 /* hero slideshow */
-.hx-sl img{position:absolute!important;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:none!important;transform:scale(1.04);z-index:0}
-.hx-sl img.prev{opacity:1;z-index:1;transition:transform 1.4s cubic-bezier(.77,0,.18,1);transform:scale(1.02) translateX(-4%)}
-.hx-sl img.on{opacity:1;z-index:2;}
-.hx-sl.go img.on{clip-path:inset(0 0 0 0);animation:wipe 1.4s cubic-bezier(.77,0,.18,1) both,kb 8s linear both!important}
-@keyframes wipe{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 0)}}
-@keyframes kb{from{transform:scale(1.1)}to{transform:scale(1)}}
+.hx-sl .sl{position:absolute;inset:0;overflow:hidden;z-index:0;visibility:hidden;transform:translate3d(0,0,0)}
+.hx-sl .sl.on{visibility:visible;z-index:2}.hx-sl .sl.prev{visibility:visible;z-index:1}
+.hx-sl .in{position:absolute;inset:0;transform:translate3d(0,0,0)}
+.hx-sl img{position:absolute!important;inset:0;width:100%;height:100%;object-fit:cover;animation:none!important;transform:scale(1.06);will-change:transform}
+.hx-sl .sl.on img{animation:kb 9s linear both!important}
+.hx-sl .sl.prev img{animation:none!important;transform:scale(1)}
+@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
 .hx-dots{position:absolute;right:16px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:4}
 .hx-dots b{width:3px;height:22px;background:rgba(255,255,255,.45);border-radius:3px;transition:background .4s,height .4s}
 .hx-dots b.on{background:var(--pink);height:38px}
@@ -771,7 +772,7 @@ html.en .hx-copy .bx.big span{font-size:clamp(18px,2.2vw,32px)}
   <section class="hx">
     <div class="hx-l"><img src="p/3155.jpg" alt="GRANIシルキーモイストヘアミルク"></div>
     <div class="hx-fl" aria-hidden="true"><div class="hx-fl3"><img src="p/tube.png" alt=""></div><i class="hx-sh"></i></div>
-    <div class="hx-r hx-sl"><img class="on" src="p/0664.jpg" alt="長い黒髪を広げたモデル" data-pc="70% 30%" data-sp="68% 20%"><img src="p/1093.jpg" alt="" data-pc="50% 30%" data-sp="50% 25%"><img src="p/1316.jpg" alt="" data-pc="50% 30%" data-sp="50% 30%"><img src="p/1035.jpg" alt="" data-pc="60% 30%" data-sp="62% 25%"><i class="hx-dots" aria-hidden="true"><b class="on"></b><b></b><b></b><b></b></i></div>
+    <div class="hx-r hx-sl"><div class="sl on"><div class="in"><img src="p/h0664.jpg" alt="長い黒髪を広げたモデル" data-pc="70% 30%" data-sp="68% 20%"></div></div><div class="sl"><div class="in"><img src="p/h1093.jpg" alt="" data-pc="50% 30%" data-sp="50% 25%" loading="eager"></div></div><div class="sl"><div class="in"><img src="p/h1316.jpg" alt="" data-pc="50% 30%" data-sp="50% 30%" loading="eager"></div></div><div class="sl"><div class="in"><img src="p/h1035.jpg" alt="" data-pc="60% 30%" data-sp="62% 25%" loading="eager"></div></div><i class="hx-dots" aria-hidden="true"><b class="on"></b><b></b><b></b><b></b></i></div>
     <p class="hx-word" aria-label="HEAT COUTURE"><span>HEAT</span><span>COUTURE</span></p>
     <div class="hx-copy">
       <p class="bx q"><span>ヒートクチュールとは？</span></p>
@@ -1244,10 +1245,18 @@ window.addEventListener("hashchange",function(){done=false;r.classList.remove("i
 
 
 
-(function(){var box=document.querySelector(".hx-sl");if(!box)return;var im=box.querySelectorAll("img"),dt=box.querySelectorAll(".hx-dots b"),i=0;
+(function(){var box=document.querySelector(".hx-sl");if(!box)return;var sl=box.querySelectorAll(".sl"),im=box.querySelectorAll(".sl img"),dt=box.querySelectorAll(".hx-dots b"),i=0,busy=false;
 function pos(){var sp=matchMedia("(max-width:760px)").matches;[].forEach.call(im,function(m){m.style.objectPosition=m.getAttribute(sp?"data-sp":"data-pc");});}
-pos();window.addEventListener("resize",pos);
-function next(){box.classList.add("go");[].forEach.call(im,function(m){m.classList.remove("prev");});im[i].classList.remove("on");im[i].classList.add("prev");dt[i].classList.remove("on");i=(i+1)%im.length;im[i].classList.add("on");dt[i].classList.add("on");}
+pos();window.addEventListener("resize",pos);[].forEach.call(im,function(m){if(m.decode)m.decode().catch(function(){});});
+var E="cubic-bezier(.65,0,.35,1)",D=1500;
+function next(){if(busy)return;busy=true;var cur=sl[i],ni=(i+1)%sl.length,nx=sl[ni];
+ [].forEach.call(sl,function(s){if(s!==cur&&s!==nx)s.classList.remove("prev","on");});
+ var ci=cur.querySelector("img"),t=getComputedStyle(ci).transform;ci.style.transform=t;
+ cur.classList.remove("on");cur.classList.add("prev");nx.classList.add("on");
+ cur.animate([{transform:"translate3d(0,0,0)"},{transform:"translate3d(-18%,0,0)"}],{duration:D,easing:E});
+ nx.animate([{transform:"translate3d(100%,0,0)"},{transform:"translate3d(0,0,0)"}],{duration:D,easing:E});
+ nx.querySelector(".in").animate([{transform:"translate3d(-100%,0,0)"},{transform:"translate3d(0,0,0)"}],{duration:D,easing:E}).onfinish=function(){cur.classList.remove("prev");ci.style.transform="";busy=false;};
+ dt[i].classList.remove("on");dt[ni].classList.add("on");i=ni;}
 setInterval(function(){if(document.hidden)return;next();},5500);})();
 </script>
 </body>
