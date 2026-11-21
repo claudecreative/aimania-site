@@ -472,6 +472,7 @@ dialog.pv::backdrop{background:rgba(10,28,51,.72)}
   .gnav a .ja{font-family:var(--serif);font-weight:600;font-size:22px;color:#fff;letter-spacing:.1em;margin:0}
   .gnav a::after{display:none}
   .gnav a[aria-current="page"] .ja{color:#9DBBE0}
+  .gnav .sp-top{display:block!important}
   .gnav .sp-ct{display:flex!important;margin-top:32px}
   .gnav .sp-ct .btn{width:100%}
   .gnav .sp-foot{display:block!important;margin-top:auto;padding-top:40px;font-family:var(--en);font-size:11px;letter-spacing:.3em;color:rgba(255,255,255,.4)}
@@ -593,7 +594,7 @@ dialog.pv::backdrop{background:rgba(10,28,51,.72)}
   .pv .in{padding:56px 24px 36px}
   .ft-mark{font-size:24vw}
 }
-.sp-ct,.sp-foot{display:none!important}
+.sp-ct,.sp-foot,.sp-top{display:none!important}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
@@ -613,7 +614,7 @@ dialog.pv::backdrop{background:rgba(10,28,51,.72)}
   <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く"><i></i><i></i></button>
   <nav class="gnav" id="gnav" aria-label="グローバルナビゲーション">
     <ul>
-      <li><a href="#top" data-nav="top"><span class="en">Top</span><span class="ja">トップ</span></a></li>
+      <li class="sp-top"><a href="#top" data-nav="top"><span class="en">Top</span><span class="ja">トップ</span></a></li>
       <li><a href="#business" data-nav="business"><span class="en">Business</span><span class="ja">事業内容</span></a></li>
       <li><a href="#partnership" data-nav="partnership"><span class="en">Partnership</span><span class="ja">事業者との<wbr>連携</span></a></li>
       <li><a href="#company" data-nav="company"><span class="en">Company</span><span class="ja">会社概要</span></a></li>
