@@ -1281,5 +1281,32 @@ io.observe(a);
 /* 「展示会の相談をする」で相談フォームの種類を選んでおく */
 document.querySelectorAll('a[data-kind]').forEach(function(a){a.addEventListener('click',function(){var sel=document.getElementById('r-kind');if(!sel)return;for(var i=0;i<sel.options.length;i++){if(sel.options[i].text===a.dataset.kind){sel.selectedIndex=i;sel.dispatchEvent(new Event('change',{bubbles:true}));break;}}});});
 </script>
+<!-- LINE追従バナー（</body> の直前に貼る） -->
+<style>
+#line-float{position:fixed;right:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,28px);z-index:60;display:flex;align-items:center;gap:10px;padding:12px 18px 12px 14px;background:#06C755;color:#fff;border:2px solid #1D1D1F;border-radius:999px;box-shadow:4px 4px 0 #1D1D1F;font:700 15px/1.2 'Zen Kaku Gothic New','Hiragino Sans',sans-serif;text-decoration:none;letter-spacing:.02em;opacity:0;transform:translateY(24px);pointer-events:none;transition:opacity .3s,transform .4s cubic-bezier(.3,1.6,.5,1),box-shadow .15s}
+#line-float.show{opacity:1;transform:none;pointer-events:auto}
+#line-float:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #1D1D1F}
+#line-float:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #1D1D1F}
+#line-float .lf-ic{flex:none;width:30px;height:30px;display:grid;place-items:center;background:#fff;border:2px solid #1D1D1F;border-radius:50%}
+#line-float .lf-ic svg{width:18px;height:18px}
+#line-float .lf-sub{display:block;font-size:11px;font-weight:500;opacity:.92;margin-top:2px}
+#line-float .lf-x{position:absolute;top:-10px;right:-8px;width:22px;height:22px;border-radius:50%;background:#fff;color:#1D1D1F;border:2px solid #1D1D1F;font:700 12px/1 sans-serif;display:grid;place-items:center;cursor:pointer}
+@media (max-width:600px){#line-float{right:12px;bottom:12px;padding:10px 14px 10px 10px;font-size:14px}#line-float .lf-sub{display:none}}
+@media (prefers-reduced-motion: reduce){#line-float{transition:none}}
+</style>
+<a id="line-float" href="https://line.me/R/ti/p/@868bvrkt" target="_blank" rel="noopener" aria-label="LINEで気軽に問い合わせ（友だち追加）">
+  <span class="lf-ic" aria-hidden="true"><svg viewBox="0 0 16 16"><path fill="#06C755" d="M2 3h12v8H7l-3 3v-3H2z"/><path fill="#fff" d="M5 6h1v2H5zm2.5 0h1v2h-1zM10 6h1v2h-1z"/></svg></span>
+  <span>LINEで気軽に問い合わせ<span class="lf-sub">モグボが すぐ うけつけるよ</span></span>
+  <span class="lf-x" role="button" aria-label="閉じる">×</span>
+</a>
+<script>
+(function(){
+  var b=document.getElementById('line-float');if(!b)return;
+  try{if(sessionStorage.getItem('lfClosed'))return b.remove();}catch(e){}
+  b.querySelector('.lf-x').addEventListener('click',function(e){e.preventDefault();e.stopPropagation();b.remove();try{sessionStorage.setItem('lfClosed','1')}catch(e){}});
+  function upd(){b.classList.toggle('show',scrollY>innerHeight*0.6)}
+  addEventListener('scroll',upd,{passive:true});upd();
+})();
+</script>
 </body>
 </html>
