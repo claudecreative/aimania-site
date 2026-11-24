@@ -83,5 +83,10 @@
   "title": "GRANI HEAT COUTURE サイト試作",
   "path": "/test/grani-site/",
   "date": "11/24"
+ },
+ {
+  "title": "GRANI AD STUDIO（広告管理ページ試作）",
+  "path": "/test/grani-ads/",
+  "date": "11/25"
  }
 ]
