@@ -3,7 +3,7 @@
 .gx-ft *{box-sizing:border-box}
 .gx-fw{max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px;align-items:end}
 .gx-fl{font:900 clamp(64px,11vw,170px)/.8 'Montserrat',Arial,sans-serif;letter-spacing:-.04em;color:#FF2D8F}
-.gx-fc a{display:block;color:rgba(255,255,255,.82)!important;text-decoration:none!important;font-size:13px;line-height:2.3}
+.gx-fc{text-align:left}.gx-fc a{display:block;color:rgba(255,255,255,.82)!important;text-decoration:none!important;font-size:13px;line-height:2.3}
 .gx-fc a:hover{color:#fff!important}
 .gx-fc.s a{font-size:12px;opacity:.75}
 .gx-fa{grid-column:1/-1;font-style:normal;font-size:12px;line-height:1.8;opacity:.7}
