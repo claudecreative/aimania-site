@@ -69,7 +69,7 @@ body[data-screen="attract"] .steps{visibility:hidden}
 .hbtn .x{display:none}.hbtn[aria-pressed="false"] .w{display:none}.hbtn[aria-pressed="false"] .x{display:block}
 
 /* リング */
-body{--rs:min(80vh,46vw);--rx:calc(96vw - var(--rs));--ry:calc(var(--hud-h) + (100vh - var(--hud-h) - 30px - var(--rs)) / 2)}
+body{--rs:min(86vh,52vw);--rx:calc(97vw - var(--rs));--ry:calc(var(--hud-h) + (100vh - var(--hud-h) - 30px - var(--rs)) / 2)}
 body[data-screen="pos"]{--rs:min(80vh,50vw);--rx:3vw}
 body[data-screen="phase"]{--rs:min(108vh,62vw);--rx:calc(29vw - var(--rs) / 2);--ry:calc(var(--hud-h) + (100vh - var(--hud-h)) / 2 - var(--rs) / 2)}
 body[data-screen="phase"] #ringSvg .outer,body[data-screen="phase"] #ringSvg .comet,body[data-screen="phase"] .node,body[data-screen="phase"] .gate{opacity:.06;filter:grayscale(1);pointer-events:none}
@@ -135,6 +135,23 @@ body[data-screen="phase"] .node,body[data-screen="phase"] .gate,body[data-screen
 body[data-screen="pos"] .gate{opacity:1}
 .hubov{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:18%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;color:#fff;pointer-events:none;opacity:0;transition:opacity .4s;z-index:3;background:radial-gradient(circle at 35% 30%,#3f6fd6,#1b2f7a)}
 body[data-screen="ana"] .hubov{opacity:1}
+.hubcta{position:absolute;left:50%;top:50%;width:18.4%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;z-index:4;display:grid;place-items:center;color:#fff;background:radial-gradient(circle at 35% 30%,#3f6fd6,#1b2f7a);box-shadow:0 0 0 6px #fff,0 12px 34px rgba(28,52,135,.45);opacity:0;pointer-events:none;transition:opacity .5s}
+body[data-screen="attract"] .hubcta{opacity:1;pointer-events:auto;cursor:pointer;animation:hubbeat 2.4s ease-in-out infinite}
+@keyframes hubbeat{0%,100%{transform:translate(-50%,-50%) scale(1)}12%{transform:translate(-50%,-50%) scale(1.07)}24%{transform:translate(-50%,-50%) scale(1)}}
+.hubcta>div{display:flex;flex-direction:column;align-items:center;gap:4px}
+.hubcta svg{width:28%;height:auto;animation:press 1.3s ease-in-out infinite;transform-origin:46% 0}
+.hubcta b{font-family:var(--f-mono);font-weight:700;font-size:clamp(14px,1.9vh,22px);letter-spacing:.2em}
+.hubcta i{position:absolute;inset:0;border-radius:50%;border:3px solid var(--blue);animation:wave 2.4s cubic-bezier(.2,.6,.3,1) infinite;pointer-events:none}
+.hubcta i:nth-child(2){animation-delay:.8s}.hubcta i:nth-child(3){animation-delay:1.6s}
+@keyframes wave{0%{transform:scale(1);opacity:.7}100%{transform:scale(4.6);opacity:0}}
+body[data-screen="attract"] .node{animation:nodepop .7s cubic-bezier(.3,1.6,.5,1) backwards;animation-delay:calc(.15s + var(--d) * .12s)}
+@keyframes nodepop{from{transform:translate(-50%,-50%) scale(0);opacity:0}}
+body[data-screen="attract"] .gate{opacity:1}
+body[data-screen="attract"] .node.sel .ph{transform:scale(1.3)}
+body[data-screen="attract"] .node.sel .nl{transform:translateX(-50%) scale(1.15)}
+body[data-screen="attract"] .gate b{display:none}
+body[data-screen="attract"] #ringSvg .seg .glow{animation-duration:3s}
+body[data-screen="attract"] #ringSvg .chev{animation-duration:14s}
 .hubov b{display:block;font-weight:900;font-size:clamp(24px,3.4vh,38px);line-height:1.2}
 .hubov small{display:block;font-family:var(--f-mono);font-size:clamp(14px,1.8vh,20px);font-weight:700;margin-top:4px;opacity:.85;font-variant-numeric:tabular-nums}
 .dragcue{position:absolute;left:50%;top:50%;width:104%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;opacity:0;transition:opacity .4s}
@@ -162,7 +179,21 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
 
 /* TOP */
-#s-attract{display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,3vh,36px);padding-right:calc(var(--rs) + 6vw)}
+#s-attract{display:flex;flex-direction:column;justify-content:center;gap:clamp(22px,3.6vh,44px);padding-right:calc(var(--rs) + 5vw)}
+.what{font-weight:700;font-size:clamp(18px,1.55vw,30px);line-height:1.6;color:var(--ink2)}
+.what b{display:block;font-weight:900;color:var(--navy);font-size:1.35em}
+.spot{position:relative;max-width:min(42vw,820px);padding:clamp(18px,1.7vw,28px) clamp(22px,2vw,32px);background:#fff;border-radius:20px;box-shadow:var(--sh)}
+.spot::before{content:"";position:absolute;right:-14px;top:50%;width:28px;height:28px;background:#fff;transform:translateY(-50%) rotate(45deg);border-radius:4px}
+.spot-st{display:flex;align-items:center;gap:10px;font-weight:900;font-size:clamp(15px,1.1vw,20px);color:var(--blue)}
+.spot-st i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-family:var(--f-mono);font-size:15px}
+.spot-q{margin-top:8px;font-weight:900;font-size:clamp(22px,1.9vw,36px);line-height:1.45;color:var(--ink)}
+.spot.swap .spot-st,.spot.swap .spot-q{animation:inUp .55s cubic-bezier(.2,.8,.2,1) backwards}
+.spot.swap .spot-q{animation-delay:.08s}
+.spot-a{display:flex;align-items:baseline;gap:12px;margin-top:12px;padding-top:12px;border-top:1.5px dashed var(--line);font-weight:900;font-size:clamp(17px,1.35vw,26px);line-height:1.45;color:var(--col,var(--blue))}
+.spot-a::before{content:"→";font-family:var(--f-mono)}
+.spot-a i{order:2;flex:none;margin-left:auto;font-style:normal;font-size:.62em;padding:4px 12px;border-radius:999px;background:var(--col);color:#fff;align-self:center}
+.spot.swap .spot-a{animation:keyin .7s cubic-bezier(.2,.8,.2,1) 1.3s backwards}
+@keyframes keyin{0%{opacity:0;clip-path:inset(0 100% 0 0)}100%{opacity:1;clip-path:inset(0 0 0 0)}}
 .hero{display:grid;font-weight:900;font-size:clamp(40px,4.5vw,96px);line-height:1.22;letter-spacing:.04em;color:var(--blue)}
 .hero .hl{grid-area:1/1}
 .hero .hl>span{display:block;white-space:nowrap;transition:opacity .7s,filter .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
@@ -404,16 +435,16 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
   <div class="dragcue" id="dragcue" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M50 2a48 48 0 0 1 38 19" fill="none" stroke="#2aa0c2" stroke-width="1.4" stroke-dasharray="3 3"/><path d="M88 21l-1-6M88 21l-6 0" stroke="#2aa0c2" stroke-width="1.4" fill="none"/></svg></div>
   <div id="nodes"></div>
   <div class="gate" aria-hidden="true"><b>SELECT</b></div>
+  <div class="hubcta" aria-hidden="true"><i></i><i></i><i></i><div><svg viewBox="0 0 64 82"><path d="M24 6a6 6 0 0 1 12 0v27.5a5.6 5.6 0 0 1 11 1.4v1.6a5.6 5.6 0 0 1 10.6 2.4v3a5.3 5.3 0 0 1 6.4 5.1V60c0 12.2-9.3 22-21.4 22h-5.2c-6.8 0-11.4-2.6-15.6-7.8L3.5 55.6a5.7 5.7 0 0 1 8.6-7.4L24 58.4Z" fill="#fff"/></svg><b>TOUCH</b></div></div>
   <div class="hubov" aria-hidden="true"><div><b>照合中</b><small><span id="anPct">0</span>%</small></div></div>
 </div>
 
 <main id="stage">
   <section class="screen is-active" id="s-attract" aria-label="トップ">
-    <p class="lbl">Engineering the Next Factory</p>
     <h1 class="hero" id="hero" aria-label="生産現場の課題を、次の競争力へ。"><span class="hl ja"><span>生産現場の課題を、</span><span>次の競争力へ。</span></span><span class="hl en off" aria-hidden="true"><span>Shop-floor issues,</span><span>your next edge.</span></span></h1>
-    <p class="lead">原料・材料からユーザーまで。<br>画面にタッチして、はじめてください。</p>
-    <div class="qbox pe" id="qbox"><p class="lbl">Field Check</p><p id="qText"></p></div>
-    <div class="cta-row pe"><button class="btn cta" id="startBtn" type="button">タッチしてはじめる<svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M0 12h44M34 2l10 10-10 10"/></svg></button><p class="hint"><svg viewBox="0 0 64 82" aria-hidden="true"><path d="M24 6a6 6 0 0 1 12 0v27.5a5.6 5.6 0 0 1 11 1.4v1.6a5.6 5.6 0 0 1 10.6 2.4v3a5.3 5.3 0 0 1 6.4 5.1V60c0 12.2-9.3 22-21.4 22h-5.2c-6.8 0-11.4-2.6-15.6-7.8L3.5 55.6a5.7 5.7 0 0 1 8.6-7.4L24 58.4Z" fill="currentColor"/></svg>3つ選ぶだけ・約1分</p></div>
+    <p class="what"><b>3つ選ぶだけ。</b><span class="nw">あなたの現場の課題と、</span><span class="nw">解決のカギが見つかります。</span></p>
+    <div class="spot pe" id="qbox"><p class="spot-st" id="spotSt"><i id="spotNo">1</i><span><span id="spotName">原料</span>の現場では</span></p><p class="spot-q" id="qText"></p><p class="spot-a" id="spotA"><i id="spotTag"></i><span id="spotKey"></span></p></div>
+    <div class="cta-row pe"><button class="btn cta" id="startBtn" type="button">タッチしてはじめる<svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M0 12h44M34 2l10 10-10 10"/></svg></button></div>
   </section>
 
   <section class="screen" id="s-pos" aria-label="事業領域を選ぶ">
@@ -564,7 +595,7 @@ function chunks(t) {
 function jpify(root) {
   const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: (n) => n.parentElement.closest("svg,script,style,.nw,.btn,.tag,.mono,.lbl") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT });
   const list = []; let n; while ((n = w.nextNode())) list.push(n);
-  list.forEach((tn) => { if (!tn.textContent.trim()) return; const c = chunks(tn.textContent); if (c.length < 2) return; const f = document.createDocumentFragment(); c.forEach((x, i) => { if (i) f.appendChild(document.createElement("wbr")); f.appendChild(document.createTextNode(x)); }); tn.replaceWith(f); });
+  list.forEach((tn) => { if (!tn.textContent.trim()) return; const pd = getComputedStyle(tn.parentElement).display; if (/flex|grid/.test(pd) && tn.parentElement.childNodes.length > 1) return; const c = chunks(tn.textContent); if (c.length < 2) return; const f = document.createDocumentFragment(); c.forEach((x, i) => { if (i) f.appendChild(document.createElement("wbr")); f.appendChild(document.createTextNode(x)); }); tn.replaceWith(f); });
 }
 jpify(document.getElementById("stage"));
 new MutationObserver((ms) => { for (const m of ms) m.addedNodes.forEach((n) => { if (n.nodeType === 1) jpify(n); else if (n.nodeType === 3 && n.parentElement) jpify(n.parentElement); }); }).observe(document.getElementById("stage"), { childList: true, subtree: true });
@@ -690,7 +721,7 @@ function buildRing() {
   h += `<circle class="groove" cx="500" cy="500" r="340" fill="none" stroke="#dfe6f3" stroke-width="44"/>`;
   h += `<g class="knob" id="knob"><circle r="26" fill="#fff" stroke="#2aa0c2" stroke-width="5" style="filter:drop-shadow(0 4px 8px rgba(21,33,74,.3))"/><path d="M-11 0l7 8 14-16" stroke="#1c3487" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
   $("#ringSvg").innerHTML = h;
-  $("#nodes").innerHTML = STAGES.map((s, i) => `<button class="node" type="button" data-i="${i}" id="node-${s.id}" aria-label="${i + 1} ${esc(SHORT[s.id])}"><span class="ph"><img src="${IMG["n_" + s.id] || ""}" alt=""></span><b class="no">${i + 1}</b><span class="nl">${esc(SHORT[s.id])}</span></button>`).join("");
+  $("#nodes").innerHTML = STAGES.map((s, i) => `<button class="node" type="button" style="--d:${i}" data-i="${i}" id="node-${s.id}" aria-label="${i + 1} ${esc(SHORT[s.id])}"><span class="ph"><img src="${IMG["n_" + s.id] || ""}" alt=""></span><b class="no">${i + 1}</b><span class="nl">${esc(SHORT[s.id])}</span></button>`).join("");
 }
 buildRing();
 const nodes = $$(".node"), rotG = $("#rotG");
@@ -712,7 +743,7 @@ function paintLines() {
   if (!R.drag) {
     if (R.target !== null) { const d = R.target - R.rot; R.rot += d * .14; if (Math.abs(d) < .05) { R.rot = R.target; R.target = null; } }
     else if (Math.abs(R.vel) > .05) { R.rot += R.vel; R.vel *= .93; if (Math.abs(R.vel) <= .12) { R.vel = 0; if (state.screen === "pos") snapTo(nearest()); } }
-    else if (R.auto) R.rot += RM ? 0 : (state.screen === "ana" ? 2.4 : .05);
+    else if (R.auto && state.screen === "ana") R.rot += RM ? 0 : 2.4;
   }
   paintRing();
   requestAnimationFrame(loop);
@@ -770,6 +801,7 @@ function go(n) {
   $$(".screen").forEach((s) => s.classList.toggle("is-active", s.id === "s-" + n));
   $$("#steps li").forEach((li) => { const k = +li.dataset.step; li.classList.toggle("is-now", k === STEP[n]); li.classList.toggle("is-done", k < STEP[n]); });
   R.auto = n === "attract" || n === "ana";
+  if (n === "attract") { spotI = 0; R.target = R.rot - ((((BASE(0) + R.rot - GATE) % 360) + 360) % 360); spotText(0); }
   resetIdle();
 }
 function resetAll() {
@@ -781,9 +813,19 @@ function resetAll() {
 
 /* TOP：見出しの日英切替と、現場への問いかけ */
 (() => { const ja = $("#hero .ja"), en = $("#hero .en"); let e = false; setInterval(() => { if (state.screen !== "attract" || document.hidden) return; e = !e; ja.classList.toggle("off", e); en.classList.toggle("off", !e); }, 4500); })();
-const QS = Object.values(CARDS).map((c) => c.q); let qi = -1;
-function nextQ() { qi = (qi + 1) % QS.length; $("#qText").textContent = QS[qi]; const b = $("#qbox"); b.classList.remove("swap"); void b.offsetWidth; b.classList.add("swap"); }
-nextQ(); setInterval(() => { if (state.screen === "attract" && !document.hidden) nextQ(); }, 3800);
+let spotI = 0; const spotQ = {};
+function spotText(i) {
+  const st = STAGES[i], d = DECK[st.id]; spotQ[st.id] = ((spotQ[st.id] ?? -1) + 1) % d.length;
+  $("#spotNo").textContent = i + 1; $("#spotName").textContent = SHORT[st.id]; const c = CARDS[d[spotQ[st.id]]], so = SOLS[c.sol]; $("#qText").textContent = c.q; $("#spotKey").textContent = c.key; $("#spotTag").textContent = so.tag; $("#qbox").style.setProperty("--col", so.col);
+  const b = $("#qbox"); b.classList.remove("swap"); void b.offsetWidth; b.classList.add("swap");
+}
+function spotNext() {
+  if (state.screen !== "attract" || document.hidden) return;
+  spotI = (spotI + 1) % 6; const cur = BASE(spotI) + R.rot;
+  R.target = R.rot - ((((cur - GATE) % 360) + 360) % 360);
+  setTimeout(() => { if (state.screen === "attract") spotText(spotI); }, 650);
+}
+spotText(0); setInterval(spotNext, 3600);
 function start() {
   if (state.screen !== "attract") return;
   SFX.whoosh(); R.auto = false; snapTo(nearest()); go("pos"); paintStage();
