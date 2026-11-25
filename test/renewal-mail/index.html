@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--aim-guard--><script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_renewal-mail_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_renewal-mail_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=b1e4b140/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_renewal-mail_ok","1")}catch(e){}try{document.cookie="aim_renewal-mail_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script><meta name="robots" content="noindex,nofollow"><!--aim-guard-->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>営業メール作成｜サイトリニューアル 5万円〜</title>
+<style>
+:root{--g:#F3F0E9;--ink:#141414;--sub:#6B6862;--ln:rgba(20,20,20,.14);--a:#FF4B3A}
+*{box-sizing:border-box}body{margin:0;background:var(--g);color:var(--ink);font-family:'Zen Kaku Gothic New','Hiragino Sans','Yu Gothic',sans-serif;font-size:14px;line-height:1.7}
+.w{max-width:1200px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:22px;margin:0 0 4px}.sub{color:var(--sub);margin:0 0 22px;font-size:13px}
+.g{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:start}
+.card{background:#fff;border:1px solid var(--ln);border-radius:14px;padding:18px}
+label{display:block;font-weight:700;font-size:12.5px;margin:12px 0 4px}label:first-child{margin-top:0}
+label small{font-weight:500;color:var(--sub);margin-left:6px}
+input{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--ln);border-radius:8px;background:#FBFAF7}
+.rule{margin-top:16px;font-size:12px;color:var(--sub);background:var(--g);border-radius:8px;padding:10px 12px}
+.rule b{color:var(--ink)}
+.out h2{font-size:12px;letter-spacing:.14em;margin:0 0 6px;color:var(--sub)}
+.subj{font-size:16px;font-weight:900;padding:12px 14px;border:1px solid var(--ln);border-radius:8px;background:#FBFAF7;word-break:break-all}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px}
+button,.btn{font:inherit;font-weight:700;font-size:13px;border:0;border-radius:999px;padding:10px 16px;background:var(--ink);color:#fff;cursor:pointer;text-decoration:none}
+button.s{background:#fff;color:var(--ink);border:1px solid var(--ln)}
+.ok{color:#0a7f3f;font-size:12px;align-self:center}
+iframe{width:100%;height:900px;border:1px solid var(--ln);border-radius:12px;background:#fff}
+textarea{width:100%;height:360px;font:12.5px/1.7 ui-monospace,Menlo,monospace;border:1px solid var(--ln);border-radius:8px;padding:12px;background:#FBFAF7}
+.tabs{display:flex;gap:6px;margin-bottom:10px}.tabs button{background:#fff;color:var(--ink);border:1px solid var(--ln)}.tabs button.on{background:var(--ink);color:#fff}
+@media (max-width:900px){.g{grid-template-columns:1fr}iframe{height:760px}}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>営業メール作成</h1>
+<p class="sub">宛先の情報を入れると、件名と本文に名前が自動で入ります。HTMLメール（ボタン付き）とテキスト版の両方を作ります。</p>
+<div class="g">
+<div class="card">
+  <label>会社名<small>例：株式会社メイクイット</small></label><input id="co" value="">
+  <label>ブランド名・ショップ名<small>あれば</small></label><input id="br" value="">
+  <label>ご担当者名<small>分かれば（姓だけでもOK）</small></label><input id="pn" value="">
+  <label>相手のサイトURL<small>あれば</small></label><input id="url" value="">
+  <label>送信者名</label><input id="me" value="志田 恵介">
+  <label>送信者の住所<small>特定電子メール法で記載が必要</small></label><input id="addr" value="">
+  <div class="rule"><b>件名に入る名前のルール</b><br>① 会社名があれば「【〇〇 様】」<br>② なければブランド名・ショップ名「【〇〇 様】」<br>③ どちらもなければ名前なしの件名<br><b>本文の宛名</b>：会社名＋担当者名「様」。担当者が分からなければ「ご担当者様」。</div>
+</div>
+<div class="out">
+  <h2>件名</h2><div class="subj" id="subj"></div>
+  <div class="row"><button type="button" id="cpS">件名をコピー</button><button type="button" class="s" id="cpH">HTML本文をコピー（Gmail貼り付け用）</button><button type="button" class="s" id="cpT">テキスト本文をコピー</button><a class="btn" id="mt" href="#">メールソフトで開く（テキスト版）</a><span class="ok" id="ok"></span></div>
+  <div class="tabs"><button type="button" class="on" data-t="h">HTMLメール</button><button type="button" data-t="t">テキスト版</button></div>
+  <iframe id="pv" title="HTMLメールのプレビュー"></iframe>
+  <textarea id="tx" hidden readonly></textarea>
+</div>
+</div>
+</div>
+<script>
+var LP="https://aimania.tech/lp/renewal/",LINE="https://line.me/R/ti/p/@868bvrkt",MAIL="info@aimania.tech";
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function v(i){return $(i).value.trim()}
+function build(){
+  var co=v("co"),br=v("br"),pn=v("pn"),url=v("url"),me=v("me")||"志田 恵介",addr=v("addr");
+  var who=co||br;
+  var subj=(who?"【"+who+" 様】":"")+"サイトのリニューアル、5万円から承ります｜無料でサンプルデザインをお作りします";
+  var to1=co||(br?br:""),to2=pn?pn.replace(/様$/,"")+" 様":"ご担当者様";
+  var seen=br||co?(br?br:"御社")+"の"+(url?"サイト（"+url+"）":"サイト")+"を拝見し、ご連絡いたしました。":"";
+  var mailto="mailto:"+MAIL+"?subject="+encodeURIComponent("【無料サンプル希望】"+(who?who+"：":"")+"サイトリニューアルの相談");
+  var lp=LP+"?utm_source=mail&utm_medium=email&utm_campaign=renewal";
+  var T=[];
+  if(to1)T.push(to1);T.push(to2,"",
+  "突然のご連絡、失礼いたします。","AI mania inc. の"+me.split(/\s/)[0]+"と申します。");
+  if(seen)T.push(seen);
+  T.push("","ブランドサイトとECサイトのリニューアルを、一式5万円から承っております。","",
+  "・リニューアルしたいけれど、予算が合わない","・売れ行きが落ちてきた","・新しい販売サイトを立ち上げたい","",
+  "このようなお悩みがあれば、ぜひ一度ご相談ください。","",
+  "■ まずはサンプルデザインを、無償でお作りします。","　ご依頼を決めるのは、見てからで大丈夫です。","",
+  "▼ 制作事例とサービス内容",lp,"","▼ ご相談（メール・LINEどちらでも）","メール："+MAIL,"LINE："+LINE,"",
+  "サイトのURLとお悩みをひと言いただければ十分です。","※ECサイトの商品数などにより、費用はご相談ください。","",
+  "――――――――――――――","AI mania inc.","担当："+me,(addr?"住所："+addr:"住所：（ここに住所を入れてください）"),"Mail："+MAIL,"Web：https://aimania.tech/","――――――――――――――",
+  "今後このようなご案内が不要な場合は、お手数ですがこのメールに「配信不要」とご返信ください。");
+  var txt=T.join("\n");
+  var B='<a href="LINK" style="display:inline-block;background:BG;color:FG;text-decoration:none;font-weight:700;font-size:15px;line-height:1;padding:17px 26px;border-radius:999px;font-family:Helvetica,Arial,sans-serif">LABEL</a>';
+  function btn(l,h,bg,fg){return B.replace("LINK",esc(h)).replace("BG",bg).replace("FG",fg).replace("LABEL",l)}
+  var F='font-family:\'Hiragino Sans\',\'Yu Gothic\',Meiryo,Helvetica,Arial,sans-serif;';
+  var html='<div style="background:#F3F0E9;padding:24px 12px;'+F+'">'+
+  '<table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;border-collapse:separate">'+
+  '<tr><td style="background:#141414;padding:34px 32px 30px;color:#ffffff;'+F+'">'+
+  '<p style="margin:0 0 14px;font-size:11px;letter-spacing:3px;color:#bdbab3;font-weight:700">BRAND SITE &amp; EC RENEWAL</p>'+
+  '<p style="margin:0;font-size:28px;line-height:1.35;font-weight:900">サイトのリニューアル、<br><span style="color:#FF4B3A">一式5万円〜</span>承ります。</p>'+
+  '<p style="margin:16px 0 0;font-size:14px;line-height:1.8;color:#d9d6cf">まずはサンプルデザインを<b style="color:#ffffff">無償</b>でお作りします。<br>ご依頼を決めるのは、見てからで大丈夫です。</p>'+
+  '</td></tr>'+
+  '<tr><td style="padding:30px 32px 6px;color:#141414;font-size:15px;line-height:1.9;'+F+'">'+
+  (to1?esc(to1)+'<br>':'')+esc(to2)+'<br><br>'+
+  '突然のご連絡、失礼いたします。<br>AI mania inc. の'+esc(me.split(/\s/)[0])+'と申します。'+(seen?'<br>'+esc(seen):'')+'<br><br>'+
+  'ブランドサイトとECサイトのリニューアルを、<b>一式5万円から</b>承っております。</td></tr>'+
+  '<tr><td style="padding:10px 32px;'+F+'"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#F7F5F0;border-radius:12px"><tr><td style="padding:18px 20px;font-size:14px;line-height:2;color:#141414;'+F+'">'+
+  '<span style="color:#FF4B3A;font-weight:900">✓</span>　リニューアルしたいけれど、予算が合わない<br><span style="color:#FF4B3A;font-weight:900">✓</span>　売れ行きが落ちてきた<br><span style="color:#FF4B3A;font-weight:900">✓</span>　新しい販売サイトを立ち上げたい'+
+  '</td></tr></table><p style="margin:12px 0 0;font-size:15px;line-height:1.9;color:#141414">このようなお悩みがあれば、ぜひ一度ご相談ください。</p></td></tr>'+
+  '<tr><td style="padding:18px 32px 4px;'+F+'"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#FF4B3A;border-radius:12px"><tr><td style="padding:20px 22px;color:#ffffff;'+F+'">'+
+  '<p style="margin:0;font-size:11px;letter-spacing:2px;font-weight:700;opacity:.85">FREE SAMPLE</p><p style="margin:6px 0 0;font-size:19px;line-height:1.5;font-weight:900">サンプルデザインは無償です。<br>決めるのは、見てからで大丈夫です。</p></td></tr></table></td></tr>'+
+  '<tr><td align="center" style="padding:26px 32px 8px">'+btn("制作事例とサービスを見る →",lp,"#141414","#ffffff")+'</td></tr>'+
+  '<tr><td align="center" style="padding:6px 32px 6px">'+btn("メールで相談する",mailto,"#ffffff;border:1px solid #141414","#141414")+'&nbsp;&nbsp;'+btn("LINEで相談する",LINE,"#06C755","#ffffff")+'</td></tr>'+
+  '<tr><td style="padding:14px 32px 26px;font-size:12px;line-height:1.8;color:#6B6862;text-align:center;'+F+'">制作事例：ヘアケアブランド GRANI（ブランドサイト＋ECサイト）<br>※ECサイトの商品数などにより、費用はご相談ください。</td></tr>'+
+  '<tr><td style="border-top:1px solid #ECE9E2;padding:20px 32px 26px;font-size:12px;line-height:1.8;color:#6B6862;'+F+'">'+
+  '<b style="color:#141414">AI mania inc.</b>　担当：'+esc(me)+'<br>'+(addr?'住所：'+esc(addr)+'<br>':'住所：（ここに住所を入れてください）<br>')+'Mail：<a href="mailto:'+MAIL+'" style="color:#141414">'+MAIL+'</a>　Web：<a href="https://aimania.tech/" style="color:#141414">aimania.tech</a><br><br>今後このようなご案内が不要な場合は、お手数ですがこのメールに「配信不要」とご返信ください。</td></tr>'+
+  '</table></div>';
+  $("subj").textContent=subj;$("tx").value=txt;
+  var d=$("pv").contentDocument;d.open();d.write('<!DOCTYPE html><meta charset="utf-8"><body style="margin:0">'+html+'</body>');d.close();
+  $("mt").href="mailto:?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(txt);
+  window._h=html;window._t=txt;window._s=subj;
+}
+function flash(m){$("ok").textContent=m;setTimeout(function(){$("ok").textContent=""},1800)}
+$("cpS").onclick=function(){navigator.clipboard.writeText(_s).then(function(){flash("件名をコピーしました")})};
+$("cpT").onclick=function(){navigator.clipboard.writeText(_t).then(function(){flash("テキストをコピーしました")})};
+$("cpH").onclick=function(){try{var it=new ClipboardItem({"text/html":new Blob([_h],{type:"text/html"}),"text/plain":new Blob([_t],{type:"text/plain"})});navigator.clipboard.write([it]).then(function(){flash("HTMLをコピーしました。Gmailの本文に貼り付けてください")})}catch(e){flash("このブラウザではHTMLコピーができません")}};
+[].forEach.call(document.querySelectorAll("input"),function(i){i.addEventListener("input",build)});
+[].forEach.call(document.querySelectorAll(".tabs button"),function(b){b.onclick=function(){[].forEach.call(document.querySelectorAll(".tabs button"),function(x){x.classList.toggle("on",x===b)});var h=b.getAttribute("data-t")==="h";$("pv").hidden=!h;$("tx").hidden=h}});
+build();
+</script>
+</body>
+</html>
