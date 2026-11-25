@@ -163,7 +163,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--mute);fo
     <div class="dnav" id="dnav"><button id="dPrev" aria-label="前の日">‹</button><b id="dLbl"></b><button id="dNext" aria-label="次の日">›</button></div>
     <div class="conn">
       <span class="chip" id="cMeta"><i></i>Meta広告</span>
-      <span class="chip"><i></i>公式ストア</span>
+      <a class="chip" href="https://grani-beauty.com/view/item/000000000001" target="_blank" rel="noopener"><i></i>公式ストア ↗</a>
       <span class="chip"><i></i>楽天市場</span>
       <span class="chip"><i></i>Instagram</span>
     </div>
@@ -234,7 +234,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--mute);fo
     <div class="flow">
       <div class="fb"><h4>集める（データの元）</h4><ul>
         <li><b>Meta広告</b><em>Marketing API</em></li>
-        <li><b>公式ストアの注文</b><em>ストアのAPI</em></li>
+        <li><b>公式ストアの注文</b><em>MakeShop API</em></li>
         <li><b>楽天市場の注文</b><em>RMS API</em></li>
         <li><b>Instagramの反応</b><em>Graph API</em></li>
         <li><b>サイトの閲覧</b><em>GA4</em></li>
@@ -256,7 +256,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--mute);fo
     </div>
     <div class="phases">
       <div class="ph"><span class="n">PHASE 1</span><h4>CSVで見る</h4><p>広告マネージャのCSVを入れるだけ。接続の設定なしで、今日から使える（この試作で動作します）。</p><span class="t">すぐ</span></div>
-      <div class="ph"><span class="n">PHASE 2</span><h4>毎日自動でつなぐ</h4><p>Meta広告とストアの数字を、毎朝自動で取り込む。広告アカウントへの閲覧権限と、取り込み用の小さなサーバーが必要。</p><span class="t">2〜4週間</span></div>
+      <div class="ph"><span class="n">PHASE 2</span><h4>毎日自動でつなぐ</h4><p>Meta広告とストアの数字を、毎朝自動で取り込む。広告アカウントへの閲覧権限と、取り込み用の小さなサーバーが必要。広告のリンク先（公式ストアの商品ページ）にUTMを付けて、どの動画から買われたかを結びつける。</p><span class="t">2〜4週間</span></div>
       <div class="ph"><span class="n">PHASE 3</span><h4>ネツが提案、人が決める</h4><p>「動画Bの予算を20%上げる」などを提案。ボタンで承認したときだけ、広告の設定を変える。勝手には変えない。</p><span class="t">運用が安定してから</span></div>
     </div>
     <div class="ideas">

@@ -80,16 +80,6 @@
   "date": "11/22"
  },
  {
-  "title": "GRANI HEAT COUTURE サイト試作",
-  "path": "/test/grani-site/",
-  "date": "11/24"
- },
- {
-  "title": "GRANI AD STUDIO（広告管理ページ試作）",
-  "path": "/test/grani-ads/",
-  "date": "11/25"
- },
- {
   "title": "専門学校サイト（デザイン提案）",
   "path": "/test/maniani/",
   "date": "11/25"
@@ -97,6 +87,21 @@
  {
   "title": "スキルえらびナビ FV（B・C案）",
   "path": "/test/skillnavi/",
+  "date": "11/25"
+ },
+ {
+  "title": "GRANI サイト試作 HEAT COUTURE",
+  "path": "/test/grani-site/",
+  "date": "11/25"
+ },
+ {
+  "title": "GRANI 公式ストア試作（MakeShop想定）",
+  "path": "/test/grani-shop/",
+  "date": "11/25"
+ },
+ {
+  "title": "GRANI AD STUDIO（広告管理ページ試作）",
+  "path": "/test/grani-ads/",
   "date": "11/25"
  }
 ]

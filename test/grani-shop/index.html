@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--aim-guard--><script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_grani-shop_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_grani-shop_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=c5a30da6/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_grani-shop_ok","1")}catch(e){}try{document.cookie="aim_grani-shop_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script><meta name="robots" content="noindex,nofollow"><!--aim-guard-->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GRANI Official Store — Silky Moist Hair Milk（試作）</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Montserrat:wght@500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F2F0;--paper:#FBFAF9;--ink:#141316;--sub:#6B6772;--line:rgba(20,19,22,.12);--pink:#FF2D8F;--yel:#E8FF2E;--grad:linear-gradient(95deg,#FF7A00 0%,#FF3D5A 48%,#FF2D8F 100%);--en:'Montserrat','Helvetica Neue',Arial,sans-serif;--se:'Cormorant Garamond',Georgia,serif;--jp:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--jp);-webkit-font-smoothing:antialiased;word-break:auto-phrase;line-break:strict}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer}
+.w{max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+.k{font:700 10.5px var(--en);letter-spacing:.32em;text-transform:uppercase;color:var(--sub)}
+.se{font-family:var(--se);font-style:italic;font-weight:400}
+.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tmp{font-size:11px;color:var(--sub);line-height:1.7;margin-top:10px;padding-left:10px;border-left:2px solid var(--yel)}
+
+/* intro */
+.intro{position:fixed;inset:0;z-index:100;background:#0E0D10;display:grid;place-items:center;pointer-events:none;animation:intro-out .9s 1.5s var(--ease) forwards}
+.intro p{font:900 clamp(56px,11vw,160px) var(--en);letter-spacing:-.04em;background:linear-gradient(95deg,#2a2830 0%,#2a2830 40%,#FF7A00 50%,#FF2D8F 58%,#2a2830 68%,#2a2830 100%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sweep 1.6s var(--ease) forwards}
+.intro small{position:absolute;bottom:12vh;font:600 10px var(--en);letter-spacing:.5em;color:rgba(255,255,255,.4)}
+@keyframes sweep{from{background-position:100% 0}to{background-position:0 0}}
+@keyframes intro-out{to{clip-path:inset(0 0 100% 0);visibility:hidden}}
+.intro{clip-path:inset(0 0 0 0)}
+
+/* bar + header */
+.ann{background:var(--ink);color:#fff;text-align:center;font:600 11px var(--en);letter-spacing:.2em;padding:10px 12px}
+.ann a{color:var(--yel);text-decoration:none;margin-left:10px}
+.ann span{font-family:var(--jp);letter-spacing:.08em;font-weight:500}
+header{position:sticky;top:0;z-index:40;background:rgba(244,242,240,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px}
+header nav{display:flex;gap:26px}
+header nav a,.hr a,.hr button{font:700 11px var(--en);letter-spacing:.2em;text-decoration:none;background:none;border:0;color:var(--ink)}
+header nav a.on{border-bottom:1.5px solid var(--ink);padding-bottom:3px}
+.logo{font:900 26px var(--en);letter-spacing:-.02em;color:var(--pink);text-decoration:none}
+.hr{display:flex;justify-content:flex-end;gap:22px;align-items:center}
+.bagc{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:#fff;font:700 10px var(--en);margin-left:6px;padding:0 6px;transition:transform .4s var(--ease)}
+.bagc.pop{transform:scale(1.35);background:var(--pink)}
+@media (max-width:760px){header nav a:not(.on):not(.gf){display:none}header nav{gap:14px}.hr .mp{display:none}.logo{font-size:22px}}
+
+main{display:none}main.on{display:block}
+
+/* product */
+.pd{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,64px);padding-top:clamp(20px,3vw,40px)}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gal figure{overflow:hidden;background:#e9e6e3;position:relative}
+.gal figure:first-child{grid-column:1/-1;aspect-ratio:4/4.4}
+.gal figure:not(:first-child){aspect-ratio:3/4}
+.gal figure.wide{grid-column:1/-1;aspect-ratio:16/10}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:14px;bottom:12px;font:600 10px var(--en);letter-spacing:.24em;color:#fff;mix-blend-mode:difference}
+.buy{position:sticky;top:88px;align-self:start;padding:clamp(10px,2vw,24px) 0 40px}
+.crumb{font:500 11px var(--en);letter-spacing:.14em;color:var(--sub)}
+.crumb a{text-decoration:none}
+.pn{margin-top:22px;font:800 clamp(26px,2.8vw,38px)/1.12 var(--en);letter-spacing:.04em}
+.pj{margin-top:8px;font-size:14px;color:var(--sub);letter-spacing:.06em}
+.hc{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:var(--ink);color:#fff;border-radius:999px;padding:5px 16px 5px 5px;text-decoration:none}
+.hc svg{width:30px;height:30px}
+.hc b{font:800 11px var(--en);letter-spacing:.22em}.hc small{display:block;font-size:9.5px;opacity:.7;letter-spacing:.12em}
+.rate{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:12px;color:var(--sub)}
+.rate .st{color:var(--ink);letter-spacing:2px;font-size:13px}
+.rate b{font:800 14px var(--en);color:var(--ink)}
+.cp{margin-top:22px;font-family:var(--se);font-style:italic;font-size:clamp(22px,2vw,28px);line-height:1.35}
+.cpj{font-size:14px;line-height:1.9;color:var(--sub);margin-top:8px}
+.price{margin-top:26px;display:flex;align-items:baseline;gap:10px}
+.price b{font:800 32px var(--en);letter-spacing:.01em}
+.price span{font-size:12px;color:var(--sub)}
+.opts{margin-top:22px;display:grid;gap:10px}
+.opt{display:grid;grid-template-columns:22px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);background:var(--paper);padding:16px 18px;cursor:pointer;transition:border-color .3s,box-shadow .3s}
+.opt input{appearance:none;width:18px;height:18px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;margin:0}
+.opt input:checked::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.opt:has(input:checked){border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.opt b{font-size:14px}.opt small{display:block;font-size:11.5px;color:var(--sub);margin-top:3px}
+.opt em{font:700 13px var(--en);font-style:normal}
+.opt .tg{font:800 9px var(--en);letter-spacing:.2em;background:var(--pink);color:#fff;padding:3px 7px;margin-left:8px;vertical-align:2px}
+.row{display:flex;gap:10px;margin-top:14px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);background:var(--paper)}
+.qty button{width:44px;height:56px;border:0;background:none;font-size:18px}
+.qty span{width:28px;text-align:center;font:700 15px var(--en)}
+.atb{flex:1;height:58px;border:0;background:var(--ink);color:#fff;font:800 12px var(--en);letter-spacing:.32em;position:relative;overflow:hidden;transition:letter-spacing .5s var(--ease)}
+.atb::before{content:"";position:absolute;inset:0;background:var(--grad);transform:translateX(-101%);transition:transform .6s var(--ease)}
+.atb:hover::before{transform:none}.atb:hover{letter-spacing:.4em}
+.atb span{position:relative}
+.giftck{display:flex;gap:10px;align-items:center;margin-top:14px;font-size:13px;cursor:pointer}
+.giftck input{accent-color:var(--ink);width:16px;height:16px}
+.giftck a{color:var(--sub);font-size:12px}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:22px}
+.perks div{background:var(--bg);padding:14px 10px;text-align:center;font-size:11px;line-height:1.6;color:var(--sub)}
+.perks b{display:block;font:700 10px var(--en);letter-spacing:.2em;color:var(--ink);margin-bottom:3px}
+.pay{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.pay span{font:700 9.5px var(--en);letter-spacing:.08em;border:1px solid var(--line);padding:5px 8px;color:var(--sub)}
+.acc{margin-top:26px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;padding:18px 0;font:700 11px var(--en);letter-spacing:.24em;cursor:pointer}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-size:16px;font-weight:500;transition:transform .3s}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc .in{padding:0 0 20px;font-size:13.5px;line-height:1.95;color:#3b3940}
+.acc dl{display:grid;grid-template-columns:7em 1fr;gap:6px 12px}
+.acc dt{color:var(--sub)}
+.also{margin-top:18px;font-size:11.5px;color:var(--sub)}
+.also a{margin-left:8px;color:var(--sub)}
+@media (max-width:900px){.pd{grid-template-columns:1fr}.buy{position:static}.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:6px;margin:0 calc(-1*clamp(20px,4vw,56px))}.gal figure{flex:0 0 86%;scroll-snap-align:center;aspect-ratio:4/5!important}.gal figure:first-child{margin-left:clamp(20px,4vw,56px)}}
+
+/* flip */
+.flip{padding:clamp(80px,10vw,130px) 0 0}
+.fl-w{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,4vw,60px);align-items:center}
+.fl-t h2{font:900 clamp(34px,4.6vw,66px)/1.15 var(--jp);margin:16px 0}
+.fl-t p{font-size:14px;line-height:1.9;color:var(--sub)}
+.fl-stage{perspective:1600px;height:min(78vh,640px);display:grid;place-items:center;position:relative;cursor:grab;touch-action:pan-y;user-select:none}
+.fl-stage:active{cursor:grabbing}
+.fl-card{width:min(400px,72vw);aspect-ratio:3/4;position:relative;transform-style:preserve-3d;will-change:transform}
+.fl-f,.fl-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 50px 80px rgba(20,19,22,.25)}
+.fl-f{background:radial-gradient(circle at 50% 40%,#ffd3e6,#FF7AB4 55%,#FF2D8F);display:grid;place-items:center}
+.fl-f img{width:62%;filter:drop-shadow(0 30px 30px rgba(80,0,40,.35));transform:translateZ(60px)}
+.fl-b{transform:rotateY(180deg)}.fl-b img{width:100%;height:100%;object-fit:cover}
+.fl-f span,.fl-b span{position:absolute;left:18px;bottom:16px;font:800 10px var(--en);letter-spacing:.3em;color:#fff}
+.fl-hint{position:absolute;bottom:0;font:700 10px var(--en);letter-spacing:.3em;color:var(--sub)}
+@media (max-width:900px){.fl-w{grid-template-columns:1fr}.fl-stage{height:auto;padding:20px 0 40px}}
+/* ritual */
+.rit{margin-top:clamp(70px,10vw,130px);background:#0E0D10;color:#fff;position:relative;overflow:hidden}
+.rit .w{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;align-items:center;gap:clamp(30px,5vw,80px);padding-top:clamp(70px,9vw,120px);padding-bottom:clamp(70px,9vw,120px)}
+.rit-im{position:relative;height:100%;min-height:520px;overflow:hidden}
+.rit-im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rit-im::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,13,16,.5),transparent 50%)}
+.rit .k{color:rgba(255,255,255,.5)}
+.rit h2{font:400 clamp(40px,5.4vw,84px)/1.02 var(--se);font-style:italic;margin:18px 0 26px}
+.rit h2 b{font:900 .78em var(--en);font-style:normal;letter-spacing:-.02em}
+.steps{list-style:none;border-top:1px solid rgba(255,255,255,.14)}
+.steps li{display:grid;grid-template-columns:56px 1fr;gap:14px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.steps .n{font:400 30px var(--se);font-style:italic;color:var(--pink)}
+.steps b{font-size:16px}.steps p{font-size:13.5px;line-height:1.85;color:rgba(255,255,255,.65);margin-top:4px}
+.heatline{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--grad);transform-origin:left;transform:scaleX(0);transition:transform 2.4s var(--ease)}
+.rit.in .heatline{transform:none}
+@media (max-width:900px){.rit .w{grid-template-columns:1fr}.rit-im{min-height:420px}}
+
+/* arrival */
+.arr{padding:clamp(80px,11vw,150px) 0}
+.arr-h{text-align:center;max-width:760px;margin:0 auto}
+.arr-h h2{font:400 clamp(34px,4.4vw,64px)/1.15 var(--se);font-style:italic;margin-top:16px}
+.arr-h p{font-size:14.5px;line-height:2;color:var(--sub);margin-top:16px}
+.arr-g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,24px);margin-top:clamp(40px,6vw,70px)}
+.arr-g figure{background:var(--paper)}
+.arr-g .ph{aspect-ratio:4/5;overflow:hidden;position:relative}
+.arr-g img{width:100%;height:100%;object-fit:cover}
+.box{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(160deg,#1b1a1e,#2a1222)}
+.box i{width:56%;aspect-ratio:1.2;background:#18171b;border:1px solid rgba(255,255,255,.12);position:relative;box-shadow:0 40px 60px rgba(0,0,0,.4)}
+.box i::before,.box i::after{content:"";position:absolute;background:var(--grad)}
+.box i::before{left:0;right:0;top:46%;height:9px}.box i::after{top:0;bottom:0;left:46%;width:9px}
+.box em{position:absolute;bottom:20%;font:900 15px var(--en);color:rgba(255,255,255,.85);letter-spacing:.04em;font-style:normal}
+.card{position:absolute;inset:0;display:grid;place-items:center;background:#ECE9E6}
+.card div{width:72%;aspect-ratio:1.5;background:#fff;box-shadow:0 26px 50px rgba(0,0,0,.12);padding:8%;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-3deg);position:relative}
+.card div::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--grad)}
+.card p{font-size:12px;line-height:1.8}.card b{font:900 12px var(--en);color:var(--pink);text-align:right}
+.arr-g figcaption{padding:18px 18px 22px}
+.arr-g figcaption b{font:700 10.5px var(--en);letter-spacing:.24em}
+.arr-g figcaption p{font-size:13px;line-height:1.85;color:var(--sub);margin-top:6px}
+@media (max-width:760px){.arr-g{grid-template-columns:1fr}}
+
+/* reviews */
+.rv{background:var(--paper);padding:clamp(70px,9vw,120px) 0;border-top:1px solid var(--line)}
+.rv-h{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.rv-h h2{font:400 clamp(32px,4vw,56px)/1.1 var(--se);font-style:italic}
+.rv-s{display:flex;gap:36px}
+.rv-s b{font:800 44px var(--en);display:block;line-height:1}.rv-s span{font-size:11px;color:var(--sub);letter-spacing:.08em}
+.rv-l{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:40px;border:1px solid var(--line)}
+.rv-l figure{background:var(--paper);padding:28px 26px}
+.rv-l .st{letter-spacing:2px;font-size:12px}
+.rv-l blockquote{font-size:15px;line-height:1.9;margin:12px 0 16px;font-weight:500}
+.rv-l figcaption{font-size:11px;color:var(--sub);display:flex;gap:8px}
+.rv-l figcaption em{font-style:normal;border:1px solid var(--line);padding:1px 7px}
+@media (max-width:760px){.rv-l{grid-template-columns:1fr}}
+
+/* gift */
+.gh{position:relative;min-height:88vh;display:grid;grid-template-columns:1fr 1fr;background:#0E0D10;color:#fff;overflow:hidden}
+.gh-t{padding:clamp(60px,8vw,120px) clamp(24px,5vw,80px);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.gh .k{color:var(--yel)}
+.gh h1{font:400 clamp(46px,6.4vw,104px)/1.02 var(--se);font-style:italic;margin:20px 0}
+.gh h1 b{font:900 .74em/1.1 var(--en);font-style:normal;letter-spacing:-.02em;display:block}
+.gh p.l{font-size:15px;line-height:2;color:rgba(255,255,255,.72);max-width:30em}
+.gh .price b{color:#fff}.gh .price span{color:rgba(255,255,255,.55)}
+.gh-im{position:relative;overflow:hidden}
+.gh-im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gh-im .rb{position:absolute;inset:0}
+.snow{position:absolute;inset:0;pointer-events:none;z-index:1}
+.btnw{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:56px;padding:0 34px;background:#fff;color:var(--ink);font:800 11.5px var(--en);letter-spacing:.3em;text-decoration:none;border:0;position:relative;overflow:hidden}
+.btnw::before{content:"";position:absolute;inset:0;background:var(--grad);transform:translateX(-101%);transition:transform .6s var(--ease)}
+.btnw:hover::before{transform:none}.btnw:hover{color:#fff}.btnw span{position:relative}
+.btnl{display:inline-flex;align-items:center;height:56px;padding:0 26px;color:#fff;font:700 11px var(--en);letter-spacing:.26em;text-decoration:none;border:1px solid rgba(255,255,255,.35)}
+.gb{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.why{padding:clamp(80px,10vw,140px) 0}
+.why h2{font:400 clamp(34px,4.4vw,60px)/1.15 var(--se);font-style:italic;max-width:14em}
+.why-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:50px}
+.why-g div{background:var(--bg);padding:34px 28px}
+.why-g .n{font:400 46px var(--se);font-style:italic;line-height:1}
+.why-g h3{font-size:17px;margin:18px 0 8px}.why-g p{font-size:13.5px;line-height:1.9;color:var(--sub)}
+.who{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.who div{background:var(--paper);padding:26px 22px;border:1px solid var(--line);transition:transform .5s var(--ease),box-shadow .5s}
+.who div:hover{transform:translateY(-6px);box-shadow:0 24px 40px rgba(20,19,22,.08)}
+.who small{font:700 10px var(--en);letter-spacing:.26em;color:var(--pink)}
+.who h3{font-size:17px;margin:10px 0 8px}.who p{font-size:13px;line-height:1.85;color:var(--sub)}
+.msg{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:center;margin-top:40px}
+.pick{display:grid;gap:10px}
+.pick button{text-align:left;border:1px solid var(--line);background:var(--paper);padding:16px 18px;font-size:14px;line-height:1.75;transition:.3s}
+.pick button.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.pick label{font:700 10.5px var(--en);letter-spacing:.2em;margin-top:8px}
+.pick input{border:1px solid var(--line);background:var(--paper);padding:14px;font:500 15px var(--jp)}
+.mc{aspect-ratio:1.5;background:#fff;box-shadow:0 40px 70px rgba(20,19,22,.14);padding:clamp(24px,3.6vw,44px);display:flex;flex-direction:column;justify-content:space-between;position:relative;transform:rotate(-2deg);transition:transform .6s var(--ease)}
+.mc:hover{transform:rotate(0)}
+.mc::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--grad)}
+.mc .to{font:400 24px var(--se);font-style:italic}
+.mc .bd{font-size:clamp(15px,1.6vw,19px);line-height:1.9;font-weight:500}
+.mc .lg{font:900 18px var(--en);color:var(--pink);text-align:right}
+.gopt{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+.gopt div{background:var(--ink);color:#fff;padding:26px 24px}
+.gopt small{font:700 10px var(--en);letter-spacing:.26em;color:var(--yel)}
+.gopt b{display:block;margin:10px 0 6px;font-size:16px}.gopt p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.65)}
+.gend{background:var(--grad);color:#fff;text-align:center;padding:clamp(80px,10vw,130px) 0}
+.gend h2{font:400 clamp(40px,6vw,92px)/1.05 var(--se);font-style:italic}
+.gend .gb{justify-content:center}
+@media (max-width:900px){.gh{grid-template-columns:1fr}.gh-im{min-height:60vh;order:-1}.why-g,.gopt{grid-template-columns:1fr}.who{grid-template-columns:1fr 1fr}.msg{grid-template-columns:1fr}}
+
+/* bag drawer */
+.scrim{position:fixed;inset:0;background:rgba(14,13,16,.45);opacity:0;pointer-events:none;transition:opacity .5s;z-index:60}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);z-index:61;transform:translateX(100%);transition:transform .7s var(--ease);display:flex;flex-direction:column}
+body.bag .scrim{opacity:1;pointer-events:auto}body.bag .drawer{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:22px 26px;border-bottom:1px solid var(--line);font:700 11px var(--en);letter-spacing:.26em}
+.dh button{border:0;background:none;font-size:22px}
+.dmsg{padding:30px 26px 10px;font:400 30px/1.2 var(--se);font-style:italic}
+.dmsg small{display:block;font:500 13px var(--jp);color:var(--sub);margin-top:8px;font-style:normal}
+.it{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:20px 26px;border-bottom:1px solid var(--line)}
+.it .im{aspect-ratio:3/4;background:#e9e6e3;overflow:hidden}.it img{width:100%;height:100%;object-fit:cover}
+.it b{font:800 12px var(--en);letter-spacing:.14em}.it p{font-size:12px;color:var(--sub);margin-top:5px;line-height:1.7}
+.it em{display:block;font:700 15px var(--en);font-style:normal;margin-top:8px}
+.dfoot{margin-top:auto;padding:22px 26px 28px;border-top:1px solid var(--line)}
+.dfoot .tt{display:flex;justify-content:space-between;font:700 13px var(--en);letter-spacing:.1em;margin-bottom:16px}
+.dfoot .atb{width:100%;display:grid;place-items:center;text-decoration:none}
+.dfoot .cont{display:block;text-align:center;margin-top:12px;font:600 10.5px var(--en);letter-spacing:.22em;color:var(--sub);background:none;border:0;width:100%}
+.spark{position:fixed;pointer-events:none;z-index:70;width:8px;height:8px;border-radius:50%;background:var(--grad)}
+
+/* cart (makeshop standard area) */
+.ck{padding:clamp(40px,6vw,80px) 0 120px}
+.ck h1{font:400 clamp(36px,4.4vw,60px) var(--se);font-style:italic}
+.flow{display:flex;gap:0;margin:28px 0 40px;border:1px solid var(--line)}
+.flow span{flex:1;text-align:center;padding:14px 6px;font:700 10.5px var(--en);letter-spacing:.16em;color:var(--sub);border-right:1px solid var(--line)}
+.flow span:last-child{border-right:0}.flow span.on{background:var(--ink);color:#fff}
+.flow span small{display:block;font:500 11px var(--jp);letter-spacing:.06em;margin-top:3px}
+.ckg{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(20px,4vw,50px)}
+.ckbox{background:var(--paper);border:1px solid var(--line)}
+.ms{margin-top:24px;border:1.5px dashed rgba(255,45,143,.45);padding:22px;font-size:13px;line-height:1.9;color:#3b3940;background:rgba(255,45,143,.03)}
+.ms b{color:var(--pink);font:800 10.5px var(--en);letter-spacing:.2em;display:block;margin-bottom:6px}
+@media (max-width:900px){.ckg{grid-template-columns:1fr}.flow span small{display:none}}
+
+footer{background:#0E0D10;color:rgba(255,255,255,.7);padding:70px 0 34px;font-size:12.5px}
+footer .fw{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+footer .fl{font:900 54px var(--en);color:var(--pink);letter-spacing:-.03em}
+footer a{display:block;text-decoration:none;line-height:2.3}
+footer h4{font:700 10px var(--en);letter-spacing:.26em;color:#fff;margin-bottom:8px}
+footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;color:rgba(255,255,255,.4)}
+@media (max-width:760px){footer .fw{grid-template-columns:1fr 1fr}footer .fl{grid-column:1/-1}}
+
+.rvl{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rvl.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.intro{display:none}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="intro" aria-hidden="true"><p>GRANI</p><small>OFFICIAL STORE</small></div>
+
+<p class="ann">HOLIDAY GIFT 2026 <span>— ギフトラッピング承り中（仮）</span><a href="#gift">GIFT →</a></p>
+<header><div class="w">
+  <nav><a href="#item" data-v="item">SHOP</a><a href="#gift" data-v="gift" class="gf">GIFT</a><a href="../grani-site/">BRAND</a></nav>
+  <a class="logo" href="#item">GRANI</a>
+  <div class="hr"><a class="mp" href="https://grani-beauty.com/view/member/mypage">MY PAGE</a><button type="button" id="bagBtn">BAG<span class="bagc" id="bagC">0</span></button></div>
+</div></header>
+
+<!-- ======= ITEM ======= -->
+<main data-view="item">
+  <div class="w pd">
+    <div class="gal">
+      <figure><img src="p/3157.jpg" alt="GRANI シルキーモイストヘアミルク" style="object-position:50% 45%"><figcaption>200 ML</figcaption></figure>
+      <figure><img src="p/milk.jpg" alt="ミルクの質感" style="object-position:40% 50%"><figcaption>TEXTURE</figcaption></figure>
+      <figure><img src="p/3042.jpg" alt="ボトル2本"><figcaption>HAIR MILK</figcaption></figure>
+      <figure class="wide"><img src="p/3054.jpg" alt="3本並んだGRANI"><figcaption>HEAT COUTURE</figcaption></figure>
+    </div>
+    <div class="buy">
+      <p class="crumb"><a href="#item">SHOP</a> / HAIR CARE</p>
+      <h1 class="pn">SILKY MOIST<br>HAIR MILK</h1>
+      <p class="pj">シルキーモイスト ヘアミルク　200ml</p>
+      <a class="hc" href="../grani-site/#heat-couture"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="hcg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FF7A00"/><stop offset=".5" stop-color="#FF3D5A"/><stop offset="1" stop-color="#FF2D8F"/></linearGradient></defs><circle cx="32" cy="32" r="31" fill="url(#hcg)"/><path d="M19 44c3-4 3-8 0-12s-3-8 0-12M32 44c3-4 3-8 0-12s-3-8 0-12M45 44c3-4 3-8 0-12s-3-8 0-12" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/></svg><span><b>HEAT COUTURE</b><small>ドライヤーの熱で、成分が浸透※</small></span></a>
+      <p class="rate"><b>5.7</b>/ 7　@cosme クチコミ187件</p>
+      <p class="cp">Heat, on your side.</p>
+      <p class="cpj">熱を味方にする、洗い流さないヘアミルク。毎日のドライヤーを、いちばん贅沢なケアの時間に。</p>
+      <p class="price"><b>¥3,960</b><span>税込</span></p>
+      <div class="opts" role="radiogroup">
+        <label class="opt"><input type="radio" name="pt" value="one" checked><span><b>通常購入</b><small>1本・200ml</small></span><em>¥3,960</em></label>
+        <label class="opt"><input type="radio" name="pt" value="sub"><span><b>定期便<span class="tg">SUBSCRIBE</span></b><small>なくなる頃に、自動でお届け（条件は確認中）</small></span><em>—</em></label>
+      </div>
+      <div class="row"><div class="qty"><button type="button" id="qm" aria-label="減らす">−</button><span id="qn">1</span><button type="button" id="qp" aria-label="増やす">＋</button></div>
+        <button type="button" class="atb" id="atb"><span>ADD TO BAG</span></button></div>
+      <label class="giftck"><input type="checkbox" id="gck"> ギフトラッピングとメッセージカードを付ける <a href="#gift">詳しく</a></label>
+      <div class="perks"><div><b>GIFT</b>ラッピング<br>承り中（仮）</div><div><b>DELIVERY</b>ご注文から<br>7日以内に発送</div><div><b>MEMBER</b>会員限定の<br>お知らせ（仮）</div></div>
+      <div class="pay"><span>VISA</span><span>Mastercard</span><span>JCB</span><span>AMEX</span><span>Amazon Pay</span><span>PayPay</span><span>代金引換</span><span>銀行振込</span></div>
+      <p class="tmp">支払い方法は想定です（現在の公式ストアは銀行振込・代金引換のみ）。カード決済の追加をおすすめします。</p>
+      <div class="acc">
+        <details open><summary>DESCRIPTION</summary><div class="in">ドライヤーの熱に反応するW成分（トステア®×γ-ドコサラクトン）を配合。タオルドライ後になじませて乾かすだけで、毛先までしっとり、なめらかに。夜・朝・日中、24時間のヘアケアに。<br><small style="color:var(--sub)">※トステア®とγ-ドコサラクトン。浸透は毛髪の内部まで。</small></div></details>
+        <details><summary>HOW TO USE</summary><div class="in"><dl><dt>夜</dt><dd>タオルドライ後、中間〜毛先になじませてドライヤーで乾かす。</dd><dt>朝</dt><dd>乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。</dd><dt>日中</dt><dd>外出前や日中に、毛先へなじませる。</dd></dl><p style="margin-top:10px"><a href="../grani-site/#shindan">髪質に合う使い方を診断する →</a></p></div></details>
+        <details><summary>FRAGRANCE</summary><div class="in">ピュアリネン。シトラス・グリーンから、フローラル・ムスク、ウッディ・サンダルウッドへ。香水を邪魔しない、控えめな香り。</div></details>
+        <details><summary>DELIVERY &amp; RETURNS</summary><div class="in">ご注文受付後、7日以内にお届けします。商品の返品・交換は、初期不良・発送商品間違いの場合に承ります（当店着払い）。詳しくは<a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a>をご確認ください。</div></details>
+      </div>
+      <p class="also">楽天市場・Amazonでも取り扱いがあります（予定）。<a href="https://search.rakuten.co.jp/search/mall/GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF/">楽天市場</a><a href="https://www.amazon.co.jp/s?k=GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF">Amazon</a></p>
+    </div>
+  </div>
+
+  <section class="flip" id="flip"><div class="w fl-w">
+    <div class="fl-t rvl"><p class="k">TURN IT</p><h2>回すと、<br><span class="g">仕上がりへ。</span></h2><p>ドラッグして回してみてください。<br>ボトルの裏側には、ヒートクチュールの仕上がり。</p><p class="tmp">写真はイメージです。</p></div>
+    <div class="fl-stage" id="flStage" aria-label="ドラッグで回転する商品と仕上がり写真">
+      <div class="fl-card" id="flCard">
+        <div class="fl-f"><img src="p/tube.png" alt="GRANI ヘアミルク"><span>HAIR MILK</span></div>
+        <div class="fl-b"><img src="p/h1093.jpg" alt="なめらかな髪のモデル"><span>HEAT COUTURE</span></div>
+      </div>
+      <p class="fl-hint">DRAG TO TURN ⟲</p>
+    </div>
+  </div></section>
+
+  <section class="rit" id="rit">
+    <div class="w">
+      <div class="rit-im rvl"><img src="p/h1093.jpg" alt="風になびく髪"></div>
+      <div class="rvl">
+        <p class="k">THE RITUAL</p>
+        <h2>Every night,<br><b>熱が、ケアになる。</b></h2>
+        <ol class="steps">
+          <li><span class="n">i.</span><div><b>タオルドライ</b><p>水気をやさしく取り、髪を整える。</p></div></li>
+          <li><span class="n">ii.</span><div><b>GRANIをなじませる</b><p>手のひらで広げ、中間から毛先へ。</p></div></li>
+          <li><span class="n">iii.</span><div><b>ドライヤーで乾かす</b><p>熱に反応して、成分が浸透※。いつもの時間が、ケアの時間に。</p></div></li>
+        </ol>
+      </div>
+    </div>
+    <span class="heatline"></span>
+  </section>
+
+  <section class="arr"><div class="w">
+    <div class="arr-h rvl"><p class="k">THE ARRIVAL</p><h2>届く瞬間まで、GRANI。</h2><p>箱を開けるところから、体験は始まっています。<br>ブランドカラーの箱、ひとことのカード、そして一本のヘアミルク。</p></div>
+    <div class="arr-g">
+      <figure class="rvl"><div class="ph"><div class="box"><i></i><em>GRANI</em></div></div><figcaption><b>THE BOX</b><p>黒の箱に、熱をあらわすグラデーションのリボン。</p></figcaption></figure>
+      <figure class="rvl"><div class="ph"><div class="card"><div><p>いつもおつかれさま。<br>毎日のドライヤーが、少し楽しみになりますように。</p><b>GRANI</b></div></div></div><figcaption><b>THE CARD</b><p>贈りものには、選べるメッセージカードを。</p></figcaption></figure>
+      <figure class="rvl"><div class="ph"><img src="p/2999.jpg" alt="GRANIのボトル"></div><figcaption><b>THE MILK</b><p>200ml。夜も朝も、毎日のドライヤーに。</p></figcaption></figure>
+    </div>
+    <p class="tmp">箱・リボン・カードはイメージです。資材と対応範囲は確認中です。</p>
+  </div></section>
+
+  <section class="rv"><div class="w">
+    <div class="rv-h rvl"><div><p class="k">REVIEWS</p><h2>使った人の、声。</h2></div><div class="rv-s"><p><b>5.7</b><span>/ 7　@cosme 平均</span></p><p><b>187</b><span>件のクチコミ</span></p></div></div>
+    <div class="rv-l">
+      <figure class="rvl"><p class="st">★★★★★★★</p><blockquote>たっぷり入っていて、オイルだけでは足りないロングヘアにちょうどいい。</blockquote><figcaption><em>購入品</em>30代</figcaption></figure>
+      <figure class="rvl"><p class="st">★★★★★★★</p><blockquote>乾かしたあとの収まりがよく、雨の日もなめらかなまま。</blockquote><figcaption><em>購入品</em>40代</figcaption></figure>
+      <figure class="rvl"><p class="st">★★★★★★☆</p><blockquote>ベタつかず、重くないミルク。ドライヤー前に使うと、毛先までしっとり。</blockquote><figcaption><em>モニター</em>40代</figcaption></figure>
+    </div>
+    <p class="tmp">@cosmeのクチコミを要約して掲載（原文ではありません）。公開前に掲載の許可と最新の件数を確認します。</p>
+  </div></section>
+</main>
+
+<!-- ======= GIFT ======= -->
+<main data-view="gift">
+  <section class="gh">
+    <canvas class="snow" id="snow" aria-hidden="true"></canvas>
+    <div class="gh-t">
+      <p class="k">HOLIDAY GIFT 2026</p>
+      <h1>The gift of<br>heat.<b>毎日のドライヤーを、<br><span class="g">贈りものに。</span></b></h1>
+      <p class="l">熱を味方にする、ヘアミルク。気をつかわせない価格で、ちゃんと嬉しい。使うたびに、贈った人を思い出す。</p>
+      <p class="price"><b>¥3,960</b><span>税込・200ml</span></p>
+      <div class="gb"><button type="button" class="btnw" data-gift><span>GIFT THIS →</span></button><a class="btnl" href="#gmsg">CHOOSE A CARD</a></div>
+    </div>
+    <div class="gh-im"><img src="p/3119.jpg" alt="ピンクの背景に置かれた3本のGRANI">
+      <svg class="rb" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="rbg" x1="0" x2="1"><stop offset="0" stop-color="#FF7A00"/><stop offset=".5" stop-color="#FF3D5A"/><stop offset="1" stop-color="#FF2D8F"/></linearGradient></defs><path d="M-5 70 C 30 82, 60 58, 105 74" stroke="url(#rbg)" stroke-width="3" fill="none"/></svg>
+    </div>
+  </section>
+
+  <section class="why"><div class="w">
+    <p class="k rvl">WHY GRANI</p>
+    <h2 class="rvl">ヘアミルクが、贈りものに<br>ちょうどいい理由。</h2>
+    <div class="why-g">
+      <div class="rvl"><p class="n">i.</p><h3>毎日、手に取る。</h3><p>ドライヤーは毎日のこと。使うたびに、贈った人を思い出してもらえます。</p></div>
+      <div class="rvl"><p class="n">ii.</p><h3>香りが控えめ。</h3><p>ほのかに香るピュアリネン。香水やいつもの香りを邪魔しません。</p></div>
+      <div class="rvl"><p class="n">iii.</p><h3>¥3,960の、ちょうどよさ。</h3><p>気をつかわせない価格で、自分ではなかなか買わない「いいもの」に。</p></div>
+    </div>
+    <div class="who">
+      <div class="rvl"><small>TO FRIENDS</small><h3>友達・同僚へ</h3><p>プチギフトより少し特別に。クリスマスの交換にも。</p></div>
+      <div class="rvl"><small>TO MOM</small><h3>母へ</h3><p>乾燥が気になる季節に。毎日のケアを、少しだけ贅沢に。</p></div>
+      <div class="rvl"><small>TO PARTNER</small><h3>パートナーへ</h3><p>髪の長さを問わず使えるから、相手を選ばず贈れます。</p></div>
+      <div class="rvl"><small>TO ME</small><h3>自分へ</h3><p>1年がんばった自分に。贈る分と、2本まとめて。</p></div>
+    </div>
+  </div></section>
+
+  <section class="why" id="gmsg" style="padding-top:0"><div class="w">
+    <p class="k rvl">MESSAGE CARD</p>
+    <h2 class="rvl">ひとことを、添えて。</h2>
+    <div class="msg">
+      <div class="pick rvl" id="pick">
+        <button type="button" class="on">いつもおつかれさま。<br>毎日のドライヤーが、少し楽しみになりますように。</button>
+        <button type="button">髪にも、ごほうびを。<br>今年もありがとう。</button>
+        <button type="button">熱を味方に。<br>あなたの毎日に、小さなご褒美を。</button>
+        <label for="to">TO（カードの宛名）</label>
+        <input id="to" type="text" maxlength="16" placeholder="例：ゆかりさん">
+      </div>
+      <div class="mc rvl"><p class="to" id="mto">Dear ______</p><p class="bd" id="mbd">いつもおつかれさま。<br>毎日のドライヤーが、少し楽しみになりますように。</p><p class="lg">GRANI</p></div>
+    </div>
+    <div class="gopt">
+      <div class="rvl"><small>WRAPPING</small><b>ギフトラッピング</b><p>黒の箱に、グラデーションのリボン。</p></div>
+      <div class="rvl"><small>CARD</small><b>メッセージカード</b><p>3種類から選べます。宛名をお入れします。</p></div>
+      <div class="rvl"><small>DELIVERY</small><b>クリスマスに間に合う</b><p>12月○日（○）までのご注文で、12月24日までにお届け。</p></div>
+    </div>
+    <p class="tmp">ラッピング・カード・締切は想定です。MakeShopの「ギフト設定」「備考欄」などに合わせて、料金と締切を確定します。</p>
+  </div></section>
+
+  <section class="gend"><div class="w">
+    <h2>This year,<br>give heat.</h2>
+    <div class="gb"><button type="button" class="btnw" data-gift><span>GIFT THIS →</span></button><a class="btnl" href="#item" style="border-color:rgba(255,255,255,.7)">VIEW PRODUCT</a></div>
+  </div></section>
+</main>
+
+<!-- ======= CART (MakeShop standard) ======= -->
+<main data-view="cart">
+  <div class="w ck">
+    <p class="k">SHOPPING BAG</p>
+    <h1>Your bag.</h1>
+    <div class="flow"><span class="on">01 BAG<small>カート</small></span><span>02 INFO<small>お客様情報</small></span><span>03 PAYMENT<small>お支払い</small></span><span>04 CONFIRM<small>ご確認</small></span></div>
+    <div class="ckg">
+      <div class="ckbox" id="ckList"></div>
+      <div>
+        <div class="ckbox" style="padding:24px">
+          <div class="dfoot" style="padding:0;border:0"><div class="tt"><span>SUBTOTAL</span><span id="ckSum">¥0</span></div><p style="font-size:12px;color:var(--sub);margin-bottom:16px">送料は次の画面で計算されます。</p><a class="atb" href="https://grani-beauty.com/view/cart" style="display:grid;place-items:center;text-decoration:none"><span>CHECKOUT</span></a></div>
+        </div>
+        <div class="ms"><b>MAKESHOP STANDARD</b>ここから先（お客様情報・お支払い・確認）はMakeShop標準の画面です。安全のため構造は変えず、ロゴ・ヘッダー・色・書体・ボタンをこのデザインに合わせます。</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="ショッピングバッグ">
+  <div class="dh">SHOPPING BAG <button type="button" id="dx" aria-label="閉じる">×</button></div>
+  <p class="dmsg">It's yours.<small>バッグに追加しました。今夜から、熱はあなたの味方です。</small></p>
+  <div id="dList"></div>
+  <div class="dfoot"><div class="tt"><span>SUBTOTAL</span><span id="dSum">¥0</span></div><a class="atb" href="#cart" id="toCart"><span>VIEW BAG &amp; CHECKOUT</span></a><button type="button" class="cont" id="dc">CONTINUE SHOPPING</button></div>
+</aside>
+
+<footer><div class="w">
+  <div class="fw">
+    <p class="fl">GRANI</p>
+    <div><h4>SHOP</h4><a href="#item">ヘアミルク</a><a href="#gift">ギフト</a><a href="https://grani-beauty.com/view/cart">カート</a><a href="https://grani-beauty.com/view/member/mypage">マイページ</a></div>
+    <div><h4>BRAND</h4><a href="../grani-site/">ブランドサイト</a><a href="https://grani-beauty.com/view/news/list">TOPICS</a><a href="https://www.instagram.com/granibeauty/">Instagram</a><a href="https://lin.ee/6NXg6k3">LINE</a></div>
+    <div><h4>INFO</h4><a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a><a href="https://grani-beauty.com/view/policy">プライバシーポリシー</a><a href="https://grani-beauty.com/view/company">会社概要</a><a href="tel:0367210015">TEL 03-6721-0015</a></div>
+  </div>
+  <p class="fb"><span>© 2026 MAKEit INC.　東京都港区南青山2-7-7 MAビル2F</span><span>試作ページ（MakeShop想定）／ 価格以外の条件は仮</span></p>
+</div></footer>
+
+<script>
+(function(){
+var PRICE=3960,bag=[],q=1;
+var views=[].slice.call(document.querySelectorAll("main[data-view]"));
+function show(){var n=(location.hash||"#item").slice(1);var f=views.some(function(v){return v.getAttribute("data-view")===n});if(!f){var el=document.getElementById(n);var mv=el&&el.closest("main");n=mv?mv.getAttribute("data-view"):"item";}
+ views.forEach(function(v){v.classList.toggle("on",v.getAttribute("data-view")===n)});
+ [].forEach.call(document.querySelectorAll("header nav a[data-v]"),function(a){a.classList.toggle("on",a.getAttribute("data-v")===n)});
+ if(f)window.scrollTo(0,0);if(n==="cart")drawCart();obs();if(n==="gift")snow();}
+window.addEventListener("hashchange",show);
+var io="IntersectionObserver" in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15}):null;
+function obs(){[].forEach.call(document.querySelectorAll("main.on .rvl:not(.in),main.on .rit"),function(el){io?io.observe(el):el.classList.add("in")});}
+var yen=function(v){return "¥"+v.toLocaleString("ja-JP")};
+document.getElementById("qm").onclick=function(){q=Math.max(1,q-1);document.getElementById("qn").textContent=q};
+document.getElementById("qp").onclick=function(){q=Math.min(9,q+1);document.getElementById("qn").textContent=q};
+function add(n,gift,from){var sub=document.querySelector('input[name="pt"]:checked').value==="sub";
+ bag.push({n:n,gift:gift,sub:sub});var c=bag.reduce(function(a,b){return a+b.n},0);var bc=document.getElementById("bagC");bc.textContent=c;bc.classList.add("pop");setTimeout(function(){bc.classList.remove("pop")},500);
+ burst(from);setTimeout(open,380);}
+function rows(){return bag.map(function(b){return '<div class="it"><div class="im"><img src="p/3157.jpg" alt=""></div><div><b>SILKY MOIST HAIR MILK</b><p>200ml ／ '+(b.sub?"定期便":"通常購入")+' ／ 数量 '+b.n+(b.gift?'<br>ギフトラッピング・カード付き':'')+'</p><em>'+yen(PRICE*b.n)+'</em></div></div>'}).join("")}
+function total(){return bag.reduce(function(a,b){return a+b.n*PRICE},0)}
+function open(){document.getElementById("dList").innerHTML=rows();document.getElementById("dSum").textContent=yen(total());document.body.classList.add("bag")}
+function close(){document.body.classList.remove("bag")}
+function drawCart(){document.getElementById("ckList").innerHTML=bag.length?rows():'<p style="padding:40px 26px;color:var(--sub);font-size:14px">バッグは空です。<a href="#item">ヘアミルクを見る →</a></p>';document.getElementById("ckSum").textContent=yen(total())}
+function burst(el){if(!el)return;var r=el.getBoundingClientRect(),b=document.getElementById("bagBtn").getBoundingClientRect();
+ for(var i=0;i<14;i++)(function(i){var s=document.createElement("i");s.className="spark";document.body.appendChild(s);var x0=r.left+r.width*(.2+.6*Math.random()),y0=r.top+r.height/2,x1=b.left+b.width-10,y1=b.top+10,t0=performance.now(),d=700+i*25,cx=(x0+x1)/2+(Math.random()-.5)*240,cy=Math.min(y0,y1)-120-Math.random()*120;
+  (function f(t){var k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3),x=(1-e)*(1-e)*x0+2*(1-e)*e*cx+e*e*x1,y=(1-e)*(1-e)*y0+2*(1-e)*e*cy+e*e*y1;s.style.transform="translate("+x+"px,"+y+"px) scale("+(1-k*.6)+")";s.style.opacity=1-k*.4;if(k<1)requestAnimationFrame(f);else s.remove()})(t0)})(i)}
+document.getElementById("atb").onclick=function(){add(q,document.getElementById("gck").checked,this)};
+[].forEach.call(document.querySelectorAll("[data-gift]"),function(b){b.onclick=function(){add(1,true,b)}});
+document.getElementById("bagBtn").onclick=function(){bag.length?open():(location.hash="#cart")};
+document.getElementById("dx").onclick=close;document.getElementById("scrim").onclick=close;document.getElementById("dc").onclick=close;
+document.getElementById("toCart").onclick=function(){close()};
+var pk=document.getElementById("pick");pk.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;[].forEach.call(pk.querySelectorAll("button"),function(x){x.classList.toggle("on",x===b)});document.getElementById("mbd").innerHTML=b.innerHTML});
+document.getElementById("to").addEventListener("input",function(){document.getElementById("mto").textContent="Dear "+(this.value.trim()||"______")});
+var sn=false;function snow(){if(sn)return;sn=true;var cv=document.getElementById("snow"),cx=cv.getContext("2d"),P=[],W,H;
+ function rs(){var r=cv.parentNode.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cv.style.width=W+"px";cv.style.height=H+"px";cx.setTransform(d,0,0,d,0,0);P=[];for(var i=0;i<80;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.7+.4,v:Math.random()*.35+.1,a:Math.random()*6.28})}
+ rs();addEventListener("resize",rs);(function lp(){if(location.hash==="#gift"){cx.clearRect(0,0,W,H);P.forEach(function(p){p.y+=p.v;p.a+=.012;p.x+=Math.sin(p.a)*.25;if(p.y>H+4){p.y=-4;p.x=Math.random()*W}cx.globalAlpha=.3+.35*Math.sin(p.a*3);cx.fillStyle=p.r>1.5?"#FFB3D4":"#fff";cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fill()})}requestAnimationFrame(lp)})()}
+// flip
+(function(){var st=document.getElementById("flStage"),c=document.getElementById("flCard");if(!st)return;var ry=-18,rx=4,v=0,drag=false,lx=0,auto=true,t0=0;
+ function set(){c.style.transform="rotateX("+rx+"deg) rotateY("+ry+"deg)"}
+ st.addEventListener("pointerdown",function(e){drag=true;auto=false;lx=e.clientX;st.setPointerCapture(e.pointerId)});
+ st.addEventListener("pointermove",function(e){if(!drag)return;var d=e.clientX-lx;lx=e.clientX;v=d*.5;ry+=v;set()});
+ st.addEventListener("pointerup",function(){drag=false});st.addEventListener("pointercancel",function(){drag=false});
+ (function lp(t){if(!drag){if(auto){ry+=0.35;}else{ry+=v;v*=.94;if(Math.abs(v)<.02){var tgt=Math.round(ry/180)*180;ry+=(tgt-ry)*.06;}}rx=4+Math.sin(t/1400)*3;set()}requestAnimationFrame(lp)})(0);
+})();
+show();
+})();
+</script>
+</body>
+</html>

@@ -509,12 +509,12 @@ nav a[data-nav]{opacity:.7;transition:opacity .2s}nav a[data-nav]:hover,nav a[ar
 .notes,.cards,.day{border-color:var(--line)}
 /* footer */
 footer{padding:clamp(70px,12vh,120px) 0 40px}
-footer .fw{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:end}
+footer .fw{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;align-items:end}
 footer .fl{font-family:var(--en);font-weight:900;font-size:clamp(64px,12vw,180px);line-height:.8;letter-spacing:-.04em;color:var(--pink)}
 footer .fc{font-size:13px;line-height:2.2}
 footer .fc a{display:block;margin:0;text-decoration:none;color:rgba(255,255,255,.8)}
 footer .fc a:hover{color:#fff}
-footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;margin-top:20px;font-size:11px;color:rgba(255,255,255,.45)}
+footer .fa{grid-column:1/-1}footer .fb{grid-column:1/-1;display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;margin-top:20px;font-size:11px;color:rgba(255,255,255,.45)}
 @media (max-width:760px){footer .fw{grid-template-columns:1fr 1fr}footer .fl{grid-column:1/-1}}
 .pdsec{position:relative;overflow:hidden}
 .bgword{position:absolute;left:-2vw;bottom:-.18em;font-family:var(--en);font-weight:900;font-size:19vw;line-height:1;letter-spacing:-.05em;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px rgba(23,22,26,.09);pointer-events:none;animation:run 60s linear infinite alternate}
@@ -829,8 +829,115 @@ html.en .hx-big{font-size:7.4vw;letter-spacing:-.03em}
 
 .hcw .pre{font-family:inherit!important;letter-spacing:.06em!important;font-size:10.5px!important;color:#FF7AB5!important;margin:0 0 2px!important}
 @media (max-width:760px){.hx-fl{top:auto!important;bottom:calc(178px + 4vh)!important;right:4vw!important;width:16vw!important}}
+
+/* ===== diagnosis / hair type / gift ===== */
+nav a.gift{font-family:var(--en);font-weight:800;font-size:11px;letter-spacing:.16em;color:var(--pink);display:inline-flex!important;align-items:center;gap:6px}
+nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 0 rgba(255,45,143,.6);animation:gpulse 2s infinite}
+@keyframes gpulse{70%{box-shadow:0 0 0 8px rgba(255,45,143,0)}100%{box-shadow:0 0 0 0 rgba(255,45,143,0)}}
+.ht{background:var(--paper)}
+.ht-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 30px}
+.ht-tabs button{border:1.5px solid var(--ink);background:none;border-radius:40px;padding:12px 22px;font:700 14px var(--jp);color:var(--ink);cursor:pointer;transition:.25s}
+.ht-tabs button.on{background:var(--ink);color:#fff}
+.ht-p{display:none;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,56px);align-items:start}
+.ht-p.on{display:grid;animation:htin .5s ease}
+@keyframes htin{from{opacity:0;transform:translateY(10px)}}
+.ht-use{background:#fff;border-radius:22px;padding:clamp(22px,3vw,36px)}
+.ht-use h3{font-size:clamp(20px,2.2vw,28px);font-weight:900;margin-bottom:18px}
+.ht-use dl{display:grid;grid-template-columns:7.5em 1fr;gap:12px 14px;font-size:15px;line-height:1.7}
+.ht-use dt{font-weight:800;color:var(--pink);font-size:13px;letter-spacing:.08em;padding-top:2px}
+.ht-rv{background:var(--ink);color:#fff;border-radius:22px;padding:clamp(22px,3vw,36px);position:relative}
+.ht-rv .q{font-family:var(--en);font-size:60px;line-height:.6;color:var(--pink);font-weight:900}
+.ht-rv blockquote{font-size:clamp(17px,1.6vw,20px);font-weight:700;line-height:1.8;margin:10px 0 16px}
+.ht-rv .meta{font-size:12px;color:rgba(255,255,255,.6);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.ht-rv .meta em{font-style:normal;border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:2px 9px}
+.ht-rv .meta b{color:var(--yel);font-family:var(--en);font-size:16px}
+.ht-ask{margin-top:16px;font-size:13px;line-height:1.7;color:rgba(255,255,255,.75);border-top:1px solid rgba(255,255,255,.14);padding-top:14px}
+.ht-ask a{color:var(--yel)}
+@media (max-width:760px){.ht-p.on{grid-template-columns:1fr}.ht-use dl{grid-template-columns:1fr;gap:2px}.ht-use dd{margin-bottom:10px}}
+
+.dg{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:clamp(80px,11vw,140px) 0}
+.dg::before{content:"";position:absolute;width:70vw;height:70vw;max-width:900px;max-height:900px;right:-20vw;top:-25vw;background:radial-gradient(circle,rgba(255,45,143,.35),rgba(255,122,0,.12) 45%,transparent 70%);filter:blur(10px);pointer-events:none}
+.dg .w{position:relative}
+.dg h2{color:#fff}.dg h2 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dg-lead{color:rgba(255,255,255,.72);margin-top:14px;font-size:15px}
+.dg-box{margin-top:clamp(30px,5vw,56px);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:clamp(24px,4vw,48px);backdrop-filter:blur(6px);min-height:380px}
+.dg-bar{display:flex;gap:6px;margin-bottom:26px}.dg-bar i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.14);transition:background .4s}.dg-bar i.on{background:var(--grad)}
+.dg-n{font-family:var(--en);font-weight:800;font-size:12px;letter-spacing:.3em;color:var(--pink)}
+.dg-q{font-size:clamp(24px,3.4vw,40px);font-weight:900;margin:10px 0 26px}
+.dg-o{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.dg-o button{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.2);color:#fff;border-radius:18px;padding:22px 16px;font:700 16px var(--jp);cursor:pointer;text-align:left;transition:.2s}
+.dg-o button:hover{border-color:var(--pink);background:rgba(255,45,143,.12);transform:translateY(-2px)}
+.dg-back{margin-top:22px;background:none;border:0;color:rgba(255,255,255,.55);font:600 13px var(--jp);cursor:pointer}
+.dg-in{animation:htin .45s ease}
+.dg-r{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,50px)}
+.dg-type{font-family:var(--en);font-weight:900;font-size:clamp(54px,9vw,120px);line-height:.9;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dg-tn{font-size:clamp(20px,2.4vw,30px);font-weight:900;margin:12px 0 10px}
+.dg-amt{margin-top:22px;display:flex;align-items:center;gap:16px}
+.dg-amt .coins{display:flex;gap:4px}.dg-amt .coins i{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#f4dce8 60%,#e8b9cf);box-shadow:0 2px 8px rgba(0,0,0,.3)}.dg-amt .coins i.h{clip-path:inset(0 50% 0 0)}
+.dg-amt p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.75)}.dg-amt b{color:#fff;font-size:20px}
+.dg-tips{list-style:none;counter-reset:t}
+.dg-tips li{counter-increment:t;position:relative;padding:14px 0 14px 46px;border-bottom:1px solid rgba(255,255,255,.12);font-size:15px;line-height:1.7}
+.dg-tips li::before{content:"0" counter(t);position:absolute;left:0;top:14px;font:800 13px var(--en);color:var(--pink);letter-spacing:.1em}
+.dg-dry{margin-top:18px;background:rgba(232,255,46,.1);border-left:3px solid var(--yel);padding:14px 16px;border-radius:0 12px 12px 0;font-size:14px;line-height:1.7}
+.dg-dry b{color:var(--yel);font:800 11px var(--en);letter-spacing:.2em;display:block;margin-bottom:4px}
+.dg-cta{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap}
+.dg-cta .btn{background:var(--pink)}.dg-cta .btn:hover{background:#fff;color:var(--ink)}
+.dg-cta .btn.ln{background:none;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5)}
+.dg-cta .dg-re::after{content:"↻"}
+.dg .tmp{color:rgba(255,255,255,.45)}
+@media (max-width:760px){.dg-r{grid-template-columns:1fr}.dg-o{grid-template-columns:1fr}.dg-o button{padding:18px 16px}}
+
+/* gift */
+.gf-hero{min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:clamp(20px,4vw,60px);padding:clamp(110px,14vh,150px) clamp(20px,5vw,80px) clamp(60px,8vh,90px);background:linear-gradient(160deg,#17161A 0%,#2a1020 55%,#4a0f2e 100%);color:#fff;position:relative;overflow:hidden}
+.gf-hero .k{color:var(--yel)}
+.gf-h{font-weight:900;font-size:clamp(40px,7vw,104px);line-height:1.15;letter-spacing:-.01em}
+.gf-h .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gf-sub{margin-top:22px;font-size:clamp(15px,1.4vw,18px);line-height:1.9;color:rgba(255,255,255,.8)}
+.gf-pr{margin-top:28px;display:flex;align-items:baseline;gap:12px}.gf-pr b{font:900 clamp(38px,4.6vw,60px) var(--en)}.gf-pr span{font-size:13px;color:rgba(255,255,255,.6)}
+.gf-vis{position:relative;aspect-ratio:1/1.05;max-width:560px;width:100%;justify-self:center}
+.gf-vis .card{position:absolute;inset:6% 10% 10% 6%;border-radius:28px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.45);transform:rotate(-4deg)}
+.gf-vis .card img{width:100%;height:100%;object-fit:cover}
+.gf-vis .rb{position:absolute;inset:0;pointer-events:none}
+.gf-vis .tag{position:absolute;right:2%;bottom:6%;background:var(--paper);color:var(--ink);border-radius:16px;padding:16px 18px;width:min(250px,60%);transform:rotate(5deg);box-shadow:0 20px 40px rgba(0,0,0,.35);font-size:13px;line-height:1.7}
+.gf-vis .tag small{font:800 10px var(--en);letter-spacing:.25em;color:var(--pink);display:block;margin-bottom:4px}
+.gf-snow{position:absolute;inset:0;pointer-events:none}
+.gf-why{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.gf-why div{background:#fff;border-radius:22px;padding:28px 24px}
+.gf-why .n{font:900 44px var(--en);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.gf-why h3{font-size:19px;font-weight:900;margin:14px 0 8px}.gf-why p{font-size:14px;line-height:1.8;color:var(--sub)}
+.gf-who{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.gf-who div{border:1.5px solid var(--line);border-radius:20px;padding:22px 20px;background:var(--paper)}
+.gf-who .to{font:800 11px var(--en);letter-spacing:.24em;color:var(--pink)}.gf-who h3{font-size:18px;font-weight:900;margin:8px 0}.gf-who p{font-size:13px;line-height:1.8;color:var(--sub)}
+.gf-msg{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:center;margin-top:36px}
+.gf-pick{display:flex;flex-direction:column;gap:10px}
+.gf-pick button{text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:16px 18px;font:600 14px/1.7 var(--jp);color:var(--ink);cursor:pointer;transition:.2s}
+.gf-pick button.on{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,45,143,.15)}
+.gf-pick label{font-size:13px;font-weight:700;margin-top:8px}
+.gf-pick input{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font:500 15px var(--jp);background:#fff}
+.gf-card{aspect-ratio:1.5/1;background:#fff;border-radius:18px;box-shadow:0 30px 60px rgba(23,22,26,.15);padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.gf-card::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--grad)}
+.gf-card .to{font-weight:800;font-size:15px}.gf-card .body{font-size:clamp(16px,1.7vw,20px);font-weight:700;line-height:1.8}.gf-card .lg{font:900 18px var(--en);color:var(--pink);letter-spacing:.04em;text-align:right}
+.gf-opt{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.gf-opt div{background:var(--ink);color:#fff;border-radius:20px;padding:22px}
+.gf-opt b{display:block;font-size:16px;margin:6px 0}.gf-opt small{font:800 10px var(--en);letter-spacing:.24em;color:var(--yel)}.gf-opt p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.7)}
+.gf-end{background:var(--pink);color:#fff;text-align:center}
+.gf-end .h2{color:#fff}.gf-end .btn{background:#fff;color:var(--ink)}.gf-end .btn:hover{background:var(--ink);color:#fff}
+.gf-end .btn.ln{background:none;color:#fff;box-shadow:inset 0 0 0 1.5px #fff}
+.gf-end .tmp{color:rgba(255,255,255,.75)}
+@media (max-width:900px){.gf-hero{grid-template-columns:1fr;padding-top:100px}.gf-vis{max-width:420px}.gf-why{grid-template-columns:1fr}.gf-who{grid-template-columns:1fr 1fr}.gf-msg{grid-template-columns:1fr}.gf-opt{grid-template-columns:1fr}}
+@media (max-width:420px){.gf-who{grid-template-columns:1fr}nav a.buy{padding:9px 14px}}
+.buyo{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:24px 36px;background:var(--ink);color:#fff;border-radius:26px;padding:clamp(24px,3.4vw,40px);margin-top:30px}
+.bo-k{font:800 11px var(--en);letter-spacing:.28em;color:var(--pink)}.bo-n{font-size:clamp(20px,2.2vw,28px);font-weight:900;margin:6px 0}.bo-t{font-size:14px;color:rgba(255,255,255,.7)}
+.bo-p b{font:900 clamp(30px,3.4vw,44px) var(--en)}.bo-p span{display:block;font-size:12px;color:rgba(255,255,255,.6)}
+.buyo .btn.pkb:hover{background:#fff;color:var(--ink)}
+.bo-also{margin-top:16px;font-size:13px;color:var(--sub);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.bo-also a{color:var(--ink);font-weight:700;text-underline-offset:3px}
+.fc.fs a{font-size:12px;opacity:.75}.fa{font-style:normal;font-size:12px;line-height:1.8;opacity:.7;margin-top:6px}.fa a{color:inherit}
+@media (max-width:760px){.buyo{grid-template-columns:1fr}}
 </style>
+<script>window.__EN2={"GIFT": "GIFT", "同じ髪質の人の、": "Voices and routines", "声と使い方。": "by hair type.", "細い髪": "Fine hair", "くせ毛・広がる髪": "Wavy / frizzy", "ダメージ毛": "Damaged hair", "軽く、しなやかに。": "Light and supple.", "うねりを、熱で整える。": "Smooth the waves with heat.", "夜にしっかり、朝に重ねる。": "Generous at night, layered in the morning.", "使う量": "Amount", "つける場所": "Where", "タイミング": "When", "コツ": "Tip", "あなたの髪に、": "The right heat care", "ちょうどいい熱ケアを。": "for your hair.", "5つの質問、30秒。髪質に合った使う量とコツがわかります。": "Five questions, 30 seconds. Find your amount and routine.", "診断は使い方の目安です。効果を保証するものではありません。": "The diagnosis is a guide only and does not guarantee results.", "あなたに合う使い方を診断": "Find your routine", "毎日の": "Make your", "ドライヤーを、": "daily blow-dry", "贈りものに。": "a gift.", "熱を味方にする、ヘアミルク。": "A hair milk that turns heat into care.", "気をつかわせない価格で、ちゃんと嬉しい。": "Easy to give, truly appreciated.", "ギフトで購入する": "Buy as a gift", "カードを選ぶ": "Choose a card", "ヘアミルクが、": "Why hair milk", "贈りものに": "makes a", "ちょうどいい理由。": "perfect gift.", "毎日、手に取る。": "Used every day.", "香りが控えめ。": "A quiet scent.", "¥3,960の、ちょうどよさ。": "Just right at ¥3,960.", "誰に、贈る？": "Who is it for?", "友達・同僚へ": "Friends & coworkers", "母へ": "Mom", "パートナーへ": "Partner", "自分へ": "Yourself", "相手の髪質に合うか、診断で確かめる": "Check their hair type", "ひとことを、": "Add a", "添えて。": "message.", "ギフトラッピング": "Gift wrapping", "メッセージカード": "Message card", "クリスマスに間に合う": "Arrives by Christmas", "今年は、": "This year,", "熱を贈ろう。": "give the gift of heat.", "使用者の声を見る": "See reviews"};</script>
 <script>window.I18N={"購入する": "Shop now", "ヒートクチュールとは？": "What is HEAT COUTURE?", "ドライヤーの熱で、": "Your dryer's heat", "成分が浸透※。": "care sinks in.*", "熱を、まとう。W成分配合※のヘアミルク": "Wear the heat. A hair milk with two heat-active ingredients*", "毛先までしっとり": "Moist to the ends", "雨の日もなめらか": "Smooth even on rainy days", "ベタつかない": "Never sticky", "甘すぎない香り": "Not-too-sweet scent", "熱が、ケアになる": "Heat becomes care", "ロングヘアにもたっぷり": "Plenty for long hair", "@cosme 平均5.7 / 7": "@cosme avg. 5.7 / 7", "※ トステア®とγ-ドコサラクトン。浸透は毛髪の内部まで。": "* TOSTEA® and γ-docosalactone. Penetration refers to the inside of the hair.", "熱を、まとう。": "Wear the heat.", "熱で傷む髪から、": "From hair damaged by heat,", "熱で美しくなる髪へ。": "to hair made beautiful by heat.", "毎日のドライヤーの熱を、ケアのきっかけに。熱に反応する2つの成分が、乾かすたびに髪を仕立てる。それが、ヒートクチュール。": "Turn your daily blow-dry into care. Two heat-responsive ingredients tailor your hair every time you dry it. That is HEAT COUTURE.", "熱で、潤いUP。": "Heat, for more moisture.", "パサつきから、まとまるへ。": "From frizz to smooth.", "ドライヤー前": "Before drying", "ドライヤー後": "After drying", "毛先まで、まとまる。": "Smooth to the very ends.", "写真はイメージです（生成画像）。仕上がりには個人差があります。": "Images are for illustration (AI-generated). Results vary by individual.", "熱で、": "heat", "傷む": "damages.", "美しくなる。": "beautifies.", "ヒートクチュールとは、ドライヤーやアイロンの熱で、髪を美しく仕立てるケアのこと。": "HEAT COUTURE is care that tailors your hair beautifully with the heat of a dryer or iron.", "ヒートクチュールとは": "About HEAT COUTURE", "GRANIの、4つの強み。": "Four strengths of GRANI.", "熱が味方": "Heat on your side", "ドライヤーの熱で、成分が浸透※。": "Your dryer's heat helps care sink in.*", "W成分": "Dual ingredients", "熱に反応する、2つの成分。": "Two heat-responsive ingredients.", "24時間、保湿・補正": "24-hour moisture & control", "夜も、朝も、日中も。": "Night, morning and daytime.", "静電気から守る": "Anti-static", "潤いをキープして、1日中。": "Keeps moisture all day.", "※ 毛髪の内部まで": "* To the inside of the hair", "熱が、スイッチ。": "Heat is the switch.", "W成分が、髪の内部へ": "Two ingredients, into the hair", "ドライヤーの熱をきっかけに、トステア®とγ-ドコサラクトンが髪にはたらきかけます。": "Triggered by your dryer's heat, TOSTEA® and γ-docosalactone go to work on your hair.", "成分を見る": "See ingredients", "シルキーモイスト": "Silky Moist", "ヘアミルク": "Hair Milk", "夜も、朝も、日中も。1本で24時間。": "Night, morning and day. One bottle, 24 hours.", "ほのかに香る、ピュアリネン。": "A soft scent of pure linen.", "商品を見る": "View product", "新しいお知らせは、Instagramで。#ヒートクチュール": "News on Instagram. #heatcouture", "Instagramを見る": "Follow on Instagram", "熱で、美しく仕立てる。": "Tailored beautifully by heat.", "STRENGTH 01　熱が味方": "STRENGTH 01　HEAT ON YOUR SIDE", "成分が浸透": "drives care in", "これまで、熱は髪を傷めるものでした。GRANIは、その熱をケアのきっかけにします。未知の潤いへ。翌朝、感動。": "Until now, heat was something that damaged hair. GRANI turns that heat into a moment of care. Discover a new kind of moisture, and wake up impressed.", "STRENGTH 02　W成分": "STRENGTH 02　DUAL INGREDIENTS", "髪に、革命。": "A revolution for your hair.", "熱が、": "Heat is", "2つの成分のスイッチ。": "the switch for two ingredients.", "つける": "Apply", "タオルドライした髪に、2つの成分を含むミルクをなじませる。": "Work the milk with both ingredients into towel-dried hair.", "熱をあてる": "Add heat", "ドライヤーの熱が、成分がはたらくきっかけに。": "Your dryer's heat sets the ingredients to work.", "内側と表面から": "Inside and out", "A トステア®": "A TOSTEA®", "は髪の内部にはたらきかけ、うねりや広がりをおさえる。": " works inside the hair to tame waves and frizz.", "B γ-ドコサラクトン": "B γ-docosalactone", "は表面をなめらかに整え、ツヤを与える。": " smooths the surface and adds shine.", "髪の断面イメージ（模式図）": "Hair cross-section (illustration)", "タオルドライした髪に、W成分のミルクをなじませる。": "Work the milk into towel-dried hair.", "熱を当てる": "Add heat", "ドライヤーの熱が、2つの成分のスイッチになる。": "Your dryer's heat switches on both ingredients.", "まとまる": "Smooth", "乾かすほど、しっとり。翌朝まで、まとまる髪へ。": "The more you dry, the more moisture. Smooth hair through the next morning.", "髪質を上げる、": "Elevate your hair,", "最上級のヘアケア。": "with premium hair care.", "毎日のドライヤーの熱を、味方に。W成分のミルクをつけて、熱を当てる。潤いを保ち、健やかな髪へ。": "Make your daily blow-dry your ally. Apply the milk, add heat, and keep hair moist and healthy.", "HAIR MILKを見る": "View HAIR MILK", "熱に反応するW成分を配合した、洗い流さないヘアミルク。": "A leave-in hair milk with two heat-responsive ingredients.", "容量": "Volume", "注目成分": "Key ingredients", "トステア® × γ-ドコサラクトン": "TOSTEA® × γ-docosalactone", "香り": "Scent", "ピュアリネン": "Pure linen", "使う時間": "When to use", "夜・朝・日中": "Night / morning / day", "税込・200ml（仮）": "incl. tax / 200 ml (TBC)", "公式サイトで購入": "Buy on the official site", "価格は@cosmeの掲載価格による仮の表示です。": "Price is provisional, based on the @cosme listing.", "STRENGTH 03　24時間、保湿・補正": "STRENGTH 03　24-HOUR MOISTURE & CONTROL", "硬い。太い。多い。": "Coarse. Thick. Abundant.", "その髪に、潤いを持続。": "Lasting moisture for that hair.", "夜のケア": "Night care", "タオルドライ後の濡れた髪になじませ、ドライヤーで乾かす。": "Apply to damp, towel-dried hair, then blow-dry.", "朝のスタイリング": "Morning styling", "乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。": "Apply a little to dry hair and finish with a dryer or iron.", "日中の保護": "Daytime protection", "外出前や日中に、毛先へなじませる。": "Smooth onto the ends before heading out or during the day.", "夜のケアは、": "Night care in", "4ステップ": "4 steps", "シャンプー": "Shampoo", "タオルドライ": "Towel-dry", "GRANIをなじませる": "Apply GRANI", "ドライヤーで乾かす": "Blow-dry", "朝は、乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げます。写真はイメージです。": "In the morning, apply a little to dry hair and finish with a dryer or iron. Photos are for illustration.", "STRENGTH 04　静電気": "STRENGTH 04　ANTI-STATIC", "潤いをキープして、": "Keeps moisture in,", "1日中、": "all day,", "静電気から守る。": "guarding against static.", "ほのかに香る、": "A soft scent of", "ピュアリネン。": "pure linen.", "シトラス・グリーン": "Citrus green", "フローラル・ムスク": "Floral musk", "ウッディ・サンダルウッド": "Woody sandalwood", "香水を邪魔しない、控えめな香り。": "Subtle enough not to clash with your perfume.", "使用者の声": "Reviews", "件のクチコミ": "reviews", "/ 7　平均評価": "/ 7　average rating", "@cosme　GRANIシルキーモイストヘアミルク": "@cosme　GRANI Silky Moist Hair Milk", "（2026年11月時点）": "(as of November 2026)", "熱がケアになる": "Heat as care", "モニター": "Monitor", "熱を味方にする、という考え方が新鮮。多めになじませると、しっとりまとまる。": "Using heat as an ally feels fresh. With a little extra, my hair turns out moist and smooth.", "40代・乾燥肌": "40s · dry skin", "テクスチャー": "Texture", "ベタつかず、重くないミルク。ドライヤー前に使うと、毛先までしっとり。": "A light, non-sticky milk. Used before blow-drying, it keeps my ends moist.", "40代・普通肌": "40s · normal skin", "ロングヘア": "Long hair", "購入品": "Purchased", "たっぷり入っていて、オイルだけでは足りないロングヘアにちょうどいい。": "Generous size, just right for long hair where oil alone isn't enough.", "30代・普通肌": "30s · normal skin", "雨の日": "Rainy days", "乾かしたあとの収まりがよく、雨の日もなめらかなまま。": "Hair settles nicely after drying and stays smooth even on rainy days.", "甘すぎない、フレッシュで落ち着いた香りが好み。": "I love the fresh, calm scent that isn't too sweet.", "30代・乾燥肌": "30s · dry skin", "うねり": "Waves", "うねりやすい季節の味方。ドライヤーやアイロンの熱がケアの時間になる。": "A friend in frizzy season. Dryer and iron time becomes care time.", "@cosmeに投稿されたクチコミを要約して掲載しています（原文ではありません）。「モニター」は商品提供を受けた方の投稿です。公開前に、掲載の許可と最新の件数・評価を確認します。": "Summaries of reviews posted on @cosme (not the original wording). \"Monitor\" marks reviewers who received the product free. Permission and the latest figures will be confirmed before launch.", "合わなければ、": "If it's not for you,", "返品できます。": "return it.", "日間": "days", "はじめてのご購入の方が対象": "For first-time purchases", "使用後でも、1本まで返品可能": "One bottle may be returned even after use", "公式サイトでのご購入に限ります": "Official online store purchases only", "条件は仮です。正式な内容は決まりしだい差し替えます。": "Terms are provisional and will be updated once finalized.", "楽天市場": "Rakuten", "いちばん人気": "Most popular", "公式サイト": "Official site", "定期便あり": "Subscription available", "リンクは仮で、各ストアの検索結果に飛びます。公開前に商品ページのURLへ差し替えます。": "Links are provisional and go to each store's search results.", "都内近郊の美容室でも取り扱いがあります。": "Also available at selected salons around Tokyo.", "取扱サロン様 募集中": "Now recruiting partner salons", "ヒートクチュールを、": "HEAT COUTURE,", "サロンから。": "from your salon.", "ドライヤーの熱で仕上がるヘアミルクは、サロンのブローの最後にも、撮影やブライダルの仕上げにも使えます。GRANIを一緒に広げてくださるサロン様・ヘアメイクの方を募集しています。": "A hair milk finished by dryer heat works at the end of a salon blow-dry and in the finishing touches of shoots and weddings. We're looking for salons and hair-makeup artists to grow GRANI with us.", "施術でそのまま使える": "Ready for treatments", "ブロー前になじませるだけ。仕上げの一工程に。": "Just apply before blow-drying, as one finishing step.", "店販のご相談": "Retail inquiries", "卸条件・最小ロットはお問い合わせください（仮）。": "Contact us for wholesale terms and minimum orders (TBC).", "販促ツールのご用意": "Promotional tools", "POP・サンプル・Instagram素材など（仮）。": "POP, samples, Instagram assets and more (TBC).", "お問い合わせ ／ 取扱のご相談": "Contact / Stockist inquiries", "取扱サロンのご相談": "Salon partnership", "法人・取材": "Business / Press", "商品について": "About the product", "サロン名・会社名": "Salon / Company", "お名前": "Name", "必須": "Required", "お名前を入力してください": "Please enter your name", "メールアドレス": "Email", "メールアドレスを正しく入力してください": "Please enter a valid email", "電話番号": "Phone", "所在地（都道府県・市区町村）": "Location (prefecture / city)", "お問い合わせ内容": "Message", "内容を入力してください": "Please enter a message", "プライバシーポリシー（仮）に同意して送信します": "I agree to the privacy policy (TBC)", "送信する": "Send", "※試作フォームです。送信先は公開前に設定します。": "* Prototype form. The destination will be set before launch.", "ありがとうございます。": "Thank you.", "内容を確認し、担当よりご連絡します。（試作のため実際には送信されていません）": "We'll be in touch soon. (Prototype: nothing was actually sent.)", "公式オンラインショップ": "Official online store", "試作ページ ／ 一部の写真は生成画像": "Prototype / some images are AI-generated", "メインメニュー": "Main menu", "GRANIシルキーモイストヘアミルク": "GRANI Silky Moist Hair Milk", "長い黒髪を広げたモデル": "Model with long black hair spread out", "パサついて広がった髪のイメージ（後ろ姿）": "Dry, frizzy hair (back view, illustration)", "まとまったツヤのある髪のイメージ（後ろ姿）": "Smooth, glossy hair (back view, illustration)", "濡れた髪をかき上げるモデル": "Model sweeping back wet hair", "GRANIヘアミルクのチューブ": "GRANI hair milk tube", "髪の断面図。熱をあてると、成分Aが内部のすき間を埋め、成分Bが表面をなめらかに包むイメージ": "Hair cross-section: with heat, ingredient A fills gaps inside and ingredient B smooths the surface", "髪をなびかせるモデル": "Model with flowing hair", "商品を顔の横に持つモデル": "Model holding the product", "なめらかなミルクの質感": "Smooth milk texture", "ダメージで空いた、すき間": "Gaps from damage", "めくれたキューティクル": "Lifted cuticle", "内部のすき間を補修": "Repairs gaps inside", "表面をなめらかに": "Smooths the surface", "VOICE ／ @cosme": "VOICE / @cosme", "平均評価": "average rating", "件": "reviews", "のクチコミ": "on @cosme", "@cosme　GRANIシルキーモイストヘアミルク（2026年11月時点）": "@cosme　GRANI Silky Moist Hair Milk (as of November 2026)", "すべての声を見る": "Read all reviews", "クチコミを要約して掲載しています。「モニター」の投稿を含みます。": "Reviews are summarized and include posts by monitors who received the product free.", "評価": "Rating", "@cosme 平均5.7 / 7（187件）": "@cosme avg. 5.7 / 7 (187 reviews)", "@cosme 平均評価5.7 / 7、クチコミ187件": "@cosme average 5.7 / 7, 187 reviews", "@cosme　GRANIシルキーモイストヘアミルク（2026年11月21日時点）": "@cosme　GRANI Silky Moist Hair Milk (as of Nov 21, 2026)", "（2026年11月21日時点）": "(as of Nov 21, 2026)", "/ 5　楽天市場（": "/ 5　Rakuten (", "件）": " reviews)", "/ 7　@cosme 平均評価": "/ 7　@cosme average", "取扱サロン・ヘアメイクの方 募集中": "Now recruiting salons & hair-makeup artists", "プロの現場から。": "from the pros.", "施術・現場でそのまま使える": "Ready for salons and sets", "ブロー前になじませるだけ。サロンにも、撮影・ブライダル・ショーの仕上げにも。": "Just apply before blow-drying, in salons or for shoots, weddings and shows.", "店販・プロ向け提供のご相談": "Retail & pro supply", "サロンの卸条件、ヘアメイクの方への商品提供はお問い合わせください（仮）。": "Contact us about salon wholesale terms or product supply for artists (TBC).", "ヘアメイク・プロの方": "Hair-makeup / pros", "サロン名・会社名・活動名": "Salon / Company / Professional name", "W成分配合※のヘアミルク": "A hair milk with two heat-active ingredients*", "ヒートクチュール": "HEAT COUTURE", "HEAT COUTURE（ヒートクチュール）とは": "About HEAT COUTURE", "ドライヤーの": "Your dryer's", "この熱の効果を、": "We call this effect"};window.LANG="ja";window.tr=function(s){return window.LANG==="en"&&window.I18N[s]||s};</script>
+<script>Object.assign(window.I18N,window.__EN2);</script>
 </head>
 <body>
 <div class="ld" id="ld" aria-hidden="true"><span style="color:var(--pink)">GRANI</span><i></i></div>
@@ -842,6 +949,7 @@ html.en .hx-big{font-size:7.4vw;letter-spacing:-.03em}
     <a href="#top" data-nav="top">TOP</a>
     <a href="#heat-couture" data-nav="heat-couture">HEAT COUTURE</a>
     <a href="#hair-milk" data-nav="hair-milk" class="hm">HAIR MILK</a>
+    <a href="../grani-shop/#gift" class="gift">GIFT</a>
     <button type="button" class="lang" id="lang" aria-label="Switch language"><span data-l="ja">JP</span><i>/</i><span data-l="en">EN</span></button>
     <a href="#hair-milk" class="buy">購入する</a>
   </nav>
@@ -906,6 +1014,14 @@ html.en .hx-big{font-size:7.4vw;letter-spacing:-.03em}
     <div class="rvw-mq" aria-hidden="true"><div class="rvw-tr"><figure><blockquote>熱を味方にする、という考え方が新鮮。多めになじませると、しっとりまとまる。</blockquote><figcaption>40代・乾燥肌</figcaption></figure><figure><blockquote>ベタつかず、重くないミルク。ドライヤー前に使うと、毛先までしっとり。</blockquote><figcaption>40代・普通肌</figcaption></figure><figure><blockquote>たっぷり入っていて、オイルだけでは足りないロングヘアにちょうどいい。</blockquote><figcaption>30代・普通肌</figcaption></figure><figure><blockquote>乾かしたあとの収まりがよく、雨の日もなめらかなまま。</blockquote><figcaption>40代・乾燥肌</figcaption></figure><figure><blockquote>甘すぎない、フレッシュで落ち着いた香りが好み。</blockquote><figcaption>30代・乾燥肌</figcaption></figure><figure><blockquote>うねりやすい季節の味方。ドライヤーやアイロンの熱がケアの時間になる。</blockquote><figcaption>40代・普通肌</figcaption></figure><figure><blockquote>熱を味方にする、という考え方が新鮮。多めになじませると、しっとりまとまる。</blockquote><figcaption>40代・乾燥肌</figcaption></figure><figure><blockquote>ベタつかず、重くないミルク。ドライヤー前に使うと、毛先までしっとり。</blockquote><figcaption>40代・普通肌</figcaption></figure><figure><blockquote>たっぷり入っていて、オイルだけでは足りないロングヘアにちょうどいい。</blockquote><figcaption>30代・普通肌</figcaption></figure><figure><blockquote>乾かしたあとの収まりがよく、雨の日もなめらかなまま。</blockquote><figcaption>40代・乾燥肌</figcaption></figure><figure><blockquote>甘すぎない、フレッシュで落ち着いた香りが好み。</blockquote><figcaption>30代・乾燥肌</figcaption></figure><figure><blockquote>うねりやすい季節の味方。ドライヤーやアイロンの熱がケアの時間になる。</blockquote><figcaption>40代・普通肌</figcaption></figure></div></div>
     <p class="rvw-cta w"><a class="btn" href="#voice">すべての声を見る</a><small>クチコミを要約して掲載しています。「モニター」の投稿を含みます。</small></p>
   </section>
+
+  <section class="dg" id="shindan"><div class="w">
+    <p class="k rv">HEAT DIAGNOSIS</p>
+    <h2 class="rv">あなたの髪に、<br><span class="g">ちょうどいい熱ケアを。</span></h2>
+    <p class="dg-lead rv d1">5つの質問、30秒。髪質に合った使う量とコツがわかります。</p>
+    <div class="dg-box rv d1" id="dgBox" aria-live="polite"></div>
+    <p class="tmp" style="margin-top:16px">診断は使い方の目安です。効果を保証するものではありません。</p>
+  </div></section>
 
   <section class="pin" id="pin-heat" style="height:300vh">
     <div class="stk heat-stage">
@@ -1040,9 +1156,9 @@ html.en .hx-big{font-size:7.4vw;letter-spacing:-.03em}
       <p class="h2 rv">GRANI<br><span class="nb">シルキーモイスト</span><br>ヘアミルク</p>
       <p class="lead rv d1">熱に反応するW成分を配合した、洗い流さないヘアミルク。</p>
       <dl class="spec rv d1"><div><dt>容量</dt><dd>200ml</dd></div><div><dt>注目成分</dt><dd>トステア® × γ-ドコサラクトン</dd></div><div><dt>香り</dt><dd>ピュアリネン</dd></div><div><dt>使う時間</dt><dd>夜・朝・日中</dd></div><div><dt>評価</dt><dd><a href="#voice" class="spec-r" data-r="spec">@cosme 平均5.7 / 7（187件）</a></dd></div></dl>
-      <p class="price rv d1"><b>¥3,300</b><span class="tx">税込・200ml（仮）</span></p>
+      <p class="price rv d1"><b>¥3,960</b><span class="tx">税込・200ml</span></p>
       <p class="btns rv d2"><a class="btn pkb" href="https://grani-beauty.com/view/item/000000000001">公式サイトで購入</a></p>
-      <p class="tmp">価格は@cosmeの掲載価格による仮の表示です。</p>
+      <p class="btns rv d2" style="margin-top:12px"><a class="btn ln" href="#shindan">あなたに合う使い方を診断</a></p>
     </div>
   </div></section>
 
@@ -1101,6 +1217,44 @@ html.en .hx-big{font-size:7.4vw;letter-spacing:-.03em}
     </div>
   </div></section>
 
+
+  <section class="pad ht" id="hairtype"><div class="w">
+    <p class="k rv">BY HAIR TYPE</p>
+    <h2 class="rv">同じ髪質の人の、<span class="pk">声と使い方。</span></h2>
+    <div class="ht-tabs rv d1" role="tablist">
+      <button type="button" class="on" data-ht="fine">細い髪</button><button type="button" data-ht="wave">くせ毛・広がる髪</button><button type="button" data-ht="dmg">ダメージ毛</button>
+    </div>
+    <div class="ht-p on" data-hp="fine">
+      <div class="ht-use"><h3>軽く、しなやかに。</h3><dl>
+        <dt>使う量</dt><dd>少なめから。10円玉 1個分を目安に、足りなければ少しずつ。</dd>
+        <dt>つける場所</dt><dd>中間〜毛先だけ。根元にはつけない。</dd>
+        <dt>タイミング</dt><dd>夜はタオルドライ後。朝は手のひらに残った分を毛先に。</dd>
+        <dt>コツ</dt><dd>手のひらでよく広げてから、髪をはさむようになじませる。</dd></dl></div>
+      <div class="ht-rv"><p class="q">“</p><blockquote>ベタつかず、重くないミルク。ドライヤー前に使うと、毛先までしっとり。</blockquote><p class="meta"><b>6</b>/7<em>モニター</em><span>40代</span></p>
+        <p class="ht-ask">細い髪の方のクチコミを募集しています。<a href="#voice">使用者の声を見る</a></p></div>
+    </div>
+    <div class="ht-p" data-hp="wave">
+      <div class="ht-use"><h3>うねりを、熱で整える。</h3><dl>
+        <dt>使う量</dt><dd>10円玉 1〜2個分。広がりやすい表面は朝に少し重ねる。</dd>
+        <dt>つける場所</dt><dd>中間〜毛先に、内側から手ぐしで。</dd>
+        <dt>タイミング</dt><dd>夜はタオルドライ後。朝は広がる部分にだけ少量。</dd>
+        <dt>コツ</dt><dd>乾かすときは、指で軽く引っぱりながら上から風を当てる。</dd></dl></div>
+      <div class="ht-rv"><p class="q">“</p><blockquote>乾かしたあとの収まりがよく、雨の日もなめらかなまま。</blockquote><p class="meta"><b>7</b>/7<em>購入品</em><span>40代</span></p>
+        <p class="ht-ask">くせ毛の方のクチコミを募集しています。<a href="#voice">使用者の声を見る</a></p></div>
+    </div>
+    <div class="ht-p" data-hp="dmg">
+      <div class="ht-use"><h3>夜にしっかり、朝に重ねる。</h3><dl>
+        <dt>使う量</dt><dd>やや多め。10円玉 2個分を目安に、毛先を中心に。</dd>
+        <dt>つける場所</dt><dd>毛先は握るようになじませる。</dd>
+        <dt>タイミング</dt><dd>夜にしっかり、朝は乾いた毛先に少量を重ねて仕上げる。</dd>
+        <dt>コツ</dt><dd>アイロンを使う日は、使う前に毛先へひとなじみ。</dd></dl></div>
+      <div class="ht-rv"><p class="q">“</p><blockquote>熱を味方にする、という考え方が新鮮。多めになじませると、しっとりまとまる。</blockquote><p class="meta"><b>5</b>/7<em>モニター</em><span>40代</span></p>
+        <p class="ht-ask">カラー・パーマをしている方のクチコミを募集しています。<a href="#voice">使用者の声を見る</a></p></div>
+    </div>
+    <p class="tmp rv">クチコミは@cosmeの投稿を要約し、内容から近い髪質に仮で並べています（投稿者の髪質は未確認）。使う量は目安です。公開前に掲載の許可と、公式の使用量を確認します。</p>
+  </div></section>
+
+
   <section class="pad gtee"><div class="w gt">
     <div class="rv"><p class="k">GUARANTEE</p><p class="h2" style="font-size:clamp(24px,3vw,40px)">合わなければ、<br>返品できます。</p></div>
     <div class="rv d1 gt-b"><p class="gt-n"><b>30</b>日間</p><ul><li>はじめてのご購入の方が対象</li><li>使用後でも、1本まで返品可能</li><li>公式サイトでのご購入に限ります</li></ul><p class="tmp">条件は仮です。正式な内容は決まりしだい差し替えます。</p></div>
@@ -1109,13 +1263,13 @@ html.en .hx-big{font-size:7.4vw;letter-spacing:-.03em}
   <section class="pad paper"><div class="w">
     <p class="k rv">WHERE TO BUY</p>
     <h2 class="rv">購入する</h2>
-    <ul class="shopl rv d1">
-      <li><a href="https://search.rakuten.co.jp/search/mall/GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF/"><span class="sn">Rakuten</span><span class="sj">楽天市場</span><span class="sb">いちばん人気</span><i>→</i></a></li>
-      <li><a href="https://grani-beauty.com/view/item/000000000001"><span class="sn">Official</span><span class="sj">公式サイト</span><span class="sb">定期便あり</span><i>→</i></a></li>
-      <li><a href="https://www.qoo10.jp/s/GRANI.html"><span class="sn">Qoo10</span><span class="sj">Qoo10</span><span class="sb"></span><i>→</i></a></li>
-      <li><a href="https://www.amazon.co.jp/s?k=GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF"><span class="sn">Amazon</span><span class="sj">Amazon</span><span class="sb"></span><i>→</i></a></li>
-    </ul>
-    <p class="tmp rv d2">リンクは仮で、各ストアの検索結果に飛びます。公開前に商品ページのURLへ差し替えます。</p>
+    <div class="buyo rv d1">
+      <div><p class="bo-k">OFFICIAL STORE</p><p class="bo-n">公式オンラインストア</p><p class="bo-t">定期便・ギフト・会員特典は公式だけ。</p></div>
+      <p class="bo-p"><b>¥3,960</b><span>税込・200ml</span></p>
+      <p class="btns" style="margin-top:0"><a class="btn pkb" href="https://grani-beauty.com/view/item/000000000001?utm_source=site&amp;utm_medium=buy">公式ストアで購入</a></p>
+    </div>
+    <p class="bo-also rv d2">楽天市場・Amazonでも購入できます。<a href="https://search.rakuten.co.jp/search/mall/GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF/">楽天市場</a><a href="https://www.amazon.co.jp/s?k=GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF">Amazon</a></p>
+    <p class="tmp rv d2">楽天・Amazonのリンクは仮で、検索結果に飛びます。出店後に商品ページへ差し替えます。</p>
     <p class="tx rv d2" style="margin-top:20px">都内近郊の美容室でも取り扱いがあります。</p>
   </div></section>
 </main>
@@ -1127,6 +1281,7 @@ html.en .hx-big{font-size:7.4vw;letter-spacing:-.03em}
       <p class="k rv">取扱サロン・ヘアメイクの方 募集中</p>
       <h2 class="rv d1">ヒートクチュールを、<br><em>プロの現場から。</em></h2>
       <p class="lead rv d1">ドライヤーの熱で仕上がるヘアミルクは、サロンのブローの最後にも、撮影やブライダルの仕上げにも使えます。GRANIを一緒に広げてくださるサロン様・ヘアメイクの方を募集しています。</p>
+      <p class="tmp rv d1" style="margin:-6px 0 18px">商品・ご注文についてのお問い合わせは、公式ストアのお問い合わせ、またはお電話（<a href="tel:0367210015">03-6721-0015</a>）へ。</p>
       <ul class="perk rv d2">
         <li><b>01</b><span><strong>施術・現場でそのまま使える</strong>ブロー前になじませるだけ。サロンにも、撮影・ブライダル・ショーの仕上げにも。</span></li>
         <li><b>02</b><span><strong>店販・プロ向け提供のご相談</strong>サロンの卸条件、ヘアメイクの方への商品提供はお問い合わせください（仮）。</span></li>
@@ -1162,9 +1317,11 @@ html.en .hx-big{font-size:7.4vw;letter-spacing:-.03em}
 
 <footer><div class="w fw">
   <p class="fl">GRANI</p>
-  <div class="fc"><a href="#top">TOP</a><a href="#heat-couture">HEAT COUTURE</a><a href="#hair-milk">HAIR MILK</a><a href="#contact" data-c>CONTACT</a></div>
-  <div class="fc"><a href="https://www.instagram.com/granibeauty/">Instagram</a><a href="https://lin.ee/6NXg6k3">LINE</a><a href="https://grani-beauty.com/">公式オンラインショップ</a></div>
-  <p class="fb"><span>© MAKE IT INC.</span><span>試作ページ ／ 一部の写真は生成画像</span></p>
+  <div class="fc"><a href="#top">TOP</a><a href="#heat-couture">HEAT COUTURE</a><a href="#hair-milk">HAIR MILK</a><a href="https://grani-beauty.com/view/news/list">TOPICS</a><a href="#contact" data-c>CONTACT</a></div>
+  <div class="fc"><a href="https://grani-beauty.com/view/item/000000000001">オンラインストア</a><a href="https://grani-beauty.com/view/cart">カート</a><a href="https://grani-beauty.com/view/member/mypage">マイページ</a><a href="https://www.instagram.com/granibeauty/">Instagram</a><a href="https://lin.ee/6NXg6k3">LINE</a></div>
+  <div class="fc fs"><a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a><a href="https://grani-beauty.com/view/policy">プライバシーポリシー</a><a href="https://grani-beauty.com/view/company">会社概要</a></div>
+  <address class="fa">株式会社メイクイット（MAKEit INC.）　〒107-0062 東京都港区南青山2-7-7 MAビル2F　<a href="tel:0367210015">TEL 03-6721-0015</a></address>
+  <p class="fb"><span>© 2026 MAKEit INC.</span><span>試作ページ ／ 一部の写真は生成画像</span></p>
 </div></footer>
 
 <script>
@@ -1356,6 +1513,59 @@ function apply(d){var c=d.cosme;if(!c)return;var a=(+c.avg).toFixed(1),n=String(
   each("rk-line",function(e){e.hidden=false;e.textContent="楽天市場　平均"+(+r.avg).toFixed(2)+" / 5（"+r.count+"件）";});}
  if(window.LANG==="en")window.dispatchEvent(new Event("resize"));}
 fetch("data/reviews.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null;}).then(function(d){if(d)apply(d);}).catch(function(){});})();
+</script>
+
+<script>
+(function(){
+var L=function(j,e){return window.LANG==="en"&&e?e:j};
+// hair type tabs
+var hs=document.getElementById("hairtype");if(hs){hs.querySelector(".ht-tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var t=b.getAttribute("data-ht");[].forEach.call(hs.querySelectorAll(".ht-tabs button"),function(x){x.classList.toggle("on",x===b)});[].forEach.call(hs.querySelectorAll(".ht-p"),function(p){p.classList.toggle("on",p.getAttribute("data-hp")===t)});});}
+// diagnosis
+var box=document.getElementById("dgBox");if(!box)return;
+var Q=[
+ {q:["髪の長さは？","How long is your hair?"],o:[["ショート","Short"],["ボブ","Bob"],["ミディアム","Medium"],["ロング","Long"]]},
+ {q:["髪の太さ・量は？","Thickness and volume?"],o:[["細い・少ない","Fine / thin"],["ふつう","Average"],["太い・多い","Thick / a lot"]]},
+ {q:["くせ・広がりは？","Waves or frizz?"],o:[["ほとんどない","Hardly any"],["少しうねる","A little wavy"],["広がりやすい","Frizzes easily"]]},
+ {q:["カラー・パーマの頻度は？","Color or perm?"],o:[["しない","Never"],["2〜3か月に1回","Every 2–3 months"],["毎月","Every month"]]},
+ {q:["ドライヤーにかける時間は？","Time under the dryer?"],o:[["5分以内","Under 5 min"],["5〜10分","5–10 min"],["10分以上","Over 10 min"]]}];
+var T={
+ DEEP:{t:["夜にしっかり、朝に重ねる。","Generous at night, layered in the morning."],d:["カラーやパーマを重ねた髪は、毛先が乾きやすい状態。夜と朝の2回で、熱を味方に。","Colored or permed ends dry out easily. Use it twice a day and let the heat work for you."],tips:[["夜は毛先を中心に、やや多めに。","At night, a little more, focused on the ends."],["毛先は握るようになじませる。","Scrunch it into the ends."],["朝、乾いた毛先に少量を重ねて仕上げる。","In the morning, layer a little on dry ends."]]},
+ SMOOTH:{t:["うねりを、熱で整える。","Smooth the waves with heat."],d:["くせや広がりは、乾かし方で変わります。なじませてから、上から風を。","Waves and frizz change with how you dry. Apply first, then blow from above."],tips:[["中間〜毛先に、内側から手ぐしで。","Mid-lengths to ends, from the inside with your fingers."],["指で軽く引っぱりながら、上から風を当てる。","Gently pull with your fingers while blowing from above."],["朝は、広がりやすい表面に少量を重ねる。","In the morning, a little on the surface where it frizzes."]]},
+ DENSE:{t:["内側から、まとまりを。","Hold it together from the inside."],d:["太く多い髪は、内側までなじませるのがコツ。量は少しずつ足して。","With thick hair, reach the inner layers. Add a little at a time."],tips:[["髪を2〜3つに分けて、内側から。","Split hair into 2–3 sections and start inside."],["足りなければ、少しずつ足す。","Add more bit by bit if needed."],["根元は避け、耳から下を中心に。","Skip the roots; focus below the ears."]]},
+ SILK:{t:["軽く、しなやかに。","Light and supple."],d:["細い髪は、つけすぎないのがいちばん。少なめから始めて。","For fine hair, less is more. Start small."],tips:[["中間〜毛先だけ。根元にはつけない。","Mid-lengths to ends only, never the roots."],["手のひらでよく広げてから、はさむように。","Spread it in your palms, then press it in."],["朝は、手のひらに残った分を毛先に。","In the morning, use what's left on your palms."]]},
+ BALANCE:{t:["毎日の熱を、ケアの時間に。","Turn daily heat into care time."],d:["くせもダメージも少なめの髪。毎日の習慣にするだけで、まとまりが続きます。","Little frizz or damage. Make it a daily habit."],tips:[["中間〜毛先に、均一に。","Evenly through mid-lengths and ends."],["夜はタオルドライ後、なじませてから乾かす。","At night, apply after towel-drying, then dry."],["朝は少量で、ドライヤーやアイロンの前に。","In the morning, a little before dryer or iron."]]}};
+var DRY=[["短い時間でも、なじませてから乾かすのが基本。","Even if quick, always apply before drying."],["温風は20cmほど離して、最後に冷風で仕上げる。","Keep the dryer about 20cm away and finish with cool air."],["乾かす時間が長い人ほど、乾かす前のひと手間を習慣に。根元から先に乾かすと、時間も短くなります。","The longer you dry, the more this step matters. Dry roots first to save time."]];
+var A=[],st=0;
+function bar(){return '<div class="dg-bar">'+Q.map(function(_,i){return '<i class="'+(i<st||st>=Q.length?"on":"")+'"></i>'}).join("")+'</div>'}
+function q(){var x=Q[st];box.innerHTML=bar()+'<div class="dg-in"><p class="dg-n">Q'+(st+1)+' / '+Q.length+'</p><p class="dg-q">'+L(x.q[0],x.q[1])+'</p><div class="dg-o">'+x.o.map(function(o,i){return '<button type="button" data-i="'+i+'">'+L(o[0],o[1])+'</button>'}).join("")+'</div>'+(st?'<button type="button" class="dg-back">← '+L("ひとつ戻る","Back")+'</button>':"")+'</div>';}
+function res(){var len=A[0],thk=A[1],frz=A[2],col=A[3],dry=A[4];
+ var k=col===2||(col===1&&dry===2)?"DEEP":frz===2||(frz===1&&thk===2)?"SMOOTH":thk===2?"DENSE":thk===0?"SILK":frz===1?"SMOOTH":"BALANCE";
+ var amt=[1,1.5,2,2.5][len]*[.8,1,1.2][thk]*[1,1.1,1.2][col];amt=Math.min(3,Math.max(1,Math.round(amt*2)/2));
+ var full=Math.floor(amt),half=amt%1?1:0,coins="";for(var i=0;i<full;i++)coins+="<i></i>";if(half)coins+='<i class="h"></i>';
+ var t=T[k],utm="?utm_source=site&utm_medium=diagnosis&utm_content="+k.toLowerCase();
+ box.innerHTML=bar()+'<div class="dg-in dg-r"><div><p class="dg-n">YOUR TYPE</p><p class="dg-type">'+k+'</p><p class="dg-tn">'+L(t.t[0],t.t[1])+'</p><p style="font-size:15px;line-height:1.85;color:rgba(255,255,255,.78)">'+L(t.d[0],t.d[1])+'</p>'+
+ '<div class="dg-amt"><span class="coins">'+coins+'</span><p>'+L("1回の量の目安","Amount per use")+'<br><b>'+L("10円玉 約"+amt+"個分","about "+amt+" coin-sized drops")+'</b></p></div></div>'+
+ '<div><ol class="dg-tips">'+t.tips.map(function(x){return "<li>"+L(x[0],x[1])+"</li>"}).join("")+'</ol><div class="dg-dry"><b>DRYER TIP</b>'+L(DRY[dry][0],DRY[dry][1])+'</div>'+
+ '<div class="dg-cta"><a class="btn" href="https://grani-beauty.com/view/item/000000000001'+utm+'">'+L("この使い方で始める","Start with this routine")+'</a><a class="btn ln" href="../grani-shop/#gift">'+L("ギフトにする","Give as a gift")+'</a><button type="button" class="btn ln dg-re">'+L("もう一度","Retry")+'</button></div></div></div>';
+ try{(window.dataLayer=window.dataLayer||[]).push({event:"diagnosis_complete",hair_type:k,answers:A.join("-"),amount:amt});}catch(e){}
+}
+function draw(){st>=Q.length?res():q();}
+box.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+ if(b.classList.contains("dg-back")){st--;A.pop();draw();return;}
+ if(b.classList.contains("dg-re")){st=0;A=[];draw();return;}
+ if(b.hasAttribute("data-i")){A[st]=+b.getAttribute("data-i");st++;draw();}});
+draw();var lastL=window.LANG;window.addEventListener("resize",function(){if(window.LANG!==lastL){lastL=window.LANG;draw();}});
+// gift card
+var pk=document.getElementById("gfPick");if(pk){var to=document.getElementById("gfTo"),cto=document.getElementById("gfCto"),cb=document.getElementById("gfCbody");
+ pk.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;[].forEach.call(pk.querySelectorAll("button"),function(x){x.classList.toggle("on",x===b)});cb.innerHTML=b.innerHTML;});
+ to.addEventListener("input",function(){cto.textContent="Dear "+(to.value.trim()||"________");});}
+// snow sparkle
+var cv=document.getElementById("gfSnow");if(cv){var cx=cv.getContext("2d"),P=[],W,H,run=false;
+ function rs(){var r=cv.parentNode.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cv.style.width=W+"px";cv.style.height=H+"px";cx.setTransform(d,0,0,d,0,0);P=[];for(var i=0;i<70;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.4,v:Math.random()*.35+.12,a:Math.random()*6.28});}
+ function lp(){if(!run)return;cx.clearRect(0,0,W,H);P.forEach(function(p){p.y+=p.v;p.a+=.01;p.x+=Math.sin(p.a)*.25;if(p.y>H+4){p.y=-4;p.x=Math.random()*W;}cx.globalAlpha=.35+.35*Math.sin(p.a*3);cx.fillStyle=p.r>1.6?"#FFB3D4":"#fff";cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fill();});requestAnimationFrame(lp);}
+ rs();window.addEventListener("resize",rs);
+ if("IntersectionObserver" in window)new IntersectionObserver(function(es){es.forEach(function(e){var was=run;run=e.isIntersecting;if(run&&!was){rs();lp();}});}).observe(cv);}
+})();
 </script>
 </body>
 </html>
