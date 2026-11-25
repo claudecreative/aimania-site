@@ -85,11 +85,6 @@
   "date": "11/25"
  },
  {
-  "title": "GRANI サイト試作 HEAT COUTURE",
-  "path": "/test/grani-site/",
-  "date": "11/25"
- },
- {
   "title": "GRANI AD STUDIO（広告管理ページ試作）",
   "path": "/test/grani-ads/",
   "date": "11/25"
@@ -102,6 +97,11 @@
  {
   "title": "GRANI 公式ストア試作（MakeShop想定）",
   "path": "/test/grani-shop/",
+  "date": "11/25"
+ },
+ {
+  "title": "GRANI サイト試作 HEAT COUTURE",
+  "path": "/test/grani-site/",
   "date": "11/25"
  }
 ]
