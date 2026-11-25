@@ -108,5 +108,10 @@
   "title": "リニューアル営業メール作成ツール",
   "path": "/test/renewal-mail/",
   "date": "11/26"
+ },
+ {
+  "title": "リニューアルLP 改修版（もち）",
+  "path": "/test/renewal-v2/",
+  "date": "11/26"
  }
 ]
