@@ -60,7 +60,7 @@ a{color:inherit}
 .log .ok{color:var(--phos)}
 .log .wn{color:var(--amber);text-shadow:0 0 6px rgba(255,194,74,.6)}
 .pw{display:flex;align-items:center;gap:10px;overflow:hidden;white-space:nowrap;border:2px solid var(--phos);border-radius:6px;padding:10px 14px;font-size:24px;letter-spacing:.2em;min-height:54px;background:rgba(124,255,176,.05)}
-.pw .lab{font-size:13px;letter-spacing:.1em;color:var(--phos-dim);margin-right:6px}
+.pw{position:relative}.pin{position:absolute;inset:0;width:100%;height:100%;opacity:0;border:0;background:transparent;color:transparent;font-size:16px;cursor:text;caret-color:transparent}.pw .lab{font-size:13px;letter-spacing:.1em;color:var(--phos-dim);margin-right:6px}
 .pw .cur{display:inline-block;width:12px;height:24px;background:var(--phos);animation:blink 1s steps(1) infinite;box-shadow:0 0 8px var(--phos)}
 @keyframes blink{50%{opacity:0}}
 .msg{height:22px;margin:10px 0 12px;font-size:15px}
@@ -157,7 +157,7 @@ a{color:inherit}
  <div class="lock">
   <h1 class="title">TEST ROOM <small>MISSION FILE TR-<span id="fno">0000</span></small></h1>
   <div class="log" id="log" aria-live="polite"></div>
-  <div class="pw" id="pw"><span class="lab">CODE&gt;</span><span id="dots"></span><span class="cur"></span></div>
+  <div class="pw" id="pw"><span class="lab">CODE&gt;</span><span id="dots"></span><span class="cur"></span><input class="pin" id="pin" type="text" inputmode="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="あんごう（貼り付けもできます）"></div>
   <div class="warnbar" id="warnbar"></div>
   <div class="msg" id="msg" role="status"></div>
   <div class="kb" id="kb" aria-label="画面キーボード"></div>
@@ -321,7 +321,11 @@ function press(v){
 /* コピペ入力（Cmd/Ctrl+V・PASTEボタン） */
 function pasteText(t){if(done||busy)return;t=String(t||'').replace(/[\s\u3000]+/g,'').toLowerCase().replace(/[^\x21-\x7e]/g,'');if(!t)return;buf=(buf+t).slice(0,MAX);msg.className='msg';msg.textContent='▶ はりつけた！ ENTERで かくにん';render()}
 function readClip(){if(navigator.clipboard&&navigator.clipboard.readText){navigator.clipboard.readText().then(pasteText).catch(function(){msg.className='msg';msg.textContent='▶ はりつけられませんでした。Ctrl+V（Macは⌘+V）でも はれます'})}else{msg.className='msg';msg.textContent='▶ Ctrl+V（Macは⌘+V）で はりつけてください'}}
-document.addEventListener('paste',function(e){var t=(e.clipboardData||window.clipboardData);if(!t)return;e.preventDefault();pasteText(t.getData('text'))});
+var pin=document.getElementById('pin');
+pin.addEventListener('input',function(){var v=pin.value;pin.value='';if(v)pasteText(v)});
+pin.addEventListener('paste',function(e){var t=e.clipboardData;if(!t)return;e.preventDefault();e.stopPropagation();pasteText(t.getData('text'))});
+if(!matchMedia('(pointer:coarse)').matches){try{pin.focus({preventScroll:true})}catch(e){}document.addEventListener('mousedown',function(e){if(e.target.closest&&!e.target.closest('.key')&&e.target!==pin)setTimeout(function(){try{pin.focus({preventScroll:true})}catch(x){}},0)})}
+document.addEventListener('paste',function(e){if(e.target===pin)return;var t=(e.clipboardData||window.clipboardData);if(!t)return;e.preventDefault();pasteText(t.getData('text'))});
 document.addEventListener('keydown',function(e){
  if(e.metaKey||e.ctrlKey||e.altKey)return;
  if(e.key==='Enter'||e.key==='Backspace'){e.preventDefault();press(e.key);return}
