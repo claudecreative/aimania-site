@@ -60,7 +60,6 @@ button{font-family:inherit;cursor:pointer}
 .se{font-family:var(--se);font-style:italic;font-weight:400}
 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .tmp{font-size:11px;color:var(--sub);line-height:1.7;margin-top:10px;padding-left:10px;border-left:2px solid var(--yel)}
-
 /* intro */
 .intro{position:fixed;inset:0;z-index:100;background:#0E0D10;display:grid;place-items:center;pointer-events:none;animation:intro-out .9s 1.5s var(--ease) forwards}
 .intro p{font:900 clamp(56px,11vw,160px) var(--en);letter-spacing:-.04em;background:linear-gradient(95deg,#2a2830 0%,#2a2830 40%,#FF7A00 50%,#FF2D8F 58%,#2a2830 68%,#2a2830 100%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sweep 1.6s var(--ease) forwards}
@@ -68,7 +67,6 @@ button{font-family:inherit;cursor:pointer}
 @keyframes sweep{from{background-position:100% 0}to{background-position:0 0}}
 @keyframes intro-out{to{clip-path:inset(0 0 100% 0);visibility:hidden}}
 .intro{clip-path:inset(0 0 0 0)}
-
 /* bar + header */
 .ann{background:var(--ink);color:#fff;text-align:center;font:600 11px var(--en);letter-spacing:.2em;padding:10px 12px}
 .ann a{color:var(--yel);text-decoration:none;margin-left:10px}
@@ -83,9 +81,7 @@ header nav a.on{border-bottom:1.5px solid var(--ink);padding-bottom:3px}
 .bagc{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:#fff;font:700 10px var(--en);margin-left:6px;padding:0 6px;transition:transform .4s var(--ease)}
 .bagc.pop{transform:scale(1.35);background:var(--pink)}
 @media (max-width:760px){header nav a:not(.on):not(.gf){display:none}header nav{gap:14px}.hr .mp{display:none}.logo{font-size:22px}}
-
 main{display:none}main.on{display:block}
-
 /* product */
 .pd{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,64px);padding-top:clamp(20px,3vw,40px)}
 .gal{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -144,12 +140,12 @@ main{display:none}main.on{display:block}
 .acc summary::after{content:"+";font-size:16px;font-weight:500;transition:transform .3s}
 .acc details[open] summary::after{transform:rotate(45deg)}
 .acc .in{padding:0 0 20px;font-size:13.5px;line-height:1.95;color:#3b3940}
-.acc dl{display:grid;grid-template-columns:7em 1fr;gap:6px 12px}
+.acc dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px}.acc dt{white-space:nowrap}
 .acc dt{color:var(--sub)}
+.cau{padding-left:1.4em}.cau li{margin-bottom:6px}
 .also{margin-top:18px;font-size:11.5px;color:var(--sub)}
 .also a{margin-left:8px;color:var(--sub)}
 @media (max-width:900px){.pd{grid-template-columns:1fr}.buy{position:static}.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:6px;margin:0 calc(-1*clamp(20px,4vw,56px))}.gal figure{flex:0 0 86%;scroll-snap-align:center;aspect-ratio:4/5!important}.gal figure:first-child{margin-left:clamp(20px,4vw,56px)}}
-
 /* flip */
 .flip{padding:clamp(80px,10vw,130px) 0 0}
 .fl-w{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,4vw,60px);align-items:center}
@@ -181,7 +177,6 @@ main{display:none}main.on{display:block}
 .heatline{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--grad);transform-origin:left;transform:scaleX(0);transition:transform 2.4s var(--ease)}
 .rit.in .heatline{transform:none}
 @media (max-width:900px){.rit .w{grid-template-columns:1fr}.rit-im{min-height:420px}}
-
 /* arrival */
 .arr{padding:clamp(80px,11vw,150px) 0}
 .arr-h{text-align:center;max-width:760px;margin:0 auto}
@@ -204,7 +199,78 @@ main{display:none}main.on{display:block}
 .arr-g figcaption b{font:700 10.5px var(--en);letter-spacing:.24em}
 .arr-g figcaption p{font-size:13px;line-height:1.85;color:var(--sub);margin-top:6px}
 @media (max-width:760px){.arr-g{grid-template-columns:1fr}}
+/* key ingredients */
+.ki{padding:clamp(80px,10vw,130px) 0}
+.ki-h h2{font:400 clamp(32px,4vw,56px)/1.2 var(--se);font-style:italic;margin-top:14px}
+.ki-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+.ki-g div{background:var(--paper);padding:30px 24px}
+.ki-g .n{font:400 40px var(--se);font-style:italic;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.ki-g h3{font-size:17px;margin:16px 0 8px}.ki-g p{font-size:13.5px;line-height:1.85;color:var(--sub)}
+.amt{margin-top:46px;background:var(--ink);color:#fff;padding:clamp(24px,3vw,40px)}
+.amt .k{color:rgba(255,255,255,.5)}
+.amt-g{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 12px}
+.amt-g div{display:flex;align-items:center;gap:18px;border:1px solid rgba(255,255,255,.16);padding:20px 22px}
+.amt-g b{font-size:16px;min-width:5.5em}.amt-g span{flex:1;font-size:14px;color:rgba(255,255,255,.75)}
+.dot{border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#f1e5ec 60%,#d9c1cf);box-shadow:0 4px 14px rgba(0,0,0,.4)}.dot.s{width:18px;height:18px}.dot.l{width:44px;height:44px}
+.amt>p:last-child{font-size:13px;color:rgba(255,255,255,.6)}
 
+
+/* band + tabs */
+.band{margin-top:40px;background:var(--ink);color:#fff;display:grid;grid-template-columns:1fr 1.2fr;gap:1px}
+.band>div{padding:clamp(22px,3vw,36px);background:var(--ink)}
+.band>div+div{border-left:1px solid rgba(255,255,255,.12)}
+.band .k{color:rgba(255,255,255,.5)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 12px}
+.chips span{display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.18);border-radius:40px;padding:10px 18px 10px 12px;font-size:13px;color:rgba(255,255,255,.8)}
+.chips b{color:#fff;font-size:13px}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0 12px}
+.notes span{border-top:2px solid;border-image:var(--grad) 1;padding-top:10px;font-size:13px;line-height:1.5}
+.notes small{display:block;font:700 9.5px var(--en);letter-spacing:.24em;color:rgba(255,255,255,.5);margin-bottom:4px}
+.bn{font-size:12px;color:rgba(255,255,255,.55)}
+.dot{border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#f1e5ec 60%,#d9c1cf);box-shadow:0 3px 10px rgba(0,0,0,.4);flex:none}.dot.s{width:12px;height:12px}.dot.l{width:26px;height:26px}
+.dt{padding:0 0 clamp(70px,9vw,110px);background:var(--paper)}
+.tabs{border:1px solid var(--line);background:#fff}
+.tb{display:flex;border-bottom:1px solid var(--line);overflow-x:auto}
+.tb button{flex:1;min-width:max-content;border:0;background:none;padding:16px 18px;font:700 12.5px var(--jp);letter-spacing:.08em;color:var(--sub);position:relative}
+.tb button.on{color:var(--ink)}.tb button.on::after{content:"";position:absolute;left:18px;right:18px;bottom:-1px;height:2px;background:var(--grad)}
+.tp{display:none;padding:22px 24px;font-size:12.5px;line-height:1.95;color:#3b3940;max-height:260px;overflow:auto}
+.tp.on{display:block}
+.tp .cau{padding-left:1.4em}.tp .cau li{margin-bottom:6px}
+.sp{display:grid;grid-template-columns:auto 1fr;gap:8px 22px}.sp dt{color:var(--sub);white-space:nowrap}
+/* key ingredients slider on narrow */
+@media (max-width:900px){.band{grid-template-columns:1fr}.band>div+div{border-left:0;border-top:1px solid rgba(255,255,255,.12)}
+ .ki-g{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;background:none;border:0;margin-left:calc(-1*clamp(20px,4vw,56px));margin-right:calc(-1*clamp(20px,4vw,56px));padding:0 clamp(20px,4vw,56px)}
+ .ki-g div{flex:0 0 78%;scroll-snap-align:start;border:1px solid var(--line)}
+ .ki-g::-webkit-scrollbar{display:none}}
+@media (max-width:560px){.notes{grid-template-columns:1fr 1fr 1fr}.notes span{font-size:12px}}
+
+/* how-to slider */
+.hw{background:#0E0D10;color:#fff;padding:clamp(70px,9vw,120px) 0 clamp(50px,6vw,80px);margin-top:clamp(70px,10vw,130px);overflow:hidden}
+.hw .k{color:rgba(255,255,255,.5)}
+.hw-h{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.hw-h h2{font:400 clamp(30px,4vw,56px)/1.18 var(--se);font-style:italic;margin-top:14px}
+.hw-nav{display:flex;align-items:center;gap:14px;font:700 12px var(--en);letter-spacing:.2em;color:rgba(255,255,255,.6)}
+.hw-nav button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:none;color:#fff;font-size:18px;transition:.3s}
+.hw-nav button:hover{background:#fff;color:#0E0D10}
+.hw-t{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:40px 0 10px;padding-left:max(20px,calc((100vw - 1360px)/2 + 56px));scroll-padding-left:max(20px,calc((100vw - 1360px)/2 + 56px));scrollbar-width:none}
+.hw-t::-webkit-scrollbar{display:none}.hw-t::after{content:"";flex:0 0 40px}
+.hs{flex:0 0 min(440px,82vw);scroll-snap-align:start;background:#1A191E;position:relative;overflow:hidden;aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end}
+.hs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.hs:hover img{transform:scale(1.04)}
+.hs::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,13,16,.92) 8%,rgba(14,13,16,.25) 55%,transparent)}
+.hs-tx{position:relative;z-index:1;padding:28px}
+.hs .n{font:700 10.5px var(--en);letter-spacing:.28em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hs h3{font-size:clamp(22px,2.2vw,28px);font-weight:900;line-height:1.35;margin:10px 0 10px}
+.hs p{font-size:13.5px;line-height:1.85;color:rgba(255,255,255,.75)}
+.hs.am{background:linear-gradient(160deg,#2a1222,#0E0D10 70%)}.hs.am::after{display:none}
+.hs.am .hs-tx{height:100%;display:flex;flex-direction:column;justify-content:center}
+.amg{display:grid;gap:10px;margin:18px 0 16px}
+.amg div{display:flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,.16);padding:16px 18px}
+.amg b{font-size:15px;min-width:5.5em}.amg span{font-size:14px;color:rgba(255,255,255,.8)}
+.dot{border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#f1e5ec 60%,#d9c1cf);box-shadow:0 3px 10px rgba(0,0,0,.4);flex:none}.dot.s{width:14px;height:14px}.dot.l{width:34px;height:34px}
+.hw-bar{height:2px;background:rgba(255,255,255,.14);margin-top:26px;position:relative}
+.hw-bar i{position:absolute;left:0;top:0;bottom:0;width:20%;background:var(--grad);transition:transform .4s var(--ease)}
+@media (max-width:760px){.hw-nav{display:none}}
 /* reviews */
 .rv{background:var(--paper);padding:clamp(70px,9vw,120px) 0;border-top:1px solid var(--line)}
 .rv-h{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
@@ -218,7 +284,6 @@ main{display:none}main.on{display:block}
 .rv-l figcaption{font-size:11px;color:var(--sub);display:flex;gap:8px}
 .rv-l figcaption em{font-style:normal;border:1px solid var(--line);padding:1px 7px}
 @media (max-width:760px){.rv-l{grid-template-columns:1fr}}
-
 /* gift */
 .gh{position:relative;min-height:88vh;display:grid;grid-template-columns:1fr 1fr;background:#0E0D10;color:#fff;overflow:hidden}
 .gh-t{padding:clamp(60px,8vw,120px) clamp(24px,5vw,80px);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
@@ -268,7 +333,6 @@ main{display:none}main.on{display:block}
 .gend h2{font:400 clamp(40px,6vw,92px)/1.05 var(--se);font-style:italic}
 .gend .gb{justify-content:center}
 @media (max-width:900px){.gh{grid-template-columns:1fr}.gh-im{min-height:60vh;order:-1}.why-g,.gopt{grid-template-columns:1fr}.who{grid-template-columns:1fr 1fr}.msg{grid-template-columns:1fr}}
-
 /* bag drawer */
 .scrim{position:fixed;inset:0;background:rgba(14,13,16,.45);opacity:0;pointer-events:none;transition:opacity .5s;z-index:60}
 .drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);z-index:61;transform:translateX(100%);transition:transform .7s var(--ease);display:flex;flex-direction:column}
@@ -286,7 +350,6 @@ body.bag .scrim{opacity:1;pointer-events:auto}body.bag .drawer{transform:none}
 .dfoot .atb{width:100%;display:grid;place-items:center;text-decoration:none}
 .dfoot .cont{display:block;text-align:center;margin-top:12px;font:600 10.5px var(--en);letter-spacing:.22em;color:var(--sub);background:none;border:0;width:100%}
 .spark{position:fixed;pointer-events:none;z-index:70;width:8px;height:8px;border-radius:50%;background:var(--grad)}
-
 /* cart (makeshop standard area) */
 .ck{padding:clamp(40px,6vw,80px) 0 120px}
 .ck h1{font:400 clamp(36px,4.4vw,60px) var(--se);font-style:italic}
@@ -299,7 +362,6 @@ body.bag .scrim{opacity:1;pointer-events:auto}body.bag .drawer{transform:none}
 .ms{margin-top:24px;border:1.5px dashed rgba(255,45,143,.45);padding:22px;font-size:13px;line-height:1.9;color:#3b3940;background:rgba(255,45,143,.03)}
 .ms b{color:var(--pink);font:800 10.5px var(--en);letter-spacing:.2em;display:block;margin-bottom:6px}
 @media (max-width:900px){.ckg{grid-template-columns:1fr}.flow span small{display:none}}
-
 footer{background:#0E0D10;color:rgba(255,255,255,.7);padding:70px 0 34px;font-size:12.5px}
 footer .fw{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
 footer .fl{font:900 54px var(--en);color:var(--pink);letter-spacing:-.03em}
@@ -307,7 +369,6 @@ footer a{display:block;text-decoration:none;line-height:2.3}
 footer h4{font:700 10px var(--en);letter-spacing:.26em;color:#fff;margin-bottom:8px}
 footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;color:rgba(255,255,255,.4)}
 @media (max-width:760px){footer .fw{grid-template-columns:1fr 1fr}footer .fl{grid-column:1/-1}}
-
 .rvl{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .rvl.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.intro{display:none}*{transition:none!important;animation:none!important}}
@@ -315,14 +376,12 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
 </head>
 <body>
 <div class="intro" aria-hidden="true"><p>GRANI</p><small>OFFICIAL STORE</small></div>
-
 <p class="ann">HOLIDAY GIFT 2026 <span>— 贈りものにも、GRANI。</span><a href="#gift">GIFT →</a></p>
 <header><div class="w">
   <nav><a href="#item" data-v="item">SHOP</a><a href="#gift" data-v="gift" class="gf">GIFT</a><a href="../grani-site/">BRAND</a></nav>
   <a class="logo" href="#item">GRANI</a>
   <div class="hr"><a class="mp" href="https://grani-beauty.com/view/member/mypage">MY PAGE</a><button type="button" id="bagBtn">BAG<span class="bagc" id="bagC">0</span></button></div>
 </div></header>
-
 <!-- ======= ITEM ======= -->
 <main data-view="item">
   <div class="w pd">
@@ -341,41 +400,42 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
       <p class="cp">Heat, on your side.</p>
       <p class="cpj">熱を味方にする、洗い流さないヘアミルク。毎日のドライヤーを、いちばん贅沢なケアの時間に。</p>
       <p class="price"><b>¥3,960</b><span>税込</span></p>
-      
       <div class="row"><div class="qty"><button type="button" id="qm" aria-label="減らす">−</button><span id="qn">1</span><button type="button" id="qp" aria-label="増やす">＋</button></div>
         <button type="button" class="atb" id="atb"><span>ADD TO BAG</span></button></div>
       <a class="subq" href="https://grani-beauty.com/view/item/000000000001">定期購入はこちら <span>→</span></a>
-      
       <div class="perks"><div><b>DELIVERY</b>ご注文受付後<br>7日以内にお届け</div><div><b>PAYMENT</b>銀行振込<br>代金引換</div><div><b>LINE</b>公式アカウントで<br>最新情報をお届け</div></div>
       <div class="pay"><span>銀行振込</span><span>代金引換</span></div>
       <div class="acc">
         <details open><summary>DESCRIPTION</summary><div class="in">ドライヤーの熱に反応するW成分（トステア®×γ-ドコサラクトン）を配合。タオルドライ後になじませて乾かすだけで、毛先までしっとり、なめらかに。夜・朝・日中、24時間のヘアケアに。<br><small style="color:var(--sub)">※トステア®とγ-ドコサラクトン。浸透は毛髪の内部まで。</small></div></details>
-        <details><summary>HOW TO USE</summary><div class="in"><dl><dt>使用量</dt><dd>ミディアムはパール1〜2粒分、ロングは500円玉大1個分が目安。少量から足してください。</dd><dt>夜</dt><dd>タオルドライ後、中間〜毛先になじませてドライヤーで乾かす。</dd><dt>朝</dt><dd>乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。</dd><dt>日中</dt><dd>外出前や日中に、毛先へなじませる。</dd></dl><p style="margin-top:10px"><a href="../grani-site/#shindan">髪質に合う使い方を診断する →</a></p></div></details>
-        <details><summary>FRAGRANCE</summary><div class="in">ピュアリネン。シトラス・グリーンから、フローラル・ムスク、ウッディ・サンダルウッドへ。香水を邪魔しない、控えめな香り。</div></details>
+        
         <details><summary>DELIVERY &amp; RETURNS</summary><div class="in">ご注文受付後、7日以内にお届けします。商品の返品・交換は、初期不良・発送商品間違いの場合に承ります（当店着払い）。詳しくは<a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a>をご確認ください。</div></details>
       </div>
       <p class="also">楽天市場・Amazonでも取り扱いがあります（予定）。<a href="https://search.rakuten.co.jp/search/mall/GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF/">楽天市場</a><a href="https://www.amazon.co.jp/s?k=GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF">Amazon</a></p>
     </div>
   </div>
-
-  <section class="rit" id="rit">
-    <div class="w">
-      <div class="rit-im rvl"><img src="p/h1093.jpg" alt="風になびく髪"></div>
-      <div class="rvl">
-        <p class="k">THE RITUAL</p>
-        <h2>Every night,<br><b>熱が、ケアになる。</b></h2>
-        <ol class="steps">
-          <li><span class="n">i.</span><div><b>タオルドライ</b><p>水気をやさしく取り、髪を整える。</p></div></li>
-          <li><span class="n">ii.</span><div><b>GRANIをなじませる</b><p>手のひらで広げ、中間から毛先へ。</p></div></li>
-          <li><span class="n">iii.</span><div><b>ドライヤーで乾かす</b><p>熱に反応して、成分が浸透※。いつもの時間が、ケアの時間に。</p></div></li>
-        </ol>
-      </div>
+  <section class="hw" id="hw">
+    <div class="w hw-h"><div><p class="k">HOW TO USE</p><h2>熱が、ケアになる。<br>使い方と、使う量。</h2></div>
+      <div class="hw-nav"><button type="button" id="hwP" aria-label="前へ">←</button><span id="hwN">01 / 05</span><button type="button" id="hwX" aria-label="次へ">→</button></div></div>
+    <div class="hw-t" id="hwT">
+      <article class="hs am"><div class="hs-tx"><p class="n">01 — AMOUNT</p><h3>使う量は、<br>髪の長さで。</h3><div class="amg"><div><i class="dot s"></i><b>ミディアム</b><span>パール1〜2粒分</span></div><div><i class="dot l"></i><b>ロング</b><span>500円玉大1個分</span></div></div><p>少量から始めて、足りなければ少しずつ足してください。</p></div></article>
+      <article class="hs"><img src="p/2491.jpg" alt="タオルドライ"><div class="hs-tx"><p class="n">02 — NIGHT</p><h3>夜は、乾かす前に。</h3><p>タオルドライ後の濡れた髪になじませ、ドライヤーで乾かす。翌朝まとまりやすい髪へ。</p></div></article>
+      <article class="hs"><img src="p/1035.jpg" alt="ドライヤーで乾かす" style="object-position:50% 25%"><div class="hs-tx"><p class="n">03 — MORNING</p><h3>朝は、仕上げに。</h3><p>乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。</p></div></article>
+      <article class="hs"><img src="p/h1316.jpg" alt="風になびく髪" style="object-position:62% 40%"><div class="hs-tx"><p class="n">04 — DAYTIME</p><h3>日中は、毛先に。</h3><p>外出前や、乾燥・パサつきが気になるときに。湿気の日の対策にも。</p></div></article>
+      <article class="hs"><img src="p/3050_1.jpg" alt="ミルクの質感"><div class="hs-tx"><p class="n">05 — FRAGRANCE</p><h3>ほのかに香る、<br>ピュアリネン。</h3><p>シトラス・グリーン → フローラル・ムスク → ウッディ・サンダルウッド。香水を邪魔しない控えめな香り。</p></div></article>
     </div>
-    <span class="heatline"></span>
+    <div class="w"><div class="hw-bar"><i id="hwB"></i></div></div>
   </section>
-
-  
-
+  <section class="ki"><div class="w">
+    <div class="ki-h rvl"><p class="k">INSIDE THE MILK</p><h2>熱で、はたらく。<br>4つのこだわり。</h2></div>
+    <div class="ki-g">
+      <div class="rvl"><p class="n">01</p><h3>トステア®</h3><p>熱が加わると毛髪内部で新たな架橋構造をつくり、うねり・ねじれにアプローチ。</p></div>
+      <div class="rvl"><p class="n">02</p><h3>γ-ドコサラクトン</h3><p>植物由来。熱をきっかけに毛髪表面へ。まとまりと、湿気の日のなめらかさに。</p></div>
+      <div class="rvl"><p class="n">03</p><h3>シルク＆コラーゲン</h3><p>潤いと、自然なツヤ。カシミヤケラチンで、やわらかさと補修も。</p></div>
+      <div class="rvl"><p class="n">04</p><h3>植物由来オイル</h3><p>外部刺激から守り、手ざわりをなめらかに。</p></div>
+    </div>
+    <p class="tmp" style="border-left-color:var(--line)">※熱活性W成分：アミノエチルチオコハク酸ジアンモニウム（トステア®）、γ-ドコサラクトン（全て毛髪補修成分）</p>
+    
+  </div></section>
   <section class="rv"><div class="w">
     <div class="rv-h rvl"><div><p class="k">REVIEWS</p><h2>使った人の、声。</h2></div><div class="rv-s"><p><b>5.7</b><span>/ 7　@cosme 平均</span></p><p><b>187</b><span>件のクチコミ</span></p></div></div>
     <div class="rv-l">
@@ -385,8 +445,16 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
     </div>
     <p class="tmp">@cosmeのクチコミを要約して掲載しています（原文ではありません）。</p>
   </div></section>
-</main>
+  <section class="dt"><div class="w">
+    <div class="tabs rvl" id="dtabs">
+      <div class="tb"><button type="button" class="on" data-t="0">全成分</button><button type="button" data-t="1">使用上の注意</button><button type="button" data-t="2">商品仕様</button></div>
+      <div class="tp on">水、水添ポリイソブテン、グリセリン、セテアリルアルコール、ジメチコン、パルミチン酸エチルヘキシル、ステアルトリモニウムクロリド、ベヘニルアルコール、イソノナン酸イソノニル、コハク酸ジエチルヘキシル、アミノエチルチオコハク酸ジアンモニウム、トリ(カプリル酸/カプリン酸)グリセリル、γ-ドコサラクトン、イソプロパノール、フェノキシエタノール、香料、ポリクオタニウム-10、アミノプロピルジメチコン、EDTA-2Na、セテス-20、クエン酸Na、クエン酸、安息香酸Na、PEG/PPG-20/22ブチルエーテルジメチコン、BG、加水分解ケラチン(カシミヤヤギ)、加水分解コラーゲン、加水分解シルク</div>
+      <div class="tp"><ol class="cau"><li>化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医等にご相談されることをおすすめします。（1）使用中、赤味、はれ、かゆみ、刺激等の異常があらわれた場合（2）使用したお肌に、直射日光があたって上記のような異常があらわれた場合</li><li>傷やはれもの、しっしん等、異常のある部位にはお使いにならないでください。</li><li>目に入ったときは、直ちに洗い流してください。</li><li>使用後は必ずしっかり蓋をしめてください。乳幼児の手の届かないところに保管してください。極端に高温又は低温の場所、直射日光のあたる場所には保管しないでください。</li></ol></div>
+      <div class="tp"><dl class="sp"><dt>商品名</dt><dd>GRANI シルキーモイストヘアミルク</dd><dt>容量</dt><dd>200ml</dd><dt>種類</dt><dd>洗い流さないヘアミルク</dd><dt>価格</dt><dd>3,960円（税込）</dd><dt>販売元</dt><dd>株式会社メイクイット（MAKEit INC.）</dd></dl></div>
+    </div>
+  </div></section>
 
+</main>
 <!-- ======= GIFT ======= -->
 <main data-view="gift">
   <section class="gh">
@@ -402,7 +470,6 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
       <svg class="rb" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="rbg" x1="0" x2="1"><stop offset="0" stop-color="#FF7A00"/><stop offset=".5" stop-color="#FF3D5A"/><stop offset="1" stop-color="#FF2D8F"/></linearGradient></defs><path d="M-5 70 C 30 82, 60 58, 105 74" stroke="url(#rbg)" stroke-width="3" fill="none"/></svg>
     </div>
   </section>
-
   <section class="why"><div class="w">
     <p class="k rvl">WHY GRANI</p>
     <h2 class="rvl">ヘアミルクが、贈りものに<br>ちょうどいい理由。</h2>
@@ -418,15 +485,11 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
       <div class="rvl"><small>TO ME</small><h3>自分へ</h3><p>1年がんばった自分に。贈る分と、2本まとめて。</p></div>
     </div>
   </div></section>
-
-
-
   <section class="gend"><div class="w">
     <h2>This year,<br>give heat.</h2>
     <div class="gb"><button type="button" class="btnw" data-gift><span>GIFT THIS →</span></button><a class="btnl" href="#item" style="border-color:rgba(255,255,255,.7)">VIEW PRODUCT</a></div>
   </div></section>
 </main>
-
 <!-- ======= CART (MakeShop standard) ======= -->
 <main data-view="cart">
   <div class="w ck">
@@ -444,7 +507,6 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
     </div>
   </div>
 </main>
-
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="ショッピングバッグ">
   <div class="dh">SHOPPING BAG <button type="button" id="dx" aria-label="閉じる">×</button></div>
@@ -452,7 +514,6 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
   <div id="dList"></div>
   <div class="dfoot"><div class="tt"><span>SUBTOTAL</span><span id="dSum">¥0</span></div><a class="atb" href="#cart" id="toCart"><span>VIEW BAG &amp; CHECKOUT</span></a><button type="button" class="cont" id="dc">CONTINUE SHOPPING</button></div>
 </aside>
-
 <footer><div class="w">
   <div class="fw">
     <p class="fl">GRANI</p>
@@ -462,7 +523,6 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
   </div>
   <p class="fb"><span>© 2026 MAKEit INC.　東京都港区南青山2-7-7 MAビル2F</span><span>試作ページ（MakeShop想定）</span></p>
 </div></footer>
-
 <script>
 (function(){
 var PRICE=3960,bag=[],q=1;
@@ -473,7 +533,7 @@ function show(){var n=(location.hash||"#item").slice(1);var f=views.some(functio
  if(f)window.scrollTo(0,0);if(n==="cart")drawCart();obs();if(n==="gift")snow();}
 window.addEventListener("hashchange",show);
 var io="IntersectionObserver" in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15}):null;
-function obs(){[].forEach.call(document.querySelectorAll("main.on .rvl:not(.in),main.on .rit"),function(el){io?io.observe(el):el.classList.add("in")});}
+function obs(){[].forEach.call(document.querySelectorAll("main.on .rvl:not(.in)"),function(el){io?io.observe(el):el.classList.add("in")});}
 var yen=function(v){return "¥"+v.toLocaleString("ja-JP")};
 document.getElementById("qm").onclick=function(){q=Math.max(1,q-1);document.getElementById("qn").textContent=q};
 document.getElementById("qp").onclick=function(){q=Math.min(9,q+1);document.getElementById("qn").textContent=q};
@@ -504,6 +564,14 @@ var sn=false;function snow(){if(sn)return;sn=true;var cv=document.getElementById
  st.addEventListener("pointerup",function(){drag=false});st.addEventListener("pointercancel",function(){drag=false});
  (function lp(t){if(!drag){if(auto){ry+=0.35;}else{ry+=v;v*=.94;if(Math.abs(v)<.02){var tgt=Math.round(ry/180)*180;ry+=(tgt-ry)*.06;}}rx=4+Math.sin(t/1400)*3;set()}requestAnimationFrame(lp)})(0);
 })();
+(function(){var t=document.getElementById("dtabs");if(!t)return;t.querySelector(".tb").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var i=+b.getAttribute("data-t");[].forEach.call(t.querySelectorAll(".tb button"),function(x){x.classList.toggle("on",x===b)});[].forEach.call(t.querySelectorAll(".tp"),function(p,j){p.classList.toggle("on",j===i)});});})();
+(function(){var t=document.getElementById("hwT");if(!t)return;var n=t.children.length,N=document.getElementById("hwN"),B=document.getElementById("hwB");
+function cur(){var w=t.children[0].getBoundingClientRect().width+16;return Math.min(n-1,Math.round(t.scrollLeft/w))}
+function upd(){var i=cur();N.textContent=("0"+(i+1)).slice(-2)+" / "+("0"+n).slice(-2);var mx=t.scrollWidth-t.clientWidth;var r=mx>0?t.scrollLeft/mx:0;B.style.width=(100/n)+"%";B.style.transform="translateX("+(r*(n-1)*100)+"%)"}
+function go(d){var w=t.children[0].getBoundingClientRect().width+16;t.scrollBy({left:d*w,behavior:"smooth"})}
+document.getElementById("hwP").onclick=function(){go(-1)};document.getElementById("hwX").onclick=function(){go(1)};t.addEventListener("scroll",upd,{passive:true});upd();
+var down=false,sx=0,sl=0;t.addEventListener("pointerdown",function(e){if(e.pointerType!=="mouse")return;down=true;sx=e.clientX;sl=t.scrollLeft;t.style.scrollSnapType="none";t.style.scrollBehavior="auto"});
+addEventListener("pointermove",function(e){if(!down)return;t.scrollLeft=sl-(e.clientX-sx)});addEventListener("pointerup",function(){if(!down)return;down=false;t.style.scrollSnapType="";t.style.scrollBehavior="";go(0)});})();
 show();
 })();
 </script>
