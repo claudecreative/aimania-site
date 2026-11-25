@@ -131,7 +131,7 @@ main{display:none}main.on{display:block}
 .giftck input{accent-color:var(--ink);width:16px;height:16px}
 .giftck a{color:var(--sub);font-size:12px}
 .perks{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:22px}
-.perks div{background:var(--bg);padding:14px 10px;text-align:center;font-size:11px;line-height:1.6;color:var(--sub)}
+.perks div,.perks a{background:var(--bg);padding:14px 10px;text-align:center;font-size:11px;line-height:1.6;color:var(--sub);text-decoration:none}.perks a{transition:background .3s}.perks a:hover{background:#fff}.perks a b::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#06C755;margin-right:6px;vertical-align:1px}
 .perks b{display:block;font:700 10px var(--en);letter-spacing:.2em;color:var(--ink);margin-bottom:3px}
 .pay{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
 .pay span{font:700 9.5px var(--en);letter-spacing:.08em;border:1px solid var(--line);padding:5px 8px;color:var(--sub)}
@@ -491,6 +491,23 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
 .rvl{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .rvl.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.intro{display:none}*{transition:none!important;animation:none!important}}
+
+/* LINE banner */
+.lnb{position:relative;overflow:hidden;background:#111015;color:#fff;padding:clamp(48px,7vw,90px) 0}
+.lnb-in{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.lnb-k{font:800 11px var(--en);letter-spacing:.26em;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:10px}
+.lnb-k i{width:9px;height:9px;border-radius:50%;background:#06C755;box-shadow:0 0 0 4px rgba(6,199,85,.18)}
+.lnb-h{margin-top:14px;font-weight:900;font-size:clamp(20px,2.2vw,28px);line-height:1.3;display:flex;align-items:flex-end;flex-wrap:wrap;gap:4px 16px}
+.lnb-o{display:inline-flex;align-items:baseline;background:linear-gradient(95deg,#FF7A00,#FF3D5A 48%,#FF2D8F);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:.9}
+.lnb-o b{font:900 clamp(64px,8.4vw,124px)/.9 var(--en);letter-spacing:-.04em}.lnb-o em{font:900 clamp(28px,3.4vw,50px)/1 var(--en);font-style:normal;letter-spacing:-.01em;margin-left:4px}
+.lnb-c{font-size:clamp(15px,1.5vw,19px);font-weight:700;color:rgba(255,255,255,.85);padding-bottom:.4em}
+.lnb-b{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#111015;text-decoration:none;font-weight:900;font-size:15px;letter-spacing:.06em;padding:20px 30px;border-radius:999px;transition:transform .3s,box-shadow .3s}
+.lnb-b i{width:10px;height:10px;border-radius:50%;background:#06C755}
+.lnb-b span{transition:transform .3s}.lnb-b:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,45,143,.3)}.lnb-b:hover span{transform:translateX(4px)}
+.lnb-bg{position:absolute;left:0;bottom:-.18em;white-space:nowrap;font:900 clamp(70px,11vw,170px)/1 var(--en);letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);animation:lnbMq 40s linear infinite;pointer-events:none}
+@keyframes lnbMq{to{transform:translateX(-50%)}}
+@media (max-width:760px){.lnb-in{flex-direction:column;align-items:flex-start}.lnb-b{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.lnb-bg{animation:none}}
 </style>
 </head>
 <body>
@@ -531,7 +548,7 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
         <ul><li><b>NIGHT</b><span>タオルドライ後の濡れた髪に適量を伸ばし、ドライヤーで乾かす</span></li><li><b>MORNING</b><span>乾いた髪に少量。ドライヤーやアイロンで仕上げる</span></li><li><b>DAYTIME</b><span>パサつきが気になるときに毛先へ</span></li></ul>
         <p class="mu-a">目安：<span class="nw">ミディアム パール1〜2粒分</span> ／ <span class="nw">ロング 500円玉大1個分</span></p>
       </div>
-      <div class="perks"><div><b>DELIVERY</b>ご注文受付後<br>7日以内にお届け</div><div><b>PAYMENT</b>銀行振込<br>代金引換</div><div><b>LINE</b>公式アカウントで<br>最新情報をお届け</div></div>
+      <div class="perks"><div><b>DELIVERY</b>ご注文受付後<br>7日以内にお届け</div><div><b>PAYMENT</b>銀行振込<br>代金引換</div><a href="https://lin.ee/6NXg6k3" target="_blank" rel="noopener"><b>LINE</b>友だち登録で<br>10%OFFクーポン</a></div>
       <div class="acc">
         <details open><summary>DESCRIPTION</summary><div class="in">ドライヤーの熱に反応するW成分（トステア®×γ-ドコサラクトン）を配合。タオルドライ後になじませて乾かすだけで、毛先までしっとり、なめらかに。夜・朝・日中、24時間のヘアケアに。<br><small style="color:var(--sub)">※トステア®とγ-ドコサラクトン。浸透は毛髪の内部まで。</small></div></details>
         
@@ -652,6 +669,10 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
   <div id="dList"></div>
   <div class="dfoot"><div class="tt"><span>SUBTOTAL</span><span id="dSum">¥0</span></div><a class="atb" href="#cart" id="toCart"><span>VIEW BAG &amp; CHECKOUT</span></a><button type="button" class="cont" id="dc">CONTINUE SHOPPING</button></div>
 </aside>
+<section class="lnb" aria-label="LINE公式アカウント"><div class="w lnb-in">
+  <div class="lnb-l"><p class="lnb-k"><i></i>LINE OFFICIAL ACCOUNT</p><p class="lnb-h">友だち登録で、<span class="lnb-o"><b>10</b><em>%OFF</em></span><span class="lnb-c">クーポンをプレゼント</span></p></div>
+  <a class="lnb-b" href="https://lin.ee/6NXg6k3" target="_blank" rel="noopener"><i></i>友だち追加する<span>→</span></a>
+</div><p class="lnb-bg" aria-hidden="true">LINE FRIENDS — 10%OFF — LINE FRIENDS — 10%OFF —</p></section>
 <footer><div class="w">
   <div class="fw">
     <p class="fl">GRANI</p>
