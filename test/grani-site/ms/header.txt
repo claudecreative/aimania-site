@@ -1,0 +1,63 @@
+<link rel="stylesheet" type="text/css" href="https://gigaplus.makeshop.jp/Fleetwood/css/common.css">
+<link rel="stylesheet" type="text/css" href="https://gigaplus.makeshop.jp/Fleetwood/css/common_sp.css" media="screen and (max-width:780px)">
+<script src="https://gigaplus.makeshop.jp/Fleetwood/js/common.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+.gx-sp{height:72px}
+.gx-hd{position:fixed;left:0;right:0;top:0;z-index:1000;background:rgba(236,235,238,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid rgba(23,22,26,.1);font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif}
+.gx-hd *{box-sizing:border-box}
+.gx-in{max-width:1360px;margin:0 auto;height:72px;padding:0 clamp(18px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.gx-logo{font:900 26px/1 'Montserrat',Arial,sans-serif;letter-spacing:-.02em;color:#FF2D8F!important;text-decoration:none!important}
+.gx-nav{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px)}
+.gx-nav a{font:700 12px/1 'Montserrat',Arial,sans-serif;letter-spacing:.14em;color:#17161A!important;text-decoration:none!important;white-space:nowrap;position:relative;padding:6px 0}
+.gx-nav a.gx-t::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#FF2D8F;transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.gx-nav a.gx-t:hover::after{transform:scaleX(1)}
+.gx-ic{display:flex;align-items:center;gap:16px}
+.gx-ic a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;color:#17161A!important;text-decoration:none!important}
+.gx-ic a:hover{background:rgba(23,22,26,.07)}
+.gx-ic svg{width:20px;height:20px}
+.gx-buy{background:#17161A;color:#fff!important;border-radius:40px;padding:11px 20px!important;font:700 13px/1 'Noto Sans JP',sans-serif!important;letter-spacing:.06em!important;width:auto!important;height:auto!important}
+.gx-buy:hover{background:#FF2D8F!important}
+.gx-bgr{display:none;width:40px;height:40px;border:0;background:none;position:relative;cursor:pointer}
+.gx-bgr i{position:absolute;left:9px;right:9px;height:2px;background:#17161A;transition:.3s}
+.gx-bgr i:nth-child(1){top:14px}.gx-bgr i:nth-child(2){top:24px}
+.gx-hd.op .gx-bgr i:nth-child(1){top:19px;transform:rotate(45deg)}.gx-hd.op .gx-bgr i:nth-child(2){top:19px;transform:rotate(-45deg)}
+.gx-dr{display:none}
+@media (max-width:860px){
+ .gx-sp{height:60px}.gx-in{height:60px}.gx-logo{font-size:22px}
+ .gx-nav .gx-t{display:none}.gx-bgr{display:block}.gx-ic{gap:6px}.gx-buy{padding:9px 14px!important;font-size:12px!important}
+ .gx-dr{display:block;position:fixed;left:0;right:0;top:60px;bottom:0;background:#17161A;transform:translateY(-110%);transition:transform .5s cubic-bezier(.2,.7,.2,1);padding:30px 24px}
+ .gx-hd.op .gx-dr{transform:none}
+ .gx-dr a{display:block;color:#fff!important;text-decoration:none!important;font:800 26px/1 'Montserrat',Arial,sans-serif;letter-spacing:.06em;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+ .gx-dr a small{display:block;font:500 12px 'Noto Sans JP',sans-serif;color:rgba(255,255,255,.55);margin-top:6px;letter-spacing:.1em}
+}
+</style>
+<div class="gx-sp" id="TOP"></div>
+<div class="gx-hd" id="gxHd">
+ <div class="gx-in">
+  <a class="gx-logo" href="<{$url.top}>">GRANI</a>
+  <div class="gx-nav">
+   <a class="gx-t" href="<{$url.top}>">TOP</a>
+   <a class="gx-t" href="<{$url.top}>#heat-couture">HEAT COUTURE</a>
+   <a class="gx-t" href="<{$url.top}>view/item/000000000001">HAIR MILK</a>
+   <a class="gx-t" href="<{$url.top}>view/news/list">TOPICS</a>
+   <a class="gx-t" href="<{$url.support}>">CONTACT</a>
+   <span class="gx-ic">
+    <a href="<{$url.mypage}>" aria-label="マイページ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+    <a href="<{$url.cart}>" aria-label="カート"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.2 11h11l2-8H6.2"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg></a>
+    <a class="gx-buy" href="<{$url.top}>view/item/000000000001">購入する</a>
+   </span>
+   <button type="button" class="gx-bgr" aria-label="メニュー" onclick="document.getElementById('gxHd').classList.toggle('op')"><i></i><i></i></button>
+  </div>
+ </div>
+ <nav class="gx-dr">
+  <a href="<{$url.top}>">TOP<small>トップ</small></a>
+  <a href="<{$url.top}>#heat-couture">HEAT COUTURE<small>ヒートクチュールとは</small></a>
+  <a href="<{$url.top}>view/item/000000000001">HAIR MILK<small>ヘアミルク</small></a>
+  <a href="<{$url.top}>view/news/list">TOPICS<small>お知らせ</small></a>
+  <a href="<{$url.support}>">CONTACT<small>お問い合わせ</small></a>
+  <a href="<{$url.mypage}>">MY PAGE<small>マイページ</small></a>
+  <a href="<{$url.cart}>">CART<small>カート</small></a>
+ </nav>
+</div>

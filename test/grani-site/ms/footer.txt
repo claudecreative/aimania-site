@@ -1,0 +1,37 @@
+<style>
+.gx-ft{background:#17161A;color:rgba(255,255,255,.75);padding:clamp(60px,8vw,100px) 0 34px;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;margin-top:clamp(40px,6vw,80px)}
+.gx-ft *{box-sizing:border-box}
+.gx-fw{max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px;align-items:end}
+.gx-fl{font:900 clamp(64px,11vw,170px)/.8 'Montserrat',Arial,sans-serif;letter-spacing:-.04em;color:#FF2D8F}
+.gx-fc a{display:block;color:rgba(255,255,255,.82)!important;text-decoration:none!important;font-size:13px;line-height:2.3}
+.gx-fc a:hover{color:#fff!important}
+.gx-fc.s a{font-size:12px;opacity:.75}
+.gx-fa{grid-column:1/-1;font-style:normal;font-size:12px;line-height:1.8;opacity:.7}
+.gx-fa a{color:inherit!important}
+.gx-fb{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(255,255,255,.12);padding-top:20px;margin-top:10px;font-size:11px;color:rgba(255,255,255,.45)}
+@media (max-width:760px){.gx-fw{grid-template-columns:1fr 1fr}.gx-fl{grid-column:1/-1}}
+</style>
+<footer class="gx-ft"><div class="gx-fw">
+ <p class="gx-fl">GRANI</p>
+ <div class="gx-fc">
+  <a href="<{$url.top}>">TOP</a>
+  <a href="<{$url.top}>#heat-couture">HEAT COUTURE</a>
+  <a href="<{$url.top}>view/item/000000000001">HAIR MILK</a>
+  <a href="<{$url.top}>view/news/list">TOPICS</a>
+  <a href="<{$url.support}>">CONTACT</a>
+ </div>
+ <div class="gx-fc">
+  <a href="<{$url.top}>view/item/000000000001">オンラインストア</a>
+  <a href="<{$url.top}>view/cart">カート</a>
+  <a href="<{$url.top}>view/member/mypage">マイページ</a>
+  <a href="https://www.instagram.com/granibeauty/" target="_blank" rel="noopener">Instagram</a>
+  <a href="https://lin.ee/6NXg6k3" target="_blank" rel="noopener">LINE</a>
+ </div>
+ <div class="gx-fc s">
+  <a href="<{$url.contract}>">特定商取引法に基づく表記</a>
+  <a href="<{$url.policy}>">プライバシーポリシー</a>
+  <a href="<{$url.company}>">会社概要</a>
+ </div>
+ <address class="gx-fa">株式会社メイクイット（MAKEit INC.）　〒107-0062 東京都港区南青山2-7-7 MAビル2F　<a href="tel:0367210015">TEL 03-6721-0015</a></address>
+ <p class="gx-fb"><span>&copy; 2026 MAKEit INC.</span><span>GRANI SILKY MOIST HAIR MILK</span></p>
+</div></footer>
