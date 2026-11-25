@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="ja"><head>
+<!--aim-guard--><script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_skillnavi_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_skillnavi_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=15db9bb9/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_skillnavi_ok","1")}catch(e){}try{document.cookie="aim_skillnavi_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script><meta name="robots" content="noindex,nofollow"><!--aim-guard-->
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>スキルえらびナビ｜無料オンラインセミナー</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+<style>
+:root{--base:#F7F6F2;--teal:#1F6F6B;--td:#164F4C;--orange:#F28C38;--ink:#2B2B2B;--sub:#6B6B6B;--tl:#DDEDEA}
+*{box-sizing:border-box;margin:0;padding:0}a{text-decoration:none;color:inherit}
+body{background:#e9e8e3;font-family:'Noto Sans JP','Noto Sans CJK JP',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.fv{width:390px;height:844px;margin:0 auto;background:var(--base);position:relative;overflow:hidden}
+.hd{position:absolute;z-index:5;left:0;right:0;top:0;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:rgba(247,246,242,.92);backdrop-filter:blur(6px)}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px}
+.logo i{width:26px;height:26px;border-radius:50%;background:var(--teal);display:grid;place-items:center}.logo i svg{width:15px}
+.logo b{color:var(--teal)}
+.hbtn{background:var(--orange);color:#fff;font-size:12px;font-weight:700;border-radius:8px;padding:8px 12px}
+/* top visual block */
+.top{position:relative;height:452px;background:var(--td);overflow:hidden}
+.top img{position:absolute;right:-40px;top:56px;width:330px;height:396px;object-fit:cover;object-position:35% 30%}
+.top:before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--td) 0%,var(--td) 34%,rgba(22,79,76,.55) 58%,rgba(22,79,76,.05) 100%)}
+.top:after{content:'';position:absolute;inset:auto 0 0 0;height:90px;z-index:1;background:linear-gradient(0deg,rgba(22,79,76,.85),transparent)}
+.big{position:absolute;z-index:2;left:16px;top:72px;font-family:'Montserrat',sans-serif;font-weight:900;font-size:58px;line-height:.92;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.2px rgba(221,237,234,.55)}
+.big b{display:block;color:var(--orange);-webkit-text-stroke:0}
+.copy{position:absolute;z-index:3;left:20px;right:20px;top:214px;color:#fff}
+.pill{display:inline-block;background:rgba(221,237,234,.18);border:1px solid rgba(221,237,234,.5);color:#E9F5F3;font-size:11.5px;font-weight:700;border-radius:999px;padding:4px 11px}
+h1{font-size:30px;line-height:1.38;font-weight:900;margin-top:10px;font-feature-settings:"palt";text-shadow:0 2px 14px rgba(0,0,0,.25)}
+h1 em{font-style:normal;color:#fff;background:linear-gradient(transparent 62%,rgba(242,140,56,.85) 62%,rgba(242,140,56,.85) 92%,transparent 92%)}
+/* compare strip */
+.route{position:relative;z-index:4;margin:-34px 20px 0;background:#fff;border-radius:16px;box-shadow:0 10px 28px rgba(22,79,76,.18);padding:14px 14px 12px}
+.route .ttl{display:flex;justify-content:space-between;align-items:baseline;font-size:11px;color:var(--sub);font-weight:700;letter-spacing:.06em}
+.route .ttl b{color:var(--teal);font-size:13px;letter-spacing:.02em}
+.row{display:grid;grid-template-columns:64px 1fr;gap:8px;align-items:center;margin-top:9px}
+.row .lb{font-size:11px;font-weight:700;border-radius:6px;text-align:center;padding:3px 0}
+.row.ng .lb{background:#EFEDE8;color:var(--sub)}
+.row.ok .lb{background:var(--teal);color:#fff}
+.line{display:flex;align-items:center;gap:4px;font-size:11px;white-space:nowrap}
+.line span{border-radius:5px;padding:3px 6px}
+.ng .line span{background:#F3F1EC;color:var(--sub)}
+.ng .line i{color:#C9C5BC;font-style:normal}
+.ok .line span{background:var(--tl);color:var(--teal);font-weight:700}
+.ok .line span.s{background:var(--orange);color:#fff}
+.ok .line i{color:var(--teal);font-style:normal;font-weight:700}
+.loop{font-size:14px;color:#D98A5A;font-style:normal;font-weight:700;margin-left:2px}
+/* sub & card */
+.in{padding:0 20px}
+.sub{font-size:13.5px;line-height:1.7;color:var(--sub);margin-top:14px}
+.sub b{color:var(--ink)}
+.card{margin-top:12px;background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(31,60,58,.08);padding:10px 12px;display:flex;gap:10px;align-items:center}
+.card .ic{flex:none;width:40px;height:40px;border-radius:12px;background:var(--tl);display:grid;place-items:center}.card .ic svg{width:22px}
+.card b{display:block;color:var(--teal);font-size:14px;line-height:1.4}
+.card small{display:block;font-size:11px;line-height:1.55}
+.card small.g{color:var(--sub)}.card small em{font-style:normal;font-weight:700;color:var(--teal)}
+.cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;height:60px;border-radius:30px;background:var(--orange);color:#fff;font-size:18px;font-weight:700;letter-spacing:.03em;box-shadow:0 6px 16px rgba(242,140,56,.35)}
+.cta span{font-size:22px;margin-top:-2px}
+.note{text-align:center;font-size:12px;color:var(--sub);margin-top:6px}
+.next{position:absolute;left:0;right:0;bottom:0;height:40px;background:var(--tl);text-align:center;overflow:hidden;border-radius:24px 24px 0 0}
+.next h2{font-size:22px;font-weight:900;margin-top:12px}
+</style></head><body>
+<div class="fv">
+<header class="hd"><div class="logo"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8z" fill="#fff"/></svg></i><span>スキル<b>えらび</b>ナビ</span></div><a class="hbtn" href="#">無料セミナー</a></header>
+<section class="top">
+<img src="photo.jpg" alt="自宅でノートPCを見ながら、ほっとした表情の女性">
+<div class="big">SKILL<b>FIRST.</b></div>
+<div class="copy"><span class="pill">副業・フリーランスを考えはじめた方へ</span>
+<h1>スクールを選ぶ前に、<br><em>“自分に合うスキル”</em>を<br>選んでいますか？</h1></div>
+</section>
+<div class="route">
+<div class="ttl"><b>選ぶ順番で、遠回りが変わる</b><span>ROUTE</span></div>
+<div class="row ng"><span class="lb">よくある順</span><div class="line"><span>スクール比較</span><i>→</i><span>受講</span><i>→</i><span>合わない…</span><em class="loop">↺</em></div></div>
+<div class="row ok"><span class="lb">近道の順</span><div class="line"><span class="s">スキルを選ぶ</span><i>→</i><span>スクール比較</span><i>→</i><span>受講</span></div></div>
+</div>
+<div class="in">
+<p class="sub">なんとなくで選ぶと、遠回りになりがち。<br><b>60分で、あなたに合うスキルの選び方</b>がわかります。</p>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1F6F6B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m9 14.5 2 2 4-4"/></svg></div>
+<div><b>無料オンラインセミナー</b><small>毎週開催｜60分｜顔出し・発言なしでOK</small><small class="g">参加特典：<em>自分に合うスキルがわかる診断シート</em></small></div></div>
+<a class="cta" href="#">無料セミナーの日程を見る<span>›</span></a>
+<p class="note">スクールの勧誘はありません／申込は1分で完了</p>
+</div>
+<div class="next"><h2>こんなお悩みありませんか？</h2></div>
+</div></body></html>
