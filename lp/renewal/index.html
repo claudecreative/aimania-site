@@ -132,20 +132,39 @@ header.sc{background:rgba(243,239,228,.9);backdrop-filter:blur(10px);-webkit-bac
 .big-q{margin-top:clamp(56px,7vw,96px);font:800 clamp(25px,3.1vw,44px)/1.6 var(--mi);letter-spacing:.02em}
 .big-q em{font-style:normal;color:var(--y)}
 
-/* compare */
-.ba-f{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-top:16px}
+/* before / after : side by side + pins */
 .ba-h em{font-style:normal;color:var(--r)}
-.cmp{position:relative;margin-top:clamp(32px,4vw,48px);aspect-ratio:2880/1340;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 30px 70px rgba(29,29,31,.16);user-select:none;-webkit-user-select:none;touch-action:pan-y}
-.cmp-a,.cmp-b{position:absolute;inset:0}.cmp picture{display:block;width:100%;height:100%}
-.cmp img{width:100%;height:100%;object-fit:cover;object-position:top}
-.cmp-b{clip-path:inset(0 0 0 var(--x))}
-.cmp-k{position:absolute;top:0;bottom:0;left:var(--x);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.12);pointer-events:none;z-index:2}
-.cmp-k i{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--r);display:grid;place-items:center;box-shadow:0 10px 30px rgba(255,75,58,.45);animation:kp 2.2s ease-in-out infinite}
-.cmp-k svg{width:30px;height:16px}
-@keyframes kp{50%{transform:scale(1.08)}}
-.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:3}
-.cmp-l{position:absolute;bottom:14px;font:600 12px/1 var(--en);letter-spacing:.18em;padding:9px 13px;border-radius:999px;pointer-events:none;z-index:2}
-.l1{left:14px;background:var(--ink);color:#fff}.l2{right:14px;background:#fff;color:var(--ink);box-shadow:0 0 0 1px var(--ln)}
+.ba-lead{margin-top:18px;font-size:15px;color:var(--sub);line-height:1.9;position:relative;z-index:1}
+.scn{margin-top:clamp(48px,6vw,80px);position:relative;z-index:1}
+.scn+.scn{margin-top:clamp(64px,8vw,104px)}
+.scn-h{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+.scn-n{font:600 15px/1 var(--en);letter-spacing:.16em;color:var(--r);white-space:nowrap}
+.scn-t{font-size:18px;font-weight:700;letter-spacing:.06em;line-height:1.5}
+.scn-t small{font-size:12px;font-weight:500;color:var(--sub);margin-left:10px;letter-spacing:.08em}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.4vw,32px);margin-top:28px;align-items:start}
+.shot{margin:0}
+.shot-l{display:inline-block;font:600 12px/1 var(--en);letter-spacing:.18em;padding:8px 12px 7px;border-radius:999px;margin-bottom:12px}
+.shot.bf .shot-l{color:var(--sub);box-shadow:inset 0 0 0 1.5px var(--ln)}
+.shot.af .shot-l{background:var(--ink);color:#fff}
+.frame{container-type:inline-size;position:relative;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 22px 50px rgba(29,29,31,.13)}
+.shot.bf .frame{box-shadow:0 0 0 1px var(--ln)}
+.frame img{width:100%;height:auto}
+.pin{position:absolute;width:34px;height:34px;width:clamp(22px,5.6cqw,34px);height:clamp(22px,5.6cqw,34px);transform:translate(-50%,-50%);border-radius:50%;display:grid;place-items:center;font:700 16px/1 var(--en);font-size:clamp(12px,2.7cqw,16px);color:#fff;background:var(--r);box-shadow:0 0 0 3px #fff,0 6px 16px rgba(29,29,31,.28);transition:transform .3s var(--ease)}
+.shot.bf .pin{background:var(--ink)}
+.pin::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--r);opacity:0}
+.pin.hl{transform:translate(-50%,-50%) scale(1.18)}
+.pin.hl::after{animation:pinR 1.2s ease-out infinite}
+@keyframes pinR{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(1.9)}}
+.pts{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(24px,3vw,40px);margin-top:36px}
+.pts.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pts li{display:grid;grid-template-columns:34px 1fr;gap:0 14px;align-content:start;padding-top:18px;border-top:1px solid var(--ln)}
+.pts .no{width:34px;height:34px;border-radius:50%;background:var(--r);color:#fff;display:grid;place-items:center;font:700 16px/1 var(--en);margin-top:2px}
+.pts .k{font:600 11px/1 var(--en);letter-spacing:.18em;color:var(--sub);margin-top:2px}
+.pts h3{font-size:18px;font-weight:700;line-height:1.6;letter-spacing:.03em;margin:8px 0 8px}
+.pts p{font-size:14px;line-height:1.9;color:#34322e}
+.pts .bfn{margin-top:12px;padding-top:10px;border-top:1px dashed var(--ln);font-size:12.5px;color:var(--sub);line-height:1.8}
+.pts .bfn b{font:600 11px/1 var(--en);letter-spacing:.16em;margin-right:8px;color:var(--sub)}
+.ba-f{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:40px;position:relative;z-index:1}
 .ba-n{font-size:12px;color:var(--sub);padding-top:2px}
 .ba-f .mg{margin-right:8px}
 
@@ -304,6 +323,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;color:rgba(255,2
  .offer{flex-direction:column}.of-free{padding:16px 0}.of-price{border-left:0;border-top:1px solid var(--ln);padding:12px 0}
 }
 @media (max-width:900px){
+ .pts{grid-template-columns:1fr 1fr;gap:28px 32px}
  .hero-g{grid-template-columns:1fr;grid-template-areas:"copy" "mock" "offer"}
  .hero h1{font-size:clamp(40px,8vw,64px)}
  .mock{max-width:560px;width:100%;margin:36px auto 0}
@@ -339,7 +359,12 @@ footer a{display:inline-flex;align-items:center;min-height:44px;color:rgba(255,2
  .il{width:100px;height:94px}
  .pb-n{margin-top:26px}
  .pb h3{font-size:17px}
- .cmp{aspect-ratio:390/400}
+ .pair{grid-template-columns:1fr;gap:28px;margin-top:24px}
+ .pin{box-shadow:0 0 0 2px #fff,0 4px 12px rgba(29,29,31,.28)}
+ .pts,.pts.c2{grid-template-columns:1fr;gap:28px;margin-top:32px}
+ .scn-h{flex-direction:column;gap:8px}
+ .scn-t small{display:block;margin:2px 0 0}
+ .ba-f{margin-top:32px}
  .cg{grid-template-columns:1fr 1fr;gap:28px 14px}
  .g1,.g4{grid-column:span 2}.g2,.g3{grid-column:span 1}
  .g1{order:1}.g2{order:2}.g3{order:3}.g4{order:4}
@@ -361,7 +386,8 @@ footer a{display:inline-flex;align-items:center;min-height:44px;color:rgba(255,2
  html{scroll-behavior:auto}
  .rv{opacity:1;transform:none;transition:none}
  .new{clip-path:none}.band{display:none}.mock.dress .hang{animation:none}
- .pb li .sw,.cmp-k i,.mg.in svg{animation:none!important}
+ .pb li .sw,.pin.hl::after,.mg.in svg{animation:none!important}
+ .pin{transition:none}
  .mg{opacity:1;transform:none;transition:none}
  .cur{transition:none}.free-st{transition:none}
  .px-roll{transform:translateY(-4.32em);transition:none}.px-line path{stroke-dashoffset:0;transition:none}
@@ -427,17 +453,37 @@ footer a{display:inline-flex;align-items:center;min-height:44px;color:rgba(255,2
  <p class="big-q rv"><span class="nw">変えるべきは、</span><wbr><span class="nw">商品ではなく</span><br><span class="nw"><em>「見せ方」と「買い方」</em></span><wbr><span class="nw">かもしれません。</span></p>
 </div></section>
 
-<section class="s" id="change"><p class="bgw" aria-hidden="true">DRESS UP</p><div class="w">
+<section class="s" id="change"><p class="bgw" aria-hidden="true">COMPARE</p><div class="w">
  <div class="lbl rv"><span class="lbl-n">03</span><span class="lbl-en">Before / After</span><span class="lbl-jp">着替え比較</span></div>
- <h2 class="hd ba-h rv d1"><span class="nw">つまみを動かして、</span><br><em><span class="nw">サイトを</span><wbr><span class="nw">着替えさせて</span><wbr><span class="nw">みてください。</span></em></h2>
- <div class="cmp rv d2" id="cmp" style="--x:50%">
-  <div class="cmp-a"><picture><source media="(max-width:760px)" srcset="img/old_shop_sp.jpg"><img src="img/old_shop.jpg" alt="リニューアル前のGRANI 商品ページ" width="1440" height="900"></picture></div>
-  <div class="cmp-b"><picture><source media="(max-width:760px)" srcset="img/grani_shop_sp.jpg"><img src="img/grani_shop.jpg" alt="リニューアル後のデザイン例（GRANI）" width="1440" height="900"></picture></div>
-  <span class="cmp-l l1">BEFORE</span><span class="cmp-l l2">AFTER</span>
-  <div class="cmp-k" aria-hidden="true"><i><svg viewBox="0 0 30 16"><path d="M9 2L2 8l7 6M21 2l7 6-7 6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
-  <input type="range" min="0" max="100" value="50" aria-label="ビフォーとアフターを切り替える" id="cmpR">
+ <h2 class="hd ba-h rv d1"><span class="nw">どこが</span><wbr><span class="nw">変わったか、</span><br><em><span class="nw">並べて</span><wbr><span class="nw">みました。</span></em></h2>
+ <p class="ba-lead rv d2"><span class="nw">GRANIの</span><wbr><span class="nw">商品ページの、</span><wbr><span class="nw">リニューアル前と</span><wbr><span class="nw">リニューアル後です。</span><br><span class="nw">番号をつけた場所が、</span><wbr><span class="nw">変わったところです。</span></p>
+
+ <div class="scn" id="scn1">
+  <div class="scn-h rv"><span class="scn-n">SCENE 01</span><p class="scn-t"><span class="nw">ページを</span><wbr><span class="nw">開いてすぐ</span><small><span class="nw">PC</span><wbr><span class="nw">・</span><wbr><span class="nw">画面の上のほう</span></small></p></div>
+  <div class="pair">
+   <figure class="shot bf rv"><figcaption class="shot-l">BEFORE</figcaption><div class="frame"><img src="img/ba_old_top.jpg" alt="リニューアル前のGRANI商品ページ。グレーの背景に商品の切り抜き写真、右側にピンクの明朝体の商品名。" width="1600" height="699" loading="lazy"><span class="pin" data-n="1" style="left:33.6%;top:66%" aria-hidden="true">1</span><span class="pin" data-n="2" style="left:43.4%;top:57.2%" aria-hidden="true">2</span><span class="pin" data-n="3" style="left:16%;top:43%" aria-hidden="true">3</span></div></figure>
+   <figure class="shot af rv d1"><figcaption class="shot-l">AFTER</figcaption><div class="frame"><img src="img/ba_new_top.jpg" alt="リニューアル後のGRANI商品ページ。ピンクの背景に商品を大きく置いた写真、右側に太い英字の商品名とHEAT COUTUREのバッジ。" width="1600" height="699" loading="lazy"><span class="pin" data-n="1" style="left:41.5%;top:66%" aria-hidden="true">1</span><span class="pin" data-n="2" style="left:53.4%;top:43.1%" aria-hidden="true">2</span><span class="pin" data-n="3" style="left:78%;top:63.4%" aria-hidden="true">3</span></div></figure>
+  </div>
+  <ol class="pts">
+   <li class="rv" data-n="1"><span class="no" aria-hidden="true">1</span><div><p class="k">PHOTO</p><h3><span class="nw">商品写真が、</span><wbr><span class="nw">主役に。</span></h3><p><span class="nw">ブランドカラーの</span><wbr><span class="nw">ピンクの上に、</span><wbr><span class="nw">商品を</span><wbr><span class="nw">大きく置きました。</span><wbr><span class="nw">どんな商品か、</span><wbr><span class="nw">ひと目でわかります。</span></p><p class="bfn"><b>BEFORE</b><span class="nw">グレーの背景に、</span><wbr><span class="nw">商品の</span><wbr><span class="nw">切り抜き写真。</span></p></div></li>
+   <li class="rv d1" data-n="2"><span class="no" aria-hidden="true">2</span><div><p class="k">NAME</p><h3><span class="nw">名前は、</span><br class="sp"><span class="nw">英字と</span><wbr><span class="nw">カタカナの</span><wbr><span class="nw">2段で。</span></h3><p><span class="nw">太い英字の</span><wbr><span class="nw">商品名の下に、</span><wbr><span class="nw">カタカナ名と</span><wbr><span class="nw">容量を</span><wbr><span class="nw">添えました。</span><wbr><span class="nw">名前がひと目で</span><wbr><span class="nw">読み取れます。</span></p><p class="bfn"><b>BEFORE</b><span class="nw">商品名は、</span><wbr><span class="nw">ピンクの明朝体で</span><wbr><span class="nw">横に長く。</span></p></div></li>
+   <li class="rv d2" data-n="3"><span class="no" aria-hidden="true">3</span><div><p class="k">STRENGTH</p><h3><span class="nw">ブランドの強みは、</span><wbr><span class="nw">名前のすぐ下に。</span></h3><p><span class="nw">「HEAT COUTURE」の</span><wbr><span class="nw">黒いバッジで、</span><wbr><span class="nw">ドライヤーの熱を</span><wbr><span class="nw">味方にする</span><wbr><span class="nw">ヘアミルクだと</span><wbr><span class="nw">ひと目でわかります。</span><wbr><span class="nw">すぐ下には</span><wbr><span class="nw">クチコミの評価も。</span></p><p class="bfn"><b>BEFORE</b><span class="nw">「熱活性W成分配合」の</span><wbr><span class="nw">マークを、</span><wbr><span class="nw">写真の横に。</span></p></div></li>
+  </ol>
  </div>
- <div class="ba-f"><p class="ba-n rv"><span class="nw">※BEFOREは</span><wbr><span class="nw">リニューアル前、</span><wbr><span class="nw">AFTERは</span><wbr><span class="nw">リニューアル後の</span><wbr><span class="nw">GRANIの</span><wbr><span class="nw">商品ページです。</span></p><span class="mg" data-say="動かしてみて"></span></div>
+
+ <div class="scn" id="scn2">
+  <div class="scn-h rv"><span class="scn-n">SCENE 02</span><p class="scn-t"><span class="nw">買うところ</span><small><span class="nw">PC</span><wbr><span class="nw">・</span><wbr><span class="nw">価格から下を</span><wbr><span class="nw">拡大</span></small></p></div>
+  <div class="pair">
+   <figure class="shot bf rv"><figcaption class="shot-l">BEFORE</figcaption><div class="frame"><img src="img/ba_old_buy.jpg" alt="リニューアル前の購入まわり。価格の下に「カートに入れる」と「定期購入はこちら」の2つのボタン、その下にLINE友だち登録のバナー。" width="1200" height="680" loading="lazy"><span class="pin" data-n="4" style="left:49.8%;top:46.8%" aria-hidden="true">4</span></div></figure>
+   <figure class="shot af rv d1"><figcaption class="shot-l">AFTER</figcaption><div class="frame"><img src="img/ba_new_buy.jpg" alt="リニューアル後の購入まわり。「1回購入」と「定期便」を価格つきのカードで並べ、その下にADD TO BAGボタンとHOW TO USE（使い方）。" width="1200" height="680" loading="lazy"><span class="pin" data-n="4" style="left:49.8%;top:14.4%" aria-hidden="true">4</span><span class="pin" data-n="5" style="left:31.2%;top:80.3%" aria-hidden="true">5</span></div></figure>
+  </div>
+  <ol class="pts c2" start="4">
+   <li class="rv" data-n="4"><span class="no" aria-hidden="true">4</span><div><p class="k">HOW TO BUY</p><h3><span class="nw">1回か、</span><wbr><span class="nw">定期便か。</span><wbr><span class="nw">並べて選べる。</span></h3><p><span class="nw">「1回購入」と</span><wbr><span class="nw">「定期便」を、</span><wbr><span class="nw">価格つきの</span><wbr><span class="nw">カードで</span><wbr><span class="nw">となりに並べました。</span><wbr><span class="nw">お届けの間隔も、</span><wbr><span class="nw">その場でわかります。</span></p><p class="bfn"><b>BEFORE</b><span class="nw">「カートに入れる」と</span><wbr><span class="nw">「定期購入はこちら」の</span><wbr><span class="nw">2つのボタン。</span></p></div></li>
+   <li class="rv d1" data-n="5"><span class="no" aria-hidden="true">5</span><div><p class="k">HOW TO USE</p><h3><span class="nw">使い方は、</span><br class="sp"><span class="nw">買うボタンの</span><wbr><span class="nw">すぐ下に。</span></h3><p><span class="nw">夜と朝、</span><wbr><span class="nw">それぞれの</span><wbr><span class="nw">使い方を、</span><wbr><span class="nw">購入ボタンの</span><wbr><span class="nw">すぐ下に</span><wbr><span class="nw">置きました。</span><wbr><span class="nw">使う場面まで、</span><wbr><span class="nw">ひと目でわかります。</span></p><p class="bfn"><b>BEFORE</b><span class="nw">この位置には、</span><wbr><span class="nw">LINE友だち登録のバナー。</span></p></div></li>
+  </ol>
+ </div>
+
+ <div class="ba-f"><p class="ba-n rv"><span class="nw">※画像は</span><wbr><span class="nw">GRANIの</span><wbr><span class="nw">商品ページ（PC）を</span><wbr><span class="nw">一部切り出したものです。</span></p><span class="mg" data-say="見比べてみて"></span></div>
 </div></section>
 
 <section class="s paper" id="solution"><p class="bgw" aria-hidden="true">SOLUTION</p><div class="w sol">
@@ -572,10 +618,8 @@ function dress(){mk.classList.remove("dress","done");tg.textContent="BEFORE";voi
 if(RM){mk.classList.add("dress","done");tg.textContent="AFTER — CASE : GRANI"}else{seen(mk,.4,dress)}
 document.getElementById("replay").onclick=dress;
 
-/* before / after */
-var cm=document.getElementById("cmp"),cr=document.getElementById("cmpR");
-cr.addEventListener("input",function(){cm.style.setProperty("--x",cr.value+"%")});
-if(!RM)seen(cm,.5,function(){var t0=null,touched=false;cr.addEventListener("pointerdown",function(){touched=true});function an(t){if(touched)return;if(!t0)t0=t;var p=Math.min(1,(t-t0)/1600),v=50+Math.sin(p*Math.PI*2)*20*(1-p);cm.style.setProperty("--x",v+"%");cr.value=v;if(p<1)requestAnimationFrame(an)}setTimeout(function(){requestAnimationFrame(an)},500)});
+/* before / after : link list items to pins */
+[].forEach.call(document.querySelectorAll(".scn"),function(sc){[].forEach.call(sc.querySelectorAll(".pts li"),function(li){var n=li.getAttribute("data-n");function on(v){[].forEach.call(sc.querySelectorAll('.pin[data-n="'+n+'"]'),function(p){p.classList.toggle("hl",v)})}li.addEventListener("mouseenter",function(){on(true)});li.addEventListener("mouseleave",function(){on(false)})})});
 
 /* fitting room */
 var fit=document.getElementById("fit");if(RM)fit.classList.add("open");else seen(fit,.5,function(){setTimeout(function(){fit.classList.add("open")},400)});
