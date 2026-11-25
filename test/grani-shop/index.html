@@ -55,6 +55,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--jp);-webkit-font-sm
 img{display:block;max-width:100%}
 a{color:inherit}
 button{font-family:inherit;cursor:pointer}
+h1,h2,h3,p,blockquote,dd,li{word-break:auto-phrase}
+.spbr{display:none}@media (max-width:760px){.spbr{display:inline}}
 .w{max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
 .k{font:700 10.5px var(--en);letter-spacing:.32em;text-transform:uppercase;color:var(--sub)}
 .se{font-family:var(--se);font-style:italic;font-weight:400}
@@ -80,7 +82,7 @@ header nav a.on{border-bottom:1.5px solid var(--ink);padding-bottom:3px}
 .hr{display:flex;justify-content:flex-end;gap:22px;align-items:center}
 .bagc{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:#fff;font:700 10px var(--en);margin-left:6px;padding:0 6px;transition:transform .4s var(--ease)}
 .bagc.pop{transform:scale(1.35);background:var(--pink)}
-@media (max-width:760px){header nav a:not(.on):not(.gf){display:none}header nav{gap:14px}.hr .mp{display:none}.logo{font-size:22px}}
+@media (max-width:760px){header nav a:not([data-v]){display:none}header nav{gap:14px}.hr .mp{display:none}.logo{font-size:22px}}
 main{display:none}main.on{display:block}
 /* product */
 .pd{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,64px);padding-top:clamp(20px,3vw,40px)}
@@ -144,7 +146,8 @@ main{display:none}main.on{display:block}
 .acc dt{color:var(--sub)}
 .cau{padding-left:1.4em}.cau li{margin-bottom:6px}
 .also{margin-top:18px;font-size:11.5px;color:var(--sub)}
-.also a{margin-left:8px;color:var(--sub)}
+.also a{margin-left:8px;color:var(--sub);white-space:nowrap}
+@media (max-width:760px){.also{line-height:1.9}.also a:first-of-type{margin-left:0}.also::after{content:""}}
 @media (max-width:900px){.pd{grid-template-columns:1fr}.buy{position:static}.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:6px;margin:0 calc(-1*clamp(20px,4vw,56px))}.gal figure{flex:0 0 86%;scroll-snap-align:center;aspect-ratio:4/5!important}.gal figure:first-child{margin-left:clamp(20px,4vw,56px)}}
 /* flip */
 .flip{padding:clamp(80px,10vw,130px) 0 0}
@@ -201,6 +204,7 @@ main{display:none}main.on{display:block}
 @media (max-width:760px){.arr-g{grid-template-columns:1fr}}
 /* key ingredients */
 .ki{padding:clamp(80px,10vw,130px) 0}
+.ki-h h2 .jn{font-family:var(--en);font-style:normal;font-weight:300;font-size:.92em}
 .ki-h h2{font:400 clamp(32px,4vw,56px)/1.2 var(--se);font-style:italic;margin-top:14px}
 .ki-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
 .ki-g div{background:var(--paper);padding:30px 24px}
@@ -330,7 +334,7 @@ main{display:none}main.on{display:block}
 /* silhouettes */
 .amg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 14px}
 .ac{position:relative;border:1px solid rgba(255,255,255,.14);padding:22px 12px 16px;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:190px;justify-content:flex-end}
-.ac .sil{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 8%;opacity:0;mix-blend-mode:screen;filter:grayscale(1) contrast(1.6) brightness(.9);transition:opacity 1.8s var(--ease) .3s;pointer-events:none;-webkit-mask:linear-gradient(180deg,#000 30%,transparent 78%);mask:linear-gradient(180deg,#000 30%,transparent 78%)}
+.ac .sil{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 8%;opacity:0;mix-blend-mode:screen;filter:grayscale(1) contrast(1.6) brightness(.9);transition:opacity 1.8s var(--ease) .3s;pointer-events:none;-webkit-mask:radial-gradient(70% 62% at 50% 22%,#000 35%,transparent 100%);mask:radial-gradient(70% 62% at 50% 22%,#000 35%,transparent 100%)}
 .hs.am.on .ac .sil{opacity:.3}
 .ac-t{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px}
 .ac-t b{font-size:15px;margin-top:4px}.ac-t span:last-child{font-size:13px;color:rgba(255,255,255,.85)}.ac-t .dts{height:40px}
@@ -340,6 +344,15 @@ main{display:none}main.on{display:block}
 .rz-c .sil.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 10%;opacity:.22;mix-blend-mode:screen;filter:grayscale(1) contrast(1.6) brightness(.9);pointer-events:none;-webkit-mask:linear-gradient(180deg,#000 40%,transparent 90%);mask:linear-gradient(180deg,#000 40%,transparent 90%)}
 .rz-c .sil.bg .st{stroke-dashoffset:0}
 @media (max-width:760px){.ac .sil{width:74%;max-height:130px}.ac{padding:10px 8px 12px}.ac-t b{font-size:13px}.ac-t span:last-child{font-size:11.5px}.rz-c .sil.bg{opacity:.35}}
+
+@media (max-width:760px){
+.amg2{grid-template-columns:1fr;gap:10px;margin:16px 0 12px}
+.ac{flex-direction:row;justify-content:flex-start;align-items:center;text-align:left;min-height:112px;padding:0 16px 0 46%}
+.ac .sil{inset:0 auto 0 0;width:50%;object-position:50% 10%;-webkit-mask:linear-gradient(90deg,#000 45%,transparent 100%),linear-gradient(180deg,#000 60%,transparent);mask:linear-gradient(90deg,#000 45%,transparent 100%);opacity:0}
+.hs.am.on .ac .sil{opacity:.42}
+.ac-t{align-items:flex-start;gap:3px}.ac-t .dts{height:36px;justify-content:flex-start;min-width:0}.ac-t b{font-size:15px;margin-top:2px}.ac-t span:last-child{font-size:12.5px}
+.ac .coin{left:-3px}
+}
 /* reviews */
 /* review marquee */
 .rv-m{margin-top:44px;display:grid;gap:18px;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -438,7 +451,7 @@ body.bag .scrim{opacity:1;pointer-events:auto}body.bag .drawer{transform:none}
 .dfoot .cont{display:block;text-align:center;margin-top:12px;font:600 10.5px var(--en);letter-spacing:.22em;color:var(--sub);background:none;border:0;width:100%}
 .spark{position:fixed;pointer-events:none;z-index:70;width:8px;height:8px;border-radius:50%;background:var(--grad)}
 /* cart (makeshop standard area) */
-.ck{padding:clamp(40px,6vw,80px) 0 120px}
+.ck{padding-top:clamp(40px,6vw,80px);padding-bottom:120px}
 .ck h1{font:400 clamp(36px,4.4vw,60px) var(--se);font-style:italic}
 .flow{display:flex;gap:0;margin:28px 0 40px;border:1px solid var(--line)}
 .flow span{flex:1;text-align:center;padding:14px 6px;font:700 10.5px var(--en);letter-spacing:.16em;color:var(--sub);border-right:1px solid var(--line)}
@@ -491,13 +504,12 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
         <button type="button" class="atb" id="atb"><span>ADD TO BAG</span></button></div>
       <a class="subq" href="https://grani-beauty.com/view/item/000000000001">定期購入はこちら <span>→</span></a>
       <div class="perks"><div><b>DELIVERY</b>ご注文受付後<br>7日以内にお届け</div><div><b>PAYMENT</b>銀行振込<br>代金引換</div><div><b>LINE</b>公式アカウントで<br>最新情報をお届け</div></div>
-      <div class="pay"><span>銀行振込</span><span>代金引換</span></div>
       <div class="acc">
         <details open><summary>DESCRIPTION</summary><div class="in">ドライヤーの熱に反応するW成分（トステア®×γ-ドコサラクトン）を配合。タオルドライ後になじませて乾かすだけで、毛先までしっとり、なめらかに。夜・朝・日中、24時間のヘアケアに。<br><small style="color:var(--sub)">※トステア®とγ-ドコサラクトン。浸透は毛髪の内部まで。</small></div></details>
         
         <details><summary>DELIVERY &amp; RETURNS</summary><div class="in">ご注文受付後、7日以内にお届けします。商品の返品・交換は、初期不良・発送商品間違いの場合に承ります（当店着払い）。詳しくは<a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a>をご確認ください。</div></details>
       </div>
-      <p class="also">楽天市場・Amazonでも取り扱いがあります（予定）。<a href="https://search.rakuten.co.jp/search/mall/GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF/">楽天市場</a><a href="https://www.amazon.co.jp/s?k=GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF">Amazon</a></p>
+      <p class="also">楽天市場・Amazonでも取り扱いがあります（予定）。<br class="spbr"><a href="https://search.rakuten.co.jp/search/mall/GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF/">楽天市場</a><a href="https://www.amazon.co.jp/s?k=GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF">Amazon</a></p>
     </div>
   </div>
   <section class="hw" id="hw">
@@ -526,7 +538,7 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
   </div>
 
   <section class="ki"><div class="w">
-    <div class="ki-h rvl"><p class="k">INSIDE THE MILK</p><h2>熱で、はたらく。<br>4つのこだわり。</h2></div>
+    <div class="ki-h rvl"><p class="k">INSIDE THE MILK</p><h2>熱で、はたらく。<br><span class="jn">4</span>つのこだわり。</h2></div>
     <div class="ki-g">
       <div class="rvl"><p class="n">01</p><h3>トステア®</h3><p>熱が加わると毛髪内部で新たな架橋構造をつくり、うねり・ねじれにアプローチ。</p></div>
       <div class="rvl"><p class="n">02</p><h3>γ-ドコサラクトン</h3><p>植物由来。熱をきっかけに毛髪表面へ。まとまりと、湿気の日のなめらかさに。</p></div>
