@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+JP:wght@500;700;900&display=swap">
 <style>
-:root{
+:root{--sh:0 16px 40px rgba(21,33,74,.1);
   /* 構成：壁面と同じ明るい紙面にリング（サプライチェーン）を据え、画面ごとにリングが移動・拡大して選択の道具になる。
      色は壁面の凡例そのまま。見出しは極太の和文、ラベルは等幅の英字 */
   --bg:#edf1f8;
@@ -37,6 +37,7 @@ button:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
 img{display:block;max-width:100%;-webkit-user-drag:none;user-drag:none}
 .card img,.node img{pointer-events:none}
 .btn,.tag,.chipset span,.also button,.steps li,.scope,.st-chips span,.ana-chips span,.hbtn,.node .nl,.nw{white-space:nowrap}
+.found .lbl,.r-issues .lbl,.also .lbl{font-family:var(--f-jp);letter-spacing:.04em;font-weight:900}
 .mono{font-family:var(--f-mono);font-weight:500;letter-spacing:.2em;text-transform:uppercase}
 @keyframes inUp{from{opacity:0;transform:translateY(26px)}}
 @keyframes inLeft{from{opacity:0;transform:translateX(-30px)}}
@@ -48,29 +49,32 @@ img{display:block;max-width:100%;-webkit-user-drag:none;user-drag:none}
 /* 背景：壁面と同じ方眼と十字、下端の目盛り */
 .bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(70% 70% at 70% 45%,#f8faff,rgba(237,241,248,0) 70%),var(--bg)}
 .bg::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(42,86,189,.18) 1.2px,transparent 1.6px);background-size:48px 48px}
-.ruler{position:fixed;left:0;right:0;bottom:0;height:30px;z-index:1;pointer-events:none;display:flex;align-items:flex-end;justify-content:flex-end;padding:0 var(--pad) 8px;font-size:11px;color:var(--muted)}
+.ruler{position:fixed;left:0;right:0;bottom:0;height:30px;z-index:1;pointer-events:none;display:flex;align-items:flex-end;justify-content:flex-end;padding:0 var(--pad) 8px;font-size:13px;font-weight:700;color:var(--ink2)}
 .ruler::before{content:"";position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(90deg,rgba(28,52,135,.35) 0 1px,transparent 1px 16px);-webkit-mask-image:linear-gradient(90deg,#000 70%,transparent);mask-image:linear-gradient(90deg,#000 70%,transparent)}
 
 /* HUD */
-.hud{position:fixed;top:0;left:0;right:0;height:var(--hud-h);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 var(--pad);border-bottom:1px solid var(--line);background:rgba(237,241,248,.9)}
+.hud{position:fixed;top:0;left:0;right:0;height:var(--hud-h);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 var(--pad);border-bottom:1px solid var(--line);background:var(--bg)}
 .logo{display:block;height:calc(var(--hud-h) - 12px);width:auto;overflow:visible}
 .steps{display:flex;gap:6px;list-style:none}
-.steps li{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;color:var(--muted);font-weight:700;font-size:clamp(14px,1vw,17px);white-space:nowrap;transition:all .4s}
+.steps{pointer-events:none}
+body[data-screen="attract"] .steps{visibility:hidden}
+.steps li{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;color:#56648a;font-weight:700;font-size:clamp(14px,1vw,17px);white-space:nowrap;transition:all .4s}
 .steps li i{font-family:var(--f-mono);font-style:normal;font-size:.85em}
-.steps li.is-done{color:var(--blue)}
+.steps li.is-done{color:var(--ink2)}
+.steps li.is-done i::before{content:"✓ ";color:var(--c-fab)}
 .steps li.is-now{color:#fff;background:var(--navy);box-shadow:0 6px 18px rgba(28,52,135,.3)}
 .hud-r{display:flex;align-items:center;gap:10px}
-.hbtn{display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink2);font-size:12px}
+.hbtn{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;min-width:48px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink2);font-size:14px;font-weight:700}
 .hbtn svg{width:18px;height:auto}
 .hbtn .x{display:none}.hbtn[aria-pressed="false"] .w{display:none}.hbtn[aria-pressed="false"] .x{display:block}
 
 /* リング */
-body{--rs:min(84vh,48vw);--rx:calc(97vw - var(--rs));--ry:calc(var(--hud-h) + (100vh - var(--hud-h) - var(--rs)) / 2)}
-body[data-screen="pos"]{--rs:min(84vh,52vw);--rx:3vw}
-body[data-screen="phase"]{--rs:min(124vh,74vw);--rx:calc(29vw - var(--rs) / 2);--ry:calc(var(--hud-h) + (100vh - var(--hud-h)) / 2 - var(--rs) / 2)}
+body{--rs:min(80vh,46vw);--rx:calc(96vw - var(--rs));--ry:calc(var(--hud-h) + (100vh - var(--hud-h) - 30px - var(--rs)) / 2)}
+body[data-screen="pos"]{--rs:min(80vh,50vw);--rx:3vw}
+body[data-screen="phase"]{--rs:min(108vh,62vw);--rx:calc(29vw - var(--rs) / 2);--ry:calc(var(--hud-h) + (100vh - var(--hud-h)) / 2 - var(--rs) / 2)}
 body[data-screen="phase"] #ringSvg .outer,body[data-screen="phase"] #ringSvg .comet,body[data-screen="phase"] .node,body[data-screen="phase"] .gate{opacity:.06;filter:grayscale(1);pointer-events:none}
 #ringSvg .outer{transition:opacity .6s,filter .6s}
-body[data-screen="check"]{--rs:min(30vh,22vw);--rx:var(--pad);--ry:calc(var(--hud-h) + 2.6vh)}
+body[data-screen="check"]{--rs:min(30vh,22vw);--rx:calc(var(--pad) + 1.5vw);--ry:calc(var(--hud-h) + 2.6vh)}
 body[data-screen="ana"]{--rs:min(68vh,54vw);--rx:calc(50vw - var(--rs) / 2);--ry:calc(var(--hud-h) + 3vh)}
 .ring-wrap{position:fixed;z-index:5;width:var(--rs);height:var(--rs);left:var(--rx);top:var(--ry);transition:left .9s cubic-bezier(.2,.8,.2,1),top .9s cubic-bezier(.2,.8,.2,1),width .9s cubic-bezier(.2,.8,.2,1),height .9s cubic-bezier(.2,.8,.2,1),opacity .6s;touch-action:none}
 body[data-screen="result"] .ring-wrap,body[data-screen="staff"] .ring-wrap{opacity:0;pointer-events:none;transform:scale(.9)}
@@ -79,14 +83,15 @@ body[data-screen="result"] .ring-wrap,body[data-screen="staff"] .ring-wrap{opaci
 #ringSvg .tk{stroke:rgba(28,52,135,.35)}
 #ringSvg .chev{animation:spin 26s linear infinite;transform-origin:500px 500px}
 #ringSvg .sl{fill:none;stroke-width:5;stroke-linecap:round;opacity:.14;transition:opacity .5s,stroke-width .5s}
-#ringSvg .sl.on{opacity:1;stroke-width:9}
+#ringSvg .sl.on{opacity:1;stroke-width:7}
 #ringSvg .flowd{fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round;stroke-dasharray:3 34;animation:dash 1.6s linear infinite;opacity:.0;transition:opacity .5s}
 #ringSvg .flowd.on{opacity:.95}
 @keyframes dash{to{stroke-dashoffset:-37}}
 #ringSvg .seg .glow{fill:#fff;opacity:0;pointer-events:none;animation:segglow 6s ease-in-out infinite;animation-delay:calc(var(--k) * 1.2s)}
-@keyframes segglow{0%,100%{opacity:0}8%{opacity:.55}24%{opacity:0}}
+@keyframes segglow{0%,100%{opacity:0}8%{opacity:.22}24%{opacity:0}}
 body.ph-picked #ringSvg .seg .glow{animation:none;opacity:0}
-#ringSvg .comet{animation:spin 6s linear infinite;transform-origin:500px 500px}
+#ringSvg .comet{display:none}
+body[data-screen="ana"] #ringSvg .segt .t2,body[data-screen="ana"] #ringSvg .il{display:none}
 body[data-screen="phase"] #ringSvg .comet{opacity:0}
 #ringSvg .st{fill:#fff;stroke-width:5;opacity:.35;transition:opacity .5s}
 #ringSvg .st.on{opacity:1}
@@ -94,12 +99,12 @@ body[data-screen="phase"] #ringSvg .comet{opacity:0}
 #ringSvg .seg text{pointer-events:none}
 #ringSvg .segt text{pointer-events:none}
 #ringSvg .segt .t1{font-weight:900;font-size:28px}
-#ringSvg .segt .t2{font-weight:700;font-size:16px;fill:var(--ink2)}
+#ringSvg .segt .t2{font-weight:700;font-size:18px;fill:var(--ink2)}
 #ringSvg .segt .lt .t1,#ringSvg .segt .lt .t2{fill:#fff}
-#ringSvg .segt .lt .t2{fill:rgba(255,255,255,.88)}
+#ringSvg .segt .lt .t2{fill:#fff}
 body[data-screen="phase"] #ringSvg .seg path{cursor:pointer}
 body.ph-picked[data-screen="phase"] #ringSvg .seg:not(.on) path{fill:#dfe7f5}
-body.ph-picked[data-screen="phase"] #ringSvg .segt g:not(.on) text{fill:#7d8bab}
+body.ph-picked[data-screen="phase"] #ringSvg .segt g:not(.on) text{fill:#5a6788}
 body[data-screen="phase"]:not(.ph-picked) #ringSvg .seg .glow{animation:segglow 6s ease-in-out infinite;animation-delay:calc(var(--k) * 1.2s)}
 #ringSvg .groove{opacity:0;transition:opacity .4s}
 body[data-screen="phase"] #ringSvg .groove{opacity:1}
@@ -108,25 +113,29 @@ body[data-screen="phase"] #ringSvg .segt g.on text{fill:#fff}
 #ringSvg .knob{transition:opacity .4s;opacity:0}
 body.ph-picked[data-screen="phase"] #ringSvg .knob{opacity:1}
 #ringSvg .knob{transition:opacity .4s,transform .5s cubic-bezier(.2,.8,.2,1)}
-.node{position:absolute;width:15%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;z-index:2}
+.node{position:absolute;width:12.5%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;z-index:2}
 .node .ph{position:absolute;inset:0;border-radius:50%;overflow:hidden;border:4px solid #fff;box-shadow:0 0 0 3px var(--blue),0 10px 26px rgba(21,33,74,.28);background:#fff;transition:box-shadow .35s,transform .35s}
 .node .ph img{width:100%;height:100%;object-fit:cover}
 .node .no{position:absolute;left:-4%;top:-4%;width:27%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-family:var(--f-mono);font-weight:700;font-size:clamp(11px,1.6vh,22px);border:2px solid #fff;z-index:2}
+.node.up .nl{top:auto;bottom:106%}
 .node .nl{position:absolute;left:50%;top:104%;transform:translateX(-50%);white-space:nowrap;font-weight:900;font-size:clamp(12px,1.75vh,22px);color:var(--ink);background:#fff;box-shadow:0 2px 8px rgba(21,33,74,.12);padding:3px 12px;border-radius:999px;transition:all .35s}
 .node.sel .ph{box-shadow:0 0 0 5px var(--teal),0 0 0 11px rgba(42,160,194,.22),0 14px 34px rgba(21,33,74,.35);transform:scale(1.1)}
 .node.sel .nl{background:var(--navy);color:#fff}
 body[data-screen="check"] .node .nl,body[data-screen="check"] .node .no,body[data-screen="check"] #ringSvg text{display:none}
 body[data-screen="phase"] .node:not(.sel) .nl,body[data-screen="ana"] .node:not(.sel) .nl,body[data-screen="ana"] .node .no,body[data-screen="phase"] .node:not(.sel) .no{display:none}
 body[data-screen="phase"] .node:not(.sel) img,body[data-screen="ana"] .node:not(.sel) img{filter:grayscale(1)}
-body[data-screen="check"] .node:not(.sel),body[data-screen="phase"] .node:not(.sel),body[data-screen="ana"] .node:not(.sel){opacity:.5}
+body[data-screen="check"] .node:not(.sel){display:none}
+body[data-screen="check"] #ringSvg .chev,body[data-screen="check"] #ringSvg .tk{display:none}
+body[data-screen="ana"] .node:not(.sel) img{filter:grayscale(1);opacity:.45}
+body[data-screen="phase"] .node,body[data-screen="phase"] .gate,body[data-screen="phase"] #ringSvg .outer,body[data-screen="phase"] #ringSvg .comet{opacity:0!important;visibility:hidden}
 .node{transition:opacity .5s}
 .gate{position:absolute;left:93%;top:50%;width:21%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:2px dashed var(--teal);pointer-events:none;opacity:0;transition:opacity .4s;z-index:1}
 .gate::after{content:"";position:absolute;left:50%;top:50%;width:100%;height:100%;border-radius:50%;border:2px solid var(--teal);animation:pulse 1.8s ease-out infinite}
 .gate b{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);font-family:var(--f-mono);font-weight:700;font-size:15px;letter-spacing:.2em;color:var(--navy);background:#fff;padding:4px 12px;border-radius:999px;box-shadow:0 2px 8px rgba(21,33,74,.15);white-space:nowrap}
 body[data-screen="pos"] .gate{opacity:1}
-.hubov{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:16%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;color:#fff;pointer-events:none;opacity:0;transition:opacity .4s;z-index:3;background:radial-gradient(circle at 35% 30%,#3f6fd6,#1b2f7a)}
+.hubov{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:18%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;color:#fff;pointer-events:none;opacity:0;transition:opacity .4s;z-index:3;background:radial-gradient(circle at 35% 30%,#3f6fd6,#1b2f7a)}
 body[data-screen="ana"] .hubov{opacity:1}
-.hubov b{display:block;font-weight:900;font-size:clamp(18px,2.6vh,30px);line-height:1.2}
+.hubov b{display:block;font-weight:900;font-size:clamp(24px,3.4vh,38px);line-height:1.2}
 .hubov small{display:block;font-family:var(--f-mono);font-size:clamp(14px,1.8vh,20px);font-weight:700;margin-top:4px;opacity:.85;font-variant-numeric:tabular-nums}
 .dragcue{position:absolute;left:50%;top:50%;width:104%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;opacity:0;transition:opacity .4s}
 .dragcue svg{width:100%;height:100%;animation:spin 7s linear infinite}
@@ -145,7 +154,11 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:16px;min-height:clamp(64px,8vh,86px);padding:0 clamp(28px,2.6vw,52px);border-radius:999px;background:var(--navy);color:#fff;font-weight:900;font-size:clamp(17px,1.45vw,27px);letter-spacing:.04em;box-shadow:0 12px 30px rgba(28,52,135,.32);transition:transform .2s,opacity .3s}
 .btn svg{width:26px}
 .btn:active{transform:scale(.96)}
-.btn:disabled{opacity:.3;box-shadow:none}
+.btn:disabled{opacity:1;background:#d5ddef;color:#4a5878;box-shadow:none}
+.btn:disabled svg{display:none}
+#phNext .t-off{display:none}
+#phNext:disabled .t-off{display:inline}
+#phNext:disabled .t-on{display:none}
 .btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
 
 /* TOP */
@@ -157,9 +170,11 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .hero .hl.off>span{opacity:0;filter:blur(12px);transform:translateY(.25em)}
 .hero .en{font-family:var(--f-mono);font-weight:700;letter-spacing:-.02em;font-size:.82em;line-height:1.2;color:var(--navy)}
 .lead{font-size:clamp(15px,1.3vw,24px);line-height:1.9;color:var(--ink2);font-weight:700}
-.qbox{max-width:34em;display:flex;flex-direction:column;gap:8px;padding:clamp(16px,1.6vw,26px) clamp(20px,1.9vw,30px);background:#fff;border-radius:20px;box-shadow:0 10px 30px rgba(21,33,74,.08)}
+.qbox,.stg,.found,.ph-now{box-shadow:var(--sh)!important}
+.qbox{max-width:min(46vw,860px);display:flex;flex-direction:column;gap:8px;padding:clamp(16px,1.6vw,26px) clamp(20px,1.9vw,30px);background:#fff;border-radius:20px;box-shadow:0 10px 30px rgba(21,33,74,.08)}
 .qbox .lbl{color:var(--blue);letter-spacing:.12em}
-.qbox p{font-weight:900;font-size:clamp(18px,1.7vw,32px);line-height:1.45}
+.qbox p{font-weight:900;font-size:clamp(22px,1.8vw,34px);line-height:1.45}
+.qbox p.lbl{font-size:clamp(13px,.9vw,16px);font-weight:700;line-height:1}
 .qbox.swap p{animation:inUp .6s cubic-bezier(.2,.8,.2,1) backwards}
 .cta-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
 .cta{position:relative;min-height:clamp(78px,10vh,112px);font-size:clamp(19px,1.7vw,32px)}
@@ -172,12 +187,12 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .pos-panel{grid-column:2;display:flex;flex-direction:column;justify-content:center;gap:clamp(12px,2.2vh,26px)}
 .stg{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px clamp(14px,1.4vw,26px);align-items:center;padding:clamp(18px,2vw,34px);background:#fff;border-radius:20px;box-shadow:0 16px 40px rgba(21,33,74,.1)}
 .stg.swap{animation:inUp .45s cubic-bezier(.2,.8,.2,1)}
-.stg .ic{grid-row:span 2;width:clamp(96px,8.6vw,164px);aspect-ratio:1;object-fit:cover;border-radius:50%;border:4px solid #fff;box-shadow:0 0 0 3px var(--blue),0 10px 24px rgba(21,33,74,.2)}
-.stg .en{font-family:var(--f-mono);font-weight:700;font-size:clamp(11px,.8vw,14px);letter-spacing:.22em;color:var(--blue);align-self:end}
-.stg h3{font-weight:900;font-size:clamp(30px,3.2vw,60px);line-height:1.15;align-self:start}
-.stg h3.long{font-size:clamp(26px,2.5vw,46px)}
+.stg .ic{grid-row:span 2;width:clamp(120px,10.5vw,200px);aspect-ratio:1;object-fit:cover;border-radius:50%;border:4px solid #fff;box-shadow:0 0 0 3px var(--blue),0 10px 24px rgba(21,33,74,.2)}
+.stg .en{font-family:var(--f-mono);font-weight:700;font-size:clamp(14px,1vw,18px);letter-spacing:.12em;color:var(--blue);align-self:end}
+.stg h3{font-weight:900;font-size:clamp(34px,4vw,76px);line-height:1.15;align-self:start}
+.stg h3.long{font-size:clamp(28px,3vw,56px)}
 .stg h3 small{display:block;margin:6px 0 0!important}
-.stg h3 small{font-size:.42em;color:var(--ink2);margin-left:10px}
+.stg h3 small{font-size:.5em;color:var(--ink2);margin-left:10px}
 .stg .prod{grid-column:1/-1;font-weight:700;color:var(--ink2);font-size:clamp(15px,1.1vw,20px);line-height:1.7;margin-top:8px}
 .stg .prod b{color:var(--ink)}
 .tags{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
@@ -196,19 +211,21 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .found li{padding:12px 16px;border-radius:12px;background:#fff;font-weight:700;font-size:clamp(14px,1vw,18px);line-height:1.5;animation:inLeft .5s cubic-bezier(.2,.8,.2,1)}
 .found .empty{color:var(--ink2);font-weight:700;font-size:clamp(14px,1vw,17px);line-height:1.6}
 .chk{grid-column:2;display:flex;flex-direction:column;align-items:center;gap:clamp(10px,2vh,22px);min-height:0}
-.chk-head{align-self:stretch;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.chk-head{position:relative;z-index:6;align-self:stretch;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
 .chk-head .cnt{font-family:var(--f-mono);font-weight:700;font-size:clamp(28px,3vw,56px);color:var(--navy);line-height:1}
 .chk-head .cnt small{font-size:.45em;color:var(--muted)}
 .deck{position:relative;flex:1;width:min(100%,760px);min-height:0}
 .card{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 22px 50px rgba(21,33,74,.18);touch-action:none;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s}
 .card.back1{transform:translateY(14px) scale(.96)}
 .card.back2{transform:translateY(28px) scale(.92)}
-.card.back1 .txt,.card.back2 .txt,.card.back1 .stamp,.card.back2 .stamp{visibility:hidden}
-.card.back1::after,.card.back2::after{content:"";position:absolute;inset:0;background:rgba(237,241,248,.35)}
+.card.back2 .txt,.card.back1 .stamp,.card.back2 .stamp{visibility:hidden}
+.card.back1 .txt{opacity:.3}
+.card.back1::after,.card.back2::after{content:"";position:absolute;inset:0;background:rgba(237,241,248,.5)}
+.card.back1,.card.back2{box-shadow:0 8px 20px rgba(21,33,74,.08)}
 .card.dragging{transition:none}
-.card .pic{position:relative;flex:1.25;min-height:0;background:#f4f7fc}
+.card .pic{position:relative;flex:none;aspect-ratio:2/1;max-height:58%;background:#f4f7fc}
 .card .pic img{width:100%;height:100%;object-fit:cover}
-.card .txt{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:clamp(16px,2vw,32px) clamp(22px,2.4vw,40px)}
+.card .txt{flex:1;display:flex;flex-direction:column;justify-content:flex-start;padding-top:28px!important;gap:10px;padding:clamp(16px,2vw,32px) clamp(22px,2.4vw,40px)}
 .card .txt .lbl{font-size:clamp(12px,.85vw,15px)}
 .card .txt p{font-weight:900;font-size:clamp(22px,2.15vw,40px);line-height:1.42;text-wrap:balance}
 .card .txt small{color:var(--ink2);font-weight:700;font-size:clamp(14px,1vw,18px)}
@@ -221,25 +238,27 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .bi{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.2)}
 .chk-btns .no .bi{background:#eef2f9}
 .bi svg{width:24px}
-.swipe-ic{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--ink2);font-weight:700;font-size:14px}
+.swipe-ic{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--ink2);font-weight:700;font-size:18px}
 .swipe-ic svg{width:60px}
 .chk-btns .no{background:#fff;color:var(--ink2);border:1.5px solid var(--line);box-shadow:none}
 .chk-btns .hint{min-width:0}
 
 /* STEP3 段階（ダイヤル） */
-#s-phase{display:grid;grid-template-columns:58vw minmax(0,1fr)}
+#s-phase{display:grid;grid-template-columns:52vw minmax(0,1fr)}
+#s-phase .h2{font-size:clamp(28px,2.5vw,48px)}
 .ph-panel{grid-column:2;display:flex;flex-direction:column;justify-content:center;gap:clamp(14px,2.4vh,28px)}
 .ph-now{min-height:clamp(150px,20vh,230px);padding:clamp(18px,2vw,32px);border-radius:20px;background:#fff;box-shadow:0 16px 40px rgba(21,33,74,.1);display:flex;flex-direction:column;gap:8px;justify-content:center}
 .ph-now.swap{animation:inUp .4s cubic-bezier(.2,.8,.2,1)}
 .ph-now b{font-weight:900;font-size:clamp(30px,3vw,58px);line-height:1.15;color:var(--navy)}
 .ph-now b small{font-size:.45em;color:var(--ink2);margin-left:12px}
 .ph-now p{font-weight:700;color:var(--ink2);font-size:clamp(14px,1.15vw,21px);line-height:1.7}
-.ph-now.empty b{color:var(--muted);font-size:clamp(20px,1.8vw,32px)}
+.ph-now.empty b{color:var(--navy);font-size:clamp(24px,2vw,38px)}
+.ph-now p.lbl{font-size:clamp(13px,.9vw,16px);color:var(--blue);line-height:1}
 
 /* 照合中 */
 #s-ana{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:12px;text-align:center;padding-bottom:6vh}
 #s-ana>.lbl{display:none}
-.ana-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;font-weight:900;font-size:clamp(14px,1.2vw,22px)}
+.ana-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;font-weight:900;font-size:clamp(20px,1.8vw,34px)}
 .ana-chips span{padding:8px 18px;border-radius:999px;background:#fff;box-shadow:0 6px 18px rgba(21,33,74,.1)}
 .ana-chips i{font-style:normal;color:var(--muted);align-self:center}
 
@@ -251,16 +270,16 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .r-left{display:flex;flex-direction:column;gap:clamp(10px,1.6vh,18px);min-height:0}
 .r-issues{flex:1;display:flex;flex-direction:column;gap:clamp(8px,1.2vh,14px);min-height:0;overflow:auto}
 .r-issues .lbl{color:var(--navy)}
-.iss{display:flex;flex-direction:column;gap:6px;padding:clamp(12px,1.2vw,20px);border-radius:12px;background:#fff;box-shadow:0 8px 24px rgba(21,33,74,.08);animation:inUp .6s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(.3s + var(--i) * .15s)}
-.iss .q{font-weight:500;color:#6b7898;font-size:clamp(14px,1vw,18px);line-height:1.5}
+.iss{border-radius:20px;display:flex;flex-direction:column;gap:6px;padding:clamp(12px,1.2vw,20px);border-radius:12px;background:#fff;box-shadow:0 8px 24px rgba(21,33,74,.08);animation:inUp .6s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(.3s + var(--i) * .15s)}
+.iss .q{font-weight:700;color:var(--ink2);font-size:clamp(15px,1.05vw,19px);line-height:1.5}
 @keyframes strike{to{background-size:100% 2px}}
 .iss .a{display:flex;gap:10px;align-items:baseline;font-weight:900;font-size:clamp(16px,1.25vw,23px);line-height:1.45}
 .iss .a::before{content:"→";color:var(--col);font-family:var(--f-mono)}
 .iss .a span{flex:1}
-.iss .a i{font-style:normal;flex:none;padding:4px 12px;border-radius:999px;font-size:.66em;color:#fff;background:var(--col)}
+.iss .a i{font-style:normal;flex:none;font-size:.7em;color:var(--col);font-weight:900}
 .r-issues.many{gap:8px}
 .r-issues.many .iss{padding:10px 14px;gap:2px}
-.r-issues.many .iss .q{font-size:clamp(12px,.85vw,15px)}
+.r-issues.many .iss .q{font-size:clamp(13px,.9vw,16px)}
 .r-issues.many .iss .a{font-size:clamp(14px,1.05vw,19px);line-height:1.35}
 .none-msg{padding:20px;border-radius:12px;background:#fff;font-weight:700;line-height:1.7;color:var(--ink2);font-size:clamp(14px,1.1vw,20px)}
 .sol{--col:var(--c-total);position:relative;display:flex;flex-direction:column;gap:clamp(8px,1.3vh,16px);min-height:0;overflow:hidden;padding:clamp(18px,1.8vw,32px);padding-top:calc(clamp(18px,1.8vw,32px) + 6px);background:#fff;border-radius:28px;box-shadow:0 22px 50px rgba(21,33,74,.14);animation:inUp .7s cubic-bezier(.2,.8,.2,1) .15s backwards}
@@ -273,30 +292,37 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .scope{justify-self:start;padding:5px 16px;border-radius:999px;border:2px solid var(--col);color:var(--col);font-weight:900;font-size:clamp(13px,.95vw,17px)}
 .sol-lead{font-weight:900;font-size:clamp(28px,2.5vw,48px);line-height:1.3;color:var(--col);letter-spacing:.01em}
 .sol-body{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(12px,1.4vw,24px);align-items:stretch}
-.sol-body .pic{border-radius:12px;background:#f4f7fc;overflow:hidden;display:grid;place-items:center;min-height:0}
+.sol-body .pic{align-self:start;aspect-ratio:4/3;border-radius:12px;background:#f4f7fc;overflow:hidden;display:grid;place-items:center;min-height:0}
+.sol-body .pic img,.card .pic img{filter:saturate(.88) contrast(1.04)}
+.pts li small{display:block;font-size:1em;line-height:1.55;margin-top:2px}
+.sol-body.grid6{grid-template-columns:minmax(0,1fr);align-content:start;gap:12px}
+.sol-body.grid6 .pic{aspect-ratio:6/1;width:100%}
+.sol-body.grid6 .pts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.sol-body.grid6 .pts li{padding:12px 14px}
 .sol-body .pic img{width:100%;height:100%;object-fit:cover}
 .pts{list-style:none;display:flex;flex-direction:column;gap:clamp(6px,1vh,12px);min-height:0}
 .pts li{padding:clamp(10px,1.1vh,14px) clamp(14px,1.1vw,18px);border-radius:12px;background:#f5f7fc;font-weight:700;font-size:clamp(14px,1vw,18px);line-height:1.5;animation:inUp .5s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(.6s + var(--i) * .08s)}
 .pts li b{display:block;font-weight:900;font-size:1.12em;color:var(--ink)}
 .pts li small{color:var(--ink2);font-weight:700}
-.flow{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;counter-reset:f}
+.flow{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:f}
 .flow li{counter-increment:f;position:relative;padding:14px 10px 12px;border-radius:12px;background:#f5f7fc;text-align:center;font-weight:900;font-size:clamp(15px,1.1vw,20px);line-height:1.35}
-.flow li::before{content:counter(f);display:block;margin:0 auto 6px;width:26px;height:26px;border-radius:50%;background:var(--col);color:#fff;font-family:var(--f-mono);font-size:13px;line-height:26px}
+.flow li::before{content:counter(f);display:block;margin:0 auto 8px;width:34px;height:34px;border-radius:50%;background:var(--col);color:#fff;font-family:var(--f-mono);font-size:17px;line-height:34px}
 .flow li small{display:block;color:var(--ink2);font-weight:700;font-size:.8em;margin-top:4px}
-.flow li+li::after{content:"›";position:absolute;left:-9px;top:50%;transform:translateY(-50%);color:var(--col);font-weight:900;animation:nudge 1.2s ease-in-out infinite}
+.flow li+li::after{content:"›";font-size:30px;position:absolute;left:-19px;top:50%;transform:translateY(-50%);color:var(--col);font-weight:900;animation:nudge 1.2s ease-in-out infinite}
 @keyframes nudge{50%{transform:translate(4px,-50%)}}
 .ba .arr{animation:nudgeX 1.2s ease-in-out infinite}
 @keyframes nudgeX{50%{transform:translateX(5px)}}
 .ba{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.15fr);gap:10px;align-items:center}
-.ba .box{padding:14px 16px;border-radius:12px;background:#f5f7fc;font-weight:700;font-size:clamp(14px,1vw,18px);line-height:1.65}
+.ba .box{padding:16px 18px;border-radius:12px;background:#f5f7fc;font-weight:700;font-size:clamp(15px,1.1vw,20px);line-height:1.6}
 .ba .box b{display:block;font-weight:900;font-size:1.1em;margin-bottom:4px}
 .ba .box.after{background:color-mix(in srgb,var(--col) 10%,#fff);border:1.5px solid color-mix(in srgb,var(--col) 40%,#fff)}
-.ba .arr{color:var(--col);font-size:30px;font-weight:900;text-align:center;line-height:1}
+.ba .arr{width:52px;height:52px;border-radius:50%;background:var(--col);color:#fff;display:grid;place-items:center;font-size:26px;font-weight:900;line-height:1}
 .chipset{display:flex;flex-wrap:wrap;gap:6px}
-.chipset span{padding:5px 14px;border-radius:999px;background:color-mix(in srgb,var(--col) 12%,#fff);color:var(--col);font-weight:900;font-size:clamp(13px,.95vw,17px)}
+.chipset span{padding:5px 12px;border-radius:999px;background:color-mix(in srgb,var(--col) 12%,#fff);color:color-mix(in srgb,var(--col) 75%,#000);font-weight:900;font-size:clamp(14px,.95vw,17px)}
 .r-side{display:flex;flex-direction:column;gap:clamp(10px,1.6vh,18px);min-height:0}
-.wallmap{display:flex;align-items:center;gap:16px;padding:clamp(10px,1vw,16px) clamp(14px,1.2vw,20px);border-radius:12px;background:var(--navy);color:#fff}
-.wallmap svg{flex:none;width:clamp(170px,13vw,250px);height:auto}
+.r-side .sol{flex:1}
+.wallmap{display:flex;align-items:center;gap:18px;padding:clamp(12px,1.1vw,18px) clamp(16px,1.3vw,22px);border-radius:20px;background:var(--navy);color:#fff}
+.wallmap svg{flex:none;width:clamp(130px,9vw,170px);height:auto}
 .wallmap p{font-weight:700;font-size:clamp(14px,1vw,18px);line-height:1.65}
 .wallmap p b{display:block;font-weight:900;font-size:clamp(20px,1.6vw,30px);line-height:1.35;margin-bottom:4px}
 .wallmap .hl{animation:blink 1.2s ease-in-out infinite}
@@ -305,30 +331,31 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .also div{display:flex;gap:8px;flex-wrap:wrap}
 .also button{display:flex;align-items:center;gap:10px;min-height:60px;padding:0 20px;border-radius:12px;background:#fff;border:1.5px solid var(--line);font-weight:900;font-size:clamp(14px,1.05vw,19px)}
 .also button::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--col)}
-.also button.on{border-color:var(--col);box-shadow:0 0 0 2px var(--col) inset}
+.also button.on{background:var(--col);border-color:var(--col);color:#fff}
+.also button.on::before{background:#fff}
 .r-actions{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.3fr);gap:clamp(18px,2.2vw,44px);align-items:center}
 .r-actions .btn:first-child{width:100%}
 .r-actions .r2{display:flex;align-items:center;justify-content:space-between;gap:14px}
 
 /* スタッフ相談 */
 #s-staff{display:grid;place-items:center}
-.staff{width:min(1060px,100%);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,3vw,56px);align-items:center;padding:clamp(24px,3vw,52px);border-radius:28px;background:#fff;box-shadow:0 24px 60px rgba(21,33,74,.14)}
-.ticket{font-family:var(--f-mono);font-weight:700;font-size:clamp(80px,9vw,170px);line-height:1;color:var(--navy);font-variant-numeric:tabular-nums}
+.staff{width:min(1360px,100%);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,3vw,56px);align-items:center;padding:clamp(24px,3vw,52px);border-radius:28px;background:#fff;box-shadow:0 24px 60px rgba(21,33,74,.14)}
+.ticket{font-family:var(--f-jp);font-weight:900;letter-spacing:.02em;font-size:clamp(80px,9vw,170px);line-height:1;color:var(--navy);font-variant-numeric:tabular-nums}
 .st-r{display:flex;flex-direction:column;gap:clamp(10px,1.8vh,20px)}
-.st-r .h2{font-size:clamp(22px,2vw,38px)}
+.st-r .h2{font-size:clamp(22px,1.8vw,34px)}
 .st-dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 20px;font-size:clamp(15px,1.1vw,20px);font-weight:700}
 .st-dl dt{color:var(--muted);font-weight:900}
 .st-dl ol{padding-left:1.4em;display:flex;flex-direction:column;gap:4px}
 .sl2{display:flex;flex-wrap:wrap;gap:8px}
-.sl2 span{display:flex;align-items:baseline;gap:8px;padding:6px 16px;border-radius:999px;background:var(--col);color:#fff;font-weight:900;white-space:nowrap}
-.sl2 small{font-weight:700;opacity:.85;font-size:.8em}
+.sl2 span{display:flex;align-items:baseline;gap:8px;padding:10px 20px;font-size:clamp(17px,1.2vw,22px);border-radius:999px;background:color-mix(in srgb,var(--col) 88%,#000);color:#fff;font-weight:900;white-space:nowrap}
+.sl2 small{font-weight:700;opacity:1;font-size:.85em}
 .textlink{font-weight:700;color:var(--ink2);text-decoration:underline;text-underline-offset:4px;padding:12px 6px;font-size:clamp(14px,1vw,18px)}
 
 /* タッチの案内 */
-.ghost{position:fixed;z-index:15;width:0;height:0;pointer-events:none;opacity:0;transition:opacity .4s}
-.ghost.on{opacity:1}
-.ghost svg{position:absolute;left:-40px;top:-4px;width:clamp(72px,6vw,110px);height:auto;filter:drop-shadow(0 10px 18px rgba(21,33,74,.35));transform-origin:46% 0;animation:press 1.3s ease-in-out infinite}
-.ghost i{position:absolute;left:-36px;top:-36px;width:72px;height:72px;border-radius:50%;border:2px solid var(--navy);opacity:0;animation:gring 1.3s ease-out infinite .55s}
+.fguide{position:fixed;z-index:15;width:0;height:0;pointer-events:none;opacity:0;transition:opacity .4s}
+.fguide.on{opacity:1}
+.fguide svg{position:absolute;left:-40px;top:-4px;width:clamp(72px,6vw,110px);height:auto;filter:drop-shadow(0 10px 18px rgba(21,33,74,.35));transform-origin:46% 0;animation:press 1.3s ease-in-out infinite}
+.fguide i{position:absolute;left:-36px;top:-36px;width:72px;height:72px;border-radius:50%;border:2px solid var(--navy);opacity:0;animation:gring 1.3s ease-out infinite .55s}
 @keyframes gring{0%{transform:scale(.2);opacity:1}100%{transform:scale(2.2);opacity:0}}
 .tapring{position:fixed;z-index:30;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:2px solid var(--blue);pointer-events:none;animation:tapring .6s cubic-bezier(.2,.7,.3,1) forwards}
 @keyframes tapring{to{transform:scale(10);opacity:0}}
@@ -359,7 +386,7 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 <div class="ruler mono" aria-hidden="true">Engineering for the semiconductor era</div>
 
 <header class="hud">
-  <svg class="logo" viewBox="0 0 236 100" role="img" aria-label="ENGINEERING THE NEXT Factory"><g fill="none" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 30H48L80 64" stroke="#3b6fb6"/><path d="M14 41H50L80 64" stroke="#c8743a"/><path d="M14 52H52L80 64" stroke="#3f8a41"/><path d="M14 63H80" stroke="#6b4fae"/><path d="M14 74H50L80 64" stroke="#2b3550"/><circle cx="10" cy="30" r="4" stroke="#3b6fb6" fill="#fff" stroke-width="2.4"/><circle cx="10" cy="41" r="4" stroke="#c8743a" fill="#fff" stroke-width="2.4"/><circle cx="10" cy="52" r="4" stroke="#3f8a41" fill="#fff" stroke-width="2.4"/><circle cx="10" cy="63" r="4" stroke="#6b4fae" fill="#fff" stroke-width="2.4"/><circle cx="10" cy="74" r="4" stroke="#2b3550" fill="#fff" stroke-width="2.4"/><path d="M88 64H226" stroke="#2b3550" stroke-width="4.4"/><path d="M216 56.5L227 64L216 71.5" stroke="#2b3550" stroke-width="4.4"/></g><circle cx="84" cy="64" r="5.5" fill="#fff" stroke="#2b3550" stroke-width="3"/><text x="110" y="15" font-family="JetBrains Mono,monospace" font-weight="700" font-size="8.4" letter-spacing="2.6" fill="#5d6a86">ENGINEERING THE</text><text x="108" y="54" font-family="Noto Sans JP,sans-serif" font-weight="900" font-size="38" letter-spacing="1" fill="#3b6fb6">NEXT</text><text x="106" y="97" font-family="Noto Sans JP,sans-serif" font-weight="900" font-size="36" fill="#1c2340">Factory</text></svg>
+  <svg class="logo" viewBox="0 0 236 100" role="img" aria-label="ENGINEERING THE NEXT Factory"><g fill="none" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 30H48L80 64" stroke="#2a56bd"/><path d="M14 41H50L80 64" stroke="#b4542b"/><path d="M14 52H52L80 64" stroke="#3f8a41"/><path d="M14 63H80" stroke="#5b4fae"/><path d="M14 74H50L80 64" stroke="#3f4c63"/><circle cx="10" cy="30" r="4" stroke="#2a56bd" fill="#fff" stroke-width="2.4"/><circle cx="10" cy="41" r="4" stroke="#b4542b" fill="#fff" stroke-width="2.4"/><circle cx="10" cy="52" r="4" stroke="#3f8a41" fill="#fff" stroke-width="2.4"/><circle cx="10" cy="63" r="4" stroke="#5b4fae" fill="#fff" stroke-width="2.4"/><circle cx="10" cy="74" r="4" stroke="#3f4c63" fill="#fff" stroke-width="2.4"/><path d="M88 64H226" stroke="#3f4c63" stroke-width="4.4"/><path d="M216 56.5L227 64L216 71.5" stroke="#3f4c63" stroke-width="4.4"/></g><circle cx="84" cy="64" r="5.5" fill="#fff" stroke="#3f4c63" stroke-width="3"/><text x="108" y="15" font-family="JetBrains Mono,monospace" font-weight="700" font-size="10.5" letter-spacing="2" fill="#4c5a7c">ENGINEERING THE</text><text x="108" y="54" font-family="Noto Sans JP,sans-serif" font-weight="900" font-size="38" letter-spacing="1" fill="#2a56bd">NEXT</text><text x="106" y="97" font-family="Noto Sans JP,sans-serif" font-weight="900" font-size="36" fill="#1c3487">Factory</text></svg>
   <ol class="steps" id="steps" aria-label="進み具合">
     <li data-step="1"><i>01</i>事業領域</li>
     <li data-step="2"><i>02</i>現場チェック</li>
@@ -386,12 +413,12 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
     <h1 class="hero" id="hero" aria-label="生産現場の課題を、次の競争力へ。"><span class="hl ja"><span>生産現場の課題を、</span><span>次の競争力へ。</span></span><span class="hl en off" aria-hidden="true"><span>Shop-floor issues,</span><span>your next edge.</span></span></h1>
     <p class="lead">原料・材料からユーザーまで。<br>画面にタッチして、はじめてください。</p>
     <div class="qbox pe" id="qbox"><p class="lbl">Field Check</p><p id="qText"></p></div>
-    <div class="cta-row pe"><button class="btn cta" id="startBtn" type="button">タッチしてはじめる<svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M0 12h44M34 2l10 10-10 10"/></svg></button><p class="hint"><svg viewBox="0 0 64 82" aria-hidden="true"><path d="M24 6a6 6 0 0 1 12 0v27.5a5.6 5.6 0 0 1 11 1.4v1.6a5.6 5.6 0 0 1 10.6 2.4v3a5.3 5.3 0 0 1 6.4 5.1V60c0 12.2-9.3 22-21.4 22h-5.2c-6.8 0-11.4-2.6-15.6-7.8L3.5 55.6a5.7 5.7 0 0 1 8.6-7.4L24 58.4Z" fill="currentColor"/></svg>3ステップ・約1分</p></div>
+    <div class="cta-row pe"><button class="btn cta" id="startBtn" type="button">タッチしてはじめる<svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M0 12h44M34 2l10 10-10 10"/></svg></button><p class="hint"><svg viewBox="0 0 64 82" aria-hidden="true"><path d="M24 6a6 6 0 0 1 12 0v27.5a5.6 5.6 0 0 1 11 1.4v1.6a5.6 5.6 0 0 1 10.6 2.4v3a5.3 5.3 0 0 1 6.4 5.1V60c0 12.2-9.3 22-21.4 22h-5.2c-6.8 0-11.4-2.6-15.6-7.8L3.5 55.6a5.7 5.7 0 0 1 8.6-7.4L24 58.4Z" fill="currentColor"/></svg>3つ選ぶだけ・約1分</p></div>
   </section>
 
   <section class="screen" id="s-pos" aria-label="事業領域を選ぶ">
     <div class="pos-panel">
-      <p class="lbl">Step 01 ／ Supply Chain</p>
+      <p class="lbl">Step 01 / Supply Chain</p>
       <h2 class="h2">リングを回して、<br>貴社の事業領域を選んでください。</h2>
       <div class="stg pe" id="stg"></div>
       <div class="row pe"><p class="hint"><svg viewBox="0 0 64 82" aria-hidden="true"><path d="M24 6a6 6 0 0 1 12 0v27.5a5.6 5.6 0 0 1 11 1.4v1.6a5.6 5.6 0 0 1 10.6 2.4v3a5.3 5.3 0 0 1 6.4 5.1V60c0 12.2-9.3 22-21.4 22h-5.2c-6.8 0-11.4-2.6-15.6-7.8L3.5 55.6a5.7 5.7 0 0 1 8.6-7.4L24 58.4Z" fill="currentColor"/></svg>指でなぞって回すか、写真をタッチ</p><button class="btn" id="posNext" type="button">この領域で進む<svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M0 12h44M34 2l10 10-10 10"/></svg></button></div>
@@ -401,7 +428,7 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
   <section class="screen" id="s-check" aria-label="現場チェック">
     <div class="found"><p class="stchip" id="stChip"></p><p class="lbl">見えてきた課題</p><ol id="found"></ol><p class="empty" id="foundEmpty">右へスワイプした課題が、ここに並びます。</p></div>
     <div class="chk">
-      <div class="chk-head"><div><p class="lbl">Step 02 ／ Field Check</p><h2 class="h2">この現場、あてはまりますか？</h2></div><p class="cnt"><span id="cNow">1</span><small> / <span id="cAll">5</span></small></p></div>
+      <div class="chk-head"><div><p class="lbl">Step 02 / Field Check</p><h2 class="h2">この現場、あてはまりますか？</h2></div><p class="cnt"><span id="cNow">1</span><small> / <span id="cAll">5</span></small></p></div>
       <div class="deck pe" id="deck"></div>
       <div class="chk-btns pe"><button class="btn no" id="noBtn" type="button"><i class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></i>あてはまらない</button><p class="swipe-ic" aria-label="左右にスワイプ"><svg viewBox="0 0 64 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12H4M10 5l-7 7 7 7M42 12h18M54 5l7 7-7 7"/><circle cx="32" cy="12" r="4" fill="currentColor"/></svg>スワイプ</p><button class="btn yes" id="yesBtn" type="button">あてはまる<i class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i></button></div>
     </div>
@@ -409,10 +436,10 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 
   <section class="screen" id="s-phase" aria-label="プロジェクトの段階">
     <div class="ph-panel">
-      <p class="lbl">Step 03 ／ Project Phase</p>
+      <p class="lbl">Step 03 / Project Phase</p>
       <h2 class="h2">いまのプロジェクトの段階を、<br>タップして選んでください。</h2>
-      <div class="ph-now empty pe" id="phNow"><b>左の円から、5つの段階のどれかをタップ</b><p>コンサルティングから保守まで、一貫して対応します。</p></div>
-      <div class="row pe" style="display:flex;justify-content:flex-end"><button class="btn" id="phNext" type="button" disabled>この段階で照合する<svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M0 12h44M34 2l10 10-10 10"/></svg></button></div>
+      <div class="ph-now empty pe" id="phNow"><b>← 左の円の段階を、指でタップ</b><p>コンサルティングから保守まで、一貫して対応します。</p></div>
+      <div class="row pe" style="display:flex;justify-content:flex-end"><button class="btn" id="phNext" type="button" disabled><span class="t-on">この段階で照合する</span><span class="t-off">段階を選ぶと進めます</span><svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M0 12h44M34 2l10 10-10 10"/></svg></button></div>
     </div>
   </section>
 
@@ -422,7 +449,7 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
   </section>
 
   <section class="screen" id="s-result" aria-label="解決のカギ">
-    <div class="r-top"><div><p class="lbl">Step 04 ／ Your Solution</p><h2 id="rTitle"></h2></div></div>
+    <div class="r-top"><div><p class="lbl">Step 04 / Your Solution</p><h2 id="rTitle"></h2></div></div>
     <div class="r-left pe"><div class="r-issues" id="rIssues"></div><div class="wallmap" id="wallmap"></div></div>
     <div class="r-side pe">
       <article class="sol" id="sol"></article>
@@ -437,15 +464,15 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
     <div class="staff pe">
       <div><p class="lbl">受付番号</p><p class="ticket" id="ticketNo">001</p></div>
       <div class="st-r">
-        <p class="h2">この画面を、お近くの担当者にお見せください。</p>
+        <p class="h2">この画面を、<br>お近くの担当者にお見せください。</p>
         <div class="st-chips" id="stChips"></div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn ghost" id="backRes" type="button">結果に戻る</button><button class="textlink" id="staffHome" type="button">最初の画面へ</button></div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn ghost" id="backRes" type="button">結果に戻る</button><button class="btn ghost" id="staffHome" type="button">最初の画面へ</button></div>
       </div>
     </div>
   </section>
 </main>
 
-<div class="ghost" id="ghost" aria-hidden="true"><i></i><svg viewBox="0 0 64 82"><path d="M24 6a6 6 0 0 1 12 0v27.5a5.6 5.6 0 0 1 11 1.4v1.6a5.6 5.6 0 0 1 10.6 2.4v3a5.3 5.3 0 0 1 6.4 5.1V60c0 12.2-9.3 22-21.4 22h-5.2c-6.8 0-11.4-2.6-15.6-7.8L3.5 55.6a5.7 5.7 0 0 1 8.6-7.4L24 58.4Z" fill="#fff" stroke="#1c3487" stroke-width="3"/></svg></div>
+<div class="fguide" id="fguide" aria-hidden="true"><i></i><svg viewBox="0 0 64 82"><path d="M24 6a6 6 0 0 1 12 0v27.5a5.6 5.6 0 0 1 11 1.4v1.6a5.6 5.6 0 0 1 10.6 2.4v3a5.3 5.3 0 0 1 6.4 5.1V60c0 12.2-9.3 22-21.4 22h-5.2c-6.8 0-11.4-2.6-15.6-7.8L3.5 55.6a5.7 5.7 0 0 1 8.6-7.4L24 58.4Z" fill="#fff" stroke="#1c3487" stroke-width="3"/></svg></div>
 <div class="idle" id="idle" hidden><div class="idle-card"><p>操作がないため、まもなく最初の画面に戻ります</p><b id="idleNum">10</b><button class="btn" type="button">このまま続ける</button></div></div>
 
 <script>
@@ -472,16 +499,16 @@ const STAGES = [
 ];
 const SHORT = { raw: "原料", mat: "材料", equip: "製造装置・部品", front: "前工程", back: "後工程", user: "半導体ユーザー" };
 const SOLS = {
-  total: { col: "var(--c-total)", hex: "#2f5fc4", r: 404, en: "Plant Engineering", name: "工場建設", tag: "トータルエンジ", scope: "対応業界：すべて", lead: "構想から稼働まで、工場づくりを一貫して。", img: "g_t_clean", icon: "", wall: "左側のパネル", wpos: "total",
+  total: { col: "var(--c-total)", hex: "#2f5fc4", r: 368, en: "Plant Engineering", name: "工場建設", tag: "工場建設", scope: "対応業界：すべて", lead: "構想から稼働まで、工場づくりを一貫して。", img: "g_t_clean", icon: "", wall: "左側のパネル", wpos: "total",
            kind: "grid", items: [["高清浄度クリーンルーム", "クラスISO4〜7、ダウンフロー方式"], ["コンカレントエンジニアリング", "3D設計の合成で、設計期間を短縮"], ["局所クリーン化", "必要な空間だけを高清浄にし、コスト低減"], ["振動・電磁波・アウトガス対策", "計画段階の振動測定から対策まで"], ["クリーンルームリノベーション", "既存活用・短工期・低コスト・稼働しながら"], ["特殊設備", "特殊ガス・超純水供給、排ガス処理"]] },
-  plant: { col: "var(--c-plant)", hex: "#b4542b", r: 390, en: "Factory Automation", name: "PLANT LINK", tag: "PLANT LINK", scope: "対応業界：すべて", lead: "工場をつなぐ。未来を動かす。", img: "g_p_drum", icon: "", wall: "右上・オレンジのパネル", wpos: "plant",
+  plant: { col: "var(--c-plant)", hex: "#b4542b", r: 359, en: "Factory Automation", name: "PLANT LINK", tag: "PLANT LINK", scope: "対応業界：すべて", lead: "工場をつなぐ。未来を動かす。", img: "g_p_drum", icon: "", wall: "右上・オレンジのパネル", wpos: "plant",
            kind: "ba", note: "【開発中】半導体工場における薬液ドラム搬送の自動化", before: ["ドラム搬送", "ノズル交換", "供給装置起動（送液確認）", "空ドラム回収"], after: ["保管エリア〜供給装置をAMRで自動搬送", "ドラムと装置間のノズル脱着を自動化", "ドラム接続後の確認・自動送液", "空ドラムを保管エリアへ自動搬送"], chips: ["自動倉庫", "原料搬送", "粉体・液体輸送", "製品充填・梱包", "全体最適化"] },
-  over:  { col: "var(--c-over)", hex: "#5b4fae", r: 377, en: "Global Expansion Support", name: "海外進出支援", tag: "海外", scope: "対応業界：すべて", lead: "国内の技術・品質を、そのまま海外へ。", img: "g_o_cost", icon: "", wall: "右下・紫のパネル", wpos: "over",
+  over:  { col: "var(--c-over)", hex: "#5b4fae", r: 350, en: "Global Expansion Support", name: "海外進出支援", tag: "海外", scope: "対応業界：すべて", lead: "国内の技術・品質を、そのまま海外へ。", img: "g_o_cost", icon: "", wall: "右下・紫のパネル", wpos: "over",
            kind: "flow", steps: [["工場でユニット化", "品質向上"], ["海外輸送", "陸送可能なサイズ分割"], ["現地で迅速据付", "工期短縮・コスト削減"], ["早期立上げ", "安定運転・生産稼働"]], note: "適用範囲：プロセス設備、ポンプ設備、パイプラック、UTT設備、生産設備、自動搬送ライン、クリーンルーム、建築設備" },
-  dx:    { col: "var(--c-dx)", hex: "#3f4c63", r: 364, en: "Digital", name: "DX 生産支援", tag: "DX", scope: "対応業界：原料／材料", lead: "熟練者と新人の技術レベルを、統一する。", img: "g_d_skill", icon: "", wall: "右上・グレーのパネル", wpos: "dx",
-           kind: "ie", issues: ["進捗確認、連絡経路が煩雑", "熟練者から新人への技術伝承が難しい", "各種システムが混在し、工程間の連携が無い"], effect: "スケジューラー、入出庫検品、誤投入防止等のシステム連携により、効率化、ミス防止。作業標準（電子SOP）構築による技術伝承", chips: ["秤量作業支援", "電子SOP作業支援", "点検記録作業支援", "製造工数実績収集", "製造状況監視支援", "設備状況監視支援", "出荷検品支援"] },
-  fab:   { col: "var(--c-fab)", hex: "#3f8a41", r: 351, en: "Fab Solutions", name: "半導体工場ソリューション", sub: "CDS・SDS（薬液・スラリー供給）", tag: "CDS・SDS", scope: "対応業界：製造装置・部品／半導体メーカー", lead: "高純度のまま、ユースポイントへ。", img: "g_f_purity", icon: "", wall: "右下・緑のパネル", wpos: "fab",
-           kind: "twin", twin: [["薬液供給システム（CDS）", "高純度を維持し、安全に各ユースポイントまで供給。厳しいメタル・パーティクルスペックに対応", ["希釈・濃度調整", "Filterろ過", "使用量監視", "安定・定量供給"]], ["スラリー供給システム（SDS）", "物性・特性を安定させたまま複数のユースポイントへ同時供給。流体解析で流速を可視化し、凝集・沈殿を防止", ["自動洗浄", "1台で複数POU", "3タンク2ループ"]]] }
+  dx:    { col: "var(--c-dx)", hex: "#3f4c63", r: 341, en: "Digital", name: "DX 生産支援", tag: "DX", scope: "対応業界：原料／材料", lead: "熟練者と新人の技術レベルを、統一する。", img: "g_d_skill", icon: "", wall: "右上・グレーのパネル", wpos: "dx",
+           kind: "ie", issues: ["進捗確認、連絡経路が煩雑", "熟練者から新人への技術伝承が難しい", "各種システムが混在し、工程間の連携が無い"], effect: "スケジューラー・入出庫検品・誤投入防止のシステム連携で、効率化とミス防止。電子SOP（作業標準）で、技術を伝承", chips: ["秤量作業支援", "電子SOP作業支援", "点検記録作業支援", "製造工数実績収集", "製造状況監視支援", "設備状況監視支援", "出荷検品支援"] },
+  fab:   { col: "var(--c-fab)", hex: "#3f8a41", r: 332, en: "Fab Solutions", name: "半導体工場ソリューション", sub: "CDS・SDS（薬液・スラリー供給）", tag: "CDS・SDS", scope: "対応業界：製造装置・部品／半導体メーカー", lead: "高純度のまま、ユースポイントへ。", img: "g_f_purity", icon: "", wall: "右下・緑のパネル", wpos: "fab",
+           kind: "twin", twin: [["薬液供給システム（CDS）", "高純度を維持し、各ユースポイントへ安全に供給。厳しいメタル・パーティクル規格にも対応", ["希釈・濃度調整", "Filterろ過", "使用量監視", "安定・定量供給"]], ["スラリー供給システム（SDS）", "物性・特性を安定させたまま複数のユースポイントへ同時供給。流体解析で流速を可視化し、凝集・沈殿を防止", ["自動洗浄", "1台で複数POU", "3タンク2ループ"]]] }
 };
 // 現場チェックのカード。q：TOPの問いかけ／key：解決のカギ（壁面の記載に基づく）
 const CARDS = {
@@ -490,15 +517,15 @@ const CARDS = {
   t_vib:     { sol: "total", img: "b_cr",   text: "装置の振動・電磁波・アウトガスが、品質に影響している",     q: "振動や電磁波が、品質に影響していませんか？", key: "振動測定から防振・シールドまで一体で対策" },
   t_renov:   { sol: "total", img: "b_photo",text: "生産を止めずに、クリーン化や増強を進めたい",               q: "生産を止めずに、工場を増強したくありませんか？", key: "稼働しながら、短工期・低コストで改修" },
   t_util:    { sol: "total", img: "c_prod", text: "特殊ガスや超純水、排ガス処理の設備を見直したい",           q: "特殊ガスや超純水の設備、見直す時期ではありませんか？", key: "特殊ガス・超純水・排ガス処理を一体で設計" },
-  p_drum:    { sol: "plant", img: "p_before",text: "薬液ドラムの搬送や交換は、今も人の手で行っている",       q: "薬液ドラムの交換、まだ人の手で行っていませんか？", key: "薬液ドラムの交換を無人化（開発中）" },
+  p_drum:    { sol: "plant", img: "p_before",text: "薬液ドラムの搬送や交換を、今も人手で行っている",       q: "薬液ドラムの交換、まだ人の手で行っていませんか？", key: "薬液ドラムの交換を無人化（開発中）" },
   p_carry:   { sol: "plant", img: "p_ill",  text: "工程間の原料搬送に、人手と時間がかかっている",             q: "工程間の搬送に、人手がかかりすぎていませんか？", key: "倉庫から工程間搬送・充填までを自動化" },
   p_island:  { sol: "plant", img: "c_mh",   text: "自動化した設備が、工程ごとにバラバラになっている",         q: "自動化した設備が、バラバラになっていませんか？", key: "全体最適の視点で、自動化を再設計" },
   d_contact: { sol: "dx",    img: "d_icon", text: "進捗の確認や連絡の経路が、煩雑になっている",               q: "進捗確認や連絡、煩雑になっていませんか？", key: "生産支援システムで、進捗と連絡を一元化" },
   d_skill:   { sol: "dx",    img: "c_sys",  text: "熟練者から新人への技術伝承が、なかなか進まない",           q: "ベテランの技術、新人に伝わっていますか？", key: "電子SOPで、熟練の技術を標準化" },
   d_sys:     { sol: "dx",    img: "d_flow", text: "システムが混在して、工程間の連携が取れていない",           q: "システムが混在して、工程がつながっていませんか？", key: "システム連携で、誤投入・検品ミスを防止" },
-  f_purity:  { sol: "fab",   img: "f_cds",  text: "薬液のメタル・パーティクル管理が、歩留まりの不安要因になっている",   q: "薬液の純度管理、万全ですか？", key: "高純度を保ったまま、各ユースポイントへ" },
+  f_purity:  { sol: "fab",   img: "f_cds",  text: "薬液のメタル・パーティクル管理に、不安がある",   q: "薬液の純度管理、万全ですか？", key: "高純度を保ったまま、各ユースポイントへ" },
   f_slurry:  { sol: "fab",   img: "f_sds",  text: "スラリーの凝集・沈殿で、品質が安定しない",                 q: "スラリーの凝集・沈殿、起きていませんか？", key: "流体解析で、凝集・沈殿を防ぐ供給設計" },
-  f_pou:     { sol: "fab",   img: "f_icon", text: "ユースポイントが増えて、供給系統が複雑になってきた",       q: "ユースポイントが増えて、配管が複雑になっていませんか？", key: "1系統から複数ユースポイントへ（3タンク2ループ）" },
+  f_pou:     { sol: "fab",   img: "f_icon", text: "ユースポイントが増えて、供給系統が複雑になってきた",       q: "ユースポイントが増えて、配管が複雑になっていませんか？", key: "3タンク2ループで、複数ユースポイントへ" },
   o_cost:    { sol: "over",  img: "o_mod",  text: "海外工場の工事は、工期とコストが読みにくい",               q: "海外工場の工期とコスト、読めていますか？", key: "工場でユニット化し、現地の工期を短縮" },
   o_quality: { sol: "over",  img: "o_steps",text: "国内と同じ品質を、海外でも再現できるか不安だ",             q: "国内と同じ品質、海外でも出せますか？", key: "国内の技術・品質を、そのまま海外へ" }
 };
@@ -528,7 +555,7 @@ function chunks(t) {
   const out = []; let cur = "";
   for (let i = 0; i < t.length; i++) {
     const c = t[i], p = t[i - 1];
-    if (cur && ((isW(c) && p && isH(p) && !("おご".includes(p) && !isH(t[i - 2] || ""))) || c === "（" || c === "「")) { out.push(cur); cur = ""; }
+    if (cur && ((isW(c) && p && isH(p) && !"おご".includes(p)) || c === "（" || c === "「")) { out.push(cur); cur = ""; }
     cur += c;
     if ("、。！？）」 ".includes(c) || (c === "・" && t[i + 1] !== "・")) { out.push(cur); cur = ""; }
   }
@@ -638,7 +665,7 @@ function buildRing() {
   }
   h += `</g></g>`;
   // 中央：トータルエンジニアリングのサイクル（5つの矢印）
-  const cols = ["#b6cdef", "#8fb2e7", "#6c97da", "#5584cf", "#3e6dc0"], R0 = 192, R1 = 318; let segT = "";
+  const cols = ["#b6cdef", "#8fb2e7", "#4a78c8", "#3d68b8", "#2f5aa8"], R0 = 192, R1 = 318; let segT = "";
   PHASES.forEach((p, i) => {
     const a0 = i * 72 - 36 + 3, a1 = a0 + 66, am = (a0 + a1) / 2;
     const [ox0, oy0] = pt(R1, a0), [ox1, oy1] = pt(R1, a1), [tx, ty] = pt((R0 + R1) / 2, a1 + 7), [ix1, iy1] = pt(R0, a1), [ix0, iy0] = pt(R0, a0), [nx, ny] = pt((R0 + R1) / 2, a0 + 7);
@@ -656,12 +683,12 @@ function buildRing() {
     prod:'<path d="M-30 22h40"/><path d="M-20 22V10h20v12"/><path d="M-10 10L4 -12l18 4"/><circle cx="4" cy="-12" r="4"/><path d="M22 -8l8 -4M22 -8l6 6"/>'
   };
   [["sys", 404, 412, "システム", -1], ["bld", 596, 412, "建物", -1], ["mh", 404, 590, "マテハン", 1], ["prod", 596, 590, "生産設備", 1]].forEach(([k, x, y, l, d]) => {
-    h += `<g transform="translate(${x} ${y})"><circle r="32" fill="#eef3fc"/><g fill="none" stroke="#1c3487" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" transform="scale(.64)">${ICO[k]}</g></g><text x="${x}" y="${d > 0 ? y + 58 : y - 44}" text-anchor="middle" font-weight="900" font-size="17" style="fill:var(--ink2)">${l}</text>`;
+    h += `<g transform="translate(${x} ${y})"><circle r="32" fill="#eef3fc"/><g fill="none" stroke="#1c3487" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" transform="scale(.64)">${ICO[k]}</g></g><text x="${x}" y="${d > 0 ? y + 58 : y - 44}" text-anchor="middle" font-weight="900" font-size="19" class="il" style="fill:var(--ink2)">${l}</text>`;
   });
   h += `<g class="segt">${segT}</g>`;
-  h += `<circle cx="500" cy="500" r="80" fill="url(#hubg)" stroke="#fff" stroke-width="6"/><text x="500" y="470" text-anchor="middle" font-size="12" font-weight="700" style="fill:#cfe0ff;font-family:var(--f-mono);letter-spacing:.3em">MEC</text><text x="500" y="504" text-anchor="middle" font-size="23" font-weight="900" style="fill:#fff">トータル</text><text x="500" y="529" text-anchor="middle" font-size="15.5" font-weight="900" style="fill:#fff">エンジニアリング</text>`;
+  h += `<circle cx="500" cy="500" r="90" fill="url(#hubg)" stroke="#fff" stroke-width="6"/><text x="500" y="463" text-anchor="middle" font-size="14" font-weight="700" style="fill:#cfe0ff;font-family:var(--f-mono);letter-spacing:.3em">MEC</text><text x="500" y="502" text-anchor="middle" font-size="26" font-weight="900" style="fill:#fff">トータル</text><text x="500" y="530" text-anchor="middle" font-size="18" font-weight="900" style="fill:#fff">エンジニアリング</text>`;
   h += `<circle class="groove" cx="500" cy="500" r="340" fill="none" stroke="#dfe6f3" stroke-width="44"/>`;
-  h += `<g class="knob" id="knob"><circle r="32" fill="#fff" stroke="#2aa0c2" stroke-width="6" style="filter:drop-shadow(0 4px 8px rgba(21,33,74,.3))"/><path d="M-10 -9v18M0 -11v22M10 -9v18" stroke="#1c3487" stroke-width="3.5" stroke-linecap="round"/></g>`;
+  h += `<g class="knob" id="knob"><circle r="26" fill="#fff" stroke="#2aa0c2" stroke-width="5" style="filter:drop-shadow(0 4px 8px rgba(21,33,74,.3))"/><path d="M-11 0l7 8 14-16" stroke="#1c3487" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
   $("#ringSvg").innerHTML = h;
   $("#nodes").innerHTML = STAGES.map((s, i) => `<button class="node" type="button" data-i="${i}" id="node-${s.id}" aria-label="${i + 1} ${esc(SHORT[s.id])}"><span class="ph"><img src="${IMG["n_" + s.id] || ""}" alt=""></span><b class="no">${i + 1}</b><span class="nl">${esc(SHORT[s.id])}</span></button>`).join("");
 }
@@ -672,7 +699,7 @@ function nearest() { let bi = 0, bd = 999; STAGES.forEach((s, i) => { const d = 
 function snapTo(i) { R.target = R.rot + norm(GATE - (BASE(i) + R.rot)); R.vel = 0; }
 function paintRing() {
   rotG.setAttribute("transform", `rotate(${R.rot.toFixed(2)} 500 500)`);
-  nodes.forEach((n, i) => { const a = rad(BASE(i) + R.rot); n.style.left = (50 + 43.2 * Math.sin(a)) + "%"; n.style.top = (50 - 43.2 * Math.cos(a)) + "%"; });
+  nodes.forEach((n, i) => { const a = rad(BASE(i) + R.rot); n.style.left = (50 + 43.2 * Math.sin(a)) + "%"; n.style.top = (50 - 43.2 * Math.cos(a)) + "%"; n.classList.toggle("up", Math.cos(a) > .2); });
   const s = (state.screen === "attract" || state.screen === "pos") ? nearest() : R.sel;
   if (s !== R.sel) { R.sel = s; nodes.forEach((n, i) => n.classList.toggle("sel", i === s)); paintLines(); if (state.screen === "pos") { SFX.tick(); paintStage(); } }
 }
@@ -720,7 +747,7 @@ function setDial(a, live) {
   document.body.classList.add("ph-picked");
   PH.ang = a; const idx = ((Math.round(a / 72) % 5) + 5) % 5;
   const show = live ? a : idx * 72, [x, y] = pt(340, show);
-  $("#knob").setAttribute("transform", `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${show})`);
+  $("#knob").setAttribute("transform", `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
   if (idx !== PH.idx) { PH.idx = idx; state.phase = idx; SFX.tick(); paintPhase(); }
 }
 $$("#ringSvg .seg").forEach((g) => g.addEventListener("click", () => { if (state.screen === "phase") { document.body.classList.add("ph-picked"); setDial(+g.dataset.p * 72, false); } }));
@@ -735,7 +762,7 @@ function paintPhase() {
 /* =====================================================================
    画面の進行
    ===================================================================== */
-const STEP = { attract: 0, pos: 1, check: 2, phase: 3, ana: 3, result: 4, staff: 5 };
+const STEP = { attract: 0, pos: 1, check: 2, phase: 3, ana: 3, result: 4, staff: 4 };
 const tooSoon = () => performance.now() - state.changedAt < 400;
 function go(n) {
   if (state.screen === n) return;
@@ -748,7 +775,7 @@ function go(n) {
 function resetAll() {
   state.run++; VOICE.stop(); state.yes = []; state.seen = []; state.ci = 0; state.phase = -1; PH.idx = -1; state.result = null;
   $$("#ringSvg .seg").forEach((g) => g.classList.remove("on")); document.body.classList.remove("ph-picked"); $("#phNext").disabled = true;
-  $("#phNow").className = "ph-now empty pe"; $("#phNow").innerHTML = "<b>左の円から、5つの段階のどれかをタップ</b><p>コンサルティングから保守まで、一貫して対応します。</p>";
+  $("#phNow").className = "ph-now empty pe"; $("#phNow").innerHTML = "<b>← 左の円の段階を、指でタップ</b><p>コンサルティングから保守まで、一貫して対応します。</p>";
   go("attract");
 }
 
@@ -768,7 +795,7 @@ $("#startBtn").addEventListener("click", start);
 function paintStage() {
   const s = STAGES[R.sel], el = $("#stg");
   el.classList.remove("swap"); void el.offsetWidth; el.classList.add("swap");
-  el.innerHTML = `<img class="ic" src="${IMG["s_" + s.id] || ""}" alt=""><p class="en">${String(R.sel + 1).padStart(2, "0")} ／ ${esc(s.en)}</p><h3 class="${SHORT[s.id].length > 4 ? "long" : ""}">${esc(SHORT[s.id])}<small>${esc(s.label === SHORT[s.id] ? s.sub : s.label + "（" + s.sub + "）")}</small></h3>`;
+  el.innerHTML = `<img class="ic" src="${IMG["s_" + s.id] || ""}" alt=""><p class="en">${String(R.sel + 1).padStart(2, "0")} / ${esc(s.en)}</p><h3 class="${SHORT[s.id].length > 4 ? "long" : ""}">${esc(SHORT[s.id])}<small>${esc(s.label === SHORT[s.id] ? s.sub : s.label + "（" + s.sub + "）")}</small></h3>`;
 }
 $("#posNext").addEventListener("click", () => { if (tooSoon()) return; SFX.select(); startCheck(); });
 
@@ -794,7 +821,7 @@ function bindSwipe(el) {
   let sx = 0, sy = 0, dx = 0, on = false;
   const yes = $(".stamp.yes", el), no = $(".stamp.no", el);
   el.addEventListener("pointerdown", (e) => { on = true; sx = e.clientX; sy = e.clientY; dx = 0; el.classList.add("dragging"); el.setPointerCapture(e.pointerId); });
-  el.addEventListener("pointermove", (e) => { if (!on) return; dx = e.clientX - sx; const dy = (e.clientY - sy) * .25; el.style.transform = `translate(${dx}px,${dy}px) rotate(${Math.max(-8, Math.min(8, dx / 30))}deg)`; yes.style.opacity = Math.max(0, Math.min(1, dx / 120)); no.style.opacity = Math.max(0, Math.min(1, -dx / 120)); });
+  el.addEventListener("pointermove", (e) => { if (!on) return; dx = e.clientX - sx; const dy = (e.clientY - sy) * .25; el.style.transform = `translate(${dx}px,${Math.max(0, dy)}px) rotate(${Math.max(-4, Math.min(4, dx / 40))}deg)`; yes.style.opacity = Math.max(0, Math.min(1, dx / 120)); no.style.opacity = Math.max(0, Math.min(1, -dx / 120)); });
   const up = () => { if (!on) return; on = false; el.classList.remove("dragging"); if (dx > 120) decide(true); else if (dx < -120) decide(false); else { el.style.transform = ""; yes.style.opacity = no.style.opacity = 0; } };
   el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up);
 }
@@ -831,15 +858,15 @@ async function analyze() {
   state.result = compute(); state.cur = state.result[0]; state.ticket = bump(); showResult(true);
 }
 function solBody(s) {
-  if (s.kind === "grid") return `<div class="sol-body"><div class="pic"><img src="${IMG[s.img]}" alt=""></div><ul class="pts">${s.items.map((x, i) => `<li style="--i:${i}"><b>${esc(x[0])}</b><small>${esc(x[1])}</small></li>`).join("")}</ul></div>`;
-  if (s.kind === "ba") return `<div class="sol-body" style="grid-template-columns:minmax(0,1fr);align-content:start"><div style="display:flex;flex-direction:column;gap:12px;min-width:0"><p style="font-weight:900;font-size:clamp(15px,1.1vw,20px)">${esc(s.note)}</p><div class="ba"><div class="box"><b>人手作業工程</b>${s.before.map((x, i) => `${"①②③④"[i]} ${esc(x)}`).join("<br>")}</div><span class="arr">›</span><div class="box after"><b>無人ドラム交換による完全自動化</b>${s.after.map((x, i) => `${"①②③④"[i]} ${esc(x)}`).join("<br>")}</div></div></div></div>`;
-  if (s.kind === "flow") return `<div class="sol-body" style="grid-template-columns:minmax(0,1fr)"><div class="pic" style="min-height:150px"><img src="${IMG[s.img]}" alt=""></div><ol class="flow">${s.steps.map((x) => `<li>${esc(x[0])}<small>${esc(x[1])}</small></li>`).join("")}</ol><p style="font-weight:700;color:var(--ink2);font-size:clamp(11px,.85vw,15px);line-height:1.6">${esc(s.note)}</p></div>`;
-  if (s.kind === "ie") return `<div class="sol-body"><div class="pic"><img src="${IMG[s.img]}" alt=""></div><ul class="pts"><li style="--i:0"><b>課題</b><small>${s.issues.map(esc).join("<br>")}</small></li><li style="--i:1;background:color-mix(in srgb,var(--c-fab) 12%,#fff)"><b>効果</b><small>${esc(s.effect)}</small></li></ul></div>`;
+  if (s.kind === "grid") return `<div class="sol-body grid6"><div class="pic"><img src="${IMG[s.img]}" alt=""></div><ul class="pts">${s.items.map((x, i) => `<li style="--i:${i}"><b>${esc(x[0])}</b><small>${esc(x[1])}</small></li>`).join("")}</ul></div>`;
+  if (s.kind === "ba") return `<div class="sol-body" style="grid-template-columns:minmax(0,1fr);align-content:start"><div style="display:flex;flex-direction:column;gap:12px;min-width:0"><div class="pic" style="aspect-ratio:6/1;width:100%"><img src="${IMG[s.img]}" alt="" style="object-position:50% 38%"></div><p style="font-weight:900;font-size:clamp(15px,1.1vw,20px)">${esc(s.note)}</p><div class="ba"><div class="box"><b>人手作業工程</b>${s.before.map((x, i) => `${"①②③④"[i]} ${esc(x)}`).join("<br>")}</div><span class="arr">→</span><div class="box after"><b>無人ドラム交換による完全自動化</b>${s.after.map((x, i) => `${"①②③④"[i]} ${esc(x)}`).join("<br>")}</div></div></div></div>`;
+  if (s.kind === "flow") return `<div class="sol-body" style="grid-template-columns:minmax(0,1fr)"><div class="pic" style="min-height:150px"><img src="${IMG[s.img]}" alt=""></div><ol class="flow">${s.steps.map((x) => `<li>${esc(x[0])}<small>${esc(x[1])}</small></li>`).join("")}</ol><p style="font-weight:700;color:var(--ink2);font-size:clamp(14px,.95vw,17px);line-height:1.6">${esc(s.note).replace("適用範囲：", "適用範囲：<br>")}</p></div>`;
+  if (s.kind === "ie") return `<div class="sol-body"><div class="pic"><img src="${IMG[s.img]}" alt=""></div><ul class="pts"><li style="--i:0"><b>課題</b><small>${s.issues.map((x) => "・" + esc(x)).join("<br>")}</small></li><li style="--i:1;background:color-mix(in srgb,var(--col) 10%,#fff)"><b>効果</b><small>${esc(s.effect)}</small></li></ul></div>`;
   return `<div class="sol-body"><div class="pic"><img src="${IMG[s.img]}" alt=""></div><ul class="pts">${s.twin.map((x, i) => `<li style="--i:${i}"><b>${esc(x[0])}</b><small>${esc(x[1])}</small><p class="chipset" style="margin-top:6px">${x[2].map((c) => `<span>${esc(c)}</span>`).join("")}</p></li>`).join("")}</ul></div>`;
 }
 function wallMap(pos) {
-  const r = (k, x, y, w, h) => `<rect class="${k === pos ? "hl" : ""}" x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="${k === pos ? "#ffb347" : "rgba(255,255,255,.18)"}"/>`;
-  return `<svg viewBox="0 0 360 140" aria-hidden="true"><rect x="0" y="0" width="360" height="140" rx="8" fill="rgba(255,255,255,.08)"/>${r("total", 6, 17, 64, 116)}<circle cx="166" cy="76" r="52" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="6"/><circle cx="166" cy="76" r="22" fill="rgba(255,255,255,.35)"/>${r("plant", 251, 17, 50, 52)}${r("fab", 251, 79, 50, 54)}${r("dx", 304, 17, 50, 52)}${r("over", 304, 79, 50, 54)}<text x="20" y="11" font-size="9" fill="#cfe0ff" font-family="monospace">WALL</text></svg>`;
+  const r = (k, x, y, w, h) => `<rect class="${k === pos ? "hl" : ""}" x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="${k === pos ? SOLS[k].hex : "rgba(255,255,255,.18)"}" stroke="${k === pos ? "#fff" : "none"}" stroke-width="4"/>`;
+  return `<svg viewBox="0 0 360 140" aria-hidden="true"><rect x="0" y="0" width="360" height="140" rx="8" fill="rgba(255,255,255,.08)"/>${r("total", 6, 17, 64, 116)}<circle cx="166" cy="76" r="52" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="6"/><circle cx="166" cy="76" r="22" fill="rgba(255,255,255,.35)"/>${r("plant", 251, 17, 50, 52)}${r("fab", 251, 79, 50, 54)}${r("dx", 304, 17, 50, 52)}${r("over", 304, 79, 50, 54)}</svg>`;
 }
 function showResult(first) {
   const st = STAGES[R.sel], s = SOLS[state.cur], n = state.yes.length;
@@ -848,10 +875,10 @@ function showResult(first) {
     : `<div class="none-msg">${esc(SHORT[st.id])}の現場で、あてはまる課題はありませんでした。いまの「${esc(PHASES[state.phase].t)}」の段階から、さらに先へ進むためのヒントを右にお出ししています。</div>`);
   const sol = $("#sol"); sol.style.setProperty("--col", s.col);
   sol.innerHTML = `<div class="sol-h"><p class="lbl">${esc(s.en)}</p><h3>${esc(s.name)}${s.sub ? `<small>${esc(s.sub)}</small>` : ""}</h3></div><p class="sol-lead">${esc(s.lead)}</p>${solBody(s)}`;
-  $("#wallmap").innerHTML = `${wallMap(s.wpos)}<p><b>詳しくは、壁面の${esc(s.wall)}へ</b>${esc(SHORT[st.id])}・${esc(PHASES[state.phase].t)}の段階での進め方は、担当者がご説明します。</p>`;
+  $("#wallmap").innerHTML = `${wallMap(s.wpos)}<p><b>詳しくは、<br><span class="nw">壁面の${esc(s.wall)}へ</span></b>${esc(SHORT[st.id])}・${esc(PHASES[state.phase].t)}の段階での進め方は、<br><span class="nw">担当者がご説明します。</span></p>`;
   sol.style.animation = "none"; void sol.offsetWidth; sol.style.animation = "";
   const others = state.result.filter((id) => id !== state.cur).slice(0, 2);
-  $("#also").innerHTML = `<p class="lbl">ほかの解決策</p><div>${[state.result[0], ...state.result.slice(1, 3)].filter((v, i, a) => a.indexOf(v) === i).map((id) => `<button type="button" data-sol="${id}" class="${id === state.cur ? "on" : ""}" style="--col:${SOLS[id].col}">${esc(SOLS[id].tag)}</button>`).join("")}</div>`;
+  $("#also").innerHTML = `<p class="lbl">解決策を切り替える</p><div>${[state.result[0], ...state.result.slice(1, 3)].filter((v, i, a) => a.indexOf(v) === i).map((id) => `<button type="button" data-sol="${id}" class="${id === state.cur ? "on" : ""}" style="--col:${SOLS[id].col}">${esc(SOLS[id].tag)}</button>`).join("")}</div>`;
   if (first) { go("result"); SFX.result(); VOICE.say(n ? ["res_" + state.cur] : ["none", "res_" + state.cur], 600); }
 }
 $("#also").addEventListener("click", (e) => { const b = e.target.closest("[data-sol]"); if (!b) return; state.cur = b.dataset.sol; SFX.select(); showResult(false); });
@@ -873,12 +900,15 @@ function bump() { const d = new Date(), k = `nf-${d.getFullYear()}-${d.getMonth(
 /* 待機：指のシルエットでタッチを案内 */
 let lastPtr = -1e9;
 (function demo(now) {
-  const g = $("#ghost"), btn = $("#startBtn"), cyc = (now / 1000) % 7;
+  const g = $("#fguide"), btn = $("#startBtn"), cyc = (now / 1000) % 7;
   if (state.screen === "attract" && now - lastPtr > 3000 && cyc > 1 && cyc < 4.2) {
-    const r = btn.getBoundingClientRect(); g.style.left = (r.left + r.width * .6) + "px"; g.style.top = (r.bottom - 10) + "px"; g.classList.add("on");
+    const r = btn.getBoundingClientRect(); g.style.left = (r.right - 22) + "px"; g.style.top = (r.top + r.height * .62) + "px"; g.classList.add("on");
   } else if (state.screen === "pos" && now - lastPtr > 2500 && cyc > 1 && cyc < 4.2) {
     const w = wrap.getBoundingClientRect(), k = (cyc - 1) / 3.2, a = rad(30 + k * 70), x = w.left + w.width / 2 + Math.sin(a) * w.width * .43, y = w.top + w.height / 2 - Math.cos(a) * w.height * .43;
     g.style.left = x + "px"; g.style.top = y + "px"; g.classList.add("on");
+  } else if (state.screen === "phase" && PH.idx < 0 && now - lastPtr > 2500) {
+    const k = Math.floor((now / 1400) % 5), [sx, sy] = pt(255, k * 72), w = wrap.getBoundingClientRect();
+    g.style.left = (w.left + sx / 1000 * w.width) + "px"; g.style.top = (w.top + sy / 1000 * w.height) + "px"; g.classList.add("on");
   } else g.classList.remove("on");
   requestAnimationFrame(demo);
 })(performance.now());
