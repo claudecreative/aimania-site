@@ -341,6 +341,24 @@ main{display:none}main.on{display:block}
 .rz-c .sil.bg .st{stroke-dashoffset:0}
 @media (max-width:760px){.ac .sil{width:74%;max-height:130px}.ac{padding:10px 8px 12px}.ac-t b{font-size:13px}.ac-t span:last-child{font-size:11.5px}.rz-c .sil.bg{opacity:.35}}
 /* reviews */
+/* review marquee */
+.rv-m{margin-top:44px;display:grid;gap:18px;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.rm{overflow:hidden;padding:14px 0}
+.rm-t{display:flex;gap:18px;width:max-content;animation:rvMq 60s linear infinite}
+.rm.r2 .rm-t{animation-duration:72s;animation-direction:reverse}
+.rv-m:hover .rm-t{animation-play-state:paused}
+@keyframes rvMq{to{transform:translateX(calc(-50% - 9px))}}
+.rc{flex:0 0 auto;width:clamp(260px,26vw,340px);background:#fff;padding:24px 24px 20px;box-shadow:0 14px 36px rgba(30,10,25,.07);border:1px solid var(--line);animation:rvFl 6s ease-in-out infinite;transition:transform .5s var(--ease),box-shadow .5s}
+.rc:nth-child(3n+2){animation-delay:-2s;animation-duration:7s}.rc:nth-child(3n){animation-delay:-4s;animation-duration:5.4s}
+.rc:hover{box-shadow:0 22px 50px rgba(30,10,25,.14)}
+@keyframes rvFl{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.rc .st{letter-spacing:2px;font-size:12px;height:16px}.rc .st.q{font:400 40px/.7 var(--se);color:#ff2d87;letter-spacing:0}
+.rc blockquote{font-size:14.5px;line-height:1.85;margin:12px 0 14px;font-weight:500}
+.rc figcaption{font-size:11px;color:var(--sub);display:flex;gap:8px}.rc figcaption em{font-style:normal;border:1px solid var(--line);padding:1px 7px}
+.rv-m.rvl{opacity:0;transform:translateY(40px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease)}.rv-m.rvl.in{opacity:1;transform:none}
+.rv .tmp{margin-top:18px}
+@media (prefers-reduced-motion:reduce){.rm-t,.rc{animation:none}.rm{overflow-x:auto}}
+
 .rv{background:var(--paper);padding:clamp(70px,9vw,120px) 0;border-top:1px solid var(--line)}
 .rv-h{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
 .rv-h h2{font:400 clamp(32px,4vw,56px)/1.1 var(--se);font-style:italic}
@@ -520,11 +538,9 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
   </div></section>
   <section class="rv"><div class="w">
     <div class="rv-h rvl"><div><p class="k">REVIEWS</p><h2>使った人の、声。</h2></div><div class="rv-s"><p><b>5.7</b><span>/ 7　@cosme 平均</span></p><p><b>187</b><span>件のクチコミ</span></p></div></div>
-    <div class="rv-l">
-      <figure class="rvl"><p class="st">★★★★★★★</p><blockquote>たっぷり入っていて、オイルだけでは足りないロングヘアにちょうどいい。</blockquote><figcaption><em>購入品</em>30代</figcaption></figure>
-      <figure class="rvl"><p class="st">★★★★★★★</p><blockquote>乾かしたあとの収まりがよく、雨の日もなめらかなまま。</blockquote><figcaption><em>購入品</em>40代</figcaption></figure>
-      <figure class="rvl"><p class="st">★★★★★★☆</p><blockquote>ベタつかず、重くないミルク。ドライヤー前に使うと、毛先までしっとり。</blockquote><figcaption><em>モニター</em>40代</figcaption></figure>
-    </div>
+  </div>
+  <div class="rv-m rvl"><div class="rm r1"><div class="rm-t"><figure class="rc"><p class="st">★★★★★★★</p><blockquote>たっぷり入っていて、オイルだけでは足りないロングヘアにちょうどいい。</blockquote><figcaption><em>購入品</em>30代</figcaption></figure><figure class="rc"><p class="st">★★★★★★★</p><blockquote>乾かしたあとの収まりがよく、雨の日もなめらかなまま。</blockquote><figcaption><em>購入品</em>40代</figcaption></figure><figure class="rc"><p class="st">★★★★★★☆</p><blockquote>ベタつかず、重くないミルク。ドライヤー前に使うと、毛先までしっとり。</blockquote><figcaption><em>モニター</em>40代</figcaption></figure><figure class="rc"><p class="st q">“</p><blockquote>軽くてベタつかない。タオルドライ後の仕上がりと香りが好き。</blockquote><figcaption><em>@cosme</em>30代</figcaption></figure><figure class="rc" aria-hidden="true"><p class="st">★★★★★★★</p><blockquote>たっぷり入っていて、オイルだけでは足りないロングヘアにちょうどいい。</blockquote><figcaption><em>購入品</em>30代</figcaption></figure><figure class="rc" aria-hidden="true"><p class="st">★★★★★★★</p><blockquote>乾かしたあとの収まりがよく、雨の日もなめらかなまま。</blockquote><figcaption><em>購入品</em>40代</figcaption></figure><figure class="rc" aria-hidden="true"><p class="st">★★★★★★☆</p><blockquote>ベタつかず、重くないミルク。ドライヤー前に使うと、毛先までしっとり。</blockquote><figcaption><em>モニター</em>40代</figcaption></figure><figure class="rc" aria-hidden="true"><p class="st q">“</p><blockquote>軽くてベタつかない。タオルドライ後の仕上がりと香りが好き。</blockquote><figcaption><em>@cosme</em>30代</figcaption></figure></div></div><div class="rm r2"><div class="rm-t"><figure class="rc"><p class="st q">“</p><blockquote>乳液のようになめらかに伸びて、熱を当てるとまとまりやすい。</blockquote><figcaption><em>@cosme</em>40代</figcaption></figure><figure class="rc"><p class="st q">“</p><blockquote>みずみずしいクリーム。ドライヤーのあと、しっとり自然なツヤ。</blockquote><figcaption><em>@cosme</em>30代</figcaption></figure><figure class="rc"><p class="st q">“</p><blockquote>乾かす前に使うと毛先がまとまる。ベタつきにくいのもいい。</blockquote><figcaption><em>@cosme</em>30代</figcaption></figure><figure class="rc"><p class="st q">“</p><blockquote>容量が多くてうれしい。とろっとして塗りやすく、香りも好み。</blockquote><figcaption><em>@cosme</em>50代</figcaption></figure><figure class="rc" aria-hidden="true"><p class="st q">“</p><blockquote>乳液のようになめらかに伸びて、熱を当てるとまとまりやすい。</blockquote><figcaption><em>@cosme</em>40代</figcaption></figure><figure class="rc" aria-hidden="true"><p class="st q">“</p><blockquote>みずみずしいクリーム。ドライヤーのあと、しっとり自然なツヤ。</blockquote><figcaption><em>@cosme</em>30代</figcaption></figure><figure class="rc" aria-hidden="true"><p class="st q">“</p><blockquote>乾かす前に使うと毛先がまとまる。ベタつきにくいのもいい。</blockquote><figcaption><em>@cosme</em>30代</figcaption></figure><figure class="rc" aria-hidden="true"><p class="st q">“</p><blockquote>容量が多くてうれしい。とろっとして塗りやすく、香りも好み。</blockquote><figcaption><em>@cosme</em>50代</figcaption></figure></div></div></div>
+  <div class="w">
     <p class="tmp">@cosmeのクチコミを要約して掲載しています（原文ではありません）。</p>
   </div></section>
   <section class="dt"><div class="w">
