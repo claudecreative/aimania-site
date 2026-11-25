@@ -128,6 +128,7 @@ main{display:none}main.on{display:block}
 .atb::before{content:"";position:absolute;inset:0;background:var(--grad);transform:translateX(-101%);transition:transform .6s var(--ease)}
 .atb:hover::before{transform:none}.atb:hover{letter-spacing:.4em}
 .atb span{position:relative}
+.subq{display:flex;align-items:center;justify-content:center;gap:10px;height:52px;margin-top:10px;border:1px solid var(--ink);font:700 13px var(--jp);letter-spacing:.08em;text-decoration:none;color:var(--ink);transition:.3s}.subq:hover{background:var(--ink);color:#fff}
 .giftck{display:flex;gap:10px;align-items:center;margin-top:14px;font-size:13px;cursor:pointer}
 .giftck input{accent-color:var(--ink);width:16px;height:16px}
 .giftck a{color:var(--sub);font-size:12px}
@@ -314,7 +315,7 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
 <body>
 <div class="intro" aria-hidden="true"><p>GRANI</p><small>OFFICIAL STORE</small></div>
 
-<p class="ann">HOLIDAY GIFT 2026 <span>— ギフトラッピング承り中（仮）</span><a href="#gift">GIFT →</a></p>
+<p class="ann">HOLIDAY GIFT 2026 <span>— 贈りものにも、GRANI。</span><a href="#gift">GIFT →</a></p>
 <header><div class="w">
   <nav><a href="#item" data-v="item">SHOP</a><a href="#gift" data-v="gift" class="gf">GIFT</a><a href="../grani-site/">BRAND</a></nav>
   <a class="logo" href="#item">GRANI</a>
@@ -339,18 +340,16 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
       <p class="cp">Heat, on your side.</p>
       <p class="cpj">熱を味方にする、洗い流さないヘアミルク。毎日のドライヤーを、いちばん贅沢なケアの時間に。</p>
       <p class="price"><b>¥3,960</b><span>税込</span></p>
-      <div class="opts" role="radiogroup">
-        <label class="opt"><input type="radio" name="pt" value="one" checked><span><b>通常購入</b><small>1本・200ml</small></span><em>¥3,960</em></label>
-        <label class="opt"><input type="radio" name="pt" value="sub"><span><b>定期便<span class="tg">SUBSCRIBE</span></b><small>なくなる頃に、自動でお届け（条件は確認中）</small></span><em>—</em></label>
-      </div>
+      
       <div class="row"><div class="qty"><button type="button" id="qm" aria-label="減らす">−</button><span id="qn">1</span><button type="button" id="qp" aria-label="増やす">＋</button></div>
         <button type="button" class="atb" id="atb"><span>ADD TO BAG</span></button></div>
-      <label class="giftck"><input type="checkbox" id="gck"> ギフトラッピングとメッセージカードを付ける <a href="#gift">詳しく</a></label>
-      <div class="perks"><div><b>GIFT</b>ラッピング<br>承り中（仮）</div><div><b>DELIVERY</b>ご注文から<br>7日以内に発送</div><div><b>MEMBER</b>会員限定の<br>お知らせ（仮）</div></div>
+      <a class="subq" href="https://grani-beauty.com/view/item/000000000001">定期購入はこちら <span>→</span></a>
+      
+      <div class="perks"><div><b>DELIVERY</b>ご注文受付後<br>7日以内にお届け</div><div><b>PAYMENT</b>銀行振込<br>代金引換</div><div><b>LINE</b>公式アカウントで<br>最新情報をお届け</div></div>
       <div class="pay"><span>銀行振込</span><span>代金引換</span></div>
       <div class="acc">
         <details open><summary>DESCRIPTION</summary><div class="in">ドライヤーの熱に反応するW成分（トステア®×γ-ドコサラクトン）を配合。タオルドライ後になじませて乾かすだけで、毛先までしっとり、なめらかに。夜・朝・日中、24時間のヘアケアに。<br><small style="color:var(--sub)">※トステア®とγ-ドコサラクトン。浸透は毛髪の内部まで。</small></div></details>
-        <details><summary>HOW TO USE</summary><div class="in"><dl><dt>夜</dt><dd>タオルドライ後、中間〜毛先になじませてドライヤーで乾かす。</dd><dt>朝</dt><dd>乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。</dd><dt>日中</dt><dd>外出前や日中に、毛先へなじませる。</dd></dl><p style="margin-top:10px"><a href="../grani-site/#shindan">髪質に合う使い方を診断する →</a></p></div></details>
+        <details><summary>HOW TO USE</summary><div class="in"><dl><dt>使用量</dt><dd>ミディアムはパール1〜2粒分、ロングは500円玉大1個分が目安。少量から足してください。</dd><dt>夜</dt><dd>タオルドライ後、中間〜毛先になじませてドライヤーで乾かす。</dd><dt>朝</dt><dd>乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。</dd><dt>日中</dt><dd>外出前や日中に、毛先へなじませる。</dd></dl><p style="margin-top:10px"><a href="../grani-site/#shindan">髪質に合う使い方を診断する →</a></p></div></details>
         <details><summary>FRAGRANCE</summary><div class="in">ピュアリネン。シトラス・グリーンから、フローラル・ムスク、ウッディ・サンダルウッドへ。香水を邪魔しない、控えめな香り。</div></details>
         <details><summary>DELIVERY &amp; RETURNS</summary><div class="in">ご注文受付後、7日以内にお届けします。商品の返品・交換は、初期不良・発送商品間違いの場合に承ります（当店着払い）。詳しくは<a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a>をご確認ください。</div></details>
       </div>
@@ -374,15 +373,7 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
     <span class="heatline"></span>
   </section>
 
-  <section class="arr"><div class="w">
-    <div class="arr-h rvl"><p class="k">THE ARRIVAL</p><h2>届く瞬間まで、GRANI。</h2><p>箱を開けるところから、体験は始まっています。<br>ブランドカラーの箱、ひとことのカード、そして一本のヘアミルク。</p></div>
-    <div class="arr-g">
-      <figure class="rvl"><div class="ph"><div class="box"><i></i><em>GRANI</em></div></div><figcaption><b>THE BOX</b><p>黒の箱に、熱をあらわすグラデーションのリボン。</p></figcaption></figure>
-      <figure class="rvl"><div class="ph"><div class="card"><div><p>いつもおつかれさま。<br>毎日のドライヤーが、少し楽しみになりますように。</p><b>GRANI</b></div></div></div><figcaption><b>THE CARD</b><p>贈りものには、選べるメッセージカードを。</p></figcaption></figure>
-      <figure class="rvl"><div class="ph"><img src="p/2999.jpg" alt="GRANIのボトル"></div><figcaption><b>THE MILK</b><p>200ml。夜も朝も、毎日のドライヤーに。</p></figcaption></figure>
-    </div>
-    <p class="tmp">箱・リボン・カードはイメージです。資材と対応範囲は確認中です。</p>
-  </div></section>
+  
 
   <section class="rv"><div class="w">
     <div class="rv-h rvl"><div><p class="k">REVIEWS</p><h2>使った人の、声。</h2></div><div class="rv-s"><p><b>5.7</b><span>/ 7　@cosme 平均</span></p><p><b>187</b><span>件のクチコミ</span></p></div></div>
@@ -391,7 +382,7 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
       <figure class="rvl"><p class="st">★★★★★★★</p><blockquote>乾かしたあとの収まりがよく、雨の日もなめらかなまま。</blockquote><figcaption><em>購入品</em>40代</figcaption></figure>
       <figure class="rvl"><p class="st">★★★★★★☆</p><blockquote>ベタつかず、重くないミルク。ドライヤー前に使うと、毛先までしっとり。</blockquote><figcaption><em>モニター</em>40代</figcaption></figure>
     </div>
-    <p class="tmp">@cosmeのクチコミを要約して掲載（原文ではありません）。公開前に掲載の許可と最新の件数を確認します。</p>
+    <p class="tmp">@cosmeのクチコミを要約して掲載しています（原文ではありません）。</p>
   </div></section>
 </main>
 
@@ -404,7 +395,7 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
       <h1>The gift of<br>heat.<b>毎日のドライヤーを、<br><span class="g">贈りものに。</span></b></h1>
       <p class="l">熱を味方にする、ヘアミルク。気をつかわせない価格で、ちゃんと嬉しい。使うたびに、贈った人を思い出す。</p>
       <p class="price"><b>¥3,960</b><span>税込・200ml</span></p>
-      <div class="gb"><button type="button" class="btnw" data-gift><span>GIFT THIS →</span></button><a class="btnl" href="#gmsg">CHOOSE A CARD</a></div>
+      <div class="gb"><button type="button" class="btnw" data-gift><span>GIFT THIS →</span></button><a class="btnl" href="#item">VIEW PRODUCT</a></div>
     </div>
     <div class="gh-im"><img src="p/3119.jpg" alt="ピンクの背景に置かれた3本のGRANI">
       <svg class="rb" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="rbg" x1="0" x2="1"><stop offset="0" stop-color="#FF7A00"/><stop offset=".5" stop-color="#FF3D5A"/><stop offset="1" stop-color="#FF2D8F"/></linearGradient></defs><path d="M-5 70 C 30 82, 60 58, 105 74" stroke="url(#rbg)" stroke-width="3" fill="none"/></svg>
@@ -427,26 +418,7 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
     </div>
   </div></section>
 
-  <section class="why" id="gmsg" style="padding-top:0"><div class="w">
-    <p class="k rvl">MESSAGE CARD</p>
-    <h2 class="rvl">ひとことを、添えて。</h2>
-    <div class="msg">
-      <div class="pick rvl" id="pick">
-        <button type="button" class="on">いつもおつかれさま。<br>毎日のドライヤーが、少し楽しみになりますように。</button>
-        <button type="button">髪にも、ごほうびを。<br>今年もありがとう。</button>
-        <button type="button">熱を味方に。<br>あなたの毎日に、小さなご褒美を。</button>
-        <label for="to">TO（カードの宛名）</label>
-        <input id="to" type="text" maxlength="16" placeholder="例：ゆかりさん">
-      </div>
-      <div class="mc rvl"><p class="to" id="mto">Dear ______</p><p class="bd" id="mbd">いつもおつかれさま。<br>毎日のドライヤーが、少し楽しみになりますように。</p><p class="lg">GRANI</p></div>
-    </div>
-    <div class="gopt">
-      <div class="rvl"><small>WRAPPING</small><b>ギフトラッピング</b><p>黒の箱に、グラデーションのリボン。</p></div>
-      <div class="rvl"><small>CARD</small><b>メッセージカード</b><p>3種類から選べます。宛名をお入れします。</p></div>
-      <div class="rvl"><small>DELIVERY</small><b>クリスマスに間に合う</b><p>12月○日（○）までのご注文で、12月24日までにお届け。</p></div>
-    </div>
-    <p class="tmp">ラッピング・カード・締切は想定です。MakeShopの「ギフト設定」「備考欄」などに合わせて、料金と締切を確定します。</p>
-  </div></section>
+
 
   <section class="gend"><div class="w">
     <h2>This year,<br>give heat.</h2>
@@ -487,7 +459,7 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
     <div><h4>BRAND</h4><a href="../grani-site/">ブランドサイト</a><a href="https://grani-beauty.com/view/news/list">TOPICS</a><a href="https://www.instagram.com/granibeauty/">Instagram</a><a href="https://lin.ee/6NXg6k3">LINE</a></div>
     <div><h4>INFO</h4><a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a><a href="https://grani-beauty.com/view/policy">プライバシーポリシー</a><a href="https://grani-beauty.com/view/company">会社概要</a><a href="tel:0367210015">TEL 03-6721-0015</a></div>
   </div>
-  <p class="fb"><span>© 2026 MAKEit INC.　東京都港区南青山2-7-7 MAビル2F</span><span>試作ページ（MakeShop想定）／ 価格以外の条件は仮</span></p>
+  <p class="fb"><span>© 2026 MAKEit INC.　東京都港区南青山2-7-7 MAビル2F</span><span>試作ページ（MakeShop想定）</span></p>
 </div></footer>
 
 <script>
@@ -504,10 +476,10 @@ function obs(){[].forEach.call(document.querySelectorAll("main.on .rvl:not(.in),
 var yen=function(v){return "¥"+v.toLocaleString("ja-JP")};
 document.getElementById("qm").onclick=function(){q=Math.max(1,q-1);document.getElementById("qn").textContent=q};
 document.getElementById("qp").onclick=function(){q=Math.min(9,q+1);document.getElementById("qn").textContent=q};
-function add(n,gift,from){var sub=document.querySelector('input[name="pt"]:checked').value==="sub";
+function add(n,gift,from){var sub=false;
  bag.push({n:n,gift:gift,sub:sub});var c=bag.reduce(function(a,b){return a+b.n},0);var bc=document.getElementById("bagC");bc.textContent=c;bc.classList.add("pop");setTimeout(function(){bc.classList.remove("pop")},500);
  burst(from);setTimeout(open,380);}
-function rows(){return bag.map(function(b){return '<div class="it"><div class="im"><img src="p/3157.jpg" alt=""></div><div><b>SILKY MOIST HAIR MILK</b><p>200ml ／ '+(b.sub?"定期便":"通常購入")+' ／ 数量 '+b.n+(b.gift?'<br>ギフトラッピング・カード付き':'')+'</p><em>'+yen(PRICE*b.n)+'</em></div></div>'}).join("")}
+function rows(){return bag.map(function(b){return '<div class="it"><div class="im"><img src="p/3157.jpg" alt=""></div><div><b>SILKY MOIST HAIR MILK</b><p>200ml ／ '+"通常購入"+' ／ 数量 '+b.n+(b.gift?'<br>ギフトラッピング・カード付き':'')+'</p><em>'+yen(PRICE*b.n)+'</em></div></div>'}).join("")}
 function total(){return bag.reduce(function(a,b){return a+b.n*PRICE},0)}
 function open(){document.getElementById("dList").innerHTML=rows();document.getElementById("dSum").textContent=yen(total());document.body.classList.add("bag")}
 function close(){document.body.classList.remove("bag")}
@@ -515,13 +487,11 @@ function drawCart(){document.getElementById("ckList").innerHTML=bag.length?rows(
 function burst(el){if(!el)return;var r=el.getBoundingClientRect(),b=document.getElementById("bagBtn").getBoundingClientRect();
  for(var i=0;i<14;i++)(function(i){var s=document.createElement("i");s.className="spark";document.body.appendChild(s);var x0=r.left+r.width*(.2+.6*Math.random()),y0=r.top+r.height/2,x1=b.left+b.width-10,y1=b.top+10,t0=performance.now(),d=700+i*25,cx=(x0+x1)/2+(Math.random()-.5)*240,cy=Math.min(y0,y1)-120-Math.random()*120;
   (function f(t){var k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3),x=(1-e)*(1-e)*x0+2*(1-e)*e*cx+e*e*x1,y=(1-e)*(1-e)*y0+2*(1-e)*e*cy+e*e*y1;s.style.transform="translate("+x+"px,"+y+"px) scale("+(1-k*.6)+")";s.style.opacity=1-k*.4;if(k<1)requestAnimationFrame(f);else s.remove()})(t0)})(i)}
-document.getElementById("atb").onclick=function(){add(q,document.getElementById("gck").checked,this)};
+document.getElementById("atb").onclick=function(){add(q,false,this)};
 [].forEach.call(document.querySelectorAll("[data-gift]"),function(b){b.onclick=function(){add(1,true,b)}});
 document.getElementById("bagBtn").onclick=function(){bag.length?open():(location.hash="#cart")};
 document.getElementById("dx").onclick=close;document.getElementById("scrim").onclick=close;document.getElementById("dc").onclick=close;
 document.getElementById("toCart").onclick=function(){close()};
-var pk=document.getElementById("pick");pk.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;[].forEach.call(pk.querySelectorAll("button"),function(x){x.classList.toggle("on",x===b)});document.getElementById("mbd").innerHTML=b.innerHTML});
-document.getElementById("to").addEventListener("input",function(){document.getElementById("mto").textContent="Dear "+(this.value.trim()||"______")});
 var sn=false;function snow(){if(sn)return;sn=true;var cv=document.getElementById("snow"),cx=cv.getContext("2d"),P=[],W,H;
  function rs(){var r=cv.parentNode.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cv.style.width=W+"px";cv.style.height=H+"px";cx.setTransform(d,0,0,d,0,0);P=[];for(var i=0;i<80;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.7+.4,v:Math.random()*.35+.1,a:Math.random()*6.28})}
  rs();addEventListener("resize",rs);(function lp(){if(location.hash==="#gift"){cx.clearRect(0,0,W,H);P.forEach(function(p){p.y+=p.v;p.a+=.012;p.x+=Math.sin(p.a)*.25;if(p.y>H+4){p.y=-4;p.x=Math.random()*W}cx.globalAlpha=.3+.35*Math.sin(p.a*3);cx.fillStyle=p.r>1.5?"#FFB3D4":"#fff";cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fill()})}requestAnimationFrame(lp)})()}
