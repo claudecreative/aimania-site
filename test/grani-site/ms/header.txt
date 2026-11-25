@@ -17,8 +17,8 @@
 .gx-ic a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;color:#17161A!important;text-decoration:none!important}
 .gx-ic a:hover{background:rgba(23,22,26,.07)}
 .gx-ic svg{width:20px;height:20px}
-.gx-buy{background:#17161A;color:#fff!important;border-radius:40px;padding:11px 20px!important;font:700 13px/1 'Noto Sans JP',sans-serif!important;letter-spacing:.06em!important;width:auto!important;height:auto!important}
-.gx-buy:hover{background:#FF2D8F!important}
+.gx-ic a.gx-buy{background:#17161A;color:#fff!important;border-radius:40px;padding:11px 20px!important;font:700 13px/1 'Noto Sans JP',sans-serif!important;letter-spacing:.06em!important;width:auto!important;height:auto!important}
+.gx-ic a.gx-buy:hover{background:#FF2D8F!important}
 .gx-bgr{display:none;width:40px;height:40px;border:0;background:none;position:relative;cursor:pointer}
 .gx-bgr i{position:absolute;left:9px;right:9px;height:2px;background:#17161A;transition:.3s}
 .gx-bgr i:nth-child(1){top:14px}.gx-bgr i:nth-child(2){top:24px}
