@@ -353,6 +353,25 @@ main{display:none}main.on{display:block}
 .ac-t{align-items:flex-start;gap:3px}.ac-t .dts{height:36px;justify-content:flex-start;min-width:0}.ac-t b{font-size:15px;margin-top:2px}.ac-t span:last-child{font-size:12.5px}
 .ac .coin{left:-3px}
 }
+
+/* purchase type + mini usage */
+.pt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 14px}
+.pt label{cursor:pointer}.pt input{position:absolute;opacity:0}
+.pt span{display:flex;flex-direction:column;gap:6px;height:100%;border:1px solid var(--line);background:#fff;padding:14px 16px;position:relative;transition:.25s}
+.pt b{font-size:14px}.pt b small{display:block;font-size:11px;font-weight:500;color:var(--sub);margin-top:2px}
+.pt em{font:800 20px var(--en);font-style:normal}.pt em small{font:500 10.5px var(--jp);color:var(--sub);margin-left:4px}
+.pt i{position:absolute;right:10px;top:10px;font:700 10px var(--en);font-style:normal;letter-spacing:.06em;color:#fff;background:linear-gradient(95deg,#FF7A00,#FF2D8F);padding:3px 7px}
+.pt input:checked+span{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.pt input:focus-visible+span{outline:2px solid #FF2D8F;outline-offset:2px}
+.pt-n{font-size:11.5px;color:var(--sub);margin:-4px 0 12px}
+.mu{margin-top:18px;border:1px solid var(--line);background:#fff;padding:16px 18px}
+.mu-h{font:800 11px var(--en);letter-spacing:.22em;display:flex;justify-content:space-between;align-items:center}
+.mu-h a{font:700 11.5px var(--jp);letter-spacing:.04em;color:var(--ink)}
+.mu ul{list-style:none;margin:10px 0 8px;padding:0;display:grid;gap:7px}
+.mu li{display:grid;grid-template-columns:76px 1fr;gap:8px;font-size:12.5px;line-height:1.6}
+.mu li b{font:800 10.5px/1.9 var(--en);letter-spacing:.12em;background:linear-gradient(95deg,#FF7A00,#FF2D8F);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mu-a{font-size:12px;border-top:1px dashed var(--line);padding-top:8px;color:var(--ink)}
+.hs .tg{display:inline-block;font-size:11px!important;font-weight:700;letter-spacing:.08em;border:1px solid rgba(255,255,255,.4);border-radius:99px;padding:3px 10px;margin-bottom:10px;color:#fff!important}
 /* reviews */
 /* review marquee */
 .rv-m{margin-top:44px;display:grid;gap:18px;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -500,9 +519,18 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
       <p class="cp">Heat, on your side.</p>
       <p class="cpj">熱を味方にする、洗い流さないヘアミルク。毎日のドライヤーを、いちばん贅沢なケアの時間に。</p>
       <p class="price"><b>¥3,960</b><span>税込</span></p>
+      <div class="pt" role="radiogroup" aria-label="購入方法">
+        <label><input type="radio" name="pt" value="one" checked><span><b>1回購入</b><em>¥3,960<small>税込</small></em></span></label>
+        <label><input type="radio" name="pt" value="sub"><span><b>定期便<small>2か月に1回お届け</small></b><em>¥3,000<small>税込／回</small></em><i>約24%OFF</i></span></label>
+      </div>
+      <p class="pt-n" id="ptN" hidden>定期便は2か月ごとに自動でお届けします（内容・価格は案）。</p>
       <div class="row"><div class="qty"><button type="button" id="qm" aria-label="減らす">−</button><span id="qn">1</span><button type="button" id="qp" aria-label="増やす">＋</button></div>
         <button type="button" class="atb" id="atb"><span>ADD TO BAG</span></button></div>
-      <a class="subq" href="https://grani-beauty.com/view/item/000000000001">定期購入はこちら <span>→</span></a>
+      <div class="mu">
+        <p class="mu-h">HOW TO USE<a href="#hw">詳しく見る →</a></p>
+        <ul><li><b>NIGHT</b><span>タオルドライ後の濡れた髪に適量を伸ばし、ドライヤーで乾かす</span></li><li><b>MORNING</b><span>乾いた髪に少量。ドライヤーやアイロンで仕上げる</span></li><li><b>DAYTIME</b><span>パサつきが気になるときに毛先へ</span></li></ul>
+        <p class="mu-a">目安：<span class="nw">ミディアム パール1〜2粒分</span> ／ <span class="nw">ロング 500円玉大1個分</span></p>
+      </div>
       <div class="perks"><div><b>DELIVERY</b>ご注文受付後<br>7日以内にお届け</div><div><b>PAYMENT</b>銀行振込<br>代金引換</div><div><b>LINE</b>公式アカウントで<br>最新情報をお届け</div></div>
       <div class="acc">
         <details open><summary>DESCRIPTION</summary><div class="in">ドライヤーの熱に反応するW成分（トステア®×γ-ドコサラクトン）を配合。タオルドライ後になじませて乾かすだけで、毛先までしっとり、なめらかに。夜・朝・日中、24時間のヘアケアに。<br><small style="color:var(--sub)">※トステア®とγ-ドコサラクトン。浸透は毛髪の内部まで。</small></div></details>
@@ -518,9 +546,9 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
     <div class="hw-t" id="hwT">
       <article class="hs am">
 <div class="hs-tx"><p class="n">01 — AMOUNT</p><h3>使う量は、<br>髪の長さで。</h3><div class="amg2"><div class="ac"><img class="sil m" src="p/hl_m.jpg" alt="" aria-hidden="true"><p class="ac-t"><span class="dts"><i class="dot s"></i><i class="dot s ghost"></i></span><b>ミディアム</b><span>パール1〜2粒分</span></p></div><div class="ac"><img class="sil l" src="p/hl_l.jpg" alt="" aria-hidden="true"><p class="ac-t"><span class="dts"><i class="dot l"></i><i class="coin"></i></span><b>ロング</b><span>500円玉大1個分</span></p></div></div><p class="tip">少量から始めて、足りなければ少しずつ足してください。</p><button type="button" class="real" id="realBtn"><i></i>実寸で見る</button></div></article>
-      <article class="hs"><img src="p/2491.jpg" alt="タオルドライ"><div class="hs-tx"><p class="n">02 — NIGHT</p><h3>夜は、乾かす前に。</h3><p>タオルドライ後の濡れた髪になじませ、ドライヤーで乾かす。翌朝まとまりやすい髪へ。</p></div></article>
-      <article class="hs"><img src="p/1035.jpg" alt="ドライヤーで乾かす" style="object-position:50% 25%"><div class="hs-tx"><p class="n">03 — MORNING</p><h3>朝は、仕上げに。</h3><p>乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。</p></div></article>
-      <article class="hs"><img src="p/h1316.jpg" alt="風になびく髪" style="object-position:62% 40%"><div class="hs-tx"><p class="n">04 — DAYTIME</p><h3>日中は、毛先に。</h3><p>外出前や、乾燥・パサつきが気になるときに。湿気の日の対策にも。</p></div></article>
+      <article class="hs"><img src="p/2491.jpg" alt="タオルドライ"><div class="hs-tx"><p class="n">02 — NIGHT</p><h3>夜は、乾かす前に。</h3><p class="tg">補修・保湿</p><p>タオルドライ後の濡れた髪になじませ、ドライヤーで乾かす。翌朝まとまりやすい髪へ。</p></div></article>
+      <article class="hs"><img src="p/1035.jpg" alt="ドライヤーで乾かす" style="object-position:50% 25%"><div class="hs-tx"><p class="n">03 — MORNING</p><h3>朝は、仕上げに。</h3><p class="tg">まとまり・熱保護</p><p>乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。</p></div></article>
+      <article class="hs"><img src="p/h1316.jpg" alt="風になびく髪" style="object-position:62% 40%"><div class="hs-tx"><p class="n">04 — DAYTIME</p><h3>日中は、毛先に。</h3><p class="tg">広がり・湿気ブロック</p><p>外出前や日中、パサつきが気になるときに毛先へ。湿気が気になる場面でも、なめらかに。</p></div></article>
       <article class="hs"><img src="p/3050_1.jpg" alt="ミルクの質感"><div class="hs-tx"><p class="n">05 — FRAGRANCE</p><h3>ほのかに香る、<br>ピュアリネン。</h3><p>シトラス・グリーン → フローラル・ムスク → ウッディ・サンダルウッド。香水を邪魔しない控えめな香り。</p></div></article>
     </div>
     <div class="w"><div class="hw-bar"><i id="hwB"></i></div></div>
@@ -628,8 +656,8 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
   <div class="fw">
     <p class="fl">GRANI</p>
     <div><h4>SHOP</h4><a href="#item">ヘアミルク</a><a href="#gift">ギフト</a><a href="https://grani-beauty.com/view/cart">カート</a><a href="https://grani-beauty.com/view/member/mypage">マイページ</a></div>
-    <div><h4>BRAND</h4><a href="../grani-site/">ブランドサイト</a><a href="https://grani-beauty.com/view/news/list">TOPICS</a><a href="https://grani-beauty.com/ssl/contact/">CONTACT</a><a href="https://www.instagram.com/grani.beauty/">Instagram</a><a href="https://lin.ee/6NXg6k3">LINE</a></div>
-    <div><h4>INFO</h4><a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a><a href="https://grani-beauty.com/view/policy">プライバシーポリシー</a><a href="https://grani-beauty.com/view/company">会社概要</a><a href="tel:0367210015">TEL 03-6721-0015</a></div>
+    <div><h4>BRAND</h4><a href="../grani-site/">ブランドサイト</a><a href="https://grani-beauty.com/view/news/list">TOPICS</a><a href="https://www.instagram.com/grani.beauty/">Instagram</a><a href="https://lin.ee/6NXg6k3">LINE</a></div>
+    <div><h4>INFO</h4><a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a><a href="https://grani-beauty.com/view/policy">プライバシーポリシー</a><a href="https://grani-beauty.com/view/company">会社概要</a><a href="https://grani-beauty.com/ssl/contact/">お問い合わせ</a><a href="tel:0367210015">TEL 03-6721-0015</a></div>
   </div>
   <p class="fb"><span>© 2026 MAKEit INC.　東京都港区南青山2-7-7 MAビル2F</span><span>試作ページ（MakeShop想定）</span></p>
 </div></footer>
@@ -658,7 +686,7 @@ function drawCart(){document.getElementById("ckList").innerHTML=bag.length?rows(
 function burst(el){if(!el)return;var r=el.getBoundingClientRect(),b=document.getElementById("bagBtn").getBoundingClientRect();
  for(var i=0;i<14;i++)(function(i){var s=document.createElement("i");s.className="spark";document.body.appendChild(s);var x0=r.left+r.width*(.2+.6*Math.random()),y0=r.top+r.height/2,x1=b.left+b.width-10,y1=b.top+10,t0=performance.now(),d=700+i*25,cx=(x0+x1)/2+(Math.random()-.5)*240,cy=Math.min(y0,y1)-120-Math.random()*120;
   (function f(t){var k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3),x=(1-e)*(1-e)*x0+2*(1-e)*e*cx+e*e*x1,y=(1-e)*(1-e)*y0+2*(1-e)*e*cy+e*e*y1;s.style.transform="translate("+x+"px,"+y+"px) scale("+(1-k*.6)+")";s.style.opacity=1-k*.4;if(k<1)requestAnimationFrame(f);else s.remove()})(t0)})(i)}
-document.getElementById("atb").onclick=function(){add(q,false,this)};
+document.getElementById("atb").onclick=function(){var sv=document.querySelector(".pt input:checked");if(sv&&sv.value==="sub"){location.href="https://grani-beauty.com/view/item/000000000001";return;}add(q,false,this)};
 [].forEach.call(document.querySelectorAll("[data-gift]"),function(b){b.onclick=function(){add(1,true,b)}});
 document.getElementById("bagBtn").onclick=function(){bag.length?open():(location.hash="#cart")};
 document.getElementById("dx").onclick=close;document.getElementById("scrim").onclick=close;document.getElementById("dc").onclick=close;
@@ -696,6 +724,8 @@ S.oninput=function(){set();try{localStorage.setItem("gx_mm",S.value)}catch(e){}}
 function op(){z.classList.add("op");z.setAttribute("aria-hidden","false");document.body.style.overflow="hidden"}
 function cl(){z.classList.remove("op");z.setAttribute("aria-hidden","true");document.body.style.overflow=""}
 b.addEventListener("click",function(e){e.stopPropagation();op()});document.getElementById("rzX").onclick=cl;z.addEventListener("click",function(e){if(e.target===z)cl()});addEventListener("keydown",function(e){if(e.key==="Escape")cl()});})();
+(function(){var g=document.querySelector(".pt");if(!g)return;var b=document.querySelector("#atb span"),n=document.getElementById("ptN"),pr=document.querySelector(".price b");
+g.addEventListener("change",function(){var sub=g.querySelector("input:checked").value==="sub";b.textContent=sub?"定期便で申し込む":"ADD TO BAG";n.hidden=!sub;if(pr)pr.textContent=sub?"¥3,000":"¥3,960";});})();
 show();
 })();
 </script>
