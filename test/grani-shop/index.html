@@ -372,6 +372,24 @@ main{display:none}main.on{display:block}
 .mu li b{font:800 10.5px/1.9 var(--en);letter-spacing:.12em;background:linear-gradient(95deg,#FF7A00,#FF2D8F);-webkit-background-clip:text;background-clip:text;color:transparent}
 .mu-a{font-size:12px;border-top:1px dashed var(--line);padding-top:8px;color:var(--ink)}
 .hs .tg{display:inline-block;font-size:11px!important;font-weight:700;letter-spacing:.08em;border:1px solid rgba(255,255,255,.4);border-radius:99px;padding:3px 10px;margin-bottom:10px;color:#fff!important}
+
+/* fixed LINE bar */
+.lfx{position:fixed;left:50%;bottom:18px;z-index:55;width:min(720px,calc(100% - 32px));display:flex;align-items:center;background:rgba(17,16,21,.86);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);border:1px solid rgba(255,255,255,.12);border-radius:999px;box-shadow:0 18px 50px rgba(0,0,0,.28);transform:translate(-50%,140%);opacity:0;transition:transform .7s var(--ease),opacity .5s}
+.lfx.on{transform:translate(-50%,0);opacity:1}
+.lfx::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(95deg,#FF7A00,#FF2D8F 40%,transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.7;pointer-events:none}
+.lfx-m{flex:1;display:flex;align-items:center;gap:10px;padding:10px 10px 10px 22px;color:#fff;text-decoration:none;min-width:0}
+.lfx-d{width:8px;height:8px;border-radius:50%;background:#06C755;box-shadow:0 0 0 4px rgba(6,199,85,.2);flex:none;animation:lfxP 2.4s ease-in-out infinite}
+@keyframes lfxP{50%{box-shadow:0 0 0 7px rgba(6,199,85,0)}}
+.lfx-t,.lfx-t2{font-size:13px;font-weight:700;letter-spacing:.04em;white-space:nowrap;color:rgba(255,255,255,.85)}
+.lfx-o{font:900 22px/1 var(--en);letter-spacing:-.01em;background:linear-gradient(95deg,#FF7A00,#FF3D5A 48%,#FF2D8F);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.lfx-b{margin-left:auto;display:inline-flex;align-items:center;gap:8px;background:#fff;color:#111015;border-radius:999px;padding:11px 20px;font-size:13px;font-weight:900;letter-spacing:.06em;white-space:nowrap;transition:box-shadow .3s}
+.lfx-b span{transition:transform .3s}.lfx-m:hover .lfx-b{box-shadow:0 8px 22px rgba(255,45,143,.35)}.lfx-m:hover .lfx-b span{transform:translateX(3px)}
+.lfx-x{flex:none;width:36px;height:36px;margin-right:8px;border-radius:50%;border:0;background:none;color:rgba(255,255,255,.55);font-size:18px;cursor:pointer}.lfx-x:hover{color:#fff;background:rgba(255,255,255,.08)}
+@media (max-width:760px){
+.lfx{left:0;bottom:0;width:100%;border-radius:18px 18px 0 0;border-width:1px 0 0;transform:translateY(110%);padding-bottom:env(safe-area-inset-bottom)}.lfx.on{transform:none}
+.lfx::before{border-radius:18px 18px 0 0}
+.lfx-m{padding:12px 6px 12px 16px;gap:8px}.lfx-t{font-size:12px}.lfx-t2{display:none}.lfx-o{font-size:19px}.lfx-b{padding:10px 14px;font-size:12px}
+}
 /* reviews */
 /* review marquee */
 .rv-m{margin-top:44px;display:grid;gap:18px;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -673,6 +691,10 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
   <div class="lnb-l"><p class="lnb-k"><i></i>LINE OFFICIAL ACCOUNT</p><p class="lnb-h">友だち登録で、<span class="lnb-o"><b>10</b><em>%OFF</em></span><span class="lnb-c">クーポンをプレゼント</span></p></div>
   <a class="lnb-b" href="https://lin.ee/6NXg6k3" target="_blank" rel="noopener"><i></i>友だち追加する<span>→</span></a>
 </div><p class="lnb-bg" aria-hidden="true">LINE FRIENDS — 10%OFF — LINE FRIENDS — 10%OFF —</p></section>
+<div class="lfx" id="lfx" aria-label="LINE友だち登録クーポン">
+  <a class="lfx-m" href="https://lin.ee/6NXg6k3" target="_blank" rel="noopener"><i class="lfx-d"></i><span class="lfx-t">LINE友だち登録で</span><b class="lfx-o">10%OFF</b><span class="lfx-t2">クーポン</span><span class="lfx-b">友だち追加<span>→</span></span></a>
+  <button type="button" class="lfx-x" id="lfxX" aria-label="閉じる">×</button>
+</div>
 <footer><div class="w">
   <div class="fw">
     <p class="fl">GRANI</p>
@@ -747,6 +769,11 @@ function cl(){z.classList.remove("op");z.setAttribute("aria-hidden","true");docu
 b.addEventListener("click",function(e){e.stopPropagation();op()});document.getElementById("rzX").onclick=cl;z.addEventListener("click",function(e){if(e.target===z)cl()});addEventListener("keydown",function(e){if(e.key==="Escape")cl()});})();
 (function(){var g=document.querySelector(".pt");if(!g)return;var b=document.querySelector("#atb span"),n=document.getElementById("ptN"),pr=document.querySelector(".price b");
 g.addEventListener("change",function(){var sub=g.querySelector("input:checked").value==="sub";b.textContent=sub?"定期便で申し込む":"ADD TO BAG";n.hidden=!sub;if(pr)pr.textContent=sub?"¥3,000":"¥3,960";});})();
+(function(){var b=document.getElementById("lfx");if(!b)return;var closed=false;try{closed=sessionStorage.getItem("gx_lfx")==="1"}catch(e){}
+var block=false;function upd(){var on=!closed&&!block&&scrollY>520&&!document.querySelector("body.bag,.rz.op");b.classList.toggle("on",on)}
+if("IntersectionObserver" in window){var vis=new Set();var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?vis.add(e.target):vis.delete(e.target)});block=vis.size>0;upd()});[].forEach.call(document.querySelectorAll(".lnb,footer"),function(el){io.observe(el)})}
+addEventListener("scroll",upd,{passive:true});addEventListener("hashchange",function(){setTimeout(upd,50)});
+document.getElementById("lfxX").onclick=function(){closed=true;try{sessionStorage.setItem("gx_lfx","1")}catch(e){}upd()};upd();})();
 show();
 })();
 </script>
