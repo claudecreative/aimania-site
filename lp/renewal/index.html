@@ -61,7 +61,7 @@ header.sc{background:rgba(243,239,228,.9);backdrop-filter:blur(10px);-webkit-bac
 
 /* hero */
 .hero{padding:112px 0 clamp(64px,7vw,100px)}
-.hero-g{display:grid;grid-template-columns:1.1fr 1fr;grid-template-areas:"copy mock" "offer mock";column-gap:clamp(32px,4vw,64px);align-items:start}
+.hero-g{display:grid;grid-template-columns:.95fr 1.2fr;grid-template-areas:"copy mock" "offer mock";column-gap:clamp(32px,4vw,64px);align-items:start}
 .h-copy{grid-area:copy}.h-offer{grid-area:offer}.mock{grid-area:mock;align-self:center}
 .eyebrow{display:flex;align-items:center;gap:12px;font:600 13px/1 var(--en);letter-spacing:.2em}
 .eyebrow svg{width:26px;height:20px;flex:none}
@@ -81,8 +81,8 @@ header.sc{background:rgba(243,239,228,.9);backdrop-filter:blur(10px);-webkit-bac
 .h-offer .btns{margin-top:26px}
 
 /* dress-up mock */
-.mock{position:relative;padding-top:64px;aspect-ratio:1/.9}
-.hang{position:relative;width:88%;transform-origin:50% -40px}
+.mock{position:relative;padding-top:64px;aspect-ratio:1/.86;margin-right:min(0px,calc((1160px - 100vw)/2 + 8px))}
+.hang{position:relative;width:80%;transform-origin:50% -40px}
 .hanger{position:absolute;left:50%;bottom:100%;width:46%;transform:translate(-50%,6px);overflow:visible}
 .hanger path{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .pc{border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 30px 70px rgba(29,29,31,.18);position:relative}
@@ -98,7 +98,7 @@ header.sc{background:rgba(243,239,228,.9);backdrop-filter:blur(10px);-webkit-bac
 @keyframes bandGo{to{transform:translateX(330%) skewX(-12deg)}}
 .mock.dress .hang{animation:sway 1.8s cubic-bezier(.4,0,.3,1) .2s}
 @keyframes sway{0%,100%{transform:rotate(0)}25%{transform:rotate(1.6deg)}55%{transform:rotate(-1deg)}80%{transform:rotate(.4deg)}}
-.ph{position:absolute;right:0;bottom:0;width:30%;border-radius:24px;border:6px solid var(--ink);background:var(--ink);box-shadow:0 26px 50px rgba(29,29,31,.26);overflow:hidden}
+.ph{position:absolute;right:0;bottom:0;width:25%;border-radius:24px;border:6px solid var(--ink);background:var(--ink);box-shadow:0 26px 50px rgba(29,29,31,.26);overflow:hidden}
 .ph-in{position:relative;aspect-ratio:390/844;overflow:hidden;border-radius:18px;background:#fff}
 .mock.dress .ph .new{transition-delay:.35s}.mock.dress .ph .band{animation-delay:.35s}
 .tag{position:absolute;left:0;bottom:3%;display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:10px 16px;font:600 12px/1 var(--en);letter-spacing:.12em;box-shadow:0 10px 30px rgba(0,0,0,.1);z-index:4}
@@ -478,7 +478,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;color:rgba(255,2
    <figure class="shot af rv d1"><figcaption class="shot-l">AFTER</figcaption><div class="frame"><img src="img/ba_new_buy.jpg" alt="リニューアル後の購入まわり。「1回購入」と「定期便」を価格つきのカードで並べ、その下にADD TO BAGボタンとHOW TO USE（使い方）。" width="1200" height="680" loading="lazy"><span class="pin" data-n="4" style="left:49.8%;top:14.4%" aria-hidden="true">4</span><span class="pin" data-n="5" style="left:31.2%;top:80.3%" aria-hidden="true">5</span></div></figure>
   </div>
   <ol class="pts c2" start="4">
-   <li class="rv" data-n="4"><span class="no" aria-hidden="true">4</span><div><p class="k">HOW TO BUY</p><h3><span class="nw">1回か、</span><wbr><span class="nw">定期便か。</span><wbr><span class="nw">並べて選べる。</span></h3><p><span class="nw">「1回購入」と</span><wbr><span class="nw">「定期便」を、</span><wbr><span class="nw">価格つきの</span><wbr><span class="nw">カードで</span><wbr><span class="nw">となりに並べました。</span><wbr><span class="nw">お届けの間隔も、</span><wbr><span class="nw">その場でわかります。</span></p><p class="bfn"><b>BEFORE</b><span class="nw">「カートに入れる」と</span><wbr><span class="nw">「定期購入はこちら」の</span><wbr><span class="nw">2つのボタン。</span></p></div></li>
+   <li class="rv" data-n="4"><span class="no" aria-hidden="true">4</span><div><p class="k">HOW TO BUY</p><h3><span class="nw">1回か、</span><wbr><span class="nw">定期便か。</span><wbr><span class="nw">並べて選べる。</span></h3><p><span class="nw">「1回購入」と</span><wbr><span class="nw">「定期便」を、</span><wbr><span class="nw">価格つきのカードで</span><wbr><span class="nw">となりに</span><wbr><span class="nw">並べました。</span><wbr><span class="nw">お届けの間隔も、</span><wbr><span class="nw">その場でわかります。</span></p><p class="bfn"><b>BEFORE</b><span class="nw">「カートに入れる」と</span><wbr><span class="nw">「定期購入はこちら」の</span><wbr><span class="nw">2つのボタン。</span></p></div></li>
    <li class="rv d1" data-n="5"><span class="no" aria-hidden="true">5</span><div><p class="k">HOW TO USE</p><h3><span class="nw">使い方は、</span><br class="sp"><span class="nw">買うボタンの</span><wbr><span class="nw">すぐ下に。</span></h3><p><span class="nw">夜と朝、</span><wbr><span class="nw">それぞれの</span><wbr><span class="nw">使い方を、</span><wbr><span class="nw">購入ボタンの</span><wbr><span class="nw">すぐ下に</span><wbr><span class="nw">置きました。</span><wbr><span class="nw">使う場面まで、</span><wbr><span class="nw">ひと目でわかります。</span></p><p class="bfn"><b>BEFORE</b><span class="nw">この位置には、</span><wbr><span class="nw">LINE友だち登録のバナー。</span></p></div></li>
   </ol>
  </div>
