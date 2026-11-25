@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="ja"><head>
+<!--aim-guard--><script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_skillnavi_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_skillnavi_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=15db9bb9/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_skillnavi_ok","1")}catch(e){}try{document.cookie="aim_skillnavi_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script><meta name="robots" content="noindex,nofollow"><!--aim-guard-->
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>スキルえらびナビ｜無料オンラインセミナー</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@300;800&display=swap" rel="stylesheet">
+<style>
+:root{--base:#F7F6F2;--teal:#1F6F6B;--orange:#F28C38;--ink:#2B2B2B;--sub:#6B6B6B;--tl:#DDEDEA}
+*{box-sizing:border-box;margin:0;padding:0}a{text-decoration:none;color:inherit}
+body{background:#e9e8e3;font-family:'Noto Sans JP','Noto Sans CJK JP',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.fv{width:390px;height:844px;margin:0 auto;background:var(--base);position:relative;overflow:hidden}
+.hd{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid rgba(31,111,107,.1)}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px}
+.logo i{width:26px;height:26px;border-radius:50%;background:var(--teal);display:grid;place-items:center}.logo i svg{width:15px}
+.logo b{color:var(--teal)}
+.hbtn{background:var(--orange);color:#fff;font-size:12px;font-weight:700;border-radius:8px;padding:8px 12px}
+.in{padding:0 20px;position:relative}
+/* 雑誌の特集扉のような見出しブロック */
+.deco{position:absolute;right:-6px;top:6px;font-family:'Montserrat',sans-serif;font-weight:300;font-size:118px;line-height:1;color:transparent;-webkit-text-stroke:1.3px #C9E1DD;letter-spacing:-.04em;pointer-events:none}
+.kicker{display:flex;align-items:center;gap:8px;margin-top:16px;position:relative}
+.kicker .no{font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:.18em;color:var(--teal)}
+.kicker .ln{width:18px;height:1.5px;background:var(--teal)}
+.pill{display:inline-block;background:var(--tl);color:var(--teal);font-size:11.5px;font-weight:700;border-radius:999px;padding:4px 11px}
+h1{position:relative;font-weight:900;font-feature-settings:"palt";margin-top:10px;letter-spacing:.01em}
+h1 .l1,h1 .l3{display:block;font-size:26px;line-height:1.45}
+h1 .l2{display:block;font-size:35px;line-height:1.3;color:var(--teal);margin:2px 0 1px;letter-spacing:-.01em}
+h1 .l2 span{background:linear-gradient(transparent 66%,var(--tl) 66%,var(--tl) 94%,transparent 94%)}
+h1 .l2 small{font-size:26px;color:var(--ink)}
+.sub{font-size:13.5px;line-height:1.72;color:var(--sub);margin-top:8px}
+.sub b{color:var(--ink)}
+.vis{position:relative;margin-top:14px;height:178px;border-radius:24px;overflow:hidden}
+.vis img{width:100%;height:100%;object-fit:cover;object-position:30% 30%}
+.vis .tag{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.92);border-radius:999px;padding:4px 10px;font-size:11px;font-weight:700;color:var(--teal)}
+.quiz{position:relative;z-index:3;margin:-46px 12px 0;background:#fff;border-radius:16px;box-shadow:0 10px 26px rgba(31,60,58,.14);padding:12px 14px 13px;border:1px solid rgba(31,111,107,.08)}
+.qh{display:flex;justify-content:space-between;align-items:center}
+.qh b{display:flex;align-items:center;gap:6px;color:var(--teal);font-size:13px}
+.qh b i{font-style:normal;width:18px;height:18px;border-radius:50%;background:var(--teal);color:#fff;font-size:10px;display:grid;place-items:center}
+.st{font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;color:var(--sub)}.st em{font-style:normal;color:var(--teal)}
+.bar{height:4px;background:var(--tl);border-radius:4px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:33%;background:var(--teal);border-radius:4px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.qbody{transition:opacity .25s,transform .25s}.qbody.out{opacity:0;transform:translateX(-14px)}
+.qq{font-size:14px;font-weight:700;margin-top:9px;line-height:1.5}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.opts button{font:inherit;font-size:11.5px;font-weight:700;color:var(--teal);background:#fff;border:1.5px solid #CFE3DF;border-radius:10px;padding:9px 4px;cursor:pointer;transition:background .2s,transform .15s,border-color .2s;line-height:1.35}
+.opts button:hover{border-color:var(--teal);background:var(--tl)}.opts button:active{transform:scale(.96)}
+.opts button.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.res{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;margin-top:8px}
+.res .ring{width:50px;height:50px}
+.res b{display:block;font-size:12px;color:var(--sub)}
+.res strong{display:block;font-size:18px;color:var(--teal);line-height:1.3}
+.res small{display:block;font-size:11px;color:var(--sub);margin-top:2px}
+.card{margin-top:12px;background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(31,60,58,.07);padding:10px 12px;display:flex;gap:10px;align-items:center}
+.card .ic{flex:none;width:40px;height:40px;border-radius:12px;background:var(--tl);display:grid;place-items:center}.card .ic svg{width:22px}
+.card b{display:block;color:var(--teal);font-size:14px;line-height:1.4}
+.card small{display:block;font-size:11px;line-height:1.55}
+.card small.g{color:var(--sub)}.card small em{font-style:normal;font-weight:700;color:var(--teal)}
+.cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;height:60px;border-radius:30px;background:var(--orange);color:#fff;font-size:18px;font-weight:700;letter-spacing:.03em;box-shadow:0 6px 16px rgba(242,140,56,.3)}
+.cta span{font-size:22px;margin-top:-2px}
+.note{text-align:center;font-size:12px;color:var(--sub);margin-top:6px}
+.next{position:absolute;left:0;right:0;bottom:0;height:40px;background:var(--tl);text-align:center;overflow:hidden;border-radius:24px 24px 0 0}
+.next h2{font-size:22px;font-weight:900;margin-top:12px}
+</style></head><body>
+<div class="fv">
+<header class="hd"><div class="logo"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8z" fill="#fff"/></svg></i><span>スキル<b>えらび</b>ナビ</span></div><a class="hbtn" href="#">無料セミナー</a></header>
+<div class="in">
+<span class="deco">Skill?</span>
+<div class="kicker"><span class="no">FOR YOU</span><span class="ln"></span><span class="pill">副業・フリーランスを考えはじめた方へ</span></div>
+<h1><span class="l1">スクールを選ぶ前に、</span><span class="l2"><span>“自分に合うスキル”</span><small>を</small></span><span class="l3">選んでいますか？</span></h1>
+<p class="sub">なんとなくで選ぶと、遠回りになりがち。<br><b>60分で、あなたに合うスキルの選び方</b>がわかります。</p>
+<div class="vis"><img src="photo.jpg" alt="自宅でノートPCを見ながら、ほっとした表情の女性"><span class="tag">デザイン？ 動画編集？ Webマーケ？</span></div>
+<div class="quiz" id="quiz">
+<div class="qh"><b><i>✓</i>30秒 スキル相性チェック</b><span class="st">Q<em id="qn">1</em>/3</span></div>
+<div class="bar"><i id="bar"></i></div>
+<div class="qbody" id="qbody"><p class="qq" id="qq">作業するなら、どれがいちばん楽しそう？</p>
+<div class="opts" id="opts"><button>見た目を整える</button><button>映像をつなぐ</button><button>数字で改善する</button></div></div></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1F6F6B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m9 14.5 2 2 4-4"/></svg></div>
+<div><b>無料オンラインセミナー</b><small>毎週開催｜60分｜顔出し・発言なしでOK</small><small class="g">参加特典：<em>自分に合うスキルがわかる診断シート</em></small></div></div>
+<a class="cta" href="#">無料セミナーの日程を見る<span>›</span></a>
+<p class="note">スクールの勧誘はありません／申込は1分で完了</p>
+</div>
+<div class="next"><h2>こんなお悩みありませんか？</h2></div>
+</div><script>
+(function(){var Q=[['作業するなら、どれがいちばん楽しそう？',['見た目を整える','映像をつなぐ','数字で改善する']],
+['ひとりで集中するなら、どっち派？',['こつこつ細かく','ノリよくテンポ','仮説を立てて検証']],
+['仕事にするなら、何を届けたい？',['伝わる見た目','心が動く映像','成果が出る仕組み']]],
+N=['デザイン','動画編集','Webマーケ'],sc=[0,0,0],k=0,body=document.getElementById('qbody');
+function draw(){document.getElementById('qq').textContent=Q[k][0];var o=document.getElementById('opts');o.innerHTML='';
+Q[k][1].forEach(function(t,i){var b=document.createElement('button');b.textContent=t;b.onclick=function(){b.classList.add('sel');sc[i]++;setTimeout(next,260)};o.appendChild(b)})}
+function next(){k++;document.getElementById('bar').style.width=Math.min(100,(k+1)*33.4)+'%';body.classList.add('out');
+setTimeout(function(){if(k<3){document.getElementById('qn').textContent=k+1;draw()}else{var m=sc.indexOf(Math.max.apply(null,sc));
+document.querySelector('.st').innerHTML='<em>DONE</em>';body.innerHTML='<div class="res"><svg class="ring" viewBox="0 0 54 54"><circle cx="27" cy="27" r="23" fill="none" stroke="#DDEDEA" stroke-width="6"/><circle cx="27" cy="27" r="23" fill="none" stroke="#1F6F6B" stroke-width="6" stroke-linecap="round" stroke-dasharray="145" stroke-dashoffset="145" transform="rotate(-90 27 27)"><animate attributeName="stroke-dashoffset" to="30" dur=".8s" fill="freeze"/></circle></svg><div><b>あなたが楽しめそうなのは</b><strong>'+N[m]+'タイプ</strong><small>くわしい選び方は、無料セミナーで</small></div></div>'}
+body.classList.remove('out')},250)}
+draw()})();
+</script></body></html>
