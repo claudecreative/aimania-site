@@ -270,7 +270,7 @@ main{display:none}main.on{display:block}
 .dot{border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#f1e5ec 60%,#d9c1cf);box-shadow:0 3px 10px rgba(0,0,0,.4);flex:none}.dot.s{width:14px;height:14px}.dot.l{width:34px;height:34px}
 .hw-bar{height:2px;background:rgba(255,255,255,.14);margin-top:26px;position:relative}
 .hw-bar i{position:absolute;left:0;top:0;bottom:0;width:20%;background:var(--grad);transition:transform .4s var(--ease)}
-@media (max-width:760px){.hw-nav{display:none}.hs{aspect-ratio:3/4.9}.drp{display:none}.hs-tx{padding:22px}.hs.am h3{margin:6px 0}.amg{margin:12px 0}.amg div{padding:12px 14px}}
+@media (max-width:760px){.hw-nav{display:none}.hs{aspect-ratio:3/4.9}.hs-tx{padding:22px}.hs.am h3{margin:6px 0}.amg{margin:12px 0}.amg div{padding:12px 14px}}
 
 /* hw motion */
 .hw-h h2 .ln{display:block;overflow:hidden;padding-bottom:.08em}.hw-h h2 .ln i{display:block;transform:translateY(110%);transition:transform 1.1s var(--ease)}
@@ -283,22 +283,7 @@ main{display:none}main.on{display:block}
 .hs.on .hs-tx>*{opacity:1;transform:none}
 .hs.on .hs-tx>*:nth-child(2){transition-delay:.08s}.hs.on .hs-tx>*:nth-child(3){transition-delay:.16s}.hs.on .hs-tx>*:nth-child(4){transition-delay:.26s}
 .hs img{transform:scale(1.12)}.hs.on img{transform:scale(1);transition:transform 2.4s var(--ease)}.hs.on:hover img{transform:scale(1.04)}
-.hs.am .hs-tx{justify-content:flex-end}
-.drp{position:absolute;left:0;right:0;top:4%;height:42%;display:flex;justify-content:center;pointer-events:none}
-.drp svg{height:100%;overflow:visible}
-.drp .drop,.drp .pool,.drp .rp,.drp .sp{transform-box:fill-box;opacity:0}
-.drp .drop{transform-origin:50% 100%}.drp .pool,.drp .rp{transform-origin:50% 50%}
-.drp .rp{fill:none;stroke:rgba(255,255,255,.55);stroke-width:1}
-.hs.am.on .drop{animation:dDrop 3.4s cubic-bezier(.55,0,.75,.4) infinite}
-.hs.am.on .pool{animation:dPool 3.4s var(--ease) infinite}
-.hs.am.on .r1{animation:dRip 3.4s ease-out infinite}.hs.am.on .r2{animation:dRip 3.4s ease-out .22s infinite}
-.hs.am.on .s1{animation:dS1 3.4s ease-out infinite}.hs.am.on .s2{animation:dS2 3.4s ease-out infinite}.hs.am.on .s3{animation:dS3 3.4s ease-out infinite}
-@keyframes dDrop{0%{opacity:0;transform:translateY(-90px) scale(.9,1.1)}6%{opacity:1}34%{opacity:1;transform:translateY(0) scale(.92,1.12)}38%{opacity:1;transform:translateY(6px) scale(1.5,.35)}44%,100%{opacity:0;transform:translateY(8px) scale(1.8,.1)}}
-@keyframes dPool{0%,35%{opacity:0;transform:scale(.1)}44%{opacity:1;transform:scale(1.08,1)}54%{transform:scale(1)}82%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.05)}}
-@keyframes dRip{0%,36%{opacity:0;transform:scale(.3)}40%{opacity:.9}78%,100%{opacity:0;transform:scale(1.9)}}
-@keyframes dS1{0%,36%{opacity:0;transform:none}40%{opacity:1}56%,100%{opacity:0;transform:translate(-34px,-30px)}}
-@keyframes dS2{0%,36%{opacity:0;transform:none}40%{opacity:1}56%,100%{opacity:0;transform:translate(30px,-38px)}}
-@keyframes dS3{0%,36%{opacity:0;transform:none}40%{opacity:1}58%,100%{opacity:0;transform:translate(8px,-48px)}}
+.hs.am .hs-tx{justify-content:center}
 .dts{position:relative;display:flex;align-items:center;gap:6px;min-width:40px;justify-content:center}
 .dot{transform:scale(0)}.hs.am.on .dot{animation:dPop .7s cubic-bezier(.34,1.7,.6,1) forwards}
 .hs.am.on .amg div:nth-child(1) .dot{animation-delay:.5s}.hs.am.on .amg div:nth-child(1) .ghost{animation-delay:.75s}.hs.am.on .amg div:nth-child(2) .dot{animation-delay:.9s}
@@ -341,6 +326,20 @@ main{display:none}main.on{display:block}
 .ru em{position:absolute;top:15px;font:600 9.5px var(--en);font-style:normal;transform:translateX(-50%);color:rgba(255,255,255,.7)}
 .rz-adj{display:flex;gap:16px;align-items:center;margin-top:10px;font-size:11.5px;line-height:1.7;color:rgba(255,255,255,.55)}.rz-adj input{flex:0 0 160px;accent-color:#ff2d87}
 @media (max-width:760px){.rz-g{grid-template-columns:1fr}.rz-in{padding:26px 20px}.rz-c{padding:16px}.rz-v{min-height:0}.rz-adj{flex-direction:column;align-items:stretch}.rz-adj input{flex:auto}}
+
+/* silhouettes */
+.amg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 14px}
+.ac{position:relative;border:1px solid rgba(255,255,255,.14);padding:22px 12px 16px;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:190px;justify-content:flex-end}
+.ac .sil{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 8%;opacity:0;mix-blend-mode:screen;filter:grayscale(1) contrast(1.6) brightness(.9);transition:opacity 1.8s var(--ease) .3s;pointer-events:none;-webkit-mask:linear-gradient(180deg,#000 30%,transparent 78%);mask:linear-gradient(180deg,#000 30%,transparent 78%)}
+.hs.am.on .ac .sil{opacity:.3}
+.ac-t{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px}
+.ac-t b{font-size:15px;margin-top:4px}.ac-t span:last-child{font-size:13px;color:rgba(255,255,255,.85)}.ac-t .dts{height:40px}
+.sil .bd{fill:rgba(255,255,255,.08)}.sil .hr{fill:url(#hg)}.sil .st{display:none}
+.hs.am.on .ac::after{animation:dShine 4.4s ease-in-out 2s infinite}.hs.am.on .ac:nth-child(2)::after{animation-delay:2.3s}
+.rz-c{position:relative;overflow:hidden}.rz-c>*{position:relative}
+.rz-c .sil.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 10%;opacity:.22;mix-blend-mode:screen;filter:grayscale(1) contrast(1.6) brightness(.9);pointer-events:none;-webkit-mask:linear-gradient(180deg,#000 40%,transparent 90%);mask:linear-gradient(180deg,#000 40%,transparent 90%)}
+.rz-c .sil.bg .st{stroke-dashoffset:0}
+@media (max-width:760px){.ac .sil{width:74%;max-height:130px}.ac{padding:10px 8px 12px}.ac-t b{font-size:13px}.ac-t span:last-child{font-size:11.5px}.rz-c .sil.bg{opacity:.35}}
 /* reviews */
 .rv{background:var(--paper);padding:clamp(70px,9vw,120px) 0;border-top:1px solid var(--line)}
 .rv-h{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
@@ -487,11 +486,8 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
     <div class="w hw-h"><div><p class="k">HOW TO USE</p><h2><span class="ln"><i>熱が、ケアになる。</i></span><span class="ln"><i>使い方と、使う量。</i></span></h2></div>
       <div class="hw-nav"><button type="button" id="hwP" aria-label="前へ">←</button><span id="hwN">01 / 05</span><button type="button" id="hwX" aria-label="次へ">→</button></div></div>
     <div class="hw-t" id="hwT">
-      <article class="hs am"><div class="drp" aria-hidden="true"><svg viewBox="0 0 240 150"><defs><radialGradient id="mk" cx=".38" cy=".35" r=".75"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#f4e8ef"/><stop offset="1" stop-color="#d6bccb"/></radialGradient></defs>
-<ellipse class="rp r1" cx="120" cy="128" rx="70" ry="10"/><ellipse class="rp r2" cx="120" cy="128" rx="70" ry="10"/><ellipse class="pool" cx="120" cy="128" rx="46" ry="7" fill="url(#mk)"/>
-<circle class="sp s1" cx="120" cy="124" r="3" fill="#fff"/><circle class="sp s2" cx="120" cy="124" r="2.4" fill="#fff"/><circle class="sp s3" cx="120" cy="124" r="2" fill="#fff"/>
-<path class="drop" d="M120 70C120 70 104 92 104 104a16 16 0 0 0 32 0C136 92 120 70 120 70Z" fill="url(#mk)"/></svg></div>
-<div class="hs-tx"><p class="n">01 — AMOUNT</p><h3>使う量は、<br>髪の長さで。</h3><div class="amg"><div><span class="dts"><i class="dot s"></i><i class="dot s ghost"></i></span><b>ミディアム</b><span>パール1〜2粒分</span></div><div><span class="dts"><i class="dot l"></i><i class="coin"></i></span><b>ロング</b><span>500円玉大1個分</span></div></div><p class="tip">少量から始めて、足りなければ少しずつ足してください。</p><button type="button" class="real" id="realBtn"><i></i>実寸で見る</button></div></article>
+      <article class="hs am">
+<div class="hs-tx"><p class="n">01 — AMOUNT</p><h3>使う量は、<br>髪の長さで。</h3><div class="amg2"><div class="ac"><img class="sil m" src="p/hl_m.jpg" alt="" aria-hidden="true"><p class="ac-t"><span class="dts"><i class="dot s"></i><i class="dot s ghost"></i></span><b>ミディアム</b><span>パール1〜2粒分</span></p></div><div class="ac"><img class="sil l" src="p/hl_l.jpg" alt="" aria-hidden="true"><p class="ac-t"><span class="dts"><i class="dot l"></i><i class="coin"></i></span><b>ロング</b><span>500円玉大1個分</span></p></div></div><p class="tip">少量から始めて、足りなければ少しずつ足してください。</p><button type="button" class="real" id="realBtn"><i></i>実寸で見る</button></div></article>
       <article class="hs"><img src="p/2491.jpg" alt="タオルドライ"><div class="hs-tx"><p class="n">02 — NIGHT</p><h3>夜は、乾かす前に。</h3><p>タオルドライ後の濡れた髪になじませ、ドライヤーで乾かす。翌朝まとまりやすい髪へ。</p></div></article>
       <article class="hs"><img src="p/1035.jpg" alt="ドライヤーで乾かす" style="object-position:50% 25%"><div class="hs-tx"><p class="n">03 — MORNING</p><h3>朝は、仕上げに。</h3><p>乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。</p></div></article>
       <article class="hs"><img src="p/h1316.jpg" alt="風になびく髪" style="object-position:62% 40%"><div class="hs-tx"><p class="n">04 — DAYTIME</p><h3>日中は、毛先に。</h3><p>外出前や、乾燥・パサつきが気になるときに。湿気の日の対策にも。</p></div></article>
@@ -504,8 +500,8 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
       <button type="button" class="rz-x" id="rzX" aria-label="閉じる">×</button>
       <p class="k">ACTUAL SIZE</p><h3>手のひらに出す量は、<br>このくらい。</h3>
       <div class="rz-g">
-        <div class="rz-c"><div class="rz-v"><i class="pl"></i><i class="pl plg"></i></div><b>ミディアム</b><span>パール1〜2粒分（直径約7mm）</span></div>
-        <div class="rz-c"><div class="rz-v"><i class="cn"></i><i class="mlk"></i></div><b>ロング</b><span>500円玉大1個分（直径約26.5mm）</span></div>
+        <div class="rz-c"><img class="sil bg" src="p/hl_m.jpg" alt="" aria-hidden="true"><div class="rz-v"><i class="pl"></i><i class="pl plg"></i></div><b>ミディアム</b><span>パール1〜2粒分（直径約7mm）</span></div>
+        <div class="rz-c"><img class="sil bg" src="p/hl_l.jpg" alt="" aria-hidden="true"><div class="rz-v"><i class="cn"></i><i class="mlk"></i></div><b>ロング</b><span>500円玉大1個分（直径約26.5mm）</span></div>
       </div>
       <div class="rz-r"><div class="ru" id="ru"></div><div class="rz-adj"><span>画面によって大きさに誤差があります。定規を当てて目盛りを合わせると正確に表示できます。</span><input type="range" id="rzS" min="60" max="160" value="100" aria-label="サイズ調整"></div></div>
     </div>
