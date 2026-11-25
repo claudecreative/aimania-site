@@ -23,7 +23,7 @@ img{display:block;max-width:100%}
 a{color:inherit}
 .w{width:min(1200px,100% - 48px);margin:0 auto}
 .k{font:800 11px var(--en);letter-spacing:.28em;display:flex;align-items:center;gap:12px}
-.k::before{content:"";width:28px;height:1px;background:currentColor}
+.k::before{content:"";width:22px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 44 32%27 fill=%27none%27 stroke=%27black%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M22 12V8a4 4 0 1 0-4-4%27/%3E%3Cpath d=%27M22 12L4 26h36z%27/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 44 32%27 fill=%27none%27 stroke=%27black%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M22 12V8a4 4 0 1 0-4-4%27/%3E%3Cpath d=%27M22 12L4 26h36z%27/%3E%3C/svg%3E") center/contain no-repeat}
 .se{font-family:var(--se);font-style:italic;font-weight:500;letter-spacing:0}
 .nw{display:inline-block;white-space:nowrap}
 .rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1.1s var(--ease)}
@@ -75,7 +75,7 @@ section.s{padding:clamp(80px,11vw,150px) 0;position:relative}
 .dark{background:#141414;color:#fff}.dark .k{color:rgba(255,255,255,.6)}.paper{background:var(--p)}
 
 /* 起 problems */
-.pb{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pb{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .pb li{list-style:none;background:var(--p);border:1px solid var(--ln);border-radius:16px;padding:28px 24px 30px;position:relative;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .4s var(--ease),box-shadow .4s}
 .pb li:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(20,20,20,.08)}
 .pb .q{font:600 54px/.6 var(--se);color:var(--a)}
@@ -197,6 +197,8 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
 .replay{position:absolute;right:0;top:-6px;font:700 12px var(--jp);background:none;border:1px solid var(--ln);border-radius:999px;padding:8px 14px;cursor:pointer;opacity:0;transition:opacity .4s,background .3s}
 .mock.done .replay{opacity:1}.replay:hover{background:#fff}
 .mock .pc,.mock .ph{will-change:transform}
+.mock.done .pc{animation:flt 6s ease-in-out infinite}.mock.done .ph{animation:flt2 5s ease-in-out infinite}
+@keyframes flt{0%,100%{translate:0 0}50%{translate:0 -8px}}@keyframes flt2{0%,100%{translate:0 -6px}50%{translate:0 6px}}
 
 /* old-fashioned site (fictional) */
 .old{background:#fff;font-family:"Times New Roman","MS PMincho",serif;color:#000;overflow:hidden}
@@ -239,6 +241,79 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
 .ba-n{margin-top:14px;font-size:12px;color:var(--sub)}
 @media (prefers-reduced-motion:reduce){.new{clip-path:none}.band{display:none}}
 
+
+/* price component */
+.px{position:relative;display:inline-block;margin:26px 0 6px}
+.px-f{font:500 clamp(15px,1.4vw,19px)/1 var(--se);font-style:italic;color:var(--sub);margin-bottom:6px;letter-spacing:.02em}
+.px-r{display:flex;align-items:flex-end;gap:12px}
+.px-c{align-self:center;border:1.5px solid var(--ink);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:900;letter-spacing:.1em}
+.px-n{display:inline-block;height:1em;overflow:hidden;font:800 clamp(92px,9.4vw,140px)/1 var(--en);letter-spacing:-.05em;line-height:1;margin:0 -.02em}
+.px-roll{display:flex;flex-direction:column;transform:translateY(0);transition:transform 1.6s cubic-bezier(.6,0,.1,1) .5s}
+.px-roll b{display:block;height:1em;font-weight:800;background:linear-gradient(180deg,#FF4B3A,#FF2D8F);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.px.in .px-roll{transform:translateY(-4em)}
+.px-u{font-size:clamp(26px,2.6vw,38px);font-weight:900;padding-bottom:.32em;letter-spacing:.02em}.px-u small{font-size:.7em;margin-left:2px}
+.px-line{position:absolute;left:52px;right:-8px;bottom:-6px;width:calc(100% - 44px);height:18px;overflow:visible}
+.px-line path{fill:none;stroke:var(--a);stroke-width:3;stroke-linecap:round;stroke-dasharray:320;stroke-dashoffset:320;transition:stroke-dashoffset 1s var(--ease) 1.8s}
+.px.in .px-line path{stroke-dashoffset:0}
+.px.big .px-n{font-size:clamp(110px,11vw,170px)}
+.free{margin:4px 0 26px}
+.free p{font-weight:500}.fr-1{display:block;font-size:clamp(18px,1.7vw,22px);font-weight:900;color:#fff!important;margin-bottom:4px}
+@media (prefers-reduced-motion:reduce){.px-roll{transform:translateY(-4em);transition:none}.px-line path{stroke-dashoffset:0}}
+
+
+/* promise stage */
+.pr-w{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.pr h2 u{white-space:nowrap}
+.pr .sub b{background:#fff;color:var(--a);padding:0 .25em;border-radius:4px}
+.b-w{background:#fff;color:var(--ink)}.b-w:hover{background:var(--ink);color:#fff}
+.stg{position:relative;aspect-ratio:4/5;max-width:440px;width:100%;justify-self:center}
+.spot{position:absolute;left:50%;bottom:0;width:120%;aspect-ratio:1;transform:translateX(-50%) scale(.2);border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.55),rgba(255,255,255,.15) 60%,transparent);opacity:0;transition:transform 1s var(--ease),opacity .6s}
+.stg.go .spot{opacity:1;transform:translateX(-50%) scale(1)}
+.stg .sil{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.stg .body,.stg .bd,.stg .sil>g:last-child{transform:translateY(120%);transition:transform .9s cubic-bezier(.3,1.4,.5,1) .5s}
+.stg.go .body,.stg.go .bd,.stg.go .sil>g:last-child{transform:none}
+.bd{transform-box:fill-box}
+.bd-front,.bd-back{transform-box:fill-box;transform-origin:center;transition:transform .5s var(--ease)}
+.bd-front{transform:scaleX(0)}
+.stg.flip .bd-back{transform:scaleX(0);transition-delay:0s}.stg.flip .bd-front{transform:scaleX(1);transition-delay:.45s}
+.jan{position:absolute;right:-2%;top:8%;font-weight:900;font-size:clamp(28px,3.2vw,44px);color:#fff;transform:rotate(12deg) scale(0);transition:transform .45s cubic-bezier(.3,1.8,.5,1) .1s;text-shadow:3px 3px 0 #141414}
+.stg.flip .jan{transform:rotate(12deg) scale(1);transition-delay:.9s}
+.free-st{position:absolute;left:0;top:14%;width:86px;height:86px;border-radius:50%;background:#141414;color:#fff;display:grid;place-content:center;text-align:center;font-weight:900;font-size:13px;line-height:1.2;transform:rotate(-12deg) scale(0);transition:transform .5s cubic-bezier(.3,1.8,.5,1)}
+.free-st b{font:800 14px var(--en);letter-spacing:.12em;color:#FFD21F}
+.stg.flip .free-st{transform:rotate(-12deg) scale(1);transition-delay:1.2s}
+.stg.flip .arm{animation:wave .6s ease-in-out 1.3s 2}
+@keyframes wave{50%{transform:translateY(-6px)}}
+.pr-g{position:relative;z-index:1}
+
+/* hanger motif */
+.il{width:120px;height:112px;margin:-6px 0 8px -8px;overflow:visible}
+.il *{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.il .gm{fill:#fff}.il .dt{fill:var(--ink);stroke:none}.il .ds{fill:var(--sub);stroke:none}
+.il .ac{stroke:var(--a)}.il .sp{stroke:var(--a)}.il .cw{stroke:var(--sub);stroke-width:1.2}
+.il .ac-t{fill:var(--a);stroke:none;font:800 30px var(--en)}
+.il .sw{transform-origin:60px 9px;transform-box:view-box}
+.pb li.in .sw{animation:swing 2.2s cubic-bezier(.4,0,.3,1) .3s}
+.pb li:hover .sw{animation:swing 1.4s cubic-bezier(.4,0,.3,1)}
+@keyframes swing{0%{transform:rotate(0)}20%{transform:rotate(9deg)}45%{transform:rotate(-6deg)}70%{transform:rotate(3deg)}100%{transform:rotate(0)}}
+.pb li{justify-content:flex-start;gap:6px}
+.k-h::before{display:none}
+.hgr{display:inline-block;width:22px;height:16px;vertical-align:-2px}
+@media (prefers-reduced-motion:reduce){.pb li .sw{animation:none!important}}
+
+@media (max-width:900px){.pr-w{grid-template-columns:1fr}.stg{max-width:330px}}
+@media (prefers-reduced-motion:reduce){.stg .body,.stg .bd,.stg .sil>g:last-child,.bd-front,.jan,.free-st,.spot{transform:none!important;opacity:1;transition:none}.bd-back{display:none}}
+
+/* mogubo */
+.mg{position:absolute;width:56px;height:56px;z-index:5;pointer-events:auto;cursor:pointer;filter:drop-shadow(0 5px 0 rgba(0,0,0,.12));transition:transform .5s cubic-bezier(.3,1.6,.5,1);transform:translateY(30px) scale(.4);opacity:0}
+.mg.in{transform:none;opacity:1;animation:mgB 2.6s ease-in-out infinite .6s}
+@keyframes mgB{0%,100%{translate:0 0}50%{translate:0 -6px}}
+.mg svg{width:100%;height:100%;display:block;image-rendering:pixelated}
+.mg.f svg{transform:scaleX(-1)}
+.mg .say{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:8px;white-space:nowrap;background:#fff;color:#141414;border:2px solid #141414;font:700 12px 'Zen Kaku Gothic New',sans-serif;padding:4px 10px;border-radius:10px;box-shadow:3px 3px 0 #141414}
+.mg .say::after{content:"";position:absolute;top:100%;left:50%;margin-left:-5px;border:5px solid transparent;border-top-color:#141414}
+@media (max-width:760px){.pb li{display:grid;grid-template-columns:84px 1fr;align-items:center;gap:6px 12px;padding:18px 18px 20px}.pb .il{width:96px;height:90px;margin:0 0 0 -10px}.pb h3{font-size:17px}
+.mg{width:44px;height:44px}.mg .say{font-size:11px}}
+
 @media (max-width:900px){
 .hero-g,.sol,.pc-box{grid-template-columns:1fr}
 .mock{max-width:520px;margin:10px auto 0;width:100%}
@@ -267,19 +342,19 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
   <div>
     <p class="k rv">BRAND SITE / LP / EC RENEWAL</p>
     <h1 class="rv d1">売れるサイトに、<br><em>着替えよう。</em></h1>
+    <div class="free rv d1"><b>FREE</b><p><span class="fr-1">まずは、デザインを見てください。</span>サンプルデザインを<span>無償で</span>お出しします。決めるのは、見てからで大丈夫です。</p></div>
     <p class="lead rv d2"><span class="nw">ブランドサイト・LP・</span><span class="nw">ECサイトを、</span><span class="nw">まるごと</span>リニューアル。<br>見た目だけでなく、「買いたくなる流れ」から設計し直します。</p>
-    <div class="price-hero rv d2"><small>一式</small><b>5<span>万円〜</span></b></div>
+    <div class="px rv d2"><p class="px-f">from ¥50,000 — all in</p><div class="px-r"><span class="px-c">一式</span><span class="px-n" aria-label="5"><span class="px-roll"><b>9</b><b>8</b><b>3</b><b>7</b><b>5</b></span></span><span class="px-u">万円<small>〜</small></span></div><svg class="px-line" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15C70 5 150 4 297 11"/></svg></div>
     <p class="note rv d2">※ECサイトの商品数などにより、費用はご相談ください。</p>
-    <div class="free rv d3"><b>FREE</b><p>まずは<span>サンプルデザインを無償で</span>お出しします。<br>決めるのは、見てからで大丈夫です。</p></div>
     <div class="btns rv d3"><a class="b b-m" href="#contact">メールで相談する <span>→</span></a><a class="b b-l" href="https://line.me/R/ti/p/@868bvrkt" target="_blank" rel="noopener">LINEで相談する <span>→</span></a></div>
   </div>
   <div class="mock rv d2" id="mock" aria-label="サイトが着替えるアニメーション（制作事例 GRANI）">
     <div class="pc"><div class="scr">
       <div class="old" data-old="pc"></div>
-      <div class="new"><img src="img/grani_site.jpg" alt="GRANI ブランドサイト（制作事例）" width="1440" height="900"></div>
+      <div class="new"><img src="img/grani_site.jpg?v=2" alt="GRANI ブランドサイト（制作事例）" width="1440" height="900"></div>
       <i class="band" aria-hidden="true"></i>
     </div></div>
-    <div class="ph"><div class="ph-in"><div class="old" data-old="sp"></div><div class="new"><img src="img/grani_shop_sp.jpg" alt="GRANI 公式ストア スマホ表示（制作事例）" width="390" height="844"></div><i class="band" aria-hidden="true"></i></div></div>
+    <div class="ph"><div class="ph-in"><div class="old" data-old="sp"></div><div class="new"><img src="img/grani_shop_sp.jpg?v=2" alt="GRANI 公式ストア スマホ表示（制作事例）" width="390" height="844"></div><i class="band" aria-hidden="true"></i></div></div>
     <p class="tag"><i></i><span id="tagT">BEFORE</span></p>
     <button type="button" class="replay" id="replay">もう一度、着替える ↻</button>
   </div>
@@ -289,10 +364,10 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
 <section class="s paper" id="problem"><div class="w">
   <div class="s-h"><p class="s-n rv">01</p><p class="k rv">PROBLEM</p><h2 class="rv d1">こんなお悩み、<br>ありませんか？</h2></div>
   <ul class="pb">
-    <li class="rv"><p class="q">“</p><div><h3>リニューアルしたいけど、予算がない。</h3><p>制作会社の見積もりは数十万円〜。なかなか踏み出せない。</p></div></li>
-    <li class="rv d1"><p class="q">“</p><div><h3>売れ行きが、落ちてきた。</h3><p>商品には自信がある。なのに、サイトから売れなくなってきた。</p></div></li>
-    <li class="rv d2"><p class="q">“</p><div><h3>新しい販売サイトを、立ち上げたい。</h3><p>新商品やブランドに合う、自社のECを持ちたい。</p></div></li>
-    <li class="rv d3"><p class="q">“</p><div><h3>スマホで見ると、なんだか古い。</h3><p>何年も前につくったまま。更新もしづらい。</p></div></li>
+    <li class="rv"><svg class="il" viewBox="0 0 120 112" aria-hidden="true"><g class="sw"><path class="hk" d="M60 20v-5a6 6 0 1 0-6-6"/><path class="hb" d="M60 20L16 42h88z"/><rect class="gm" x="28" y="42" width="64" height="58" rx="5"/><path class="gl" d="M28 52h64"/><circle class="dt" cx="34" cy="47" r="1.6"/><circle class="dt" cx="39" cy="47" r="1.6"/><text x="60" y="88" text-anchor="middle" class="ac-t">¥</text><path class="ac" d="M80 60l4 6m0-6l-4 6"/></g></svg><div><h3>リニューアルしたいけど、予算がない。</h3><p>制作会社の見積もりは数十万円〜。なかなか踏み出せない。</p></div></li>
+    <li class="rv d1"><svg class="il" viewBox="0 0 120 112" aria-hidden="true"><g class="sw"><path class="hk" d="M60 20v-5a6 6 0 1 0-6-6"/><path class="hb" d="M60 20L16 42h88z"/><rect class="gm" x="28" y="42" width="64" height="58" rx="5"/><path class="gl" d="M28 52h64"/><circle class="dt" cx="34" cy="47" r="1.6"/><circle class="dt" cx="39" cy="47" r="1.6"/><path class="ac" d="M36 64l12 8 10-4 12 14 12 6"/><path class="ac" d="M76 88h7v-7"/></g></svg><div><h3>売れ行きが、落ちてきた。</h3><p>商品には自信がある。なのに、サイトから売れなくなってきた。</p></div></li>
+    <li class="rv d2"><svg class="il" viewBox="0 0 120 112" aria-hidden="true"><g class="sw"><path class="hk" d="M60 20v-5a6 6 0 1 0-6-6"/><path class="hb" d="M60 20L16 42h88z"/><rect class="gm" x="28" y="42" width="64" height="58" rx="5"/><path class="gl" d="M28 52h64"/><circle class="dt" cx="34" cy="47" r="1.6"/><circle class="dt" cx="39" cy="47" r="1.6"/><path class="ac" d="M50 66h20l-2 22H52z"/><path class="ac" d="M55 66v-3a5 5 0 0 1 10 0v3"/><path class="sp" d="M80 60v8m-4-4h8M38 78v6m-3-3h6"/></g></svg><div><h3>新しい販売サイトを、立ち上げたい。</h3><p>新商品やブランドに合う、自社のECを持ちたい。</p></div></li>
+    <li class="rv d3"><svg class="il" viewBox="0 0 120 112" aria-hidden="true"><g class="sw"><path class="hk" d="M60 20v-5a6 6 0 1 0-6-6"/><path class="hb" d="M60 20L16 42h88z"/><rect class="gm" x="42" y="42" width="36" height="62" rx="6"/><path class="gl" d="M54 47h12"/><path class="ac" d="M50 60l20 18M70 60L50 78" opacity=".0"/><path class="cw" d="M42 54l14 12M42 66l8-12M78 90l-10-8M78 80l-6 10"/><circle class="ds" cx="52" cy="92" r="1.4"/><circle class="ds" cx="66" cy="72" r="1.4"/><circle class="ds" cx="60" cy="84" r="1.4"/></g></svg><div><h3>スマホで見ると、なんだか古い。</h3><p>何年も前につくったまま。更新もしづらい。</p></div></li>
   </ul>
 </div></section>
 
@@ -313,7 +388,7 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
   <h2 class="ba-h rv d1">つまみを動かして、<br><span><span class="nw">サイトを</span><span class="nw">着替えさせて</span><span class="nw">みてください。</span></span></h2>
   <div class="cmp rv d2" id="cmp" style="--x:38%">
     <div class="cmp-a"><div class="old" data-old="cmp"></div></div>
-    <div class="cmp-b"><picture><source media="(max-width:760px)" srcset="img/grani_shop_sp.jpg"><img src="img/grani_shop.jpg" alt="リニューアル後のデザイン例（GRANI）" width="1440" height="900"></picture></div>
+    <div class="cmp-b"><picture><source media="(max-width:760px)" srcset="img/grani_shop_sp.jpg?v=2"><img src="img/grani_shop.jpg?v=2" alt="リニューアル後のデザイン例（GRANI）" width="1440" height="900"></picture></div>
     <span class="cmp-l l1">BEFORE</span><span class="cmp-l l2">AFTER</span>
     <div class="cmp-k" aria-hidden="true"><i>⟷</i></div>
     <input type="range" min="0" max="100" value="38" aria-label="ビフォーとアフターを切り替える" id="cmpR">
@@ -340,11 +415,11 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
   <div class="case-h"><div><p class="k rv">CASE STUDY</p><p class="case-t rv d1"><small>ヘアケアブランド／ブランドサイト＋ECサイト</small>GRANI</p></div>
   <div class="case-tags rv d2"><span>ブランドサイト</span><span>ECサイト</span><span>スマホ最適化</span><span>ギフトページ</span><span>LINE導線</span></div></div>
   <div class="cg">
-    <figure class="c1 rv"><img src="img/grani_site.jpg" alt="GRANI ブランドサイト トップ"><figcaption>ブランドサイト トップ</figcaption></figure>
-    <figure class="c2 rv d1"><img src="img/grani_shop_sp.jpg" alt="GRANI 公式ストア スマホ"><figcaption>ストア（スマホ）</figcaption></figure>
-    <figure class="c4 rv"><img src="img/grani_shop.jpg" alt="GRANI 公式ストア 商品ページ"><figcaption>ストア 商品ページ</figcaption></figure>
-    <figure class="c5 rv d1"><img src="img/grani_how.jpg" alt="GRANI 使い方ページ"><figcaption>使い方ページ</figcaption></figure>
-    <figure class="c3 rv d2"><img src="img/grani_dg_sp.jpg" alt="GRANI 髪質診断（スマホ）"><figcaption>髪質診断（スマホ）</figcaption></figure>
+    <figure class="c1 rv"><img src="img/grani_site.jpg?v=2" alt="GRANI ブランドサイト トップ"><figcaption>ブランドサイト トップ</figcaption></figure>
+    <figure class="c2 rv d1"><img src="img/grani_shop_sp.jpg?v=2" alt="GRANI 公式ストア スマホ"><figcaption>ストア（スマホ）</figcaption></figure>
+    <figure class="c4 rv"><img src="img/grani_shop.jpg?v=2" alt="GRANI 公式ストア 商品ページ"><figcaption>ストア 商品ページ</figcaption></figure>
+    <figure class="c5 rv d1"><img src="img/grani_how.jpg?v=2" alt="GRANI 使い方ページ"><figcaption>使い方ページ</figcaption></figure>
+    <figure class="c3 rv d2"><img src="img/grani_dg_sp.jpg?v=2" alt="GRANI 髪質診断（スマホ）"><figcaption>髪質診断（スマホ）</figcaption></figure>
   </div>
   <div class="cp">
     <div class="rv"><b>世界観を、ひと目で。</b><p>商品の強みを大きなコピーとビジュアルで。開いた瞬間に「何がすごいか」が伝わるトップに。</p></div>
@@ -355,22 +430,47 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
 </div></section>
 
 <!-- 結 -->
-<section class="s pr" id="promise"><div class="w">
-  <p class="k rv">OUR PROMISE</p>
-  <h2 class="rv d1">まずは、<br><u>サンプルデザインを</u><br>無償でお出しします。</h2>
-  <p class="sub rv d2">ご依頼を決めるのは、見てからで大丈夫です。</p>
-  <div class="pr-g">
+<section class="s pr" id="promise"><div class="w pr-w">
+  <div class="pr-t">
+    <p class="k rv">OUR PROMISE</p>
+    <h2 class="rv d1">安心してください、<br><u>お見せしますから。</u></h2>
+    <p class="sub rv d2">まずはサンプルデザインを<b>無償で</b>お出しします。<br>ご依頼を決めるのは、見てからで大丈夫です。</p>
+    <div class="btns rv d3" style="margin-top:26px"><a class="b b-w" href="#contact">メールで相談する <span>→</span></a><a class="b b-l" href="https://line.me/R/ti/p/@868bvrkt" target="_blank" rel="noopener">LINEで相談する <span>→</span></a></div>
+  </div>
+  <div class="stg" id="stg" aria-label="サンプルデザインを掲げるシルエットのイラスト">
+    <i class="spot" aria-hidden="true"></i>
+    <svg class="sil" viewBox="0 0 220 340" aria-hidden="true">
+      <defs><clipPath id="bdc"><rect x="44" y="118" width="132" height="118" rx="6"/></clipPath></defs>
+      <g class="body" fill="#141414">
+        <circle cx="110" cy="46" r="25"/>
+        <rect x="100" y="66" width="20" height="16" rx="6"/>
+        <path d="M62 92q48-18 96 0l8 40-112 0z"/>
+        <rect x="76" y="226" width="24" height="96" rx="11"/><rect x="120" y="226" width="24" height="96" rx="11"/>
+        <ellipse cx="84" cy="324" rx="18" ry="8"/><ellipse cx="136" cy="324" rx="18" ry="8"/>
+        <path class="arm" d="M66 98q-34 30-22 74" stroke="#141414" stroke-width="16" stroke-linecap="round" fill="none"/>
+        <path class="arm" d="M154 98q34 30 22 74" stroke="#141414" stroke-width="16" stroke-linecap="round" fill="none"/>
+      </g>
+      <g class="bd">
+        <g class="bd-back"><rect x="44" y="118" width="132" height="118" rx="6" fill="#fff"/><text x="110" y="186" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="34" fill="#141414">?</text></g>
+        <g class="bd-front"><rect x="40" y="114" width="140" height="126" rx="8" fill="#fff"/><image href="img/grani_shop.jpg?v=2" x="44" y="118" width="190" height="118" preserveAspectRatio="xMinYMin slice" clip-path="url(#bdc)"/><rect x="50" y="222" width="60" height="12" rx="6" fill="#FF4B3A"/><text x="80" y="231" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="7.5" fill="#fff" letter-spacing="1">SAMPLE</text></g>
+      </g>
+      <g fill="#141414"><circle cx="48" cy="176" r="9"/><circle cx="172" cy="176" r="9"/></g>
+    </svg>
+    <p class="jan" aria-hidden="true">ジャン！</p>
+    <p class="free-st" aria-hidden="true"><b>FREE</b>無償</p>
+  </div>
+</div>
+<div class="w"><div class="pr-g">
     <div class="rv"><b>サンプルは無料</b><p>あなたのブランドで、実際のデザインをお見せします。</p></div>
     <div class="rv d1"><b>見てから決められる</b><p>イメージと違えば、そこでやめていただいて構いません。</p></div>
     <div class="rv d2"><b>まずは相談だけでもOK</b><p>「何から直せばいいか分からない」段階からどうぞ。</p></div>
-  </div>
-</div><p class="pr-bg" aria-hidden="true">Free</p></section>
+</div></div><p class="pr-bg" aria-hidden="true">Free</p></section>
 
 <!-- price -->
 <section class="s" id="price"><div class="w">
   <div class="s-h"><p class="s-n rv">04</p><p class="k rv">PRICE</p><h2 class="rv d1">わかりやすく、<br>一式で。</h2></div>
   <div class="pc-box rv">
-    <div><p class="pl">ブランドサイト・LP・ECサイト リニューアル 一式</p><p class="pv">5<span>万円〜</span></p><p class="note">※ECサイトの商品数などにより、費用はご相談ください。<br>※最終的なお見積もりは、ヒアリングとサンプルデザインのあとにご提示します。</p></div>
+    <div><p class="pl">ブランドサイト・LP・ECサイト リニューアル 一式</p><div class="px big rv"><p class="px-f">from ¥50,000 — all in</p><div class="px-r"><span class="px-c">一式</span><span class="px-n" aria-label="5"><span class="px-roll"><b>9</b><b>8</b><b>3</b><b>7</b><b>5</b></span></span><span class="px-u">万円<small>〜</small></span></div><svg class="px-line" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15C70 5 150 4 297 11"/></svg></div><p class="note">※ECサイトの商品数などにより、費用はご相談ください。<br>※最終的なお見積もりは、ヒアリングとサンプルデザインのあとにご提示します。</p></div>
     <ul><li>ブランドサイトのデザイン・制作</li><li>LP（ランディングページ）のデザイン・制作</li><li>ECサイト（販売ページ）のデザイン・制作</li><li>スマホ最適化・購入までの導線設計</li><li><span>広告用の動画・バナー、診断コンテンツなど<br><span class="op">オプション・別途ご相談</span></span></li></ul>
   </div>
 </div></section>
@@ -430,6 +530,14 @@ if(matchMedia("(prefers-reduced-motion:reduce)").matches){mk.classList.add("dres
 document.getElementById("replay").onclick=dress;
 var cm=document.getElementById("cmp"),cr=document.getElementById("cmpR");cr.addEventListener("input",function(){cm.style.setProperty("--x",cr.value+"%")});
 var hinted=false;new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting&&!hinted){hinted=true;o.disconnect();var t0=null;function an(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1600),v=38+Math.sin(p*Math.PI*2)*22*(1-p);cm.style.setProperty("--x",v+"%");cr.value=v;if(p<1)requestAnimationFrame(an)}setTimeout(function(){requestAnimationFrame(an)},500)}})},{threshold:.5}).observe(cm);
+
+var MG=function(){var Y="#FFD21F",D="#1D1D1F",R="#FF4B3A",P="#FF9C8A";function r(x,y,w,h,c){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" fill="'+c+'"/>'}
+return '<svg viewBox="0 0 12 12" shape-rendering="crispEdges">'+r(5,0,2,1,R)+r(5,1,2,1,D)+r(3,2,6,1,D)+r(2,3,1,1,D)+r(9,3,1,1,D)+r(1,4,1,5,D)+r(10,4,1,5,D)+r(3,3,6,1,Y)+r(2,4,8,5,Y)+r(2,9,8,1,D)+r(3,10,2,1,D)+r(7,10,2,1,D)+r(2,11,3,1,D)+r(7,11,3,1,D)+r(4,5,1,2,D)+r(7,5,1,2,D)+r(3,7,1,1,P)+r(8,7,1,1,P)+r(5,7,2,1,D)+'</svg>'}();
+var MGP=[['problem', 'right:5%;top:150px', 'わかる〜', true], ['case', 'right:3%;top:70px', '見てって！', true], ['flow', 'left:46%;top:30px', 'ここ無料！', false], ['contact', 'right:8%;top:40px', 'まってるよ！', true], ['change', 'left:3%;top:-10px', '動かしてみて', false]];
+MGP.forEach(function(m){var sec=document.getElementById(m[0]);if(!sec)return;var d=document.createElement("div");d.className="mg"+(m[3]?" f":"");d.style.cssText=m[1];d.setAttribute("aria-hidden","true");d.innerHTML='<span class="say">'+m[2]+'</span>'+MG;sec.style.position="relative";sec.appendChild(d);
+ d.onclick=function(){d.querySelector(".say").textContent="ありがとう！"};
+ new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){setTimeout(function(){d.classList.add("in")},400);o.disconnect()}})},{threshold:.3}).observe(sec)});
+var stg=document.getElementById("stg");new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){stg.classList.add("go");setTimeout(function(){stg.classList.add("flip")},1500);o.disconnect()}})},{threshold:.45}).observe(stg);
 if(!("IntersectionObserver" in window)){[].forEach.call(document.querySelectorAll(".rv"),function(e){e.classList.add("in")});return}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
 [].forEach.call(document.querySelectorAll(".rv"),function(e){io.observe(e)});
