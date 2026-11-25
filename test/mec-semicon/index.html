@@ -122,9 +122,11 @@ body.ph-picked[data-screen="phase"] #ringSvg .knob{opacity:1}
 .node .nl{position:absolute;left:50%;top:104%;transform:translateX(-50%);white-space:nowrap;font-weight:900;font-size:clamp(12px,1.75vh,22px);color:var(--ink);background:#fff;box-shadow:0 2px 8px rgba(21,33,74,.12);padding:3px 12px;border-radius:999px;transition:all .35s}
 .node.sel .ph{box-shadow:0 0 0 5px var(--teal),0 0 0 11px rgba(42,160,194,.22),0 14px 34px rgba(21,33,74,.35);transform:scale(1.1)}
 .node.sel .nl{background:var(--navy);color:#fff}
-body[data-screen="check"] .node:not(.sel) .nl,body[data-screen="check"] .node .no,body[data-screen="check"] #ringSvg .t2,body[data-screen="check"] #ringSvg .il,body[data-screen="check"] .hubcta{display:none}
+body[data-screen="check"] .hubcta{display:none}
+body[data-screen="check"] .node .nl{font-size:11px;padding:1px 8px}
+body[data-screen="check"] .node .no{font-size:10px}
 body[data-screen="check"] .node:not(.sel) img{filter:grayscale(.6);opacity:.7}
-body[data-screen="check"] #ringSvg .segt .t1{font-size:36px}
+
 body[data-screen="phase"] .node:not(.sel) .nl,body[data-screen="ana"] .node:not(.sel) .nl,body[data-screen="ana"] .node .no,body[data-screen="phase"] .node:not(.sel) .no{display:none}
 body[data-screen="phase"] .node:not(.sel) img,body[data-screen="ana"] .node:not(.sel) img{filter:grayscale(1)}
 body[data-screen="ana"] .node:not(.sel) img{filter:grayscale(1);opacity:.45}
