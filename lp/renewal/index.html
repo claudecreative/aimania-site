@@ -177,6 +177,68 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
 .sb.on{transform:none}
 .sb a{flex:1;min-height:50px;font-size:13.5px;padding:0 12px}
 
+
+/* ===== dress-up animation ===== */
+.mock .pc{container-type:inline-size}
+.scr{position:relative;aspect-ratio:16/10;overflow:hidden;background:#fff}
+.scr>.old,.scr>.new,.ph-in>.old,.ph-in>.new{position:absolute;inset:0}
+.scr .new img,.ph-in .new img,.cmp-b img{width:100%;height:100%;object-fit:cover;object-position:top}
+.new{clip-path:inset(0 100% 0 0)}
+.mock.dress .new{clip-path:inset(0 0 0 0);transition:clip-path 1.15s cubic-bezier(.7,0,.2,1)}
+.band{position:absolute;top:-10%;bottom:-10%;left:0;width:34%;transform:translateX(-120%) skewX(-12deg);background:linear-gradient(90deg,transparent,#FF4B3A 18%,#FF2D8F 55%,#FFD21F 82%,transparent);mix-blend-mode:multiply;opacity:.95;pointer-events:none;z-index:3}
+.band::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 2px,transparent 2px 9px)}
+.mock.dress .band{animation:bandGo 1.15s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes bandGo{0%{transform:translateX(-120%) skewX(-12deg)}100%{transform:translateX(330%) skewX(-12deg)}}
+.ph-in{position:relative;aspect-ratio:390/844;overflow:hidden;background:#fff;border-radius:19px;container-type:inline-size}
+.mock.dress .ph .new{transition-delay:.35s}.mock.dress .ph .band{animation-delay:.35s}
+.mock .ph{transition:transform .9s var(--ease)}.mock.dress .ph{transform:rotate(4deg) translateY(-6px)}
+.mock .pc{transition:box-shadow 1s}.mock.dress .pc{box-shadow:0 40px 90px rgba(255,75,58,.22)}
+.tag span{transition:color .3s}.mock.dress .tag span{color:var(--a)}
+.replay{position:absolute;right:0;top:-6px;font:700 12px var(--jp);background:none;border:1px solid var(--ln);border-radius:999px;padding:8px 14px;cursor:pointer;opacity:0;transition:opacity .4s,background .3s}
+.mock.done .replay{opacity:1}.replay:hover{background:#fff}
+.mock .pc,.mock .ph{will-change:transform}
+
+/* old-fashioned site (fictional) */
+.old{background:#fff;font-family:"Times New Roman","MS PMincho",serif;color:#000;overflow:hidden}
+.o-top{background:linear-gradient(#3b6fd1,#1b3f8f);color:#ff0;font-weight:bold;text-align:center;font-size:3.2cqw;padding:1.4cqw 0;text-shadow:.2cqw .2cqw 0 #000}
+.o-mq{background:#ffc;color:#c00;font-size:1.5cqw;white-space:nowrap;overflow:hidden;border-bottom:.2cqw solid #cc0}
+.o-mq span{display:inline-block;padding:.4cqw 0;animation:oMq 9s linear infinite}
+@keyframes oMq{from{transform:translateX(100cqw)}to{transform:translateX(-100%)}}
+.o-g{display:grid;grid-template-columns:22% 1fr;gap:1.5cqw;padding:1.5cqw}
+.o-nav{display:grid;gap:.7cqw;align-content:start}
+.o-nav b{display:block;background:linear-gradient(#eee,#bbb);border:.25cqw outset #ddd;font-size:1.5cqw;text-align:center;padding:.7cqw 0;color:#00c;text-decoration:underline}
+.o-main{border:.25cqw solid #999;padding:1.4cqw}
+.o-h{font-size:2.3cqw;color:#c00;font-weight:bold;margin-bottom:1cqw}
+.o-new{color:#fff;background:red;font:bold 1.3cqw Arial;padding:0 .5cqw;margin-left:.6cqw;animation:oBl 1s steps(2) infinite}
+@keyframes oBl{50%{opacity:0}}
+.o-row{display:grid;grid-template-columns:30% 1fr;gap:1.4cqw;align-items:start}
+.o-img{aspect-ratio:1;background:repeating-linear-gradient(45deg,#ddd 0 1cqw,#eee 1cqw 2cqw);border:.25cqw solid #888;display:grid;place-items:center;font-size:1.3cqw;color:#777}
+.o-row p{font-size:1.45cqw;line-height:1.6}
+.o-pr{color:#c00;font-weight:bold;font-size:2cqw}
+.o-btn{display:inline-block;margin-top:.8cqw;background:linear-gradient(#ffdc6a,#f0a400);border:.25cqw outset #fc0;font:bold 1.4cqw "MS PGothic",sans-serif;padding:.5cqw 1.4cqw;color:#000}
+.o-cnt{margin-top:1.4cqw;font-size:1.3cqw;text-align:center;color:#555}.o-cnt b{background:#000;color:#0f0;font-family:monospace;padding:0 .5cqw;letter-spacing:.2cqw}
+/* phone variant */
+.old.sp .o-top{font-size:7cqw;padding:3cqw 0}.old.sp .o-mq{font-size:4cqw}
+.old.sp .o-g{grid-template-columns:1fr;padding:3cqw;gap:3cqw}.old.sp .o-nav{grid-template-columns:1fr 1fr;gap:2cqw}.old.sp .o-nav b{font-size:4cqw;padding:1.6cqw 0;border-width:.6cqw}
+.old.sp .o-main{padding:3cqw;border-width:.6cqw}.old.sp .o-h{font-size:5.4cqw}.old.sp .o-new{font-size:3.4cqw}
+.old.sp .o-row{grid-template-columns:1fr}.old.sp .o-img{font-size:3.4cqw;border-width:.6cqw}.old.sp .o-row p{font-size:4cqw}.old.sp .o-pr{font-size:5.4cqw}.old.sp .o-btn{font-size:4cqw;border-width:.6cqw;padding:1.4cqw 3cqw}.old.sp .o-cnt{font-size:3.4cqw}
+
+/* compare */
+.ba{background:var(--g);padding-top:0}
+.ba-h{font-weight:900;font-size:clamp(28px,3.8vw,52px);line-height:1.3;margin:18px 0 28px}.ba-h span{color:var(--a)}
+.cmp{position:relative;aspect-ratio:16/10;border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(20,20,20,.16);container-type:inline-size;user-select:none;touch-action:pan-y}
+.cmp-a,.cmp-b{position:absolute;inset:0}.cmp-a .old{position:absolute;inset:0}
+.cmp-b{clip-path:inset(0 0 0 var(--x))}.cmp-b picture{display:block;width:100%;height:100%}
+.cmp-k{position:absolute;top:0;bottom:0;left:var(--x);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.1);pointer-events:none}
+.cmp-k i{position:absolute;top:50%;left:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--a);color:#fff;display:grid;place-items:center;font-style:normal;font-size:20px;box-shadow:0 10px 30px rgba(255,75,58,.45);animation:kp 2s ease-in-out infinite}
+@keyframes kp{50%{transform:scale(1.08)}}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cmp-l{position:absolute;top:14px;font:800 11px var(--en);letter-spacing:.2em;padding:7px 12px;border-radius:999px;pointer-events:none}
+.l1{left:14px;background:#000;color:#ff0}.l2{right:14px;background:#fff;color:var(--ink)}
+@media (max-width:760px){.cmp{aspect-ratio:390/720;max-width:420px;margin:0 auto}.cmp-b picture,.cmp-b img{display:block;width:100%;height:100%}}
+.ba-n{margin-top:14px;font-size:12px;color:var(--sub)}
+@media (prefers-reduced-motion:reduce){.new{clip-path:none}.band{display:none}}
+
 @media (max-width:900px){
 .hero-g,.sol,.pc-box{grid-template-columns:1fr}
 .mock{max-width:520px;margin:10px auto 0;width:100%}
@@ -211,10 +273,15 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
     <div class="free rv d3"><b>FREE</b><p>まずは<span>サンプルデザインを無償で</span>お出しします。<br>決めるのは、見てからで大丈夫です。</p></div>
     <div class="btns rv d3"><a class="b b-m" href="#contact">メールで相談する <span>→</span></a><a class="b b-l" href="https://line.me/R/ti/p/@868bvrkt" target="_blank" rel="noopener">LINEで相談する <span>→</span></a></div>
   </div>
-  <div class="mock rv d2" aria-label="制作事例 GRANI のデザイン">
-    <div class="pc"><img src="img/grani_site.jpg" alt="GRANI ブランドサイト（制作事例）" width="1440" height="900"></div>
-    <div class="ph"><img src="img/grani_shop_sp.jpg" alt="GRANI 公式ストア スマホ表示（制作事例）" width="390" height="844"></div>
-    <p class="tag"><i></i>CASE：GRANI ヘアミルク</p>
+  <div class="mock rv d2" id="mock" aria-label="サイトが着替えるアニメーション（制作事例 GRANI）">
+    <div class="pc"><div class="scr">
+      <div class="old" data-old="pc"></div>
+      <div class="new"><img src="img/grani_site.jpg" alt="GRANI ブランドサイト（制作事例）" width="1440" height="900"></div>
+      <i class="band" aria-hidden="true"></i>
+    </div></div>
+    <div class="ph"><div class="ph-in"><div class="old" data-old="sp"></div><div class="new"><img src="img/grani_shop_sp.jpg" alt="GRANI 公式ストア スマホ表示（制作事例）" width="390" height="844"></div><i class="band" aria-hidden="true"></i></div></div>
+    <p class="tag"><i></i><span id="tagT">BEFORE</span></p>
+    <button type="button" class="replay" id="replay">もう一度、着替える ↻</button>
   </div>
 </div><p class="hero-bg" aria-hidden="true">Renewal</p></section>
 
@@ -238,6 +305,20 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}foo
     <div class="rv d2"><b>FLOW</b><h3>買うまでの道のりが、<br>遠い。</h3><p>ブランドサイトと購入ページがバラバラ。カートまでの迷いが、そのまま機会損失になります。</p></div>
   </div>
   <p class="big-q rv">変えるべきは、商品ではなく<br><span>「見せ方」と「買い方」</span>かもしれません。</p>
+</div></section>
+
+<!-- before/after -->
+<section class="s ba" id="change"><div class="w">
+  <p class="k rv">BEFORE → AFTER</p>
+  <h2 class="ba-h rv d1">つまみを動かして、<br><span><span class="nw">サイトを</span><span class="nw">着替えさせて</span><span class="nw">みてください。</span></span></h2>
+  <div class="cmp rv d2" id="cmp" style="--x:38%">
+    <div class="cmp-a"><div class="old" data-old="cmp"></div></div>
+    <div class="cmp-b"><picture><source media="(max-width:760px)" srcset="img/grani_shop_sp.jpg"><img src="img/grani_shop.jpg" alt="リニューアル後のデザイン例（GRANI）" width="1440" height="900"></picture></div>
+    <span class="cmp-l l1">BEFORE</span><span class="cmp-l l2">AFTER</span>
+    <div class="cmp-k" aria-hidden="true"><i>⟷</i></div>
+    <input type="range" min="0" max="100" value="38" aria-label="ビフォーとアフターを切り替える" id="cmpR">
+  </div>
+  <p class="ba-n rv">※BEFOREは説明用のイメージです。AFTERは制作事例（GRANI）のデザインです。</p>
 </div></section>
 
 <!-- 転 -->
@@ -339,6 +420,16 @@ function sc(){hd.classList.toggle("sc",scrollY>20);var r=ct.getBoundingClientRec
 addEventListener("scroll",sc,{passive:true});sc();
 var m=document.getElementById("mailBtn");
 m.href="mailto:info@aimania.tech?subject="+encodeURIComponent("【無料サンプル希望】サイトリニューアルの相談")+"&body="+encodeURIComponent("会社名・ブランド名：\nお名前：\n現在のサイトURL：\nお悩み・ご希望（ひと言でOK）：\n\n");
+
+var OLD='<div class="o-top">★ようこそ！○○ショップへ★</div><div class="o-mq"><span>【お知らせ】ホームページをリニューアルしました！！　送料無料キャンペーン実施中！！　</span></div><div class="o-g"><div class="o-nav"><b>トップ</b><b>商品一覧</b><b>会社概要</b><b>お問合せ</b></div><div class="o-main"><p class="o-h">◆人気商品◆<span class="o-new">NEW!</span></p><div class="o-row"><div class="o-img">NO IMAGE</div><p>当店オススメの商品です！！品質には自信があります。ぜひお買い求めください。<br><span class="o-pr">価格：3,960円（税込）</span><br><span class="o-btn">カートに入れる</span></p></div><p class="o-cnt">あなたは <b>001234</b> 人目のお客様です</p></div></div>';
+[].forEach.call(document.querySelectorAll("[data-old]"),function(e){e.innerHTML=OLD;var k=e.getAttribute("data-old");if(k==="sp"||(k==="cmp"&&matchMedia("(max-width:760px)").matches))e.classList.add("sp")});
+var mk=document.getElementById("mock"),tg=document.getElementById("tagT");
+function dress(){mk.classList.remove("dress","done");tg.textContent="BEFORE";void mk.offsetWidth;setTimeout(function(){mk.classList.add("dress");setTimeout(function(){tg.textContent="AFTER — CASE：GRANI"},700);setTimeout(function(){mk.classList.add("done")},1900)},1500)}
+if(matchMedia("(prefers-reduced-motion:reduce)").matches){mk.classList.add("dress","done");tg.textContent="AFTER — CASE：GRANI"}else{
+ var st=false;new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting&&!st){st=true;dress();o.disconnect()}})},{threshold:.4}).observe(mk)}
+document.getElementById("replay").onclick=dress;
+var cm=document.getElementById("cmp"),cr=document.getElementById("cmpR");cr.addEventListener("input",function(){cm.style.setProperty("--x",cr.value+"%")});
+var hinted=false;new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting&&!hinted){hinted=true;o.disconnect();var t0=null;function an(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1600),v=38+Math.sin(p*Math.PI*2)*22*(1-p);cm.style.setProperty("--x",v+"%");cr.value=v;if(p<1)requestAnimationFrame(an)}setTimeout(function(){requestAnimationFrame(an)},500)}})},{threshold:.5}).observe(cm);
 if(!("IntersectionObserver" in window)){[].forEach.call(document.querySelectorAll(".rv"),function(e){e.classList.add("in")});return}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
 [].forEach.call(document.querySelectorAll(".rv"),function(e){io.observe(e)});
