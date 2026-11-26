@@ -27,8 +27,8 @@
 @media (max-width:860px){
  .gx-sp{height:60px}.gx-in{height:60px}.gx-logo{font-size:22px}
  .gx-nav .gx-t{display:none}.gx-bgr{display:block}.gx-ic{gap:6px}.gx-buy{padding:9px 14px!important;font-size:12px!important}
- .gx-dr{display:block;position:fixed;left:0;right:0;top:60px;bottom:0;background:#17161A;transform:translateY(-110%);transition:transform .5s cubic-bezier(.2,.7,.2,1);padding:30px 24px}
- .gx-hd.op .gx-dr{transform:none}
+ .gx-dr{display:block;position:fixed;left:0;right:0;top:60px;bottom:0;background:#17161A;transform:translateY(-110%);transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .3s,visibility 0s linear .5s;padding:30px 24px;visibility:hidden;opacity:0;pointer-events:none;overflow-y:auto;z-index:999}
+ .gx-hd.op .gx-dr{transform:none;visibility:visible;opacity:1;pointer-events:auto;transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .3s}
  .gx-dr a{display:block;color:#fff!important;text-decoration:none!important;font:800 26px/1 'Montserrat',Arial,sans-serif;letter-spacing:.06em;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
  .gx-dr a small{display:block;font:500 12px 'Noto Sans JP',sans-serif;color:rgba(255,255,255,.55);margin-top:6px;letter-spacing:.1em}
 }
