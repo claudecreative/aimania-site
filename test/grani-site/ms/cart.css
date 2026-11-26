@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap");
 body{background:#F4F2F0}
 .wrap .main-contents{max-width:1080px;margin:0 auto;padding:56px clamp(20px,4vw,48px) 120px;font-family:'Noto Sans JP',sans-serif;color:#141316;text-align:left}
-.cart-title{margin:0 0 34px;text-align:left;border:0}
-.cart-title .section-title-deco{display:block;font-size:0;letter-spacing:0;border:0;padding:0}
-.cart-title .section-title-deco::before{content:"SHOPPING BAG";display:block;font:900 clamp(34px,5vw,56px)/1 'Montserrat',sans-serif;letter-spacing:-.02em;color:#141316}
-.cart-title .section-title-deco::after{content:"\30AB\30FC\30C8";display:block;margin-top:10px;font:700 12px 'Noto Sans JP',sans-serif;letter-spacing:.2em;color:#6B6772}
+.cart-title{display:block!important;position:static!important;margin:0 0 34px!important;padding:0!important;text-align:left!important;border:0!important;background:none!important}
+.cart-title::before,.cart-title::after{display:none!important;content:none!important}
+.cart-title .section-title-deco{display:block!important;position:static!important;transform:none!important;width:auto!important;font-size:0!important;letter-spacing:0;border:0!important;padding:0!important;background:none!important}
+.cart-title .section-title-deco::before{content:"SHOPPING BAG"!important;display:block!important;position:static!important;width:auto!important;height:auto!important;background:none!important;transform:none!important;font:900 clamp(34px,5vw,56px)/1 'Montserrat',sans-serif;letter-spacing:-.02em;color:#141316}
+.cart-title .section-title-deco::after{content:"\30AB\30FC\30C8"!important;display:block!important;position:static!important;width:auto!important;height:auto!important;background:none!important;transform:none!important;border:0!important;margin-top:10px;font:700 12px 'Noto Sans JP',sans-serif;letter-spacing:.2em;color:#6B6772}
 .cart-inner-list{display:block}
 .cart-list-head{display:none!important}
 .cart-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(20,19,22,.12)}
