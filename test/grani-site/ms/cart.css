@@ -19,11 +19,12 @@ body{background:#F4F2F0}
 .cart-list-unit-wrap{display:flex;gap:28px;align-items:center}
 .cart-list-quantity{display:flex!important;gap:8px;align-items:center}
 .cart-list-quantity input{width:56px;height:40px;text-align:center;border:1px solid rgba(20,19,22,.2);background:#fff;font:700 15px 'Montserrat',sans-serif}
-.cart-quantity-btn{display:inline-flex!important;align-items:center;height:40px;padding:0 14px!important;border:1px solid #141316!important;background:#fff!important;color:#141316!important;font-size:12px;font-weight:700;text-decoration:none}
+.cart-quantity-btn{white-space:nowrap;min-width:56px;justify-content:center;writing-mode:horizontal-tb;display:inline-flex!important;align-items:center;height:40px;padding:0 14px!important;border:1px solid #141316!important;background:#fff!important;color:#141316!important;font-size:12px;font-weight:700;text-decoration:none}
 .cart-list-total-price{font:800 20px 'Montserrat',sans-serif;text-align:right}
 .cart-list-unit-price{font-size:11px;color:#6B6772;text-align:right}
 .cart-list-foot{margin-top:26px;padding:24px;background:#fff;border:1px solid rgba(20,19,22,.12)}
-.cart-total{display:flex;justify-content:space-between;align-items:baseline}
+.cart-total{display:flex!important;justify-content:space-between;align-items:baseline;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;border:0!important;float:none!important}
+.cart-list-foot{display:block!important;width:auto!important;float:none!important}
 .cart-total label{font:800 11px 'Montserrat',sans-serif;letter-spacing:.24em}
 .cart-total-price{font:900 30px 'Montserrat',sans-serif;letter-spacing:-.01em}
 .free-shipping-wrap{margin-top:14px;padding:14px 18px;border-left:3px solid #FF2D8F;background:#FBFAF9}
