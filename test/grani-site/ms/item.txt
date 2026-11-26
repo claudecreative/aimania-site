@@ -597,7 +597,7 @@
         <ul><li><b>NIGHT</b><span>タオルドライ後の濡れた髪に適量を伸ばし、ドライヤーで乾かす</span></li><li><b>MORNING</b><span>乾いた髪に少量。ドライヤーやアイロンで仕上げる</span></li><li><b>DAYTIME</b><span>パサつきが気になるときに毛先へ</span></li></ul>
         <p class="mu-a">目安：<span class="nw">ミディアム パール1〜2粒分</span> ／ <span class="nw">ロング 500円玉大1個分</span></p>
       </div>
-      <div class="perks"><div><b>DELIVERY</b>ご注文受付後<br>7日以内にお届け</div><div><b>PAYMENT</b>銀行振込<br>代金引換</div><a href="https://lin.ee/6NXg6k3" target="_blank" rel="noopener"><b>LINE</b>友だち登録で<br>10%OFFクーポン</a></div>
+      <div class="perks"><div><b>DELIVERY</b>ご注文受付後<br>7日以内にお届け</div><div><b>PAYMENT</b>銀行振込・代金引換<br>Amazon Pay</div><a href="https://lin.ee/6NXg6k3" target="_blank" rel="noopener"><b>LINE</b>友だち登録で<br>10%OFFクーポン</a></div>
       <div class="acc">
         <details open><summary>DESCRIPTION</summary><div class="in">ドライヤーの熱に反応するW成分（トステア&#xae;×γ-ドコサラクトン）を配合。タオルドライ後になじませて乾かすだけで、毛先までしっとり、なめらかに。夜・朝・日中、24時間のヘアケアに。<br><small style="color:var(--sub)">※トステア&#xae;とγ-ドコサラクトン。浸透は毛髪の内部まで。</small></div></details>
         
