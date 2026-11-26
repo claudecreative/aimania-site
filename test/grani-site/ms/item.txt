@@ -547,7 +547,7 @@
 #gxs .ms-row .atb.off{display:none}#gxs .ms-row .atb.on{display:flex}#gxs .ms-row .atb.so{background:#9a979e;cursor:default}
 #gxs .ms-row .atb[hidden]{display:none}
 #gxs .pt label{position:relative}#gxs .pt input{top:0;left:0;width:1px;height:1px}
-</style>
+#gxs .atb.ms-one,#gxs .atb.ms-sub{font:700 15px var(--jp);letter-spacing:.14em}</style>
 </head>
 <body>
 <{$makeshop.body_top}>
@@ -579,12 +579,12 @@
 <{if $item.is_within_sell_period}>
 <{if $item.has_option}>
 <{if $item.is_restock_enabled}><a href="<{$item.restock_url}>" class="atb outstock off"><span>再入荷のお知らせを受け取る</span></a><{else}><div class="atb so outstock off"><span>SOLD OUT</span></div><{/if}>
-<a href="<{$item.cart_entry_url}>" class="atb ms-one instock off"><span>ADD TO BAG</span></a>
+<a href="<{$item.cart_entry_url}>" class="atb ms-one instock off"><span>カートに入れる</span></a>
 <{else}>
 <{if $item.is_soldout}>
 <{if $item.is_restock_enabled}><a href="<{$item.restock_url}>" class="atb outstock"><span>再入荷のお知らせを受け取る</span></a><{else}><div class="atb so outstock"><span>SOLD OUT</span></div><{/if}>
 <{else}>
-<a href="<{$item.cart_entry_url}>" class="atb ms-one instock"><span>ADD TO BAG</span></a>
+<a href="<{$item.cart_entry_url}>" class="atb ms-one instock"><span>カートに入れる</span></a>
 <{/if}>
 <{/if}>
 <a href="<{$item.cart_entry_subscription_url}>" class="atb ms-sub" hidden><span>定期便で申し込む</span></a>

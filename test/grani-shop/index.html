@@ -1,46 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!--aim-guard--><meta name="robots" content="noindex,nofollow">
-<style>
-#gx-gate{position:fixed;inset:0;z-index:2147483000;font-family:'Montserrat','Noto Sans JP','Hiragino Sans',sans-serif;color:#fff;pointer-events:auto}
-#gx-gate .dr{position:absolute;top:0;bottom:0;width:50.5%;background:#0E0D10;transition:transform 1.25s cubic-bezier(.77,0,.18,1);overflow:hidden}
-#gx-gate .dl{left:0;border-right:1px solid rgba(255,255,255,.06)}#gx-gate .dR{right:0;border-left:1px solid rgba(255,255,255,.06)}
-#gx-gate .dr::after{content:"";position:absolute;top:50%;width:6px;height:64px;margin-top:-32px;border-radius:3px;background:linear-gradient(#FF7A00,#FF2D8F);box-shadow:0 0 18px rgba(255,45,143,.6)}
-#gx-gate .dl::after{right:26px}#gx-gate .dR::after{left:26px}
-#gx-gate .glow{position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:linear-gradient(transparent,#FF2D8F 30%,#FF7A00 70%,transparent);opacity:0;box-shadow:0 0 40px 12px rgba(255,45,143,.55);transition:opacity .4s}
-#gx-gate .box{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(380px,84vw);text-align:center;transition:opacity .4s,transform .6s}
-#gx-gate .lg{font-weight:900;font-size:42px;letter-spacing:-.03em;color:#FF2D8F;line-height:1}
-#gx-gate .k{font-weight:700;font-size:10px;letter-spacing:.42em;color:rgba(255,255,255,.45);margin:14px 0 34px}
-#gx-gate .fld{display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.22);border-radius:40px;padding:14px 20px;text-align:left}
-#gx-gate .fld small{font-weight:700;font-size:10px;letter-spacing:.24em;color:rgba(255,255,255,.5)}
-#gx-gate .dots{flex:1;font-size:20px;letter-spacing:.3em;color:#fff;min-height:24px;line-height:24px}
-#gx-gate .dots i{display:inline-block;width:2px;height:18px;background:#FF2D8F;vertical-align:-3px;animation:gxb 1s steps(1) infinite}
-@keyframes gxb{50%{opacity:0}}
-#gx-gate .msg{margin-top:30px;min-height:64px;font-family:'Noto Sans JP','Hiragino Sans',sans-serif;font-weight:900;font-size:22px;line-height:1.5;letter-spacing:.04em}
-#gx-gate .msg span{display:block;opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s}
-#gx-gate .msg span.on{opacity:1;transform:none}
-#gx-gate .msg span.p{background:linear-gradient(95deg,#FF7A00,#FF3D5A 48%,#FF2D8F);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:30px}
-#gx-gate .skip{position:absolute;right:22px;bottom:20px;font-weight:700;font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.35);background:none;border:0;cursor:pointer}
-#gx-gate.open .dl{transform:translateX(-101%)}#gx-gate.open .dR{transform:translateX(101%)}
-#gx-gate.open .box{opacity:0;transform:translate(-50%,-50%) scale(.96)}
-#gx-gate.open .skip{opacity:0}
-#gx-gate.lit .glow{opacity:1}#gx-gate.open .glow{opacity:0;transition-delay:.3s}
-#gx-gate.gone{display:none}
-</style>
-<script>
-(function(){var KEY="gx_gate_grani-shop";var seen=false;try{seen=sessionStorage.getItem(KEY)==="1"}catch(e){}if(seen)return;
-var g=document.createElement("div");g.id="gx-gate";g.innerHTML='<div class="dr dl"></div><div class="dr dR"></div><div class="glow"></div><div class="box"><div class="lg">GRANI</div><p class="k">PRIVATE PREVIEW</p><div class="fld"><small>PASS</small><span class="dots"><i></i></span></div><p class="msg"><span>話は聞いてるぜ。</span><span class="p">通りな。</span></p></div><button class="skip" type="button">SKIP →</button>';
-document.documentElement.appendChild(g);var html=document.documentElement;var ov=html.style.overflow;html.style.overflow="hidden";
-var rd=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;var T=[];function at(ms,f){T.push(setTimeout(f,rd?0:ms))}
-var d=g.querySelector(".dots"),ms=g.querySelectorAll(".msg span"),n=0;
-function fin(){T.forEach(clearTimeout);g.classList.add("lit","open");try{sessionStorage.setItem(KEY,"1")}catch(e){}html.style.overflow=ov;setTimeout(function(){g.classList.add("gone")},rd?0:1500)}
-g.querySelector(".skip").onclick=fin;
-for(var i=1;i<=8;i++)(function(i){at(250+i*95,function(){d.innerHTML=new Array(i+1).join("•")+"<i></i>"})})(i);
-at(1400,function(){ms[0].classList.add("on")});at(2150,function(){ms[1].classList.add("on")});at(2950,function(){g.classList.add("lit")});at(3300,fin);
-})();
-</script><!--aim-guard-->
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GRANI Official Store — Silky Moist Hair Milk（試作）</title>
@@ -560,7 +520,7 @@ footer .fb{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-to
       </div>
       <p class="pt-n" id="ptN" hidden>定期便は2か月ごとに自動でお届けします（内容・価格は案）。</p>
       <div class="row"><div class="qty"><button type="button" id="qm" aria-label="減らす">−</button><span id="qn">1</span><button type="button" id="qp" aria-label="増やす">＋</button></div>
-        <button type="button" class="atb" id="atb"><span>ADD TO BAG</span></button></div>
+        <button type="button" class="atb" id="atb"><span>カートに入れる</span></button></div>
       <div class="mu">
         <p class="mu-h">HOW TO USE<a href="#hw">詳しく見る →</a></p>
         <ul><li><b>NIGHT</b><span>タオルドライ後の濡れた髪に適量を伸ばし、ドライヤーで乾かす</span></li><li><b>MORNING</b><span>乾いた髪に少量。ドライヤーやアイロンで仕上げる</span></li><li><b>DAYTIME</b><span>パサつきが気になるときに毛先へ</span></li></ul>
@@ -768,7 +728,7 @@ function op(){z.classList.add("op");z.setAttribute("aria-hidden","false");docume
 function cl(){z.classList.remove("op");z.setAttribute("aria-hidden","true");document.body.style.overflow=""}
 b.addEventListener("click",function(e){e.stopPropagation();op()});document.getElementById("rzX").onclick=cl;z.addEventListener("click",function(e){if(e.target===z)cl()});addEventListener("keydown",function(e){if(e.key==="Escape")cl()});})();
 (function(){var g=document.querySelector(".pt");if(!g)return;var b=document.querySelector("#atb span"),n=document.getElementById("ptN"),pr=document.querySelector(".price b");
-g.addEventListener("change",function(){var sub=g.querySelector("input:checked").value==="sub";b.textContent=sub?"定期便で申し込む":"ADD TO BAG";n.hidden=!sub;if(pr)pr.textContent=sub?"¥3,000":"¥3,960";});})();
+g.addEventListener("change",function(){var sub=g.querySelector("input:checked").value==="sub";b.textContent=sub?"定期便で申し込む":"カートに入れる";n.hidden=!sub;if(pr)pr.textContent=sub?"¥3,000":"¥3,960";});})();
 (function(){var b=document.getElementById("lfx");if(!b)return;var closed=false;try{closed=sessionStorage.getItem("gx_lfx")==="1"}catch(e){}
 var block=false;function upd(){var on=!closed&&!block&&scrollY>520&&!document.querySelector("body.bag,.rz.op");b.classList.toggle("on",on)}
 if("IntersectionObserver" in window){var vis=new Set();var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?vis.add(e.target):vis.delete(e.target)});block=vis.size>0;upd()});[].forEach.call(document.querySelectorAll(".lnb,footer"),function(el){io.observe(el)})}
