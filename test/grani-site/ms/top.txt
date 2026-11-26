@@ -1170,7 +1170,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
       <p class="lead rv d1">熱に反応するW成分を配合した、洗い流さないヘアミルク。</p>
       <dl class="spec rv d1"><div><dt>容量</dt><dd>200ml</dd></div><div><dt>注目成分</dt><dd>トステア® × γ-ドコサラクトン</dd></div><div><dt>香り</dt><dd>ピュアリネン</dd></div><div><dt>使う時間</dt><dd>夜・朝・日中</dd></div><div><dt>評価</dt><dd><a href="#voice" class="spec-r" data-r="spec">@cosme 平均5.7 / 7（187件）</a></dd></div></dl>
       <p class="price rv d1"><b>¥3,960</b><span class="tx">税込・200ml</span></p>
-      <p class="btns rv d2"><a class="btn pkb" href="https://grani-beauty.com/view/item/000000000001">公式サイトで購入</a></p>
+      <p class="btns rv d2"><a class="btn pkb" href="https://grani-beauty.com/view/item/000000000001">購入する</a></p>
       <p class="btns rv d2" style="margin-top:12px"><a class="btn ln" href="#shindan">あなたに合う使い方を診断</a></p>
     </div>
   </div></section>
