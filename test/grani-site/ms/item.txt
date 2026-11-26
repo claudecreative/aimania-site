@@ -531,6 +531,18 @@
 #gxs .lnb-b{width:100%;justify-content:center}}
 @media (prefers-reduced-motion:reduce){#gxs .lnb-bg{animation:none}}
 #gxs{text-align:left}#gxs .rv-h,#gxs .lnb-in{text-align:left}
+#gxs .stores{margin-top:22px}
+#gxs .stores .st-h{font-size:12px;font-weight:700;letter-spacing:.08em;color:#6B6772;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+#gxs .stores .st-h::after{content:"";flex:1;height:1px;background:rgba(20,19,22,.12)}
+#gxs .stores .st-g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+#gxs .stores .st-b{display:flex;align-items:center;gap:8px;padding:12px 12px;border:1px solid rgba(20,19,22,.14);background:#fff;border-radius:10px;text-decoration:none;color:#141316;transition:transform .25s,box-shadow .25s,border-color .25s}
+#gxs .stores .st-b:hover{transform:translateY(-2px);border-color:var(--sc);box-shadow:0 10px 24px rgba(20,19,22,.08)}
+#gxs .stores .st-i{width:30px;height:30px;border-radius:8px;background:var(--sc);color:#fff;display:grid;place-items:center;flex:none}
+#gxs .stores .st-i svg{width:18px;height:18px}
+#gxs .stores .st-b b{font-size:13.5px;font-weight:800;white-space:nowrap}
+#gxs .stores .st-ar{width:14px;height:14px;margin-left:auto;color:#6B6772;flex:none}
+@media (max-width:420px){#gxs .stores .st-b{padding:10px 8px;gap:6px}#gxs .stores .st-i{width:26px;height:26px}#gxs .stores .st-b b{font-size:12.5px}#gxs .stores .st-ar{display:none}}
+
 #gxs .ms-row{display:block}#gxs .ms-row .atb{display:flex;align-items:center;justify-content:center;width:100%;text-decoration:none;color:#fff}
 #gxs .ms-row .atb.off{display:none}#gxs .ms-row .atb.on{display:flex}#gxs .ms-row .atb.so{background:#9a979e;cursor:default}
 #gxs .ms-row .atb[hidden]{display:none}
@@ -591,7 +603,7 @@
         
         <details><summary>DELIVERY &amp; RETURNS</summary><div class="in">ご注文受付後、7日以内にお届けします。商品の返品・交換は、初期不良・発送商品間違いの場合に承ります（当店着払い）。詳しくは<a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a>をご確認ください。</div></details>
       </div>
-      <p class="also">楽天市場・Amazon・Qoo10でも購入できます。<br class="spbr"><a href="https://search.rakuten.co.jp/search/mall/GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF/">楽天市場</a><a href="https://www.amazon.co.jp/s?k=GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF">Amazon</a><a href="https://www.qoo10.jp/shop/grani">Qoo10</a></p>
+      <div class="stores st-item"><p class="st-h">ほかのストアでも購入できます</p><div class="st-g"><a class="st-b" href="https://search.rakuten.co.jp/search/mall/GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF/" target="_blank" rel="noopener" style="--sc:#BF0000"><span class="st-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><b>楽天市場</b><svg class="st-ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16L16 8M10 8h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="st-b" href="https://www.amazon.co.jp/s?k=GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF" target="_blank" rel="noopener" style="--sc:#FF9900"><span class="st-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><b>Amazon</b><svg class="st-ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16L16 8M10 8h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="st-b" href="https://www.qoo10.jp/shop/grani" target="_blank" rel="noopener" style="--sc:#E8007D"><span class="st-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><b>Qoo10</b><svg class="st-ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16L16 8M10 8h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
     </div>
   </div>
   <section class="hw" id="hw">
