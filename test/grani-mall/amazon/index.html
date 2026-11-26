@@ -1,0 +1,92 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Amazon 構成イメージ｜GRANI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#141316;--bg:#F4F2F0;--pink:#FF2D8F;--yel:#E8FF2E;--sub:#6B6772;--line:rgba(20,19,22,.12);--grad:linear-gradient(95deg,#FF7A00,#FF3D5A 48%,#FF2D8F);--en:'Montserrat',sans-serif}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.7}
+a{color:inherit}
+.w{max-width:1200px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+.k{font:800 11px var(--en);letter-spacing:.3em;text-transform:uppercase;color:var(--pink)}
+.bar{background:var(--ink);color:#fff;font-size:12px;text-align:center;padding:8px 12px}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:12px;flex-wrap:wrap}
+@media(max-width:600px){nav.tabs{width:100%;flex-wrap:nowrap;overflow-x:auto}nav.tabs a{padding:7px 13px;font-size:13px;white-space:nowrap}.bar{font-size:11px}}
+.logo{font:900 24px var(--en);color:var(--pink);text-decoration:none}
+nav.tabs{display:flex;gap:6px;flex-wrap:wrap}
+nav.tabs a{text-decoration:none;font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:#fff}
+nav.tabs a.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+h1{font-weight:900;font-size:clamp(28px,4.6vw,48px);line-height:1.25;margin:10px 0 14px}
+.lead{color:var(--sub);max-width:760px}
+.card{background:#fff;border-radius:18px;padding:26px;border:1px solid var(--line)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:860px){.grid3{grid-template-columns:1fr}}
+table.cmp{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;font-size:14px}
+table.cmp th,table.cmp td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.cmp thead th{background:var(--ink);color:#fff;font-weight:700}
+table.cmp tbody th{width:150px;color:var(--sub);font-weight:700;background:#faf9f8}
+.scroll{overflow-x:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 20px;border-radius:999px}
+.btn.g{background:var(--grad)}
+ul.ck{list-style:none;display:grid;gap:8px;font-size:14px}
+ul.ck li{padding-left:22px;position:relative}
+ul.ck li:before{content:'';position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--pink)}
+ul.ng li:before{background:#bbb}
+.foot{color:var(--sub);font-size:12px;padding:40px 0 60px}
+.mock{background:#fff;border-radius:18px;border:1px solid var(--line);overflow:hidden}
+.mock-h{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--sub);background:#faf9f8}
+.pd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;padding:24px}
+@media(max-width:860px){.pd{grid-template-columns:1fr}}
+.gal-main{width:100%;aspect-ratio:1;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:12px}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(62px,1fr));gap:8px;margin-top:10px}
+.thumbs img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer}
+.thumbs img.on{border-color:var(--pink)}
+.desc{max-width:750px;margin:0 auto}
+.desc img{width:100%;display:block}
+.lbl{display:inline-block;font:800 10px var(--en);letter-spacing:.2em;background:var(--ink);color:#fff;padding:4px 10px;border-radius:4px;margin:18px 0 8px}
+.side{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
+@media(max-width:960px){.side{grid-template-columns:1fr}}
+.sticky{position:sticky;top:16px}
+.fname{font-size:11px;color:var(--sub);margin-top:4px;word-break:break-all}
+.aplus img{width:100%;display:block}
+.a3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.a3 p{font-size:13px;color:var(--sub);margin-top:6px}
+.a3 b{display:block;font-size:15px;margin-top:8px}
+</style></head><body>
+<div class="bar">GRANI モール展開 テストサイト（社内確認用・未公開）｜画面は構成イメージで、各モールの実際の表示とは異なります</div>
+<div class="w"><header class="top"><a class="logo" href="../">GRANI</a>
+<nav class="tabs"><a href="../index.html" class="">一覧</a><a href="../rakuten/" class="">楽天市場</a><a href="../amazon/" class="on">Amazon</a><a href="../qoo10/" class="">Qoo10</a></nav></header>
+
+<div class="k">AMAZON</div><h1>Amazon 商品ページ ＋ A+</h1>
+<p class="lead">「何ができる商品か」を画像だけで一瞬で分かってもらう場所。メインは白背景の商品のみ、2枚目以降で特長・仕組み・使い方・量・香りを1枚1メッセージで見せ、下の「商品紹介コンテンツ（A+）」でブランドの世界観を伝えます。</p>
+<div class="side" style="margin-top:26px"><div>
+<div class="mock"><div class="mock-h"><span>Amazon 商品ページ（構成イメージ）</span><span>PC表示想定</span></div>
+<div class="pd"><div><img id="amain" class="gal-main" src="img/01-main.jpg" alt=""><div class="thumbs" data-main="amain"><img src="img/01-main.jpg" class="on" alt=""><img src="img/02-benefit.jpg" class="" alt=""><img src="img/03-w-active.jpg" class="" alt=""><img src="img/04-how-it-works.jpg" class="" alt=""><img src="img/05-how-to-use.jpg" class="" alt=""><img src="img/06-amount.jpg" class="" alt=""><img src="img/07-before-after.jpg" class="" alt=""><img src="img/08-fragrance.jpg" class="" alt=""></div><p class="fname">メイン：純白背景（RGB255）・商品が画面の約85%・文字なし</p></div>
+<div><div style="font-size:13px;color:var(--sub)">ブランド：GRANI</div>
+<div style="font-weight:900;font-size:20px;line-height:1.5;margin:6px 0 12px">GRANI（グラニ） シルキーモイストヘアミルク 200ml 洗い流さないトリートメント ドライヤーの熱で浸透※ トステア® γ-ドコサラクトン配合 ピュアリネンの香り</div>
+<div style="font-size:12px;color:var(--sub)">※毛髪の内部まで</div>
+<div style="font-weight:900;margin-top:16px">この商品について</div>
+<ul style="font-size:14px;margin:8px 0 0 18px;display:grid;gap:6px">
+<li>【熱を味方にするヘアミルク】ドライヤーやアイロンの熱をきっかけに、成分が毛髪の内部まで浸透します。</li>
+<li>【W成分配合】トステア®（内部）とγ-ドコサラクトン（表面）の2つの成分を配合。</li>
+<li>【夜・朝・日中の1本3役】夜は補修・保湿、朝はまとまり・熱保護、日中は広がり対策に。</li>
+<li>【使用量の目安】ミディアム：パール1〜2粒分／ロング：500円玉大1個分。</li>
+<li>【香り】ピュアリネン。香水を邪魔しない控えめな香り。</li></ul></div></div>
+<div class="aplus" style="padding:0 24px 30px"><span class="lbl">商品紹介コンテンツ（A+・標準モジュール）</span>
+<img src="img/aplus-01-header-970x600.jpg" alt="" loading="lazy"><div style="height:14px"></div>
+<img src="img/aplus-02-band-970x300.jpg" alt="" loading="lazy"><div style="height:14px"></div>
+<div class="a3">
+<div><img src="img/aplus-03-use1-300x300.jpg" alt=""><b>NIGHT 夜のケア</b><p>タオルドライ後の濡れた髪になじませ、ドライヤーで乾かす。</p></div>
+<div><img src="img/aplus-03-use2-300x300.jpg" alt=""><b>MORNING 朝のスタイリング</b><p>乾いた髪に少量。ドライヤーやアイロンで仕上げる。</p></div>
+<div><img src="img/aplus-03-use3-300x300.jpg" alt=""><b>DAYTIME 日中の保護</b><p>外出前や、パサつきが気になるときに毛先へ。</p></div></div>
+<div style="height:14px"></div><img src="img/aplus-04-fragrance-970x300.jpg" alt="" loading="lazy">
+<p class="fname" style="margin-top:10px">3つ並びの見出し・説明文はA+の入力欄にテキストで入れます（画像には入れない）。</p></div></div>
+</div>
+<aside class="sticky" style="display:grid;gap:14px">
+<div class="card"><div class="k">CHARACTER</div><div style="font-weight:900;font-size:18px;margin:4px 0 10px">このモールの特性</div><ul class="ck"><li>ブランド名や悩みワードで検索して、比べて買う</li><li>画像と「この商品について」（箇条書き）で判断される</li><li>レビューの星と件数はAmazon上のものだけが表示される</li></ul></div>
+<div class="card"><div class="k">CAN DO</div><div style="font-weight:900;font-size:18px;margin:4px 0 10px">できること</div><ul class="ck"><li>メイン＋サブ画像（今回8枚）</li><li>商品紹介コンテンツ（A+）※ブランド登録が必要</li><li>ブランドストア（ブランド専用ページ）</li><li>箇条書き5項目・商品説明・検索キーワード</li></ul></div>
+<div class="card"><div class="k">RULES</div><div style="font-weight:900;font-size:18px;margin:4px 0 10px">守るルール・制約</div><ul class="ck ng"><li>メインは純白背景（RGB255）・商品のみ・商品が約85%</li><li>ズームには長辺1000px以上、1600px以上が推奨</li><li>A+に価格・セール・他社比較は入れない</li><li>@cosmeのクチコミや評価は入れない（Amazonのレビュー以外の評価を載せない方針）</li></ul></div>
+<div class="card"><div class="k">FILES</div><div style="font-weight:900;font-size:18px;margin:4px 0 10px">入稿サイズ</div><ul class="ck"><li>メイン・サブ：2000×2000px</li><li>A+ヘッダー：970×600px</li><li>A+帯：970×300px</li><li>A+ 3つ並び：300×300px×3</li></ul>
+<a class="btn g" style="margin-top:16px" href="grani-amazon-images.zip">画像一式をダウンロード（zip）</a></div></aside>
+</div><div class="foot">写真の一部は生成画像です。クチコミ・評価の掲載は、@cosmeの掲載許可と最新の件数を確認してから行います。<br>© 2026 MAKEit INC.（制作：AI mania）</div></div>
+<script>document.querySelectorAll('.thumbs').forEach(function(t){var m=document.getElementById(t.dataset.main);t.addEventListener('click',function(e){if(e.target.tagName!=='IMG')return;m.src=e.target.src;t.querySelectorAll('img').forEach(function(i){i.classList.toggle('on',i===e.target)});});});</script>
+</body></html>

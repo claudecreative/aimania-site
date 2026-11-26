@@ -1,0 +1,80 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>モール展開 テストサイト｜GRANI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#141316;--bg:#F4F2F0;--pink:#FF2D8F;--yel:#E8FF2E;--sub:#6B6772;--line:rgba(20,19,22,.12);--grad:linear-gradient(95deg,#FF7A00,#FF3D5A 48%,#FF2D8F);--en:'Montserrat',sans-serif}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.7}
+a{color:inherit}
+.w{max-width:1200px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+.k{font:800 11px var(--en);letter-spacing:.3em;text-transform:uppercase;color:var(--pink)}
+.bar{background:var(--ink);color:#fff;font-size:12px;text-align:center;padding:8px 12px}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:12px;flex-wrap:wrap}
+@media(max-width:600px){nav.tabs{width:100%;flex-wrap:nowrap;overflow-x:auto}nav.tabs a{padding:7px 13px;font-size:13px;white-space:nowrap}.bar{font-size:11px}}
+.logo{font:900 24px var(--en);color:var(--pink);text-decoration:none}
+nav.tabs{display:flex;gap:6px;flex-wrap:wrap}
+nav.tabs a{text-decoration:none;font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:#fff}
+nav.tabs a.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+h1{font-weight:900;font-size:clamp(28px,4.6vw,48px);line-height:1.25;margin:10px 0 14px}
+.lead{color:var(--sub);max-width:760px}
+.card{background:#fff;border-radius:18px;padding:26px;border:1px solid var(--line)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:860px){.grid3{grid-template-columns:1fr}}
+table.cmp{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;font-size:14px}
+table.cmp th,table.cmp td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.cmp thead th{background:var(--ink);color:#fff;font-weight:700}
+table.cmp tbody th{width:150px;color:var(--sub);font-weight:700;background:#faf9f8}
+.scroll{overflow-x:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 20px;border-radius:999px}
+.btn.g{background:var(--grad)}
+ul.ck{list-style:none;display:grid;gap:8px;font-size:14px}
+ul.ck li{padding-left:22px;position:relative}
+ul.ck li:before{content:'';position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--pink)}
+ul.ng li:before{background:#bbb}
+.foot{color:var(--sub);font-size:12px;padding:40px 0 60px}
+.mock{background:#fff;border-radius:18px;border:1px solid var(--line);overflow:hidden}
+.mock-h{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--sub);background:#faf9f8}
+.pd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;padding:24px}
+@media(max-width:860px){.pd{grid-template-columns:1fr}}
+.gal-main{width:100%;aspect-ratio:1;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:12px}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(62px,1fr));gap:8px;margin-top:10px}
+.thumbs img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer}
+.thumbs img.on{border-color:var(--pink)}
+.desc{max-width:750px;margin:0 auto}
+.desc img{width:100%;display:block}
+.lbl{display:inline-block;font:800 10px var(--en);letter-spacing:.2em;background:var(--ink);color:#fff;padding:4px 10px;border-radius:4px;margin:18px 0 8px}
+.side{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
+@media(max-width:960px){.side{grid-template-columns:1fr}}
+.sticky{position:sticky;top:16px}
+.fname{font-size:11px;color:var(--sub);margin-top:4px;word-break:break-all}
+.aplus img{width:100%;display:block}
+.a3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.a3 p{font-size:13px;color:var(--sub);margin-top:6px}
+.a3 b{display:block;font-size:15px;margin-top:8px}
+</style></head><body>
+<div class="bar">GRANI モール展開 テストサイト（社内確認用・未公開）｜画面は構成イメージで、各モールの実際の表示とは異なります</div>
+<div class="w"><header class="top"><a class="logo" href="./">GRANI</a>
+<nav class="tabs"><a href="./index.html" class="on">一覧</a><a href="./rakuten/" class="">楽天市場</a><a href="./amazon/" class="">Amazon</a><a href="./qoo10/" class="">Qoo10</a></nav></header>
+
+<div class="k">MALL PAGES</div><h1>楽天・Amazon・Qoo10<br>モール展開 テストサイト</h1>
+<p class="lead">ブランドサイトと同じトンマナで、3つのモールそれぞれのルールと客層に合わせて作り分けた商品ページの構成案です。画像はそのまま入稿できるサイズで書き出しています。</p>
+<div class="grid3" style="margin-top:30px">
+<a href="rakuten/" class="card" style="text-decoration:none;display:block;padding:0;overflow:hidden">
+<img src="rakuten/img/desc-01.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 0;display:block;background:#fff"><div style="padding:20px 22px">
+<div class="k">RAKUTEN</div><div style="font-weight:900;font-size:22px;margin:4px 0 8px">楽天市場</div><div style="font-size:14px;color:var(--sub)">縦長の説明画像で、比べて納得してもらう</div>
+<div style="margin-top:12px;font-weight:700;font-size:14px">見る →</div></div></a>
+<a href="amazon/" class="card" style="text-decoration:none;display:block;padding:0;overflow:hidden">
+<img src="amazon/img/01-main.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 0;display:block;background:#fff"><div style="padding:20px 22px">
+<div class="k">AMAZON</div><div style="font-weight:900;font-size:22px;margin:4px 0 8px">Amazon</div><div style="font-size:14px;color:var(--sub)">白背景メイン＋1枚1メッセージ＋A+</div>
+<div style="margin-top:12px;font-weight:700;font-size:14px">見る →</div></div></a>
+<a href="qoo10/" class="card" style="text-decoration:none;display:block;padding:0;overflow:hidden">
+<img src="qoo10/img/thumb-02.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 0;display:block;background:#fff"><div style="padding:20px 22px">
+<div class="k">QOO10</div><div style="font-weight:900;font-size:22px;margin:4px 0 8px">Qoo10</div><div style="font-size:14px;color:var(--sub)">ポップなビジュアル＋イベント差し替え枠</div>
+<div style="margin-top:12px;font-weight:700;font-size:14px">見る →</div></div></a></div>
+<h2 style="font-weight:900;font-size:26px;margin:50px 0 16px">3モールの違い</h2>
+<div class="scroll"><table class="cmp"><thead><tr><th></th><th>楽天市場</th><th>Amazon</th><th>Qoo10</th></tr></thead><tbody><tr><th>客層・買い方</th><td>ポイント・クーポンとクチコミで比べて選ぶ</td><td>指名検索・悩みワードで比べて買う</td><td>20〜30代。SNS・韓国コスメ文脈。イベントで集中</td></tr><tr><th>見せ方の方針</th><td>縦長の説明画像で「悩み→仕組み→使い方→声」</td><td>1枚1メッセージの画像＋A+でブランドを伝える</td><td>ポップで攻めたビジュアル＋イベント差し替え枠</td></tr><tr><th>今回の制作物</th><td>商品画像6枚＋説明画像8枚</td><td>メイン＋サブ8枚＋A+ 6点</td><td>商品画像2枚＋詳細画像7枚</td></tr><tr><th>主なルール</th><td>1枚目：文字20%以内・枠線なし・白か写真背景</td><td>メイン：純白背景・商品約85%・文字なし／A+に価格・セール不可</td><td>イベント表記はQoo10ルールに合わせる</td></tr><tr><th>入れていないもの</th><td>—</td><td>@cosmeの評価・クチコミ</td><td>—</td></tr><tr><th>先方にもらうもの</th><td>RMSの作業用ID</td><td>セラーセントラルの招待・ブランド登録の有無</td><td>QSMのサブアカウント</td></tr></tbody></table></div>
+<div class="card" style="margin-top:22px"><div class="k">TO CONFIRM</div><div style="font-weight:900;font-size:18px;margin:4px 0 10px">公開前に確認すること</div>
+<ul class="ck"><li>@cosmeの評価・クチコミの掲載許可（楽天・Qoo10で使用）</li><li>全成分表示・使用上の注意の原稿</li><li>Amazonのブランド登録の有無（A+に必要）</li><li>Qoo10の詳細画像の推奨サイズ（QSMで確認）</li><li>価格・送料・ポイント・クーポンの表示はモール側の設定に合わせる</li></ul></div>
+<div class="foot">写真の一部は生成画像です。クチコミ・評価の掲載は、@cosmeの掲載許可と最新の件数を確認してから行います。<br>© 2026 MAKEit INC.（制作：AI mania）</div></div>
+<script>document.querySelectorAll('.thumbs').forEach(function(t){var m=document.getElementById(t.dataset.main);t.addEventListener('click',function(e){if(e.target.tagName!=='IMG')return;m.src=e.target.src;t.querySelectorAll('img').forEach(function(i){i.classList.toggle('on',i===e.target)});});});</script>
+</body></html>
