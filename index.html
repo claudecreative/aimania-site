@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@AIMANIA_tech">
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Oswald:wght@500;600;700&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
 <style>
 [hidden]{display:none!important}
 /* 余白の広い紙面に、タイトルバー付きウィンドウとドット絵キャラを置く */
@@ -161,6 +161,60 @@ br.sp{display:none}@media (max-width:600px){br.sp{display:inline}.hero-h{font-si
 #wk-game>div:not(.win){grid-template-columns:1fr 1fr!important;gap:22px 14px!important}
 #wk-game>div:not(.win) .lift>div:first-of-type{font-size:15px!important}
 }
+/* ===== v2 デザイン（もち）：タイポと見出しの型 ===== */
+.en{font-family:'Oswald','Zen Kaku Gothic New',sans-serif!important;font-weight:600!important;font-size:15px!important;letter-spacing:.22em!important;line-height:1.4!important}
+.en:before{width:8px;height:8px;margin-right:10px;vertical-align:1px}
+.sh{position:relative;isolation:isolate}
+.sh:before{content:attr(data-en);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:-1;font:700 clamp(72px,15vw,190px)/1 'Oswald',sans-serif;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1.5px rgba(29,29,31,.11);white-space:nowrap;pointer-events:none}
+.sh.l:before{left:-.04em;transform:translateY(-56%)}
+#about .sh.l:before{font-size:clamp(72px,12vw,150px)}
+.hero{position:relative;isolation:isolate}
+.hero .ghost{position:absolute;left:50%;top:40px;transform:translateX(-50%);z-index:-1;font:700 clamp(120px,26vw,330px)/.9 'Oswald',sans-serif;letter-spacing:.02em;color:transparent;-webkit-text-stroke:2px rgba(29,29,31,.07);white-space:nowrap;pointer-events:none}
+/* Step / Week ラベル */
+#flow [style*="Cormorant"]{font-family:'Oswald',sans-serif!important;font-weight:600!important;font-size:16px!important;letter-spacing:.16em!important;text-transform:uppercase}
+/* 実績タブ */
+#works .wk-pick{gap:14px}
+.wk-ask{font-size:13px;color:#5A5A5A}
+.wk-tabs button{white-space:normal;min-height:76px;justify-content:center}
+.wk-tabs b .nb{display:inline-block}
+.wk-tabs i{background:#2F5BEA}
+.pst>div{grid-template-columns:7.2em 1fr 1.3fr!important}
+.price .est+.tax{flex-basis:100%;margin:0 0 4px}
+.pst{line-height:1.5}
+#faq h3{line-height:1.55}
+@media (max-width:600px){.hero .ghost{font-size:25vw;top:28px}.hero-h .nudge{right:-26px!important;bottom:-38px!important}}
+.wk-note{margin:0;font-size:14px;color:#5A5A5A}
+.tabbed .wk-panel{scroll-margin-top:24px}
+.wk-next button{font-size:15px;max-width:100%;white-space:normal}
+@media (max-width:760px){.wk-tabs{gap:10px}.wk-tabs button{padding:12px 12px 11px;min-height:70px}.wk-tabs small{font-size:11.5px}}
+/* ===== 2026-11 v2：デザインFB反映 ===== */
+/* 英字ラベル：細い斜体 → 読める太さ・大きさ（ドットの黄色マーカー付き） */
+.en{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:20px;letter-spacing:.16em;text-transform:uppercase;line-height:1.3}
+.en:before{content:"";display:inline-block;width:8px;height:8px;margin-right:10px;background:#FFD21F;border:2px solid #1D1D1F;vertical-align:2px}
+#motto .en:before{border-color:#FFD21F}
+/* ヒーロー：見出し（青枠＋タイプライター）を主役に */
+@media (min-width:601px){.hero-h{line-height:1.25!important}}
+/* 実績カード：相談＝主ボタン、サイトを見る＝副ボタン */
+.btn.sub{padding:10px 20px;font-size:14px;border-radius:10px}
+@media (max-width:420px){.btn{padding:12px 20px}}
+/* 料金：金額・〜・税別の並びをそろえる／お見積りは和文書体で */
+.price{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:4px;min-height:60px}
+.price .amt{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(48px,13vw,60px);line-height:1;letter-spacing:-.01em}
+.price .from{font-family:'Shippori Mincho',serif;font-weight:700;font-size:26px;line-height:1}
+.price .est{font-family:'Shippori Mincho',serif;font-weight:700;font-size:34px;line-height:60px;letter-spacing:.04em}
+.price .tax{font-size:13px;color:#5A5A5A;margin-left:6px}
+/* 1文字・単語途中の改行を防ぐ（Safariでも同じ結果になるよう .nb で明示） */
+.nb{display:inline-block}
+@media (max-width:600px){
+ /* FAQ：アイコンを上、質問と回答を全幅に */
+ #faq .qa{flex-direction:column;gap:10px!important;padding:18px 18px 20px!important}
+ #faq .qa>div{width:100%}
+ /* プロセスシートの表 */
+ #motto [role=tabpanel]>div:nth-child(2){padding:20px 16px!important}
+ .pst{font-size:12px!important}
+ .pst>div{grid-template-columns:6em 7.2em 1fr!important}
+ .pst span{padding:4px 5px!important}
+}
 </style>
 </head>
 <body>
@@ -246,13 +300,14 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </nav>
 </header>
 
-<section style="max-width: 1100px; margin: 0 auto; padding: 88px 24px 72px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
-<div role="img" aria-label="AI mania inc." style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 24px">
-<span id="mog3d" title="クリックでジャンプ" style="position: relative; display: inline-block; width: 108px; height: 108px"><span class="chr rb hop" style="font-size: 9px"></span></span>
-<span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(52px, 9vw, 120px); letter-spacing: -.03em; line-height: 1">AI mania inc.</span>
+<section class="hero" style="max-width: 1100px; margin: 0 auto; padding: 72px 24px 72px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center">
+<span class="ghost" aria-hidden="true">MANIA</span>
+<div role="img" aria-label="AI mania inc." style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 18px">
+<span id="mog3d" title="クリックでジャンプ" style="position: relative; display: inline-block; width: 84px; height: 84px"><span class="chr rb hop" style="font-size: 7px"></span></span>
+<span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(40px, 5.6vw, 72px); letter-spacing: -.03em; line-height: 1">AI mania inc.</span>
 </div>
-<h1 class="hero-h" style="margin: 16px 0 28px; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(28px, 5.4vw, 72px); line-height: 1.3; letter-spacing: .01em">AIで<br class="sp">クリエイティブを、<br>もっと<span style="position: relative; display: inline-block; outline: 2px solid #2F5BEA; outline-offset: 4px; margin: .22em 8px 0 .12em; min-height: 1.3em; text-align: left"><span id="typed">おもしろく！</span><span class="caret" aria-hidden="true"></span><span aria-hidden="true" style="position: absolute; left: -9px; top: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span aria-hidden="true" style="position: absolute; right: -9px; top: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span aria-hidden="true" style="position: absolute; left: -9px; bottom: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span aria-hidden="true" style="position: absolute; right: -9px; bottom: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span class="nudge" aria-hidden="true" style="position: absolute; right: -44px; bottom: -40px; display: flex; align-items: flex-start"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px" fill="#1D1D1F" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"><path d="M4 2l15 8-7 2-2 7z"></path></svg><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 12px; font-weight: 700; line-height: 1.6; background: #FF4B3A; color: #fff; padding: 0 8px; border-radius: 4px; margin-top: 16px; letter-spacing: 0">mania</span></span></span></h1>
-<p style="margin: 0; font-size: 18px; max-width: 36em"><span class="nb">AIがなかった頃から、</span><span class="nb">販促の企画と制作の現場にいました。</span><span class="nb">何が通って、何が差し戻されるかを知っているから、</span><span class="nb">AIの出力を「そのままクライアントに出せる」ところまで仕上げます。</span><span class="nb">使ったAIも、人が直したところも、ぜんぶ見せます。</span></p>
+<h1 class="hero-h" style="margin: 8px 0 28px; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 6.2vw, 84px); line-height: 1.3; letter-spacing: .01em">AIで<br class="sp">クリエイティブを、<br>もっと<span style="position: relative; display: inline-block; outline: 2px solid #2F5BEA; outline-offset: 4px; margin: .22em 8px 0 .12em; min-height: 1.3em; text-align: left"><span id="typed">おもしろく！</span><span class="caret" aria-hidden="true"></span><span aria-hidden="true" style="position: absolute; left: -9px; top: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span aria-hidden="true" style="position: absolute; right: -9px; top: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span aria-hidden="true" style="position: absolute; left: -9px; bottom: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span aria-hidden="true" style="position: absolute; right: -9px; bottom: -9px; width: 8px; height: 8px; background: #fff; border: 2px solid #2F5BEA"></span><span class="nudge" aria-hidden="true" style="position: absolute; right: -44px; bottom: -40px; display: flex; align-items: flex-start"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px" fill="#1D1D1F" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"><path d="M4 2l15 8-7 2-2 7z"></path></svg><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 12px; font-weight: 700; line-height: 1.6; background: #FF4B3A; color: #fff; padding: 0 8px; border-radius: 4px; margin-top: 16px; letter-spacing: 0">mania</span></span></span></h1>
+<p style="margin: 0; font-size: 18px; max-width: 36em"><span class="nb"><span class="nb">AIが</span><span class="nb">なかった</span><span class="nb">頃から、</span></span><span class="nb"><span class="nb">販促の</span><span class="nb">企画と</span><span class="nb">制作の</span><span class="nb">現場に</span><span class="nb">いました。</span></span><span class="nb"><span class="nb">何が</span><span class="nb">通って、</span><span class="nb">何が</span><span class="nb">差し戻されるかを</span><span class="nb">知っているから、</span></span><span class="nb"><span class="nb">AIの</span><span class="nb">出力を</span><span class="nb">「そのまま</span><span class="nb">クライアントに</span><span class="nb">出せる」ところまで</span><span class="nb">仕上げます。</span></span><span class="nb"><span class="nb">使ったAIも、</span><span class="nb">人が</span><span class="nb">直した</span><span class="nb">ところも、</span><span class="nb">ぜんぶ</span><span class="nb">見せます。</span></span></p>
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding-top: 8px">
 <a href="#contact" class="btn pri">無料で相談する</a>
 <a href="#partner" class="btn">代理店・制作会社の方へ</a>
@@ -271,7 +326,7 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </div>
 <div id="gm-win" class="win" style="position: absolute; left: 6%; top: 32px; width: min(54%, 420px); box-shadow: 3px 3px 0 #1D1D1F; z-index: 3">
 <div class="tb" style="font-size: 12px; padding: 3px 8px"><span class="cb"></span><span class="tl"></span><span>ミニゲーム</span><span class="tl"></span></div>
-<div style="padding: 14px 18px; font-family: 'Shippori Mincho', serif; font-size: clamp(18px, 2.4vw, 26px); line-height: 1.5; text-align: left"><span id="gm-msg">クリックでスタート</span><br><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 13px; font-weight: 700; line-height: 1.6; display: block"><span class="nb">マウスで左右に移動、</span><span class="nb">クリックでジャンプ。</span><span class="nb">コインを集めて、</span><span class="nb">敵は上から踏もう。</span></span></div>
+<div style="padding: 14px 18px; font-family: 'Shippori Mincho', serif; font-size: clamp(18px, 2.4vw, 26px); line-height: 1.5; text-align: left"><span id="gm-msg"><span class="nb">クリックで</span><span class="nb">スタート</span></span><br><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 13px; font-weight: 700; line-height: 1.6; display: block"><span class="nb"><span class="nb">マウスで</span><span class="nb">左右に</span><span class="nb">移動、</span></span><span class="nb"><span class="nb">クリックで</span><span class="nb">ジャンプ。</span></span><span class="nb"><span class="nb">コインを</span><span class="nb">集めて、</span></span><span class="nb"><span class="nb">敵は</span><span class="nb">上から</span><span class="nb">踏もう。</span></span></span></div>
 </div>
 <div class="win" aria-hidden="true" style="position: absolute; right: 108px; top: 12px; width: 196px; box-shadow: 3px 3px 0 #1D1D1F; transform: scale(.7); transform-origin: top right">
 <div class="tb" style="font-size: 12px; padding: 3px 8px"><span class="cb"></span><span class="tl"></span><span>パレット</span><span class="tl"></span></div>
@@ -298,10 +353,10 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <section id="about" style="max-width: 1100px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 56px">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 56px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 16px">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">About us</div>
-<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 50px); line-height: 1.4"><span class="nb">企画から考える、</span><br><span class="nb">AIクリエイティブの</span><br><span class="nb">マニアたち。</span></h2>
-<p data-munch="つくる前の「何をやるか」を決めて、AIで一気に形にする。" style="margin: 0; font-size: 17px"><span class="nb">販促の成果は、</span><span class="nb">つくる前の「何をやるか」で決まります。</span><span class="nb">大手企業の販促企画に携わってきた経験をもとに、</span><span class="nb">目的とターゲットから企画を組み立て、</span><span class="nb">AIで一気に形にします。</span></p>
-<p style="margin: 0; font-size: 17px"><span class="nb">どのAIを、どの工程で、どう組み合わせるか。</span><span class="nb">そこに編集とデザインの技術を重ねて、</span><span class="nb">はじめて「使える」クリエイティブになります。</span></p>
+<div class="en">About us</div>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 50px); line-height: 1.4"><span class="nb"><span class="nb">企画から</span><span class="nb">考える、</span></span><br><span class="nb">AIクリエイティブの</span><br><span class="nb">マニアたち。</span></h2>
+<p data-munch="つくる前の|「何を|やるか」を|決めて、|AIで|一気に|形にする。" style="margin: 0; font-size: 17px"><span class="nb"><span class="nb">販促の</span><span class="nb">成果は、</span></span><span class="nb"><span class="nb">つくる前の</span><span class="nb">「何を</span><span class="nb">やるか」で</span><span class="nb">決まります。</span></span><span class="nb"><span class="nb">大手企業の</span><span class="nb">販促企画に</span><span class="nb">携わってきた</span><span class="nb">経験を</span><span class="nb">もとに、</span></span><span class="nb"><span class="nb">目的と</span><span class="nb">ターゲットから</span><span class="nb">企画を</span><span class="nb">組み立て、</span></span><span class="nb"><span class="nb">AIで</span><span class="nb">一気に</span><span class="nb">形にします。</span></span></p>
+<p style="margin: 0; font-size: 17px"><span class="nb"><span class="nb">どのAIを、</span><span class="nb">どの</span><span class="nb">工程で、</span><span class="nb">どう</span><span class="nb">組み合わせるか。</span></span><span class="nb"><span class="nb">そこに</span><span class="nb">編集と</span><span class="nb">デザインの</span><span class="nb">技術を</span><span class="nb">重ねて、</span></span><span class="nb"><span class="nb">はじめて</span><span class="nb">「使える」クリエイティブに</span><span class="nb">なります。</span></span></p>
 </div>
 <div class="win" aria-hidden="true">
 <div class="tb"><span class="cb"></span><span class="tl"></span><span>制作中…</span><span class="tl"></span></div>
@@ -331,18 +386,18 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px">
 <div style="border-top: 6px solid #19C25F; padding-top: 16px">
 <div style="font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1">1</div>
-<h3 style="margin: 8px 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 24px">企画から、一緒に考える</h3>
-<p style="margin: 0">目的、ターゲット、予算感をうかがい、施策の組み立てからご提案します。「何をつくるか」が決まっていない段階でも大丈夫です。</p>
+<h3 style="margin: 8px 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 24px"><span class="nb">企画から、</span><span class="nb">一緒に</span><span class="nb">考える</span></h3>
+<p style="margin: 0"><span class="nb">目的、</span><span class="nb">ターゲット、</span><span class="nb">予算感を</span><span class="nb">うかがい、</span><span class="nb">施策の</span><span class="nb">組み立てから</span><span class="nb">ご提案します。</span><span class="nb">「何を</span><span class="nb">つくるか」が</span><span class="nb">決まっていない</span><span class="nb">段階でも</span><span class="nb">大丈夫です。</span></p>
 </div>
 <div style="border-top: 6px solid #FF8DEA; padding-top: 16px">
 <div style="font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1">2</div>
 <h3 style="margin: 8px 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 24px">AIだから、速い</h3>
-<p data-munch="初回アップ1週間、納品1か月。急ぎもOK。" style="margin: 0">構成案、ビジュアル、素材づくりをAIで一気に進めます。初回アップは1週間以内、納品まで1か月が標準です。急ぎの案件や、提案前のたたき台づくりにも対応します。</p>
+<p data-munch="初回アップ1週間、|納品1か月。|急ぎもOK。" style="margin: 0"><span class="nb">構成案、</span><span class="nb">ビジュアル、</span><span class="nb">素材づくりを</span><span class="nb">AIで</span><span class="nb">一気に</span><span class="nb">進めます。</span><span class="nb">初回アップは</span><span class="nb">1週間以内、</span><span class="nb">納品まで</span><span class="nb">1か月が</span><span class="nb">標準です。</span><span class="nb">急ぎの</span><span class="nb">案件や、</span><span class="nb">提案前の</span><span class="nb">たたき台づくりにも</span><span class="nb">対応します。</span></p>
 </div>
 <div style="border-top: 6px solid #2F5BEA; padding-top: 16px">
 <div style="font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1">3</div>
-<h3 style="margin: 8px 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 24px">人の目で、仕上げる</h3>
-<p style="margin: 0">AIの出力をそのまま納品しません。レイアウト、色、コピー、カット編集まで、人の手で整えます。</p>
+<h3 style="margin: 8px 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 24px"><span class="nb">人の目で、</span><span class="nb">仕上げる</span></h3>
+<p style="margin: 0"><span class="nb">AIの</span><span class="nb">出力を</span><span class="nb">そのまま</span><span class="nb">納品しません。</span><span class="nb">レイアウト、</span><span class="nb">色、</span><span class="nb">コピー、</span><span class="nb">カット編集まで、</span><span class="nb">人の手で</span><span class="nb">整えます。</span></p>
 </div>
 </div>
 </section>
@@ -350,13 +405,13 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <section id="motto" style="background: #1D1D1F; color: #fff; padding: 64px 0; scroll-margin-top: 16px">
 <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px 56px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 14px">
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 24px; color: #FFD21F">Our motto</h2>
+<h2 class="en" style="margin: 0; color: #FFD21F">Our motto</h2>
 <div role="tablist" aria-label="AI mania のモットー" style="display: flex; flex-direction: column; align-items: flex-start">
 <button type="button" role="tab" id="mt-t0" aria-controls="mt-p0" aria-selected="true"><span>隠さない。</span><span class="mk chr horn hop" aria-hidden="true" style="font-size: 3px; --c: #19C25F"></span></button>
 <button type="button" role="tab" id="mt-t1" aria-controls="mt-p1" aria-selected="false" tabindex="-1"><span>共有する。</span><span class="mk chr cat hop" aria-hidden="true" style="font-size: 3px; --c: #FFD21F"></span></button>
 <button type="button" role="tab" id="mt-t2" aria-controls="mt-p2" aria-selected="false" tabindex="-1"><span>伸ばす。</span><span class="mk chr hop" aria-hidden="true" style="font-size: 3px; --c: #FF8DEA; --a: #FFD21F"></span></button>
 </div>
-<p style="margin: 0; font-size: 16px; color: #CFCFCF"><span class="nb">AIでのクリエイティブは、</span><span class="nb">まだ始まったばかり。</span><span class="nb">だから、つくり方を隠さず共有し、</span><span class="nb">お客さまと一緒に伸ばしていきます。</span></p>
+<p style="margin: 0; font-size: 16px; color: #CFCFCF"><span class="nb"><span class="nb">AIでの</span><span class="nb">クリエイティブは、</span></span><span class="nb"><span class="nb">まだ</span><span class="nb">始まったばかり。</span></span><span class="nb"><span class="nb">だから、</span><span class="nb">つくり方を</span><span class="nb">隠さず</span><span class="nb">共有し、</span></span><span class="nb"><span class="nb">お客さまと</span><span class="nb">一緒に</span><span class="nb">伸ばしていきます。</span></span></p>
 </div>
 <div class="win" style="color: #1D1D1F">
 <div class="tb"><span class="cb"></span><span class="tl"></span><span>motto.exe</span><span class="tl"></span></div>
@@ -366,8 +421,8 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="height: 10px; background: #19C25F; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1">
 <div style="font-size: 13px; font-weight: 700; color: #5A5A5A">01　隠さない</div>
-<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.4">使ったAIは、ぜんぶ見せます。</h3>
-<p style="margin: 0; font-size: 15px">どのAIを、どの工程で、どう使ったかをオープンに。ブラックボックスにしないから、権利や品質の面でも安心して任せられます。</p>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.4"><span class="nb">使ったAIは、</span><span class="nb">ぜんぶ</span><span class="nb">見せます。</span></h3>
+<p style="margin: 0; font-size: 15px"><span class="nb">どのAIを、</span><span class="nb">どの</span><span class="nb">工程で、</span><span class="nb">どう</span><span class="nb">使ったかを</span><span class="nb">オープンに。</span><span class="nb">ブラックボックスにしないから、</span><span class="nb">権利や</span><span class="nb">品質の</span><span class="nb">面でも</span><span class="nb">安心して</span><span class="nb">任せられます。</span></p>
 <div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; font-weight: 700">
 <span class="pop" style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 10px; background: #E4EDF2">文章生成AI</span>
 <span class="pop" style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 10px; background: #E4EDF2; animation-delay: .3s">画像生成AI</span>
@@ -383,10 +438,10 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="height: 10px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1">
 <div style="font-size: 13px; font-weight: 700; color: #5A5A5A">02　共有する</div>
-<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.4">制作プロセスシートを、お渡しします。</h3>
-<p style="margin: 0; font-size: 15px">使ったAIと工程、プロンプトの要点を1枚に。社内での再利用や、次の企画に活かせます。</p>
-<div style="margin-top: auto; border: 2px solid #1D1D1F; border-radius: 6px; overflow: hidden; font-size: 13px">
-<div class="pop" style="display: grid; grid-template-columns: 6.5em 1fr 1.3fr; background: #F3EFE4; font-weight: 700; border-bottom: 2px solid #1D1D1F"><span style="padding: 4px 10px">工程</span><span style="padding: 4px 10px">使ったAI</span><span style="padding: 4px 10px">人の手で整えたところ</span></div>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.4"><span class="nb">制作プロセスシートを、</span><span class="nb">お渡しします。</span></h3>
+<p style="margin: 0; font-size: 15px"><span class="nb">使ったAIと</span><span class="nb">工程、</span><span class="nb">プロンプトの</span><span class="nb">要点を</span><span class="nb">1枚に。</span><span class="nb">社内での</span><span class="nb">再利用や、</span><span class="nb">次の</span><span class="nb">企画に</span><span class="nb">活かせます。</span></p>
+<div class="pst" style="margin-top: auto; border: 2px solid #1D1D1F; border-radius: 6px; overflow: hidden; font-size: 13px">
+<div class="pop" style="display: grid; grid-template-columns: 6.5em 1fr 1.3fr; background: #F3EFE4; font-weight: 700; border-bottom: 2px solid #1D1D1F"><span style="padding: 4px 10px">工程</span><span style="padding: 4px 10px">使ったAI</span><span style="padding: 4px 10px"><span class="nb">人の手で</span><span class="nb">整えたところ</span></span></div>
 <div class="pop" style="display: grid; grid-template-columns: 6.5em 1fr 1.3fr; border-bottom: 1px solid #D8D3C6; animation-delay: .3s"><span style="padding: 4px 10px; font-weight: 700">企画</span><span style="padding: 4px 10px">文章生成AI</span><span style="padding: 4px 10px">言葉づかいを調整</span></div>
 <div class="pop" style="display: grid; grid-template-columns: 6.5em 1fr 1.3fr; border-bottom: 1px solid #D8D3C6; animation-delay: .6s"><span style="padding: 4px 10px; font-weight: 700">ビジュアル</span><span style="padding: 4px 10px">画像生成AI</span><span style="padding: 4px 10px">構図・色・文字</span></div>
 <div class="pop" style="display: grid; grid-template-columns: 6.5em 1fr 1.3fr; animation-delay: .9s"><span style="padding: 4px 10px; font-weight: 700">実装</span><span style="padding: 4px 10px">コード生成AI</span><span style="padding: 4px 10px">表示確認・仕上げ</span></div>
@@ -398,8 +453,8 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="height: 10px; background: #FF8DEA; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1">
 <div style="font-size: 13px; font-weight: 700; color: #5A5A5A">03　伸ばす</div>
-<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.4">AIの使い方を、一緒に伸ばす。</h3>
-<p style="margin: 0; font-size: 15px">うまくいったこと、いかなかったことを一緒に振り返り、次の制作に活かします。</p>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.4"><span class="nb">AIの</span><span class="nb">使い方を、</span><span class="nb">一緒に</span><span class="nb">伸ばす。</span></h3>
+<p style="margin: 0; font-size: 15px"><span class="nb">うまくいった</span><span class="nb">こと、</span><span class="nb">いかなかった</span><span class="nb">ことを</span><span class="nb">一緒に</span><span class="nb">振り返り、</span><span class="nb">次の</span><span class="nb">制作に</span><span class="nb">活かします。</span></p>
 <div aria-hidden="true" style="margin-top: auto; display: flex; align-items: flex-end; gap: 14px; height: 96px; border-bottom: 4px solid #1D1D1F; padding: 0 6px">
 <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1"><div class="grow" style="width: 100%; height: 26px; background: #E4EDF2; border: 2px solid #1D1D1F; border-bottom: 0"></div></div>
 <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1"><div class="grow" style="width: 100%; height: 46px; background: #FFD21F; border: 2px solid #1D1D1F; border-bottom: 0; animation-delay: .3s"></div></div>
@@ -414,9 +469,18 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </section>
 
 <section id="works" style="max-width: 1100px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 40px">
-<div style="text-align: center">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">Works</div>
+<div class="sh" data-en="WORKS" style="text-align: center">
+<div class="en">Works</div>
 <h2 style="margin: 4px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4.2vw, 52px)">実績・制作事例</h2>
+</div>
+<div class="wk-pick">
+<div class="wk-ask"><span class="nb">見たい</span><span class="nb">ものを</span><span class="nb">選んでください</span></div>
+<div class="wk-tabs" role="tablist" aria-label="実績・制作事例の種類">
+<button type="button" role="tab" id="wkt-case" aria-controls="wk-case" aria-selected="true"><i>実績</i><b><span class="nb">企業さまの</span><span class="nb">お仕事</span></b><small>公開事例＋非公開事例</small></button>
+<button type="button" role="tab" id="wkt-lp" aria-controls="wk-lp" aria-selected="false" tabindex="-1"><b>LPデザイン</b><small>サンプル6種</small></button>
+<button type="button" role="tab" id="wkt-game" aria-controls="wk-game" aria-selected="false" tabindex="-1"><b><span class="nb">動画・</span><span class="nb">ミニゲーム・</span><span class="nb">アプリ</span></b><small>遊べるサンプルあり</small></button>
+<button type="button" role="tab" id="wkt-booth" aria-controls="wk-booth" aria-selected="false" tabindex="-1"><b>展示会ブース</b><small>3Dで見られます</small></button>
+</div>
 </div>
 <div class="wk-panel" id="wk-case" role="tabpanel" aria-labelledby="wkt-case">
 <h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">実績</h3>
@@ -426,14 +490,14 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="padding: clamp(20px, 3.4vw, 32px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 40px; align-items: center">
 <a href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener" style="display: block"><img src="img/omron-dx2026.jpg" alt="オムロン フィールドエンジニアリング 産業DX総合展2026 出展LPのトップ画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A">展示会出展LP／2026</span></div>
-<div style="font-size: 14px; font-weight: 700">オムロン フィールドエンジニアリング株式会社 様</div>
-<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.4"><span class="nb">産業DX総合展 2026 夏 東京</span><span class="nb">出展LP</span></h4>
-<p data-munch="3テーマ＋課題診断で、ブースの相談につなげるLP。" style="margin: 0">展示する3つのテーマ（稼ぐ工場・止めない工場・未来につなぐ工場）から、来場者が自分の課題に合う展示を見つけられる構成に。ブースでの相談につなげる課題診断（3問・各6択）も組み込みました。</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A"><span class="nb">展示会出展LP／2026</span></span></div>
+<div style="font-size: 14px; font-weight: 700"><span class="nb">オムロン</span> <span class="nb">フィールドエンジニアリング</span><span class="nb">株式会社 様</span></div>
+<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.4"><span class="nb"><span class="nb">産業DX総合展</span> <span class="nb">2026 夏 東京</span></span><span class="nb">出展LP</span></h4>
+<p data-munch="3テーマ＋課題診断で、|ブースの|相談に|つなげるLP。" style="margin: 0"><span class="nb">展示する</span><span class="nb">3つの</span><span class="nb">テーマ</span><span class="nb">（稼ぐ工場・</span><span class="nb">止めない工場・</span><span class="nb">未来につなぐ工場）から、</span><span class="nb">来場者が</span><span class="nb">自分の</span><span class="nb">課題に</span><span class="nb">合う</span><span class="nb">展示を</span><span class="nb">見つけられる</span><span class="nb">構成に。</span><span class="nb">ブースでの</span><span class="nb">相談に</span><span class="nb">つなげる</span><span class="nb">課題診断</span><span class="nb">（3問・各6択）も</span><span class="nb">組み込みました。</span></p>
 <div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; font-weight: 700"><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">展示会LP</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">課題診断</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">BtoB・製造業</span></div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-top: 6px">
-<a class="btn pri" href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener" style="margin: 5px">サイトを見る（別タブで開きます）</a>
-<a href="#contact" data-service="LPデザイン" data-sample="展示会出展LP" data-line="展示会の出展LPのような案件を相談したいです。" style="font-size: 14px; font-weight: 700; padding: 10px 0">このような案件を相談する →</a>
+<a href="#contact" data-service="LPデザイン" data-sample="展示会出展LP" data-line="展示会の出展LPのような案件を相談したいです。" class="btn pri" style="margin: 5px">このような案件を相談する →</a>
+<a class="btn sub" href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener">サイトを見る（別タブで開きます）<span aria-hidden="true"> ↗</span></a>
 </div>
 </div>
 </div>
@@ -444,14 +508,14 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="padding: clamp(20px, 3.4vw, 32px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 40px; align-items: center">
 <a href="https://ecolead.jp/" target="_blank" rel="noopener" style="display: block"><img src="img/ecolead.jpg?v=11180905" alt="エコリード 出張買取・お片付け相談サイトのトップ画面" loading="lazy" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A">WEBサイト制作・公開／2026</span></div>
-<div style="font-size: 14px; font-weight: 700">エコリード（SHINMEI）様</div>
-<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.4"><span class="nb">出張買取・お片付け相談の</span><span class="nb">集客サイト</span></h4>
-<p style="margin: 0">東京・神奈川の出張買取サービスのサイトを制作し、サーバーへの公開まで担当しました。「売れるか気になる」を10問で確かめられる買取診断を組み込み、LINE・電話・メールの相談にすぐ進めるようにしています。</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A"><span class="nb">WEBサイト制作・</span><span class="nb">公開／2026</span></span></div>
+<div style="font-size: 14px; font-weight: 700"><span class="nb">エコリード</span><span class="nb">（SHINMEI）様</span></div>
+<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.4"><span class="nb"><span class="nb">出張買取・</span><span class="nb">お片付け相談の</span></span><span class="nb">集客サイト</span></h4>
+<p style="margin: 0"><span class="nb">東京・神奈川の</span><span class="nb">出張買取サービスの</span><span class="nb">サイトを</span><span class="nb">制作し、</span><span class="nb">サーバーへの</span><span class="nb">公開まで</span><span class="nb">担当しました。</span><span class="nb">「売れるか</span><span class="nb">気になる」を</span><span class="nb">10問で</span><span class="nb">確かめられる</span><span class="nb">買取診断を</span><span class="nb">組み込み、</span><span class="nb">LINE・電話・</span><span class="nb">メールの</span><span class="nb">相談に</span><span class="nb">すぐ</span><span class="nb">進めるように</span><span class="nb">しています。</span></p>
 <div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; font-weight: 700"><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">集客サイト</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">買取診断</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">LINE相談導線</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">地域サービス</span></div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-top: 6px">
-<a class="btn pri" href="https://ecolead.jp/" target="_blank" rel="noopener" style="margin: 5px">サイトを見る（別タブで開きます）</a>
-<a href="#contact" data-service="LPデザイン" data-sample="出張買取サービスの集客サイト" data-line="出張買取サイトのような、集客と相談につなげるサイトを相談したいです。" style="font-size: 14px; font-weight: 700; padding: 10px 0">このような案件を相談する →</a>
+<a href="#contact" data-service="LPデザイン" data-sample="出張買取サービスの集客サイト" data-line="出張買取サイトのような、集客と相談につなげるサイトを相談したいです。" class="btn pri" style="margin: 5px">このような案件を相談する →</a>
+<a class="btn sub" href="https://ecolead.jp/" target="_blank" rel="noopener">サイトを見る（別タブで開きます）<span aria-hidden="true"> ↗</span></a>
 </div>
 </div>
 </div>
@@ -466,13 +530,13 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </button>
 <script>document.addEventListener('click',function(e){var b=e.target.closest('.yt-lite');if(!b)return;var id=b.dataset.yt,w=document.createElement('div');w.style.cssText=b.getAttribute('style').replace('cursor: pointer','')+';background:#000';w.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="オヂヤセイキ 新製品プロモーションムービー" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>';b.replaceWith(w)});</script>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A">映像制作／2026</span></div>
-<div style="font-size: 14px; font-weight: 700">オヂヤセイキ株式会社 様</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A"><span class="nb">映像制作／2026</span></span></div>
+<div style="font-size: 14px; font-weight: 700"><span class="nb">オヂヤセイキ</span><span class="nb">株式会社 様</span></div>
 <h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.4"><span class="nb">新製品</span><span class="nb">プロモーションムービー</span></h4>
-<p style="margin: 0">新製品の特長が短い尺でひと目で伝わるよう、AIで生成した映像素材と編集技術を組み合わせて一本のプロモーションムービーに仕上げました。</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; font-weight: 700"><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">プロモーション映像</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">AI映像生成</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">BtoB・製造業</span></div>
+<p style="margin: 0"><span class="nb">新製品の</span><span class="nb">特長が</span><span class="nb">短い尺で</span><span class="nb">ひと目で</span><span class="nb">伝わるよう、</span><span class="nb">AIで</span><span class="nb">生成した</span><span class="nb">映像素材と</span><span class="nb">編集技術を</span><span class="nb">組み合わせて</span><span class="nb">一本の</span><span class="nb">プロモーションムービーに</span><span class="nb">仕上げました。</span></p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; font-weight: 700"><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2"><span class="nb">プロモーション映像</span></span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">AI映像生成</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">BtoB・製造業</span></div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-top: 6px">
-<a href="#contact" data-service="動画作成" data-sample="新製品プロモーションムービー" data-line="新製品のプロモーションムービーのような案件を相談したいです。" style="font-size: 14px; font-weight: 700; padding: 10px 0">このような案件を相談する →</a>
+<a href="#contact" data-service="動画作成" data-sample="新製品プロモーションムービー" data-line="新製品のプロモーションムービーのような案件を相談したいです。" class="btn pri" style="margin: 5px">このような案件を相談する →</a>
 </div>
 </div>
 </div>
@@ -481,17 +545,17 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div class="tb"><span class="cb"></span><span class="tl"></span><span>Case study</span><span class="tl"></span></div>
 <div style="height: 10px; background: #FF4B3A; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: clamp(20px, 3.4vw, 32px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 40px; align-items: center">
-<div role="img" aria-label="JCI東京 75周年記念映像" style="display: block; position: relative; aspect-ratio: 16 / 9; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; overflow: hidden; background: #1D1D1F; box-sizing: border-box">
+<div role="img" aria-label="JCI東京 75周年記念映像" style="display: block; position: relative; aspect-ratio: 16 / 9; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; overflow: hidden; background: #1D1D1F url(https://i.ytimg.com/vi/vPu_x7cImTY/hqdefault.jpg) center / cover no-repeat; box-sizing: border-box">
 <iframe src="https://www.youtube-nocookie.com/embed/vPu_x7cImTY?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=vPu_x7cImTY&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;disablekb=1" title="JCI東京 75周年記念映像" loading="lazy" tabindex="-1" allow="autoplay; encrypted-media; picture-in-picture" style="position: absolute; top: 50%; left: 50%; width: 118%; height: 118%; transform: translate(-50%, -50%); border: 0; pointer-events: none"></iframe>
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A">映像制作／2024</span></div>
-<div style="font-size: 14px; font-weight: 700">JCI東京（公益社団法人 東京青年会議所）様</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; background: #2F5BEA; color: #fff; border-radius: 4px; padding: 0 8px">実績</span><span style="font-size: 13px; font-weight: 700; color: #5A5A5A"><span class="nb">映像制作／2024</span></span></div>
+<div style="font-size: 14px; font-weight: 700"><span class="nb">JCI東京</span><span class="nb">（公益社団法人</span> <span class="nb">東京青年会議所）様</span></div>
 <h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.4"><span class="nb">75周年</span><span class="nb">記念映像</span></h4>
-<p style="margin: 0">JCI東京の創立75周年に合わせて制作した記念映像です。</p>
+<p style="margin: 0"><span class="nb">JCI東京の</span><span class="nb">創立75周年に</span><span class="nb">合わせて</span><span class="nb">制作した</span><span class="nb">記念映像です。</span></p>
 <div style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; font-weight: 700"><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">記念映像</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">周年事業</span><span style="border: 2px solid #1D1D1F; border-radius: 4px; padding: 0 8px; background: #E4EDF2">団体・式典</span></div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-top: 6px">
-<a href="#contact" data-service="動画作成" data-sample="周年記念映像" data-line="周年記念映像のような案件を相談したいです。" style="font-size: 14px; font-weight: 700; padding: 10px 0">このような案件を相談する →</a>
+<a href="#contact" data-service="動画作成" data-sample="周年記念映像" data-line="周年記念映像のような案件を相談したいです。" class="btn pri" style="margin: 5px">このような案件を相談する →</a>
 </div>
 </div>
 </div>
@@ -508,119 +572,120 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
 <div style="display: flex; align-items: center; gap: 12px"><span class="chr cat wig" aria-hidden="true" style="font-size: 3px; --c: #FFD21F; flex: none"></span><span style="font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">実績（非公開）</span></div>
-<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.4"><span class="nb">大手企業のご依頼も、</span><span class="nb">多数お受けしています。</span></h4>
-<p style="margin: 0"><span class="nb">WEBサイト、ゲーム、展示会やイベントのコンテンツ、動画まで。</span><span class="nb">多くは守秘義務があるため、</span><span class="nb">ここでは画面にモザイクをかけています。</span></p>
-<p style="margin: 0"><b><span class="nb">AI導入の伴走パートナーとしても、</span><span class="nb">企業のみなさまをご支援しています。</span></b></p>
-<p style="margin: 0"><span class="nb">ご連絡いただければ、ご相談の内容に合わせて</span><span class="nb">直接サンプルをお見せします。</span></p>
+<h4 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.4"><span class="nb"><span class="nb">大手企業の</span><span class="nb">ご依頼も、</span></span><span class="nb">多数お受けしています。</span></h4>
+<p style="margin: 0"><span class="nb"><span class="nb">WEBサイト、</span><span class="nb">ゲーム、</span><span class="nb">展示会や</span><span class="nb">イベントの</span><span class="nb">コンテンツ、</span><span class="nb">動画まで。</span></span><span class="nb"><span class="nb">多くは</span><span class="nb">守秘義務が</span><span class="nb">あるため、</span></span><span class="nb"><span class="nb">ここでは</span><span class="nb">画面に</span><span class="nb">モザイクを</span><span class="nb">かけています。</span></span></p>
+<p style="margin: 0"><b><span class="nb"><span class="nb">AI導入の</span><span class="nb">伴走パートナーとしても、</span></span><span class="nb"><span class="nb">企業のみなさまを</span><span class="nb">ご支援しています。</span></span></b></p>
+<p style="margin: 0"><span class="nb"><span class="nb">ご連絡いただければ、</span><span class="nb">ご相談の</span><span class="nb">内容に</span><span class="nb">合わせて</span></span><span class="nb"><span class="nb">直接サンプルを</span><span class="nb">お見せします。</span></span></p>
 <div style="padding-top: 4px"><a href="#contact" data-service="まだ決めていない" data-sample="非公開の制作事例" data-line="非公開の制作事例（WEB・ゲーム・展示会・イベント・動画）を見せてほしいです。" class="btn pri" style="display: inline-block; margin: 5px">非公開の事例を見せてもらう</a></div>
 </div>
 </div>
 </div>
-<p style="margin: 8px 0 0; font-size: 14px; color: #5A5A5A">以下は、制作の幅をお伝えするための自主制作サンプルです。</p>
 </div>
 <div class="wk-panel" id="wk-lp" role="tabpanel" aria-labelledby="wkt-lp">
 <h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">LPデザイン</h3>
+<p class="wk-note"><span class="nb">以下は、</span><span class="nb">制作の</span><span class="nb">幅を</span><span class="nb">お伝えする</span><span class="nb">ための</span><span class="nb">自主制作サンプルです。</span></p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px">
 
 <div class="lift" style="display: flex; flex-direction: column; gap: 8px">
 <a href="samples/salon/" target="_blank" rel="noopener" aria-label="美容サロン向けLPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-salon.jpg" alt="美容サロン向けLPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">美容サロン向けLP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/salon/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="美容サロン向けLP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px"><span class="nb">美容サロン向けLP</span></div>
+<div style="font-size: 13px; color: #5A5A5A"><span class="nb">LPデザイン</span> / <span class="nb">サンプル</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/salon/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">サイトを</span><span class="nb">見る</span><span class="nb">（別タブ） ↗</span></a><a href="#contact" data-service="LPデザイン" data-sample="美容サロン向けLP" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a></div>
 </div>
 
 <div class="lift" style="display: flex; flex-direction: column; gap: 8px">
 <a href="samples/ramen/" target="_blank" rel="noopener" aria-label="飲食店向けLPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-ramen.jpg" alt="飲食店向けLPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
 <div style="font-weight: 700; font-size: 17px; padding-top: 6px">飲食店向けLP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/ramen/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="飲食店向けLP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+<div style="font-size: 13px; color: #5A5A5A"><span class="nb">LPデザイン</span> / <span class="nb">サンプル</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/ramen/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">サイトを</span><span class="nb">見る</span><span class="nb">（別タブ） ↗</span></a><a href="#contact" data-service="LPデザイン" data-sample="飲食店向けLP" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a></div>
 </div>
 
 <div class="lift" style="display: flex; flex-direction: column; gap: 8px">
 <a href="samples/english/" target="_blank" rel="noopener" aria-label="オンライン講座LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-english.jpg" alt="オンライン講座LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">オンライン講座LP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/english/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="オンライン講座LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px"><span class="nb">オンライン講座LP</span></div>
+<div style="font-size: 13px; color: #5A5A5A"><span class="nb">LPデザイン</span> / <span class="nb">サンプル</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/english/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">サイトを</span><span class="nb">見る</span><span class="nb">（別タブ） ↗</span></a><a href="#contact" data-service="LPデザイン" data-sample="オンライン講座LP" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a></div>
 </div>
 
 <div class="lift" style="display: flex; flex-direction: column; gap: 8px">
 <a href="samples/recruit/" target="_blank" rel="noopener" aria-label="採用LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-recruit.jpg" alt="採用LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
 <div style="font-weight: 700; font-size: 17px; padding-top: 6px">採用LP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/recruit/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="採用LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+<div style="font-size: 13px; color: #5A5A5A"><span class="nb">LPデザイン</span> / <span class="nb">サンプル</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/recruit/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">サイトを</span><span class="nb">見る</span><span class="nb">（別タブ） ↗</span></a><a href="#contact" data-service="LPデザイン" data-sample="採用LP" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a></div>
 </div>
 
 <div class="lift" style="display: flex; flex-direction: column; gap: 8px">
 <a href="samples/kicks/" target="_blank" rel="noopener" aria-label="EC商品LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-kicks.jpg" alt="EC商品LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
 <div style="font-weight: 700; font-size: 17px; padding-top: 6px">EC商品LP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/kicks/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="EC商品LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+<div style="font-size: 13px; color: #5A5A5A"><span class="nb">LPデザイン</span> / <span class="nb">サンプル</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/kicks/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">サイトを</span><span class="nb">見る</span><span class="nb">（別タブ） ↗</span></a><a href="#contact" data-service="LPデザイン" data-sample="EC商品LP" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a></div>
 </div>
 
 <div class="lift" style="display: flex; flex-direction: column; gap: 8px">
 <a href="samples/fes/" target="_blank" rel="noopener" aria-label="イベント告知LPのサンプルサイトを開く（別タブ）" style="display: block"><img src="img/lp-fes.jpg" alt="イベント告知LPのサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
 <div style="font-weight: 700; font-size: 17px; padding-top: 6px">イベント告知LP</div>
-<div style="font-size: 13px; color: #5A5A5A">LPデザイン / サンプル</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/fes/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0">サイトを見る（別タブ） ↗</a><a href="#contact" data-service="LPデザイン" data-sample="イベント告知LP" style="font-size: 14px; font-weight: 700; padding: 10px 0">このサンプルに近いものを相談する →</a></div>
+<div style="font-size: 13px; color: #5A5A5A"><span class="nb">LPデザイン</span> / <span class="nb">サンプル</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px"><a href="samples/fes/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">サイトを</span><span class="nb">見る</span><span class="nb">（別タブ） ↗</span></a><a href="#contact" data-service="LPデザイン" data-sample="イベント告知LP" style="font-size: 14px; font-weight: 700; padding: 10px 0"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a></div>
 </div>
 </div>
 
 </div>
 <div class="wk-panel" id="wk-game" role="tabpanel" aria-labelledby="wkt-game">
-<h3 style="margin: 24px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">動画・ミニゲーム・アプリ</h3>
+<h3 style="margin: 24px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px"><span class="nb">動画・ミニゲーム・アプリ</span></h3>
+<p class="wk-note"><span class="nb">以下は、</span><span class="nb">制作の</span><span class="nb">幅を</span><span class="nb">お伝えする</span><span class="nb">ための</span><span class="nb">自主制作サンプルです。</span></p>
 <div class="win">
 <div class="tb"><span class="cb"></span><span class="tl"></span><span>遊べるサンプル</span><span class="tl"></span></div>
 <div style="padding: 28px 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px">
 <img src="img/sanpai.jpg" alt="参拝クエストのゲーム画面。竹林の参道を主人公とひつじが進んでいる" style="display: block; width: 170px; max-width: 100%; height: auto; flex: none; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
 <div style="flex: 1 1 320px; min-width: 0">
-<div style="font-size: 13px; color: #5A5A5A; font-weight: 700">ミニゲーム開発 / 実際に遊べます</div>
+<div style="font-size: 13px; color: #5A5A5A; font-weight: 700"><span class="nb">ミニゲーム開発</span> / <span class="nb">実際に</span><span class="nb">遊べます</span></div>
 <h4 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 30px; line-height: 1.3">参拝クエスト</h4>
-<p style="margin: 0"><span class="nb">竹林の参道を進んで</span><span class="nb">神社をめざすブラウザゲームです。</span><span class="nb">ドラッグで移動、「払」でお札、</span><span class="nb">「跳」でジャンプ。</span><span class="nb">神社に着いたら、鈴を鳴らして</span><span class="nb">二礼二拍手一礼でお参りします。</span></p>
+<p style="margin: 0"><span class="nb"><span class="nb">竹林の</span><span class="nb">参道を</span><span class="nb">進んで</span></span><span class="nb"><span class="nb">神社を</span><span class="nb">めざす</span><span class="nb">ブラウザゲームです。</span></span><span class="nb"><span class="nb">ドラッグで</span><span class="nb">移動、</span><span class="nb">「払」で</span><span class="nb">お札、</span></span><span class="nb"><span class="nb">「跳」で</span><span class="nb">ジャンプ。</span></span><span class="nb"><span class="nb">神社に</span><span class="nb">着いたら、</span><span class="nb">鈴を</span><span class="nb">鳴らして</span></span><span class="nb"><span class="nb">二礼二拍手一礼で</span><span class="nb">お参りします。</span></span></p>
 </div>
 <a class="btn pri" href="https://claudecreative.github.io/sanpai-quest/" target="_blank" rel="noopener" style="box-shadow: 0 0 0 3px #fff, 0 0 0 5px #1D1D1F; margin: 5px">遊んでみる（別タブで開きます）</a>
-<a href="#contact" data-service="ミニゲーム開発" data-sample="参拝クエスト" style="font-size: 14px; font-weight: 700; padding: 10px 0; flex-basis: 100%; white-space: normal">このサンプルに近いものを相談する →</a>
+<a href="#contact" data-service="ミニゲーム開発" data-sample="参拝クエスト" style="font-size: 14px; font-weight: 700; padding: 10px 0; flex-basis: 100%; white-space: normal"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a>
 </div>
 <div style="padding: 28px 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; border-top: 2px dashed #1D1D1F">
 <a href="hayate/" target="_blank" rel="noopener" aria-label="疾風忍伝を遊ぶ（別タブ）" style="display: block; flex: none; width: 300px; max-width: 100%"><img src="img/game3.jpg" alt="疾風忍伝のゲーム画面。月夜の江戸の屋根の上で、忍者が手裏剣を投げている" style="display: block; width: 100%; height: auto; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box"></a>
 <div style="flex: 1 1 320px; min-width: 0">
-<div style="font-size: 13px; color: #5A5A5A; font-weight: 700">ミニゲーム開発 / 実際に遊べます</div>
+<div style="font-size: 13px; color: #5A5A5A; font-weight: 700"><span class="nb">ミニゲーム開発</span> / <span class="nb">実際に</span><span class="nb">遊べます</span></div>
 <h4 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 30px; line-height: 1.3">疾風忍伝</h4>
-<p style="margin: 0"><span class="nb">月夜の江戸を駆けぬける、</span><span class="nb">横スクロールの忍者アクションです。</span><span class="nb">手裏剣・刀・焙烙玉を使い分けて、</span><span class="nb">悪代官にさらわれた姫を救い出します。</span><span class="nb">PCはキーボード、スマホは横画面で遊べます。</span></p>
+<p style="margin: 0"><span class="nb"><span class="nb">月夜の</span><span class="nb">江戸を</span><span class="nb">駆けぬける、</span></span><span class="nb"><span class="nb">横スクロールの</span><span class="nb">忍者アクションです。</span></span><span class="nb"><span class="nb">手裏剣・刀・焙烙玉を</span><span class="nb">使い分けて、</span></span><span class="nb"><span class="nb">悪代官に</span><span class="nb">さらわれた</span><span class="nb">姫を</span><span class="nb">救い出します。</span></span><span class="nb"><span class="nb">PCは</span><span class="nb">キーボード、</span><span class="nb">スマホは</span><span class="nb">横画面で</span><span class="nb">遊べます。</span></span></p>
 </div>
 <a class="btn pri" href="hayate/" target="_blank" rel="noopener" style="box-shadow: 0 0 0 3px #fff, 0 0 0 5px #1D1D1F; margin: 5px">遊んでみる（別タブで開きます）</a>
-<a href="#contact" data-service="ミニゲーム開発" data-sample="疾風忍伝" style="font-size: 14px; font-weight: 700; padding: 10px 0; flex-basis: 100%; white-space: normal">このサンプルに近いものを相談する →</a>
+<a href="#contact" data-service="ミニゲーム開発" data-sample="疾風忍伝" style="font-size: 14px; font-weight: 700; padding: 10px 0; flex-basis: 100%; white-space: normal"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a>
 </div>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px">
 <div class="lift" style="display: flex; flex-direction: column; gap: 8px">
 <img src="img/video.jpg" alt="サービス紹介動画のサンプル" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
 <div style="font-weight: 700; font-size: 17px; padding-top: 6px">サービス紹介動画</div>
-<div style="font-size: 13px; color: #5A5A5A">動画作成 / サンプル</div>
-<a href="#contact" data-service="動画作成" data-sample="サービス紹介動画" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
+<div style="font-size: 13px; color: #5A5A5A"><span class="nb">動画作成</span> / <span class="nb">サンプル</span></div>
+<a href="#contact" data-service="動画作成" data-sample="サービス紹介動画" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a>
 </div>
 <div class="lift" style="display: flex; flex-direction: column; gap: 8px">
 <img src="img/game4.jpg" alt="ジャンプアクションゲームのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">ジャンプアクション</div>
-<div style="font-size: 13px; color: #5A5A5A">ミニゲーム開発 / サンプル</div>
-<a href="#contact" data-service="ミニゲーム開発" data-sample="ジャンプアクション" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px"><span class="nb">ジャンプアクション</span></div>
+<div style="font-size: 13px; color: #5A5A5A"><span class="nb">ミニゲーム開発</span> / <span class="nb">サンプル</span></div>
+<a href="#contact" data-service="ミニゲーム開発" data-sample="ジャンプアクション" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a>
 </div>
 <div class="lift" style="display: flex; flex-direction: column; gap: 8px">
 <img src="img/game1.jpg" alt="パズルアクションゲームのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
 <div style="font-weight: 700; font-size: 17px; padding-top: 6px">パズルアクション</div>
-<div style="font-size: 13px; color: #5A5A5A">ミニゲーム開発 / サンプル</div>
-<a href="#contact" data-service="ミニゲーム開発" data-sample="パズルアクション" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
+<div style="font-size: 13px; color: #5A5A5A"><span class="nb">ミニゲーム開発</span> / <span class="nb">サンプル</span></div>
+<a href="#contact" data-service="ミニゲーム開発" data-sample="パズルアクション" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a>
 </div>
 <div class="lift" style="display: flex; flex-direction: column; gap: 8px">
 <img src="img/game2.jpg" alt="レースゲームのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
 <div style="font-weight: 700; font-size: 17px; padding-top: 6px">レースゲーム</div>
-<div style="font-size: 13px; color: #5A5A5A">ミニゲーム開発 / サンプル</div>
-<a href="#contact" data-service="ミニゲーム開発" data-sample="レースゲーム" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
+<div style="font-size: 13px; color: #5A5A5A"><span class="nb">ミニゲーム開発</span> / <span class="nb">サンプル</span></div>
+<a href="#contact" data-service="ミニゲーム開発" data-sample="レースゲーム" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a>
 </div>
 <div class="lift" style="display: flex; flex-direction: column; gap: 8px">
 <img src="img/app.jpg" alt="予約管理Webアプリのサンプル画面" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #1D1D1F; border-radius: 8px; box-shadow: 5px 5px 0 #1D1D1F; box-sizing: border-box">
-<div style="font-weight: 700; font-size: 17px; padding-top: 6px">予約管理Webアプリ</div>
-<div style="font-size: 13px; color: #5A5A5A">アプリ開発 / サンプル</div>
-<a href="#contact" data-service="アプリ開発" data-sample="予約管理Webアプリ" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start">このサンプルに近いものを相談する →</a>
+<div style="font-weight: 700; font-size: 17px; padding-top: 6px"><span class="nb">予約管理Webアプリ</span></div>
+<div style="font-size: 13px; color: #5A5A5A"><span class="nb">アプリ開発</span> / <span class="nb">サンプル</span></div>
+<a href="#contact" data-service="アプリ開発" data-sample="予約管理Webアプリ" style="font-size: 14px; font-weight: 700; padding: 10px 0; align-self: flex-start"><span class="nb">この</span><span class="nb">サンプルに</span><span class="nb">近い</span><span class="nb">ものを</span><span class="nb">相談する →</span></a>
 </div>
 </div>
 </div>
@@ -629,21 +694,21 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <h3 style="margin: 24px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px; border-bottom: 2px solid #1D1D1F; padding-bottom: 8px">展示会ブース</h3>
 <div style="display: flex; flex-direction: column; gap: 10px">
 <div style="font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.4"><span class="nb">展示会ブースを、</span><span class="nb">まるごと。</span></div>
-<p style="margin: 0; font-size: 16px; line-height: 1.9"><span class="nb">ブースのデザインを3Dで先に見せて、</span><span class="nb">そのブースで流す映像、</span><span class="nb">来場者が遊ぶミニゲーム、</span><span class="nb">出展LPまで。</span><span class="nb">展示会の「見せる」を、</span><span class="nb">ひとつの窓口でつくります。</span></p>
+<p style="margin: 0; font-size: 16px; line-height: 1.9"><span class="nb"><span class="nb">ブースの</span><span class="nb">デザインを</span><span class="nb">3Dで</span><span class="nb">先に</span><span class="nb">見せて、</span></span><span class="nb"><span class="nb">その</span><span class="nb">ブースで</span><span class="nb">流す映像、</span></span><span class="nb"><span class="nb">来場者が</span><span class="nb">遊ぶミニゲーム、</span></span><span class="nb">出展LPまで。</span><span class="nb"><span class="nb">展示会の</span><span class="nb">「見せる」を、</span></span><span class="nb"><span class="nb">ひとつの</span><span class="nb">窓口で</span><span class="nb">つくります。</span></span></p>
 </div>
 <div class="win">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>3D BOOTH ／ ドラッグで回せます</span><span class="tl"></span></div>
+<div class="tb"><span class="cb"></span><span class="tl"></span><span>3D <span class="nb">BOOTH ／</span> <span class="nb">ドラッグで</span><span class="nb">回せます</span></span><span class="tl"></span></div>
 <iframe class="booth-frame" src="/booth/?embed=1" title="展示会ブースの3Dデザイン見本（ドラッグで回転）" loading="lazy" style="display: block; width: 100%; border: 0; background: #EEF1F5"></iframe>
 </div>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: #5A5A5A; margin-top: -16px">
-<span>島小間・角小間・並列小間の3案を切り替えられます。グラフィックと造作は架空の見本です。</span>
-<a href="/booth/" style="color: #2F5BEA; font-weight: 700">全画面で、色・インテリア・寸法も変えてみる →</a>
+<span><span class="nb">島小間・</span><span class="nb">角小間・</span><span class="nb">並列小間の</span><span class="nb">3案を</span><span class="nb">切り替えられます。</span><span class="nb">グラフィックと</span><span class="nb">造作は</span><span class="nb">架空の</span><span class="nb">見本です。</span></span>
+<a href="/booth/" style="color: #2F5BEA; font-weight: 700"><span class="nb">全画面で、</span><span class="nb">色・インテリア・寸法も</span><span class="nb">変えてみる →</span></a>
 </div>
 <div class="booth-pts">
-<div class="win"><div style="height: 8px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>3Dで、先に見せる</b><p>島小間・角小間・並列小間を、寸法入りの3Dで比べられます。色や雰囲気もその場で変えて、社内の合意を早めます。</p></div></div>
-<div class="win"><div style="height: 8px; background: #FF4B3A; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>ブースで流す映像</b><p>製品紹介のループ映像やサイネージ用の短尺を、AIで短納期に。会期直前の差し替えや、小さな追加にも対応します。</p></div></div>
-<div class="win"><div style="height: 8px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>来場者が遊べるミニゲーム</b><p>モニターやタブレットで、その場で遊べるブラウザゲーム。足を止めてもらい、名刺交換やアンケートにつなげます。</p></div></div>
-<div class="win"><div style="height: 8px; background: #1FB35E; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>出展LP・来場予約</b><p>会期前の告知、来場予約、会期後のお礼まで。実績：<a href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener">オムロン フィールドエンジニアリング株式会社様 産業DX総合展2026 出展LP</a></p></div></div>
+<div class="win"><div style="height: 8px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b><span class="nb">3Dで、</span><span class="nb">先に</span><span class="nb">見せる</span></b><p><span class="nb">島小間・</span><span class="nb">角小間・</span><span class="nb">並列小間を、</span><span class="nb">寸法入りの</span><span class="nb">3Dで</span><span class="nb">比べられます。</span><span class="nb">色や</span><span class="nb">雰囲気も</span><span class="nb">その場で</span><span class="nb">変えて、</span><span class="nb">社内の</span><span class="nb">合意を</span><span class="nb">早めます。</span></p></div></div>
+<div class="win"><div style="height: 8px; background: #FF4B3A; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b>ブースで流す映像</b><p><span class="nb">製品紹介の</span><span class="nb">ループ映像や</span><span class="nb">サイネージ用の</span><span class="nb">短尺を、</span><span class="nb">AIで</span><span class="nb">短納期に。</span><span class="nb">会期直前の</span><span class="nb">差し替えや、</span><span class="nb">小さな</span><span class="nb">追加にも</span><span class="nb">対応します。</span></p></div></div>
+<div class="win"><div style="height: 8px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b><span class="nb">来場者が</span><span class="nb">遊べる</span><span class="nb">ミニゲーム</span></b><p><span class="nb">モニターや</span><span class="nb">タブレットで、</span><span class="nb">その場で</span><span class="nb">遊べる</span><span class="nb">ブラウザゲーム。</span><span class="nb">足を</span><span class="nb">止めてもらい、</span><span class="nb">名刺交換や</span><span class="nb">アンケートに</span><span class="nb">つなげます。</span></p></div></div>
+<div class="win"><div style="height: 8px; background: #1FB35E; border-bottom: 2px solid #1D1D1F"></div><div class="bp"><b><span class="nb">出展LP・来場予約</span></b><p><span class="nb">会期前の</span><span class="nb">告知、</span><span class="nb">来場予約、</span><span class="nb">会期後の</span><span class="nb">お礼まで。</span><span class="nb">実績：<a href="https://socialsolution.omron.com/field-engineering/industrydx2026/" target="_blank" rel="noopener"><span class="nb">オムロン</span> <span class="nb">フィールドエンジニアリング</span><span class="nb">株式会社様</span> <span class="nb">産業DX総合展2026</span> <span class="nb">出展LP</span></a></span></p></div></div>
 </div>
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 20px">
 <a href="#contact" class="btn pri" data-kind="展示会ブース一式">展示会の相談をする</a>
@@ -651,12 +716,13 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </div>
 </div>
 </div>
+<div class="wk-next"><button type="button">次を見る →</button></div>
 </section>
 
 <section id="service" style="background: #fff; border-top: 2px solid #1D1D1F; border-bottom: 2px solid #1D1D1F; padding: 72px 0">
 <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; gap: 48px">
-<div style="text-align: center">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">Services</div>
+<div class="sh" data-en="SERVICES" style="text-align: center">
+<div class="en">Services</div>
 <h2 style="margin: 4px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4.2vw, 52px)">サービスと料金</h2>
 </div>
 <div class="win lift">
@@ -665,18 +731,18 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="padding: 28px 30px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px 48px; align-items: start">
 <div style="display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px"><div style="font-size: 13px; font-weight: 700; background: #FF4B3A; color: #fff; border-radius: 4px; padding: 0 10px">おすすめ</div><div aria-hidden="true" style="display: flex; align-items: flex-end; gap: 6px; flex: none"><span class="chr rb hop" style="font-size: 3px"></span><span class="chr cat hop" style="font-size: 3px; --c: #7CCBEE; animation-delay: -.3s"></span><span class="chr horn hop" style="font-size: 3px; --c: #19C25F; animation-delay: -.6s"></span></div></div>
-<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 30px; line-height: 1.4"><span class="nb">企画からまるごと、</span><span class="nb">キャンペーン一式</span></h3>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px"><span style="white-space: nowrap"><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(48px, 13vw, 60px); line-height: 1">¥200,000</span><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 32px">〜</span></span><span style="font-size: 13px; color: #5A5A5A">（税別）</span></div>
-<p data-munch="企画から制作まで、窓口ひとつでまとめてお任せ。" style="margin: 0">キャンペーンの目的とターゲットから企画を組み立て、LP・動画・ミニゲームなど必要なものをまとめて制作します。窓口がひとつなので、進行もシンプルです。</p>
-<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b>使いどころ</b>　新商品のローンチ、季節・周年キャンペーン、採用強化、展示会</p>
+<h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 30px; line-height: 1.4"><span class="nb"><span class="nb">企画から</span><span class="nb">まるごと、</span></span><span class="nb">キャンペーン一式</span></h3>
+<div class="price"><span class="amt">¥200,000</span><span class="from">〜</span><span class="tax">（税別）</span></div>
+<p data-munch="企画から|制作まで、|窓口ひとつで|まとめてお任せ。" style="margin: 0"><span class="nb">キャンペーンの</span><span class="nb">目的と</span><span class="nb">ターゲットから</span><span class="nb">企画を</span><span class="nb">組み立て、</span><span class="nb">LP・</span><span class="nb">動画・</span><span class="nb">ミニゲームなど</span><span class="nb">必要な</span><span class="nb">ものを</span><span class="nb">まとめて</span><span class="nb">制作します。</span><span class="nb">窓口が</span><span class="nb">ひとつなので、</span><span class="nb">進行も</span><span class="nb">シンプルです。</span></p>
+<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b><span class="nb">使いどころ</span></b>　<span class="nb">新商品の</span><span class="nb">ローンチ、</span><span class="nb">季節・</span><span class="nb">周年キャンペーン、</span><span class="nb">採用強化、</span><span class="nb">展示会</span></p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 10px">
-<div style="border: 2px solid #1D1D1F; border-radius: 8px; padding: 10px 14px; background: #FFD21F; box-shadow: 3px 3px 0 #1D1D1F"><div style="font-weight: 700">成果報酬でもOK</div><div style="font-size: 13px">成果に応じたお支払いもご相談ください。</div></div>
-<div style="border: 2px solid #1D1D1F; border-radius: 8px; padding: 10px 14px; background: #fff; box-shadow: 3px 3px 0 #1D1D1F"><div style="font-weight: 700">コンペ参加もOK</div><div style="font-size: 13px">業界によっては受注率80%以上。提案づくりから一緒に。</div></div>
+<div style="border: 2px solid #1D1D1F; border-radius: 8px; padding: 10px 14px; background: #FFD21F; box-shadow: 3px 3px 0 #1D1D1F"><div style="font-weight: 700">成果報酬でもOK</div><div style="font-size: 13px"><span class="nb">成果に</span><span class="nb">応じた</span><span class="nb">お支払いも</span><span class="nb">ご相談ください。</span></div></div>
+<div style="border: 2px solid #1D1D1F; border-radius: 8px; padding: 10px 14px; background: #fff; box-shadow: 3px 3px 0 #1D1D1F"><div style="font-weight: 700">コンペ参加もOK</div><div style="font-size: 13px"><span class="nb">業界によっては</span><span class="nb">受注率80%以上。</span><span class="nb">提案づくりから</span><span class="nb">一緒に。</span></div></div>
 </div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 12px">
 <div style="font-size: 13px; font-weight: 700; color: #5A5A5A; margin-bottom: -6px">基本の内容</div>
-<ul style="margin: 0; padding-left: 1.2em"><li>企画書（目的・ターゲット・施策・目標指標）</li><li>キービジュアル・キャッチコピー</li><li>キャンペーンLP</li><li>告知動画 または ミニゲーム</li><li>公開後の振り返りと改善のご提案</li><li>規模と内容に合わせてお見積りします</li></ul>
+<ul style="margin: 0; padding-left: 1.2em"><li><span class="nb">企画書</span><span class="nb">（目的・</span><span class="nb">ターゲット・</span><span class="nb">施策・</span><span class="nb">目標指標）</span></li><li><span class="nb">キービジュアル・</span><span class="nb">キャッチコピー</span></li><li>キャンペーンLP</li><li><span class="nb">告知動画</span> <span class="nb">または</span> <span class="nb">ミニゲーム</span></li><li><span class="nb">公開後の</span><span class="nb">振り返りと</span><span class="nb">改善の</span><span class="nb">ご提案</span></li><li><span class="nb">規模と</span><span class="nb">内容に</span><span class="nb">合わせてお見積りします</span></li></ul>
 <a href="#contact" data-service="キャンペーン一式" data-sample="キャンペーン一式" data-line="キャンペーン一式（企画から制作まで）について相談したいです。" class="btn pri" style="align-self: flex-start; margin: 8px 5px 5px">キャンペーン一式を相談する</a>
 </div>
 </div>
@@ -686,24 +752,24 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div class="tb"><span class="cb"></span><span class="tl"></span><span>LPデザイン</span><span class="tl"></span></div>
 <div style="height: 10px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 28px 30px 32px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; line-height: 1.4">AIを使った<br>LPデザイン</h3><span class="chr hop" aria-hidden="true" style="font-size: 4px; --c: #FFD21F; flex: none"></span></div>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px"><span style="white-space: nowrap"><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 60px; line-height: 1">¥50,000</span><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 32px">〜</span></span><span style="font-size: 13px; color: #5A5A5A">（税別）</span></div>
-<p style="margin: 0">構成・コピーからビジュアル、コーディングまで、AIを活用してLPをつくります。</p>
-<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b>使いどころ</b>　商品紹介、キャンペーン、採用、イベント告知</p>
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; line-height: 1.4"><span class="nb">AIを</span><span class="nb">使った</span><br><span class="nb">LPデザイン</span></h3><span class="chr hop" aria-hidden="true" style="font-size: 4px; --c: #FFD21F; flex: none"></span></div>
+<div class="price"><span class="amt">¥50,000</span><span class="from">〜</span><span class="tax">（税別）</span></div>
+<p style="margin: 0"><span class="nb">構成・コピーから</span><span class="nb">ビジュアル、</span><span class="nb">コーディングまで、</span><span class="nb">AIを</span><span class="nb">活用して</span><span class="nb">LPを</span><span class="nb">つくります。</span></p>
+<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b><span class="nb">使いどころ</span></b>　<span class="nb">商品紹介、</span><span class="nb">キャンペーン、</span><span class="nb">採用、</span><span class="nb">イベント告知</span></p>
 <div style="font-size: 13px; font-weight: 700; color: #5A5A5A; margin-bottom: -6px">基本の内容</div>
-<ul style="margin: 0; padding-left: 1.2em"><li>構成案・コピーの作成</li><li>AIによるビジュアル・素材制作</li><li>デザイン仕上げ・コーディング</li><li>校正3回まで</li><li>公開作業・ドメイン取得は別途</li></ul>
+<ul style="margin: 0; padding-left: 1.2em"><li><span class="nb">構成案・コピーの</span><span class="nb">作成</span></li><li><span class="nb">AIによる</span><span class="nb">ビジュアル・素材制作</span></li><li><span class="nb">デザイン仕上げ・</span><span class="nb">コーディング</span></li><li>校正3回まで</li><li><span class="nb">公開作業・ドメイン取得は</span><span class="nb">別途</span></li></ul>
 </div>
 </div>
 <div class="win lift">
 <div class="tb"><span class="cb"></span><span class="tl"></span><span>動画作成</span><span class="tl"></span></div>
 <div style="height: 10px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 28px 30px 32px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; line-height: 1.4"><span class="nb">AIと編集技術を</span><span class="nb">使った</span><span class="nb">動画作成</span></h3><span class="chr cat hop" aria-hidden="true" style="font-size: 4px; --c: #7CCBEE; flex: none"></span></div>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px"><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 60px; line-height: 1">¥80,000</span><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 32px">〜</span><span style="font-size: 13px; color: #5A5A5A">（税別）</span></div>
-<p style="margin: 0">AIで生成した映像・画像・音声を、編集技術で一本の動画にまとめます。</p>
-<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b>使いどころ</b>　商品紹介、SNS告知、展示会、採用</p>
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; line-height: 1.4"><span class="nb"><span class="nb">AIと</span><span class="nb">編集技術を</span></span><span class="nb">使った</span><span class="nb">動画作成</span></h3><span class="chr cat hop" aria-hidden="true" style="font-size: 4px; --c: #7CCBEE; flex: none"></span></div>
+<div class="price"><span class="amt">¥80,000</span><span class="from">〜</span><span class="tax">（税別）</span></div>
+<p style="margin: 0"><span class="nb">AIで</span><span class="nb">生成した</span><span class="nb">映像・画像・音声を、</span><span class="nb">編集技術で</span><span class="nb">一本の</span><span class="nb">動画に</span><span class="nb">まとめます。</span></p>
+<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b><span class="nb">使いどころ</span></b>　<span class="nb">商品紹介、</span><span class="nb">SNS告知、</span><span class="nb">展示会、</span><span class="nb">採用</span></p>
 <div style="font-size: 13px; font-weight: 700; color: #5A5A5A; margin-bottom: -6px">基本の内容</div>
-<ul style="margin: 0; padding-left: 1.2em"><li>企画・絵コンテ</li><li>AIによる映像・素材生成</li><li>カット編集・テロップ・音入れ</li><li>校正3回まで</li><li>尺や本数で料金が変わります</li></ul>
+<ul style="margin: 0; padding-left: 1.2em"><li>企画・絵コンテ</li><li><span class="nb">AIによる</span><span class="nb">映像・素材生成</span></li><li><span class="nb">カット編集・テロップ・</span><span class="nb">音入れ</span></li><li>校正3回まで</li><li><span class="nb">尺や</span><span class="nb">本数で</span><span class="nb">料金が</span><span class="nb">変わります</span></li></ul>
 </div>
 </div>
 <div class="win lift">
@@ -711,11 +777,11 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="height: 10px; background: #19C25F; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 28px 30px 32px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; line-height: 1.4">ミニゲーム開発</h3><span class="chr horn hop" aria-hidden="true" style="font-size: 4px; --c: #19C25F; flex: none"></span></div>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px"><span style="white-space: nowrap"><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 60px; line-height: 1">¥80,000</span><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 32px">〜</span></span><span style="font-size: 13px; color: #5A5A5A">（税別）</span></div>
-<p style="margin: 0">インストール不要、リンクを開くだけで遊べるブラウザゲームを、AIを活用して開発します。商品やブランドの世界観に合わせてつくります。</p>
-<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b>使いどころ</b>　キャンペーン、店頭やイベントでの集客、SNSでの話題づくり</p>
+<div class="price"><span class="amt">¥80,000</span><span class="from">〜</span><span class="tax">（税別）</span></div>
+<p style="margin: 0"><span class="nb">インストール不要、</span><span class="nb">リンクを</span><span class="nb">開くだけで</span><span class="nb">遊べる</span><span class="nb">ブラウザゲームを、</span><span class="nb">AIを</span><span class="nb">活用して</span><span class="nb">開発します。</span><span class="nb">商品や</span><span class="nb">ブランドの</span><span class="nb">世界観に</span><span class="nb">合わせて</span><span class="nb">つくります。</span></p>
+<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b><span class="nb">使いどころ</span></b>　<span class="nb">キャンペーン、</span><span class="nb">店頭や</span><span class="nb">イベントでの</span><span class="nb">集客、</span><span class="nb">SNSでの</span><span class="nb">話題づくり</span></p>
 <div style="font-size: 13px; font-weight: 700; color: #5A5A5A; margin-bottom: -6px">基本の内容</div>
-<ul style="margin: 0; padding-left: 1.2em"><li>ゲーム企画・ルール設計</li><li>ドット絵キャラクター・素材制作</li><li>実装・動作確認</li><li>校正3回まで</li></ul>
+<ul style="margin: 0; padding-left: 1.2em"><li><span class="nb">ゲーム企画・ルール設計</span></li><li><span class="nb">ドット絵キャラクター・</span><span class="nb">素材制作</span></li><li>実装・動作確認</li><li>校正3回まで</li></ul>
 </div>
 </div>
 <div class="win lift">
@@ -723,11 +789,11 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="height: 10px; background: #7A4DFF; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 28px 30px 32px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; line-height: 1.4">アプリ開発</h3><span class="chr hop" aria-hidden="true" style="font-size: 4px; --c: #C79AD0; --a: #FFD21F; flex: none"></span></div>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px"><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 44px; line-height: 1.36">お見積り</span><span style="font-size: 13px; color: #5A5A5A">内容に合わせてご提案（税別）</span></div>
-<p style="margin: 0">業務ツールやWebアプリを、AIを活用してすばやく形にします。</p>
-<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b>使いどころ</b>　予約・受付、社内の業務ツール、試作品での検証</p>
+<div class="price"><span class="est">お見積り</span><span class="tax"><span class="nb">内容に</span><span class="nb">合わせて</span><span class="nb">ご提案</span><span class="nb">（税別）</span></span></div>
+<p style="margin: 0"><span class="nb">業務ツールや</span><span class="nb">Webアプリを、</span><span class="nb">AIを</span><span class="nb">活用して</span><span class="nb">すばやく</span><span class="nb">形にします。</span></p>
+<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b><span class="nb">使いどころ</span></b>　<span class="nb">予約・受付、</span><span class="nb">社内の</span><span class="nb">業務ツール、</span><span class="nb">試作品での</span><span class="nb">検証</span></p>
 <div style="font-size: 13px; font-weight: 700; color: #5A5A5A; margin-bottom: -6px">基本の内容</div>
-<ul style="margin: 0; padding-left: 1.2em"><li>要件の整理・画面設計</li><li>UIデザイン</li><li>開発・テスト</li><li>範囲と納期はご相談のうえ決定</li></ul>
+<ul style="margin: 0; padding-left: 1.2em"><li><span class="nb">要件の</span><span class="nb">整理・画面設計</span></li><li>UIデザイン</li><li>開発・テスト</li><li><span class="nb">範囲と</span><span class="nb">納期は</span><span class="nb">ご相談の</span><span class="nb">うえ決定</span></li></ul>
 </div>
 </div>
 <div class="win lift">
@@ -735,30 +801,30 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="height: 10px; background: #FF8DEA; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 28px 30px 32px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; line-height: 1.4">診断サイト</h3><span class="chr cat hop" aria-hidden="true" style="font-size: 4px; --c: #FF8DEA; flex: none"></span></div>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px"><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 44px; line-height: 1.36">お見積り</span><span style="font-size: 13px; color: #5A5A5A">内容に合わせてご提案（税別）</span></div>
-<p style="margin: 0">クロス分析を使った高機能診断サイト。回答を掛け合わせて、一人ひとりに合った結果を出します。</p>
-<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b>使いどころ</b>　商品・サービス選びの提案、見込み客の獲得、採用</p>
+<div class="price"><span class="est">お見積り</span><span class="tax"><span class="nb">内容に</span><span class="nb">合わせて</span><span class="nb">ご提案</span><span class="nb">（税別）</span></span></div>
+<p style="margin: 0"><span class="nb">クロス分析を</span><span class="nb">使った</span><span class="nb">高機能診断サイト。</span><span class="nb">回答を</span><span class="nb">掛け合わせて、</span><span class="nb">一人ひとりに</span><span class="nb">合った</span><span class="nb">結果を</span><span class="nb">出します。</span></p>
+<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b><span class="nb">使いどころ</span></b>　<span class="nb">商品・</span><span class="nb">サービス選びの</span><span class="nb">提案、</span><span class="nb">見込み客の</span><span class="nb">獲得、</span><span class="nb">採用</span></p>
 <div style="font-size: 13px; font-weight: 700; color: #5A5A5A; margin-bottom: -6px">基本の内容</div>
-<ul style="margin: 0; padding-left: 1.2em"><li>設問・診断ロジックの設計</li><li>クロス分析による結果の出し分け</li><li>結果ページのデザイン・実装</li><li>設問数と納期はご相談のうえ決定</li></ul>
+<ul style="margin: 0; padding-left: 1.2em"><li><span class="nb">設問・診断ロジックの</span><span class="nb">設計</span></li><li><span class="nb">クロス分析による</span><span class="nb">結果の</span><span class="nb">出し分け</span></li><li><span class="nb">結果ページの</span><span class="nb">デザイン・実装</span></li><li><span class="nb">設問数と</span><span class="nb">納期は</span><span class="nb">ご相談の</span><span class="nb">うえ決定</span></li></ul>
 </div>
 </div>
 <div class="win lift">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>イベント演出・企画</span><span class="tl"></span></div>
+<div class="tb"><span class="cb"></span><span class="tl"></span><span><span class="nb">イベント演出・企画</span></span><span class="tl"></span></div>
 <div style="height: 10px; background: #FF4B3A; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 28px 30px 32px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; line-height: 1.4"><span class="nb">イベント</span><span class="nb">演出・企画</span></h3><span class="chr horn hop" aria-hidden="true" style="font-size: 4px; --c: #FF4B3A; --a: #FFD21F; flex: none"></span></div>
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px"><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 44px; line-height: 1.36">お見積り</span><span style="font-size: 13px; color: #5A5A5A">内容に合わせてご提案（税別）</span></div>
-<p style="margin: 0">リアルイベントの企画から演出、設計まで。AI×リアルの新体験をつくります。</p>
-<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b>使いどころ</b>　展示会、店舗イベント、発表会・周年行事</p>
+<div class="price"><span class="est">お見積り</span><span class="tax"><span class="nb">内容に</span><span class="nb">合わせて</span><span class="nb">ご提案</span><span class="nb">（税別）</span></span></div>
+<p style="margin: 0"><span class="nb">リアルイベントの</span><span class="nb">企画から</span><span class="nb">演出、</span><span class="nb">設計まで。</span><span class="nb">AI×リアルの</span><span class="nb">新体験を</span><span class="nb">つくります。</span></p>
+<p style="margin: 0; font-size: 14px; background: #F3EFE4; border-radius: 6px; padding: 8px 12px"><b><span class="nb">使いどころ</span></b>　<span class="nb">展示会、</span><span class="nb">店舗イベント、</span><span class="nb">発表会・</span><span class="nb">周年行事</span></p>
 <div style="font-size: 13px; font-weight: 700; color: #5A5A5A; margin-bottom: -6px">基本の内容</div>
-<ul style="margin: 0; padding-left: 1.2em"><li>企画・コンセプト設計</li><li>AIを使った映像・演出の制作</li><li>会場・体験の設計</li><li>規模と日程はご相談のうえ決定</li></ul>
+<ul style="margin: 0; padding-left: 1.2em"><li><span class="nb">企画・コンセプト設計</span></li><li><span class="nb">AIを</span><span class="nb">使った</span><span class="nb">映像・演出の</span><span class="nb">制作</span></li><li>会場・体験の設計</li><li><span class="nb">規模と</span><span class="nb">日程は</span><span class="nb">ご相談の</span><span class="nb">うえ決定</span></li></ul>
 </div>
 </div>
 </div>
 <div style="border: 2px solid #1D1D1F; border-radius: 10px; background: #F3EFE4; padding: 24px 30px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <div style="flex: 1 1 420px; min-width: 0">
-<h3 style="margin: 0 0 2px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px">AIを活用したクリエイティブ支援</h3>
-<p style="margin: 0">バナー、SNS素材、キャラクター制作、AI活用の相談など、上記以外もお気軽にどうぞ。</p>
+<h3 style="margin: 0 0 2px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 22px"><span class="nb">AIを</span><span class="nb">活用した</span><span class="nb">クリエイティブ支援</span></h3>
+<p style="margin: 0"><span class="nb">バナー、</span><span class="nb">SNS素材、</span><span class="nb">キャラクター制作、</span><span class="nb">AI活用の</span><span class="nb">相談など、</span><span class="nb">上記以外も</span><span class="nb">お気軽に</span><span class="nb">どうぞ。</span></p>
 </div>
 <a href="#contact" class="btn">まずは相談する</a>
 </div>
@@ -767,16 +833,16 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 
 <section id="partner" style="max-width: 1100px; margin: 0 auto; padding: 72px 24px 24px; scroll-margin-top: 16px">
 <div class="win">
-<div class="tb"><span class="cb"></span><span class="tl"></span><span>代理店・制作会社のみなさまへ</span><span class="tl"></span></div>
+<div class="tb"><span class="cb"></span><span class="tl"></span><span><span class="nb">代理店・</span><span class="nb">制作会社のみなさまへ</span></span><span class="tl"></span></div>
 <div style="height: 10px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: clamp(24px, 4vw, 40px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px 48px; align-items: start">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">For partners</div>
-<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.4"><span class="nb">手が足りない案件を、</span><span class="nb">制作パートナーとして</span><span class="nb">支えます。</span></h2>
-<p data-munch="制作だけ切り出して、まるっとお任せOK。" style="margin: 0">提案書のビジュアル化から、LP・動画・ミニゲームの制作まで。急ぎの案件や、提案にAIの要素を加えたいときにご相談ください。企画の意図をくみ取ったうえで、制作だけを切り出してお任せいただくこともできます。</p>
+<div class="en">For partners</div>
+<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.4"><span class="nb"><span class="nb">手が</span><span class="nb">足りない</span><span class="nb">案件を、</span></span><span class="nb">制作パートナーとして</span><span class="nb">支えます。</span></h2>
+<p data-munch="制作だけ|切り出して、|まるっと|お任せOK。" style="margin: 0"><span class="nb">提案書の</span><span class="nb">ビジュアル化から、</span><span class="nb">LP・動画・ミニゲームの</span><span class="nb">制作まで。</span><span class="nb">急ぎの</span><span class="nb">案件や、</span><span class="nb">提案に</span><span class="nb">AIの</span><span class="nb">要素を</span><span class="nb">加えたい</span><span class="nb">ときに</span><span class="nb">ご相談ください。</span><span class="nb">企画の</span><span class="nb">意図を</span><span class="nb">くみ取ったうえで、</span><span class="nb">制作だけを</span><span class="nb">切り出してお任せいただく</span><span class="nb">こともできます。</span></p>
 </div>
 <div style="display: flex; flex-direction: column; gap: 14px">
-<ul style="margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 6px"><li><b>提案前のたたき台づくり</b>から対応</li><li><b>初回アップは1週間以内</b>。急ぎの案件もまずはご相談を</li><li><b>御社名義での納品</b>に対応</li><li><b>AIでの制作プロセスを共有</b>。御社のAI活用にも</li><li><b>秘密保持契約（NDA）</b>の締結に対応</li><li>料金は案件ごとにお見積りします</li></ul>
+<ul style="margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 6px"><li><span class="nb"><b><span class="nb">提案前の</span><span class="nb">たたき台づくり</span></b>から</span><span class="nb">対応</span></li><li><span class="nb"><b><span class="nb">初回アップは</span><span class="nb">1週間以内</span></b>。</span><span class="nb">急ぎの</span><span class="nb">案件も</span><span class="nb">まずは</span><span class="nb">ご相談を</span></li><li><span class="nb"><b><span class="nb">御社名義での</span><span class="nb">納品</span></b>に</span><span class="nb">対応</span></li><li><span class="nb"><b><span class="nb">AIでの</span><span class="nb">制作プロセスを</span><span class="nb">共有</span></b>。</span><span class="nb">御社の</span><span class="nb">AI活用にも</span></li><li><span class="nb"><b><span class="nb">秘密保持契約</span><span class="nb">（NDA）</span></b>の</span><span class="nb">締結に</span><span class="nb">対応</span></li><li><span class="nb">料金は</span><span class="nb">案件ごとに</span><span class="nb">お見積りします</span></li></ul>
 <a href="#contact" data-service="制作パートナー（代理店・制作会社さま）" data-sample="制作パートナーとしての協業" data-line="制作パートナーとしての協業について相談したいです。" class="btn pri" style="align-self: flex-start; margin: 8px 5px 5px">制作パートナーとして相談する</a>
 </div>
 </div>
@@ -792,34 +858,34 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 
 <section id="flow" style="background: #fff; border-top: 2px solid #1D1D1F; border-bottom: 2px solid #1D1D1F; padding: 72px 0">
 <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; gap: 48px">
-<div style="text-align: center">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">How it works</div>
+<div class="sh" data-en="FLOW" style="text-align: center">
+<div class="en">How it works</div>
 <h2 style="margin: 4px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4.2vw, 52px)">制作の流れ</h2>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span class="chr jump" aria-hidden="true" style="font-size: 5px; --c: #19C25F"></span>
-<div style="border-top: 6px solid #19C25F; padding-top: 12px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px">Step 1</div>
-<h3 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 21px">ご相談・ヒアリング</h3>
-<p style="margin: 0">目的、ターゲット、予算感、スケジュールをうかがい、企画の方向性をすり合わせます。</p></div>
+<div style="border-top: 6px solid #19C25F; padding-top: 12px"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 22px; letter-spacing: .04em">Step 1</div>
+<h3 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 21px"><span class="nb">ご相談・ヒアリング</span></h3>
+<p style="margin: 0"><span class="nb">目的、</span><span class="nb">ターゲット、</span><span class="nb">予算感、</span><span class="nb">スケジュールを</span><span class="nb">うかがい、</span><span class="nb">企画の</span><span class="nb">方向性を</span><span class="nb">すり合わせます。</span></p></div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span class="chr cat wig" aria-hidden="true" style="font-size: 5px; --c: #FFD21F"></span>
-<div style="border-top: 6px solid #FFD21F; padding-top: 12px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px">Step 2</div>
+<div style="border-top: 6px solid #FFD21F; padding-top: 12px"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 22px; letter-spacing: .04em">Step 2</div>
 <h3 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 21px">企画とたたき台</h3>
-<p style="margin: 0">企画案と、構成・ビジュアルのたたき台をAIで複数案つくり、1週間以内に初回アップします。</p></div>
+<p style="margin: 0"><span class="nb">企画案と、</span><span class="nb">構成・ビジュアルの</span><span class="nb">たたき台を</span><span class="nb">AIで</span><span class="nb">複数案つくり、</span><span class="nb">1週間以内に</span><span class="nb">初回アップします。</span></p></div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span class="chr horn hop" aria-hidden="true" style="font-size: 5px; --c: #FF4B3A; --a: #FFD21F"></span>
-<div style="border-top: 6px solid #FF4B3A; padding-top: 12px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px">Step 3</div>
+<div style="border-top: 6px solid #FF4B3A; padding-top: 12px"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 22px; letter-spacing: .04em">Step 3</div>
 <h3 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 21px">制作・編集</h3>
-<p style="margin: 0">決まった方向で作り込み、人の手で細部を仕上げます。</p></div>
+<p style="margin: 0"><span class="nb">決まった</span><span class="nb">方向で</span><span class="nb">作り込み、</span><span class="nb">人の手で</span><span class="nb">細部を</span><span class="nb">仕上げます。</span></p></div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span class="chr spin" aria-hidden="true" style="font-size: 5px; --c: #7CCBEE; --a: #7A4DFF"></span>
-<div style="border-top: 6px solid #2F5BEA; padding-top: 12px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px">Step 4</div>
+<div style="border-top: 6px solid #2F5BEA; padding-top: 12px"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 22px; letter-spacing: .04em">Step 4</div>
 <h3 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 21px">確認・納品</h3>
-<p style="margin: 0">校正を反映して納品します。キャンペーンでは、公開後の振り返りと改善のご提案まで行います。</p></div>
+<p style="margin: 0"><span class="nb">校正を</span><span class="nb">反映して</span><span class="nb">納品します。</span><span class="nb">キャンペーンでは、</span><span class="nb">公開後の</span><span class="nb">振り返りと</span><span class="nb">改善の</span><span class="nb">ご提案まで</span><span class="nb">行います。</span></p></div>
 </div>
 </div>
 <div class="win">
@@ -827,8 +893,8 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <div style="padding: clamp(24px, 4vw, 36px); display: flex; flex-direction: column; gap: 24px">
 <div style="display: flex; flex-wrap: wrap-reverse; align-items: center; justify-content: space-between; gap: 12px 24px">
 <div>
-<div style="font-size: 13px; font-weight: 700; color: #5A5A5A">一般的なプランの進め方</div>
-<h3 style="margin: 2px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 3vw, 30px); line-height: 1.4"><span class="nb">初回アップ1週間、</span><span class="nb">校正3回、</span><span class="nb">1か月で納品。</span></h3>
+<div style="font-size: 13px; font-weight: 700; color: #5A5A5A"><span class="nb">一般的な</span><span class="nb">プランの</span><span class="nb">進め方</span></div>
+<h3 style="margin: 2px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(22px, 3vw, 30px); line-height: 1.4"><span class="nb">初回アップ1週間、</span><span class="nb">校正3回、</span><span class="nb"><span class="nb">1か月で</span><span class="nb">納品。</span></span></h3>
 </div>
 <div aria-hidden="true" style="display: flex; align-items: flex-end; gap: 8px"><span class="chr rb jump" style="font-size: 4px"></span><span class="chr cat jump" style="font-size: 4px; --c: #FFD21F; animation-delay: -.4s"></span></div>
 </div>
@@ -836,49 +902,49 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 <li style="border-right: 2px solid #1D1D1F; border-bottom: 2px solid #1D1D1F; margin: 0 -2px -2px 0; display: flex; flex-direction: column">
 <div style="height: 10px; background: #19C25F; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 6px">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; line-height: 1">Week 1</div>
+<div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 22px; letter-spacing: .04em; line-height: 1">Week 1</div>
 <div style="font-weight: 700; font-size: 17px">ヒアリング・企画</div>
-<p style="margin: 0; font-size: 14px">目的と方向性をすり合わせ、企画とたたき台をつくります。</p>
-<span style="align-self: flex-start; margin-top: 4px; font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px">1週間以内に初回アップ</span>
+<p style="margin: 0; font-size: 14px"><span class="nb">目的と</span><span class="nb">方向性を</span><span class="nb">すり合わせ、</span><span class="nb">企画と</span><span class="nb">たたき台を</span><span class="nb">つくります。</span></p>
+<span style="align-self: flex-start; margin-top: 4px; font-size: 12px; font-weight: 700; background: #1D1D1F; color: #fff; border-radius: 4px; padding: 0 8px"><span class="nb">1週間以内に</span><span class="nb">初回アップ</span></span>
 </div>
 </li>
 <li style="border-right: 2px solid #1D1D1F; border-bottom: 2px solid #1D1D1F; margin: 0 -2px -2px 0; display: flex; flex-direction: column">
 <div style="height: 10px; background: #FFD21F; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 6px">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; line-height: 1">Week 2</div>
-<div style="font-weight: 700; font-size: 17px">校正 1回目・2回目</div>
-<p style="margin: 0; font-size: 14px">いただいたご意見をもとに、デザインと内容を作り込みます。</p>
+<div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 22px; letter-spacing: .04em; line-height: 1">Week 2</div>
+<div style="font-weight: 700; font-size: 17px"><span class="nb">校正</span> <span class="nb">1回目・2回目</span></div>
+<p style="margin: 0; font-size: 14px"><span class="nb">いただいた</span><span class="nb">ご意見を</span><span class="nb">もとに、</span><span class="nb">デザインと</span><span class="nb">内容を</span><span class="nb">作り込みます。</span></p>
 </div>
 </li>
 <li style="border-right: 2px solid #1D1D1F; border-bottom: 2px solid #1D1D1F; margin: 0 -2px -2px 0; display: flex; flex-direction: column">
 <div style="height: 10px; background: #FF4B3A; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 6px">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; line-height: 1">Week 3</div>
-<div style="font-weight: 700; font-size: 17px">校正 3回目・仕上げ</div>
-<p style="margin: 0; font-size: 14px">細部を人の手で整え、公開・納品の準備をします。</p>
+<div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 22px; letter-spacing: .04em; line-height: 1">Week 3</div>
+<div style="font-weight: 700; font-size: 17px"><span class="nb">校正</span> <span class="nb">3回目・仕上げ</span></div>
+<p style="margin: 0; font-size: 14px"><span class="nb">細部を</span><span class="nb">人の手で</span><span class="nb">整え、</span><span class="nb">公開・納品の</span><span class="nb">準備を</span><span class="nb">します。</span></p>
 </div>
 </li>
 <li style="border-right: 2px solid #1D1D1F; border-bottom: 2px solid #1D1D1F; margin: 0 -2px -2px 0; display: flex; flex-direction: column; background: #F3EFE4">
 <div style="height: 10px; background: #2F5BEA; border-bottom: 2px solid #1D1D1F"></div>
 <div style="padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; line-height: 1">Week 4</div><span class="chr horn hop" aria-hidden="true" style="font-size: 3px; --c: #19C25F; flex: none"></span></div>
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 22px; letter-spacing: .04em; line-height: 1">Week 4</div><span class="chr horn hop" aria-hidden="true" style="font-size: 3px; --c: #19C25F; flex: none"></span></div>
 <div style="font-weight: 700; font-size: 17px">最終確認・納品</div>
-<p style="margin: 0; font-size: 14px">最終チェックのうえ納品します。ご依頼から1か月が目安です。</p>
+<p style="margin: 0; font-size: 14px"><span class="nb">最終チェックの</span><span class="nb">うえ納品します。</span><span class="nb">ご依頼から</span><span class="nb">1か月が</span><span class="nb">目安です。</span></p>
 <span style="align-self: flex-start; margin-top: 4px; font-size: 12px; font-weight: 700; background: #FF4B3A; color: #fff; border-radius: 4px; padding: 0 8px">1か月で納品</span>
 </div>
 </li>
 </ol>
-<p style="margin: 0; font-size: 14px; color: #5A5A5A">お急ぎの場合は短縮もご相談ください。規模の大きい案件は、スケジュールをご相談のうえ決定します。</p>
+<p style="margin: 0; font-size: 14px; color: #5A5A5A"><span class="nb">お急ぎの</span><span class="nb">場合は</span><span class="nb">短縮も</span><span class="nb">ご相談ください。</span><span class="nb">規模の</span><span class="nb">大きい</span><span class="nb">案件は、</span><span class="nb">スケジュールを</span><span class="nb">ご相談の</span><span class="nb">うえ決定します。</span></p>
 </div>
 </div>
 </div>
 </section>
 
 <section id="member" style="max-width: 1100px; margin: 0 auto; padding: 72px 24px">
-<div style="text-align: center; margin-bottom: 40px">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">Members</div>
+<div class="sh" data-en="MEMBERS" style="text-align: center; margin-bottom: 40px">
+<div class="en">Members</div>
 <h2 style="margin: 4px 0 8px; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4.2vw, 52px)">マニアな仲間たち</h2>
-<p style="margin: 0 auto; max-width: 32em"><span class="nb">企画、デザイン、動画、ゲーム、アプリ。</span><span class="nb">それぞれの得意をもったメンバーで、</span><span class="nb">案件に合わせてチームを組みます。</span></p>
+<p style="margin: 0 auto; max-width: 32em"><span class="nb"><span class="nb">企画、</span><span class="nb">デザイン、</span><span class="nb">動画、</span><span class="nb">ゲーム、</span><span class="nb">アプリ。</span></span><span class="nb"><span class="nb">それぞれの</span><span class="nb">得意を</span><span class="nb">もった</span><span class="nb">メンバーで、</span></span><span class="nb"><span class="nb">案件に</span><span class="nb">合わせて</span><span class="nb">チームを</span><span class="nb">組みます。</span></span></p>
 </div>
 <div class="win">
 <div class="tb"><span class="cb"></span><span class="tl"></span><span>メンバー</span><span class="tl"></span></div>
@@ -903,41 +969,41 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 
 <section id="faq" style="background: #fff; border-top: 2px solid #1D1D1F; padding: 72px 0">
 <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 24px">
-<div style="text-align: center; margin-bottom: 16px; grid-column: 1 / -1">
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">Questions</div>
+<div class="sh" data-en="FAQ" style="text-align: center; margin-bottom: 16px; grid-column: 1 / -1">
+<div class="en">Questions</div>
 <h2 style="margin: 4px 0 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4.2vw, 52px)">よくある質問</h2>
 </div>
-<div style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
+<div class="qa" style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
 <span class="chr wig" aria-hidden="true" style="font-size: 4px; --c: #FFD21F; flex: none"></span>
-<div><h3 style="margin: 0 0 4px; font-size: 18px">納期はどのくらいですか？</h3><p style="margin: 0">標準は、初回アップまで1週間以内、校正3回を経て1か月で納品です。AIでたたき台を早くつくれる分、確認と調整に時間を使えます。お急ぎの場合は短縮もご相談ください。</p></div>
+<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb">納期は</span><span class="nb">どのくらいですか？</span></h3><p style="margin: 0"><span class="nb">標準は、</span><span class="nb">初回アップまで</span><span class="nb">1週間以内、</span><span class="nb">校正3回を</span><span class="nb">経て</span><span class="nb">1か月で</span><span class="nb">納品です。</span><span class="nb">AIで</span><span class="nb">たたき台を</span><span class="nb">早くつくれる分、</span><span class="nb">確認と</span><span class="nb">調整に</span><span class="nb">時間を</span><span class="nb">使えます。</span><span class="nb">お急ぎの</span><span class="nb">場合は</span><span class="nb">短縮も</span><span class="nb">ご相談ください。</span></p></div>
 </div>
-<div style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
+<div class="qa" style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
 <span class="chr cat wig" aria-hidden="true" style="font-size: 4px; --c: #7CCBEE; flex: none"></span>
-<div><h3 style="margin: 0 0 4px; font-size: 18px">修正は何回までできますか？</h3><p style="margin: 0">基本は校正3回までです。それ以上の修正も、別途費用でご対応できます。お気軽にご相談ください。</p></div>
+<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb">修正は</span><span class="nb">何回まで</span><span class="nb">できますか？</span></h3><p style="margin: 0"><span class="nb">基本は</span><span class="nb">校正3回までです。</span><span class="nb">それ以上の</span><span class="nb">修正も、</span><span class="nb">別途費用で</span><span class="nb">ご対応できます。</span><span class="nb">お気軽に</span><span class="nb">ご相談ください。</span></p></div>
 </div>
-<div style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
+<div class="qa" style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
 <span class="chr horn wig" aria-hidden="true" style="font-size: 4px; --c: #19C25F; flex: none"></span>
-<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb">AIで作った制作物は</span><span class="nb">商用利用できますか？</span></h3><p data-munch="商用利用OK。著作権に配慮して生成します。" style="margin: 0">はい、ご利用いただけます。著作権を侵害しないよう、AIでの生成方法と使用する素材を選び、これまでの生成ノウハウを活かして制作しています。</p></div>
+<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb"><span class="nb">AIで</span><span class="nb">作った</span><span class="nb">制作物は</span></span><span class="nb">商用利用できますか？</span></h3><p data-munch="商用利用OK。|著作権に|配慮して|生成します。" style="margin: 0"><span class="nb">はい、</span><span class="nb">ご利用いただけます。</span><span class="nb">著作権を</span><span class="nb">侵害しないよう、</span><span class="nb">AIでの</span><span class="nb">生成方法と</span><span class="nb">使用する</span><span class="nb">素材を</span><span class="nb">選び、</span><span class="nb">これまでの</span><span class="nb">生成ノウハウを</span><span class="nb">活かして</span><span class="nb">制作しています。</span></p></div>
 </div>
-<div style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
+<div class="qa" style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
 <span class="chr wig" aria-hidden="true" style="font-size: 4px; --c: #C79AD0; flex: none"></span>
-<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb">LPのコーディングや公開も</span><span class="nb">お願いできますか？</span></h3><p style="margin: 0">はい、可能です。LPデザインの料金にはコーディングまで含みます。公開作業とドメインの取得は別途で承ります。</p></div>
+<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb"><span class="nb">LPの</span><span class="nb">コーディングや</span><span class="nb">公開も</span></span><span class="nb">お願いできますか？</span></h3><p style="margin: 0"><span class="nb">はい、</span><span class="nb">可能です。</span><span class="nb">LPデザインの</span><span class="nb">料金には</span><span class="nb">コーディングまで</span><span class="nb">含みます。</span><span class="nb">公開作業と</span><span class="nb">ドメインの</span><span class="nb">取得は</span><span class="nb">別途で</span><span class="nb">承ります。</span></p></div>
 </div>
-<div style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
+<div class="qa" style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
 <span class="chr cat wig" aria-hidden="true" style="font-size: 4px; --c: #FF8DEA; flex: none"></span>
-<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb">代理店や制作会社からの</span><span class="nb">ご依頼も受けていますか？</span></h3><p data-munch="御社名義での納品も、NDAもOK。" style="margin: 0">はい、制作パートナーとしてお受けしています。御社名義での納品や、秘密保持契約（NDA）の締結にも対応します。料金は案件ごとにお見積りします。</p></div>
+<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb"><span class="nb">代理店や</span><span class="nb">制作会社からの</span></span><span class="nb"><span class="nb">ご依頼も</span><span class="nb">受けていますか？</span></span></h3><p data-munch="御社名義での|納品も、|NDAもOK。" style="margin: 0"><span class="nb">はい、</span><span class="nb">制作パートナーとして</span><span class="nb">お受けしています。</span><span class="nb">御社名義での</span><span class="nb">納品や、</span><span class="nb">秘密保持契約</span><span class="nb">（NDA）の</span><span class="nb">締結にも</span><span class="nb">対応します。</span><span class="nb">料金は</span><span class="nb">案件ごとに</span><span class="nb">お見積りします。</span></p></div>
 </div>
-<div style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
+<div class="qa" style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
 <span class="chr horn wig" aria-hidden="true" style="font-size: 4px; --c: #FFD21F; flex: none"></span>
-<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb">どんなAIを使ったか、</span><span class="nb">教えてもらえますか？</span></h3><p data-munch="使ったAIと工程は、ぜんぶ共有します。" style="margin: 0">はい。私たちのモットーは「隠さない、共有する、伸ばす」です。納品時に、使ったAIと工程、プロンプトの要点をまとめた制作プロセスシートをお渡しします。</p></div>
+<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb"><span class="nb">どんな</span><span class="nb">AIを</span><span class="nb">使ったか、</span></span><span class="nb">教えてもらえますか？</span></h3><p data-munch="使ったAIと|工程は、|ぜんぶ|共有します。" style="margin: 0"><span class="nb">はい。</span><span class="nb">私たちの</span><span class="nb">モットーは</span><span class="nb">「隠さない、</span><span class="nb">共有する、</span><span class="nb">伸ばす」です。</span><span class="nb">納品時に、</span><span class="nb">使ったAIと</span><span class="nb">工程、</span><span class="nb">プロンプトの</span><span class="nb">要点を</span><span class="nb">まとめた</span><span class="nb">制作プロセスシートを</span><span class="nb">お渡しします。</span></p></div>
 </div>
-<div style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
+<div class="qa" style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
 <span class="chr spin" aria-hidden="true" style="font-size: 4px; --c: #7CCBEE; --a: #FF8DEA; flex: none"></span>
-<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb">成果報酬やコンペでの</span><span class="nb">ご依頼もできますか？</span></h3><p style="margin: 0">はい。キャンペーン一式は、成果報酬型でのご相談もお受けしています。コンペへの参加も、提案づくりから一緒に取り組みます（業界によっては受注率80%以上の実績があります）。</p></div>
+<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb"><span class="nb">成果報酬や</span><span class="nb">コンペでの</span></span><span class="nb"><span class="nb">ご依頼も</span><span class="nb">できますか？</span></span></h3><p style="margin: 0"><span class="nb">はい。</span><span class="nb">キャンペーン一式は、</span><span class="nb">成果報酬型での</span><span class="nb">ご相談も</span><span class="nb">お受けしています。</span><span class="nb">コンペへの</span><span class="nb">参加も、</span><span class="nb">提案づくりから</span><span class="nb">一緒に</span><span class="nb">取り組みます</span><span class="nb">（業界によっては</span><span class="nb">受注率80%以上の</span><span class="nb">実績が</span><span class="nb">あります）。</span></p></div>
 </div>
-<div style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
+<div class="qa" style="border: 2px solid #1D1D1F; outline: 2px solid #1D1D1F; outline-offset: 3px; border-radius: 4px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; margin: 5px">
 <span class="chr horn wig" aria-hidden="true" style="font-size: 4px; --c: #FF4B3A; --a: #FFD21F; flex: none"></span>
-<div><h3 style="margin: 0 0 4px; font-size: 18px">お支払いの条件は？</h3><p style="margin: 0">10万円未満のご依頼は着手前のお支払い、10万円以上は着手時に50%、納品時に50%をお願いしています。条件はご相談に応じます。</p></div>
+<div><h3 style="margin: 0 0 4px; font-size: 18px"><span class="nb">お支払いの</span><span class="nb">条件は？</span></h3><p style="margin: 0"><span class="nb">10万円未満の</span><span class="nb">ご依頼は</span><span class="nb">着手前の</span><span class="nb">お支払い、</span><span class="nb">10万円以上は</span><span class="nb">着手時に</span><span class="nb">50%、</span><span class="nb">納品時に</span><span class="nb">50%を</span><span class="nb">お願いしています。</span><span class="nb">条件は</span><span class="nb">ご相談に</span><span class="nb">応じます。</span></p></div>
 </div>
 </div>
 </section>
@@ -946,9 +1012,9 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 
 <section id="contact" style="max-width: 760px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; align-items: center; gap: 24px">
 <div style="display: flex; align-items: flex-end; gap: 16px" aria-hidden="true"><span class="chr rb jump" style="font-size: 6px"></span><span class="chr cat wig" style="font-size: 5px; --c: #FFD21F"></span><span class="chr horn jump" style="font-size: 6px; --c: #19C25F; animation-delay: -.5s"></span></div>
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px">Contact</div>
-<h2 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(28px, 4vw, 48px); text-align: center; line-height: 1.4">企画の段階から、<br>まずはご相談ください。</h2>
-<p style="margin: 0; text-align: center"><span class="nb">ご相談・お見積りは無料です。</span><span class="nb">「何をつくるか」が決まっていない段階でも歓迎します。</span></p>
+<div class="en">Contact</div>
+<h2 class="sh" data-en="CONTACT" style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(28px, 4vw, 48px); text-align: center; line-height: 1.4"><span class="nb">企画の</span><span class="nb">段階から、</span><br><span class="nb">まずは</span><span class="nb">ご相談ください。</span></h2>
+<p style="margin: 0; text-align: center"><span class="nb"><span class="nb">ご相談・</span><span class="nb">お見積りは</span><span class="nb">無料です。</span></span><span class="nb"><span class="nb">「何を</span><span class="nb">つくるか」が</span><span class="nb">決まっていない</span><span class="nb">段階でも</span><span class="nb">歓迎します。</span></span></p>
 <div class="win" style="width: 100%">
 <div class="tb"><span class="cb"></span><span class="tl"></span><span>お問い合わせ</span><span class="tl"></span></div>
 <form id="contact-form" style="padding: clamp(24px, 4vw, 40px); display: flex; flex-direction: column; gap: 18px">
@@ -971,17 +1037,17 @@ addEventListener('keydown',function k(){end();removeEventListener('keydown',k)})
 </form>
 <div id="form-done" role="status" hidden style="border-top: 2px solid #1D1D1F; background: #F3EFE4; padding: clamp(24px, 4vw, 40px); display: flex; flex-direction: column; gap: 8px">
 <p style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 24px">送信しました。</p>
-<p style="margin: 0">ご相談ありがとうございます。内容を確認して、メールでご連絡します。</p>
+<p style="margin: 0"><span class="nb">ご相談</span><span class="nb">ありがとうございます。</span><span class="nb">内容を</span><span class="nb">確認して、</span><span class="nb">メールで</span><span class="nb">ご連絡します。</span></p>
 </div>
 <div id="form-out" hidden style="border-top: 2px solid #1D1D1F; background: #F3EFE4; padding: clamp(24px, 4vw, 40px); display: flex; flex-direction: column; gap: 14px">
-<p style="margin: 0; font-weight: 700">送信できませんでした。お手数ですが、下の文面をコピーして、<span style="user-select: all; word-break: break-all">info@aimania.tech</span> へメールでお送りください。</p>
+<p style="margin: 0; font-weight: 700"><span class="nb">送信できませんでした。</span><span class="nb">お手数ですが、</span><span class="nb">下の</span><span class="nb">文面を</span><span class="nb">コピーして、</span><span class="nb"><span style="user-select: all; word-break: break-all"><span class="nb">info@aimania.tech</span></span> へ</span><span class="nb">メールで</span><span class="nb">お送りください。</span></p>
 <label for="form-text" style="font-size: 13px; font-weight: 700">メールの文面</label>
 <textarea id="form-text" class="fld" rows="10" readonly style="margin-top: -10px"></textarea>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px"><button type="button" id="form-copy" class="btn pri" style="font: inherit; font-weight: 700">文面をコピーする</button><a id="form-mail" class="btn" href="mailto:info@aimania.tech">メールアプリで開く</a></div>
-<p style="margin: 0; font-size: 13px; color: #5A5A5A">メールアプリが開かない場合は、コピーした文面をお使いください。</p>
+<p style="margin: 0; font-size: 13px; color: #5A5A5A"><span class="nb">メールアプリが</span><span class="nb">開かない</span><span class="nb">場合は、</span><span class="nb">コピーした</span><span class="nb">文面を</span><span class="nb">お使いください。</span></p>
 </div>
 </div>
-<div style="font-size: 14px; color: #5A5A5A; text-align: center">メールでのご相談: <span style="user-select: all">info@aimania.tech</span></div>
+<div style="font-size: 14px; color: #5A5A5A; text-align: center"><span class="nb">メールでの</span><span class="nb">ご相談:</span> <span style="user-select: all"><span class="nb">info@aimania.tech</span></span></div>
 </section>
 
 <section style="display: flex; justify-content: center; padding: 8px 24px 64px">
@@ -1083,7 +1149,7 @@ function draw(){
  if(shown.score!==g.score){$('gm-s').textContent=String(g.score);shown.score=g.score;}
  if(shown.lives!==g.lives){var l=Math.max(0,g.lives);$('gm-l').textContent='♥'.repeat(l)+'♡'.repeat(3-l);shown.lives=g.lives;}
  if(shown.mode!==g.mode){$('gm-win').hidden=g.mode==='play';
-  $('gm-msg').textContent=g.mode==='over'?'ゲームオーバー！ スコア '+g.score+'。クリックでもういちど':'クリックでスタート';shown.mode=g.mode;}
+  $('gm-msg').innerHTML=g.mode==='over'?'<span class="nb">ゲームオーバー！</span> <span class="nb">スコア '+g.score+'。</span><span class="nb">クリックで</span><span class="nb">もういちど</span>':'<span class="nb">クリックで</span><span class="nb">スタート</span>';shown.mode=g.mode;}
 }
 function tick(now){
  requestAnimationFrame(tick);
@@ -1119,11 +1185,16 @@ requestAnimationFrame(tick);
 @keyframes crumb{to{transform:translate(var(--dx),var(--dy));opacity:0}}
 .munch-sum{display:block;animation:mpop .4s cubic-bezier(.3,1.6,.5,1)}
 @keyframes mpop{from{transform:scale(.6);opacity:0}}
-.munch-sum b{background:linear-gradient(transparent 55%,#FFD21F 55%);font-weight:700}
-.munch-sum .mlbl{display:inline-block;margin-right:.5em;font-size:.75em;font-weight:700;letter-spacing:.08em;color:#6b6352}
+.munch-sum b{font-weight:700}
+.munch-sum b>.nb{background:linear-gradient(transparent 55%,#FFD21F 55%)}
+/* 「つまり」ラベルは独立した行に。要約は文節（.nb）単位で折り返し、行の長さをそろえる */
+.munch-sum .mlbl{display:block;width:max-content;margin:4px 0 2px;padding:0 8px;font-size:12px;font-weight:700;line-height:1.7;letter-spacing:.08em;color:#1D1D1F;background:#fff;border:2px solid #1D1D1F;border-radius:4px}
+.munch-sum .mtx{display:block;text-wrap:balance}
 .munch-sum button{margin-left:.6em;border:2px solid #1D1D1F;background:#fff;border-radius:4px;font:700 12px/1 'Zen Kaku Gothic New',sans-serif;padding:4px 8px;cursor:pointer;box-shadow:2px 2px 0 #1D1D1F}
 .munch-sum button:hover{background:#FFD21F}
 [data-munch].done .mc{display:none}
+[data-munch].done:not(.full) .nb{display:none}
+[data-munch] .munch-sum .nb{display:inline-block!important}
 [data-munch].done.full .mc{display:inline;opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.muncher,.crumb{display:none}}
 </style>
@@ -1137,8 +1208,9 @@ ps.forEach(function(p){
 });
 function summary(p){
   var d=document.createElement('span');d.className='munch-sum';
-  d.innerHTML='<span class="mlbl">もぐもぐ… つまり</span><b></b><button type="button">全文を読む</button>';
-  d.querySelector('b').textContent=p.getAttribute('data-munch');
+  d.innerHTML='<span class="mlbl">もぐもぐ… つまり</span><span class="mtx"><b></b><button type="button">全文を読む</button></span>';
+  /* data-munch は「|」で文節に区切ってある。文節ごとに .nb にして、単語の途中で折り返さない */
+  var b=d.querySelector('b');p.getAttribute('data-munch').split('|').forEach(function(t){var s=document.createElement('span');s.className='nb';s.textContent=t;b.appendChild(s)});
   var btn=d.querySelector('button');
   btn.addEventListener('click',function(){var f=p.classList.toggle('full');btn.textContent=f?'つまり だけにする':'全文を読む'});
   p.classList.add('done');p.appendChild(d);
@@ -1240,7 +1312,7 @@ function init(){
  face.forEach(function(f){for(var x=f[0];x<f[0]+f[2];x++)for(var y=f[1];y<f[1]+f[3];y++){cells[x+','+y+',5']=K;cells[x+','+y+',6']=K;}});
  var scene=new T.Scene(),cam=new T.PerspectiveCamera(30,1,.1,100);cam.position.set(0,0,30);
  var ren=new T.WebGLRenderer({alpha:true,antialias:true});ren.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
- ren.outputEncoding=T.sRGBEncoding;var S=170;ren.setSize(S,S);var cv=ren.domElement;
+ ren.outputEncoding=T.sRGBEncoding;var S=Math.round((box.offsetWidth||84)*1.6);ren.setSize(S,S);var cv=ren.domElement;
  cv.style.cssText='position:absolute;left:50%;top:50%;width:'+S+'px;height:'+S+'px;margin:-'+S/2+'px 0 0 -'+S/2+'px;cursor:pointer';
  cv.setAttribute('aria-hidden','true');
  scene.add(new T.AmbientLight(0xffffff,.7));var dl=new T.DirectionalLight(0xffffff,.75);dl.position.set(4,6,10);scene.add(dl);
@@ -1281,6 +1353,26 @@ io.observe(a);
 <script>
 /* 「展示会の相談をする」で相談フォームの種類を選んでおく */
 document.querySelectorAll('a[data-kind]').forEach(function(a){a.addEventListener('click',function(){var sel=document.getElementById('r-kind');if(!sel)return;for(var i=0;i<sel.options.length;i++){if(sel.options[i].text===a.dataset.kind){sel.selectedIndex=i;sel.dispatchEvent(new Event('change',{bubbles:true}));break;}}});});
+</script>
+<script>
+/* 実績・制作事例のタブ（JSが動かない環境では全部を縦に並べて表示） */
+(function(){
+var w=document.getElementById('works');if(!w)return;
+var tabs=[].slice.call(w.querySelectorAll('.wk-tabs [role=tab]'));if(!tabs.length)return;
+var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'))});
+var nx=w.querySelector('.wk-next button'),pick=w.querySelector('.wk-pick'),cur=0;
+function label(t){return t.querySelector('b').textContent}
+function show(i,focus){cur=i;tabs.forEach(function(t,j){var on=i===j;t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;panels[j].hidden=!on});
+ if(focus)tabs[i].focus();var n=(i+1)%tabs.length;if(nx)nx.textContent='次は「'+label(tabs[n])+'」を見る →';}
+w.classList.add('tabbed');show(0);
+tabs.forEach(function(t,i){t.addEventListener('click',function(){show(i)});
+ t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'||e.key==='ArrowDown'?1:e.key==='ArrowLeft'||e.key==='ArrowUp'?-1:0;if(d){e.preventDefault();show((cur+d+tabs.length)%tabs.length,true)}})});
+if(nx)nx.addEventListener('click',function(){show((cur+1)%tabs.length);pick.scrollIntoView({block:'start',behavior:'smooth'})});
+/* ナビの「展示会」(#booth) からは展示会タブを開く */
+function hash(){if(location.hash==='#booth')show(3)}
+document.addEventListener('click',function(e){var a=e.target.closest('a[href="#booth"]');if(a)show(3)},true);
+addEventListener('hashchange',hash);hash();
+})();
 </script>
 <!-- LINE追従バナー（</body> の直前に貼る） -->
 <style>
