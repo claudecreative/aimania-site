@@ -51,6 +51,39 @@ ul.ng li:before{background:#bbb}
 .a3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .a3 p{font-size:13px;color:var(--sub);margin-top:6px}
 .a3 b{display:block;font-size:15px;margin-top:8px}
+
+.pv{display:grid;grid-template-columns:400px minmax(0,1fr);gap:40px;align-items:start;margin-top:30px}
+@media(max-width:900px){.pv{grid-template-columns:1fr}.pv .ph{margin:0 auto}}
+.ph{width:390px;border-radius:46px;background:#111;padding:12px;box-shadow:0 30px 60px rgba(20,19,22,.25);position:sticky;top:16px}
+.ph-in{border-radius:36px;overflow:hidden;background:#fff;height:780px;overflow-y:auto;position:relative;scrollbar-width:none;font-family:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;color:#222}
+.ph-in::-webkit-scrollbar{display:none}
+.st{height:34px;display:flex;justify-content:space-between;align-items:center;padding:0 22px;font-size:12px;font-weight:700;background:inherit}
+.rib{position:absolute;right:-38px;top:60px;transform:rotate(45deg);background:#FF2D8F;color:#fff;font:800 10px 'Montserrat';letter-spacing:.14em;padding:4px 44px;z-index:9;pointer-events:none}
+.sr{flex:1;height:34px;border-radius:8px;background:#fff;color:#999;font-size:12px;display:flex;align-items:center;padding:0 10px;gap:6px}
+.car{position:relative}
+.car-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track img{flex:0 0 100%;width:100%;aspect-ratio:1;object-fit:cover;scroll-snap-align:start;display:block}
+.cnt{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.55);color:#fff;font-size:11px;padding:2px 8px;border-radius:999px}
+.dots{display:flex;justify-content:center;gap:5px;padding:8px 0}
+.dots i{width:6px;height:6px;border-radius:50%;background:#ccc}
+.dots i:first-child{background:#555}
+.px{padding:10px 14px}
+.ttl{font-size:14px;line-height:1.55}
+.btn-d{display:block;width:100%;border:0;border-radius:999px;padding:13px;font-size:15px;font-weight:700;cursor:not-allowed;opacity:.95}
+.sect{font-weight:700;font-size:15px;padding:14px;border-top:8px solid #f2f2f2}
+.dimg img{width:100%;display:block}
+.stars{color:#ccc!important;letter-spacing:1px}
+.mk{font-size:10px;color:#999;text-align:center;padding:10px}
+.ann{display:grid;gap:12px}
+.ann .a{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;grid-template-columns:34px 1fr;gap:12px}
+.ann .n{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:800 13px 'Montserrat';color:#fff;background:var(--ink)}
+.ann .n.us{background:linear-gradient(95deg,#FF7A00,#FF2D8F)}
+.ann b{display:block;font-size:15px}
+.ann p{font-size:13px;color:var(--sub);margin-top:2px}
+.leg{display:flex;gap:16px;font-size:12px;color:var(--sub);margin-bottom:4px}
+.leg span{display:inline-flex;align-items:center;gap:6px}
+.leg i{width:12px;height:12px;border-radius:50%;display:inline-block}
 </style></head><body>
 <div class="bar">GRANI モール展開 テストサイト（社内確認用・未公開）｜画面は構成イメージで、各モールの実際の表示とは異なります</div>
 <div class="w"><header class="top"><a class="logo" href="./">GRANI</a>

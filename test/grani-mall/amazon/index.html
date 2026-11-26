@@ -51,6 +51,39 @@ ul.ng li:before{background:#bbb}
 .a3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .a3 p{font-size:13px;color:var(--sub);margin-top:6px}
 .a3 b{display:block;font-size:15px;margin-top:8px}
+
+.pv{display:grid;grid-template-columns:400px minmax(0,1fr);gap:40px;align-items:start;margin-top:30px}
+@media(max-width:900px){.pv{grid-template-columns:1fr}.pv .ph{margin:0 auto}}
+.ph{width:390px;border-radius:46px;background:#111;padding:12px;box-shadow:0 30px 60px rgba(20,19,22,.25);position:sticky;top:16px}
+.ph-in{border-radius:36px;overflow:hidden;background:#fff;height:780px;overflow-y:auto;position:relative;scrollbar-width:none;font-family:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;color:#222}
+.ph-in::-webkit-scrollbar{display:none}
+.st{height:34px;display:flex;justify-content:space-between;align-items:center;padding:0 22px;font-size:12px;font-weight:700;background:inherit}
+.rib{position:absolute;right:-38px;top:60px;transform:rotate(45deg);background:#FF2D8F;color:#fff;font:800 10px 'Montserrat';letter-spacing:.14em;padding:4px 44px;z-index:9;pointer-events:none}
+.sr{flex:1;height:34px;border-radius:8px;background:#fff;color:#999;font-size:12px;display:flex;align-items:center;padding:0 10px;gap:6px}
+.car{position:relative}
+.car-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track img{flex:0 0 100%;width:100%;aspect-ratio:1;object-fit:cover;scroll-snap-align:start;display:block}
+.cnt{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.55);color:#fff;font-size:11px;padding:2px 8px;border-radius:999px}
+.dots{display:flex;justify-content:center;gap:5px;padding:8px 0}
+.dots i{width:6px;height:6px;border-radius:50%;background:#ccc}
+.dots i:first-child{background:#555}
+.px{padding:10px 14px}
+.ttl{font-size:14px;line-height:1.55}
+.btn-d{display:block;width:100%;border:0;border-radius:999px;padding:13px;font-size:15px;font-weight:700;cursor:not-allowed;opacity:.95}
+.sect{font-weight:700;font-size:15px;padding:14px;border-top:8px solid #f2f2f2}
+.dimg img{width:100%;display:block}
+.stars{color:#ccc!important;letter-spacing:1px}
+.mk{font-size:10px;color:#999;text-align:center;padding:10px}
+.ann{display:grid;gap:12px}
+.ann .a{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;grid-template-columns:34px 1fr;gap:12px}
+.ann .n{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:800 13px 'Montserrat';color:#fff;background:var(--ink)}
+.ann .n.us{background:linear-gradient(95deg,#FF7A00,#FF2D8F)}
+.ann b{display:block;font-size:15px}
+.ann p{font-size:13px;color:var(--sub);margin-top:2px}
+.leg{display:flex;gap:16px;font-size:12px;color:var(--sub);margin-bottom:4px}
+.leg span{display:inline-flex;align-items:center;gap:6px}
+.leg i{width:12px;height:12px;border-radius:50%;display:inline-block}
 </style></head><body>
 <div class="bar">GRANI モール展開 テストサイト（社内確認用・未公開）｜画面は構成イメージで、各モールの実際の表示とは異なります</div>
 <div class="w"><header class="top"><a class="logo" href="../">GRANI</a>
@@ -58,7 +91,26 @@ ul.ng li:before{background:#bbb}
 
 <div class="k">AMAZON</div><h1>Amazon 商品ページ ＋ A+</h1>
 <p class="lead">「何ができる商品か」を画像だけで一瞬で分かってもらう場所。メインは白背景の商品のみ、2枚目以降で特長・仕組み・使い方・量・香りを1枚1メッセージで見せ、下の「商品紹介コンテンツ（A+）」でブランドの世界観を伝えます。</p>
-<div class="side" style="margin-top:26px"><div>
+<div class="pv"><div class="ph"><div class="ph-in" style="background:#fff">
+<div class="rib">MOCKUP</div>
+<div class="st" style="background:#232F3E;color:#fff"><span>9:41</span><span>●●● ▮</span></div>
+<div style="background:#232F3E;padding:6px 10px 10px;display:flex;gap:8px;align-items:center"><div class="sr" style="border-radius:8px">🔍 GRANI ヘアミルク</div></div>
+<div style="background:#37475A;color:#fff;font-size:11px;padding:7px 12px">📍 お届け先（モール側の表示）</div>
+<div class="px"><div style="font-size:12px;color:#007185">ブランド：GRANI</div><div class="ttl" style="margin-top:2px">GRANI（グラニ） シルキーモイストヘアミルク 200ml 洗い流さないトリートメント ドライヤーの熱で浸透※ トステア® γ-ドコサラクトン配合</div>
+<div style="font-size:12px;margin-top:4px"><span class="stars" style="color:#FFA41C">☆☆☆☆☆</span> <span style="color:#007185">（評価 —件）</span></div></div>
+<div class="car"><div class="car-track"><img src="img/01-main.jpg" alt=""><img src="img/02-benefit.jpg" alt=""><img src="img/03-w-active.jpg" alt=""><img src="img/04-how-it-works.jpg" alt=""><img src="img/05-how-to-use.jpg" alt=""><img src="img/06-amount.jpg" alt=""><img src="img/07-before-after.jpg" alt=""><img src="img/08-fragrance.jpg" alt=""></div><span class="cnt">1/8</span></div><div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="px"><div style="font-size:12px">税込</div><div><span style="font-size:13px;vertical-align:top">￥</span><span style="font-size:28px">3,960</span></div>
+<div style="font-size:12px;color:#565959;margin-top:4px">配送料・お届け日はAmazon側の設定で表示</div>
+<div style="color:#007600;font-size:15px;margin-top:8px">在庫あり</div>
+<button class="btn-d" style="background:#FFD814;color:#111;margin-top:10px" disabled>カートに入れる</button>
+<button class="btn-d" style="background:#FFA41C;color:#111;margin-top:8px" disabled>今すぐ買う</button></div>
+<div class="sect">この商品について</div><ul class="px" style="font-size:13px;line-height:1.6;padding-left:30px"><li style="margin-bottom:6px">【熱を味方にするヘアミルク】ドライヤーやアイロンの熱をきっかけに、成分が毛髪の内部まで浸透します。</li><li style="margin-bottom:6px">【W成分配合】トステア®（内部）とγ-ドコサラクトン（表面）の2つの成分を配合。</li><li style="margin-bottom:6px">【夜・朝・日中の1本3役】夜は補修・保湿、朝はまとまり・熱保護、日中は広がり対策に。</li><li style="margin-bottom:6px">【使用量の目安】ミディアム：パール1〜2粒分／ロング：500円玉大1個分。</li><li style="margin-bottom:6px">【香り】ピュアリネン。香水を邪魔しない控えめな香り。</li></ul>
+<div class="sect">商品の説明（A+）</div><div class="dimg"><img src="img/aplus-01-header-970x600.jpg" alt="" loading="lazy"><img src="img/aplus-02-band-970x300.jpg" alt="" loading="lazy"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:6px 0"><div><img src="img/aplus-03-use1-300x300.jpg" alt=""><div style="font-size:11px;font-weight:700;padding:4px 2px">NIGHT 夜のケア</div></div><div><img src="img/aplus-03-use2-300x300.jpg" alt=""><div style="font-size:11px;font-weight:700;padding:4px 2px">MORNING 朝</div></div><div><img src="img/aplus-03-use3-300x300.jpg" alt=""><div style="font-size:11px;font-weight:700;padding:4px 2px">DAYTIME 日中</div></div></div><img src="img/aplus-04-fragrance-970x300.jpg" alt="" loading="lazy"></div>
+<div class="sect">カスタマーレビュー</div><div class="px" style="font-size:12px;color:#999">Amazonのレビュー欄（購入者の評価のみ表示されます）</div>
+<div class="mk">構成イメージ（実際の表示とは異なります）</div></div></div><div><div class="k">SMARTPHONE VIEW</div><div style="font-weight:900;font-size:24px;margin:4px 0 6px">Amazonのスマホで見たとき</div><p style="font-size:13px;color:var(--sub);margin-bottom:16px">Amazonのスマホ商品ページに近い並び順の構成イメージです。画像は左右にスワイプできます。</p>
+<div class="leg"><span><i style="background:linear-gradient(95deg,#FF7A00,#FF2D8F)"></i>今回つくったもの</span><span><i style="background:#141316"></i>モール側の表示・設定</span></div><div class="ann"><div class="a"><span class="n">1</span><div><b>ヘッダー・お届け先</b><p>Amazon側の表示。</p></div></div><div class="a"><span class="n us">2</span><div><b>ブランド名・商品名</b><p>「GRANI」のブランド名と、検索される言葉を入れた商品名。</p></div></div><div class="a"><span class="n us">3</span><div><b>商品画像（8枚）</b><p>メインは純白背景・文字なし。2枚目以降は1枚1メッセージ。</p></div></div><div class="a"><span class="n">4</span><div><b>価格・在庫・購入ボタン</b><p>Amazon側の設定で表示。</p></div></div><div class="a"><span class="n us">5</span><div><b>この商品について（5項目）</b><p>画像を見ない人もここで判断するので、要点を5つに。</p></div></div><div class="a"><span class="n us">6</span><div><b>商品の説明（A+）</b><p>ブランド登録後に使える画像の説明欄。世界観を伝える場所。</p></div></div><div class="a"><span class="n">7</span><div><b>カスタマーレビュー</b><p>Amazonで買った人の評価だけが表示されます。</p></div></div></div></div></div>
+<h2 style="font-weight:900;font-size:24px;margin:56px 0 4px">PC表示・入稿画像</h2>
+<div class="side" style="margin-top:16px"><div>
 <div class="mock"><div class="mock-h"><span>Amazon 商品ページ（構成イメージ）</span><span>PC表示想定</span></div>
 <div class="pd"><div><img id="amain" class="gal-main" src="img/01-main.jpg" alt=""><div class="thumbs" data-main="amain"><img src="img/01-main.jpg" class="on" alt=""><img src="img/02-benefit.jpg" class="" alt=""><img src="img/03-w-active.jpg" class="" alt=""><img src="img/04-how-it-works.jpg" class="" alt=""><img src="img/05-how-to-use.jpg" class="" alt=""><img src="img/06-amount.jpg" class="" alt=""><img src="img/07-before-after.jpg" class="" alt=""><img src="img/08-fragrance.jpg" class="" alt=""></div><p class="fname">メイン：純白背景（RGB255）・商品が画面の約85%・文字なし</p></div>
 <div><div style="font-size:13px;color:var(--sub)">ブランド：GRANI</div>

@@ -51,6 +51,39 @@ ul.ng li:before{background:#bbb}
 .a3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .a3 p{font-size:13px;color:var(--sub);margin-top:6px}
 .a3 b{display:block;font-size:15px;margin-top:8px}
+
+.pv{display:grid;grid-template-columns:400px minmax(0,1fr);gap:40px;align-items:start;margin-top:30px}
+@media(max-width:900px){.pv{grid-template-columns:1fr}.pv .ph{margin:0 auto}}
+.ph{width:390px;border-radius:46px;background:#111;padding:12px;box-shadow:0 30px 60px rgba(20,19,22,.25);position:sticky;top:16px}
+.ph-in{border-radius:36px;overflow:hidden;background:#fff;height:780px;overflow-y:auto;position:relative;scrollbar-width:none;font-family:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;color:#222}
+.ph-in::-webkit-scrollbar{display:none}
+.st{height:34px;display:flex;justify-content:space-between;align-items:center;padding:0 22px;font-size:12px;font-weight:700;background:inherit}
+.rib{position:absolute;right:-38px;top:60px;transform:rotate(45deg);background:#FF2D8F;color:#fff;font:800 10px 'Montserrat';letter-spacing:.14em;padding:4px 44px;z-index:9;pointer-events:none}
+.sr{flex:1;height:34px;border-radius:8px;background:#fff;color:#999;font-size:12px;display:flex;align-items:center;padding:0 10px;gap:6px}
+.car{position:relative}
+.car-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track img{flex:0 0 100%;width:100%;aspect-ratio:1;object-fit:cover;scroll-snap-align:start;display:block}
+.cnt{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.55);color:#fff;font-size:11px;padding:2px 8px;border-radius:999px}
+.dots{display:flex;justify-content:center;gap:5px;padding:8px 0}
+.dots i{width:6px;height:6px;border-radius:50%;background:#ccc}
+.dots i:first-child{background:#555}
+.px{padding:10px 14px}
+.ttl{font-size:14px;line-height:1.55}
+.btn-d{display:block;width:100%;border:0;border-radius:999px;padding:13px;font-size:15px;font-weight:700;cursor:not-allowed;opacity:.95}
+.sect{font-weight:700;font-size:15px;padding:14px;border-top:8px solid #f2f2f2}
+.dimg img{width:100%;display:block}
+.stars{color:#ccc!important;letter-spacing:1px}
+.mk{font-size:10px;color:#999;text-align:center;padding:10px}
+.ann{display:grid;gap:12px}
+.ann .a{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;grid-template-columns:34px 1fr;gap:12px}
+.ann .n{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:800 13px 'Montserrat';color:#fff;background:var(--ink)}
+.ann .n.us{background:linear-gradient(95deg,#FF7A00,#FF2D8F)}
+.ann b{display:block;font-size:15px}
+.ann p{font-size:13px;color:var(--sub);margin-top:2px}
+.leg{display:flex;gap:16px;font-size:12px;color:var(--sub);margin-bottom:4px}
+.leg span{display:inline-flex;align-items:center;gap:6px}
+.leg i{width:12px;height:12px;border-radius:50%;display:inline-block}
 </style></head><body>
 <div class="bar">GRANI モール展開 テストサイト（社内確認用・未公開）｜画面は構成イメージで、各モールの実際の表示とは異なります</div>
 <div class="w"><header class="top"><a class="logo" href="../">GRANI</a>
@@ -58,7 +91,24 @@ ul.ng li:before{background:#bbb}
 
 <div class="k">QOO10</div><h1>Qoo10 商品ページ</h1>
 <p class="lead">20〜30代が、韓国コスメの延長でSNSを見ながら選ぶ場所。楽天・Amazonより攻めた、ネオンイエロー×ピンクのポップな見せ方にして、イベント（メガ割など）のたびに差し替えるバナー枠を一番上に用意しています。</p>
-<div class="side" style="margin-top:26px"><div>
+<div class="pv"><div class="ph"><div class="ph-in" style="background:#fff">
+<div class="rib">MOCKUP</div>
+<div class="st"><span>9:41</span><span>●●● ▮</span></div>
+<div style="padding:4px 10px 10px;display:flex;gap:8px;align-items:center;border-bottom:1px solid #eee"><div class="sr" style="background:#f3f3f3;border-radius:999px">🔍 ヒートクチュール</div></div>
+<div class="car"><div class="car-track"><img src="img/thumb-01.jpg" alt=""><img src="img/thumb-02.jpg" alt=""></div><span class="cnt">1/2</span></div><div class="dots"><i></i><i></i></div>
+<div class="px"><div style="font-size:12px;color:#777">GRANI公式 Qoo10店</div>
+<div class="ttl" style="margin-top:2px">[GRANI公式] シルキーモイストヘアミルク 200ml ／ ドライヤーの熱で浸透※ ヒートクチュール 洗い流さないトリートメント</div>
+<div style="font-size:10px;color:#999;margin-top:2px">※毛髪の内部まで</div>
+<div style="margin-top:8px"><span style="font-weight:800;font-size:24px">3,960円</span> <span style="font-size:11px;color:#777">送料無料</span></div>
+<div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap"><span style="border:1px solid #E8175D;color:#E8175D;border-radius:4px;font-size:11px;padding:3px 8px">ショップクーポン</span><span style="border:1px solid #333;border-radius:4px;font-size:11px;padding:3px 8px">イベントクーポン（設定時）</span></div>
+<div style="font-size:12px;margin-top:8px"><span class="stars" style="color:#E8175D">★★★★★</span> <span style="color:#777">（レビュー —件）</span></div>
+<div style="display:flex;gap:8px;margin-top:12px"><button class="btn-d" style="background:#fff;border:1px solid #E8175D;color:#E8175D" disabled>カート</button><button class="btn-d" style="background:#E8175D;color:#fff" disabled>今すぐ購入</button></div></div>
+<div class="sect">商品詳細</div><div class="dimg"><img src="img/detail-00-event.jpg" alt="" loading="lazy"><img src="img/detail-01-fv.jpg" alt="" loading="lazy"><img src="img/detail-02-points.jpg" alt="" loading="lazy"><img src="img/detail-03-howto.jpg" alt="" loading="lazy"><img src="img/detail-04-texture.jpg" alt="" loading="lazy"><img src="img/detail-05-before-after.jpg" alt="" loading="lazy"><img src="img/detail-06-item.jpg" alt="" loading="lazy"></div>
+<div class="sect">レビュー・写真レビュー</div><div class="px" style="font-size:12px;color:#999">Qoo10のレビュー欄（写真付きの投稿が表示されます）</div>
+<div class="mk">構成イメージ（実際の表示とは異なります）</div></div></div><div><div class="k">SMARTPHONE VIEW</div><div style="font-weight:900;font-size:24px;margin:4px 0 6px">Qoo10のスマホで見たとき</div><p style="font-size:13px;color:var(--sub);margin-bottom:16px">Qoo10のスマホ商品ページに近い並び順の構成イメージです。画像は左右にスワイプできます。</p>
+<div class="leg"><span><i style="background:linear-gradient(95deg,#FF7A00,#FF2D8F)"></i>今回つくったもの</span><span><i style="background:#141316"></i>モール側の表示・設定</span></div><div class="ann"><div class="a"><span class="n">1</span><div><b>ヘッダー・検索</b><p>Qoo10側の表示。</p></div></div><div class="a"><span class="n us">2</span><div><b>商品画像（2枚）</b><p>1枚目は白背景の商品、2枚目でブランドの世界観。</p></div></div><div class="a"><span class="n us">3</span><div><b>商品名</b><p>[GRANI公式]で始めて、ヒートクチュールなどの言葉を入れた文案。</p></div></div><div class="a"><span class="n">4</span><div><b>価格・クーポン・購入ボタン</b><p>QSMの設定で表示。メガ割などのイベント時はクーポンが付きます。</p></div></div><div class="a"><span class="n us">5</span><div><b>イベント差し替え枠</b><p>商品詳細の一番上。イベントのたびにこの1枚だけ差し替えます。</p></div></div><div class="a"><span class="n us">6</span><div><b>商品詳細（6枚）</b><p>ポップなビジュアルで、強み→使い方→質感・量→ビフォーアフター→商品情報。</p></div></div><div class="a"><span class="n">7</span><div><b>レビュー・写真レビュー</b><p>Qoo10の購入者の投稿が表示されます。</p></div></div></div></div></div>
+<h2 style="font-weight:900;font-size:24px;margin:56px 0 4px">PC表示・入稿画像</h2>
+<div class="side" style="margin-top:16px"><div>
 <div class="mock"><div class="mock-h"><span>Qoo10 商品ページ（構成イメージ）</span><span>スマホ表示想定</span></div>
 <div class="pd"><div><img id="qmain" class="gal-main" src="img/thumb-01.jpg" alt=""><div class="thumbs" data-main="qmain"><img src="img/thumb-01.jpg" class="on" alt=""><img src="img/thumb-02.jpg" class="" alt=""></div><p class="fname">1枚目は白背景の商品のみ／2枚目でブランドの世界観</p></div>
 <div><div style="font-size:13px;color:var(--sub)">GRANI公式 Qoo10店</div>
