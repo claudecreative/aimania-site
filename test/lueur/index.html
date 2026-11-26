@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!--aim-guard--><script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_lueur_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_lueur_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=1f84012f/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_lueur_ok","1")}catch(e){}try{document.cookie="aim_lueur_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script><meta name="robots" content="noindex,nofollow"><!--aim-guard-->
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lueur（リュウール）｜植物由来の美容液</title>
@@ -1046,8 +1044,9 @@ br.sp{display:none}
   if(isStatic||!('IntersectionObserver' in window)){
     targets.forEach(function(el){el.classList.add('in');if(el.classList.contains('mask'))el.classList.add('done');});
   }else{
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');done(e.target);io.unobserve(e.target);}})},{rootMargin:'0px 0px -10% 0px',threshold:.12});
-    targets.forEach(function(el){io.observe(el)});
+    /* clip-pathで隠れた写真は面積0とみなされ交差しないため、写真は親要素で見張る */
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target._rv||e.target;el.classList.add('in');done(el);io.unobserve(e.target);}})},{rootMargin:'0px 0px -10% 0px',threshold:0});
+    targets.forEach(function(el){ if(el.classList.contains('mask')&&el.parentElement){var w=el.parentElement; if(w._rv){var s=document.createElement('span');s.style.cssText='position:absolute;inset:0;pointer-events:none';s._rv=el;if(getComputedStyle(el).position==='static')el.style.position='relative';el.parentElement.insertBefore(s,el);io.observe(el);return;} w._rv=el; io.observe(w);} else io.observe(el); });
     /* FV leaf: draw right away */
     setTimeout(function(){document.querySelectorAll('.in-fv').forEach(function(el){el.classList.add('in')})},400);
   }
