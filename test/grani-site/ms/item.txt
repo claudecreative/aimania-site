@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#141316">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Product","name":"GRANI シルキーモイストヘアミルク 200ml","image":["<{$item.image_L}>","https://aimania.tech/test/grani-shop/p/3157.jpg"],"description":"ドライヤーの熱に反応するW成分（トステア&#xae;×γ-ドコサラクトン）を配合した洗い流さないヘアミルク。夜・朝・日中、24時間のヘアケアルーティンを1本でサポートします。","brand":{"@type":"Brand","name":"GRANI"},"sku":"000000000001","url":"https://grani-beauty.com/view/item/000000000001","offers":{"@type":"Offer","price":"3960","priceCurrency":"JPY","availability":"<{if $item.is_soldout}>https://schema.org/OutOfStock<{else}>https://schema.org/InStock<{/if}>","url":"https://grani-beauty.com/view/item/000000000001","seller":{"@type":"Organization","name":"株式会社メイクイット"}}},
+{"@type":"Product","name":"GRANI シルキーモイストヘアミルク 200ml","image":["<{$item.image_L}>","https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/3157.jpg"],"description":"ドライヤーの熱に反応するW成分（トステア&#xae;×γ-ドコサラクトン）を配合した洗い流さないヘアミルク。夜・朝・日中、24時間のヘアケアルーティンを1本でサポートします。","brand":{"@type":"Brand","name":"GRANI"},"sku":"000000000001","url":"https://grani-beauty.com/view/item/000000000001","offers":{"@type":"Offer","price":"3960","priceCurrency":"JPY","availability":"<{if $item.is_soldout}>https://schema.org/OutOfStock<{else}>https://schema.org/InStock<{/if}>","url":"https://grani-beauty.com/view/item/000000000001","seller":{"@type":"Organization","name":"株式会社メイクイット"}}},
 {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"GRANI","item":"https://grani-beauty.com/"},{"@type":"ListItem","position":2,"name":"シルキーモイストヘアミルク","item":"https://grani-beauty.com/view/item/000000000001"}]}
 ]}
 </script>
@@ -556,10 +556,10 @@
 
   <div class="w pd">
     <div class="gal">
-      <figure><img src="https://aimania.tech/test/grani-shop/p/3157.jpg" alt="GRANI シルキーモイストヘアミルク" style="object-position:50% 45%"><figcaption>200 ML</figcaption></figure>
-      <figure><img src="https://aimania.tech/test/grani-shop/p/milk.jpg" alt="ミルクの質感" style="object-position:40% 50%" loading="lazy" decoding="async"><figcaption>TEXTURE</figcaption></figure>
-      <figure><img src="https://aimania.tech/test/grani-shop/p/3042.jpg" alt="ボトル2本" loading="lazy" decoding="async"><figcaption>HAIR MILK</figcaption></figure>
-      <figure class="wide"><img src="https://aimania.tech/test/grani-shop/p/3054.jpg" alt="3本並んだGRANI" loading="lazy" decoding="async"><figcaption>HEAT COUTURE</figcaption></figure>
+      <figure><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/3157.jpg" alt="GRANI シルキーモイストヘアミルク" style="object-position:50% 45%"><figcaption>200 ML</figcaption></figure>
+      <figure><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/milk.jpg" alt="ミルクの質感" style="object-position:40% 50%" loading="lazy" decoding="async"><figcaption>TEXTURE</figcaption></figure>
+      <figure><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/3042.jpg" alt="ボトル2本" loading="lazy" decoding="async"><figcaption>HAIR MILK</figcaption></figure>
+      <figure class="wide"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/3054.jpg" alt="3本並んだGRANI" loading="lazy" decoding="async"><figcaption>HEAT COUTURE</figcaption></figure>
     </div>
     <div class="buy">
       <p class="crumb"><a href="/">GRANI</a> / HAIR CARE</p>
@@ -611,11 +611,11 @@
       <div class="hw-nav"><button type="button" id="hwP" aria-label="前へ">←</button><span id="hwN">01 / 05</span><button type="button" id="hwX" aria-label="次へ">→</button></div></div>
     <div class="hw-t" id="hwT">
       <article class="hs am">
-<div class="hs-tx"><p class="n">01 &#x2014; AMOUNT</p><h3>使う量は、<br>髪の長さで。</h3><div class="amg2"><div class="ac"><img class="sil m" src="https://aimania.tech/test/grani-shop/p/hl_m.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><p class="ac-t"><span class="dts"><i class="dot s"></i><i class="dot s ghost"></i></span><b>ミディアム</b><span>パール1〜2粒分</span></p></div><div class="ac"><img class="sil l" src="https://aimania.tech/test/grani-shop/p/hl_l.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><p class="ac-t"><span class="dts"><i class="dot l"></i><i class="coin"></i></span><b>ロング</b><span>500円玉大1個分</span></p></div></div><p class="tip">少量から始めて、足りなければ少しずつ足してください。</p><button type="button" class="real" id="realBtn"><i></i>実寸で見る</button></div></article>
-      <article class="hs"><img src="https://aimania.tech/test/grani-shop/p/2491.jpg" alt="タオルドライ" loading="lazy" decoding="async"><div class="hs-tx"><p class="n">02 &#x2014; NIGHT</p><h3>夜は、乾かす前に。</h3><p class="tg">補修・保湿</p><p>タオルドライ後の濡れた髪になじませ、ドライヤーで乾かす。翌朝まとまりやすい髪へ。</p></div></article>
-      <article class="hs"><img src="https://aimania.tech/test/grani-shop/p/1035.jpg" alt="ドライヤーで乾かす" style="object-position:50% 25%" loading="lazy" decoding="async"><div class="hs-tx"><p class="n">03 &#x2014; MORNING</p><h3>朝は、仕上げに。</h3><p class="tg">まとまり・熱保護</p><p>乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。</p></div></article>
-      <article class="hs"><img src="https://aimania.tech/test/grani-shop/p/h1316.jpg" alt="風になびく髪" style="object-position:62% 40%" loading="lazy" decoding="async"><div class="hs-tx"><p class="n">04 &#x2014; DAYTIME</p><h3>日中は、毛先に。</h3><p class="tg">広がり・湿気ブロック</p><p>外出前や日中、パサつきが気になるときに毛先へ。湿気が気になる場面でも、なめらかに。</p></div></article>
-      <article class="hs"><img src="https://aimania.tech/test/grani-shop/p/3050_1.jpg" alt="ミルクの質感" loading="lazy" decoding="async"><div class="hs-tx"><p class="n">05 &#x2014; FRAGRANCE</p><h3>ほのかに香る、<br>ピュアリネン。</h3><p>シトラス・グリーン → フローラル・ムスク → ウッディ・サンダルウッド。香水を邪魔しない控えめな香り。</p></div></article>
+<div class="hs-tx"><p class="n">01 &#x2014; AMOUNT</p><h3>使う量は、<br>髪の長さで。</h3><div class="amg2"><div class="ac"><img class="sil m" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/hl_m.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><p class="ac-t"><span class="dts"><i class="dot s"></i><i class="dot s ghost"></i></span><b>ミディアム</b><span>パール1〜2粒分</span></p></div><div class="ac"><img class="sil l" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/hl_l.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><p class="ac-t"><span class="dts"><i class="dot l"></i><i class="coin"></i></span><b>ロング</b><span>500円玉大1個分</span></p></div></div><p class="tip">少量から始めて、足りなければ少しずつ足してください。</p><button type="button" class="real" id="realBtn"><i></i>実寸で見る</button></div></article>
+      <article class="hs"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/2491.jpg" alt="タオルドライ" loading="lazy" decoding="async"><div class="hs-tx"><p class="n">02 &#x2014; NIGHT</p><h3>夜は、乾かす前に。</h3><p class="tg">補修・保湿</p><p>タオルドライ後の濡れた髪になじませ、ドライヤーで乾かす。翌朝まとまりやすい髪へ。</p></div></article>
+      <article class="hs"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/1035.jpg" alt="ドライヤーで乾かす" style="object-position:50% 25%" loading="lazy" decoding="async"><div class="hs-tx"><p class="n">03 &#x2014; MORNING</p><h3>朝は、仕上げに。</h3><p class="tg">まとまり・熱保護</p><p>乾いた髪に少量をなじませ、ドライヤーやアイロンで仕上げる。</p></div></article>
+      <article class="hs"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/h1316.jpg" alt="風になびく髪" style="object-position:62% 40%" loading="lazy" decoding="async"><div class="hs-tx"><p class="n">04 &#x2014; DAYTIME</p><h3>日中は、毛先に。</h3><p class="tg">広がり・湿気ブロック</p><p>外出前や日中、パサつきが気になるときに毛先へ。湿気が気になる場面でも、なめらかに。</p></div></article>
+      <article class="hs"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/3050_1.jpg" alt="ミルクの質感" loading="lazy" decoding="async"><div class="hs-tx"><p class="n">05 &#x2014; FRAGRANCE</p><h3>ほのかに香る、<br>ピュアリネン。</h3><p>シトラス・グリーン → フローラル・ムスク → ウッディ・サンダルウッド。香水を邪魔しない控えめな香り。</p></div></article>
     </div>
     <div class="w"><div class="hw-bar"><i id="hwB"></i></div></div>
   </section>
@@ -624,8 +624,8 @@
       <button type="button" class="rz-x" id="rzX" aria-label="閉じる">×</button>
       <p class="k">ACTUAL SIZE</p><h3>手のひらに出す量は、<br>このくらい。</h3>
       <div class="rz-g">
-        <div class="rz-c"><img class="sil bg" src="https://aimania.tech/test/grani-shop/p/hl_m.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="rz-v"><i class="pl"></i><i class="pl plg"></i></div><b>ミディアム</b><span>パール1〜2粒分（直径約7mm）</span></div>
-        <div class="rz-c"><img class="sil bg" src="https://aimania.tech/test/grani-shop/p/hl_l.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="rz-v"><i class="cn"></i><i class="mlk"></i></div><b>ロング</b><span>500円玉大1個分（直径約26.5mm）</span></div>
+        <div class="rz-c"><img class="sil bg" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/hl_m.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="rz-v"><i class="pl"></i><i class="pl plg"></i></div><b>ミディアム</b><span>パール1〜2粒分（直径約7mm）</span></div>
+        <div class="rz-c"><img class="sil bg" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/hl_l.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="rz-v"><i class="cn"></i><i class="mlk"></i></div><b>ロング</b><span>500円玉大1個分（直径約26.5mm）</span></div>
       </div>
       <div class="rz-r"><div class="ru" id="ru"></div><div class="rz-adj"><span>画面によって大きさに誤差があります。定規を当てて目盛りを合わせると正確に表示できます。</span><input type="range" id="rzS" min="60" max="160" value="100" aria-label="サイズ調整"></div></div>
     </div>

@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="<{$shop.name}>">
 <{$makeshop.head}>
 <meta property="og:url" content="https://grani-beauty.com/">
-<meta property="og:image" content="https://aimania.tech/test/grani-shop/p/3157.jpg">
+<meta property="og:image" content="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/3157.jpg">
 <meta property="og:image:alt" content="GRANI シルキーモイストヘアミルク 200ml">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
@@ -23,7 +23,7 @@
 {"@type":"Organization","@id":"https://grani-beauty.com/#org","name":"株式会社メイクイット","alternateName":"MAKEit INC.","url":"https://grani-beauty.com/","telephone":"+81-3-6721-0015","address":{"@type":"PostalAddress","postalCode":"107-0062","addressRegion":"東京都","addressLocality":"港区","streetAddress":"南青山2-7-7 MAビル2F","addressCountry":"JP"},"sameAs":["https://www.instagram.com/grani.beauty/","https://lin.ee/6NXg6k3"]},
 {"@type":"WebSite","@id":"https://grani-beauty.com/#website","name":"GRANI（グラニ）公式サイト","url":"https://grani-beauty.com/","inLanguage":"ja","publisher":{"@id":"https://grani-beauty.com/#org"}},
 {"@type":"Brand","@id":"https://grani-beauty.com/#brand","name":"GRANI","alternateName":"グラニ"},
-{"@type":"Product","@id":"https://grani-beauty.com/view/item/000000000001#product","name":"GRANI シルキーモイストヘアミルク 200ml","image":["https://aimania.tech/test/grani-shop/p/3157.jpg"],"description":"ドライヤーの熱に反応するW成分（トステア\u00ae×γ-ドコサラクトン）を配合した洗い流さないヘアミルク。夜・朝・日中、24時間のヘアケアルーティンを1本でサポートします。","brand":{"@id":"https://grani-beauty.com/#brand"},"sku":"000000000001","url":"https://grani-beauty.com/view/item/000000000001","offers":{"@type":"Offer","price":"3960","priceCurrency":"JPY","availability":"https://schema.org/InStock","url":"https://grani-beauty.com/view/item/000000000001","seller":{"@id":"https://grani-beauty.com/#org"}}}
+{"@type":"Product","@id":"https://grani-beauty.com/view/item/000000000001#product","name":"GRANI シルキーモイストヘアミルク 200ml","image":["https://gigaplus.makeshop.jp/Fleetwood/grani/grani-shop/p/3157.jpg"],"description":"ドライヤーの熱に反応するW成分（トステア\u00ae×γ-ドコサラクトン）を配合した洗い流さないヘアミルク。夜・朝・日中、24時間のヘアケアルーティンを1本でサポートします。","brand":{"@id":"https://grani-beauty.com/#brand"},"sku":"000000000001","url":"https://grani-beauty.com/view/item/000000000001","offers":{"@type":"Offer","price":"3960","priceCurrency":"JPY","availability":"https://schema.org/InStock","url":"https://grani-beauty.com/view/item/000000000001","seller":{"@id":"https://grani-beauty.com/#org"}}}
 ]}
 </script>
 
@@ -1053,9 +1053,9 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
 <!-- ============ TOP ============ -->
 <main data-view="top">
   <section class="hx">
-    <div class="hx-l"><img src="https://aimania.tech/test/grani-site/p/3155.jpg" alt="GRANIシルキーモイストヘアミルク"></div>
-    <div class="hx-fl" aria-hidden="true"><div class="hx-fl3"><img src="https://aimania.tech/test/grani-site/p/tube.png" alt=""></div><i class="hx-sh"></i></div>
-    <div class="hx-r hx-sl"><div class="sl on"><div class="in"><img src="https://aimania.tech/test/grani-site/p/h0664.jpg" alt="長い黒髪を広げたモデル" data-pc="70% 30%" data-sp="68% 20%"></div></div><div class="sl"><div class="in"><img src="https://aimania.tech/test/grani-site/p/h1093.jpg" alt="" data-pc="50% 30%" data-sp="50% 25%" loading="eager"></div></div><div class="sl"><div class="in"><img src="https://aimania.tech/test/grani-site/p/h1316.jpg" alt="" data-pc="50% 30%" data-sp="50% 30%" loading="eager"></div></div><div class="sl"><div class="in"><img src="https://aimania.tech/test/grani-site/p/h1035.jpg" alt="" data-pc="60% 30%" data-sp="62% 25%" loading="eager"></div></div><i class="hx-dots" aria-hidden="true"><b class="on"></b><b></b><b></b><b></b></i></div>
+    <div class="hx-l"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/3155.jpg" alt="GRANIシルキーモイストヘアミルク"></div>
+    <div class="hx-fl" aria-hidden="true"><div class="hx-fl3"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/tube.png" alt=""></div><i class="hx-sh"></i></div>
+    <div class="hx-r hx-sl"><div class="sl on"><div class="in"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/h0664.jpg" alt="長い黒髪を広げたモデル" data-pc="70% 30%" data-sp="68% 20%"></div></div><div class="sl"><div class="in"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/h1093.jpg" alt="" data-pc="50% 30%" data-sp="50% 25%" loading="eager"></div></div><div class="sl"><div class="in"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/h1316.jpg" alt="" data-pc="50% 30%" data-sp="50% 30%" loading="eager"></div></div><div class="sl"><div class="in"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/h1035.jpg" alt="" data-pc="60% 30%" data-sp="62% 25%" loading="eager"></div></div><i class="hx-dots" aria-hidden="true"><b class="on"></b><b></b><b></b><b></b></i></div>
     <h1 class="hx-big"><span class="b1">ドライヤーの<br class="spbr">熱で、</span><span class="b2">成分が浸透<sup>※</sup>。</span></h1>
     <div class="hx-main">
       <a class="hx-mark" href="#heat-couture" aria-label="この熱の効果を、ヒートクチュール（HEAT COUTURE）と呼びます">
@@ -1072,7 +1072,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
   <section class="pin intro" id="pin-intro" style="height:220vh">
     <div class="stk">
       <div class="stack" aria-hidden="true"><p>HEAT COUTURE</p><p>HEAT COUTURE</p><p>HEAT COUTURE</p><p>HEAT COUTURE</p><p>HEAT COUTURE</p><p>HEAT COUTURE</p><p>HEAT COUTURE</p></div>
-      <figure class="intro-ph iv" aria-hidden="true"><video src="https://aimania.tech/test/grani-site/p/wind.mp4" poster="https://aimania.tech/test/grani-site/p/wind.jpg" autoplay muted loop playsinline preload="auto"></video></figure>
+      <figure class="intro-ph iv" aria-hidden="true"><video src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/wind.mp4" poster="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/wind.jpg" autoplay muted loop playsinline preload="auto"></video></figure>
       <div class="w intro-co">
         <p class="bx tag"><span>熱を、まとう。</span></p>
         <p class="bx big2"><span>熱で傷む髪から、</span></p>
@@ -1084,11 +1084,11 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
 
   <section class="pin" id="pin-ba" style="height:320vh">
     <div class="stk bas2">
-      <div class="bg2"><img class="b0" src="https://aimania.tech/test/grani-site/p/ba-before.jpg" alt="" loading="lazy" decoding="async"><img class="b1" src="https://aimania.tech/test/grani-site/p/ba-after.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="bg2"><img class="b0" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/ba-before.jpg" alt="" loading="lazy" decoding="async"><img class="b1" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/ba-after.jpg" alt="" loading="lazy" decoding="async"></div>
       <div class="ba-head"><p class="bx q"><span>BEFORE / AFTER</span></p><p class="bx big"><span>熱で、潤いUP。</span></p><p class="bx"><span>パサつきから、まとまるへ。</span></p></div>
       <div class="sweep" id="sweep">
-        <img src="https://aimania.tech/test/grani-site/p/ba-before.jpg" alt="パサついて広がった髪のイメージ（後ろ姿）" loading="lazy" decoding="async">
-        <img class="af" src="https://aimania.tech/test/grani-site/p/ba-after.jpg" alt="まとまったツヤのある髪のイメージ（後ろ姿）" loading="lazy" decoding="async">
+        <img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/ba-before.jpg" alt="パサついて広がった髪のイメージ（後ろ姿）" loading="lazy" decoding="async">
+        <img class="af" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/ba-after.jpg" alt="まとまったツヤのある髪のイメージ（後ろ姿）" loading="lazy" decoding="async">
         <span class="band" aria-hidden="true"></span>
         <p class="lab"><b id="sw-l">BEFORE</b><small id="sw-s">ドライヤー前</small></p>
         <span class="tg r" id="sw-p">HEAT 0%</span>
@@ -1132,10 +1132,10 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
     </div>
     <p class="hwu-sub rv">NIGHT CARE<span>夜のケアの流れ</span></p>
     <ol class="hwu-st">
-      <li class="rv"><figure><img src="https://aimania.tech/test/grani-site/p/2540.jpg" alt="シャンプー" style="object-position:50% 40%" loading="lazy" decoding="async"></figure><b>01</b><h3>シャンプー</h3></li>
-      <li class="rv d1"><figure><img src="https://aimania.tech/test/grani-site/p/2491.jpg" alt="タオルドライ" style="object-position:30% 40%" loading="lazy" decoding="async"></figure><b>02</b><h3>タオルドライ</h3></li>
-      <li class="rv d2 key"><figure><img src="https://aimania.tech/test/grani-site/p/2788.jpg" alt="濡れた髪に適量を伸ばす" style="object-position:45% 40%" loading="lazy" decoding="async"></figure><b>03</b><h3>濡れた髪に適量を伸ばす</h3></li>
-      <li class="rv d3 hot"><figure><img src="https://aimania.tech/test/grani-site/p/1035.jpg" alt="ドライヤーで乾かす" style="object-position:50% 25%" loading="lazy" decoding="async"></figure><b>04</b><h3>ドライヤーで乾かす</h3></li>
+      <li class="rv"><figure><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/2540.jpg" alt="シャンプー" style="object-position:50% 40%" loading="lazy" decoding="async"></figure><b>01</b><h3>シャンプー</h3></li>
+      <li class="rv d1"><figure><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/2491.jpg" alt="タオルドライ" style="object-position:30% 40%" loading="lazy" decoding="async"></figure><b>02</b><h3>タオルドライ</h3></li>
+      <li class="rv d2 key"><figure><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/2788.jpg" alt="濡れた髪に適量を伸ばす" style="object-position:45% 40%" loading="lazy" decoding="async"></figure><b>03</b><h3>濡れた髪に適量を伸ばす</h3></li>
+      <li class="rv d3 hot"><figure><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/1035.jpg" alt="ドライヤーで乾かす" style="object-position:50% 25%" loading="lazy" decoding="async"></figure><b>04</b><h3>ドライヤーで乾かす</h3></li>
     </ol>
     <p class="nt rv" style="color:rgba(255,255,255,.5);margin-top:14px;font-size:12px">写真はイメージです。</p>
     <p class="btns rv" style="margin-top:clamp(28px,4vw,44px)"><a class="btn ln wt" href="#shindan">髪質に合わせた使い方を診断する</a></p>
@@ -1145,7 +1145,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
   <section class="pin" id="pin-heat" style="height:300vh">
     <div class="stk heat-stage">
       <div class="hs-bg"></div>
-      <div class="hs-img"><img src="https://aimania.tech/test/grani-site/p/2654.jpg" alt="濡れた髪をかき上げるモデル" loading="lazy" decoding="async"></div>
+      <div class="hs-img"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/2654.jpg" alt="濡れた髪をかき上げるモデル" loading="lazy" decoding="async"></div>
       <div class="w hs-co">
         <p class="k">WHAT IS HEAT COUTURE</p>
         <p class="hs-t"><span class="hs-a">熱で、<s>傷む</s>。</span><span class="hs-b">熱で、<em>美しくなる。</em></span></p>
@@ -1161,16 +1161,16 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
     <div class="stk hz">
       <div class="hz-head"><div><p class="k">4 STRENGTHS</p><p class="h2">GRANIの、4つの強み。</p></div><p class="hz-c"><b id="hz-n">01</b> / 04</p></div>
       <div class="hz-track" id="hz-track">
-        <a class="hz-card" href="#heat-couture"><img src="https://aimania.tech/test/grani-site/p/1093.jpg" alt="" loading="lazy" decoding="async"><div><p class="n">01</p><h3>熱が味方</h3><p>ドライヤーの熱で、成分が浸透※。</p></div></a>
-        <a class="hz-card" href="#heat-couture"><img src="https://aimania.tech/test/grani-site/p/3042.jpg" alt="" loading="lazy" decoding="async"><div><p class="n">02</p><h3>W成分</h3><p>熱に反応する、2つの成分。</p></div></a>
-        <a class="hz-card" href="#hair-milk"><img src="https://aimania.tech/test/grani-site/p/1035.jpg" alt="" loading="lazy" decoding="async"><div><p class="n">03</p><h3>24時間、保湿・補正</h3><p>夜も、朝も、日中も。</p></div></a>
-        <a class="hz-card" href="#hair-milk"><img src="https://aimania.tech/test/grani-site/p/0921.jpg" alt="" style="object-position:40% 50%" loading="lazy" decoding="async"><div><p class="n">04</p><h3>静電気から守る</h3><p>潤いをキープして、1日中。</p></div></a>
+        <a class="hz-card" href="#heat-couture"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/1093.jpg" alt="" loading="lazy" decoding="async"><div><p class="n">01</p><h3>熱が味方</h3><p>ドライヤーの熱で、成分が浸透※。</p></div></a>
+        <a class="hz-card" href="#heat-couture"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/3042.jpg" alt="" loading="lazy" decoding="async"><div><p class="n">02</p><h3>W成分</h3><p>熱に反応する、2つの成分。</p></div></a>
+        <a class="hz-card" href="#hair-milk"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/1035.jpg" alt="" loading="lazy" decoding="async"><div><p class="n">03</p><h3>24時間、保湿・補正</h3><p>夜も、朝も、日中も。</p></div></a>
+        <a class="hz-card" href="#hair-milk"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/0921.jpg" alt="" style="object-position:40% 50%" loading="lazy" decoding="async"><div><p class="n">04</p><h3>静電気から守る</h3><p>潤いをキープして、1日中。</p></div></a>
       </div>
       <p class="hz-note">※ 毛髪の内部まで</p>
     </div>
   </section>
 
-  <section class="sci"><img class="px" src="https://aimania.tech/test/grani-site/p/3042.jpg" alt="GRANIヘアミルクのチューブ" loading="lazy" decoding="async"><span class="heatbar" aria-hidden="true"></span><div class="w sci-co">
+  <section class="sci"><img class="px" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/3042.jpg" alt="GRANIヘアミルクのチューブ" loading="lazy" decoding="async"><span class="heatbar" aria-hidden="true"></span><div class="w sci-co">
     <p class="k">HEAT ACTIVE SCIENCE</p>
     <p class="h2">熱が、スイッチ。<br><span class="g">W成分が、髪の内部へ<sup style="font-size:.35em">※</sup>。</span></p>
     <p class="lead">ドライヤーの熱をきっかけに、トステア&#xae;とγ-ドコサラクトンが髪にはたらきかけます。</p>
@@ -1179,7 +1179,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
   </div></section>
 
   <section class="split rev pkbg">
-    <div class="im prod"><img class="px" src="https://aimania.tech/test/grani-site/p/3155.jpg" alt="GRANIシルキーモイストヘアミルク" loading="lazy" decoding="async"><span class="glow" aria-hidden="true"></span></div>
+    <div class="im prod"><img class="px" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/3155.jpg" alt="GRANIシルキーモイストヘアミルク" loading="lazy" decoding="async"><span class="glow" aria-hidden="true"></span></div>
     <div class="co">
       <p class="k rv">HAIR MILK</p>
       <p class="h2 rv">GRANI<br><span class="nb">シルキーモイスト</span><br>ヘアミルク</p>
@@ -1192,7 +1192,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
     <p class="k rv" style="justify-content:center">INSTAGRAM</p>
     <p class="at rv">@granibeauty</p>
     <p class="lead rv d1">新しいお知らせは、Instagramで。#ヒートクチュール</p>
-    <div class="ig-row rv d2"><div><img src="https://aimania.tech/test/grani-site/p/0442.jpg" alt="" loading="lazy" decoding="async"></div><div><img src="https://aimania.tech/test/grani-site/p/3119.jpg" alt="" loading="lazy" decoding="async"></div><div><img src="https://aimania.tech/test/grani-site/p/1614.jpg" alt="" loading="lazy" decoding="async"></div><div><img src="https://aimania.tech/test/grani-site/p/3054.jpg" alt="" loading="lazy" decoding="async"></div></div>
+    <div class="ig-row rv d2"><div><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/0442.jpg" alt="" loading="lazy" decoding="async"></div><div><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/3119.jpg" alt="" loading="lazy" decoding="async"></div><div><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/1614.jpg" alt="" loading="lazy" decoding="async"></div><div><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/3054.jpg" alt="" loading="lazy" decoding="async"></div></div>
     <p class="btns rv d2" style="justify-content:center"><a class="btn ln" href="https://www.instagram.com/grani.beauty/">Instagramを見る</a></p>
   </div></section>
 </main>
@@ -1206,7 +1206,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
   </div></section>
 
   <section class="split dark">
-    <div class="im"><img class="px" src="https://aimania.tech/test/grani-site/p/2581.jpg" alt="濡れた髪をかき上げるモデル" style="object-position:50% 30%" loading="lazy" decoding="async"></div>
+    <div class="im"><img class="px" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/2581.jpg" alt="濡れた髪をかき上げるモデル" style="object-position:50% 30%" loading="lazy" decoding="async"></div>
     <div class="co">
       <p class="k rv">STRENGTH 01　熱が味方</p>
       <p class="h2 rv"><span class="nb">ドライヤーの熱で、</span><br>成分が浸透<sup style="font-size:.35em">※</sup>。</p>
@@ -1248,7 +1248,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
     </div>
   </div></section>
 
-  <section class="sci"><img class="px" src="https://aimania.tech/test/grani-site/p/3042.jpg" alt="GRANIヘアミルクのチューブ" loading="lazy" decoding="async"><span class="heatbar" aria-hidden="true"></span><div class="w sci-co">
+  <section class="sci"><img class="px" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/3042.jpg" alt="GRANIヘアミルクのチューブ" loading="lazy" decoding="async"><span class="heatbar" aria-hidden="true"></span><div class="w sci-co">
     <p class="k">HEAT ACTIVE SCIENCE</p>
     <p class="h2">熱が、スイッチ。<br><span class="g">W成分が、髪の内部へ<sup style="font-size:.35em">※</sup>。</span></p>
     <p class="lead">ドライヤーの熱をきっかけに、トステア&#xae;とγ-ドコサラクトンが髪にはたらきかけます。</p>
@@ -1256,7 +1256,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
   </div></section>
 
   <section class="split dark">
-    <div class="im"><img class="px" src="https://aimania.tech/test/grani-site/p/1093.jpg" alt="髪をなびかせるモデル" style="object-position:50% 25%" loading="lazy" decoding="async"></div>
+    <div class="im"><img class="px" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/1093.jpg" alt="髪をなびかせるモデル" style="object-position:50% 25%" loading="lazy" decoding="async"></div>
     <div class="co">
       <p class="k rv">PHILOSOPHY</p>
       <p class="h2 rv">髪質を上げる、<br><span class="nb">最上級のヘアケア。</span></p>
@@ -1283,10 +1283,10 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
     </div>
     <p class="hwu-sub rv">NIGHT CARE<span>夜のケアの流れ</span></p>
     <ol class="hwu-st">
-      <li class="rv"><figure><img src="https://aimania.tech/test/grani-site/p/2540.jpg" alt="シャンプー" style="object-position:50% 40%" loading="lazy" decoding="async"></figure><b>01</b><h3>シャンプー</h3></li>
-      <li class="rv d1"><figure><img src="https://aimania.tech/test/grani-site/p/2491.jpg" alt="タオルドライ" style="object-position:30% 40%" loading="lazy" decoding="async"></figure><b>02</b><h3>タオルドライ</h3></li>
-      <li class="rv d2 key"><figure><img src="https://aimania.tech/test/grani-site/p/2788.jpg" alt="濡れた髪に適量を伸ばす" style="object-position:45% 40%" loading="lazy" decoding="async"></figure><b>03</b><h3>濡れた髪に適量を伸ばす</h3></li>
-      <li class="rv d3 hot"><figure><img src="https://aimania.tech/test/grani-site/p/1035.jpg" alt="ドライヤーで乾かす" style="object-position:50% 25%" loading="lazy" decoding="async"></figure><b>04</b><h3>ドライヤーで乾かす</h3></li>
+      <li class="rv"><figure><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/2540.jpg" alt="シャンプー" style="object-position:50% 40%" loading="lazy" decoding="async"></figure><b>01</b><h3>シャンプー</h3></li>
+      <li class="rv d1"><figure><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/2491.jpg" alt="タオルドライ" style="object-position:30% 40%" loading="lazy" decoding="async"></figure><b>02</b><h3>タオルドライ</h3></li>
+      <li class="rv d2 key"><figure><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/2788.jpg" alt="濡れた髪に適量を伸ばす" style="object-position:45% 40%" loading="lazy" decoding="async"></figure><b>03</b><h3>濡れた髪に適量を伸ばす</h3></li>
+      <li class="rv d3 hot"><figure><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/1035.jpg" alt="ドライヤーで乾かす" style="object-position:50% 25%" loading="lazy" decoding="async"></figure><b>04</b><h3>ドライヤーで乾かす</h3></li>
     </ol>
     <p class="nt rv" style="color:rgba(255,255,255,.5);margin-top:14px;font-size:12px">写真はイメージです。</p>
     <p class="btns rv" style="margin-top:clamp(28px,4vw,44px)"><a class="btn ln wt" href="#shindan">髪質に合わせた使い方を診断する</a></p>
@@ -1303,7 +1303,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
   </div></section>
 
   <section class="split">
-    <div class="im"><img class="px" src="https://aimania.tech/test/grani-site/p/0921.jpg" alt="商品を顔の横に持つモデル" style="object-position:40% 40%" loading="lazy" decoding="async"></div>
+    <div class="im"><img class="px" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/0921.jpg" alt="商品を顔の横に持つモデル" style="object-position:40% 40%" loading="lazy" decoding="async"></div>
     <div class="co">
       <p class="k rv">STRENGTH 04　静電気</p>
       <p class="h2 rv">潤いをキープして、<br><span class="pk">1日中、<br>静電気から守る。</span></p>
@@ -1312,7 +1312,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
   </section>
 
   <section class="split rev pkbg">
-    <div class="im"><img class="px" src="https://aimania.tech/test/grani-site/p/3050_1.jpg" alt="なめらかなミルクの質感" loading="lazy" decoding="async"></div>
+    <div class="im"><img class="px" src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/3050_1.jpg" alt="なめらかなミルクの質感" loading="lazy" decoding="async"></div>
     <div class="co">
       <p class="k rv">LIGHT FRAGRANCE</p>
       <p class="h2 rv">ほのかに香る、<br>ピュアリネン。</p>
@@ -1326,7 +1326,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
   </section>
 
   <section class="pad pdsec" ><p class="bgword" aria-hidden="true">HAIR MILK</p><div class="w pd">
-    <div class="ph prod"><img src="https://aimania.tech/test/grani-site/p/3155.jpg" alt="GRANIシルキーモイストヘアミルク" loading="lazy" decoding="async"><span class="glow" aria-hidden="true"></span></div>
+    <div class="ph prod"><img src="https://gigaplus.makeshop.jp/Fleetwood/grani/grani-site/p/3155.jpg" alt="GRANIシルキーモイストヘアミルク" loading="lazy" decoding="async"><span class="glow" aria-hidden="true"></span></div>
     <div>
       <p class="k rv">HAIR MILK</p>
       <p class="h2 rv">GRANI<br><span class="nb">シルキーモイスト</span><br>ヘアミルク</p>
