@@ -560,9 +560,9 @@
       <p class="price"><b>&#xa5;<{$item.price|number_format}></b><span>税込</span></p>
       <div class="pt" role="radiogroup" aria-label="購入方法">
         <label><input type="radio" name="pt" value="one" checked><span><b>1回購入</b><em>&#xa5;<{$item.price|number_format}><small>税込</small></em></span></label>
-        <label><input type="radio" name="pt" value="sub"><span><b>定期便<small>2か月に1回お届け</small></b><em>&yen;3,000<small>税込／回</small></em><i>約24%OFF</i></span></label>
+        <label><input type="radio" name="pt" value="sub"><span><b>定期便<small>定期的に自動でお届け</small></b><em>&yen;3,168<small>税込／回</small></em><i>20%OFF</i></span></label>
       </div>
-      <p class="pt-n" id="ptN" hidden>定期便は1回&yen;3,000（税込）、2か月に1回自動でお届けします。</p>
+      <p class="pt-n" id="ptN" hidden>定期便は1回&yen;3,168（税込）。お届け間隔はお申し込み画面でご確認いただけます。</p>
       <div class="row ms-row">
 <{if $item.is_within_sell_period}>
 <{if $item.has_option}>
