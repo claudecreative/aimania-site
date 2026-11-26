@@ -549,9 +549,9 @@
       <p class="price"><b>&#xa5;<{$item.price|number_format}></b><span>税込</span></p>
       <div class="pt" role="radiogroup" aria-label="購入方法">
         <label><input type="radio" name="pt" value="one" checked><span><b>1回購入</b><em>&#xa5;<{$item.price|number_format}><small>税込</small></em></span></label>
-        <label><input type="radio" name="pt" value="sub"><span><b>定期便<small>2か月に1回お届け</small></b><em>&#xa5;3,000<small>税込／回</small></em><i>約24%OFF</i></span></label>
+        <label><input type="radio" name="pt" value="sub"><span><b>定期購入<small>定期的に自動でお届け</small></b><em style="font-size:13px">お届け間隔・価格は次の画面で</em></span></label>
       </div>
-      <p class="pt-n" id="ptN" hidden>定期便は2か月ごとに自動でお届けします（内容・価格は案）。</p>
+      <p class="pt-n" id="ptN" hidden>定期購入のお届け間隔・価格は、お申し込み画面でご確認いただけます。</p>
       <div class="row ms-row">
 <{if $item.is_within_sell_period}>
 <{if $item.has_option}>
@@ -564,7 +564,7 @@
 <a href="<{$item.cart_entry_url}>" class="atb ms-one instock"><span>ADD TO BAG</span></a>
 <{/if}>
 <{/if}>
-<a href="<{$item.cart_entry_subscription_url}>" class="atb ms-sub" hidden><span>定期便で申し込む</span></a>
+<a href="<{$item.cart_entry_subscription_url}>" class="atb ms-sub" hidden><span>定期購入で申し込む</span></a>
 <{else}>
 <div class="atb so"><span>販売期間外の商品です</span></div>
 <{/if}>
@@ -580,7 +580,6 @@
         
         <details><summary>DELIVERY &amp; RETURNS</summary><div class="in">ご注文受付後、7日以内にお届けします。商品の返品・交換は、初期不良・発送商品間違いの場合に承ります（当店着払い）。詳しくは<a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a>をご確認ください。</div></details>
       </div>
-      <p class="also">楽天市場・Amazonでも取り扱いがあります（予定）。<br class="spbr"><a href="https://search.rakuten.co.jp/search/mall/GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF/">楽天市場</a><a href="https://www.amazon.co.jp/s?k=GRANI+%E3%83%98%E3%82%A2%E3%83%9F%E3%83%AB%E3%82%AF">Amazon</a></p>
     </div>
   </div>
   <section class="hw" id="hw">
