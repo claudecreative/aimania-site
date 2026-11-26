@@ -1412,7 +1412,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
       <p class="k rv">取扱サロン・ヘアメイクの方 募集中</p>
       <h2 class="rv d1">ヒートクチュールを、<br><em>プロの現場から。</em></h2>
       <p class="lead rv d1">ドライヤーの熱で仕上がるヘアミルクは、サロンのブローの最後にも、撮影やブライダルの仕上げにも使えます。GRANIを一緒に広げてくださるサロン様・ヘアメイクの方を募集しています。</p>
-      <p class="tmp rv d1" style="margin:-6px 0 18px">商品・ご注文についてのお問い合わせは、<a href="https://grani-beauty.com/ssl/contact/">公式ストアのお問い合わせ</a>、またはお電話（<a href="tel:0367210015">03-6721-0015</a>）へ。</p>
+      <p class="tmp rv d1" style="margin:-6px 0 18px">商品・ご注文についてのお問い合わせは、<a href="https://grani-beauty.com/html/email.html">公式ストアのお問い合わせ</a>、またはお電話（<a href="tel:0367210015">03-6721-0015</a>）へ。</p>
       <ul class="perk rv d2">
         <li><b>01</b><span><strong>施術・現場でそのまま使える</strong>ブロー前になじませるだけ。サロンにも、撮影・ブライダル・ショーの仕上げにも。</span></li>
         <li><b>02</b><span><strong>店販・プロ向け提供のご相談</strong>サロンの卸条件、ヘアメイクの方への商品提供はお問い合わせください。</span></li>
@@ -1422,7 +1422,7 @@ nav a.gift::before{content:"";width:6px;height:6px;border-radius:50%;background:
       <h3>CONTACT</h3>
       <p class="cs">お問い合わせ ／ 取扱のご相談</p>
       <p style="margin:18px 0 22px;line-height:1.9">取扱のご相談・商品についてのお問い合わせは、下のお問い合わせフォームからお送りください。担当より折り返しご連絡します。</p>
-      <a class="btn" href="https://grani-beauty.com/ssl/contact/" style="display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:58px;text-decoration:none">お問い合わせフォームへ &rarr;</a>
+      <a class="btn" href="https://grani-beauty.com/html/email.html" style="display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:58px;text-decoration:none">お問い合わせフォームへ &rarr;</a>
       <p class="note" style="margin-top:14px">お電話：<a href="tel:0367210015">03-6721-0015</a></p>
     </div>
   </div>

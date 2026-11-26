@@ -18,13 +18,13 @@
   <a href="<{$url.top}>#heat-couture">HEAT COUTURE</a>
   <a href="<{$url.top}>view/item/000000000001">HAIR MILK</a>
   <a href="<{$url.top}>view/news/list">TOPICS</a>
-  <a href="<{$url.support}>">CONTACT</a>
+  <a href="https://grani-beauty.com/html/email.html">CONTACT</a>
  </div>
  <div class="gx-fc">
   <a href="<{$url.top}>view/item/000000000001">オンラインストア</a>
   <a href="<{$url.top}>view/cart">カート</a>
   <a href="<{$url.top}>view/member/mypage">マイページ</a>
-  <a href="https://www.instagram.com/granibeauty/" target="_blank" rel="noopener">Instagram</a>
+  <a href="https://www.instagram.com/grani.beauty/" target="_blank" rel="noopener">Instagram</a>
   <a href="https://lin.ee/6NXg6k3" target="_blank" rel="noopener">LINE</a>
  </div>
  <div class="gx-fc s">
