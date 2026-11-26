@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--aim-guard--><script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_ishizue_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_ishizue_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=c16e803e/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_ishizue_ok","1")}catch(e){}try{document.cookie="aim_ishizue_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script><meta name="robots" content="noindex,nofollow"><!--aim-guard-->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ISHIZUE PARTNERS｜投資用不動産の仲介と資産のご相談</title>
+<meta name="description" content="ISHIZUE PARTNERS（イシズエ パートナーズ）は、投資用不動産の売買仲介、資産の組み替え・売却のご相談、不動産投資のコンサルティングを行う会社です。中立な立場と長い時間軸で、お客様の資産の判断に寄り添います。">
+<meta name="theme-color" content="#F7F5F0">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ISHIZUE PARTNERS">
+<meta property="og:title" content="ISHIZUE PARTNERS｜投資用不動産の仲介と資産のご相談">
+<meta property="og:description" content="資産の礎を、次の世代へ。投資用不動産の売買仲介と、資産のご相談。">
+<meta property="og:image" content="media/building_poster.jpg">
+<link rel="icon" href="media/ISHIZUE_symbol.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho+B1:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="media/building_poster.jpg">
+<style>
+:root{
+  --bg:#F7F5F0; --bg2:#EFECE5; --ink:#2B2B2B; --ink2:#55534F; --gold:#B39A6B; --gold-d:#8F7A52; --stone:#8C8A85;
+  --line:rgba(43,43,43,.14); --line-w:rgba(255,255,255,.22);
+  --mincho:"Shippori Mincho B1","Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --en:"Cinzel","Times New Roman",serif;
+  --pad:64px; --sec:clamp(112px,12vw,184px); --hd:88px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:var(--hd)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:15px;line-height:2.15;letter-spacing:.08em;font-feature-settings:"palt" 0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none;margin:0;padding:0}
+h1,h2,h3,p,dl,dd,figure{margin:0}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.mincho{font-family:var(--mincho);font-weight:500}
+.en{font-family:var(--en);font-weight:400;letter-spacing:.18em}
+.nw{display:inline-block;white-space:nowrap}
+.hd-nav a,.hd-cta,.btn,.vlabel,.sign,.ft a,.menu a{white-space:nowrap}
+br.sp{display:none}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:16px;top:-60px;z-index:200;background:var(--ink);color:#fff;padding:8px 16px;font-size:13px}
+.skip:focus{top:16px}
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+
+.wrap{max-width:1312px;margin:0 auto;padding:0 var(--pad)}
+.inner{position:relative;padding-left:120px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:28px;min-height:60px;padding:0 32px 0 36px;border:1px solid currentColor;font-size:14px;letter-spacing:.16em;font-weight:400;position:relative;overflow:hidden;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;transform:scaleX(0);transform-origin:right;transition:transform .6s var(--ease);z-index:0}
+.btn>*{position:relative;z-index:1}
+.btn .arrow{width:32px;height:8px;transition:transform .5s var(--ease)}
+.btn:hover::before{transform:scaleX(1);transform-origin:left}
+.btn:hover .arrow{transform:translateX(6px)}
+.btn-light{color:#fff;border-color:rgba(255,255,255,.7)}
+.btn-light::before{background:rgba(255,255,255,.12)}
+.btn-dark{color:var(--ink);border-color:var(--ink)}
+.btn-dark::before{background:var(--ink)}
+.btn-dark:hover{color:#fff}
+.btn-lg{min-height:68px;padding:0 40px 0 48px;font-size:15px}
+
+/* ---------- header ---------- */
+.hd{position:fixed;inset:0 0 auto;z-index:100;height:var(--hd);color:#fff;transition:background-color .6s var(--ease),color .6s var(--ease),box-shadow .6s var(--ease)}
+.hd-in{height:100%;display:flex;align-items:center;gap:40px;padding:0 48px}
+.hd-logo{position:relative;display:block;width:188px;flex:none}
+.hd-logo img{width:100%;height:auto;transition:opacity .5s var(--ease)}
+.hd-logo .logo-c{position:absolute;inset:0;opacity:0}
+.hd-nav{margin-left:auto}
+.hd-nav ul{display:flex;gap:40px}
+.hd-nav a{font-size:13px;letter-spacing:.14em;font-weight:400;position:relative;padding:6px 0}
+.hd-nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.hd-nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.hd-cta{display:inline-flex;align-items:center;height:48px;padding:0 26px;border:1px solid var(--gold);font-size:13px;letter-spacing:.14em;font-weight:400;transition:background-color .5s var(--ease),color .5s var(--ease)}
+.hd-cta:hover{background:var(--gold);color:#fff}
+.hd-btn{display:none;align-items:center;gap:12px;height:48px;margin-left:auto}
+.hd-btn-lines{width:28px;height:9px;position:relative}
+.hd-btn-lines i{position:absolute;left:0;right:0;height:1px;background:currentColor;transition:transform .5s var(--ease),top .5s var(--ease)}
+.hd-btn-lines i:first-child{top:0}
+.hd-btn-lines i:last-child{top:8px}
+.hd-btn-txt{font-size:11px;letter-spacing:.24em}
+.hd.is-solid{background:rgba(247,245,240,.94);color:var(--ink);box-shadow:0 1px 0 var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.hd.is-solid .logo-w{opacity:0}
+.hd.is-solid .logo-c{opacity:1}
+.is-menu .hd{background:transparent;color:#fff;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.is-menu .hd .logo-w{opacity:1}
+.is-menu .hd .logo-c{opacity:0}
+.is-menu .hd-btn-lines i:first-child{top:4px;transform:rotate(14deg)}
+.is-menu .hd-btn-lines i:last-child{top:4px;transform:rotate(-14deg)}
+
+/* ---------- menu (SP / tablet) ---------- */
+.menu{position:fixed;inset:0;z-index:90;background:#242423;color:#fff;opacity:0;visibility:hidden;transition:opacity .6s var(--ease),visibility .6s}
+.is-menu .menu{opacity:1;visibility:visible}
+.menu-in{height:100%;overflow-y:auto;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--hd) + 24px) 40px 48px}
+.menu-list li{border-bottom:1px solid var(--line-w)}
+.menu-list a{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:20px 0}
+.menu-en{font-size:11px;color:var(--gold);letter-spacing:.24em;order:2}
+.menu-jp{font-family:var(--mincho);font-weight:500;font-size:18px;letter-spacing:.14em}
+.menu-cta{margin-top:40px;justify-content:space-between}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:100vh;height:100svh;min-height:640px;color:#fff;overflow:hidden;background:#1d1f24}
+.hero-media{position:absolute;inset:0}
+.hero-video{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.34) 0%,rgba(0,0,0,.18) 38%,rgba(0,0,0,.42) 100%),rgba(0,0,0,.12)}
+.hero-frame{position:absolute;inset:calc(var(--hd) + 8px) 48px 48px;border:1px solid rgba(255,255,255,.16);pointer-events:none}
+.hero-in{position:absolute;left:0;right:0;bottom:clamp(96px,13vh,148px);max-width:1312px;margin:0 auto;padding:0 calc(var(--pad) + 56px)}
+.hero-en{font-size:12px;letter-spacing:.32em;color:#E3D3B0;display:flex;align-items:center;gap:20px}
+.hero-en::before{content:"";width:48px;height:1px;background:var(--gold)}
+.hero-ttl{margin-top:28px;font-size:clamp(40px,4.4vw,64px);line-height:1.6;letter-spacing:.14em;font-weight:500;text-shadow:0 2px 24px rgba(0,0,0,.18)}
+.hero-lead{margin-top:24px;font-size:15px;line-height:2.1;letter-spacing:.12em;font-weight:400;color:rgba(255,255,255,.92)}
+.hero-btn{margin-top:44px}
+.hero-v{position:absolute;right:calc(48px + 56px);top:calc(var(--hd) + 72px);writing-mode:vertical-rl;font-size:14px;letter-spacing:.42em;line-height:2.4;color:rgba(255,255,255,.86)}
+.hero-scroll{position:absolute;left:calc(48px + 56px);bottom:48px;display:flex;flex-direction:column;align-items:center;gap:14px;transform:translateY(50%)}
+.hero-scroll span{writing-mode:vertical-rl;font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.8)}
+.hero-scroll i{display:block;width:1px;height:72px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
+.hero-scroll i::after{content:"";position:absolute;left:0;top:0;width:1px;height:100%;background:#fff;animation:scrollLine 2.8s var(--ease) infinite}
+@keyframes scrollLine{0%{transform:translateY(-100%)}55%{transform:translateY(0)}100%{transform:translateY(100%)}}
+
+/* ---------- section common ---------- */
+.sec{padding:var(--sec) 0;position:relative}
+.label{display:flex;align-items:center;gap:20px;color:var(--gold-d);font-size:12px}
+.label-no{letter-spacing:.2em}
+.label-line{width:56px;height:1px;background:var(--gold)}
+.label-en{letter-spacing:.3em}
+.vlabel{position:absolute;left:0;top:-4px;writing-mode:vertical-rl;font-family:var(--mincho);font-weight:500;font-size:15px;letter-spacing:.5em;color:var(--ink);display:flex;align-items:center;gap:20px}
+.vlabel::after{content:"";width:1px;height:64px;background:var(--gold)}
+.h2{font-size:clamp(28px,2.7vw,40px);line-height:1.75;letter-spacing:.12em}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end;margin-top:48px}
+.lead{color:var(--ink2);max-width:560px}
+.prose p+p{margin-top:1.6em}
+.prose{color:var(--ink2)}
+
+/* ---------- philosophy ---------- */
+.philo-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:88px;align-items:start;margin-top:48px}
+.philo-video{aspect-ratio:6/5;overflow:hidden;background:#E9E6E0}
+.philo-video video{width:100%;height:110%;object-fit:cover;object-position:50% 70%;margin-top:-5%}
+.cap{margin-top:16px;font-size:10px;letter-spacing:.3em;color:var(--stone)}
+.philo-body{padding-top:24px}
+.philo .h2{font-size:clamp(26px,2.4vw,34px)}
+.philo-media{position:sticky;top:calc(var(--hd) + 48px)}
+.def{margin:56px 0 52px;padding:32px 0;border-top:1px solid var(--gold);border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
+.def dt{font-size:64px;line-height:1;letter-spacing:0;padding-top:14px}
+.def rt{font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--gold-d);font-weight:400}
+.def dd{font-size:14px;line-height:2.1;color:var(--ink2)}
+
+/* ---------- service ---------- */
+.service{background:var(--bg2)}
+.svc-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px;margin-top:96px}
+.svc:nth-child(2){margin-top:72px}
+.svc:nth-child(3){margin-top:144px}
+.px-wrap{overflow:hidden}
+.svc-fig{aspect-ratio:4/5;background:#DDD8CF}
+.svc-fig img,.pr-fig img{width:100%;height:112%;object-fit:cover;margin-top:-6%}
+.svc-meta{display:flex;align-items:center;gap:16px;margin-top:28px;padding-bottom:16px;border-bottom:1px solid var(--line);color:var(--gold-d)}
+.svc-no{font-size:22px;letter-spacing:.08em}
+.svc-en{font-size:10px;letter-spacing:.28em;margin-left:auto}
+.svc-ttl{margin-top:22px;font-size:22px;line-height:1.7;letter-spacing:.1em}
+.svc-txt{margin-top:16px;font-size:14px;line-height:2.1;color:var(--ink2)}
+.more{margin-top:88px;display:flex;justify-content:flex-end}
+
+/* ---------- stance ---------- */
+.stance{color:#fff;background:#202120;overflow:hidden}
+.stance-bg{position:absolute;inset:0}
+.stance-bg video{width:100%;height:100%;object-fit:cover;opacity:.32;filter:grayscale(.35)}
+.stance-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(32,33,32,.55),rgba(32,33,32,.25) 45%,rgba(32,33,32,.8))}
+.stance .wrap{position:relative}
+.stance .label{color:#D9C49A}
+.stance .vlabel{color:#fff}
+.stance .lead{color:rgba(255,255,255,.82)}
+.st-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:104px;border-top:1px solid var(--line-w);border-bottom:1px solid var(--line-w)}
+.st{padding:56px 48px 64px;position:relative}
+.st+.st{border-left:1px solid var(--line-w)}
+.st:first-child{padding-left:0}
+.st:last-child{padding-right:0}
+.st-no{font-size:28px;color:var(--gold);letter-spacing:.1em;line-height:1}
+.st-ttl{margin-top:36px;font-size:24px;letter-spacing:.14em;line-height:1.6}
+.st-en{margin-top:8px;font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.5)}
+.st-txt{margin-top:28px;font-size:14px;line-height:2.1;color:rgba(255,255,255,.82)}
+
+/* ---------- properties ---------- */
+.pr-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px;margin-top:96px}
+.pr:nth-child(2){margin-top:96px}
+.pr-fig{aspect-ratio:3/4;background:#E2DED6}
+.pr-en{margin-top:28px;font-size:10px;letter-spacing:.3em;color:var(--gold-d);display:flex;align-items:center;gap:14px}
+.pr-en::before{content:"";width:24px;height:1px;background:var(--gold)}
+.pr-ttl{margin-top:14px;font-size:22px;letter-spacing:.12em;line-height:1.7}
+.pr-txt{margin-top:14px;font-size:14px;line-height:2.1;color:var(--ink2)}
+.note{margin-top:56px;font-size:12px;color:var(--stone);letter-spacing:.08em}
+
+/* ---------- flow ---------- */
+.flow{background:var(--bg2)}
+.fl-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:96px;position:relative}
+.fl-list::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--line)}
+.fl{position:relative;padding:44px 28px 0 0}
+.fl::before{content:"";position:absolute;left:0;top:-4px;width:9px;height:9px;transform:rotate(45deg);background:var(--bg2);border:1px solid var(--gold)}
+.fl-no{display:flex;align-items:baseline;gap:10px;color:var(--gold-d)}
+.fl-no .en{font-size:10px;letter-spacing:.28em}
+.fl-no .fl-num{font-size:24px;letter-spacing:.06em}
+.fl-ttl{margin-top:18px;font-size:19px;letter-spacing:.1em;line-height:1.7;min-height:3.4em}
+.fl-txt{margin-top:14px;font-size:13.5px;line-height:2.05;color:var(--ink2)}
+
+/* ---------- message ---------- */
+.msg-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:96px;margin-top:64px;align-items:start}
+.msg-ttl{writing-mode:vertical-rl;font-size:clamp(30px,2.8vw,40px);line-height:2.1;letter-spacing:.24em;justify-self:center;height:auto}
+.msg-body{max-width:620px;border-left:1px solid var(--line);padding-left:64px}
+.msg .prose{font-size:15px;line-height:2.3}
+.sign{margin-top:56px;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.sign-co{font-size:11px;letter-spacing:.3em;color:var(--gold-d)}
+.sign-role{font-size:17px;letter-spacing:.3em}
+
+/* ---------- contact ---------- */
+.contact{position:relative;color:#fff;text-align:center;overflow:hidden;background:#1c1d1f}
+.contact-bg{position:absolute;inset:0}
+.contact-bg img{width:100%;height:120%;object-fit:cover;object-position:50% 50%;margin-top:-10%}
+.contact-bg::after{content:"";position:absolute;inset:0;background:rgba(18,18,18,.58)}
+.contact-in{position:relative;padding:clamp(128px,13vw,192px) 24px}
+.contact-en{font-size:12px;letter-spacing:.4em;color:#E3D3B0;display:inline-flex;align-items:center;gap:20px}
+.contact-en::before,.contact-en::after{content:"";width:40px;height:1px;background:var(--gold)}
+.contact-ttl{margin-top:32px;font-size:clamp(28px,2.7vw,40px);line-height:1.75;letter-spacing:.14em}
+.contact-txt{margin-top:28px;color:rgba(255,255,255,.88);font-weight:400}
+.contact .btn{margin-top:52px}
+
+/* ---------- footer ---------- */
+.ft{background:#222221;color:rgba(255,255,255,.82);padding:96px 0 48px;position:relative}
+.ft-top{display:flex;justify-content:space-between;align-items:center;gap:48px;padding-bottom:64px;border-bottom:1px solid rgba(255,255,255,.14)}
+.ft-logo{width:220px;display:block}
+.ft-nav ul{display:flex;gap:44px}
+.ft-nav a,.ft-sub a{font-size:13px;letter-spacing:.14em;transition:color .4s}
+.ft-nav a:hover,.ft-sub a:hover{color:var(--gold)}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-top:32px}
+.ft-sub{display:flex;gap:32px}
+.ft-sub a{font-size:12px;color:rgba(255,255,255,.6)}
+.ft-copy small{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.55)}
+.totop{position:absolute;right:48px;top:-28px;width:56px;height:56px;border-radius:50%;background:var(--bg);color:var(--ink);display:grid;place-items:center;border:1px solid var(--line);transition:transform .5s var(--ease)}
+.totop svg{width:12px;height:18px}
+.totop:hover{transform:translateY(-4px)}
+
+/* ---------- motion ---------- */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity 1.4s var(--ease) var(--d,0s),transform 1.4s var(--ease) var(--d,0s)}
+.js .rv.is-in{opacity:1;transform:none}
+.js .hi{opacity:0;transform:translateY(16px);transition:opacity 1.6s var(--ease) var(--d,0s),transform 1.6s var(--ease) var(--d,0s)}
+.js.is-loaded .hi{opacity:1;transform:none}
+.px{will-change:transform}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv,.js .hi{opacity:1!important;transform:none!important;transition:none!important}
+  .px{transform:none!important}
+  .hero-scroll i::after{animation:none}
+  .btn::before,.btn .arrow{transition:none}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1240px){
+  .hd-nav,.hd-cta{display:none}
+  .hd-btn{display:inline-flex}
+}
+@media (max-width:1100px){
+  :root{--pad:48px}
+  .inner{padding-left:88px}
+  .philo-grid,.msg-grid{gap:64px}
+  .svc-list,.pr-list{gap:32px}
+  .st{padding:48px 28px 56px}
+  .fl-list{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:56px}
+  .fl-list::before{display:none}
+  .fl{border-top:1px solid var(--line)}
+  .ft-top{flex-direction:column;align-items:flex-start}
+  .ft-nav ul{flex-wrap:wrap;gap:20px 36px}
+}
+@media (max-width:900px){
+  .sec-head{grid-template-columns:1fr;gap:32px}
+  .philo-grid{grid-template-columns:1fr}
+  .philo-media{max-width:520px;position:static}
+  .svc-list,.pr-list{grid-template-columns:1fr 1fr}
+  .svc:nth-child(n),.pr:nth-child(n){margin-top:0}
+  .st-list{grid-template-columns:1fr}
+  .st,.st:first-child,.st:last-child{padding:44px 0 48px}
+  .st+.st{border-left:0;border-top:1px solid var(--line-w)}
+  .msg-grid{grid-template-columns:1fr}
+  .msg-ttl{writing-mode:horizontal-tb;justify-self:start;line-height:1.75;letter-spacing:.12em}
+  .msg-body{border-left:0;padding-left:0;max-width:640px}
+}
+@media (max-width:767px){
+  :root{--pad:28px;--hd:64px;--sec:104px}
+  br.pc{display:none}
+  br.sp{display:inline}
+  body{font-size:14px;line-height:2.05;letter-spacing:.06em}
+  .inner{padding-left:0}
+  .hd-in{padding:0 20px 0 24px}
+  .hd-logo{width:146px}
+  .hd-btn{gap:10px}
+  .menu-in{padding:calc(var(--hd) + 16px) 28px 40px}
+  .hero{min-height:600px}
+  .hero-video{object-position:52% 60%}
+  .hero-frame{inset:calc(var(--hd) + 4px) 16px 16px}
+  .hero-in{padding:0 var(--pad);bottom:112px}
+  .hero-en{font-size:10px;letter-spacing:.24em;gap:14px}
+  .hero-en::before{width:28px}
+  .hero-ttl{font-size:33px;margin-top:20px;letter-spacing:.12em;line-height:1.62}
+  .hero-lead{font-size:13.5px;margin-top:18px;letter-spacing:.08em;line-height:2}
+  .hero-btn{margin-top:32px}
+  .hero-v{display:none}
+  .hero-scroll{left:auto;right:36px;bottom:16px}
+  .hero-scroll i{height:56px}
+  .label{gap:14px;font-size:11px}
+  .label-line{width:36px}
+  .vlabel{position:static;writing-mode:horizontal-tb;margin-top:14px;font-size:14px;letter-spacing:.3em;gap:14px}
+  .vlabel::after{display:none}
+  .vlabel{flex-direction:row}
+  .h2{font-size:24px;line-height:1.8;letter-spacing:.1em}
+  .sec-head{margin-top:28px;gap:24px}
+  .philo-grid{margin-top:32px;gap:40px}
+  .philo-body{padding-top:0}
+  .def{margin:36px 0 36px;padding:24px 0;gap:24px}
+  .def dt{font-size:48px}
+  .def dd{font-size:13px}
+  .svc-list,.pr-list{grid-template-columns:1fr;gap:64px;margin-top:56px}
+  .svc-fig{aspect-ratio:4/3}
+  .pr-fig{aspect-ratio:4/3}
+  .svc-meta{margin-top:22px}
+  .svc-ttl,.pr-ttl{font-size:20px;margin-top:16px}
+  .more{margin-top:56px;justify-content:stretch}
+  .more .btn{width:100%;justify-content:space-between}
+  .st-list{margin-top:56px}
+  .st,.st:first-child,.st:last-child{padding:40px 0 44px}
+  .st-ttl{margin-top:24px;font-size:21px}
+  .st-txt{margin-top:20px}
+  .note{margin-top:40px;font-size:11px}
+  .fl-list{grid-template-columns:1fr;margin-top:48px;row-gap:0;padding-left:28px}
+  .fl-list::before{display:block;left:4px;right:auto;top:6px;bottom:6px;width:1px;height:auto}
+  .fl{border-top:0;padding:0 0 44px}
+  .fl:last-child{padding-bottom:0}
+  .fl::before{left:-28px;top:7px}
+  .fl-ttl{min-height:0;margin-top:8px;font-size:18px}
+  .fl-txt{margin-top:8px;font-size:13.5px}
+  .msg-grid{margin-top:32px;gap:36px}
+  .msg-ttl{font-size:24px}
+  .msg .prose{font-size:14px;line-height:2.2}
+  .sign{margin-top:40px}
+  .contact-in{padding:104px var(--pad)}
+  .contact-ttl{font-size:24px;margin-top:24px;letter-spacing:.1em}
+  .contact-txt{font-size:13.5px}
+  .contact .btn{margin-top:40px;width:100%;justify-content:space-between;padding:0 24px 0 28px}
+  .ft{padding:72px 0 40px}
+  .ft-logo{width:180px}
+  .ft-top{gap:40px;padding-bottom:40px}
+  .ft-nav ul{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
+  .ft-bottom{flex-direction:column;align-items:flex-start;gap:20px}
+  .ft-sub{flex-direction:column;gap:8px}
+  .totop{right:24px;width:48px;height:48px;top:-24px}
+}
+@media (min-width:768px) and (max-width:900px){
+  .svc-list,.pr-list{grid-template-columns:1fr;gap:72px}
+  .svc,.pr{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:40px;align-content:start}
+  .svc-fig,.pr-fig{grid-column:1;grid-row:1 / span 6}
+  .svc>*:not(figure),.pr>*:not(figure){grid-column:2}
+  .svc-meta,.pr-en{margin-top:0}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<header class="hd" id="hd">
+  <div class="hd-in">
+    <a class="hd-logo" href="./" aria-label="ISHIZUE PARTNERS トップページ">
+      <img class="logo-w" src="media/ISHIZUE_logo_2line_white.svg" alt="ISHIZUE PARTNERS" width="523" height="111">
+      <img class="logo-c" src="media/ISHIZUE_logo_2line.svg" alt="" width="523" height="111" aria-hidden="true">
+    </a>
+    <nav class="hd-nav" aria-label="グローバルナビゲーション">
+      <ul>
+<li><a href="about/">会社について</a></li>
+<li><a href="service/">事業内容</a></li>
+<li><a href="consultation/">投資のご相談</a></li>
+<li><a href="column/">コラム</a></li>
+<li><a href="contact/">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <a class="hd-cta" href="contact/"><span>ご相談・お問い合わせ</span></a>
+    <button class="hd-btn" id="menuBtn" type="button" aria-controls="menu" aria-expanded="false">
+      <span class="hd-btn-lines" aria-hidden="true"><i></i><i></i></span>
+      <span class="hd-btn-txt en">MENU</span>
+      <span class="vh">メニューを開く</span>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu-in">
+    <ul class="menu-list">
+<li><a href="about/"><span class="menu-en en">ABOUT</span><span class="menu-jp">会社について</span></a></li>
+<li><a href="service/"><span class="menu-en en">SERVICE</span><span class="menu-jp">事業内容</span></a></li>
+<li><a href="consultation/"><span class="menu-en en">CONSULTATION</span><span class="menu-jp">投資のご相談</span></a></li>
+<li><a href="column/"><span class="menu-en en">COLUMN</span><span class="menu-jp">コラム</span></a></li>
+<li><a href="contact/"><span class="menu-en en">CONTACT</span><span class="menu-jp">お問い合わせ</span></a></li>
+    </ul>
+    <a class="btn btn-light menu-cta" href="contact/"><span>ご相談・お問い合わせ</span><svg class="arrow" viewBox="0 0 32 8" aria-hidden="true"><path d="M0 4h30M26 1l4 3-4 3" fill="none" stroke="currentColor" stroke-width="1"/></svg></a>
+  </div>
+</div>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-ttl">
+  <div class="hero-media">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="media/building_poster.jpg" aria-hidden="true">
+      <source src="media/building.mp4" type="video/mp4">
+    </video>
+    <div class="hero-shade" aria-hidden="true"></div>
+  </div>
+  <div class="hero-frame" aria-hidden="true"></div>
+  <div class="hero-in">
+    <p class="hero-en en hi" style="--d:.2s">REAL ESTATE INVESTMENT PARTNERS</p>
+    <h1 class="hero-ttl mincho hi" id="hero-ttl" style="--d:.45s"><span class="nw">資産の礎を、</span><br><span class="nw">次の世代へ。</span></h1>
+    <p class="hero-lead hi" style="--d:.8s"><span class="nw">投資用不動産の</span><span class="nw">売買仲介と、</span><br class="sp"><span class="nw">資産のご相談。</span><br><span class="nw">長い時間軸で、</span><br class="sp"><span class="nw">お客様の判断に</span><span class="nw">寄り添います。</span></p>
+    <a class="btn btn-light hero-btn hi" style="--d:1.05s" href="#flow"><span>ご相談の流れを見る</span><svg class="arrow" viewBox="0 0 32 8" aria-hidden="true"><path d="M0 4h30M26 1l4 3-4 3" fill="none" stroke="currentColor" stroke-width="1"/></svg></a>
+  </div>
+  <p class="hero-v mincho hi" style="--d:1.3s" aria-hidden="true"><span class="nw">礎を据えるように、</span><span class="nw">一つひとつを</span><span class="nw">丁寧に。</span></p>
+  <div class="hero-scroll" aria-hidden="true"><span class="en">SCROLL</span><i></i></div>
+</section>
+
+<section class="sec philo" id="philosophy" aria-labelledby="philo-ttl">
+  <div class="wrap">
+    <div class="inner">
+      <div class="label rv">
+        <span class="label-no en">01</span><span class="label-line" aria-hidden="true"></span><span class="label-en en">PHILOSOPHY</span>
+      </div>
+      <p class="vlabel rv" aria-hidden="true"><span>理念</span></p>
+      <div class="philo-grid">
+        <figure class="philo-media rv">
+          <div class="philo-video px-wrap">
+            <video class="lazy-video px" data-px="0.04" muted loop playsinline preload="none" poster="media/stone_poster.jpg" aria-hidden="true">
+              <source data-src="media/stone.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption class="cap en">ISHIZUE — THE FOUNDATION STONE</figcaption>
+        </figure>
+        <div class="philo-body">
+          <h2 class="h2 mincho rv" id="philo-ttl"><span class="nw">見えない</span><span class="nw">ところにこそ、</span><br><span class="nw">いちばん</span><span class="nw">手間をかける。</span></h2>
+          <dl class="def rv">
+            <dt class="mincho"><ruby>礎<rt>いしずえ</rt></ruby></dt>
+            <dd><span class="nw">建物の柱の下に据え、</span><br class="sp"><span class="nw">その重みを</span><span class="nw">受け止める石。</span><br><span class="nw">転じて、</span><span class="nw">物事の土台となる</span><span class="nw">大切なもの。</span></dd>
+          </dl>
+          <div class="prose rv">
+            <p><span class="nw">礎は、</span><span class="nw">完成した建物の中では</span><span class="nw">目に触れることのない</span><span class="nw">石です。</span><span class="nw">けれども、</span><span class="nw">その一つひとつの</span><span class="nw">確かさが、</span><span class="nw">建物が何十年と</span><span class="nw">立ち続けられるかを</span><span class="nw">左右します。</span></p>
+            <p><span class="nw">不動産への投資も、</span><span class="nw">同じだと</span><span class="nw">私たちは考えています。</span><span class="nw">表に見える</span><span class="nw">数字だけでなく、</span><span class="nw">立地の成り立ち、</span><span class="nw">建物の状態、</span><span class="nw">権利の関係、</span><span class="nw">そしてお客様の</span><span class="nw">資産全体の中での</span><span class="nw">位置づけ。</span><span class="nw">目立たない部分を</span><span class="nw">丁寧に</span><span class="nw">確かめることが、</span><span class="nw">長く安心して</span><span class="nw">持ち続けられる</span><span class="nw">資産につながります。</span></p>
+            <p><span class="nw">社名の「礎」には、</span><span class="nw">その姿勢を</span><span class="nw">決して忘れないという</span><span class="nw">意志を込めました。</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec service" id="service" aria-labelledby="svc-ttl">
+  <div class="wrap">
+    <div class="inner">
+      <div class="label rv">
+        <span class="label-no en">02</span><span class="label-line" aria-hidden="true"></span><span class="label-en en">SERVICE</span>
+      </div>
+      <p class="vlabel rv" aria-hidden="true"><span>事業内容</span></p>
+      <div class="sec-head">
+        <h2 class="h2 mincho rv" id="svc-ttl"><span class="nw">取引の前から、</span><br class="sp"><span class="nw">その後まで。</span><br><span class="nw">ひと続きで</span><span class="nw">考える。</span></h2>
+        <p class="lead rv"><span class="nw">私たちの仕事は、</span><span class="nw">物件の売買を</span><span class="nw">仲介するだけでは</span><span class="nw">ありません。</span><span class="nw">購入を決める前の</span><span class="nw">検討から、</span><span class="nw">保有中のご相談、</span><span class="nw">そして売却や</span><span class="nw">組み替えまで。</span><span class="nw">お客様の資産を</span><span class="nw">ひと続きの流れとして</span><span class="nw">捉え、</span><span class="nw">それぞれの局面で</span><span class="nw">必要な判断を</span><span class="nw">お手伝いします。</span></p>
+      </div>
+      <ol class="svc-list">
+<li class="svc rv" style="--d:0.00s">
+          <figure class="svc-fig px-wrap"><img class="px" data-px="0.06" src="media/svc_brokerage.jpg" alt="夕暮れに灯りのともる、和モダン建築の玄関" width="576" height="720" loading="lazy" decoding="async"></figure>
+          <div class="svc-meta"><span class="svc-no en">01</span><span class="svc-en en">BROKERAGE</span></div>
+          <h3 class="svc-ttl mincho"><span class="nw">投資用不動産の</span><span class="nw">売買仲介</span></h3>
+          <p class="svc-txt"><span class="nw">一棟・区分を問わず、</span><span class="nw">投資用不動産の</span><span class="nw">ご購入とご売却を</span><span class="nw">仲介します。</span><span class="nw">物件の調査から</span><span class="nw">条件の交渉、</span><span class="nw">ご契約、</span><span class="nw">お引き渡しまで、</span><span class="nw">一つひとつの工程を</span><span class="nw">担当者が</span><span class="nw">責任を持って</span><span class="nw">進めます。</span></p>
+        </li>
+<li class="svc rv" style="--d:0.12s">
+          <figure class="svc-fig px-wrap"><img class="px" data-px="0.06" src="media/svc_restructure.jpg" alt="木の格子と石張りの外壁" width="576" height="720" loading="lazy" decoding="async"></figure>
+          <div class="svc-meta"><span class="svc-no en">02</span><span class="svc-en en">RESTRUCTURING</span></div>
+          <h3 class="svc-ttl mincho"><span class="nw">資産の組み替え・</span><span class="nw">売却のご相談</span></h3>
+          <p class="svc-txt"><span class="nw">保有されている物件の</span><span class="nw">売却の時期や、</span><span class="nw">別の物件への</span><span class="nw">組み替えについて、</span><span class="nw">ご相談を承ります。</span><span class="nw">相続や</span><span class="nw">事業の承継を</span><span class="nw">見据えた</span><span class="nw">資産の整理も、</span><span class="nw">必要に応じて</span><span class="nw">税理士などの</span><span class="nw">専門家と連携し、</span><span class="nw">検討を進めます。</span></p>
+        </li>
+<li class="svc rv" style="--d:0.24s">
+          <figure class="svc-fig px-wrap"><img class="px" data-px="0.06" src="media/svc_consulting.jpg" alt="手のひらで石を積み重ねる様子" width="576" height="720" loading="lazy" decoding="async"></figure>
+          <div class="svc-meta"><span class="svc-no en">03</span><span class="svc-en en">CONSULTING</span></div>
+          <h3 class="svc-ttl mincho"><span class="nw">不動産投資の</span><span class="nw">コンサルティング</span></h3>
+          <p class="svc-txt"><span class="nw">これから</span><span class="nw">不動産投資を</span><span class="nw">始める方から、</span><span class="nw">すでに複数の</span><span class="nw">物件をお持ちの方まで。</span><span class="nw">ご資産の状況と</span><span class="nw">目的を</span><span class="nw">伺ったうえで、</span><span class="nw">物件選びの考え方や</span><span class="nw">保有の方針を、</span><span class="nw">一緒に整理します。</span></p>
+        </li>
+      </ol>
+      <div class="more rv"><a class="btn btn-dark" href="service/"><span>事業内容を詳しく見る</span><svg class="arrow" viewBox="0 0 32 8" aria-hidden="true"><path d="M0 4h30M26 1l4 3-4 3" fill="none" stroke="currentColor" stroke-width="1"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec stance" id="stance" aria-labelledby="st-ttl">
+  <div class="stance-bg" aria-hidden="true">
+    <video class="lazy-video" muted loop playsinline preload="none" poster="media/aerial_poster.jpg">
+      <source data-src="media/aerial.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap">
+    <div class="inner">
+      <div class="label rv">
+        <span class="label-no en">03</span><span class="label-line" aria-hidden="true"></span><span class="label-en en">OUR STANCE</span>
+      </div>
+      <p class="vlabel rv" aria-hidden="true"><span>姿勢</span></p>
+      <div class="sec-head">
+        <h2 class="h2 mincho rv" id="st-ttl"><span class="nw">私たちが</span><br class="sp"><span class="nw">大切にする、</span><br><span class="nw">三つの姿勢。</span></h2>
+        <p class="lead rv"><span class="nw">投資の判断を</span><span class="nw">最後に下すのは、</span><span class="nw">お客様ご自身です。</span><span class="nw">だからこそ私たちは、</span><span class="nw">判断の材料を</span><span class="nw">偏りなく、</span><span class="nw">正直にお届けすることを</span><span class="nw">何よりも</span><span class="nw">大切にしています。</span></p>
+      </div>
+      <ol class="st-list">
+<li class="st rv" style="--d:0.00s">
+          <p class="st-no en">I</p>
+          <h3 class="st-ttl mincho"><span class="nw">中立な立場で</span></h3>
+          <p class="st-en en">NEUTRALITY</p>
+          <p class="st-txt"><span class="nw">お勧めしたい</span><span class="nw">物件ではなく、</span><span class="nw">お客様にとって</span><span class="nw">意味のある</span><span class="nw">選択肢を</span><span class="nw">ご提案します。</span><span class="nw">購入を</span><span class="nw">見送るという</span><span class="nw">判断も、</span><span class="nw">大切なご提案の</span><span class="nw">ひとつと</span><span class="nw">考えています。</span></p>
+        </li>
+<li class="st rv" style="--d:0.14s">
+          <p class="st-no en">II</p>
+          <h3 class="st-ttl mincho"><span class="nw">長い時間軸で</span></h3>
+          <p class="st-en en">LONG-TERM VIEW</p>
+          <p class="st-txt"><span class="nw">目の前の取引で</span><span class="nw">終わらせることなく、</span><span class="nw">保有中の運用や、</span><span class="nw">いずれ訪れる</span><span class="nw">売却や承継までを</span><span class="nw">見据えて、</span><span class="nw">長くお付き合いします。</span></p>
+        </li>
+<li class="st rv" style="--d:0.28s">
+          <p class="st-no en">III</p>
+          <h3 class="st-ttl mincho"><span class="nw">誠実な情報開示</span></h3>
+          <p class="st-en en">TRANSPARENCY</p>
+          <p class="st-txt"><span class="nw">物件の</span><span class="nw">良い面だけでなく、</span><span class="nw">懸念される点や</span><span class="nw">リスクについても、</span><span class="nw">把握している情報は、</span><span class="nw">ご判断の前に</span><span class="nw">お伝えします。</span></p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec props" id="properties" aria-labelledby="pr-ttl">
+  <div class="wrap">
+    <div class="inner">
+      <div class="label rv">
+        <span class="label-no en">04</span><span class="label-line" aria-hidden="true"></span><span class="label-en en">PROPERTIES</span>
+      </div>
+      <p class="vlabel rv" aria-hidden="true"><span>取扱物件</span></p>
+      <div class="sec-head">
+        <h2 class="h2 mincho rv" id="pr-ttl"><span class="nw">暮らしの需要に</span><br class="sp"><span class="nw">支えられた、</span><br><span class="nw">住まいの不動産を。</span></h2>
+        <p class="lead rv"><span class="nw">私たちが主に扱うのは、</span><span class="nw">居住用の</span><span class="nw">投資不動産です。</span><span class="nw">住まいという、</span><span class="nw">暮らしに欠かせない</span><span class="nw">需要を土台に、</span><span class="nw">立地や建物の状態、</span><span class="nw">周辺の街並みまで</span><span class="nw">確かめたうえで、</span><span class="nw">ご提案します。</span></p>
+      </div>
+      <ul class="pr-list">
+<li class="pr rv" style="--d:0.00s">
+          <figure class="pr-fig px-wrap"><img class="px" data-px="0.05" src="media/prop_building.jpg" alt="木のルーバーが印象的な、都心の低層レジデンスの外観" width="540" height="720" loading="lazy" decoding="async"></figure>
+          <p class="pr-en en">URBAN RESIDENCE</p>
+          <h3 class="pr-ttl mincho"><span class="nw">都心の</span><span class="nw">一棟レジデンス</span></h3>
+          <p class="pr-txt"><span class="nw">交通の便に恵まれた</span><span class="nw">都心部の、</span><span class="nw">一棟単位の</span><span class="nw">賃貸レジデンス。</span><span class="nw">建物全体を</span><span class="nw">保有するため、</span><span class="nw">修繕や運営の方針を</span><span class="nw">ご自身の判断で</span><span class="nw">決めやすい物件です。</span></p>
+        </li>
+<li class="pr rv" style="--d:0.12s">
+          <figure class="pr-fig px-wrap"><img class="px" data-px="0.05" src="media/prop_unit.jpg" alt="ガラスのバルコニーが並ぶ、石張りの集合住宅" width="540" height="720" loading="lazy" decoding="async"></figure>
+          <p class="pr-en en">RESIDENTIAL UNIT</p>
+          <h3 class="pr-ttl mincho"><span class="nw">区分</span><span class="nw">レジデンス</span></h3>
+          <p class="pr-txt"><span class="nw">マンションの</span><span class="nw">一室単位で</span><span class="nw">保有する、</span><span class="nw">投資用の</span><span class="nw">レジデンス。</span><span class="nw">一棟に比べて</span><span class="nw">小さな単位から</span><span class="nw">始められ、</span><span class="nw">地域を分けて</span><span class="nw">複数を持つことも</span><span class="nw">できます。</span></p>
+        </li>
+<li class="pr rv" style="--d:0.24s">
+          <figure class="pr-fig px-wrap"><img class="px" data-px="0.05" src="media/prop_lowrise.jpg" alt="緑の生け垣が続く、夕方の低層住宅地の街路" width="540" height="720" loading="lazy" decoding="async"></figure>
+          <p class="pr-en en">LOW-RISE AREA</p>
+          <h3 class="pr-ttl mincho"><span class="nw">低層住宅地の</span><span class="nw">物件</span></h3>
+          <p class="pr-txt"><span class="nw">閑静な</span><span class="nw">低層住宅地に建つ、</span><span class="nw">戸建てや</span><span class="nw">小規模な</span><span class="nw">共同住宅。</span><span class="nw">落ち着いた</span><span class="nw">住環境を</span><span class="nw">求める方に向けた、</span><span class="nw">街並みとともに</span><span class="nw">価値を考える</span><span class="nw">物件です。</span></p>
+        </li>
+      </ul>
+      <p class="note rv"><span class="nw">※掲載の写真は</span><span class="nw">イメージです。</span><span class="nw">特定の物件を</span><span class="nw">示すものでは</span><span class="nw">ありません。</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec flow" id="flow" aria-labelledby="fl-ttl">
+  <div class="wrap">
+    <div class="inner">
+      <div class="label rv">
+        <span class="label-no en">05</span><span class="label-line" aria-hidden="true"></span><span class="label-en en">FLOW</span>
+      </div>
+      <p class="vlabel rv" aria-hidden="true"><span>ご相談の流れ</span></p>
+      <div class="sec-head">
+        <h2 class="h2 mincho rv" id="fl-ttl"><span class="nw">ご相談から、</span><br class="sp"><span class="nw">その先まで。</span></h2>
+        <p class="lead rv"><span class="nw">ご相談は、</span><span class="nw">次のような流れで</span><span class="nw">進めます。</span><span class="nw">ご検討の段階に</span><span class="nw">合わせて、</span><span class="nw">どの段階からでも</span><span class="nw">お声がけください。</span></p>
+      </div>
+      <ol class="fl-list">
+<li class="fl rv" style="--d:0.00s">
+          <p class="fl-no"><span class="en">STEP</span><span class="en fl-num">01</span></p>
+          <h3 class="fl-ttl mincho"><span class="nw">お問い合わせ</span></h3>
+          <p class="fl-txt"><span class="nw">フォームから、</span><span class="nw">ご相談の内容を</span><span class="nw">お送りください。</span><span class="nw">担当者より</span><span class="nw">ご連絡し、</span><span class="nw">面談の日時を</span><span class="nw">調整します。</span></p>
+        </li>
+<li class="fl rv" style="--d:0.10s">
+          <p class="fl-no"><span class="en">STEP</span><span class="en fl-num">02</span></p>
+          <h3 class="fl-ttl mincho"><span class="nw">ご面談・</span><span class="nw">ヒアリング</span></h3>
+          <p class="fl-txt"><span class="nw">現在のご資産の</span><span class="nw">状況、</span><span class="nw">投資の目的、</span><span class="nw">ご希望の</span><span class="nw">時間軸などを</span><span class="nw">伺います。</span></p>
+        </li>
+<li class="fl rv" style="--d:0.20s">
+          <p class="fl-no"><span class="en">STEP</span><span class="en fl-num">03</span></p>
+          <h3 class="fl-ttl mincho"><span class="nw">方針の</span><span class="nw">ご提案</span></h3>
+          <p class="fl-txt"><span class="nw">伺った内容を</span><span class="nw">もとに、</span><span class="nw">購入・売却・</span><span class="nw">組み替えの</span><span class="nw">方針と、</span><span class="nw">その理由を</span><span class="nw">ご説明します。</span></p>
+        </li>
+<li class="fl rv" style="--d:0.30s">
+          <p class="fl-no"><span class="en">STEP</span><span class="en fl-num">04</span></p>
+          <h3 class="fl-ttl mincho"><span class="nw">物件の</span><span class="nw">ご紹介・調査</span></h3>
+          <p class="fl-txt"><span class="nw">方針に合う物件を</span><span class="nw">ご紹介し、</span><span class="nw">現地や書類を</span><span class="nw">確かめたうえで、</span><span class="nw">判断に必要な</span><span class="nw">情報を</span><span class="nw">お伝えします。</span></p>
+        </li>
+<li class="fl rv" style="--d:0.40s">
+          <p class="fl-no"><span class="en">STEP</span><span class="en fl-num">05</span></p>
+          <h3 class="fl-ttl mincho"><span class="nw">ご契約と</span><span class="nw">その後</span></h3>
+          <p class="fl-txt"><span class="nw">条件の調整から</span><span class="nw">ご契約、</span><span class="nw">お引き渡しまでを</span><span class="nw">進めます。</span><span class="nw">保有後の</span><span class="nw">ご相談も、</span><span class="nw">引き続き</span><span class="nw">承ります。</span></p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec msg" id="message" aria-labelledby="msg-ttl">
+  <div class="wrap">
+    <div class="inner">
+      <div class="label rv">
+        <span class="label-no en">06</span><span class="label-line" aria-hidden="true"></span><span class="label-en en">MESSAGE</span>
+      </div>
+      <p class="vlabel rv" aria-hidden="true"><span>代表メッセージ</span></p>
+      <div class="msg-grid">
+        <h2 class="msg-ttl mincho rv" id="msg-ttl"><span class="nw">ひとつの判断を、</span><br><span class="nw">丁寧に</span><span class="nw">積み重ねる。</span></h2>
+        <div class="msg-body">
+          <div class="prose rv">
+            <p><span class="nw">不動産は、</span><span class="nw">多くの方にとって、</span><span class="nw">人生でもっとも</span><span class="nw">大きな取引の</span><span class="nw">ひとつです。</span><span class="nw">投資として</span><span class="nw">向き合う場合も、</span><span class="nw">その重さは</span><span class="nw">変わりません。</span><span class="nw">一つの判断が、</span><span class="nw">ご家族の暮らしや、</span><span class="nw">次の世代へ</span><span class="nw">引き継ぐ</span><span class="nw">資産のかたちに、</span><span class="nw">長く影響を残します。</span></p>
+            <p><span class="nw">だからこそ私たちは、</span><span class="nw">取引の速さや</span><span class="nw">数よりも、</span><span class="nw">ひとつの判断の</span><span class="nw">確かさを</span><span class="nw">大切にしたいと</span><span class="nw">考えています。</span><span class="nw">わからないことは、</span><span class="nw">わからないと</span><span class="nw">申し上げる。</span><span class="nw">確かめるべきことは、</span><span class="nw">確かめてから</span><span class="nw">お伝えする。</span><span class="nw">その積み重ねだけが、</span><span class="nw">信頼に値する関係を</span><span class="nw">つくると</span><span class="nw">信じています。</span></p>
+            <p><span class="nw">ISHIZUE PARTNERSは、</span><span class="nw">建物の礎石を</span><span class="nw">据えるように、</span><span class="nw">お一人おひとりとの</span><span class="nw">関係を、</span><span class="nw">丁寧に</span><span class="nw">築いてまいります。</span><span class="nw">長いお付き合いの</span><span class="nw">はじまりとして、</span><span class="nw">まずはお話を</span><span class="nw">お聞かせください。</span></p>
+          </div>
+          <p class="sign rv"><span class="sign-co en">ISHIZUE PARTNERS</span><span class="sign-role mincho">代表取締役</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="ct-ttl">
+  <div class="contact-bg px-wrap" aria-hidden="true"><img class="px" data-px="0.08" src="media/contact_bg.jpg" alt="" width="880" height="720" loading="lazy" decoding="async"></div>
+  <div class="contact-in">
+    <p class="contact-en en rv">CONTACT</p>
+    <h2 class="contact-ttl mincho rv" id="ct-ttl"><span class="nw">まずは、</span><br class="sp"><span class="nw">お話を</span><span class="nw">伺うところから。</span></h2>
+    <p class="contact-txt rv"><span class="nw">ご検討の段階を問わず、</span><span class="nw">ご相談を承ります。</span><br><span class="nw">物件のご購入や</span><span class="nw">ご売却、</span><span class="nw">保有資産の見直しなど、</span><br class="pc"><br class="sp"><span class="nw">お気軽に</span><span class="nw">お問い合わせください。</span></p>
+    <a class="btn btn-light btn-lg rv" href="contact/"><span>お問い合わせフォームへ</span><svg class="arrow" viewBox="0 0 32 8" aria-hidden="true"><path d="M0 4h30M26 1l4 3-4 3" fill="none" stroke="currentColor" stroke-width="1"/></svg></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <a class="ft-logo" href="./" aria-label="ISHIZUE PARTNERS トップページ"><img src="media/ISHIZUE_logo_2line_white.svg" alt="ISHIZUE PARTNERS" width="523" height="111" loading="lazy"></a>
+      <nav class="ft-nav" aria-label="フッターナビゲーション">
+        <ul>
+<li><a href="about/">会社について</a></li>
+<li><a href="service/">事業内容</a></li>
+<li><a href="consultation/">投資のご相談</a></li>
+<li><a href="column/">コラム</a></li>
+<li><a href="contact/">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="ft-bottom">
+      <ul class="ft-sub">
+        <li><a href="privacy/">プライバシーポリシー</a></li>
+        <li><a href="terms/">サイトのご利用について</a></li>
+      </ul>
+      <p class="ft-copy en"><small>&copy; ISHIZUE PARTNERS</small></p>
+    </div>
+  </div>
+  <a class="totop" href="#main" aria-label="ページの先頭へ戻る"><svg viewBox="0 0 12 18" aria-hidden="true"><path d="M6 17V1M1 6l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1"/></svg></a>
+</footer>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* header */
+  var hd=d.getElementById('hd'), hero=d.querySelector('.hero');
+  function onScrollHd(){
+    var lim=hero?hero.offsetHeight-hd.offsetHeight-1:80;
+    hd.classList.toggle('is-solid', window.scrollY>lim);
+  }
+  onScrollHd();
+
+  /* menu */
+  var btn=d.getElementById('menuBtn'), menu=d.getElementById('menu'), label=btn.querySelector('.vh');
+  function setMenu(open){
+    root.classList.toggle('is-menu',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    menu.setAttribute('aria-hidden',open?'false':'true');
+    label.textContent=open?'メニューを閉じる':'メニューを開く';
+    btn.querySelector('.hd-btn-txt').textContent=open?'CLOSE':'MENU';
+    d.body.style.overflow=open?'hidden':'';
+    if(open){var f=menu.querySelector('a'); if(f) f.focus({preventScroll:true});}
+  }
+  btn.addEventListener('click',function(){setMenu(btn.getAttribute('aria-expanded')!=='true');});
+  menu.addEventListener('click',function(e){if(e.target.closest('a')) setMenu(false);});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&root.classList.contains('is-menu')){setMenu(false);btn.focus();}});
+
+  /* hero intro */
+  window.addEventListener('load',function(){root.classList.add('is-loaded');});
+  setTimeout(function(){root.classList.add('is-loaded');},1500);
+
+  /* reveal */
+  var rvs=[].slice.call(d.querySelectorAll('.rv'));
+  if(reduce||!('IntersectionObserver' in window)){
+    rvs.forEach(function(el){el.classList.add('is-in');});
+  }else{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -12% 0px',threshold:0.01});
+    rvs.forEach(function(el){io.observe(el);});
+  }
+
+  /* videos */
+  var heroV=d.querySelector('.hero-video');
+  var lazies=[].slice.call(d.querySelectorAll('.lazy-video'));
+  function loadV(v){
+    if(v.dataset.loaded) return;
+    v.querySelectorAll('source[data-src]').forEach(function(s){s.src=s.dataset.src;});
+    v.load(); v.dataset.loaded='1';
+  }
+  function tryPlay(v){var p=v.play(); if(p&&p.catch) p.catch(function(){});}
+  if(reduce){
+    if(heroV){heroV.removeAttribute('autoplay');heroV.pause();}
+  }else if('IntersectionObserver' in window){
+    var vio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var v=e.target;
+        if(e.isIntersecting){loadV(v);tryPlay(v);}else if(!v.paused){v.pause();}
+      });
+    },{rootMargin:'200px 0px'});
+    lazies.forEach(function(v){vio.observe(v);});
+    if(heroV) vio.observe(heroV);
+  }
+
+  /* gentle parallax */
+  var pxs=[].slice.call(d.querySelectorAll('[data-px]'));
+  var ticking=false;
+  function px(){
+    ticking=false;
+    var vh=window.innerHeight;
+    pxs.forEach(function(el){
+      var r=el.parentNode.getBoundingClientRect();
+      if(r.bottom<-100||r.top>vh+100) return;
+      var c=(r.top+r.height/2-vh/2);
+      var k=parseFloat(el.dataset.px)||0.05;
+      el.style.transform='translate3d(0,'+(-c*k).toFixed(1)+'px,0)';
+    });
+  }
+  window.addEventListener('scroll',function(){
+    onScrollHd();
+    if(!reduce&&!ticking){ticking=true;requestAnimationFrame(px);}
+  },{passive:true});
+  window.addEventListener('resize',function(){onScrollHd(); if(!reduce) px();});
+  if(!reduce) px();
+})();
+
+</script>
+</body>
+</html>
