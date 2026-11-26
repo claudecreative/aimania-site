@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title><{$page.title}></title>
-<meta name="description" content="<{$page.description}>">
+<meta name="description" content="ドライヤーの熱をケアに変えるヘアミルク。熱活性W成分（トステア&reg;×γ-ドコサラクトン）配合で、広がる髪をなめらかにまとまる髪へ。夜・朝・日中の24時間ケアを1本で。GRANI（グラニ）公式サイト・オンラインストア。">
 <link rel="canonical" href="<{$page.canonical_url}>">
 <link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
 <meta property="og:type" content="website">
 <meta property="og:title" content="<{$page.title}>">
-<meta property="og:description" content="<{$page.description}>">
+<meta property="og:description" content="ドライヤーの熱をケアに変えるヘアミルク。熱活性W成分（トステア&reg;×γ-ドコサラクトン）配合で、広がる髪をなめらかにまとまる髪へ。夜・朝・日中の24時間ケアを1本で。GRANI（グラニ）公式サイト・オンラインストア。">
 <meta property="og:site_name" content="<{$shop.name}>">
 <{$makeshop.head}>
 <meta property="og:url" content="https://grani-beauty.com/">

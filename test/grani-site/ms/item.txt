@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title><{$page.title|escape:html}></title>
-<meta name="description" content="<{$page.description|escape:html}>">
+<title>GRANI シルキーモイストヘアミルク 200ml｜熱でまとまる洗い流さないヘアミルク【公式】</title>
+<meta name="description" content="GRANI シルキーモイストヘアミルク 200ml（洗い流さないトリートメント）。ドライヤーの熱に反応するW成分配合。使う量はミディアム パール1〜2粒分／ロング 500円玉大1個分。公式オンラインストアで購入できます。">
 <link rel="canonical" href="<{$page.canonical_url}>">
 <link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
 <meta property="og:type" content="product">
-<meta property="og:title" content="<{$page.title|escape:html}>">
-<meta property="og:description" content="<{$page.description|escape:html}>">
+<meta property="og:title" content="GRANI シルキーモイストヘアミルク 200ml｜熱でまとまる洗い流さないヘアミルク【公式】">
+<meta property="og:description" content="GRANI シルキーモイストヘアミルク 200ml（洗い流さないトリートメント）。ドライヤーの熱に反応するW成分配合。使う量はミディアム パール1〜2粒分／ロング 500円玉大1個分。公式オンラインストアで購入できます。">
 <meta property="og:site_name" content="<{$shop.name}>">
 <meta property="og:image" content="<{$item.image_L}>">
 <meta name="twitter:card" content="summary_large_image">
