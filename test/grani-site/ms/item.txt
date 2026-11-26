@@ -520,6 +520,7 @@
 @media (max-width:760px){#gxs .lnb-in{flex-direction:column;align-items:flex-start}
 #gxs .lnb-b{width:100%;justify-content:center}}
 @media (prefers-reduced-motion:reduce){#gxs .lnb-bg{animation:none}}
+#gxs{text-align:left}#gxs .rv-h,#gxs .lnb-in{text-align:left}
 #gxs .ms-row{display:block}#gxs .ms-row .atb{display:flex;align-items:center;justify-content:center;width:100%;text-decoration:none;color:#fff}
 #gxs .ms-row .atb.off{display:none}#gxs .ms-row .atb.on{display:flex}#gxs .ms-row .atb.so{background:#9a979e;cursor:default}
 #gxs .ms-row .atb[hidden]{display:none}
@@ -545,10 +546,10 @@
       <p class="rate"><b>5.7</b>/ 7　@cosme クチコミ187件</p>
       <p class="cp">Heat, on your side.</p>
       <p class="cpj">熱を味方にする、洗い流さないヘアミルク。毎日のドライヤーを、いちばん贅沢なケアの時間に。</p>
-      <p class="price"><b>¥<{$item.price|number_format}></b><span>税込</span></p>
+      <p class="price"><b>&#xa5;<{$item.price|number_format}></b><span>税込</span></p>
       <div class="pt" role="radiogroup" aria-label="購入方法">
-        <label><input type="radio" name="pt" value="one" checked><span><b>1回購入</b><em>¥<{$item.price|number_format}><small>税込</small></em></span></label>
-        <label><input type="radio" name="pt" value="sub"><span><b>定期便<small>2か月に1回お届け</small></b><em>¥3,000<small>税込／回</small></em><i>約24%OFF</i></span></label>
+        <label><input type="radio" name="pt" value="one" checked><span><b>1回購入</b><em>&#xa5;<{$item.price|number_format}><small>税込</small></em></span></label>
+        <label><input type="radio" name="pt" value="sub"><span><b>定期便<small>2か月に1回お届け</small></b><em>&#xa5;3,000<small>税込／回</small></em><i>約24%OFF</i></span></label>
       </div>
       <p class="pt-n" id="ptN" hidden>定期便は2か月ごとに自動でお届けします（内容・価格は案）。</p>
       <div class="row ms-row">
@@ -575,7 +576,7 @@
       </div>
       <div class="perks"><div><b>DELIVERY</b>ご注文受付後<br>7日以内にお届け</div><div><b>PAYMENT</b>銀行振込<br>代金引換</div><a href="https://lin.ee/6NXg6k3" target="_blank" rel="noopener"><b>LINE</b>友だち登録で<br>10%OFFクーポン</a></div>
       <div class="acc">
-        <details open><summary>DESCRIPTION</summary><div class="in">ドライヤーの熱に反応するW成分（トステア®×γ-ドコサラクトン）を配合。タオルドライ後になじませて乾かすだけで、毛先までしっとり、なめらかに。夜・朝・日中、24時間のヘアケアに。<br><small style="color:var(--sub)">※トステア®とγ-ドコサラクトン。浸透は毛髪の内部まで。</small></div></details>
+        <details open><summary>DESCRIPTION</summary><div class="in">ドライヤーの熱に反応するW成分（トステア&#xae;×γ-ドコサラクトン）を配合。タオルドライ後になじませて乾かすだけで、毛先までしっとり、なめらかに。夜・朝・日中、24時間のヘアケアに。<br><small style="color:var(--sub)">※トステア&#xae;とγ-ドコサラクトン。浸透は毛髪の内部まで。</small></div></details>
         
         <details><summary>DELIVERY &amp; RETURNS</summary><div class="in">ご注文受付後、7日以内にお届けします。商品の返品・交換は、初期不良・発送商品間違いの場合に承ります（当店着払い）。詳しくは<a href="https://grani-beauty.com/view/contract">特定商取引法に基づく表記</a>をご確認ください。</div></details>
       </div>
@@ -610,12 +611,12 @@
   <section class="ki"><div class="w">
     <div class="ki-h rvl"><p class="k">INSIDE THE MILK</p><h2>熱で、はたらく。<br><span class="jn">4</span>つのこだわり。</h2></div>
     <div class="ki-g">
-      <div class="rvl"><p class="n">01</p><h3>トステア®</h3><p>熱が加わると毛髪内部で新たな架橋構造をつくり、うねり・ねじれにアプローチ。</p></div>
+      <div class="rvl"><p class="n">01</p><h3>トステア&#xae;</h3><p>熱が加わると毛髪内部で新たな架橋構造をつくり、うねり・ねじれにアプローチ。</p></div>
       <div class="rvl"><p class="n">02</p><h3>γ-ドコサラクトン</h3><p>植物由来。熱をきっかけに毛髪表面へ。まとまりと、湿気の日のなめらかさに。</p></div>
       <div class="rvl"><p class="n">03</p><h3>シルク＆コラーゲン</h3><p>潤いと、自然なツヤ。カシミヤケラチンで、やわらかさと補修も。</p></div>
       <div class="rvl"><p class="n">04</p><h3>植物由来オイル</h3><p>外部刺激から守り、手ざわりをなめらかに。</p></div>
     </div>
-    <p class="tmp" style="border-left-color:var(--line)">※熱活性W成分：アミノエチルチオコハク酸ジアンモニウム（トステア®）、γ-ドコサラクトン（全て毛髪補修成分）</p>
+    <p class="tmp" style="border-left-color:var(--line)">※熱活性W成分：アミノエチルチオコハク酸ジアンモニウム（トステア&#xae;）、γ-ドコサラクトン（全て毛髪補修成分）</p>
     
   </div></section>
   <section class="rv"><div class="w">
