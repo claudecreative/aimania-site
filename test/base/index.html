@@ -2,7 +2,7 @@
 <html lang="ja"><head>
 <!--aim-guard--><script>(function(){var ok=false;try{ok=sessionStorage.getItem("aim_base_ok")==="1"}catch(e){}if(!ok){try{ok=/(?:^|; )aim_base_ok=1/.test(document.cookie)}catch(e){}}if(!ok&&/[?&]k=a4f7c2e4/.test(location.search)){ok=true;try{sessionStorage.setItem("aim_base_ok","1")}catch(e){}try{document.cookie="aim_base_ok=1; path=/test/; max-age=28800; SameSite=Lax; Secure"}catch(e){}}if(!ok){location.replace("/test/?next="+encodeURIComponent(location.pathname))}})();</script><meta name="robots" content="noindex,nofollow"><!--aim-guard-->
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BASE — つながりが、可能性を広げる。</title>
+<title>TERRA BASE — つながりが、可能性を広げる。</title>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&amp;family=Shippori+Mincho+B1:wght@500;700&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap">
 <style>
@@ -34,7 +34,7 @@ a{color:#E9E2D6;text-decoration:none}a:hover{color:#D9B07A}
 <div data-door="L" style="flex:1;background:#0B0A08;border-right:1px solid #3A2E1E;transition:transform 1.6s cubic-bezier(.7,0,.2,1)"></div>
 <div data-door="R" style="flex:1;background:#0B0A08;border-left:1px solid #3A2E1E;transition:transform 1.6s cubic-bezier(.7,0,.2,1)"></div>
 <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;transition:opacity .6s" id="doorui">
-<svg class="flicker" width="64" height="70" viewBox="0 0 96 104" fill="none" aria-hidden="true"><path d="M4 104 L48 2 L92 104" stroke="#E9E2D6" stroke-width="4"></path><circle cx="48" cy="62" r="10" fill="#D9B07A"></circle><path d="M42 66 L39 92 L57 92 L54 66 Z" fill="#D9B07A"></path></svg>
+<div class="flicker"><div style="font-family:'Cormorant Garamond',serif;font-weight:300;letter-spacing:.38em;color:#F3EDE3;font-size:30px;white-space:nowrap">TERRA <span style="color:#D9B07A">BASE</span></div></div>
 <p style="margin:0;font-family:'Shippori Mincho B1',serif;font-size:20px;letter-spacing:.25em;color:#CFC4B2">関島様、お待ちしておりました。</p>
 <button type="button" class="breathe" id="enter" style="font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:.5em;padding:16px 40px 16px 48px;background:transparent;color:#E7C792;border:1px solid #8A6A3E;border-radius:999px;cursor:pointer">ENTER</button>
 <p style="margin:0;font-size:12px;letter-spacing:.2em;color:#7D7466">どうぞ、お通りください</p>
@@ -43,7 +43,7 @@ a{color:#E9E2D6;text-decoration:none}a:hover{color:#D9B07A}
 
 <!-- HEADER -->
 <header style="position:absolute;top:0;left:0;right:0;z-index:10;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:28px clamp(20px,5vw,72px)">
-<a href="#top" aria-label="BASE トップへ" style="display:flex;align-items:flex-end;gap:7px;font-family:'Cormorant Garamond',serif;font-size:30px;line-height:.78;color:#F3EDE3"><span>B</span><svg width="22" height="24" viewBox="0 0 96 104" fill="none" aria-hidden="true"><path d="M4 104 L48 2 L92 104" stroke="#F3EDE3" stroke-width="7"></path><circle cx="48" cy="62" r="11" fill="#D9B07A"></circle><path d="M41 66 L38 92 L58 92 L55 66 Z" fill="#D9B07A"></path></svg><span>S</span><span>E</span></a>
+<a href="#top" aria-label="TERRA BASE トップへ" style="font-family:'Cormorant Garamond',serif;font-size:21px;letter-spacing:.3em;color:#F3EDE3;white-space:nowrap">TERRA <span style="color:#D9B07A">BASE</span></a>
 <nav aria-label="メインメニュー" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 30px;font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:.22em">
 <a href="#concept">CONCEPT</a><a href="#business">BUSINESS</a><a href="#challenge">CHALLENGE</a><a href="#side">SIDE</a><a href="#people">PEOPLE</a>
 <button type="button" id="lightbtn" aria-pressed="false" style="display:flex;align-items:center;gap:10px;background:transparent;border:1px solid #5A4C35;color:#E7C792;border-radius:999px;padding:7px 16px 7px 10px;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.25em;cursor:pointer"><span style="width:14px;height:14px;border-radius:50%;background:#5A4C35;" id="lamp" data-x="display:inline-block"></span><span id="lightlabel">LIGHTS LOW</span></button>
@@ -55,7 +55,7 @@ a{color:#E9E2D6;text-decoration:none}a:hover{color:#D9B07A}
 <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none" id="spot"></div>
 <div style="position:relative">
 <p class="rise" style="margin:0 0 22px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;letter-spacing:.2em;color:#D9B07A">a hideaway for connections</p>
-<h1 class="rise d1" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(96px,17vw,248px);line-height:.85;letter-spacing:.16em;color:#F6F1E8">BASE</h1>
+<h1 class="rise d1" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(96px,17vw,248px);line-height:.85;letter-spacing:.16em;color:#F6F1E8"><span style="display:block;font-size:.2em;font-weight:400;letter-spacing:.62em;color:#D9B07A;margin:0 0 .35em .1em">TERRA</span>BASE</h1>
 <div class="rise d2" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px;margin-top:44px">
 <div>
 <p style="margin:0;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:clamp(26px,3vw,40px);line-height:1.55;color:#F3EDE3">人と人がつながり、<br>可能性が広がる。</p>
@@ -79,7 +79,7 @@ a{color:#E9E2D6;text-decoration:none}a:hover{color:#D9B07A}
 <div style="max-width:1296px;margin:0 auto">
 <p style="margin:0 0 28px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.5em;color:#D9B07A">01 — PHILOSOPHY</p>
 <h2 style="margin:0;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:clamp(40px,6.2vw,92px);line-height:1.3;letter-spacing:.02em;color:#F3EDE3">つながりが、<br>可能性を広げる。</h2>
-<p style="margin:40px 0 0;max-width:36em;font-size:17px;line-height:2.1;color:#B3A998">人との出会いと信頼を大切にし、その関係性から新しい価値を生み出す。BASEは、不動産会社の名前にとどまらず、いくつもの事業を束ねる企業グループのブランドとして育っていきます。</p>
+<p style="margin:40px 0 0;max-width:36em;font-size:17px;line-height:2.1;color:#B3A998">人との出会いと信頼を大切にし、その関係性から新しい価値を生み出す。TERRA BASEは、不動産会社の名前にとどまらず、いくつもの事業を束ねる企業グループのブランドとして育っていきます。</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:96px;border-top:1px solid #5A4C35">
 <div style="padding:36px 36px 40px 0;border-right:1px solid #2E271D">
 <p style="margin:0 0 18px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.42em;color:#D9B07A">MISSION</p>
@@ -91,7 +91,7 @@ a{color:#E9E2D6;text-decoration:none}a:hover{color:#D9B07A}
 </div>
 <div style="padding:36px 0 40px 36px">
 <p style="margin:0 0 18px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.42em;color:#D9B07A">THE NAME</p>
-<p style="margin:0;font-size:15px;line-height:2;color:#B3A998"><b style="color:#EDE5D8;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:.15em">FOUNDATION</b>　支える土台<br><b style="color:#EDE5D8;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:.15em">CONNECTION</b>　人がつながる拠点<br><b style="color:#EDE5D8;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:.15em">STARTING POINT</b>　挑戦の出発点</p>
+<p style="margin:0;font-size:15px;line-height:2;color:#B3A998"><b style="color:#D9B07A;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:.15em">TERRA</b>　ラテン語で「大地」<br><b style="color:#EDE5D8;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:.15em">FOUNDATION</b>　支える土台<br><b style="color:#EDE5D8;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:.15em">CONNECTION</b>　人がつながる拠点<br><b style="color:#EDE5D8;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:.15em">STARTING POINT</b>　挑戦の出発点</p>
 </div>
 </div>
 </div>
@@ -155,7 +155,7 @@ a{color:#E9E2D6;text-decoration:none}a:hover{color:#D9B07A}
 <div style="flex:1 1 480px;min-width:0;padding:110px clamp(20px,5vw,72px);box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
 <p style="margin:0 0 24px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.5em;color:#D9B07A">03 — NEW CHALLENGE</p>
 <h2 style="margin:0;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:clamp(32px,3.6vw,52px);line-height:1.45;color:#F3EDE3">内見を、<br>旅にする。</h2>
-<p style="margin:26px 0 0;font-size:16px;line-height:2;color:#B3A998">キャンピングカーで複数の物件と街を巡る、BASE独自の内見体験。ただ見るだけではなく、移動時間も含めて住まい探しそのものを楽しめる時間に変えていきます。</p>
+<p style="margin:26px 0 0;font-size:16px;line-height:2;color:#B3A998">キャンピングカーで複数の物件と街を巡る、TERRA BASE独自の内見体験。ただ見るだけではなく、移動時間も含めて住まい探しそのものを楽しめる時間に変えていきます。</p>
 <div style="margin-top:44px;border-top:1px solid #2E271D">
 <div style="display:flex;gap:24px;padding:20px 0;border-bottom:1px solid #2E271D"><span style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#D9B07A;width:36px;flex:none">01</span><div><p style="margin:0;font-weight:700;font-size:16px;color:#EDE5D8">移動そのものを楽しむ</p><p style="margin:6px 0 0;font-size:14px;line-height:1.8;color:#A99F90">物件や周辺環境を巡る移動時間も、心地よい体験に。</p></div></div>
 <div style="display:flex;gap:24px;padding:20px 0;border-bottom:1px solid #2E271D"><span style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#D9B07A;width:36px;flex:none">02</span><div><p style="margin:0;font-weight:700;font-size:16px;color:#EDE5D8">暮らしを具体的に想像する</p><p style="margin:6px 0 0;font-size:14px;line-height:1.8;color:#A99F90">街の雰囲気や生活動線、周辺のスポットまで体感する。</p></div></div>
@@ -222,7 +222,7 @@ a{color:#E9E2D6;text-decoration:none}a:hover{color:#D9B07A}
 <footer style="padding:56px clamp(20px,5vw,72px) 44px;background:#080706;border-top:1px solid #1E1912">
 <div style="max-width:1296px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px;align-items:flex-end">
 <div>
-<div style="display:flex;align-items:flex-end;gap:9px;font-family:'Cormorant Garamond',serif;font-size:36px;line-height:.78;color:#F3EDE3"><span>B</span><svg width="26" height="28" viewBox="0 0 96 104" fill="none" aria-hidden="true"><path d="M4 104 L48 2 L92 104" stroke="#F3EDE3" stroke-width="7"></path><circle cx="48" cy="62" r="11" fill="#D9B07A"></circle><path d="M41 66 L38 92 L58 92 L55 66 Z" fill="#D9B07A"></path></svg><span>S</span><span>E</span></div>
+<div style="font-family:'Cormorant Garamond',serif;font-weight:300;letter-spacing:.38em;color:#F3EDE3;font-size:30px;white-space:nowrap">TERRA <span style="color:#D9B07A">BASE</span></div>
 <p style="margin:14px 0 0;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.3em;color:#8C8375">MORE CONNECTION. MORE POSSIBILITIES.</p>
 </div>
 <p style="margin:0;font-size:12px;line-height:1.8;color:#8C8375;max-width:40em">[会社名・所在地・宅地建物取引業免許番号]<br>掲載画像はイメージです。実在の店舗や確定した車両仕様を示すものではありません。</p>
