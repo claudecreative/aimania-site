@@ -24,7 +24,7 @@ a{color:#E9E2D6;text-decoration:none}a:hover{color:#D9B07A}
 .ja{word-break:auto-phrase}
 </style>
 
-<style>html{scroll-behavior:smooth}.talk-img{position:absolute;top:0;right:0;width:58%;height:860px;pointer-events:none;background:linear-gradient(90deg,#12100C 0%,rgba(18,16,12,.78) 22%,rgba(18,16,12,.25) 55%,rgba(18,16,12,.1) 100%),linear-gradient(0deg,#12100C 0%,rgba(18,16,12,0) 38%),linear-gradient(180deg,#12100C 0%,rgba(18,16,12,0) 22%),url(img/talk.jpg) center/cover no-repeat}@media (max-width:900px){.talk-img{width:100%;height:620px;opacity:.45}}#lamp{display:inline-block;width:14px;height:14px;border-radius:50%}@media (max-width:640px){nav[aria-label] a{display:none}}@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}</style>
+<style>html{scroll-behavior:smooth}.hlayer{position:absolute;inset:0;background:url(img/house.jpg) right center/cover no-repeat;pointer-events:none}#hDark{filter:brightness(.16) saturate(.3) contrast(1.1);transform:scale(1.04);transition:transform 9s ease-out}#hLit{-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;transform:scale(1.04);transition:transform 9s ease-out}#top.lit #hDark,#top.lit #hLit{transform:scale(1)}#hShade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(11,10,8,.9) 0%,rgba(11,10,8,.35) 40%,rgba(11,10,8,0) 65%),linear-gradient(0deg,rgba(11,10,8,.85) 0%,rgba(11,10,8,0) 40%)}#hTags{position:absolute;inset:0;pointer-events:none;z-index:2}.wtag{position:absolute;pointer-events:auto;display:flex;align-items:center;gap:10px;opacity:0;transform:translateX(-6px);transition:opacity .9s,transform .9s;text-decoration:none}.wtag.on{opacity:1;transform:none}.wtag i{display:block;width:34px;height:1px;background:#E7C792}.wtag span{text-shadow:0 1px 8px rgba(0,0,0,.9)}.wtag b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:13px;letter-spacing:.3em;color:#F4E6CF;display:block}.wtag small{font-family:'Shippori Mincho B1',serif;font-size:12px;letter-spacing:.12em;color:#D9B07A}.wtag:hover b{color:#fff}.wtag:focus-visible{outline:1px solid #E7C792;outline-offset:4px}#top .rise{opacity:0;transition:opacity 1.4s,transform 1.4s;transform:translateY(14px);animation:none!important}#top.titled .rise{opacity:1;transform:none}@media (max-width:640px){.wtag small{display:none}}@media (max-width:700px){#hShade{background:linear-gradient(0deg,rgba(11,10,8,.96) 0%,rgba(11,10,8,.7) 42%,rgba(11,10,8,0) 68%)}}.talk-img{position:absolute;top:0;right:0;width:58%;height:860px;pointer-events:none;background:linear-gradient(90deg,#12100C 0%,rgba(18,16,12,.78) 22%,rgba(18,16,12,.25) 55%,rgba(18,16,12,.1) 100%),linear-gradient(0deg,#12100C 0%,rgba(18,16,12,0) 38%),linear-gradient(180deg,#12100C 0%,rgba(18,16,12,0) 22%),url(img/talk.jpg) center/cover no-repeat}@media (max-width:900px){.talk-img{width:100%;height:620px;opacity:.45}}#lamp{display:inline-block;width:14px;height:14px;border-radius:50%}@media (max-width:640px){nav[aria-label] a{display:none}}@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}</style>
 </head><body>
 
 <div class="ja" style="font-family:'Zen Kaku Gothic New',sans-serif;color:#E9E2D6;background:#0B0A08;overflow:hidden;position:relative;transition:filter .8s">
@@ -46,13 +46,13 @@ a{color:#E9E2D6;text-decoration:none}a:hover{color:#D9B07A}
 <a href="#top" aria-label="TERRA BASE トップへ" style="font-family:'Cormorant Garamond',serif;font-size:21px;letter-spacing:.3em;color:#F3EDE3;white-space:nowrap">TERRA <span style="color:#D9B07A">BASE</span></a>
 <nav aria-label="メインメニュー" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 30px;font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:.22em">
 <a href="#concept">CONCEPT</a><a href="#business">BUSINESS</a><a href="#challenge">CHALLENGE</a><a href="#side">SIDE</a><a href="#people">PEOPLE</a>
-<button type="button" id="lightbtn" aria-pressed="false" style="display:flex;align-items:center;gap:10px;background:transparent;border:1px solid #5A4C35;color:#E7C792;border-radius:999px;padding:7px 16px 7px 10px;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.25em;cursor:pointer"><span style="width:14px;height:14px;border-radius:50%;background:#5A4C35;" id="lamp" data-x="display:inline-block"></span><span id="lightlabel">LIGHTS LOW</span></button>
+<a href="#contact" style="display:flex;align-items:center;gap:10px;border:1px solid #8A6A3E;color:#E7C792;border-radius:999px;padding:7px 18px 7px 12px;font-family:'Shippori Mincho B1',serif;font-size:13px;letter-spacing:.18em"><span style="width:7px;height:7px;border-radius:50%;background:#F2CC8F;box-shadow:0 0 10px 2px rgba(242,204,143,.7)"></span>ご相談</a>
 </nav>
 </header>
 
 <!-- HERO with flashlight -->
-<section id="top" class="hero-bg"  style="min-height:900px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:160px clamp(20px,5vw,72px) 76px;box-sizing:border-box">
-<div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none" id="spot"></div>
+<section id="top"  style="min-height:900px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:160px clamp(20px,5vw,72px) 76px;box-sizing:border-box">
+<div aria-hidden="true" id="hDark" class="hlayer"></div><div aria-hidden="true" id="hLit" class="hlayer"></div><div aria-hidden="true" id="hShade"></div><div id="hTags"></div>
 <div style="position:relative">
 <p class="rise" style="margin:0 0 22px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;letter-spacing:.2em;color:#D9B07A">a hideaway for connections</p>
 <h1 class="rise d1" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(96px,17vw,248px);line-height:.85;letter-spacing:.16em;color:#F6F1E8"><span style="display:block;font-size:.2em;font-weight:400;letter-spacing:.62em;color:#D9B07A;margin:0 0 .35em .1em">TERRA</span>BASE</h1>
@@ -61,7 +61,7 @@ a{color:#E9E2D6;text-decoration:none}a:hover{color:#D9B07A}
 <p style="margin:0;font-family:'Shippori Mincho B1',serif;font-weight:500;font-size:clamp(26px,3vw,40px);line-height:1.55;color:#F3EDE3">人と人がつながり、<br>可能性が広がる。</p>
 <p style="margin:18px 0 0;font-size:15px;line-height:1.9;color:#B3A998;max-width:30em">不動産を出発点に、つながりから新しい価値と事業を生み出す。</p>
 </div>
-<p style="margin:0;font-size:12px;letter-spacing:.24em;color:#8C8375;text-align:right">灯りを動かして、<br>邸宅を照らしてみてください</p>
+
 </div>
 </div>
 </section>
@@ -242,15 +242,29 @@ document.getElementById('enter').addEventListener('click',function(){
  door.querySelectorAll('[data-door]').forEach(function(p){p.style.transform='translateX('+(p.dataset.door==='L'?'-101%':'101%')+')'});
  setTimeout(function(){door.style.pointerEvents='none';door.setAttribute('aria-hidden','true');document.body.style.overflow=''},reduce?0:1600);
 });
-var light=false,mx=980,my=360,spot=document.getElementById('spot'),hero=document.getElementById('top');
-function paint(){spot.style.background=light?'radial-gradient(circle at '+mx+'px '+my+'px, rgba(11,10,8,0) 0px, rgba(11,10,8,.15) 380px, rgba(11,10,8,.55) 900px)':'radial-gradient(circle at '+mx+'px '+my+'px, rgba(11,10,8,0) 0px, rgba(11,10,8,.35) 150px, rgba(11,10,8,.93) 430px)'}
-paint();
-function mv(x,y){var r=hero.getBoundingClientRect();mx=Math.round(x-r.left);my=Math.round(y-r.top);paint()}
-hero.addEventListener('mousemove',function(e){mv(e.clientX,e.clientY)});
-hero.addEventListener('touchmove',function(e){var t=e.touches[0];mv(t.clientX,t.clientY)},{passive:true});
-if(matchMedia('(hover: none)').matches){mx=innerWidth*.6;my=380;paint()}
-var btn=document.getElementById('lightbtn'),lamp=document.getElementById('lamp'),lab=document.getElementById('lightlabel'),root=document.querySelector('.ja');
-btn.addEventListener('click',function(){light=!light;btn.setAttribute('aria-pressed',light);lab.textContent=light?'LIGHTS ON':'LIGHTS LOW';lamp.style.background=light?'#F2CC8F':'#5A4C35';lamp.style.boxShadow=light?'0 0 12px 3px rgba(242,204,143,.7)':'none';root.style.filter=light?'brightness(1.08)':'';paint()});
+var hero=document.getElementById('top'),lit=document.getElementById('hLit'),tags=document.getElementById('hTags');
+var IW=1376,IH=768,W=[
+ {x:833,y:505,rx:70,ry:110,en:'REAL ESTATE',ja:'不動産仲介・売買',href:'#business'},
+ {x:833,y:298,rx:70,ry:110,en:'RENOVATION',ja:'リフォーム・リノベーション',href:'#business'},
+ {x:690,y:430,rx:70,ry:130,en:'DEVELOPMENT',ja:'土地開発',href:'#business',L:1},
+ {x:1178,y:460,rx:40,ry:140,en:'SIDE',ja:'プライベートバー',href:'#side'}];
+var st=W.map(function(){return 0}),amb=0,els=[];
+W.forEach(function(w){var a=document.createElement('a');a.className='wtag';a.href=w.href;a.innerHTML='<i></i><span><b>'+w.en+'</b><small>'+w.ja+'</small></span>';tags.appendChild(a);els.push(a)});
+function fx(){return innerWidth<700?.62:1}
+function map(x,y){var r=hero.getBoundingClientRect(),s=Math.max(r.width/IW,r.height/IH);return{x:(r.width-IW*s)*fx()+x*s,y:(r.height-IH*s)/2+y*s,s:s,w:r.width,h:r.height}}
+function draw(){var bp=(fx()*100)+'% center';document.getElementById('hDark').style.backgroundPosition=bp;lit.style.backgroundPosition=bp;var m=[];W.forEach(function(w,k){var p=map(w.x,w.y),v=st[k];if(v>0){var rx=w.rx*p.s*(.4+v*1.4),ry=w.ry*p.s*(.4+v*1.2);m.push('radial-gradient('+rx.toFixed(0)+'px '+ry.toFixed(0)+'px at '+p.x.toFixed(0)+'px '+p.y.toFixed(0)+'px, rgba(0,0,0,'+Math.min(1,v).toFixed(2)+') 35%, transparent 100%)')}
+ var el=els[k];if(w.L){el.style.left=(p.x-w.rx*p.s*1.05)+'px';el.style.flexDirection='row-reverse';el.style.textAlign='right';el.style.translate='-100% 0'}else el.style.left=(p.x+w.rx*p.s*1.05)+'px';el.style.top=(p.y-10)+'px';el.style.display=(w.L?p.x-w.rx*p.s-150>0:p.x+w.rx*p.s+150<p.w)?'flex':'none'});
+ m.push('linear-gradient(rgba(0,0,0,'+amb.toFixed(2)+'),rgba(0,0,0,'+amb.toFixed(2)+'))');
+ var v=m.join(',');lit.style.webkitMaskImage=v;lit.style.maskImage=v}
+function tween(set,ms,flick,done){var t0=performance.now();(function f(t){var k=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-k,3);var v=e;if(flick&&k<.6){v=e*(Math.random()<.35?.25:1)}set(v);draw();if(k<1)requestAnimationFrame(f);else{set(1);draw();done&&done()}})(t0)}
+var played=false;
+function play(){if(played)return;played=true;hero.classList.add('lit');
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches){st=st.map(function(){return 1});amb=1;draw();els.forEach(function(e){e.classList.add('on')});hero.classList.add('titled');return}
+ var gap=850;W.forEach(function(w,k){setTimeout(function(){tween(function(v){st[k]=v},900,true,function(){els[k].classList.add('on')})},500+k*gap)});
+ setTimeout(function(){tween(function(v){amb=v*.92},2200,false)},500+W.length*gap+200);
+ setTimeout(function(){els.forEach(function(e){e.classList.remove('on')})},500+W.length*gap+300);setTimeout(function(){hero.classList.add('titled')},500+W.length*gap+900)}
+draw();addEventListener('resize',draw);
+document.getElementById('enter').addEventListener('click',function(){setTimeout(play,1100)});
 var P=['不動産仲介で、収益の基盤とお客様との接点をつくる。','集客・営業・契約実務を仕組みにし、信頼できる仲間を増やす。','リフォーム・リノベーション、土地開発など周辺領域へ展開する。','BASEの理念に合う新規事業を育て、企業グループとして成長する。'];
 var phs=document.querySelectorAll('.ph');
 function setP(i){phs.forEach(function(b,j){var on=i===j;b.setAttribute('aria-pressed',on);b.style.background=on?'#D9B07A':'transparent';b.style.color=on?'#14120E':'#D9B07A'});document.getElementById('phno').textContent='0'+(i+1);document.getElementById('phtx').textContent=P[i]}
