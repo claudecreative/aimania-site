@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>GRANI アクセス解析</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a sales-desk report for a small brand team; calm, exact, numbers first.
+   IDEA: the brand's daily ledger: one sheet where every store's day is a line.
+   PICTURE: the large daily trend chart, one line per store, crosshair on hover.
+   COLOUR and TYPE: white sheet, GRANI ink #141316, brand pink only for actions; series use the validated 4-slot palette. Noto Sans JP + Inter figures.
+   LAYOUT: title + filters, KPI row, big chart, store comparison, traffic sources, then import. */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#141316);--panel:light-dark(#f6f5f3,#1d1c20);--ink:light-dark(#141316,#efefef);--mute:light-dark(#66636b,#a3a0a8);
+--line:light-dark(#e6e3df,#2f2d33);--grid:light-dark(#eeece9,#28262c);--act:light-dark(#e0156f,#ff4d9d);--actInk:#fff;
+--good:light-dark(#00742a,#3cc463);--bad:light-dark(#c4262e,#f06a6a);
+--c1:light-dark(#257de0,#338ced);--c2:light-dark(#f47230,#e76624);--c3:light-dark(#00b894,#00a888);--c4:light-dark(#f2a600,#d28e05)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Noto Sans JP",system-ui,sans-serif;overflow-x:clip}
+.num,.k b{font-family:Inter,"Noto Sans JP",sans-serif;font-variant-numeric:tabular-nums}
+.band{padding:clamp(20px,3vw,40px) max(5vw,16px);max-width:1240px;margin:0 auto}
+h1{word-break:auto-phrase;font-size:clamp(26px,3.4vw,40px);line-height:1.1;margin:0 0 6px;font-weight:900;text-wrap:balance}
+h2{font-size:22px;margin:0 0 4px;font-weight:900}
+.sub{color:var(--mute);margin:0;font-size:15px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}
+button,select,input{font:inherit;font-size:16px;color:var(--ink)}
+button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-weight:600}
+button.p{background:var(--act);border-color:var(--act);color:var(--actInk)}
+button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--act);outline-offset:2px}
+select,input[type=date]{min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:0 10px}
+.chip{display:inline-flex;align-items:center;gap:8px}.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
+.note{font-size:13px;color:var(--mute)}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:22px}
+.k{background:var(--panel);border-radius:14px;padding:14px 16px}
+.k span{font-size:13px;color:var(--mute)}.k b{display:block;font-size:clamp(22px,2.6vw,30px);line-height:1.2;white-space:nowrap}
+.k i{font-style:normal;font-size:13px;white-space:nowrap}.up{color:var(--good)}.dn{color:var(--bad)}
+.fig{position:relative;min-height:340px;margin-top:10px}.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.tip{position:absolute;pointer-events:none;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:13px;box-shadow:0 6px 20px rgba(0,0,0,.12);display:none;z-index:2;white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:14px;margin-top:8px}
+.two{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:12px}
+th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}th{font-size:13px;color:var(--mute);font-weight:500}
+.share{display:inline-block;height:8px;border-radius:0 4px 4px 0;vertical-align:middle;margin-right:6px}
+.row{display:grid;grid-template-columns:minmax(0,9em) minmax(0,1fr) auto;gap:10px;align-items:center;padding:6px 0;font-size:14px}
+.row .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.row .b{height:12px;background:var(--grid);border-radius:0 4px 4px 0}.row .b i{display:block;height:100%;border-radius:0 4px 4px 0}
+.drops{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}
+.drop{border:2px dashed var(--line);border-radius:14px;padding:16px;text-align:center;min-height:150px;display:flex;flex-direction:column;gap:8px;justify-content:center}
+.drop.on{border-color:var(--act);background:var(--panel)}.drop h3{margin:0;font-size:17px}
+.files{margin-top:16px;display:grid;gap:10px}
+.file{background:var(--panel);border-radius:12px;padding:12px 14px;font-size:14px}
+.file .h{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+.map{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px}
+.map label{font-size:13px;color:var(--mute);display:grid;gap:4px}
+.empty{padding:40px 16px;text-align:center;color:var(--mute);background:var(--panel);border-radius:14px}
+.banner{background:var(--panel);border-radius:12px;padding:10px 14px;font-size:14px;margin-top:14px}
+details{margin-top:14px}summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center}
+details li{margin:4px 0;font-size:15px}
+.scroll{overflow-x:auto}
+.gate{position:fixed;inset:0;z-index:50;background:var(--bg);display:grid;place-items:center;padding:16px}
+.gate form{width:min(380px,100%);display:grid;gap:12px;text-align:center}
+.gate input{min-height:48px;border:1px solid var(--line);border-radius:12px;padding:0 14px;text-align:center;background:var(--bg)}
+.logo{font-family:Inter,sans-serif;font-weight:800;letter-spacing:.08em;font-size:28px;background:linear-gradient(90deg,#ff7a00,#ff2d8f);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav.top .in{max-width:1240px;margin:0 auto;padding:6px max(5vw,16px);display:flex;gap:4px;align-items:center;overflow-x:auto}
+nav.top a{flex:none;color:var(--ink);text-decoration:none;padding:10px 12px;border-radius:999px;font-size:15px;font-weight:600}
+nav.top a:hover{background:var(--panel)}nav.top .logo{font-size:18px;margin-right:10px}
+.conn{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+.conn div{background:var(--panel);border-radius:12px;padding:12px 14px;font-size:14px}.conn b{display:block;font-size:15px}
+.tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mute);margin-top:4px}
+.tag.ok{border-color:var(--good);color:var(--good)}
+html{scroll-padding-top:64px}
+@media(max-width:900px){.conn{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:minmax(0,1fr)}.drops{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:8em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;white-space:normal;color:var(--mute)}.stack td:empty{display:none}.drops{grid-template-columns:minmax(0,1fr)}.fig{min-height:280px}}
+</style>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+</head>
+<body>
+<div class="gate" id="gate"><form id="gateForm"><div class="logo">GRANI</div><b>販売ダッシュボード（テスト）</b><p class="note" style="margin:0">画面イメージ確認用です。パスワードを入力してください。</p><input type="password" id="pw" placeholder="パスワード" autocomplete="off" aria-label="パスワード"><button class="p" type="submit">開く</button><span class="note" id="gateMsg" role="status"></span></form></div>
+<nav class="top" aria-label="セクション"><div class="in"><span class="logo">GRANI</span><a href="#overview">概要</a><a href="#trend">推移</a><a href="#channels">チャネル・流入元</a><a href="#ads">広告</a><a href="#import">データ取込</a></div></nav>
+<header class="band" id="overview">
+  <h1 id="headline">GRANI 販売チャネル アクセス解析</h1>
+  <p class="sub">公式サイト・楽天・Amazon・Qoo10 のCSVを入れると、アクセス・転換率・売上・流入元を1画面で比べられます。</p>
+  <div class="bar">
+    <select id="range" aria-label="期間">
+      <option value="7">直近7日</option><option value="30" selected>直近30日</option><option value="90">直近90日</option><option value="all">全期間</option><option value="custom">期間を指定</option>
+    </select>
+    <span id="customBox" hidden><input type="date" id="from" aria-label="開始日"> 〜 <input type="date" id="to" aria-label="終了日"></span>
+    <span id="chChips" class="bar" style="margin:0"></span>
+  </div>
+  <div id="sampleNote" class="banner" hidden>サンプルデータを表示中です。下の「CSVを取り込む」から実データを入れると置き換わります。</div>
+</header>
+
+<main>
+<section class="band" style="padding-top:0">
+  <div class="kpis" id="kpis"></div>
+</section>
+
+<section class="band" style="padding-top:0" id="trend">
+  <div class="bar" style="justify-content:space-between;margin-top:0">
+    <h2 id="chartTitle">日別の推移</h2>
+    <div class="bar" style="margin:0" id="metricBtns"></div>
+  </div>
+  <div class="fig" id="fig"><svg id="chart" role="img" aria-label="日別推移グラフ"></svg><div class="tip" id="tip"></div></div>
+  <div class="legend" id="legend"></div>
+</section>
+
+<section class="band two" style="padding-top:0" id="channels">
+  <div>
+    <h2>チャネル比較</h2>
+    <p class="note">転換率 = 注文数 ÷ 訪問数。比較は直前の同じ日数との差。</p>
+    <div class="scroll"><table class="stack" id="cmp"></table></div>
+  </div>
+  <div>
+    <h2>流入元（訪問数）</h2>
+    <p class="note" id="srcNote">参照元の列があるCSV（GA4・楽天など）から集計します。</p>
+    <select id="srcCh" aria-label="流入元のチャネル" style="margin-top:8px"></select>
+    <div id="src" style="margin-top:8px"></div>
+  </div>
+</section>
+
+<section class="band" id="ads">
+  <h2>広告</h2>
+  <p class="note">媒体ごとの広告費と、広告経由の売上。ROAS = 広告経由売上 ÷ 広告費。</p>
+  <div class="kpis" id="adKpis"></div>
+  <div class="two" style="margin-top:24px">
+    <div><h3 style="margin:0 0 6px;font-size:17px">媒体別 広告費と売上</h3><div id="adMedia"></div></div>
+    <div><h3 style="margin:0 0 6px;font-size:17px">見直し候補</h3><div id="adAlerts"></div></div>
+  </div>
+  <h3 style="margin:24px 0 0;font-size:17px">キャンペーン一覧</h3>
+  <div class="scroll"><table class="stack" id="adTable"></table></div>
+</section>
+
+<section class="band" style="padding-top:0">
+  <h2>データの連携状況</h2>
+  <p class="note">今はCSV取込で動きます。API連携（自動取得）は本番版で追加予定です。</p>
+  <div class="conn" id="conn"></div>
+</section>
+
+<section class="band" id="import">
+  <h2>CSVを取り込む</h2>
+  <p class="sub">チャネルの枠にCSVをドロップするか、クリックして選びます。列は自動で読み取ります。ずれていたら各ファイルの「列の割り当て」で直せます。同じチャネル・同じ日付のデータは新しいファイルで上書きされます。</p>
+  <div class="drops" id="drops"></div>
+  <div class="files" id="files"></div>
+  <div class="bar">
+    <button id="copyCsv">まとめたデータをコピー（CSV）</button>
+    <button id="loadSample">サンプルを表示</button>
+    <button id="clearAll">データをすべて消す</button>
+    <span class="note" id="msg" role="status"></span>
+  </div>
+  <details>
+    <summary>CSVの出し方（目安）</summary>
+    <ul>
+      <li><b>公式サイト（GA4）</b>：レポート → 集客 → トラフィック獲得 など → 右上の共有 → ファイルをダウンロード → CSV。セカンダリディメンションに「日付」を入れると日別になります。</li>
+      <li><b>楽天</b>：RMS → データ分析 → アクセス・流入分析 / 店舗カルテ などで日別に表示 → CSVダウンロード。</li>
+      <li><b>Amazon</b>：セラーセントラル → レポート → ビジネスレポート → 「日付別」の売上・トラフィック → CSVでダウンロード。</li>
+      <li><b>Qoo10</b>：QSM → 統計 / 販売分析 の日別データ → Excel/CSVダウンロード（Excelの場合はCSVで保存し直してください）。</li>
+      <li>どのCSVも「日付」「訪問数（セッション・アクセス人数）」「注文数」「売上」の列があれば読み込めます。メニュー名は時期により変わることがあります。</li>
+    </ul>
+  </details>
+  <p class="note">データはこのブラウザの中だけに保存され、外部には送信されません。別のPCや他の人には共有されないので、共有したいときは「まとめたデータをコピー」で書き出してください。</p>
+</section>
+</main>
+
+<script>
+{
+const CH=[{id:'official',name:'公式サイト',c:'--c1'},{id:'rakuten',name:'楽天',c:'--c2'},{id:'amazon',name:'Amazon',c:'--c3'},{id:'qoo10',name:'Qoo10',c:'--c4'}];
+const CHN=Object.fromEntries(CH.map(c=>[c.id,c]));
+const MET=[{id:'sessions',name:'訪問数',f:v=>fmtN(v)},{id:'pv',name:'PV',f:v=>fmtN(v)},{id:'orders',name:'注文数',f:v=>fmtN(v)},{id:'cvr',name:'転換率',f:v=>fmtP(v)},{id:'sales',name:'売上',f:v=>fmtY(v)}];
+const FIELDS=[['date','日付'],['source','流入元'],['sessions','訪問数'],['pv','PV'],['users','ユーザー'],['orders','注文数'],['sales','売上']];
+const PAT={date:/^(日付|date|年月日|日|day)$|日付|^date/i,
+ source:/参照元|流入元|流入経路|source|チャネル|channel|referr/i,
+ sessions:/セッション|sessions|アクセス人数|訪問者数|訪問数|visits|アクセス数/i,
+ pv:/ページビュー|page ?views|^views$|^pv/i,
+ users:/ユーザー|users|ユニーク/i,
+ orders:/注文件数|売上件数|注文数|注文された商品点数|units ordered|^orders|purchases|transactions|購入件数|受注件数|注文品目/i,
+ sales:/売上金額|売上額|注文商品の売上|ordered product sales|revenue|販売金額|購入金額|決済金額|売上$|^売上|売上高/i};
+const NOT={sessions:/率|rate|ユニット|%/i,pv:/率|rate|%/i,orders:/率|rate|%|金額|額/i,sales:/件数|点数|率|b2b|%/i,users:/率|%/i};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtN=v=>Math.round(v).toLocaleString('ja-JP');
+const fmtY=v=>'¥'+Math.round(v).toLocaleString('ja-JP');
+const fmtP=v=>isFinite(v)?(v*100).toFixed(2)+'%':'—';
+const $=id=>document.getElementById(id);
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+let S=store.get('grani-an-v1')||{rows:[],files:[],sample:false};
+let ui={range:'30',from:'',to:'',on:Object.fromEntries(CH.map(c=>[c.id,true])),metric:'sessions',srcCh:'all'};
+Object.assign(ui,store.get('grani-an-ui')||{});
+const raw={}; // file id -> parsed table, this session only
+const save=()=>{store.set('grani-an-v1',S);store.set('grani-an-ui',ui)};
+const col=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim()||'#888';
+
+/* ---------- CSV ---------- */
+async function readText(file){
+  const buf=await file.arrayBuffer();
+  try{return new TextDecoder('utf-8',{fatal:true}).decode(buf).replace(/^﻿/,'')}
+  catch(e){return new TextDecoder('shift_jis').decode(buf)}
+}
+function parseCSV(t){
+  const sep=(t.split('\n').find(l=>l.trim()&&!l.startsWith('#'))||'').split('\t').length>2?'\t':',';
+  const out=[];let row=[],f='',q=false;
+  for(let i=0;i<t.length;i++){const c=t[i];
+    if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
+    else if(c=='"')q=true;else if(c==sep){row.push(f);f=''}
+    else if(c=='\n'||c=='\r'){if(c=='\r'&&t[i+1]=='\n')i++;row.push(f);out.push(row);row=[];f=''}
+    else f+=c}
+  if(f||row.length){row.push(f);out.push(row)}
+  return out.filter(r=>r.some(x=>x.trim())&&!String(r[0]).startsWith('#'));
+}
+function findHeader(tab){
+  let best=0,bi=0;
+  tab.slice(0,20).forEach((r,i)=>{const s=r.filter(h=>Object.values(PAT).some(p=>p.test(h.trim()))).length;if(s>best){best=s;bi=i}});
+  return bi;
+}
+function autoMap(h){
+  const m={},used=new Set();
+  for(const [k] of FIELDS){
+    const i=h.findIndex((x,j)=>!used.has(j)&&PAT[k].test(x.trim())&&!(NOT[k]&&NOT[k].test(x)));
+    m[k]=i;if(i>=0)used.add(i);
+  }
+  return m;
+}
+function toNum(s){const v=parseFloat(String(s??'').replace(/[￥¥円,，\s%]/g,''));return isFinite(v)?v:0}
+function toDate(s){
+  s=String(s??'').trim();let m;
+  if(m=s.match(/^(\d{4})(\d{2})(\d{2})$/))return `${m[1]}-${m[2]}-${m[3]}`;
+  if(m=s.match(/^(\d{4})[\/\-.年](\d{1,2})[\/\-.月](\d{1,2})/))return `${m[1]}-${m[2].padStart(2,'0')}-${m[3].padStart(2,'0')}`;
+  if(m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/))return `${m[3]}-${m[1].padStart(2,'0')}-${m[2].padStart(2,'0')}`;
+  return '';
+}
+function build(fileId){
+  const F=S.files.find(f=>f.id==fileId),T=raw[fileId];if(!F||!T)return;
+  const m=F.map,rows=[];
+  for(const r of T.body){
+    const d=m.date>=0?toDate(r[m.date]):F.fixedDate;if(!d)continue;
+    rows.push({ch:F.ch,f:F.id,d,src:m.source>=0?String(r[m.source]||'').trim()||'(不明)':'',
+      sessions:m.sessions>=0?toNum(r[m.sessions]):0,pv:m.pv>=0?toNum(r[m.pv]):0,users:m.users>=0?toNum(r[m.users]):0,
+      orders:m.orders>=0?toNum(r[m.orders]):0,sales:m.sales>=0?toNum(r[m.sales]):0});
+  }
+  const ds=rows.map(r=>r.d).sort();F.n=rows.length;F.from=ds[0]||'';F.to=ds.at(-1)||'';F.hasSrc=m.source>=0;
+  // remove older rows of same channel + kind in this date span
+  const older=new Set(S.files.filter(x=>x.id!=F.id&&x.ch==F.ch&&x.hasSrc==F.hasSrc).map(x=>x.id));
+  S.rows=S.rows.filter(r=>r.f!=F.id&&!(older.has(r.f)&&r.d>=F.from&&r.d<=F.to)).concat(rows);
+  S.files.forEach(x=>{if(older.has(x.id))x.n=S.rows.filter(r=>r.f==x.id).length});
+  S.files=S.files.filter(x=>x.n>0||x.id==F.id);
+}
+async function importFiles(ch,list){
+  if(S.sample){S={rows:[],files:[],sample:false}}
+  for(const file of list){
+    try{
+      const tab=parseCSV(await readText(file));const hi=findHeader(tab);
+      const head=tab[hi]||[],body=tab.slice(hi+1).filter(r=>!/^(合計|total|計)$/i.test(String(r[0]).trim()));
+      const id='f'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+      raw[id]={head,body};
+      S.files.push({id,ch,name:file.name,head,map:autoMap(head),fixedDate:new Date().toISOString().slice(0,10)});
+      build(id);
+      const F=S.files.find(f=>f.id==id);
+      say(F.n?`${file.name}：${F.n}行を取り込みました`:`${file.name}：日付を読めませんでした。列の割り当てを確認してください`);
+    }catch(e){say(`${file.name}：読み込めませんでした`)}
+  }
+  save();render();
+}
+function say(t){$('msg').textContent=t}
+
+/* ---------- aggregation ---------- */
+const addDays=(d,n)=>{const x=new Date(d+'T00:00:00Z');x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10)};
+const days=(a,b)=>Math.round((new Date(b)-new Date(a))/864e5)+1;
+function span(){
+  const ds=S.rows.map(r=>r.d).sort();if(!ds.length)return null;const last=ds.at(-1),first=ds[0];
+  if(ui.range=='all')return[first,last];
+  if(ui.range=='custom'&&ui.from&&ui.to)return[ui.from,ui.to];
+  const n=+ui.range||30;return[addDays(last,-(n-1)),last];
+}
+function totals(a,b){ // per channel per day; totals rows preferred over summed source rows
+  const t={},hasTot={};
+  for(const r of S.rows)if(!r.src)hasTot[r.ch+r.d]=1;
+  for(const r of S.rows){if(r.d<a||r.d>b||!ui.on[r.ch])continue;if(r.src&&hasTot[r.ch+r.d])continue;
+    const k=r.ch+'|'+r.d,o=t[k]||(t[k]={ch:r.ch,d:r.d,sessions:0,pv:0,users:0,orders:0,sales:0});
+    for(const f of['sessions','pv','users','orders','sales'])o[f]+=r[f]}
+  return Object.values(t);
+}
+const sum=(arr,f)=>arr.reduce((s,r)=>s+r[f],0);
+
+/* ---------- render ---------- */
+function render(){
+  $('sampleNote').hidden=!S.sample;
+  $('customBox').hidden=ui.range!='custom';$('range').value=ui.range;
+  $('chChips').innerHTML=CH.map(c=>`<button class="chip" aria-pressed="${ui.on[c.id]}" data-ch="${c.id}"><span class="dot" style="background:var(${c.c})"></span>${c.name}</button>`).join('');
+  $('metricBtns').innerHTML=MET.map(m=>`<button aria-pressed="${ui.metric==m.id}" data-m="${m.id}">${m.name}</button>`).join('');
+  renderDrops();renderFiles();
+  const sp=span();
+  if(!sp){$('kpis').innerHTML=`<div class="empty" style="grid-column:1/-1">まだデータがありません。下の「CSVを取り込む」から入れるか、「サンプルを表示」を押してください。</div>`;
+    $('chart').innerHTML='';$('legend').innerHTML='';$('cmp').innerHTML='';$('src').innerHTML='';$('headline').textContent='GRANI 販売チャネル アクセス解析';renderAds(null);renderConn();return}
+  const [a,b]=sp,n=days(a,b),pa=addDays(a,-n),pb=addDays(a,-1);
+  const cur=totals(a,b),prev=totals(pa,pb);
+  const K=(arr)=>({sessions:sum(arr,'sessions'),pv:sum(arr,'pv'),orders:sum(arr,'orders'),sales:sum(arr,'sales')});
+  const c=K(cur),p=K(prev);c.cvr=c.orders/c.sessions;p.cvr=p.orders/p.sessions;
+  const hasPrev=prev.length>0;
+  $('kpis').innerHTML=MET.map(m=>{const v=c[m.id],pv=p[m.id];let d='';
+    if(hasPrev&&isFinite(v)&&isFinite(pv)&&pv){const r=m.id=='cvr'?(v-pv)*100:(v/pv-1)*100;if(Math.abs(r)<0.05)return `<div class="k"><span>${m.name}</span><b>${m.f(v)}</b><i style="color:var(--mute)">± 0 前期間比</i></div>`;
+      d=`<i class="${r>=0?'up':'dn'}">${r>=0?'▲':'▼'} ${Math.abs(r).toFixed(1)}${m.id=='cvr'?'pt':'%'} <span style="color:var(--mute)">前期間比</span></i>`}
+    else d='<i style="color:var(--mute)">前期間のデータなし</i>';
+    return `<div class="k"><span>${m.name}</span><b>${m.f(v)}</b>${d}</div>`}).join('');
+  // headline = finding
+  const byCh=CH.filter(x=>ui.on[x.id]).map(x=>{const r=cur.filter(o=>o.ch==x.id);return{...x,sales:sum(r,'sales'),sessions:sum(r,'sessions'),orders:sum(r,'orders')}});
+  const top=[...byCh].sort((x,y)=>y.sales-x.sales)[0];
+  $('headline').textContent=top&&c.sales>0?`${a.slice(5).replace('-','/')}〜${b.slice(5).replace('-','/')}の売上 ${fmtY(c.sales)}、最多は${top.name}（${Math.round(top.sales/c.sales*100)}%）`:'GRANI 販売チャネル アクセス解析';
+  drawChart(cur,a,b);
+  // comparison table
+  const prevBy=id=>{const r=prev.filter(o=>o.ch==id);return{sales:sum(r,'sales'),sessions:sum(r,'sessions')}};
+  const maxS=Math.max(1,...byCh.map(x=>x.sales));
+  $('cmp').innerHTML=`<thead><tr><th>チャネル</th><th>訪問数</th><th>注文数</th><th>転換率</th><th>売上</th><th>客単価</th><th>売上の前期間比</th></tr></thead><tbody>`+
+    byCh.map(x=>{const pr=prevBy(x.id),ch=pr.sales?((x.sales/pr.sales-1)*100):NaN;
+      return `<tr><td><span class="chip"><span class="dot" style="background:var(${x.c})"></span>${x.name}</span></td><td class="num">${fmtN(x.sessions)}</td><td class="num">${fmtN(x.orders)}</td><td class="num">${fmtP(x.orders/x.sessions)}</td><td class="num"><span class="share" style="width:${Math.round(x.sales/maxS*60)}px;background:var(${x.c})"></span>${fmtY(x.sales)}</td><td class="num">${x.orders?fmtY(x.sales/x.orders):'—'}</td><td class="num ${ch>=0?'up':'dn'}">${isFinite(ch)?(ch>=0?'▲ ':'▼ ')+Math.abs(ch).toFixed(1)+'%':'—'}</td></tr>`}).join('')+'</tbody>';
+  renderSources(a,b);
+  renderAds(a,b,pa,pb);renderConn();
+}
+
+function renderAds(a,b,pa,pb){
+  const ads=S.ads||[];
+  if(!a||!ads.length){$('adKpis').innerHTML=`<div class="empty" style="grid-column:1/-1">広告データはまだありません。広告レポートの取込は本番版で追加予定です（「サンプルを表示」で画面イメージを確認できます）。</div>`;['adMedia','adAlerts','adTable'].forEach(id=>$(id).innerHTML='');return}
+  const inR=(r,x,y)=>r.d>=x&&r.d<=y&&ui.on[r.ch];
+  const cur=ads.filter(r=>inR(r,a,b)),prev=ads.filter(r=>inR(r,pa,pb));
+  const T=arr=>({spend:sum(arr,'spend'),sales:sum(arr,'sales'),clk:sum(arr,'clk'),imp:sum(arr,'imp'),cv:sum(arr,'cv')});
+  const c=T(cur),p=T(prev);
+  const K=[['広告費',c.spend,p.spend,fmtY,false],['広告経由売上',c.sales,p.sales,fmtY,true],['ROAS',c.sales/c.spend,p.sales/p.spend,v=>isFinite(v)?Math.round(v*100)+'%':'—',true],['CPA（1件の獲得単価）',c.spend/c.cv,p.spend/p.cv,v=>isFinite(v)?fmtY(v):'—',false],['クリック率',c.clk/c.imp,p.clk/p.imp,fmtP,true]];
+  $('adKpis').innerHTML=K.map(([n,v,pv,f,hi])=>{let d='<i style="color:var(--mute)">前期間のデータなし</i>';
+    if(prev.length&&isFinite(v)&&isFinite(pv)&&pv){const r=(v/pv-1)*100,good=hi?r>=0:r<=0;d=`<i class="${good?'up':'dn'}">${r>=0?'▲':'▼'} ${Math.abs(r).toFixed(1)}% <span style="color:var(--mute)">前期間比</span></i>`}
+    return `<div class="k"><span>${n}</span><b>${f(v)}</b>${d}</div>`}).join('');
+  const by=(key)=>{const o={};for(const r of cur){const k=r[key];const x=o[k]||(o[k]={k,ch:r.ch,media:r.media,camp:r.camp,bud:r.bud,spend:0,sales:0,clk:0,imp:0,cv:0});for(const f of['spend','sales','clk','imp','cv'])x[f]+=r[f]}return Object.values(o)};
+  const med=by('media').sort((x,y)=>y.spend-x.spend),mx=Math.max(1,...med.map(m=>Math.max(m.spend,m.sales)));
+  $('adMedia').innerHTML=med.map(m=>`<div style="padding:6px 0;border-bottom:1px solid var(--line)"><div style="display:flex;justify-content:space-between;gap:8px;font-size:14px"><span class="chip"><span class="dot" style="background:var(${CHN[m.ch].c})"></span>${esc(m.media)}</span><span class="note">ROAS <b class="num" style="color:var(--ink)">${Math.round(m.sales/m.spend*100)}%</b></span></div>
+    <div class="row" style="grid-template-columns:4.5em minmax(0,1fr) auto;padding:2px 0"><span class="note">広告費</span><span class="b"><i style="width:${(m.spend/mx*100).toFixed(1)}%;background:var(--mute)"></i></span><span class="num">${fmtY(m.spend)}</span></div>
+    <div class="row" style="grid-template-columns:4.5em minmax(0,1fr) auto;padding:2px 0"><span class="note">売上</span><span class="b"><i style="width:${(m.sales/mx*100).toFixed(1)}%;background:var(${CHN[m.ch].c})"></i></span><span class="num">${fmtY(m.sales)}</span></div></div>`).join('');
+  const camps=by('camp').map(x=>({...x,roas:x.sales/x.spend})).sort((x,y)=>y.spend-x.spend);
+  const low=camps.filter(x=>x.roas<1).sort((x,y)=>x.roas-y.roas),best=[...camps].sort((x,y)=>y.roas-x.roas)[0];
+  $('adAlerts').innerHTML=(low.map(x=>`<div class="file" style="margin-bottom:8px"><b class="dn">▼ 赤字の可能性</b> ${esc(x.media)}「${esc(x.camp)}」<br><span class="note">ROAS ${Math.round(x.roas*100)}%・広告費 ${fmtY(x.spend)}。入札やキーワードの見直し候補です。</span></div>`).join('')||'<div class="file">ROASが100%を下回るキャンペーンはありません。</div>')+
+    (best?`<div class="file"><b class="up">▲ 好調</b> ${esc(best.media)}「${esc(best.camp)}」<br><span class="note">ROAS ${Math.round(best.roas*100)}%。予算の上乗せ候補です。</span></div>`:'');
+  const n=days(a,b);
+  $('adTable').innerHTML=`<thead><tr><th>キャンペーン</th><th>媒体</th><th>日予算</th><th>広告費</th><th>表示</th><th>クリック</th><th>CTR</th><th>CPC</th><th>注文</th><th>売上</th><th>ROAS</th></tr></thead><tbody>`+
+    camps.map(x=>`<tr><td><span class="chip"><span class="dot" style="background:var(${CHN[x.ch].c})"></span>${esc(x.camp)}</span></td><td>${esc(x.media)}</td><td class="num">${fmtY(x.bud)}</td><td class="num">${fmtY(x.spend)}</td><td class="num">${fmtN(x.imp)}</td><td class="num">${fmtN(x.clk)}</td><td class="num">${fmtP(x.clk/x.imp)}</td><td class="num">${fmtY(x.spend/x.clk)}</td><td class="num">${fmtN(x.cv)}</td><td class="num">${fmtY(x.sales)}</td><td class="num ${x.roas>=1?'up':'dn'}">${Math.round(x.roas*100)}%</td></tr>`).join('')+'</tbody>';
+}
+function renderConn(){
+  const L=[['公式サイト','GA4（アクセス・流入元）','official'],['公式サイト','makeshop（注文・売上）','official'],['楽天','RMS データ分析','rakuten'],['楽天','RPP広告レポート','rakuten'],['Amazon','ビジネスレポート','amazon'],['Amazon','スポンサー広告レポート','amazon'],['Qoo10','QSM 統計','qoo10'],['SNS広告','Meta / Google 広告','official']];
+  $('conn').innerHTML=L.map(([n,d,ch])=>{const has=!S.sample&&S.files.some(f=>f.ch==ch);
+    return `<div><b><span class="dot" style="background:var(${CHN[ch].c})"></span> ${n}</b>${d}<br><span class="tag ${has?'ok':''}">${S.sample?'サンプル表示中':has?'CSV取込済み':'未取込'}</span></div>`}).join('');
+}
+function renderSources(a,b){
+  const chs=[...new Set(S.rows.filter(r=>r.src).map(r=>r.ch))];
+  $('srcCh').innerHTML=`<option value="all">すべてのチャネル</option>`+chs.map(id=>`<option value="${id}" ${ui.srcCh==id?'selected':''}>${CHN[id].name}</option>`).join('');
+  const agg={};
+  for(const r of S.rows){if(!r.src||r.d<a||r.d>b||!ui.on[r.ch])continue;if(ui.srcCh!='all'&&r.ch!=ui.srcCh)continue;agg[r.src]=(agg[r.src]||0)+r.sessions}
+  const list=Object.entries(agg).sort((x,y)=>y[1]-x[1]);const tot=list.reduce((s,x)=>s+x[1],0);
+  if(!list.length){$('src').innerHTML=`<div class="empty">この期間の流入元データはありません。参照元・流入元の列があるCSVを取り込むと表示されます。</div>`;return}
+  const top=list.slice(0,8);const rest=list.slice(8).reduce((s,x)=>s+x[1],0);if(rest)top.push(['その他',rest]);
+  const mx=Math.max(...top.map(x=>x[1]));
+  $('src').innerHTML=top.map(([s,v])=>`<div class="row"><span class="t" title="${esc(s)}">${esc(s)}</span><span class="b"><i style="width:${(v/mx*100).toFixed(1)}%;background:var(--c1)"></i></span><span class="num">${fmtN(v)} <span class="note">${(v/tot*100).toFixed(0)}%</span></span></div>`).join('');
+}
+function drawChart(cur,a,b){
+  const s=$('chart'),fig=$('fig'),tip=$('tip'),M=MET.find(m=>m.id==ui.metric);
+  $('chartTitle').textContent=`日別の${M.name}`;
+  const dates=[];for(let d=a;d<=b;d=addDays(d,1))dates.push(d);
+  const series=CH.filter(c=>ui.on[c.id]&&cur.some(r=>r.ch==c.id)).map(c=>{
+    const by=Object.fromEntries(cur.filter(r=>r.ch==c.id).map(r=>[r.d,r]));
+    return{...c,v:dates.map(d=>{const r=by[d];if(!r)return null;return ui.metric=='cvr'?(r.sessions?r.orders/r.sessions:null):r[ui.metric]})}});
+  $('legend').innerHTML=series.length>1?series.map(x=>`<span class="chip"><span class="dot" style="background:var(${x.c})"></span>${x.name}</span>`).join(''):'';
+  const draw=()=>{
+    const W=s.clientWidth,H=s.clientHeight,small=W<520,L=small?44:64,R=small?12:70,T=14,B=28;
+    const vals=series.flatMap(x=>x.v).filter(v=>v!=null);const mx=Math.max(ui.metric=='cvr'?0.001:1,...vals);
+    const step=niceStep(mx/4),top=Math.ceil(mx/step)*step;
+    const X=i=>L+(dates.length<2?0:i*(W-L-R)/(dates.length-1)),Y=v=>T+(H-T-B)*(1-v/top);
+    let g='';
+    for(let v=0;v<=top+1e-9;v+=step)g+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--grid)"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end" font-size="12" fill="var(--mute)">${esc(short(v))}</text>`;
+    const every=Math.max(1,Math.ceil(dates.length/(small?4:8)));
+    dates.forEach((d,i)=>{if(i%every==0)g+=`<text x="${X(i)}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--mute)">${+d.slice(5,7)}/${+d.slice(8)}</text>`});
+    const labs=[];
+    for(const x of series){
+      let path='',pen=false;x.v.forEach((v,i)=>{if(v==null){pen=false;return}path+=(pen?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1);pen=true});
+      g+=`<path d="${path}" fill="none" stroke="var(${x.c})" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+      const li=x.v.map((v,i)=>v==null?-1:i).filter(i=>i>=0).at(-1);
+      if(li!=null){g+=`<circle cx="${X(li)}" cy="${Y(x.v[li])}" r="4" fill="var(${x.c})" stroke="var(--bg)" stroke-width="2"/>`;labs.push({x:X(li)+8,y:Y(x.v[li])+4,t:x.name})}
+    }
+    if(!small&&labs.length<=4){labs.sort((p,q)=>p.y-q.y);for(let k=1;k<labs.length;k++)if(labs[k].y-labs[k-1].y<15)labs[k].y=labs[k-1].y+15;
+      for(const l of labs)g+=`<text x="${l.x}" y="${l.y}" font-size="12" fill="var(--ink)">${esc(l.t)}</text>`}
+    g+=`<line id="cross" x1="0" x2="0" y1="${T}" y2="${H-B}" stroke="var(--mute)" stroke-dasharray="3 3" visibility="hidden"/>`;
+    if(!series.length)g+=`<text x="${W/2}" y="${H/2}" text-anchor="middle" fill="var(--mute)">表示するデータがありません</text>`;
+    s.innerHTML=g;
+    s.onpointermove=e=>{if(!series.length)return;const rc=s.getBoundingClientRect(),px=e.clientX-rc.left;
+      const i=Math.max(0,Math.min(dates.length-1,Math.round((px-L)/((W-L-R)/Math.max(1,dates.length-1)))));
+      const cr=s.querySelector('#cross');cr.setAttribute('x1',X(i));cr.setAttribute('x2',X(i));cr.setAttribute('visibility','visible');
+      tip.innerHTML=`<b>${dates[i].replaceAll('-','/')}</b><br>`+series.map(x=>`<span class="chip"><span class="dot" style="background:var(${x.c})"></span>${x.name}：<span class="num">${x.v[i]==null?'—':M.f(x.v[i])}</span></span>`).join('<br>');
+      tip.style.display='block';const tw=tip.offsetWidth;tip.style.left=Math.min(W-tw-4,Math.max(4,X(i)+12))+'px';tip.style.top='8px'};
+    s.onpointerleave=()=>{tip.style.display='none';const cr=s.querySelector('#cross');if(cr)cr.setAttribute('visibility','hidden')};
+  };
+  if(window.__ro)window.__ro.disconnect();window.__ro=new ResizeObserver(draw);window.__ro.observe(s);draw();
+}
+function niceStep(x){const p=10**Math.floor(Math.log10(x||1)),n=x/p;return(n<=1?1:n<=2?2:n<=5?5:10)*p}
+function short(v){if(ui.metric=='cvr')return(v*100).toFixed(v*100<10?1:0)+'%';const y=ui.metric=='sales'?'¥':'';
+  return y+(v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e4?(v/1e4).toFixed(v>=1e5?0:1)+'万':Math.round(v).toLocaleString('ja-JP'))}
+
+function renderDrops(){
+  $('drops').innerHTML=CH.map(c=>{const n=S.sample?0:S.files.filter(f=>f.ch==c.id).length;
+    return `<label class="drop" data-ch="${c.id}"><h3><span class="dot" style="background:var(${c.c})"></span> ${c.name}</h3>
+    <span class="note">${c.id=='official'?'GA4のCSV':c.id=='rakuten'?'RMSのCSV':c.id=='amazon'?'ビジネスレポート':'QSMのCSV'}${n?`・${n}ファイル`:''}</span>
+    <span style="font-weight:700;color:var(--act)">ここにドロップ / 選ぶ</span>
+    <input type="file" accept=".csv,.tsv,.txt,text/csv" multiple hidden data-ch="${c.id}"></label>`}).join('');
+}
+function renderFiles(){
+  if(S.sample){$('files').innerHTML='';return}
+  $('files').innerHTML=S.files.map(F=>{const can=!!raw[F.id];
+    return `<div class="file"><div class="h"><span><span class="dot" style="background:var(${CHN[F.ch].c})"></span> <b>${esc(F.name)}</b> <span class="note">${CHN[F.ch].name}・${F.n}行${F.from?`・${F.from.replaceAll('-','/')}〜${F.to.replaceAll('-','/')}`:''}${F.hasSrc?'・流入元あり':''}</span></span>
+    <button data-del="${F.id}">外す</button></div>
+    <details><summary>列の割り当て</summary>${can?`<div class="map">${FIELDS.map(([k,l])=>`<label>${l}<select data-f="${F.id}" data-k="${k}"><option value="-1">なし</option>${F.head.map((h,i)=>`<option value="${i}" ${F.map[k]==i?'selected':''}>${esc(h)}</option>`).join('')}</select></label>`).join('')}
+    ${F.map.date<0?`<label>日付の列がない時の日付<input type="date" data-fixed="${F.id}" value="${esc(F.fixedDate)}"></label>`:''}</div>`:`<p class="note">割り当てを変えるには、このファイルをもう一度取り込んでください。</p>`}</details></div>`}).join('');
+}
+
+/* ---------- sample (clearly marked) ---------- */
+function sample(){
+  let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  const rows=[],end=new Date();end.setUTCDate(end.getUTCDate()-1);const e=end.toISOString().slice(0,10);
+  const base={official:[120,.018],rakuten:[340,.032],amazon:[260,.041],qoo10:[150,.026]};
+  const srcs={official:[['google / organic',.45],['instagram / social',.25],['(direct)',.18],['line / referral',.12]],rakuten:[['楽天市場内検索',.6],['ランキング',.2],['広告',.12],['その他',.08]]};
+  for(let i=89;i>=0;i--){const d=addDays(e,-i),wk=new Date(d).getUTCDay(),boost=(wk==0||wk==6?1.25:1)*(1+(89-i)/250);
+    for(const ch in base){const [s,c]=base[ch],ses=Math.round(s*boost*(.8+rnd()*.4)),ord=Math.round(ses*c*(.7+rnd()*.6));
+      const tot={ch,f:'sample',d,src:'',sessions:ses,pv:Math.round(ses*(1.6+rnd())),users:Math.round(ses*.85),orders:ord,sales:ord*3960*(ch=='official'?1.15:1)};
+      rows.push(tot);if(srcs[ch])for(const [n,w] of srcs[ch])rows.push({ch,f:'sample',d,src:n,sessions:Math.round(ses*w*(.85+rnd()*.3)),pv:0,users:0,orders:0,sales:0})}}
+  const camps=[['rakuten','楽天RPP','ヘアミルク 指名・関連ワード',9000,.9,.031],['rakuten','楽天RPP','洗い流さないトリートメント 一般',6000,.6,.018],
+   ['amazon','Amazonスポンサープロダクト','オートターゲティング',5000,.7,.035],['amazon','Amazonスポンサープロダクト','競合ASIN',4000,.5,.012],
+   ['qoo10','Qoo10広告','パワーランクアップ',3000,.4,.02],['official','Google広告','指名検索',1000,.8,.06],['official','Meta広告','Instagram リール',6000,1.4,.006]];
+  const ads=[];
+  for(let i=89;i>=0;i--){const d=addDays(e,-i);
+    for(const [ch,media,camp,bud,cpc,cvr] of camps){const spend=Math.round(bud*(.75+rnd()*.25)),clk=Math.round(spend/(cpc*45)),imp=Math.round(clk*(40+rnd()*60)),cv=Math.round(clk*cvr*(.6+rnd()*.8));
+      ads.push({ch,media,camp,bud,d,spend,imp,clk,cv,sales:cv*3960})}}
+  S={rows,files:[],sample:true,ads};
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button');if(!t)return;
+  if(t.dataset.ch){ui.on[t.dataset.ch]=!ui.on[t.dataset.ch];save();render()}
+  else if(t.dataset.m){ui.metric=t.dataset.m;save();render()}
+  else if(t.dataset.del){const id=t.dataset.del;S.rows=S.rows.filter(r=>r.f!=id);S.files=S.files.filter(f=>f.id!=id);save();render();say('ファイルを外しました')}
+  else if(t.id=='loadSample'){sample();save();render();say('サンプルを表示しました')}
+  else if(t.id=='clearAll'){if(t.dataset.sure){S={rows:[],files:[],sample:false};delete t.dataset.sure;t.textContent='データをすべて消す';save();render();say('すべて消しました')}else{t.dataset.sure=1;t.textContent='もう一度押すと消えます'}}
+  else if(t.id=='copyCsv'){const h='channel,date,source,sessions,pv,users,orders,sales';
+    const q=v=>/[",\n]/.test(v)?'"'+String(v).replace(/"/g,'""')+'"':v;
+    const txt=[h,...S.rows.map(r=>[CHN[r.ch].name,r.d,r.src,r.sessions,r.pv,r.users,r.orders,Math.round(r.sales)].map(q).join(','))].join('\n');
+    navigator.clipboard.writeText(txt).then(()=>say(`${S.rows.length}行をコピーしました。表計算ソフトに貼り付けられます`),()=>say('コピーできませんでした'))}
+});
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.type=='file'&&t.dataset.ch){importFiles(t.dataset.ch,[...t.files]);t.value=''}
+  else if(t.dataset.f){const F=S.files.find(f=>f.id==t.dataset.f);F.map[t.dataset.k]=+t.value;build(F.id);save();render()}
+  else if(t.dataset.fixed){const F=S.files.find(f=>f.id==t.dataset.fixed);F.fixedDate=t.value;build(F.id);save();render()}
+  else if(t.id=='range'){ui.range=t.value;if(t.value=='custom'&&!ui.from){const sp=span()||['',''];ui.from=sp[0];ui.to=sp[1];$('from').value=ui.from;$('to').value=ui.to}save();render()}
+  else if(t.id=='from'||t.id=='to'){ui[t.id]=t.value;save();render()}
+  else if(t.id=='srcCh'){ui.srcCh=t.value;save();render()}
+});
+const dz=$('drops');
+dz.addEventListener('dragover',e=>{const d=e.target.closest('.drop');if(d){e.preventDefault();d.classList.add('on')}});
+dz.addEventListener('dragleave',e=>{const d=e.target.closest('.drop');if(d)d.classList.remove('on')});
+dz.addEventListener('drop',e=>{const d=e.target.closest('.drop');if(!d)return;e.preventDefault();d.classList.remove('on');importFiles(d.dataset.ch,[...e.dataTransfer.files])});
+
+const gate=$('gate');let okG=false;try{okG=sessionStorage.getItem('grani-dash-ok')==='1'}catch(e){}
+if(okG)gate.remove();
+$('gateForm').addEventListener('submit',e=>{e.preventDefault();if($('pw').value.trim()==='test'){try{sessionStorage.setItem('grani-dash-ok','1')}catch(e){}gate.remove();render()}else{$('gateMsg').textContent='パスワードが違います'}});
+if(!S.rows.length||(S.sample&&!S.ads)){sample()}
+$('from').value=ui.from||'';$('to').value=ui.to||'';
+render();
+}
+</script>
+</body>
+</html>
