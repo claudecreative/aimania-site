@@ -297,7 +297,7 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .ana-chips i{font-style:normal;color:var(--muted);align-self:center}
 
 /* 結果 */
-#s-result{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.3fr);grid-template-rows:auto minmax(0,1fr) auto;gap:clamp(12px,1.8vh,22px) clamp(18px,2.2vw,44px)}
+#s-result{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);grid-template-rows:auto minmax(0,1fr) auto;gap:clamp(12px,1.8vh,22px) clamp(18px,2.2vw,44px)}
 .r-top{grid-column:1/-1;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .r-top h2{font-weight:900;font-size:clamp(26px,2.6vw,50px);line-height:1.2}
 .r-top h2 em{font-style:normal;font-family:var(--f-mono);font-weight:700;color:var(--blue);font-size:1.4em;margin:0 4px 0 6px}
@@ -315,6 +315,64 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .r-issues.many .iss{padding:10px 14px;gap:2px}
 .r-issues.many .iss .q{font-size:clamp(13px,.9vw,16px)}
 .r-issues.many .iss .a{font-size:clamp(14px,1.05vw,19px);line-height:1.35}
+.ans{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:12px;background:#fff;box-shadow:0 8px 24px rgba(21,33,74,.08);font-weight:700;font-size:clamp(15px,1.1vw,20px);line-height:1.45;animation:inUp .5s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(.2s + var(--i) * .12s)}
+.ans span{flex:1}
+.ans i{flex:none;font-style:normal;font-weight:900;font-size:.8em;padding:5px 12px;border-radius:999px;background:#eef2f9;color:#4a5878}
+.ans.y i{background:var(--blue);color:#fff}
+.r-left .r-issues{flex:none;overflow:visible}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tile{position:relative;border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--sh);animation:inUp .6s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(.15s + var(--i) * .15s)}
+.tile img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.tile.n img{filter:grayscale(1) brightness(1.05);opacity:.55}
+.tile b{display:block;padding:12px 16px;font-weight:900;font-size:clamp(17px,1.3vw,24px)}
+.tile .stp{position:absolute;top:12px;right:12px;display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;font-weight:900;font-size:clamp(14px,1vw,18px);background:#fff;color:#6b7898;box-shadow:0 4px 12px rgba(21,33,74,.2);animation:stampin .5s cubic-bezier(.3,1.6,.5,1) backwards;animation-delay:calc(.7s + var(--i) * .2s)}
+.tile.y .stp{background:var(--blue);color:#fff}
+@keyframes stampin{from{transform:scale(2.2) rotate(-12deg);opacity:0}}
+.guide{position:relative;flex:1;min-height:0;border-radius:28px;overflow:hidden;color:#fff;box-shadow:var(--sh);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(20px,1.8vw,32px);gap:10px;animation:inUp .7s cubic-bezier(.2,.8,.2,1) .3s backwards}
+.guide>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.guide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(21,33,74,.05) 0%,rgba(21,33,74,.55) 45%,color-mix(in srgb,var(--col) 70%,#0b1430) 100%)}
+.guide>*:not(img){position:relative;z-index:2}
+.guide .gtag{align-self:flex-start;padding:6px 16px;border-radius:999px;background:var(--col);font-weight:900;font-size:clamp(14px,1vw,18px);box-shadow:0 0 0 3px rgba(255,255,255,.5)}
+.guide h3{font-weight:900;font-size:clamp(30px,2.7vw,52px);line-height:1.15;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.guide .gl{font-weight:900;font-size:clamp(18px,1.4vw,26px);opacity:.95}
+.guide .gw{display:flex;align-items:center;gap:16px;margin-top:6px;padding:12px 16px;border-radius:16px;background:rgba(255,255,255,.16);backdrop-filter:blur(6px)}
+.guide .gw svg{width:clamp(120px,8vw,150px);flex:none}
+.guide .gw b{font-weight:900;font-size:clamp(20px,1.6vw,30px);line-height:1.3}
+.guide .gw b small{display:block;font-size:.6em;opacity:.85}
+.big{display:flex;align-items:center;gap:clamp(16px,1.6vw,28px);padding:clamp(14px,1.4vw,22px);border-radius:20px;background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff}
+.big .pct{font-family:var(--f-mono);font-weight:700;font-size:clamp(56px,5.4vw,104px);line-height:1;font-variant-numeric:tabular-nums}
+.big .pct small{font-size:.45em}
+.big p{font-weight:900;font-size:clamp(17px,1.3vw,24px);line-height:1.45}
+.big p small{display:block;font-weight:700;font-size:.75em;opacity:.85}
+.bar{grid-template-columns:auto minmax(0,1fr) auto!important}
+.bar .th{grid-row:span 2;width:clamp(44px,3.4vw,60px);aspect-ratio:1;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px #fff,0 0 0 5px #cfd8ea}
+.bar.me .th{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--blue)}
+.bar .tr{grid-column:2/-1!important}
+.bar .rk{position:absolute}
+.bar.me .t::before{content:"YOU"!important;font-family:var(--f-mono)}
+.sol.mini{flex:1;gap:clamp(8px,1.2vh,14px);overflow:visible}
+.sol.mini .sol-h h3{font-size:clamp(24px,1.9vw,36px)}
+.sol.mini .sol-h h3 small{display:block;margin:6px 0 0;font-size:.5em}
+.sol.mini .wallmap p b{font-size:clamp(20px,1.5vw,28px)}
+.sol.mini .sol-lead{font-size:clamp(26px,2.2vw,42px)}
+.sol.mini .wallmap{margin-top:auto}
+.tally{height:100%;display:flex;flex-direction:column;gap:clamp(10px,1.4vh,16px);padding:clamp(20px,1.8vw,32px);background:#fff;border-radius:28px;box-shadow:var(--sh)}
+.tally-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.tally-h h3{font-weight:900;font-size:clamp(22px,1.8vw,34px);line-height:1.25}
+.tally-h p{font-weight:700;color:var(--ink2);font-size:clamp(14px,1vw,18px)}
+.tally-h p b{font-family:var(--f-mono);font-size:1.8em;color:var(--navy);margin:0 4px}
+.bars{list-style:none;display:flex;flex-direction:column;gap:clamp(8px,1.2vh,14px);flex:1;justify-content:center}
+.bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;align-items:center}
+.bar .t{font-weight:700;font-size:clamp(14px,1vw,18px);line-height:1.35;color:var(--ink2)}
+.bar .n{font-family:var(--f-mono);font-weight:700;font-size:clamp(16px,1.2vw,22px);color:var(--ink2);text-align:right}
+.bar .n small{font-size:.65em;margin-left:2px}
+.bar .tr{grid-column:1/-1;height:clamp(14px,1.6vh,20px);border-radius:999px;background:#eef2f9;overflow:hidden}
+.bar .tr b{display:block;height:100%;width:0;border-radius:999px;background:#9fb3da;transition:width 1.1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(.3s + var(--i) * .08s)}
+.bar.me .t{color:var(--ink);font-weight:900}
+.bar.me .t::before{content:"あなた";display:inline-block;margin-right:8px;padding:2px 10px;border-radius:999px;background:var(--blue);color:#fff;font-size:.78em;vertical-align:.1em}
+.bar.me .tr b{background:linear-gradient(90deg,var(--blue),var(--teal))}
+.bar.me .n{color:var(--blue)}
+.tally-note{font-weight:700;color:var(--muted);font-size:clamp(12px,.85vw,15px)}
 .none-msg{padding:20px;border-radius:12px;background:#fff;font-weight:700;line-height:1.7;color:var(--ink2);font-size:clamp(14px,1.1vw,20px)}
 .sol{--col:var(--c-total);position:relative;display:flex;flex-direction:column;gap:clamp(8px,1.3vh,16px);min-height:0;overflow:hidden;padding:clamp(18px,1.8vw,32px);padding-top:calc(clamp(18px,1.8vw,32px) + 6px);background:#fff;border-radius:28px;box-shadow:0 22px 50px rgba(21,33,74,.14);animation:inUp .7s cubic-bezier(.2,.8,.2,1) .15s backwards}
 .sol::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--col)}
@@ -367,7 +425,7 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 .also button::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--col)}
 .also button.on{background:var(--col);border-color:var(--col);color:#fff}
 .also button.on::before{background:#fff}
-.r-actions{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.3fr);gap:clamp(18px,2.2vw,44px);align-items:center}
+.r-actions{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(18px,2.2vw,44px);align-items:center}
 .r-actions .btn:first-child{width:100%}
 .r-actions .r2{display:flex;align-items:center;justify-content:space-between;gap:14px}
 
@@ -445,7 +503,7 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 <main id="stage">
   <section class="screen is-active" id="s-attract" aria-label="トップ">
     <h1 class="hero" id="hero" aria-label="生産現場の課題を、次の競争力へ。"><span class="hl ja"><span>生産現場の課題を、</span><span>次の競争力へ。</span></span><span class="hl en off" aria-hidden="true"><span>Shop-floor issues,</span><span>your next edge.</span></span></h1>
-    <p class="what"><b>3つ選ぶだけ。</b><span class="nw">あなたの現場の課題と、</span><span class="nw">解決のカギが見つかります。</span></p>
+    <p class="what"><b>3つ選ぶだけ。</b><span class="nw">貴社に合ったサービスへ、</span><span class="nw">ご案内いたします。</span></p>
     <div class="spot pe" id="qbox"><p class="spot-st" id="spotSt"><i id="spotNo">1</i><span><span id="spotName">原料</span>の現場では</span></p><p class="spot-q" id="qText"></p><p class="spot-a" id="spotA"><i id="spotTag"></i><span id="spotKey"></span></p></div>
     <div class="cta-row pe"><button class="btn cta" id="startBtn" type="button">タッチしてはじめる<svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M0 12h44M34 2l10 10-10 10"/></svg></button></div>
   </section>
@@ -484,10 +542,8 @@ body[data-screen="pos"] .dragcue.on{opacity:1}
 
   <section class="screen" id="s-result" aria-label="解決のカギ">
     <div class="r-top"><div><p class="lbl">Step 04 / Your Solution</p><h2 id="rTitle"></h2></div></div>
-    <div class="r-left pe"><div class="r-issues" id="rIssues"></div><div class="wallmap" id="wallmap"></div></div>
-    <div class="r-side pe">
-      <article class="sol" id="sol"></article>
-    </div>
+    <div class="r-left pe"><div class="r-issues" id="rIssues"></div><article class="guide" id="sol"></article></div>
+    <div class="r-side pe"><section class="tally" id="tally"></section></div>
     <div class="r-actions pe">
       <button class="btn" id="toStaff" type="button">この内容で担当者に相談する<svg viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M0 12h44M34 2l10 10-10 10"/></svg></button>
       <div class="r2"><div class="also" id="also"></div><button class="btn ghost" id="againBtn" type="button">最初から</button></div>
@@ -546,30 +602,30 @@ const SOLS = {
 };
 // 現場チェックのカード。q：TOPの問いかけ／key：解決のカギ（壁面の記載に基づく）
 const CARDS = {
-  t_design:  { sol: "total", img: "c_bld",  text: "設計の手戻りで、工期がなかなか読めない",                   q: "設計の手戻りで、工期が読めなくなっていませんか？", key: "3D設計の合成で、設計期間を短縮" },
-  t_clean:   { sol: "total", img: "b_air",  text: "クリーンルーム全体を高清浄に保つコストが重い",             q: "クリーンルームの維持コスト、重くなっていませんか？", key: "必要な空間だけを高清浄に（局所クリーン化）" },
-  t_vib:     { sol: "total", img: "b_cr",   text: "装置の振動・電磁波・アウトガスが、品質に影響している",     q: "振動や電磁波が、品質に影響していませんか？", key: "振動測定から防振・シールドまで一体で対策" },
-  t_renov:   { sol: "total", img: "b_photo",text: "生産を止めずに、クリーン化や増強を進めたい",               q: "生産を止めずに、工場を増強したくありませんか？", key: "稼働しながら、短工期・低コストで改修" },
-  t_util:    { sol: "total", img: "c_prod", text: "特殊ガスや超純水、排ガス処理の設備を見直したい",           q: "特殊ガスや超純水の設備、見直す時期ではありませんか？", key: "特殊ガス・超純水・排ガス処理を一体で設計" },
-  p_drum:    { sol: "plant", img: "p_before",text: "薬液ドラムの搬送や交換を、今も人手で行っている",       q: "薬液ドラムの交換、まだ人の手で行っていませんか？", key: "薬液ドラムの交換を無人化（開発中）" },
-  p_carry:   { sol: "plant", img: "p_ill",  text: "工程間の原料搬送に、人手と時間がかかっている",             q: "工程間の搬送に、人手がかかりすぎていませんか？", key: "倉庫から工程間搬送・充填までを自動化" },
-  p_island:  { sol: "plant", img: "c_mh",   text: "自動化した設備が、工程ごとにバラバラになっている",         q: "自動化した設備が、バラバラになっていませんか？", key: "全体最適の視点で、自動化を再設計" },
-  d_contact: { sol: "dx",    img: "d_icon", text: "進捗の確認や連絡の経路が、煩雑になっている",               q: "進捗確認や連絡、煩雑になっていませんか？", key: "生産支援システムで、進捗と連絡を一元化" },
-  d_skill:   { sol: "dx",    img: "c_sys",  text: "熟練者から新人への技術伝承が、なかなか進まない",           q: "ベテランの技術、新人に伝わっていますか？", key: "電子SOPで、熟練の技術を標準化" },
-  d_sys:     { sol: "dx",    img: "d_flow", text: "システムが混在して、工程間の連携が取れていない",           q: "システムが混在して、工程がつながっていませんか？", key: "システム連携で、誤投入・検品ミスを防止" },
-  f_purity:  { sol: "fab",   img: "f_cds",  text: "薬液のメタル・パーティクル管理に、不安がある",   q: "薬液の純度管理、万全ですか？", key: "高純度を保ったまま、各ユースポイントへ" },
-  f_slurry:  { sol: "fab",   img: "f_sds",  text: "スラリーの凝集・沈殿で、品質が安定しない",                 q: "スラリーの凝集・沈殿、起きていませんか？", key: "流体解析で、凝集・沈殿を防ぐ供給設計" },
-  f_pou:     { sol: "fab",   img: "f_icon", text: "ユースポイントが増えて、供給系統が複雑になってきた",       q: "ユースポイントが増えて、配管が複雑になっていませんか？", key: "3タンク2ループで、複数ユースポイントへ" },
-  o_cost:    { sol: "over",  img: "o_mod",  text: "海外工場の工事は、工期とコストが読みにくい",               q: "海外工場の工期とコスト、読めていますか？", key: "工場でユニット化し、現地の工期を短縮" },
-  o_quality: { sol: "over",  img: "o_steps",text: "国内と同じ品質を、海外でも再現できるか不安だ",             q: "国内と同じ品質、海外でも出せますか？", key: "国内の技術・品質を、そのまま海外へ" }
+  t_design:  { sol: "total", sh: "設計の手戻り", img: "c_bld",  text: "設計の手戻りで、工期がなかなか読めない",                   q: "設計の手戻りで、工期が読めなくなっていませんか？", key: "3D設計の合成で、設計期間を短縮" },
+  t_clean:   { sol: "total", sh: "CRの維持コスト", img: "b_air",  text: "クリーンルーム全体を高清浄に保つコストが重い",             q: "クリーンルームの維持コスト、重くなっていませんか？", key: "必要な空間だけを高清浄に（局所クリーン化）" },
+  t_vib:     { sol: "total", sh: "振動・電磁波", img: "b_cr",   text: "装置の振動・電磁波・アウトガスが、品質に影響している",     q: "振動や電磁波が、品質に影響していませんか？", key: "振動測定から防振・シールドまで一体で対策" },
+  t_renov:   { sol: "total", sh: "止めずに増強", img: "b_photo",text: "生産を止めずに、クリーン化や増強を進めたい",               q: "生産を止めずに、工場を増強したくありませんか？", key: "稼働しながら、短工期・低コストで改修" },
+  t_util:    { sol: "total", sh: "特殊ガス・超純水", img: "c_prod", text: "特殊ガスや超純水、排ガス処理の設備を見直したい",           q: "特殊ガスや超純水の設備、見直す時期ではありませんか？", key: "特殊ガス・超純水・排ガス処理を一体で設計" },
+  p_drum:    { sol: "plant", sh: "薬液ドラムの交換", img: "p_before",text: "薬液ドラムの搬送や交換を、今も人手で行っている",       q: "薬液ドラムの交換、まだ人の手で行っていませんか？", key: "薬液ドラムの交換を無人化（開発中）" },
+  p_carry:   { sol: "plant", sh: "工程間の搬送", img: "p_ill",  text: "工程間の原料搬送に、人手と時間がかかっている",             q: "工程間の搬送に、人手がかかりすぎていませんか？", key: "倉庫から工程間搬送・充填までを自動化" },
+  p_island:  { sol: "plant", sh: "自動化がバラバラ", img: "c_mh",   text: "自動化した設備が、工程ごとにバラバラになっている",         q: "自動化した設備が、バラバラになっていませんか？", key: "全体最適の視点で、自動化を再設計" },
+  d_contact: { sol: "dx", sh: "進捗・連絡が煩雑",    img: "d_icon", text: "進捗の確認や連絡の経路が、煩雑になっている",               q: "進捗確認や連絡、煩雑になっていませんか？", key: "生産支援システムで、進捗と連絡を一元化" },
+  d_skill:   { sol: "dx", sh: "技術の伝承",    img: "c_sys",  text: "熟練者から新人への技術伝承が、なかなか進まない",           q: "ベテランの技術、新人に伝わっていますか？", key: "電子SOPで、熟練の技術を標準化" },
+  d_sys:     { sol: "dx", sh: "システムの混在",    img: "d_flow", text: "システムが混在して、工程間の連携が取れていない",           q: "システムが混在して、工程がつながっていませんか？", key: "システム連携で、誤投入・検品ミスを防止" },
+  f_purity:  { sol: "fab", sh: "薬液の純度管理",   img: "f_cds",  text: "薬液のメタル・パーティクル管理に、不安がある",   q: "薬液の純度管理、万全ですか？", key: "高純度を保ったまま、各ユースポイントへ" },
+  f_slurry:  { sol: "fab", sh: "スラリーの凝集",   img: "f_sds",  text: "スラリーの凝集・沈殿で、品質が安定しない",                 q: "スラリーの凝集・沈殿、起きていませんか？", key: "流体解析で、凝集・沈殿を防ぐ供給設計" },
+  f_pou:     { sol: "fab", sh: "供給系統の複雑化",   img: "f_icon", text: "ユースポイントが増えて、供給系統が複雑になってきた",       q: "ユースポイントが増えて、配管が複雑になっていませんか？", key: "3タンク2ループで、複数ユースポイントへ" },
+  o_cost:    { sol: "over", sh: "海外工事の工期",  img: "o_mod",  text: "海外工場の工事は、工期とコストが読みにくい",               q: "海外工場の工期とコスト、読めていますか？", key: "工場でユニット化し、現地の工期を短縮" },
+  o_quality: { sol: "over", sh: "海外での品質",  img: "o_steps",text: "国内と同じ品質を、海外でも再現できるか不安だ",             q: "国内と同じ品質、海外でも出せますか？", key: "国内の技術・品質を、そのまま海外へ" }
 };
 const DECK = {
-  raw:   ["p_carry", "d_skill", "o_cost", "t_design", "p_island"],
-  mat:   ["t_clean", "d_sys", "p_carry", "o_quality", "d_skill"],
-  equip: ["t_vib", "f_purity", "t_renov", "f_pou", "t_clean"],
-  front: ["p_drum", "f_slurry", "f_purity", "p_island", "f_pou"],
-  back:  ["p_drum", "f_purity", "p_carry", "f_pou", "p_island"],
-  user:  ["t_design", "t_renov", "t_clean", "t_util", "t_vib"]
+  raw:   ["p_carry", "d_skill"],
+  mat:   ["t_clean", "d_sys"],
+  equip: ["t_vib", "f_purity"],
+  front: ["p_drum", "f_slurry"],
+  back:  ["f_purity", "p_carry"],
+  user:  ["t_design", "t_renov"]
 };
 // トータルエンジニアリングのサイクル（壁面のリング中央）。w：段階ごとに効きやすいソリューション
 const PHASES = [
@@ -580,6 +636,17 @@ const PHASES = [
   { t: "保守",             s: "改良・改善",         d: "稼働中の設備を、改良・改善したい",                   w: { dx: 2, plant: 1, fab: 1 } }
 ];
 const IDLE = 90;
+/* 来場者アンケート集計（この端末に保存） */
+const TALLY = (() => {
+  const KEY = "nf-tally-v1"; let mem = { total: 0, seen: {}, yes: {} };
+  const load = () => { try { const v = JSON.parse(localStorage.getItem(KEY) || "null"); if (v && v.seen) mem = v; } catch (e) {} return mem; };
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) {} };
+  return {
+    get: load,
+    add(seen, yes) { load(); mem.total++; seen.forEach((id) => { mem.seen[id] = (mem.seen[id] || 0) + 1; }); yes.forEach((id) => { mem.yes[id] = (mem.yes[id] || 0) + 1; }); save(); },
+    reset() { mem = { total: 0, seen: {}, yes: {} }; save(); }
+  };
+})();
 const state = { screen: "attract", yes: [], seen: [], deck: [], ci: 0, phase: -1, result: null, cur: null, run: 0, changedAt: 0, last: Date.now(), ticket: 0 };
 
 
@@ -808,7 +875,7 @@ function go(n) {
   resetIdle();
 }
 function resetAll() {
-  state.run++; VOICE.stop(); state.yes = []; state.seen = []; state.ci = 0; state.phase = -1; PH.idx = -1; state.result = null;
+  state.run++; VOICE.stop(); state.yes = []; state.seen = []; state.tallied = false; state.ci = 0; state.phase = -1; PH.idx = -1; state.result = null;
   $$("#ringSvg .seg").forEach((g) => g.classList.remove("on")); document.body.classList.remove("ph-picked"); $("#phNext").disabled = true;
   $("#phNow").className = "ph-now empty pe"; $("#phNow").innerHTML = "<b>← 左の円の段階を、指でタップ</b><p>コンサルティングから保守まで、一貫して対応します。</p>";
   go("attract");
@@ -846,7 +913,7 @@ $("#posNext").addEventListener("click", () => { if (tooSoon()) return; SFX.selec
 
 /* STEP2：現場チェック（スワイプ） */
 function startCheck() {
-  state.deck = DECK[STAGES[R.sel].id].slice(); state.ci = 0; state.yes = []; state.seen = [];
+  state.deck = DECK[STAGES[R.sel].id].slice(); state.ci = 0; state.yes = []; state.seen = []; state.tallied = false;
   $("#found").innerHTML = state.deck.map(() => '<li class="slot"></li>').join(""); $("#foundEmpty").hidden = false; $("#cAll").textContent = state.deck.length;
   $("#stChip").textContent = `${R.sel + 1}　${SHORT[STAGES[R.sel].id]}`;
   go("check"); renderDeck(); VOICE.say(["check"], 500);
@@ -913,16 +980,29 @@ function wallMap(pos) {
   const r = (k, x, y, w, h) => `<rect class="${k === pos ? "hl" : ""}" x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="${k === pos ? SOLS[k].hex : "rgba(255,255,255,.18)"}" stroke="${k === pos ? "#fff" : "none"}" stroke-width="4"/>`;
   return `<svg viewBox="0 0 360 140" aria-hidden="true"><rect x="0" y="0" width="360" height="140" rx="8" fill="rgba(255,255,255,.08)"/>${r("total", 6, 17, 64, 116)}<circle cx="166" cy="76" r="52" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="6"/><circle cx="166" cy="76" r="22" fill="rgba(255,255,255,.35)"/>${r("plant", 251, 17, 50, 52)}${r("fab", 251, 79, 50, 54)}${r("dx", 304, 17, 50, 52)}${r("over", 304, 79, 50, 54)}</svg>`;
 }
+function countUp(el, to, ms) { const t0 = performance.now(); (function f(now) { const k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(to * e); if (k < 1) requestAnimationFrame(f); })(t0); }
 function showResult(first) {
   const st = STAGES[R.sel], s = SOLS[state.cur], n = state.yes.length;
-  $("#rTitle").innerHTML = n ? `見えてきた<span class="nw"><em>${n}</em>つの課題</span>と、解決のカギ` : `大きな課題は、見当たりませんでした`;
-  $("#rIssues").classList.toggle("many", n >= 4); $("#rIssues").innerHTML = `<p class="lbl">課題 → 解決のカギ</p>` + (n ? state.yes.map((id, i) => { const c = CARDS[id], so = SOLS[c.sol]; return `<div class="iss" style="--i:${i};--col:${so.col}"><p class="q">${esc(c.text)}</p><p class="a"><span>${esc(c.key)}</span><i>${esc(so.tag)}</i></p></div>`; }).join("")
-    : `<div class="none-msg">${esc(SHORT[st.id])}の現場で、あてはまる課題はありませんでした。いまの「${esc(PHASES[state.phase].t)}」の段階から、さらに先へ進むためのヒントを右にお出ししています。</div>`);
-  const sol = $("#sol"); sol.style.setProperty("--col", s.col);
-  sol.innerHTML = `<div class="sol-h"><p class="lbl">${esc(s.en)}</p><h3>${esc(s.name)}${s.sub ? `<small>${esc(s.sub)}</small>` : ""}</h3></div><p class="sol-lead">${esc(s.lead)}</p>${solBody(s)}`;
-  $("#wallmap").innerHTML = `${wallMap(s.wpos)}<p><b>詳しくは、<br><span class="nw">壁面の${esc(s.wall)}へ</span></b>${esc(SHORT[st.id])}・${esc(PHASES[state.phase].t)}の段階での進め方は、<br><span class="nw">担当者がご説明します。</span></p>`;
+  if (first && !state.tallied) { TALLY.add(state.seen, state.yes); state.tallied = true; }
+  $("#rTitle").innerHTML = `貴社に合ったサービスを、<span class="nw">ご案内します</span>`;
+  $("#rIssues").innerHTML = `<div class="tiles">${state.seen.map((id, i) => { const y = state.yes.includes(id); return `<div class="tile ${y ? "y" : "n"}" style="--i:${i}"><img src="${IMG["g_" + id] || ""}" alt=""><span class="stp">${y ? "◯ あてはまる" : "✕"}</span><b>${esc(CARDS[id].sh)}</b></div>`; }).join("")}</div>`;
+  const sol = $("#sol"); sol.className = "guide"; sol.style.setProperty("--col", s.col);
+  sol.innerHTML = `<img src="${IMG[s.img] || ""}" alt=""><span class="gtag">${esc(s.tag)}</span><h3>${esc(s.name)}</h3><p class="gl">${esc(s.lead)}</p><div class="gw">${wallMap(s.wpos)}<b>壁面の${esc(s.wall)}へ<small>担当者がご説明します</small></b></div>`;
   sol.style.animation = "none"; void sol.offsetWidth; sol.style.animation = "";
-  const others = state.result.filter((id) => id !== state.cur).slice(0, 2);
+  // 集計
+  const T = TALLY.get(), tot = Math.max(1, T.total), ids = Object.keys(CARDS).filter((id) => (T.yes[id] || 0) > 0 || state.yes.includes(id));
+  ids.sort((a, b) => (T.yes[b] || 0) - (T.yes[a] || 0));
+  let top = ids.slice(0, 5); state.yes.forEach((id) => { if (!top.includes(id)) top[top.length - 1] = id; });
+  top = [...new Set(top)].sort((a, b) => (T.yes[b] || 0) - (T.yes[a] || 0));
+  const max = Math.max(1, ...top.map((id) => T.yes[id] || 0));
+  const mine = state.yes.slice().sort((a, b) => (T.yes[b] || 0) - (T.yes[a] || 0))[0];
+  const pct = mine ? Math.round((T.yes[mine] || 0) / tot * 100) : 0;
+  $("#tally").innerHTML = `<div class="tally-h"><div><p class="lbl">Survey</p><h3>来場者の課題ランキング</h3></div><p>回答<b id="tTot">0</b>名</p></div>`
+    + (mine ? `<div class="big"><span class="pct"><span id="tPct">0</span><small>%</small></span><p>「${esc(CARDS[mine].sh)}」<br>同じ課題の来場者<small>あなただけではありません</small></p></div>` : "")
+    + (top.length ? `<ol class="bars">${top.map((id, i) => `<li class="bar${state.yes.includes(id) ? " me" : ""}" style="--i:${i}"><img class="th" src="${IMG["g_" + id] || ""}" alt=""><span class="t">${esc(CARDS[id].sh)}</span><span class="n"><span class="cu" data-to="${T.yes[id] || 0}">0</span><small>件</small></span><span class="tr"><b data-w="${((T.yes[id] || 0) / max * 100).toFixed(1)}"></b></span></li>`).join("")}</ol>` : `<p class="bars" style="justify-content:center;font-weight:700;color:var(--ink2)">まだ回答はありません</p>`);
+  countUp($("#tTot"), T.total, 900); if (mine) countUp($("#tPct"), pct, 1400);
+  $$("#tally .cu").forEach((el) => countUp(el, +el.dataset.to, 1200));
+  requestAnimationFrame(() => requestAnimationFrame(() => $$("#tally .tr b").forEach((b) => { b.style.width = b.dataset.w + "%"; })));
   $("#also").innerHTML = `<p class="lbl">解決策を切り替える</p><div>${[state.result[0], ...state.result.slice(1, 3)].filter((v, i, a) => a.indexOf(v) === i).map((id) => `<button type="button" data-sol="${id}" class="${id === state.cur ? "on" : ""}" style="--col:${SOLS[id].col}">${esc(SOLS[id].tag)}</button>`).join("")}</div>`;
   if (first) { go("result"); SFX.result(); VOICE.say(n ? ["res_" + state.cur] : ["none", "res_" + state.cur], 600); }
 }
@@ -972,6 +1052,7 @@ addEventListener("pointerdown", (e) => {
   if (state.screen === "attract" && !e.target.closest(".hud")) setTimeout(start, 250);
 }, { passive: true });
 document.addEventListener("contextmenu", (e) => e.preventDefault());
+(() => { let n = 0, t = 0; $(".logo").addEventListener("pointerup", () => { const now = Date.now(); n = now - t < 600 ? n + 1 : 1; t = now; if (n >= 5) { n = 0; TALLY.reset(); const d = document.createElement("div"); d.textContent = "アンケート集計をリセットしました"; d.style.cssText = "position:fixed;left:50%;top:110px;transform:translateX(-50%);z-index:60;padding:14px 26px;border-radius:999px;background:#1c3487;color:#fff;font-weight:900;font-size:18px"; document.body.appendChild(d); setTimeout(() => d.remove(), 2200); } }); })();
 document.addEventListener("keydown", (e) => {
   resetIdle();
   if (state.screen === "attract" && (e.key === "Enter" || e.key === " ")) start();
